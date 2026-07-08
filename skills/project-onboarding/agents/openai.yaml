@@ -1,0 +1,4 @@
+interface:
+  display_name: "Project Onboarding"
+  short_description: "Map a repo before changing it"
+  default_prompt: "Use $project-onboarding to read this project, map its structure, and summarize the safest next steps."

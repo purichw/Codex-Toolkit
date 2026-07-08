@@ -1,0 +1,4 @@
+interface:
+  display_name: "Firebase Account Management"
+  short_description: "Audit Firebase auth and admin flows"
+  default_prompt: "Use $firebase-account-management to design or audit Firebase account creation, user management, and admin permissions."

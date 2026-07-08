@@ -1,0 +1,4 @@
+interface:
+  display_name: "Shane Thai Image Assets"
+  short_description: "Project image reuse and crop standards."
+  default_prompt: "Use $shane-thai-image-assets before generating, reusing, cropping, replacing, or QAing Shane and His Thai image assets."

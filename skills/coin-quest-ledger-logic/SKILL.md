@@ -1,0 +1,75 @@
+---
+name: coin-quest-ledger-logic
+description: "Use when working on Coin Quest Ledger Party Ledger behavior: Split/Quest Log math, payer/participant logic, Add by Character ID, Add Guest, Reminders invites, direct invite links, guests, Character IDs, or settlement regressions."
+---
+
+# Coin Quest Ledger Logic
+
+## Overview
+
+This skill keeps Party Ledger logic changes grounded in the current Coin Quest
+contracts. Use it before editing participant entry, invites, guests, split modes,
+settlement, Character ID handling, or Reminders behavior.
+
+## Required Context
+
+From the repo root, read these before implementation:
+
+- `Memory.md`
+- `INVITES_AND_GUESTS.md`
+- `SITE_MAP_AND_INTERACTIONS.md`
+- `data-contracts.md`
+- `shared/pointy-logic.js`
+- `trip/app.js` and `trip/index.html` for UI/state wiring
+- `tests/unit/pointy-logic.test.mjs`
+- relevant Playwright tests in `tests/e2e/coin-quest-ledger.spec.mjs`
+
+If the user asks for exact Claude visual parity, also use `$claude-to-a-tee` and
+`CLAUDE_TO_A_TEE_QA.md`.
+
+## Non-Negotiable Rules
+
+- Real "other hero" additions are Character-ID-only.
+- A real Character ID must resolve an existing character/account record before
+  invite. Never mint a new Character ID from arbitrary input.
+- Do not ask for or validate "Other hero's name" in the real-character path.
+  Names come from the target account/character.
+- Duplicate visible names are allowed. Do not add duplicate-name blocking.
+- The action for adding another real character is `Invite`, not `Confirm Character`.
+- Invited users receive a Reminders notification and can Accept or Decline within
+  24 hours. Decline needs a confirmation dialog.
+- Direct party invite links can join immediately only after login; unauthenticated
+  users must be routed to login first.
+- `Add Guest` is the board-local alternative: enter display name, choose hero,
+  and do not create a real Character ID, user, or registry record.
+- Guests must be omitted from real character XP/registry sync.
+- Settlement uses pairwise per-expense obligations with reciprocal pair netting.
+  Do not replace it with global creditor/debtor rerouting.
+- Keep web/native settlement expectations aligned.
+
+## Known Regression Case
+
+For the fixture with Pointy, PP, and PPP:
+
+- `PPP -> Pointy`: `฿1,000`
+- `PPP -> PP`: `฿333.33`
+- `PP -> Pointy`: `฿666.67`
+
+Add or preserve unit coverage whenever settlement math changes.
+
+## Workflow
+
+1. Confirm the affected flow: participant entry, invite/reminder, guest handling,
+   expense split mode, settlement list/map, export/import, or profile sync.
+2. Trace persisted shape through `data-contracts.md` and normalization in
+   `shared/pointy-logic.js`.
+3. Patch shared pure logic first when possible, then patch `trip/app.js` UI/state
+   glue.
+4. Preserve i18n through `lang.js` or local bilingual copy maps.
+5. Run targeted verification:
+   - math/normalization: `npm run test:unit`
+   - syntax/UI state wiring: `npm run test:syntax`
+   - invite/reminder/mobile flow: targeted Playwright or `npm run test:e2e`
+   - commit/deploy request: full `npm test`
+6. Update `INVITES_AND_GUESTS.md`, `data-contracts.md`, or `SITE_MAP_AND_INTERACTIONS.md`
+   when behavior or persisted shape changes.

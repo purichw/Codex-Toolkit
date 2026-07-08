@@ -1,0 +1,4 @@
+interface:
+  display_name: "Coin Quest Native Parity"
+  short_description: "Keep native and web behavior aligned"
+  default_prompt: "Use $coin-quest-native-parity to compare native and web Coin Quest screens, backend contracts, and design gates."

@@ -1,0 +1,60 @@
+---
+name: coin-quest-native-parity
+description: Use when working on Coin Quest Ledger native Expo app, iOS/Android build gates, native/web data parity, playerModules, or native Claude Design parity.
+---
+
+# Coin Quest Native Parity
+
+## Overview
+
+This skill prevents native work from drifting into a static sample app. Use it
+for any `mobile/` change, iOS/Android build, native screen parity check, or
+web/native backend contract question.
+
+## Required Context
+
+Read these first:
+
+- `NATIVE_WEB_PARITY.md`
+- `mobile/README.md`
+- `mobile/IOS_BUILD_NOTES.md`
+- `architecture.md`
+- `data-contracts.md`
+- `SITE_MAP_AND_INTERACTIONS.md`
+- relevant files under `mobile/src/`
+
+If a fresh Claude iOS/Android export is supplied, inspect it before changing
+visuals. If the user says "to a tee", also use `$claude-to-a-tee`.
+
+## Native Boundaries
+
+- Native is player-side only. Do not add Admin native or an Admin WebView unless
+  the user explicitly changes direction.
+- Native is not a WebView wrapper.
+- Native uses the same Firebase project and account contracts:
+  `users/{uid}`, `usernames/{username}`, `characters/{id}`, and `trips/{id}`.
+- Native-owned module state lives in `playerModules/{uid}` for Debt Dragon,
+  Treasury, and Compare.
+- Web Debt/Treasury/Compare localStorage stores are not automatically migrated.
+- Never replace real backend state with static Claude/sample finance data.
+- Empty states are acceptable only when tied to real create/log actions.
+
+## Pre-Build Gates
+
+Before a physical iPhone build/install:
+
+1. Design parity gate: compare touched screens against the latest Claude iOS and
+   Android exports. Check native chrome, title spacing, cards, sheets, bottom
+   tabs/FAB, typography scale, asset usage, loading, empty, and error states.
+2. Backend gate: sign in or create a real Firebase account and verify dynamic
+   Firestore-backed data for the touched flow.
+3. Source gate: run `npm run typecheck` from `mobile/`, then export/build as
+   documented in `mobile/IOS_BUILD_NOTES.md`.
+
+## Verification
+
+- Native TypeScript: from `mobile/`, run `npm run typecheck`.
+- iOS bundle export: `npx expo export --platform ios --output-dir /tmp/coinquest-mobile-export`.
+- Root web regression after shared contract changes: from repo root, run
+  `npm test`.
+- Update `NATIVE_WEB_PARITY.md` and `mobile/README.md` when contracts or gates change.

@@ -1,0 +1,4 @@
+interface:
+  display_name: "Docs Cartographer"
+  short_description: "Map docs, modules, and flows"
+  default_prompt: "Use $docs-cartographer to create or update project maps, module maps, and interaction docs."

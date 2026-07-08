@@ -1,0 +1,4 @@
+interface:
+  display_name: "Coin Quest Admin Ops"
+  short_description: "Audit Admin Portal operations"
+  default_prompt: "Use $coin-quest-admin-ops to audit Admin Portal lifecycle, reset, delete, publish, and Firebase-backed admin flows."

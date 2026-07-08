@@ -1,0 +1,4 @@
+interface:
+  display_name: "Image Boundary Iteration"
+  short_description: "Controlled non-explicit image prompt iteration"
+  default_prompt: "Use $image-boundary-iteration to continue a non-explicit adult fantasy image iteration with clean prompt hygiene and branch-separated baselines."

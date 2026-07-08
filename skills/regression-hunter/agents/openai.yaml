@@ -1,0 +1,4 @@
+interface:
+  display_name: "Regression Hunter"
+  short_description: "Find repeated bug patterns"
+  default_prompt: "Use $regression-hunter to audit this repo for similar regressions and fragile patterns."

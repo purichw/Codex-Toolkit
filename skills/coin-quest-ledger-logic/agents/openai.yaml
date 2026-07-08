@@ -1,0 +1,4 @@
+interface:
+  display_name: "Coin Quest Ledger Logic"
+  short_description: "Audit Split, invites, and settlement"
+  default_prompt: "Use $coin-quest-ledger-logic to audit Party Ledger split math, participants, invites, guests, and settlement behavior."

@@ -1,0 +1,4 @@
+interface:
+  display_name: "Firebase Security Rules"
+  short_description: "Audit Firebase rules and access"
+  default_prompt: "Use $firebase-security-rules to review Firebase Auth, Firestore Rules, Admin SDK endpoints, and billing-sensitive access assumptions."
