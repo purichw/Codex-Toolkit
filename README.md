@@ -9,6 +9,8 @@ Some skills also include reference notes, helper scripts, or agent metadata.
 
 ## Documentation
 
+- [Codex context](docs/CODEX_CONTEXT.md): future-agent orientation, source of
+  truth, and safe update workflow.
 - [Skill catalog](docs/SKILL_CATALOG.md): fuller descriptions and usage context
   for each skill.
 - [Installation and usage](docs/INSTALLATION.md): how to install skills locally

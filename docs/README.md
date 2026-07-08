@@ -4,6 +4,8 @@ This directory documents how to use and maintain the Codex Toolkit repository.
 
 ## Start Here
 
+- [Codex context](CODEX_CONTEXT.md): future-agent entrypoint with repository
+  purpose, source-of-truth rules, sync workflow, and safety checks.
 - [Skill catalog](SKILL_CATALOG.md): what each skill does, when to use it, and
   what kind of context it expects.
 - [Installation and usage](INSTALLATION.md): how to install one skill, install
@@ -20,7 +22,8 @@ This directory documents how to use and maintain the Codex Toolkit repository.
 │   ├── INSTALLATION.md
 │   ├── MAINTENANCE.md
 │   ├── README.md
-│   └── SKILL_CATALOG.md
+│   ├── SKILL_CATALOG.md
+│   └── CODEX_CONTEXT.md
 └── skills/
     ├── README.md
     └── <skill-name>/

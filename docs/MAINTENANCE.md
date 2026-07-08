@@ -16,6 +16,10 @@ git diff --check
 Then inspect the diff. Do not commit generated cache folders, system skills, or
 anything that belongs to a plugin bundle rather than the personal skill set.
 
+Before editing, future Codex sessions should read [CODEX_CONTEXT.md](CODEX_CONTEXT.md)
+and root [../AGENTS.md](../AGENTS.md). Those files explain the repository's
+source-of-truth assumptions and the safest update path.
+
 ## Add A New Skill
 
 1. Create a folder under `skills/<skill-name>/`.
@@ -29,6 +33,8 @@ anything that belongs to a plugin bundle rather than the personal skill set.
    - [../README.md](../README.md)
    - [../skills/README.md](../skills/README.md)
    - [SKILL_CATALOG.md](SKILL_CATALOG.md)
+5. If the new skill changes how future agents should maintain this repository,
+   update [CODEX_CONTEXT.md](CODEX_CONTEXT.md) and [../AGENTS.md](../AGENTS.md).
 
 ## Privacy Review
 
