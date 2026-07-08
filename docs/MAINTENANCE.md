@@ -1,0 +1,73 @@
+# Maintenance Guide
+
+Use this guide when refreshing the toolkit, adding a skill, or publishing a
+change to GitHub.
+
+## Refresh From Local Skills
+
+From the repository root:
+
+```sh
+rsync -a --delete --exclude '.system' ~/.codex/skills/ skills/
+git status --short
+git diff --check
+```
+
+Then inspect the diff. Do not commit generated cache folders, system skills, or
+anything that belongs to a plugin bundle rather than the personal skill set.
+
+## Add A New Skill
+
+1. Create a folder under `skills/<skill-name>/`.
+2. Add `SKILL.md` with frontmatter `name` and `description`.
+3. Add only the supporting files the skill actually needs:
+   - `references/` for required reading or domain notes.
+   - `scripts/` for reusable helpers.
+   - `assets/` for reusable templates or media.
+   - `agents/` for agent metadata.
+4. Add the skill to:
+   - [../README.md](../README.md)
+   - [../skills/README.md](../skills/README.md)
+   - [SKILL_CATALOG.md](SKILL_CATALOG.md)
+
+## Privacy Review
+
+This repository is private, but treat every commit as something that might later
+be shared. Before pushing, scan for:
+
+- API keys, access tokens, service-account JSON, private keys, or passwords.
+- Client names, private URLs, emails, user identifiers, and personal data.
+- Local absolute paths that are too sensitive or too brittle.
+- Project-specific operational details that should stay local.
+
+A quick first-pass scan:
+
+```sh
+rg -n -i "(api[_-]?key|secret|token|password|private[_-]?key|service_account|BEGIN .*PRIVATE KEY|sk-[A-Za-z0-9_-]+)" .
+```
+
+False positives are normal. Read the matches before deciding.
+
+## Verification Before Push
+
+For docs-only changes, run:
+
+```sh
+git diff --check
+find skills -name SKILL.md | sort | wc -l
+```
+
+Also confirm Markdown links in edited files resolve. If you add scripts, run
+their basic help or smoke-test path before committing.
+
+## Commit Style
+
+Use concise messages that describe the toolkit change:
+
+```sh
+git commit -m "Add custom Codex skills catalog"
+git commit -m "Document skill installation workflow"
+git commit -m "Update Notenwert maintainer skill"
+```
+
+Push only after the diff matches the intended scope.

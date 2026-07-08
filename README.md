@@ -7,6 +7,16 @@ playbooks.
 Each skill lives under `skills/<skill-name>/` and contains a `SKILL.md` file.
 Some skills also include reference notes, helper scripts, or agent metadata.
 
+## Documentation
+
+- [Skill catalog](docs/SKILL_CATALOG.md): fuller descriptions and usage context
+  for each skill.
+- [Installation and usage](docs/INSTALLATION.md): how to install skills locally
+  and use the toolkit from another machine.
+- [Maintenance guide](docs/MAINTENANCE.md): how to refresh, add, review, and
+  publish changes to this repository.
+- [Docs index](docs/README.md): quick map of the documentation set.
+
 ## Skills
 
 | Skill | Short description | Use when |

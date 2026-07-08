@@ -1,0 +1,183 @@
+# Skill Catalog
+
+This catalog explains what each skill is for and the context in which it should
+be used. The shorter index in [../README.md](../README.md) is for quick scanning;
+this file is for choosing the right skill during real work.
+
+## General Workflow
+
+### project-onboarding
+
+- Skill file: [../skills/project-onboarding/SKILL.md](../skills/project-onboarding/SKILL.md)
+- Description: Builds a reliable mental map of a repository before implementation.
+- Use when: Starting in an unfamiliar or returning codebase, continuing from
+  handoff notes, finding commands, locating deploy paths, or preparing a safe
+  implementation plan.
+- Typical context: `README*`, `AGENTS*`, `CLAUDE*`, `HANDOFF*`, `Memory*`,
+  docs, package files, CI config, deployment config, and current `git status`.
+
+### docs-cartographer
+
+- Skill file: [../skills/docs-cartographer/SKILL.md](../skills/docs-cartographer/SKILL.md)
+- Description: Creates or updates project maps that explain routes, modules,
+  data flow, ownership boundaries, commands, and handoff context.
+- Use when: A project needs site maps, architecture docs, interaction maps,
+  onboarding docs, memory docs, or better navigation for future sessions.
+- Typical context: Existing docs first, then current routes, components, APIs,
+  state stores, auth, config, tests, scripts, and deployment files.
+
+### regression-hunter
+
+- Skill file: [../skills/regression-hunter/SKILL.md](../skills/regression-hunter/SKILL.md)
+- Description: Searches for a broader class of failures after one bug reveals a
+  pattern.
+- Use when: Checking for similar hardcoded values, stale placeholders, duplicated
+  logic, fragile selectors, or repeated behavior breaks across a codebase.
+- Typical context: The concrete bug, violated invariant, related strings,
+  selectors, helpers, tests, fixtures, demos, and generated docs.
+
+### release-gate
+
+- Skill file: [../skills/release-gate/SKILL.md](../skills/release-gate/SKILL.md)
+- Description: Defines proportional verification before commit, push, deploy,
+  merge, release, or handoff.
+- Use when: Shipping changes, opening a PR, deploying, checking readiness, or
+  confirming a feature is safe enough to publish.
+- Typical context: `git status`, staged and unstaged diffs, affected surfaces,
+  available test/build commands, browser verification for frontend changes, and
+  deployment target.
+
+### mobile-web-qa
+
+- Skill file: [../skills/mobile-web-qa/SKILL.md](../skills/mobile-web-qa/SKILL.md)
+- Description: Audits responsive web UI across representative mobile, tablet,
+  and desktop viewports.
+- Use when: Checking iPhone, Android, tablet, Safari, Chrome on iOS, keyboard
+  behavior, safe areas, touch targets, overflow, sticky regions, modals, or
+  pre-deploy frontend QA.
+- Typical context: A local or deployed URL, primary flows, viewport matrix,
+  screenshots, console output, failed assets, and dynamic content states.
+
+## Design And Visual Parity
+
+### claude-to-a-tee
+
+- Skill file: [../skills/claude-to-a-tee/SKILL.md](../skills/claude-to-a-tee/SKILL.md)
+- Description: Treats offline Claude HTML as executable design documentation and
+  matches it at component level while preserving product behavior.
+- Use when: The user says "to a tee", asks for pixel/component parity, or wants
+  a UI implemented from Claude HTML, screenshots, handoff files, or exported
+  assets.
+- Typical context: Offline Claude HTML/CSS/JS, screenshots, reference assets,
+  existing product behavior, responsive states, interactions, and verification
+  checklist.
+
+### notenwert-design-direction
+
+- Skill file: [../skills/notenwert-design-direction/SKILL.md](../skills/notenwert-design-direction/SKILL.md)
+- Description: Preserves Notenwert's editorial, civic, musical, and cultural
+  network visual direction.
+- Use when: Designing, critiquing, or briefing Notenwert public site UX, admin
+  CMS UX, homepage hero motion, NGA-style sticky/scrub interactions, typography,
+  color, imagery, or responsive behavior.
+- Typical context: Notenwert design brief, NGA reference notes, codebase map,
+  content model, screenshots, and current project rules.
+
+## Firebase And Security
+
+### firebase-account-management
+
+- Skill file: [../skills/firebase-account-management/SKILL.md](../skills/firebase-account-management/SKILL.md)
+- Description: Separates Firebase account flows, Auth providers, Firestore user
+  documents, Admin SDK behavior, custom claims, and billing assumptions.
+- Use when: Designing, auditing, debugging, or explaining signup/login, Google
+  or email-password providers, Firestore profiles, admin CRUD, Firebase Admin
+  SDK, service accounts, custom claims, or Spark vs Blaze requirements.
+- Typical context: Firebase app config, Auth providers, Firestore collections,
+  security rules, backend routes, Admin SDK usage, service-account handling, and
+  billing state when relevant.
+
+### firebase-security-rules
+
+- Skill file: [../skills/firebase-security-rules/SKILL.md](../skills/firebase-security-rules/SKILL.md)
+- Description: Focuses on Firebase Auth, Firestore Rules, Admin SDK bypasses,
+  service-account environment variables, and production access guarantees.
+- Use when: Auditing or changing Firestore rules, privileged backend endpoints,
+  auth gates, secrets, Firebase security posture, or billing-sensitive claims.
+- Typical context: `firestore.rules`, `firebase.json`, Firebase config, backend
+  Admin SDK entrypoints, deployment secrets, CI workflows, and security docs.
+
+## Coin Quest
+
+### coin-quest-admin-ops
+
+- Skill file: [../skills/coin-quest-admin-ops/SKILL.md](../skills/coin-quest-admin-ops/SKILL.md)
+- Description: Keeps Coin Quest Ledger Admin Portal work aligned with the live
+  Firebase-backed implementation.
+- Use when: Working on Super Admin auth, boards, users, account lifecycle,
+  reset/delete flows, publish/restore, revisions, relationship maps, or admin
+  Firebase behavior.
+- Typical context: Admin implementation docs, security docs, data contracts,
+  `/admin/` source files, privileged API routes, and Firestore rules when
+  permissions are involved.
+
+### coin-quest-ledger-logic
+
+- Skill file: [../skills/coin-quest-ledger-logic/SKILL.md](../skills/coin-quest-ledger-logic/SKILL.md)
+- Description: Protects Party Ledger behavior for split math, participants,
+  guests, invites, Character IDs, reminders, and settlement.
+- Use when: Editing payer/participant logic, Add by Character ID, Add Guest,
+  Reminders invites, direct invite links, settlement calculations, or ledger
+  regressions.
+- Typical context: Current memory and invite docs, site map, data contracts,
+  shared ledger logic, trip UI wiring, unit tests, and relevant Playwright tests.
+
+### coin-quest-native-parity
+
+- Skill file: [../skills/coin-quest-native-parity/SKILL.md](../skills/coin-quest-native-parity/SKILL.md)
+- Description: Keeps the Coin Quest Expo app aligned with web data contracts,
+  native build gates, and real backend state.
+- Use when: Working on the native app, iOS/Android builds, native screen parity,
+  `playerModules`, or web/native backend contract questions.
+- Typical context: Native parity docs, mobile README, iOS build notes,
+  architecture docs, data contracts, site map, and relevant `mobile/src/` files.
+
+## Notenwert
+
+### notenwert-maintainer
+
+- Skill file: [../skills/notenwert-maintainer/SKILL.md](../skills/notenwert-maintainer/SKILL.md)
+- Description: Provides the safe operating playbook for implementation work in
+  the Notenwert project.
+- Use when: Fixing Notenwert bugs, editing CMS/admin behavior, changing homepage
+  hero behavior, updating content models, adding tests, preparing deploys,
+  updating docs, or making commits.
+- Typical context: `AGENTS.md`, codebase map, content model, NGA reference for
+  hero/banner work, source under `src/`, build script, regression tests, and
+  work log.
+
+## Image And Asset Work
+
+### shane-thai-image-assets
+
+- Skill file: [../skills/shane-thai-image-assets/SKILL.md](../skills/shane-thai-image-assets/SKILL.md)
+- Description: Guides image generation, reuse, crop fixes, optimization, and QA
+  for the Shane and His Thai learning app.
+- Use when: Adding or replacing vocabulary images, mapping lesson card artwork,
+  generating Unit images, fixing crops, making badge assets, or deciding whether
+  an existing image is semantically correct.
+- Typical context: Exact Thai item, English meaning, lesson context, existing
+  asset mappings, image files, flashcard rendering size, and app visual style.
+
+### image-boundary-iteration
+
+- Skill file: [../skills/image-boundary-iteration/SKILL.md](../skills/image-boundary-iteration/SKILL.md)
+- Description: Controls adult non-explicit image iteration with prompt hygiene,
+  branch routing, verdict loops, visual baselines, and logging.
+- Use when: Continuing the nudity-reference-prompting project, handling
+  Pass/Partial/Reject loops, making local edits, reducing visual clutter,
+  strengthening poses within non-explicit boundaries, or maintaining branch
+  baselines.
+- Typical context: Branch notes, visual baseline files, workbook/JSON/Markdown
+  logs, prompt strategy notes, rejection-handling notes, and the user's current
+  verdict shorthand.
