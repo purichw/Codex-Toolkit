@@ -19,6 +19,10 @@ only after inspecting both the reference and target surface.
 
 ## Component Geometry
 
+- Build a measured parity table before release:
+  `component | viewport | reference | implementation | delta | status`.
+- Mark each row `matched`, `behavior exception`, `visual exception`, or
+  `not done`; `not done` blocks completion.
 - DOM/component hierarchy and layout mode
 - width, height, min/max constraints, and aspect ratio
 - padding, margin, row gap, column gap, and section rhythm
@@ -29,6 +33,9 @@ only after inspecting both the reference and target surface.
 - source value recorded before editing when the offline HTML/CSS exposes it
 - implementation computed value checked after editing for every user-mentioned
   or high-risk geometry value
+- Product behavior may differ only as a behavior exception. If the visual box,
+  item count, order, spacing, copy set, or component state changes, record it as
+  a visual exception and report it before release.
 
 ## Typography And Content
 
@@ -101,12 +108,15 @@ itself scrolls while the page-level document width remains within the viewport.
 - Use WebKit or real Safari for Safari-specific claims when available.
 - Treat Chrome on iOS as WebKit behavior, not desktop Chromium behavior.
 - Report any browser or device that could not be tested.
+- After deploy, run the same small parity smoke against the production URL; do
+  not count a generic HTTP/functionality smoke as Claude-to-a-tee verification.
 
 ## Completion Report
 
 Include:
 
 - reference files inspected;
+- measured parity table summary, including any `visual exception` rows;
 - component-contract values extracted and verified, especially any
   user-mentioned sizes, spacing, layout modes, or asset treatments;
 - routes and components changed;

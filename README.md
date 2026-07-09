@@ -34,9 +34,11 @@ Some skills also include reference notes, helper scripts, or agent metadata.
 | [`mobile-web-qa`](skills/mobile-web-qa/SKILL.md) | Audits responsive web interfaces across phone, tablet, and desktop viewports. | Checking mobile Safari/Chrome behavior, safe areas, keyboard states, tap targets, overflow, modals, or pre-deploy frontend QA. |
 | [`notenwert-design-direction`](skills/notenwert-design-direction/SKILL.md) | Preserves Notenwert's editorial cultural-network visual direction and reference system. | Designing or critiquing Notenwert public/admin UX, homepage hero motion, NGA-style interactions, typography, color, or imagery. |
 | [`notenwert-maintainer`](skills/notenwert-maintainer/SKILL.md) | Provides the safe operating playbook for the Notenwert codebase. | Fixing bugs, editing CMS/admin behavior, changing content models, preparing deploys, updating docs, or making commits in Notenwert. |
+| [`placeholder-image`](skills/placeholder-image/SKILL.md) | Sources, selects, replaces, crops, and audits placeholder images as real product content. | Populating missing images, replacing weak stock, finding hero/card/gallery photos, fixing crops, or creating image sourcing playbooks. |
 | [`project-onboarding`](skills/project-onboarding/SKILL.md) | Builds a compact, reliable map of an unfamiliar or returning codebase before edits. | Starting work in a repo, reading handoffs, finding commands, understanding architecture, or preparing a safe implementation plan. |
 | [`regression-hunter`](skills/regression-hunter/SKILL.md) | Searches for related bug patterns after one issue reveals a possible class of regressions. | Auditing for similar hardcoded values, duplicated logic, fragile selectors, stale fixtures, or nearby behavior breaks. |
 | [`release-gate`](skills/release-gate/SKILL.md) | Collects proportional verification evidence before commit, push, deploy, release, or handoff. | Shipping changes, opening PRs, deploying, merging, or checking whether a feature is ready to publish. |
+| [`shane-thai-audio-generator`](skills/shane-thai-audio-generator/SKILL.md) | Generates, regenerates, audits, and QA-checks Google Chirp audio for Shane and His Thai. | Working on lesson audio, Thai TTS text, audio IDs, voice selection, missing/stale audio, or naturalness fixes. |
 | [`shane-thai-image-assets`](skills/shane-thai-image-assets/SKILL.md) | Manages vocabulary image generation, reuse, cropping, optimization, and QA for the Shane and His Thai app. | Adding or replacing lesson artwork, mapping assets, fixing crops, generating Unit images, or deciding whether existing art is semantically correct. |
 
 ## Installing A Skill
@@ -56,5 +58,5 @@ diff, then commit.
 Verify the archive with:
 
 ```sh
-python3 scripts/verify_skills.py --expected-count 15
+python3 scripts/verify_skills.py --expected-count 17
 ```

@@ -1,0 +1,184 @@
+---
+name: shane-thai-audio-generator
+description: Generate, regenerate, audit, and QA Google Chirp audio files for the Shane and His Thai learning app. Use when Codex works on lesson audio, main-course Chirp generation, audio ID wiring, Thai TTS text, voice selection, full-phrase regeneration, stale/missing audio audits, or naturalness fixes for this project.
+---
+
+# Shane Thai Audio Generator
+
+Use this skill for Shane and His Thai audio asset work, especially Google Chirp TTS for lesson words, phrases, sentences, dialogues, story lines, grammar examples, spelling prompts, read prompts, quiz/listening prompts, and UI audio buttons.
+
+## Core Rule
+
+Never build a phrase, sentence, dialogue line, or listening prompt by stitching separate word files together.
+
+For anything longer than a single standalone vocabulary item, generate one complete Google Chirp take for the exact Thai text that the learner should hear. Reuse an existing audio file only when the Thai text, meaning, speaker/context, politeness particle, pacing expectation, and voice are all compatible and the existing take sounds natural.
+
+If the user says an audio item sounds chopped, rushed, discontinuous, or like reused pieces, treat that as a likely asset bug. Regenerate the exact phrase or sentence as one full take instead of defending the old reuse.
+
+## Project Context
+
+- Repo: `/Users/point/Library/Mobile Documents/com~apple~CloudDocs/Website Projects/thai-flashcards`
+- Main-course Chirp output: `public/audio/chirp/main-course/<unit-id>/<audio-id>.mp3`
+- Generator: `tools/generate-main-course-chirp-audio.mjs`
+- Audit: `tools/audit-chirp-audio.mjs`
+- Naturalness triage: `tools/audio-naturalness-triage.mjs`
+- Voice policy: `tools/chirpVoicePolicy.mjs`
+- Audio audit report: `docs/audio-audit.json`
+- Naturalness report: `docs/audio-naturalness-report.json`
+
+Common commands:
+
+```bash
+npm run audio:main-course
+npm run audio:main-course:force
+GOOGLE_TTS_FORCE=true GOOGLE_TTS_ONLY='unit-id/audio-id,unit-id/other-audio-id' npm run audio:main-course
+GOOGLE_TTS_FORCE=true GOOGLE_TTS_SPEAKING_RATE=0.78 GOOGLE_TTS_ONLY='unit-id/audio-id' npm run audio:main-course
+npm run audio:audit
+npm run audio:audit:check
+npm run audio:naturalness
+npm run audio:naturalness:check
+```
+
+Voice overrides are available through environment variables and data-level audio options. Check `tools/chirpVoicePolicy.mjs` before assuming current defaults.
+
+```bash
+GOOGLE_TTS_MALE_VOICE='th-TH-Chirp3-HD-Iapetus'
+GOOGLE_TTS_FEMALE_VOICE='th-TH-Chirp3-HD-Despina'
+GOOGLE_TTS_SPEAKING_RATE=0.82
+```
+
+## Workflow
+
+1. Identify the audio item before generating:
+   - unit ID and lesson/component
+   - audio ID and target output path
+   - displayed Thai text
+   - actual spoken Thai text if different
+   - English meaning
+   - speaker, gender, politeness particle, and dialogue role
+   - whether the item is a word, phrase, sentence, story line, dialogue turn, grammar example, quiz prompt, or UI prompt
+
+2. Confirm the source data is wired to the intended full text:
+   - Prefer existing helpers such as `mainCourseAudio(...)` and local course data patterns.
+   - Do not change lesson IDs, order, routes, progress keys, quiz IDs, audio IDs, image IDs, or Firebase keys unless explicitly asked.
+   - If adding a new kind of audio source, update the generator and audit collectors together.
+
+3. Check reuse safely:
+   - Search existing data and files for the same Thai text and same audio ID pattern.
+   - Reuse only when the existing take is exactly appropriate.
+   - If text is the same but speaker, context, listening task, politeness, or pacing differs, generate a separate file.
+
+4. Generate or regenerate with a narrow target:
+   - Use `GOOGLE_TTS_ONLY` for targeted work.
+   - Use `GOOGLE_TTS_FORCE=true` only for files intentionally being replaced.
+   - Use speaking-rate overrides only for the targeted generation batch unless a broader policy change is requested.
+
+5. Audit and verify:
+   - Run `npm run audio:audit` after generating files so `docs/audio-audit.json` reflects current durations and hashes.
+   - Run `npm run audio:naturalness` when checking phrase continuity, duration outliers, clipping, or rushed speech.
+   - Use `:check` commands in release gates, but remember check mode should not be the only step after new generation if reports need updating.
+
+## Reuse Rules
+
+Reuse is allowed when all are true:
+
+- The Thai script text is identical.
+- The heard form is identical, including particles such as `ครับ` and `ค่ะ`.
+- The English meaning and lesson context match.
+- The speaker/voice expectation matches.
+- The existing audio sounds natural in the new context.
+
+Generate a new full take when any are true:
+
+- A sentence is currently represented by word-level or phrase-level pieces.
+- The phrase has an unnatural pause inside a compound or between noun/adjective pieces, such as `ห้อง เรียนใหญ่`.
+- The audio sounds clipped, too fast, too slow, monotone in a distracting way, or cut off at the start/end.
+- A dialogue line needs a specific speaker voice.
+- The item is a listening prompt, quiz answer, story line, or grammar example where natural whole-line delivery matters.
+- The same Thai appears in a different role where pacing should change.
+
+## TTS Text Rules
+
+- Send Thai script or explicit spoken Thai to Google Chirp, not Paiboon romanization.
+- Do not use IPA.
+- Preserve learner-facing particles exactly unless the source content explicitly says otherwise.
+- Use a data-level spoken override for abbreviations, initials, digits, English names, brand-like tokens, or terms Chirp may misread.
+- For school names, company names, UI labels, and mixed-language phrases, add a spoken Thai form if the raw text will be pronounced poorly.
+- For quiz/listening audio, generate what the learner should hear, not merely the answer label or display heading.
+- For alphabet/letter-name audio, use the intended Thai letter name, not a bare consonant if the learning task expects the letter-name pronunciation.
+
+## Voice And Pacing
+
+- Check `tools/chirpVoicePolicy.mjs` for current default male/female Chirp voices.
+- Keep named speaker voices consistent inside a dialogue or story sequence.
+- Use explicit voice options when a line belongs to a named speaker or the lesson data already encodes role/gender.
+- Do not globally change the voice policy to fix one rough file.
+- For a rough phrase, regenerate that exact audio ID as full Thai text first; then try a targeted speaking rate or alternate Chirp voice only if needed.
+- When tuning speed, keep beginner listening needs in mind: clear and natural beats, not robotic over-enunciation.
+
+## Naturalness Audit
+
+The naturalness report is a triage aid, not a substitute for listening judgment.
+
+Prioritize:
+
+- user-reported audio bugs
+- phrases/sentences with suspiciously short durations
+- files flagged as likely stitched or internally paused
+- dialogue sequences with inconsistent voices
+- grammar and story lines that sound like isolated word chunks
+- quiz/listening prompts where the answer is unintentionally obvious from odd pacing
+
+If a naturalness check flags many files, fix the lesson-critical and user-visible items first. Record what was regenerated and what was intentionally left unchanged.
+
+## Generation Checklist
+
+Before generating:
+
+- Confirm data and audio IDs are correct.
+- Confirm the Thai text should be spoken exactly as written or add a spoken override.
+- Confirm speaker/voice and politeness particle.
+- Confirm the file is not being safely reused already.
+
+During generation:
+
+- Use `GOOGLE_TTS_ONLY` for the specific IDs.
+- Use `GOOGLE_TTS_FORCE=true` only when replacing existing files.
+- Avoid broad force regeneration unless the user explicitly asks for a whole-unit or whole-course pass.
+
+After generation:
+
+- Run `npm run audio:audit`.
+- Run `npm run audio:naturalness` for phrase/sentence batches.
+- Inspect changed files and data references.
+- Verify audio buttons in the UI when practical, especially for the component the user reported.
+
+## Release Gate
+
+Before commit, push, deploy, or handoff after audio changes:
+
+```bash
+npm run audio:audit:check
+npm run audio:naturalness:check
+npm run test:data
+npm run build
+```
+
+Use narrower validation only when the change is tiny and clearly isolated, and say what was not run.
+
+For UI-affecting audio work, browser-test the affected routes and check:
+
+- the audio button is present
+- the requested file loads successfully
+- no console/page errors occur
+- replay works
+- active/completed tab state is unchanged by merely playing audio unless the product behavior requires it
+
+## Reporting
+
+When finishing audio work, summarize:
+
+- which unit/component/audio IDs changed
+- whether each item was generated, regenerated, reused, or left unchanged
+- which commands were run
+- any items still needing human listening review

@@ -1,0 +1,4 @@
+interface:
+  display_name: "Placeholder Image"
+  short_description: "Source, crop, and verify fit-for-purpose images"
+  default_prompt: "Use $placeholder-image to replace placeholders with images that match the page mood, content, crop, and responsive containers."

@@ -8,7 +8,7 @@ change to GitHub.
 From the repository root:
 
 ```sh
-rsync -a --delete --exclude '.system' ~/.codex/skills/ skills/
+rsync -a --delete --exclude '.system' --exclude '/README.md' ~/.codex/skills/ skills/
 git status --short
 git diff --check
 ```
@@ -59,7 +59,7 @@ False positives are normal. Read the matches before deciding.
 For most changes, run the toolkit verifier:
 
 ```sh
-python3 scripts/verify_skills.py --expected-count 15
+python3 scripts/verify_skills.py --expected-count 17
 ```
 
 It checks skill frontmatter, folder/name consistency, local Markdown links,

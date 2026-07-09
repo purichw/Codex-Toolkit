@@ -10,7 +10,7 @@ user's intent.
 - Local checkout used when this file was written: `/Users/point/Codex-Toolkit`
 - Visibility at initial setup: private
 - Purpose: archive and document the user's personal Codex skills
-- Current skill count: 15 `SKILL.md` files under `skills/`
+- Current skill count: 17 `SKILL.md` files under `skills/`
 
 The first import copied personal skills from:
 
@@ -66,7 +66,7 @@ ask or make a conservative assumption and state it.
 From the repository root, refresh the repository from local personal skills:
 
 ```sh
-rsync -a --delete --exclude '.system' ~/.codex/skills/ skills/
+rsync -a --delete --exclude '.system' --exclude '/README.md' ~/.codex/skills/ skills/
 ```
 
 Then review:
@@ -90,9 +90,11 @@ Expected current skill folders:
 - `mobile-web-qa`
 - `notenwert-design-direction`
 - `notenwert-maintainer`
+- `placeholder-image`
 - `project-onboarding`
 - `regression-hunter`
 - `release-gate`
+- `shane-thai-audio-generator`
 - `shane-thai-image-assets`
 
 If the count or names change, update `README.md`, `skills/README.md`, and
@@ -136,7 +138,7 @@ updates, enough verification is usually:
 
 ```sh
 git diff --check
-python3 scripts/verify_skills.py --expected-count 15
+python3 scripts/verify_skills.py --expected-count 17
 ```
 
 For skill script changes, run the script's smoke-test or help path when one
@@ -146,9 +148,10 @@ exists.
 
 As of this document, the repository has:
 
-- one initial commit importing all 15 skills;
+- one initial commit importing 15 skills;
 - one docs commit adding catalog, install, and maintenance docs;
 - this future-agent context layer.
+- one archive update adding 2 more skills and updating the verifier count to 17.
 
 The main thing future Codex should preserve is the distinction between live local
 skills and the GitHub archive. That distinction prevents accidental overwrites

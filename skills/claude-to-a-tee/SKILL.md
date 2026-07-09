@@ -20,6 +20,41 @@ CLAUDE TO A TEE AUDIT. Implement from the offline Claude HTML exactly at compone
 Read [references/verification-checklist.md](references/verification-checklist.md)
 before inspecting or editing the target application.
 
+## Hard Gate Summary
+
+For every Claude-to-a-tee implementation or repair, create a measured parity
+audit before claiming success. This is a release blocker, not a nice-to-have.
+
+Do not say "done", commit, push, or deploy while any `critical` mismatch remains
+unfixed or undocumented as an explicit user-approved product exception.
+
+Treat these as critical mismatches by default:
+
+- wrong default route or page title;
+- wrong global shell geometry: header, nav, masthead, footer, page margins;
+- wrong primary component geometry: hero, cards, register grids, side rails,
+  modals, tabs, filters, forms, or CTAs;
+- wrong number/order of visible reference items, unless product data makes that
+  impossible and the alternative is documented;
+- missing reachable Claude route, tab, modal, form, empty state, or responsive
+  state;
+- product behavior kept in a way that also changes Claude's visual geometry
+  without being documented as a visual exception;
+- screenshots or metrics captured from the wrong route, loading state, login
+  state, stale build, or selector miss.
+
+Before release, produce a compact measurement table with one row per high-risk
+component and per required viewport:
+
+```text
+component | viewport | reference x/y/w/h/style/count | implementation x/y/w/h/style/count | delta | status
+```
+
+Use browser-computed values where possible. A broad screenshot comparison is not
+enough. If exact parity is intentionally impossible, the row must say whether
+the divergence is behavioral only or visual+behavioral, and why the visual delta
+is acceptable.
+
 ## Establish The Contract
 
 Apply this source-of-truth order:
@@ -31,6 +66,17 @@ Apply this source-of-truth order:
 
 Preserve newer product behavior when it intentionally differs from Claude. Match
 Claude exactly everywhere else, and report intentional divergences.
+
+Split every intended divergence into two labels:
+
+- `behavior exception`: the product keeps real data, APIs, auth, routing, media,
+  persistence, or permissions while preserving Claude's visible geometry.
+- `visual exception`: the product intentionally changes Claude's layout,
+  spacing, copy, item count, assets, colors, or component state.
+
+Behavior exceptions are allowed when needed. Visual exceptions require explicit
+documentation and should be treated as failed Claude-to-a-tee parity unless the
+user accepts them or the reference cannot support a real product path.
 
 Do not silently reinterpret "to a tee" as general polish. Treat spacing,
 typography, geometry, states, animation, assets, and responsive overrides as
@@ -83,6 +129,11 @@ surface:
 Do not start implementation until this ledger covers the default rendered state,
 all navigation targets, tabs, forms, dialogs, onboarding/step flows, empty/error
 states, and responsive-only states that appear in the reference.
+
+Do not let the ledger become passive documentation. Keep it current as a release
+gate: every row must end in one of `matched`, `behavior exception`, `visual
+exception`, `deferred with user-approved reason`, or `not done`. A `not done`
+row blocks claims of completion and blocks deploy.
 
 ## Interaction Depth Requirement
 
@@ -162,6 +213,18 @@ the offline HTML exposes a value, use that value; do not replace it with
 `clamp()`, inferred sizes, or product-polish alternatives unless the user's
 newer requirement explicitly asks for the divergence.
 
+At minimum, measure the global shell and every first-viewport component:
+
+- page title/default route;
+- top bars, masthead/logo, primary nav, secondary nav;
+- hero top offset, section height, sticky runway, headline box, media box,
+  side rail/card, CTA, and chapter/slide count;
+- first repeated grid/list: item count, grid columns, card box, media box,
+  metadata, title, CTA/button;
+- footer height, columns, visible link set, newsletter/form state;
+- modal/dialog opened from the first viewport or primary CTA;
+- the same components at source-defined desktop/tablet/mobile breakpoints.
+
 Alongside the component contract, write down the reference's design intent in
 plain engineering terms. For example: "quiet operational density," "large card
 for a high-trust gate," "muted forest background only on filled actions," or
@@ -188,6 +251,13 @@ Reuse exact supplied assets where licensing and project constraints permit.
 Preserve product logic, event delegation, data persistence, auth, i18n, and
 accessibility unless the user explicitly changes them. Inspect selector and test
 dependencies before renaming classes, IDs, data attributes, or DOM hierarchy.
+
+When preserving product behavior, preserve Claude geometry first. For example,
+keeping real video/media/search/map data is usually a behavior exception; it
+does not automatically justify changing the media frame, card count, nav
+spacing, footer structure, or section rhythm. If real product data forces a
+visual change, document that as a visual exception and keep the closest possible
+Claude geometry.
 
 Project-specific exception: for the Shane and His Thai app, preserve the
 project font system even when a Claude standalone uses a different typeface.
@@ -264,6 +334,8 @@ the Claude reference's hierarchy, spacing, tone, and interaction language.
 7. Run focused tests after edits, then the repository's required full test suite
    when risk or release policy calls for it.
 8. Reinspect every detail the user named, even if broader screenshots look right.
+9. Fill the measured parity audit table and mark every row `matched`,
+   `behavior exception`, `visual exception`, or `not done`.
 
 For responsive Claude references, verify every source-defined breakpoint and
 then the default mobile/tablet/desktop matrix from the checklist unless the user
@@ -312,7 +384,25 @@ Do not claim completion, commit, push, or deploy a Claude-to-a-tee change until:
   reason, or removed as a documented mock-only divergence;
 - browser console and test results were checked;
 - intentional divergences and unverified coverage are disclosed.
+- the measured parity audit has no `critical` or `not done` rows;
+- product exceptions are separated into behavior exceptions and visual
+  exceptions;
+- any visual exceptions are explicitly reported to and accepted by the user
+  before release.
 
 Commit, push, or deploy only when the user requests it or repository instructions
-already authorize it. Report the reference files, routes/components, viewport
-matrix, tests, browser coverage, and any intentional divergence in the closeout.
+already authorize it.
+
+If the user asks to commit, push, or deploy before the hard gate passes, stop and
+report the blocking mismatches instead of shipping. The only exception is when
+the user explicitly says to ship despite the listed mismatches.
+
+After deploy, rerun a small production parity smoke against the deployed URL:
+default route/page title, header/nav geometry, primary hero/card/grid geometry,
+first primary interaction, console errors, and page-level overflow at desktop
+and one mobile viewport. A production smoke that only checks HTTP 200 and basic
+functionality is not enough for Claude-to-a-tee work.
+
+Report the reference files, routes/components, measured parity status, viewport
+matrix, tests, browser coverage, deployed URL if any, and every intentional or
+remaining divergence in the closeout.

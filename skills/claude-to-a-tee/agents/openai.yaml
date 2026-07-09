@@ -1,4 +1,4 @@
 interface:
   display_name: "Claude To A Tee"
-  short_description: "Reproduce offline Claude HTML with exact fidelity"
-  default_prompt: "Use $claude-to-a-tee to implement this offline Claude HTML exactly and verify every responsive state."
+  short_description: "Reproduce offline Claude HTML with measured exact fidelity"
+  default_prompt: "Use $claude-to-a-tee to implement this offline Claude HTML exactly, build a measured parity audit, and verify every responsive state before release."

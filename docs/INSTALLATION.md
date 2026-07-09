@@ -24,7 +24,7 @@ From the repository root:
 
 ```sh
 mkdir -p ~/.codex/skills
-rsync -a skills/ ~/.codex/skills/
+rsync -a --exclude '/README.md' skills/ ~/.codex/skills/
 ```
 
 This copies every skill folder into the local Codex skills directory.
@@ -53,7 +53,7 @@ in [SKILL_CATALOG.md](SKILL_CATALOG.md).
 If `~/.codex/skills` is the active source of truth, refresh this repository with:
 
 ```sh
-rsync -a --delete --exclude '.system' ~/.codex/skills/ skills/
+rsync -a --delete --exclude '.system' --exclude '/README.md' ~/.codex/skills/ skills/
 ```
 
 Review the diff before committing.

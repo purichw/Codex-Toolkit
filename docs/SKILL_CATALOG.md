@@ -64,13 +64,13 @@ this file is for choosing the right skill during real work.
 
 - Skill file: [../skills/claude-to-a-tee/SKILL.md](../skills/claude-to-a-tee/SKILL.md)
 - Description: Treats offline Claude HTML as executable design documentation and
-  matches it at component level while preserving product behavior.
+  matches it at measured component level while preserving product behavior.
 - Use when: The user says "to a tee", asks for pixel/component parity, or wants
   a UI implemented from Claude HTML, screenshots, handoff files, or exported
   assets.
 - Typical context: Offline Claude HTML/CSS/JS, screenshots, reference assets,
-  existing product behavior, responsive states, interactions, and verification
-  checklist.
+  existing product behavior, responsive states, interactions, measured parity
+  audit rows, and verification checklist.
 
 ### notenwert-design-direction
 
@@ -157,6 +157,32 @@ this file is for choosing the right skill during real work.
   work log.
 
 ## Image And Asset Work
+
+### placeholder-image
+
+- Skill file: [../skills/placeholder-image/SKILL.md](../skills/placeholder-image/SKILL.md)
+- Description: Sources, selects, replaces, crops, and audits placeholder images
+  as product content rather than decoration.
+- Use when: Populating missing images, replacing placeholders, finding stronger
+  hero/card/gallery photos, matching images to a brand mood or content type,
+  fixing bad crops/object-position, auditing responsive image reuse, removing
+  low-quality stock or watermarked images, or creating a sourcing playbook.
+- Typical context: Image slot brief, surrounding copy, desired mood, subject,
+  crop/container dimensions, responsive reuse, licensing/source notes, alt text,
+  and rendered page screenshots when the image affects a real product surface.
+
+### shane-thai-audio-generator
+
+- Skill file: [../skills/shane-thai-audio-generator/SKILL.md](../skills/shane-thai-audio-generator/SKILL.md)
+- Description: Generates, regenerates, audits, and QA-checks Google Chirp audio
+  files for the Shane and His Thai learning app.
+- Use when: Working on lesson audio, main-course Chirp generation, audio ID
+  wiring, Thai TTS text, voice selection, full-phrase regeneration, stale or
+  missing audio audits, or naturalness fixes.
+- Typical context: Unit ID, audio ID, output path, displayed Thai text, spoken
+  Thai text, English meaning, speaker role, politeness particle, voice policy,
+  generation commands, audit reports, and whether the item is a word, phrase,
+  sentence, dialogue line, grammar example, quiz prompt, or UI prompt.
 
 ### shane-thai-image-assets
 
