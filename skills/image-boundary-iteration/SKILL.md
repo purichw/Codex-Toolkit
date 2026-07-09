@@ -102,6 +102,27 @@ Moonlit fountain rule: fresh scene reset away from bathhouse passed; attempts to
 
 2026-07-06 update: the branch moved past the original PV-079-only guidance through controlled genre tests. User gave `PASS` to an ornamental-layout route, then `PARTIAL / BOUNDARY / CONTINUE` to a whole-figure light-surface route. A one-piece magical lacquer stage suit was visually liked but could not be pushed into skin-tone/thin/body-paint wording; that family rejected repeatedly. Genre previews showed `Fashion Editorial` and `Stage Costume Concept Sheet` as the preferred next route; user personally chose `Fashion Editorial + Stage Costume`. Use fashion/editorial material language for sexy polished mood and stage-costume concept language for minimal intentional design. Avoid direct lower-costume, brief/wrap, skin-tone, body-paint, painted-on, same-color-as-skin, and negative-space wording on adult full-body dancer prompts. Abstract Celestial Figure rejected repeatedly and should not be the next primary route.
 
+Mature graphic-novel / editorial trio branch, 2026-07-09:
+
+The current strongest post-RPG direction is a mature graphic-novel / fashion-editorial trio with the white-haired Elf, haloed brown-haired celestial man, and horned black-haired Devil. The user liked the warm lounge / intimate portrait direction and asked to continue from it, especially reducing visible fabric on the Elf. Preserve the three adult identities, close triangular composition, warm amber-beige room, dark sofa/daybed, simple curtains, low sparkle, and clean ink/painterly rendering. Do not preserve the older soft watercolor bathhouse or chroma RPG styling unless requested.
+
+Useful current evidence:
+
+- Accepted graphic-novel lounge direction:
+  `/Users/point/.codex/generated_images/019f4ba9-c316-744a-88f7-07e70675446c/ig_0bb98ed6b69ca611016afd00db9b7881919ecb1b52b73707a4.png`
+- Strong continuation candidate:
+  `/Users/point/.codex/generated_images/019f4d1d-df10-75c2-92c9-e8d845a555d3/ig_08cb9899d80519b2016b0d755d90d88191ba7634384c01718a.png`
+
+Best prompt HOW for this branch:
+
+- Use `mature graphic-novel fashion editorial`, `close triangular lounge portrait`, `bare shoulders and upper-body focus`, `reduced fabric bulk`, `lower-body styling mostly outside the crop`, `sofa edge / arm placement / crop as natural non-explicit visual structure`.
+- If the user asks for stronger or more exposed, translate to camera, crop, pose, and fabric-bulk language. Do not use direct explicit, porn, no-clothing, garment-removal, crotch, or bulge wording in image prompts.
+- Avoid excessive sparkle, heavy oil shine, busy jewelry, armor return, black trouser-like shapes, large draped cloth panels, and over-dark shadows that hide the characters.
+
+Recent rejected family:
+
+Soft-anime / sensual-water-ref family rejected repeatedly in this context, including attempts that removed the reference images and backed off to head-and-shoulders or safe style-sheet wording. Treat this as context-sensitive. In a fresh chat, do not start by attaching those sensual soft-anime refs. If testing that style again, start with a single character or fully safe clothed style calibration before reintroducing trio intimacy.
+
 ## Context Refresh
 
 Do not load everything before every generation.

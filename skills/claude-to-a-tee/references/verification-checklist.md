@@ -7,6 +7,7 @@ only after inspecting both the reference and target surface.
 
 - Identify the exact offline HTML and all supporting CSS, JavaScript, fonts,
   icons, images, audio, and handoff files.
+- Record the reference filename and a stable hash or modification identity.
 - Render the reference rather than relying only on source or screenshots.
 - Exercise tabs, menus, forms, dialogs, loading, empty, disabled, selected,
   hover, focus, error, and success states that exist in the reference.
@@ -16,6 +17,19 @@ only after inspecting both the reference and target surface.
 - Note behavior that the reference mocks but the target implements for real.
 - Reject evidence captured from the wrong route, login/account screens, loading
   placeholders, or selector misses; fix setup and recapture.
+
+## Artifact Provenance
+
+- Record target commit SHA and generated build/version identifier.
+- Set the test base URL explicitly; label each run local, preview, or production.
+- Record requested URL, final URL after redirects, route/hash, title, viewport,
+  and the hydration marker used.
+- Confirm the generated deploy artifact contains the changed source before
+  testing or deployment.
+- Reject captures from deployment-protection/login pages, a different host,
+  generic shells, 404s, stale service-worker builds, or pre-hydration content.
+- Keep legacy visual baselines separate from current Claude parity evidence;
+  refresh stale baselines only after the new parity is approved.
 
 ## Component Geometry
 
@@ -36,6 +50,30 @@ only after inspecting both the reference and target surface.
 - Product behavior may differ only as a behavior exception. If the visual box,
   item count, order, spacing, copy set, or component state changes, record it as
   a visual exception and report it before release.
+
+## Page Rhythm And Scroll Choreography
+
+- Do not treat a matching first viewport as page parity. Measure the whole
+  rendered experience.
+- Record `documentElement.scrollHeight` and page-level `scrollWidth` for the
+  reference and implementation at every required viewport.
+- Measure the document-space `top` and `height` of major sections: masthead,
+  nav, hero/chapter panels, sticky runways, first repeated grid/list, map or
+  modal trigger, and footer.
+- Record the scrollY where each major chapter/component first becomes visible
+  and where it leaves the viewport. For sticky/scrub/peel systems, record the
+  sticky start, sticky end, pinned duration, and first scrollY that reveals the
+  next chapter.
+- Capture at least three comparable scrolled states for long pages: top,
+  mid-hero or mid-flow, and the first repeated grid/list. Add footer/bottom when
+  the footer is part of the reference.
+- If the implementation reaches a later chapter, register, feed, or footer
+  hundreds of pixels earlier/later than Claude, mark it as `visual exception` or
+  `not done` even when individual components look correct.
+- Treat real product media, live data, cookie banners, or loading states as
+  behavior only when they preserve Claude's rhythm. If they shorten/lengthen
+  sections, change scroll milestones, or alter sticky timing, record a visual
+  exception.
 
 ## Typography And Content
 
@@ -66,6 +104,10 @@ only after inspecting both the reference and target surface.
 - product-owned required assets are preserved even if the Claude reference uses
   placeholders, unless the user explicitly asks to remove or replace them
 - no broken paths or assets that work only from the offline file location
+- validate remote CMS/data-backed assets, not only repository files
+- prefer repairing a broken remote asset at its source; if permissions block
+  that, quarantine only the confirmed public asset, preserve admin visibility,
+  add regression coverage, and disclose the remaining source record
 
 ## Behavior Protection
 
@@ -102,7 +144,8 @@ itself scrolls while the page-level document width remains within the viewport.
 - Use agent-browser to verify the implementation and capture screenshots.
 - Use browser computed styles, not only screenshots, for values that are present
   in Claude source or that the user specifically called out.
-- Check runtime console errors and failed network/asset requests.
+- Check runtime console/page errors, failed requests, and 4xx/5xx asset responses
+  after live data hydration.
 - Confirm selector queries in automation are hitting the intended product
   components; empty selector results are a failed audit, not a pass.
 - Use WebKit or real Safari for Safari-specific claims when available.

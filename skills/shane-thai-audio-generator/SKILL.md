@@ -24,7 +24,7 @@ If the user says an audio item sounds chopped, rushed, discontinuous, or like re
 - Naturalness triage: `tools/audio-naturalness-triage.mjs`
 - Voice policy: `tools/chirpVoicePolicy.mjs`
 - Audio audit report: `docs/audio-audit.json`
-- Naturalness report: `docs/audio-naturalness-report.json`
+- Naturalness report: `docs/audio-naturalness-triage.md`
 
 Common commands:
 

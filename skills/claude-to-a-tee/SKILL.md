@@ -31,11 +31,19 @@ unfixed or undocumented as an explicit user-approved product exception.
 Treat these as critical mismatches by default:
 
 - wrong default route or page title;
+- evidence captured from a different commit, generated artifact, deployment,
+  final redirected URL, or hydration state than the implementation under audit;
 - wrong global shell geometry: header, nav, masthead, footer, page margins;
 - wrong primary component geometry: hero, cards, register grids, side rails,
   modals, tabs, filters, forms, or CTAs;
+- wrong page rhythm or scroll choreography: total page height, section start/end
+  offsets, scroll runway, sticky duration, reveal timing, or the scrollY where
+  major chapters/components appear;
 - wrong number/order of visible reference items, unless product data makes that
   impossible and the alternative is documented;
+- missing route-specific hero, lead, pinned, banner, carousel, sidebar, or
+  featured component that appears in Claude, even when the page's feed/list/grid
+  still renders;
 - missing reachable Claude route, tab, modal, form, empty state, or responsive
   state;
 - product behavior kept in a way that also changes Claude's visual geometry
@@ -135,6 +143,44 @@ gate: every row must end in one of `matched`, `behavior exception`, `visual
 exception`, `deferred with user-approved reason`, or `not done`. A `not done`
 row blocks claims of completion and blocks deploy.
 
+## Route Component Manifest
+
+Before editing a multi-route reference, create a route-by-route component
+manifest from the rendered Claude HTML. Do this even when the task sounds like a
+single-page restyle, because Claude often puts product-defining components on
+secondary routes.
+
+For each route or screen, record:
+
+- route name/path and how to open it in the reference;
+- first-viewport structure: breadcrumb, masthead, hero, lead story, banner,
+  carousel, pinned card, side rail, CTA, media panel, and nav state;
+- below-the-fold structure: feeds, cards, filters, sidebars, related sections,
+  footers, and repeated item counts;
+- stateful variants: pinned vs unpinned, empty vs filled media, carousel dots,
+  selected filters, modal open states, and responsive-only substitutions;
+- data contract: which visible item is lead/pinned/featured, whether it should
+  also appear in a feed, and what happens if product data is missing;
+- target mapping: exact product component/file/selector that will render each
+  Claude component.
+
+Treat `pinned`, `featured`, `lead`, `hero`, `banner`, and `carousel` as layout
+contracts, not as ordinary sorting metadata. If Claude renders a pinned story as
+a lead banner, the product must render the mapped pinned item as that banner or
+document a visual exception. Do not remove the item from a list/feed unless the
+Claude reference does the same or the product contract explicitly requires it.
+
+After implementation, produce a missing-component report by route:
+
+```text
+route | Claude component | product mapping | status | exception/reason
+```
+
+Every Claude component in the manifest must be `matched`, `behavior exception`,
+`visual exception`, or `deferred with user-approved reason`. A missing
+route-specific component is a blocking mismatch even if global typography,
+colors, and the homepage match.
+
 ## Interaction Depth Requirement
 
 Do not treat a visual match of the first screen as sufficient. For every
@@ -217,6 +263,8 @@ At minimum, measure the global shell and every first-viewport component:
 
 - page title/default route;
 - top bars, masthead/logo, primary nav, secondary nav;
+- total scroll height, major section start offsets, and the scrollY where each
+  chapter, sticky panel, register/list, and footer first becomes visible;
 - hero top offset, section height, sticky runway, headline box, media box,
   side rail/card, CTA, and chapter/slide count;
 - first repeated grid/list: item count, grid columns, card box, media box,
@@ -251,6 +299,13 @@ Reuse exact supplied assets where licensing and project constraints permit.
 Preserve product logic, event delegation, data persistence, auth, i18n, and
 accessibility unless the user explicitly changes them. Inspect selector and test
 dependencies before renaming classes, IDs, data attributes, or DOM hierarchy.
+
+Audit data-backed assets as well as repository files. When a remote CMS image,
+font, video, or embed is confirmed unavailable, prefer repairing or removing it
+at the source. If production permissions block that repair, quarantine only the
+confirmed asset in the public runtime, preserve admin visibility for replacement,
+add regression coverage, and disclose that the source record still exists. Do
+not broadly suppress asset failures or silently substitute unrelated media.
 
 When preserving product behavior, preserve Claude geometry first. For example,
 keeping real video/media/search/map data is usually a behavior exception; it
@@ -337,6 +392,32 @@ the Claude reference's hierarchy, spacing, tone, and interaction language.
 9. Fill the measured parity audit table and mark every row `matched`,
    `behavior exception`, `visual exception`, or `not done`.
 
+### Evidence Provenance
+
+For every reference, local, preview, and production capture, record enough
+provenance to prove what was measured:
+
+- reference filename and a stable hash or modification identity;
+- target commit SHA and generated build/version identifier;
+- requested URL, final URL after redirects, route/hash, page title, and viewport;
+- authenticated/loading/hydrated state and the marker used to prove it;
+- whether the run targets local, preview, or production.
+
+Set test base URLs explicitly. Do not rely on a runner's default URL when local
+and production are both plausible targets. After building, confirm the generated
+deploy artifact contains the changed source and reports the expected build
+identifier before testing or deploying it.
+
+If navigation ends on a login page, deployment-protection screen, generic shell,
+404, old service-worker build, or different host than intended, invalidate the
+entire capture. Fix access or use the public production alias, then rerun.
+
+Keep legacy screenshot baselines separate from current Claude parity evidence.
+When an intentional redesign makes an old baseline stale, report that fact and
+refresh it only after the new Claude parity is approved. A stale baseline failure
+is neither proof of a product regression nor permission to skip current visual
+comparison.
+
 For responsive Claude references, verify every source-defined breakpoint and
 then the default mobile/tablet/desktop matrix from the checklist unless the user
 explicitly narrows the scope. At each size, test the first viewport and at least
@@ -373,17 +454,25 @@ Do not claim completion, commit, push, or deploy a Claude-to-a-tee change until:
 - the reference state/surface coverage ledger is complete, and every reference
   state is either implemented, product-adapted, explicitly omitted, or deferred
   with the reason documented;
+- the route component manifest is complete for every affected route, and the
+  missing-component report has no unclassified Claude components;
 - the default rendered reference screen was compared against the target default
   screen, not just an internal route that happened to look similar;
 - the affected component contracts were extracted from Claude and checked
   against implementation computed styles;
+- page rhythm and scroll choreography were measured beyond the first viewport:
+  total height, section offsets, sticky durations, and first-visible scrollY for
+  major components;
 - desktop, tablet, and required mobile viewports passed without incoherent
   overlap, clipping, or page-level horizontal overflow;
 - required interactions and product behavior still work;
 - every visible action is either functional, intentionally disabled with a real
   reason, or removed as a documented mock-only divergence;
-- browser console and test results were checked;
-- intentional divergences and unverified coverage are disclosed.
+- browser console, page errors, failed requests, and 4xx/5xx asset responses
+  were checked after live data hydration;
+- the tested generated artifact and deployed build identifiers match the target
+  commit, and requested/final URLs prove the intended environment was measured;
+- intentional divergences and unverified coverage are disclosed;
 - the measured parity audit has no `critical` or `not done` rows;
 - product exceptions are separated into behavior exceptions and visual
   exceptions;

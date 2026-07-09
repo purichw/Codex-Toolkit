@@ -265,3 +265,59 @@ Acro-yoga:
 - Explicitly say not to copy older costume, pose, garment shape, or accessories.
 - If armor/long costume returns, treat it as costume regression, not a successful pose step.
 - If face or quality degrades over edits, return to a cleaner base instead of over-editing.
+
+## Mature Graphic-Novel Editorial Trio - 2026-07-09
+
+Use this for the current three-character branch when the user wants the white-haired Elf, haloed celestial man, and wingless Devil to read hotter while staying non-explicit.
+
+What worked:
+
+- Mature graphic-novel / fashion editorial rendering.
+- Tight triangular lounge composition with all three adult characters close together.
+- Warm beige / amber room, dark sofa or daybed, simple curtains, lamp glow.
+- Bare shoulders and upper-body focus with lower-body styling mostly outside the crop.
+- Sofa edge, forearms, crop, overlapping torsos, and relaxed lounge pose as the non-explicit visual structure.
+- Reduced sparkle and less shiny gold clutter so the bodies and faces stay readable.
+
+Useful wording:
+
+- `mature graphic-novel fashion editorial`
+- `warm intimate lounge portrait`
+- `close triangular composition`
+- `bare shoulders and upper-body focus`
+- `lower-body styling mostly outside the frame`
+- `reduced fabric bulk`
+- `minimal draped fabric visible only at the crop edge`
+- `natural non-explicit coverage from crop, sofa edge, and relaxed arm placement`
+- `clean ink lines with painterly shading`
+- `warm amber lamp light, beige curtains, dark sofa`
+
+Avoid:
+
+- direct `porn`, `explicit`, `no clothing`, `nude`, `remove garment`, `underwear`, `bulge`, `crotch`, or anatomy-isolated wording in prompts
+- bedroom/daybed wording that implies an explicit scene
+- heavy glitter, excessive oil shine, sparkles everywhere, busy gold chains
+- black trouser-like shapes, large wrapped cloth panels, armor return
+- copying the rejected soft-anime water references directly into this same context
+
+If the user asks for "more NSFW / porn-like":
+
+- Translate to `more intimate fashion-editorial pose`, `closer crop`, `stronger private-room mood`, `less visible fabric bulk`, `warmer direct gaze`, and `body language closer and more charged`.
+- Keep it non-explicit and do not introduce sex acts or visible explicit anatomy.
+
+If the user asks to reduce the Elf specifically:
+
+- Use `the white-haired Elf has the least visible fabric bulk of the trio`.
+- Use `bare-shouldered, relaxed forearm placement, lower-body mostly outside crop`.
+- Avoid saying the Elf has no garment or that hands replace clothing.
+
+## Soft-Anime Style Shift Caution - 2026-07-09
+
+The user liked a soft anime bathing-pair style reference, but the same-chat attempts rejected repeatedly even after removing direct refs and backing off to a safe style sheet. Do not keep trying that family in the same context.
+
+Fresh-chat strategy if testing it again:
+
+- Start with text-only style language, not the sensual reference images.
+- Try one character or a fully safe clothed trio style calibration first.
+- Use `soft anime fantasy portrait`, `gentle water lighting`, `clean youthful-but-adult faces`, `non-explicit calm bathing atmosphere`.
+- Add intimacy only after a pass.
