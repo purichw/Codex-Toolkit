@@ -19,11 +19,13 @@ This directory documents how to use and maintain the Codex Toolkit repository.
 .
 ├── README.md
 ├── docs/
+│   ├── CODEX_CONTEXT.md
 │   ├── INSTALLATION.md
 │   ├── MAINTENANCE.md
 │   ├── README.md
-│   ├── SKILL_CATALOG.md
-│   └── CODEX_CONTEXT.md
+│   └── SKILL_CATALOG.md
+├── scripts/
+│   └── verify_skills.py
 └── skills/
     ├── README.md
     └── <skill-name>/

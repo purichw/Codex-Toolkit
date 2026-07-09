@@ -131,30 +131,12 @@ make sure the others do not contradict it.
 
 ## Commit And Push Pattern
 
-Use the `release-gate` skill before pushing. For docs-only updates, enough
-verification is usually:
+Use the `release-gate` skill before pushing. For docs-only and skill archive
+updates, enough verification is usually:
 
 ```sh
 git diff --check
-python3 - <<'PY'
-from pathlib import Path
-import re, sys
-root = Path.cwd()
-missing = []
-for md in [root / "README.md", root / "skills" / "README.md", *sorted((root / "docs").glob("*.md")), root / "AGENTS.md"]:
-    if not md.exists():
-        continue
-    for target in re.findall(r"\[[^\]]+\]\(([^)]+)\)", md.read_text()):
-        if "://" in target or target.startswith("#"):
-            continue
-        clean = target.split("#", 1)[0]
-        if clean and not (md.parent / clean).resolve().exists():
-            missing.append(f"{md.relative_to(root)} -> {target}")
-if missing:
-    print("\n".join(missing))
-    sys.exit(1)
-print("All Markdown links resolve")
-PY
+python3 scripts/verify_skills.py --expected-count 15
 ```
 
 For skill script changes, run the script's smoke-test or help path when one

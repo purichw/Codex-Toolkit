@@ -56,15 +56,24 @@ False positives are normal. Read the matches before deciding.
 
 ## Verification Before Push
 
-For docs-only changes, run:
+For most changes, run the toolkit verifier:
+
+```sh
+python3 scripts/verify_skills.py --expected-count 15
+```
+
+It checks skill frontmatter, folder/name consistency, local Markdown links,
+helper script syntax, accidental bundled/system paths, and high-confidence secret
+patterns.
+
+For docs-only changes, also run:
 
 ```sh
 git diff --check
 find skills -name SKILL.md | sort | wc -l
 ```
 
-Also confirm Markdown links in edited files resolve. If you add scripts, run
-their basic help or smoke-test path before committing.
+If you add scripts, run their basic help or smoke-test path before committing.
 
 ## Commit Style
 

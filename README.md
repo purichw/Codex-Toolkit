@@ -52,3 +52,9 @@ cp -R skills/project-onboarding ~/.codex/skills/project-onboarding
 The source-of-truth local skills currently live in `~/.codex/skills`. To refresh
 the repository copy, sync the personal skill folders into `skills/`, review the
 diff, then commit.
+
+Verify the archive with:
+
+```sh
+python3 scripts/verify_skills.py --expected-count 15
+```

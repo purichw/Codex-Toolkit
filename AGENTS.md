@@ -31,6 +31,7 @@ both. If syncing from local skills, exclude `.system` and bundled plugin skills.
 - `skills/<skill-name>/scripts/` holds reusable helpers.
 - `skills/<skill-name>/agents/` holds agent metadata.
 - `docs/` explains how to use, install, maintain, and understand the toolkit.
+- `scripts/verify_skills.py` verifies the archived skill set.
 
 ## Safety Rules
 
@@ -44,16 +45,19 @@ both. If syncing from local skills, exclude `.system` and bundled plugin skills.
 
 ## Verification
 
-For docs-only changes, run:
+For most changes, run:
 
 ```sh
 git diff --check
+python3 scripts/verify_skills.py --expected-count 15
 ```
 
-For skill syncs, also confirm the expected skill count:
+The verifier checks skill frontmatter, folder/name consistency, Markdown links,
+helper script syntax, accidental bundled/system paths, and high-confidence
+secret patterns.
+
+For skill syncs, also inspect the actual skill list when names may have changed:
 
 ```sh
-find skills -name SKILL.md | sort | wc -l
+find skills -name SKILL.md | sort
 ```
-
-When editing Markdown links, verify that local links resolve.
