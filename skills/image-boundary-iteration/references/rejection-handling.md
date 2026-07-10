@@ -156,6 +156,47 @@ If a reduction prompt underdelivers:
 - Try a tighter upper-body editorial crop before adding stronger body-region wording.
 - If two related reduction prompts reject or return conservative fabric, stop that family and either use a fresh chat or rebuild from a safer editorial base.
 
+### Classical Black-Marble Bath Trio - 2026-07-10
+
+This is a separate branch from anime / graphic-novel / fashion. Do not let it replace those branch baselines.
+
+Best current pass family:
+
+- Classical museum oil painting.
+- Three adult mythic men in one black-marble pool.
+- Continuous reflective waterline at waist level.
+- No dry seated step above the water.
+- Lower frame carried by dark water, ripples, moonlight, steam, marble shadow, and reflections.
+- Close shoulder-to-shoulder triangular intimacy.
+
+User verdict mapping:
+
+- No visible pants / near-no pants with waterline/reflection as lower-frame structure: `PASS / BOUNDARY`.
+- Short cloth / short wrap / compact drape: `PARTIAL` or `BASE`.
+- Long pants / long drapery / conservative coverage: `REJECT / BOUNDARY`.
+
+Rejected / unstable attempts:
+
+- Direct edit: remove/cleanup trouser-like or waist-wrap shapes above the water.
+- Direct prompt: almost no visible lower costume shapes.
+- Direct lower-waterline prompt with hip-line / lower-body reveal wording.
+- Targeting the center celestial man's lower wrap and transforming it into chain/light.
+- Reclining/intertwined intimacy plus lower-frame wording in the same prompt.
+
+Safer move:
+
+- Change HOW to `waterline continuity` or `composition/reflection refinement`.
+- Keep all three figures standing in the same pool.
+- Use `deep black reflective water at waist level`.
+- Use `submerged classical figure silhouettes` and `ripples, steam, moonlight, and black-marble shadows`.
+- If skin-tone edits reject on a strong image, regenerate with the complexion hierarchy from the start instead of editing the image.
+
+Do not:
+
+- Keep trying the same lower garment edit after two rejects.
+- Use dry-step seated poses when the user wants no-pants boundary.
+- Import this branch into the anime/fashion direction unless the user requests a style blend.
+
 ### Soft-Anime Sensual Water Reference Cluster - 2026-07-09
 
 The soft-anime bathing-pair references looked visually relevant to the user, but the family rejected repeatedly in the same chat. Rejections continued after removing the images, backing off to head-and-shoulders, and attempting a safe style-sheet calibration.

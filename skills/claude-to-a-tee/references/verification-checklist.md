@@ -9,6 +9,9 @@ only after inspecting both the reference and target surface.
   icons, images, audio, and handoff files.
 - Record the reference filename and a stable hash or modification identity.
 - Render the reference rather than relying only on source or screenshots.
+- Treat user-supplied screenshots as authoritative evidence for intended
+  route/state/viewport, especially when the HTML contains multiple pages,
+  states, or responsive branches.
 - Exercise tabs, menus, forms, dialogs, loading, empty, disabled, selected,
   hover, focus, error, and success states that exist in the reference.
 - Exercise every mapped product interaction to its representative end state,
@@ -30,6 +33,26 @@ only after inspecting both the reference and target surface.
   generic shells, 404s, stale service-worker builds, or pre-hydration content.
 - Keep legacy visual baselines separate from current Claude parity evidence;
   refresh stale baselines only after the new parity is approved.
+
+## Screenshot State Frames
+
+- When screenshots accompany offline HTML, build a screenshot ledger before
+  implementation: file, route/screen, viewport if known, scroll position
+  (top/full-page/mid-page/bottom), active state, visible overlays, and whether
+  the screenshot supersedes older references.
+- Use full-page screenshots to identify intended content order, missing
+  route-specific components, sidebar/footer composition, list item counts, and
+  where the page is expected to end.
+- Use the HTML/CSS for exact values whenever available; use screenshots to
+  choose the correct state to measure and to catch rendered intent that source
+  inspection may hide.
+- If a screenshot shows a component or state that the implementation lacks,
+  classify it as `matched`, `behavior exception`, `visual exception`, or `not
+  done` in the route component manifest. Do not silently ignore it because the
+  first viewport or default route already matches.
+- If screenshots and HTML disagree, inspect whether the screenshot is from a
+  newer export, a different route, a scrolled state, an interaction state, or a
+  stale baseline before choosing the source of truth.
 
 ## Component Geometry
 

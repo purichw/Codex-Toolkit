@@ -243,7 +243,9 @@ Claude-to-a-tee verification.
    offline Claude HTML. Exercise all relevant controls and responsive states.
 3. Read the underlying HTML, CSS, and JavaScript. Record component structure,
    selectors, computed dimensions, breakpoints, assets, transitions, and states.
-4. Capture baseline screenshots at the relevant reference viewports.
+4. Capture baseline screenshots at the relevant reference viewports. Treat
+   user-supplied screenshots as route/state evidence, not as a replacement for
+   rendered HTML inspection.
 5. Inventory the target application's current interactions and selectors before
    editing so visual work does not break behavior.
 
