@@ -52,6 +52,9 @@ These fail the skill:
 - using product CSS clamps, spacing, or old primitives when they alter Claude
   geometry without declaring a visual exception;
 - shipping mock-only controls as inert UI;
+- downgrading a handoff-declared feature to read-only, hidden, disabled, or
+  "future API" state before first mapping and attempting the real product write
+  path;
 - calling real product data/auth/API differences "behavior exceptions" while
   also allowing avoidable visual drift;
 - production smoke that checks only HTTP 200 or login, not the deployed
@@ -67,6 +70,14 @@ Apply this source-of-truth order:
 2. The supplied offline Claude rendered UI, CSS, assets, and visible states.
 3. Existing product behavior, data contracts, tests, accessibility, i18n, security, performance, and production operations.
 4. Older handoff notes and screenshots.
+
+If the handoff changelog marks a version as current, or says a visible edit
+"writes real state", treat that as an acceptance criterion. Do not reinterpret
+those controls as mock-only because the target app lacks an existing endpoint.
+First map the needed product-owned write path (API, Firestore document, CMS,
+storage, or state reducer), implement it when it is within the requested scope,
+and only then classify anything truly impossible as a blocker or user-approved
+defer. A missing backend hook is implementation work, not a visual exception.
 
 Preserve newer product behavior when it intentionally differs from Claude. Match
 Claude exactly everywhere else, and report intentional divergences.
@@ -106,6 +117,13 @@ or actions that the target product cannot perform, do not ship them as inert UI.
 Either make the behavior real end to end, adapt the component so it expresses
 the same design principles with real product behavior, or omit it and document
 the intentional divergence.
+
+When the reference and handoff disagree about whether a control is mock-only,
+prefer the handoff's explicit functional language. For example, controls named
+Grant/Revoke, Freeze/Restore, Complete/Reset, Lock/Unlock, Mark passed, or
+Re-evaluate are not safe to disable merely because the preexisting product has
+no matching API. They must become real, be replaced by an equivalent real
+product action, or block release until the user accepts a defer.
 
 ## Reference State Inventory
 
@@ -307,6 +325,13 @@ not broadly suppress asset failures or silently substitute unrelated media.
 When preserving product behavior, preserve Claude presentation first. Keeping real video/media/search/map data, route structure, lazy loading, load-more, virtualization, or scrub/sticky mechanics is usually a behavior exception; it does not justify changing the media frame, card count, nav spacing, footer structure, or section rhythm.
 If a product contract forces a visual change, document it as a visual exception and keep the closest possible Claude geometry.
 
+Do not confuse "respect the product engineering contract" with "do less product
+engineering." If matching Claude requires a new trusted endpoint, state adapter,
+audit-log action, persistence field, or regression test, build that product
+plumbing unless the user narrowed scope. Hiding or disabling a feature because
+the plumbing is absent is a scope decision that requires explicit user
+acceptance before release.
+
 Project-specific exception: for the Shane and His Thai app, preserve the
 project font system even when a Claude standalone uses a different typeface.
 Use Google Sans across the live app unless the user explicitly asks to change
@@ -425,6 +450,14 @@ static screenshots. At minimum, open menus/dropdowns, switch tabs, press audio
 buttons, complete/reset one activity where relevant, and inspect a scrolled
 mid-page and bottom-page state on long screens.
 
+For slide-overs, drawers, modals with internal scroll, sticky footers, and
+right/left rails, verify the scroll container itself at top, middle, and bottom.
+Record the first visible and last visible section names, whether lower sections
+such as badges/streak/history are reachable, and whether sticky actions cover
+content. A screenshot where the footer appears before below-fold reference
+sections, or where lower sections require hidden/unclear scrolling, is a
+critical mismatch until fixed or explicitly accepted.
+
 When authentication, emulators, seeded data, feature flags, or remote state are
 needed to see the real product screen, set them up before visual verification.
 If the app lands on login, loading, or account-error screens, fix the test setup
@@ -482,6 +515,11 @@ default route/page title, header/nav geometry, primary hero/card/grid geometry,
 first primary interaction, console errors, and page-level overflow at desktop
 and one mobile viewport. A production smoke that only checks HTTP 200 and basic
 functionality is not enough for Claude-to-a-tee work.
+
+For changed authenticated admin surfaces, production smoke must reach the
+changed authenticated surface or an equivalent preview/test environment with the
+same deployed artifact and seeded state. A smoke that stops at the login/admin
+gate does not verify the changed UI and cannot close the release gate.
 
 Report the reference files, routes/components, measured parity status, viewport
 matrix, tests, browser coverage, deployed URL if any, and every intentional or
