@@ -17,7 +17,7 @@ If the user says an audio item sounds chopped, rushed, discontinuous, or like re
 
 ## Project Context
 
-- Repo: `/Users/point/Library/Mobile Documents/com~apple~CloudDocs/Website Projects/thai-flashcards`
+- Repo: `/Users/point/Website Projects/thai-flashcards`
 - Main-course Chirp output: `public/audio/chirp/main-course/<unit-id>/<audio-id>.mp3`
 - Generator: `tools/generate-main-course-chirp-audio.mjs`
 - Audit: `tools/audit-chirp-audio.mjs`

@@ -5,11 +5,8 @@ description: Reproduce an offline Claude Design HTML reference exactly at compon
 
 # Claude To A Tee
 
-Treat the supplied offline Claude HTML as executable design documentation. Match
-its rendered components and interactions, not merely its palette or broad layout.
-Treat the target product as real software, not a display case for a pretty mock.
-The reference is a design source of truth, but the implementation still needs
-product judgment, data flow, permissions, edge states, and end-to-end behavior.
+Treat the supplied offline Claude HTML as executable design documentation. Match its rendered components and user-visible states, not merely its palette or broad layout.
+Treat the target product as real software, not a display case for a pretty mock. The reference is a UI presentation source of truth; the target product remains the source of truth for data, routing, auth, persistence, performance, accessibility, security, tests, operations, and frontend architecture.
 
 Expand "to a tee" internally to:
 
@@ -20,56 +17,55 @@ CLAUDE TO A TEE AUDIT. Implement from the offline Claude HTML exactly at compone
 Read [references/verification-checklist.md](references/verification-checklist.md)
 before inspecting or editing the target application.
 
-## Hard Gate Summary
+## Non-Negotiable Execution Gate
 
-For every Claude-to-a-tee implementation or repair, create a measured parity
-audit before claiming success. This is a release blocker, not a nice-to-have.
+Use this skill as a release blocker, not as inspiration. Do not claim success,
+commit, push, or deploy until this gate is satisfied, even when the user says
+"continue until done".
 
-Do not say "done", commit, push, or deploy while any `critical` mismatch remains
-unfixed or undocumented as an explicit user-approved product exception.
+Before editing, render and inspect both the Claude reference and the target app in the relevant state; never implement from memory, screenshots alone, or broad "looks close" judgment.
 
-Treat these as critical mismatches by default:
-
-- wrong default route or page title;
-- evidence captured from a different commit, generated artifact, deployment,
-  final redirected URL, or hydration state than the implementation under audit;
-- wrong global shell geometry: header, nav, masthead, footer, page margins;
-- wrong primary component geometry: hero, cards, register grids, side rails,
-  modals, tabs, filters, forms, or CTAs;
-- wrong page rhythm or scroll choreography: total page height, section start/end
-  offsets, scroll runway, sticky duration, reveal timing, or the scrollY where
-  major chapters/components appear;
-- wrong number/order of visible reference items, unless product data makes that
-  impossible and the alternative is documented;
-- missing route-specific hero, lead, pinned, banner, carousel, sidebar, or
-  featured component that appears in Claude, even when the page's feed/list/grid
-  still renders;
-- missing reachable Claude route, tab, modal, form, empty state, or responsive
-  state;
-- product behavior kept in a way that also changes Claude's visual geometry
-  without being documented as a visual exception;
-- screenshots or metrics captured from the wrong route, loading state, login
-  state, stale build, or selector miss.
-
-Before release, produce a compact measurement table with one row per high-risk
-component and per required viewport:
+Before finalizing, produce this compact self-check in working notes or closeout:
 
 ```text
-component | viewport | reference x/y/w/h/style/count | implementation x/y/w/h/style/count | delta | status
+REFERENCE RENDERED: yes/no + file/hash/state/viewport
+APP RENDERED: yes/no + URL/commit/state/viewport
+COVERAGE LEDGER: matched / behavior exception / visual exception / not done
+MEASURED PARITY TABLE: component | viewport | reference x/y/w/h/style/count | implementation x/y/w/h/style/count | delta | status
+BEHAVIOR/ENGINEERING EXCEPTIONS:
+VISUAL EXCEPTIONS:
+BLOCKERS BEFORE COMMIT:
+PRODUCTION ARTIFACT SMOKE:
 ```
 
-Use browser-computed values where possible. A broad screenshot comparison is not
-enough. If exact parity is intentionally impossible, the row must say whether
-the divergence is behavioral only or visual+behavioral, and why the visual delta
-is acceptable.
+A broad screenshot comparison is not enough. Use browser-computed geometry for
+high-risk components: global shell, header/topbar, nav/sidebar, page title,
+primary cards, filters/tabs, table/list rows, dialogs/drawers, history/footer,
+and page rhythm. Wrong default route, stale artifact, selector miss, loading or
+login state, shell geometry, primary component geometry, item order/count, or
+undocumented product-driven visual change is a critical mismatch by default.
+
+These fail the skill:
+
+- "Claude-inspired polish" instead of component-level measured parity;
+- editing first and measuring only after the user complains;
+- using product CSS clamps, spacing, or old primitives when they alter Claude
+  geometry without declaring a visual exception;
+- shipping mock-only controls as inert UI;
+- calling real product data/auth/API differences "behavior exceptions" while
+  also allowing avoidable visual drift;
+- production smoke that checks only HTTP 200 or login, not the deployed
+  artifact that contains the changed UI.
+
+Behavior exceptions are allowed when they preserve Claude geometry; visual exceptions must be explicit, and critical ones require acceptance before commit/push/deploy.
 
 ## Establish The Contract
 
 Apply this source-of-truth order:
 
 1. The user's newest explicit requirement.
-2. The supplied offline Claude HTML, CSS, JavaScript, assets, and rendered states.
-3. Existing product behavior, data contracts, tests, accessibility, and i18n.
+2. The supplied offline Claude rendered UI, CSS, assets, and visible states.
+3. Existing product behavior, data contracts, tests, accessibility, i18n, security, performance, and production operations.
 4. Older handoff notes and screenshots.
 
 Preserve newer product behavior when it intentionally differs from Claude. Match
@@ -77,8 +73,7 @@ Claude exactly everywhere else, and report intentional divergences.
 
 Split every intended divergence into two labels:
 
-- `behavior exception`: the product keeps real data, APIs, auth, routing, media,
-  persistence, or permissions while preserving Claude's visible geometry.
+- `behavior exception`: the product keeps real data, APIs, auth, routing, media, persistence, permissions, performance architecture, accessibility, security, tests/selectors, analytics hooks, or operations while preserving Claude's visible intent and geometry.
 - `visual exception`: the product intentionally changes Claude's layout,
   spacing, copy, item count, assets, colors, or component state.
 
@@ -96,14 +91,15 @@ completion states, or other reusable primitives, audit and update every product
 surface that uses those primitives. A matching overview page with old nested
 interactions is incomplete.
 
-Also do not silently reinterpret "to a tee" as "copy every front-end surface even
-when it cannot work." Before editing, separate the contract into:
+Also do not silently reinterpret "to a tee" as "copy Claude's front-end
+architecture." Before editing, separate the contract into:
 
 - the visual contract: what the reference literally renders;
 - the design principles: hierarchy, density, rhythm, palette role, interaction
   model, and the reason those choices work;
-- the product-functional contract: what the target app can actually support with
-  its current auth, APIs, data model, permissions, assets, and user workflows.
+- the engineering contract: target-owned data, auth, routing, persistence, lazy loading, load-more/pagination, virtualization, scrub/sticky mechanics, responsive input behavior, accessibility, security/privacy, tests/selectors, analytics hooks, CMS/content pipelines, and operations.
+
+Treat Claude JavaScript and demo interactions as evidence of intended visible states, not as architecture to clone. When mechanics conflict, keep the product-owned mechanism and reproduce Claude's visible intent: geometry, hierarchy, density, tone, perceived motion, and terminal states.
 
 If the Claude reference includes mock-only controls, demo data, fake navigation,
 or actions that the target product cannot perform, do not ship them as inert UI.
@@ -265,8 +261,8 @@ At minimum, measure the global shell and every first-viewport component:
 
 - page title/default route;
 - top bars, masthead/logo, primary nav, secondary nav;
-- total scroll height, major section start offsets, and the scrollY where each
-  chapter, sticky panel, register/list, and footer first becomes visible;
+- user-visible scroll rhythm: total height, major section offsets, and where
+  chapters, sticky panels, registers/lists, and footers first become visible;
 - hero top offset, section height, sticky runway, headline box, media box,
   side rail/card, CTA, and chapter/slide count;
 - first repeated grid/list: item count, grid columns, card box, media box,
@@ -293,14 +289,13 @@ Match all relevant details:
 - colors, borders, radii, shadows, backgrounds, icons, images, and crops;
 - inputs, placeholders, focus rings, selected, disabled, loading, empty, and
   error states;
-- animation timing, transforms, overlays, modals, scrolling, and sticky regions;
+- user-visible animation states, transforms, overlays, modals, and scroll/sticky outcomes;
 - touch behavior, safe areas, keyboard behavior, hover alternatives, and
   horizontal overflow.
 
 Reuse exact supplied assets where licensing and project constraints permit.
-Preserve product logic, event delegation, data persistence, auth, i18n, and
-accessibility unless the user explicitly changes them. Inspect selector and test
-dependencies before renaming classes, IDs, data attributes, or DOM hierarchy.
+Preserve product logic, routing, data fetching, event delegation, persistence, auth, permissions, i18n, accessibility, performance, security/privacy, analytics/test hooks, and operations unless the user explicitly changes them.
+Inspect selector and test dependencies before renaming classes, IDs, data attributes, or DOM hierarchy.
 
 Audit data-backed assets as well as repository files. When a remote CMS image,
 font, video, or embed is confirmed unavailable, prefer repairing or removing it
@@ -309,12 +304,8 @@ confirmed asset in the public runtime, preserve admin visibility for replacement
 add regression coverage, and disclose that the source record still exists. Do
 not broadly suppress asset failures or silently substitute unrelated media.
 
-When preserving product behavior, preserve Claude geometry first. For example,
-keeping real video/media/search/map data is usually a behavior exception; it
-does not automatically justify changing the media frame, card count, nav
-spacing, footer structure, or section rhythm. If real product data forces a
-visual change, document that as a visual exception and keep the closest possible
-Claude geometry.
+When preserving product behavior, preserve Claude presentation first. Keeping real video/media/search/map data, route structure, lazy loading, load-more, virtualization, or scrub/sticky mechanics is usually a behavior exception; it does not justify changing the media frame, card count, nav spacing, footer structure, or section rhythm.
+If a product contract forces a visual change, document it as a visual exception and keep the closest possible Claude geometry.
 
 Project-specific exception: for the Shane and His Thai app, preserve the
 project font system even when a Claude standalone uses a different typeface.
@@ -462,12 +453,10 @@ Do not claim completion, commit, push, or deploy a Claude-to-a-tee change until:
   screen, not just an internal route that happened to look similar;
 - the affected component contracts were extracted from Claude and checked
   against implementation computed styles;
-- page rhythm and scroll choreography were measured beyond the first viewport:
-  total height, section offsets, sticky durations, and first-visible scrollY for
-  major components;
+- page rhythm and scroll/sticky outcomes were measured beyond the first viewport where they affect visible UI, while preserving product-owned scroll, scrub, lazy loading, load-more, pagination, and virtualization mechanics;
 - desktop, tablet, and required mobile viewports passed without incoherent
   overlap, clipping, or page-level horizontal overflow;
-- required interactions and product behavior still work;
+- required interactions and the product engineering contract still work;
 - every visible action is either functional, intentionally disabled with a real
   reason, or removed as a documented mock-only divergence;
 - browser console, page errors, failed requests, and 4xx/5xx asset responses
