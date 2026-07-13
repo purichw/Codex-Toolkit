@@ -8,7 +8,11 @@ only after inspecting both the reference and target surface.
 - Identify the exact offline HTML and all supporting CSS, JavaScript, fonts,
   icons, images, audio, and handoff files.
 - Record the reference filename and a stable hash or modification identity.
+- Use `scripts/extract_reference.py` output as a seed for inventory and parity
+  tables when available; do not count it as rendered verification by itself.
 - Render the reference rather than relying only on source or screenshots.
+- From the initial screen, navigate every reachable page/route/screen and click
+  every visible control; record static or no-op Claude outcomes explicitly.
 - Treat user-supplied screenshots as authoritative evidence for intended
   route/state/viewport, especially when the HTML contains multiple pages,
   states, or responsive branches.
@@ -75,6 +79,11 @@ selectors, a login screen, or a route that silently failed to load, discard that
 evidence and rerun the audit after fixing the setup. Never count screenshots or
 metrics from an unauthenticated shell, placeholder route, or selector miss as
 Claude-to-a-tee verification.
+
+When the Claude reference has no animation or no real behavior, do not treat the
+absence as permission to skip product behavior verification or to invent motion.
+Record the static reference outcome, then verify the closest faithful product
+behavior.
 
 ## Artifact Provenance
 
