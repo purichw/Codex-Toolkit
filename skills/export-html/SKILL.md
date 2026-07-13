@@ -12,9 +12,10 @@ Create HTML exports as executable design documentation. The export must preserve
 ## Non-Negotiables
 
 - Treat "export HTML" as **to-a-tee live/source parity**, not redesign. If exporting an existing app screen, render the real app/component first and match it component-perfectly wherever technically possible.
+- A hand-authored approximation is **not** a valid source-parity export for an existing app screen. If a live render fails, first fix the render path, use an app-supported visual harness, or build a temporary harness that imports the real components/CSS/data. If none of those is possible, stop and report the blocker instead of fabricating a close-looking UI.
 - Do not add hero panels, decorative wrappers, marketing copy, or alternate layout concepts unless the source screen already has them or the user explicitly asks.
 - Do not create a collage, summary board, contact sheet, state gallery, or multi-screen wall unless explicitly requested. The default export must behave like the live flow: one screen visible at a time, with navigation/state controls that switch screens rather than showing all screens side by side.
-- Keep prototype controls separate from the exported design surface. Put them in a collapsed dev overlay, query/hash controls, or a clearly labeled non-product toolbar outside the first viewport.
+- Keep prototype controls separate from the exported design surface. Prefer hash/query controls, product-native navigation, or a collapsed non-product toolbar **below the captured screen**. Do not place a fixed overlay over the first viewport unless the user explicitly requests it.
 - The file must open directly with `file://` unless the user asks for a server-backed prototype.
 - Every visible interaction included in the export must work locally with client-side mock state. Do not leave clickable-looking controls inert.
 - Verify the exported HTML in a browser before final response.
@@ -25,6 +26,7 @@ Create HTML exports as executable design documentation. The export must preserve
    - Record the requested screen(s), route(s), and purpose of export.
    - If the source is an existing product screen, render the live/local app first. Use screenshots and computed dimensions for important components.
    - If the source is a design file or screenshot, render/open that reference before building.
+   - If auth, API, emulator, or environment setup blocks rendering, try the repo's existing e2e/dev harnesses and documented wrappers before falling back. A blocked live render is a blocker to resolve, not permission to redesign.
 
 2. **Create State Inventory**
    - List every route/screen requested.
@@ -33,15 +35,17 @@ Create HTML exports as executable design documentation. The export must preserve
 
 3. **Build Export**
    - Prefer one standalone `.html` file with inline CSS/JS.
-   - Use product CSS tokens, spacing, typography, assets, copy, and real component structure wherever possible.
+   - For existing app screens, prefer DOM snapshot/export from the rendered source screen, server-side rendering of real components, or a temporary harness that imports the real components. Use product CSS tokens, spacing, typography, assets, copy, and real component structure wherever possible.
    - Use realistic mock data from the product. Do not use filler unless data is unavailable; label mock-only data in notes.
    - Make state switches clickable with local JavaScript.
+   - Mapping docs and route inventories are supporting material; they do not compensate for a visually inaccurate export.
 
 4. **Verify**
    - Open the export with `file://`.
    - Exercise state controls and primary interactions.
    - Check desktop and mobile at minimum; add tablet when the layout changes there.
    - Check for console errors, page errors, horizontal overflow, clipped text, broken assets, and source-parity drift.
+   - Compare against the live/source reference screenshots for the same route(s). If the export visibly diverges in layout, spacing, typography, or component hierarchy, iterate before delivering.
 
 5. **Deliver**
    - Provide the absolute file path.
@@ -59,6 +63,16 @@ The export must be live/source **to a tee**: component-perfect wherever technica
 - **Responsive:** match mobile, tablet, and desktop breakpoints that the source supports.
 
 When exact parity is impossible, document it as an exception in the export notes and final response.
+
+## Source-Parity Failure Mode
+
+If the export starts looking like a manually assembled facsimile:
+
+- Stop adding more screens.
+- Identify which source route/component could not be rendered or captured.
+- Build or use a real-component harness before continuing.
+- Remove or quarantine the inaccurate artifact so it is not mistaken for a Claude Design reference.
+- Tell the user what remains reusable: usually route inventory, state inventory, mapping notes, and asset manifests. The visual HTML must be rebuilt from source.
 
 ## State Coverage Rules
 
