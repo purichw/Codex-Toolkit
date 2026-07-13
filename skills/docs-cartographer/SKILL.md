@@ -17,6 +17,24 @@ materially better.
 3. Check current code over old notes when they disagree.
 4. Identify audiences: new chat handoff, future maintainer, release operator,
    designer, or product owner.
+5. Note which follow-on skills apply, such as `$project-onboarding`,
+   `$release-gate`, `$claude-to-a-tee`, `$mobile-web-qa`, `$firebase-*`, or
+   project-specific skills.
+
+## Consolidate Before Creating
+
+Prefer improving the canonical doc over adding another isolated note. Create a
+new document only when the information has a distinct audience or lifecycle.
+
+Use this placement rule:
+
+- **current-state navigation:** project map, site map, module map, interaction map;
+- **future-state design:** architecture plan, migration plan, target-state map;
+- **operating memory:** playbook, handoff, release runbook, work log;
+- **domain contract:** data contract, API schema, Firebase/rules, asset/audio map.
+
+If two docs overlap, merge the reusable facts into the canonical doc and leave a
+short pointer in the older doc when local convention expects it.
 
 ## Write Useful Maps
 
@@ -54,6 +72,33 @@ avoid presenting aspirations as current behavior.
 Use Mermaid diagrams when relationships are easier to scan visually. Keep
 diagrams simple and labels quoted when punctuation appears.
 
+## Output Templates
+
+For a project map, use:
+
+```text
+Purpose / current goal
+How to run / verify
+Top-level directories
+Routes and entry points
+Data/auth/storage/deploy flow
+Important docs and generated assets
+Relevant skills
+Risks / stale notes / contradictions
+Next actions
+```
+
+For a handoff, use:
+
+```text
+Current state
+What changed
+Commands run
+Files and docs touched
+Open risks / blocked items
+Recommended next skill or gate
+```
+
 ## Placement
 
 - Update existing canonical docs when they already exist.
@@ -68,4 +113,6 @@ diagrams simple and labels quoted when punctuation appears.
 - Keep claims grounded in code or current docs.
 - Mark stale or uncertain information clearly.
 - Avoid writing docs that merely narrate obvious file names.
+- Keep docs navigable: one clear map is better than scattered fragments.
+- Include verification or owner/source-of-truth notes for operational claims.
 - After editing docs, run markdown/lint checks if the repo defines them.

@@ -1,0 +1,4 @@
+interface:
+  display_name: "Ledger Logic"
+  short_description: "Maintain shared ledger behavior"
+  default_prompt: "Use $ledger-logic to implement or audit shared ledger math, participants, settlement, invites, guests, and persisted contract changes."

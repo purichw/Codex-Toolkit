@@ -5,6 +5,10 @@ description: Generate, reuse, crop, replace, optimize, and QA image assets for t
 
 # Shane Thai Image Assets
 
+Use `$course-image-assets` for the reusable educational image asset workflow.
+This skill is the Shane and His Thai overlay: exact asset paths, helper
+functions, audits, and style constraints.
+
 Use this skill before adding, replacing, mapping, cropping, or auditing images in the Shane and His Thai app.
 
 ## Project context
@@ -28,6 +32,19 @@ npm run test:data
 npm run build
 node tools/audit-main-course-images.mjs --json
 ```
+
+Use adjacent skills when the task crosses boundaries:
+
+- `$course-image-assets` for the global educational image contract, semantic
+  reuse, generation, crop, and closeout.
+- `$shane-thai-audio-generator` when lesson data, vocabulary IDs, prompts, or UI
+  controls change alongside images.
+- `$placeholder-image` for generic sourcing/crop judgment outside Shane-specific
+  warm educational assets.
+- `$claude-to-a-tee` when card/image layout must match Claude Design exactly.
+- `$mobile-web-qa` and `$snapshot` when rendered card crop/responsive evidence is
+  needed.
+- `$release-gate` before commit, push, deploy, or handoff.
 
 ## Core rule
 
@@ -177,5 +194,9 @@ For family or people-centered vocabulary, include inclusive casting when it stil
 - Check mobile/tablet if the image appears in responsive layouts.
 - Confirm no unrelated asset was substituted.
 - Run the project’s relevant tests/builds if code/data changed.
+
+If audio and image/course-data mappings changed together, run the relevant audio
+audit from `$shane-thai-audio-generator` too; report one combined asset map
+instead of disconnected audio/image notes.
 
 When reporting completion, mention whether images were reused, regenerated, recropped, or intentionally left unchanged.

@@ -5,6 +5,10 @@ description: "Use when working on Coin Quest Ledger Party Ledger behavior: Split
 
 # Coin Quest Ledger Logic
 
+Use `$ledger-logic` for reusable shared-ledger math, identity, invite/guest, and
+verification workflow. This skill is the Coin Quest overlay: project docs,
+known Character ID rules, settlement fixture, and commands.
+
 ## Overview
 
 This skill keeps Party Ledger logic changes grounded in the current Coin Quest
@@ -26,6 +30,20 @@ From the repo root, read these before implementation:
 
 If the user asks for exact Claude visual parity, also use `$claude-to-a-tee` and
 `CLAUDE_TO_A_TEE_QA.md`.
+
+Use adjacent skills when the task crosses boundaries:
+
+- `$ledger-logic` for the global ledger model, settlement, identity, and test
+  workflow.
+- `$coin-quest-admin-ops` for Admin Portal user/board lifecycle or Super Admin
+  behavior affected by ledger data.
+- `$coin-quest-native-parity` for native/web parity, Expo app, or shared
+  settlement/account contracts.
+- `$firebase-account-management` or `$firebase-security-rules` for Auth,
+  Firestore Rules, Admin SDK, service-account, or production access changes.
+- `$regression-hunter` when a ledger bug suggests repeated settlement,
+  participant, invite, or normalization failures.
+- `$release-gate` before commit, push, deploy, or handoff.
 
 ## Non-Negotiable Rules
 
@@ -61,15 +79,22 @@ Add or preserve unit coverage whenever settlement math changes.
 
 1. Confirm the affected flow: participant entry, invite/reminder, guest handling,
    expense split mode, settlement list/map, export/import, or profile sync.
-2. Trace persisted shape through `data-contracts.md` and normalization in
+2. Apply `$ledger-logic` to define actor types, identity keys, split/settlement
+   model, invite/guest behavior, and worked examples.
+3. Trace persisted shape through `data-contracts.md` and normalization in
    `shared/pointy-logic.js`.
-3. Patch shared pure logic first when possible, then patch `trip/app.js` UI/state
+4. Patch shared pure logic first when possible, then patch `trip/app.js` UI/state
    glue.
-4. Preserve i18n through `lang.js` or local bilingual copy maps.
-5. Run targeted verification:
+5. Preserve i18n through `lang.js` or local bilingual copy maps.
+6. Run targeted verification:
    - math/normalization: `npm run test:unit`
    - syntax/UI state wiring: `npm run test:syntax`
    - invite/reminder/mobile flow: targeted Playwright or `npm run test:e2e`
    - commit/deploy request: full `npm test`
-6. Update `INVITES_AND_GUESTS.md`, `data-contracts.md`, or `SITE_MAP_AND_INTERACTIONS.md`
+7. Update `INVITES_AND_GUESTS.md`, `data-contracts.md`, or `SITE_MAP_AND_INTERACTIONS.md`
    when behavior or persisted shape changes.
+
+## Closeout
+
+Report the affected flow, shared contract files checked, adjacent skills used or
+intentionally not needed, tests run, and web/native/admin risk if any.

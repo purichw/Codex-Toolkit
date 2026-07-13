@@ -5,6 +5,10 @@ description: "Use when working on Coin Quest Ledger Admin Portal operations: Sup
 
 # Coin Quest Admin Ops
 
+Use `$admin-ops` for the reusable admin portal workflow. This skill is the Coin
+Quest overlay: project paths, Firebase/Admin rules, data contracts, and known
+admin vocabulary.
+
 ## Overview
 
 This skill keeps `/admin/` changes aligned with the live implementation, not only
@@ -27,6 +31,20 @@ Read these first from the repo root:
 
 Use `ADMIN.md` as prototype/handoff history only. It is not the primary live
 implementation runbook.
+
+Use adjacent skills when the task crosses boundaries:
+
+- `$admin-ops` for the global admin operation map, safety model, and closeout.
+- `$coin-quest-ledger-logic` for participant, invite, settlement, board data, or
+  Character ID rules surfaced in Admin.
+- `$coin-quest-native-parity` when Admin changes affect shared native/web data
+  contracts.
+- `$firebase-account-management` for Auth users, custom claims, profile
+  documents, service accounts, or account lifecycle.
+- `$firebase-security-rules` for Firestore/Storage rules, Admin SDK endpoint
+  authorization, or production access.
+- `$claude-to-a-tee` for exact Admin UI parity from Claude handoffs.
+- `$release-gate` before commit, push, deploy, or handoff.
 
 ## Live Admin Rules
 
@@ -51,15 +69,22 @@ implementation runbook.
 1. Identify the operation: auth gate, board edit, user edit, lifecycle, reset,
    permanent delete, draft/restore/publish, revision log, relationship map, or
    responsive layout.
-2. Trace source and persistence through `ADMIN_PORTAL_IMPLEMENTATION.md` and
+2. Apply `$admin-ops` to map identity, authorization, operation, auditability,
+   UX state, verification, and closeout.
+3. Trace source and persistence through `ADMIN_PORTAL_IMPLEMENTATION.md` and
    `data-contracts.md`.
-3. Preserve Super Admin checks and test-mode boundaries.
-4. For visual work from Claude, use `$claude-to-a-tee` and preserve Admin
+4. Preserve Super Admin checks and test-mode boundaries.
+5. For visual work from Claude, use `$claude-to-a-tee` and preserve Admin
    vocabulary such as `page-head`, `card`, `stat`, `tbl`, `detail-grid`,
    `profile-card`, `log-list`, and modal patterns.
-5. Verify:
+6. Verify:
    - small copy/layout: `npm run test:syntax` plus browser spot-check
    - lifecycle/delete/reset/data: targeted unit/e2e plus `npm test` when risky
    - commit/deploy request or admin persistence change: full `npm test`
-6. Update `ADMIN_PORTAL_IMPLEMENTATION.md`, `ACCOUNT_MANAGEMENT_IMPLEMENTATION.md`,
+7. Update `ADMIN_PORTAL_IMPLEMENTATION.md`, `ACCOUNT_MANAGEMENT_IMPLEMENTATION.md`,
    `SECURITY_AND_FIREBASE_RULES.md`, or `data-contracts.md` if behavior changes.
+
+## Closeout
+
+Report the admin operation, auth/security path checked, docs updated, adjacent
+skills used or intentionally not needed, tests run, and production/admin risk.

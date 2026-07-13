@@ -10,7 +10,7 @@ user's intent.
 - Local checkout used when this file was written: `/Users/point/Codex-Toolkit`
 - Visibility at initial setup: private
 - Purpose: archive and document the user's personal Codex skills
-- Current skill count: 17 `SKILL.md` files under `skills/`
+- Current skill count: 26 `SKILL.md` files under `skills/`
 
 The first import copied personal skills from:
 
@@ -83,11 +83,17 @@ Expected current skill folders:
 - `coin-quest-admin-ops`
 - `coin-quest-ledger-logic`
 - `coin-quest-native-parity`
+- `admin-ops`
+- `course-image-assets`
+- `design-direction`
 - `docs-cartographer`
+- `export-html`
 - `firebase-account-management`
 - `firebase-security-rules`
 - `image-boundary-iteration`
+- `ledger-logic`
 - `mobile-web-qa`
+- `native-parity`
 - `notenwert-design-direction`
 - `notenwert-maintainer`
 - `placeholder-image`
@@ -96,6 +102,9 @@ Expected current skill folders:
 - `release-gate`
 - `shane-thai-audio-generator`
 - `shane-thai-image-assets`
+- `site-maintainer`
+- `snapshot`
+- `tts-audio-assets`
 
 If the count or names change, update `README.md`, `skills/README.md`, and
 `docs/SKILL_CATALOG.md`.
@@ -138,7 +147,7 @@ updates, enough verification is usually:
 
 ```sh
 git diff --check
-python3 scripts/verify_skills.py --expected-count 17
+python3 scripts/verify_skills.py --expected-count 26
 ```
 
 For skill script changes, run the script's smoke-test or help path when one
@@ -152,6 +161,8 @@ As of this document, the repository has:
 - one docs commit adding catalog, install, and maintenance docs;
 - this future-agent context layer.
 - one archive update adding 2 more skills and updating the verifier count to 17.
+- one archive update adding 9 more reusable/generalized skills and updating the
+  verifier count to 26.
 
 The main thing future Codex should preserve is the distinction between live local
 skills and the GitHub archive. That distinction prevents accidental overwrites

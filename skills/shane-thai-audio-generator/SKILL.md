@@ -5,6 +5,10 @@ description: Generate, regenerate, audit, and QA Google Chirp audio files for th
 
 # Shane Thai Audio Generator
 
+Use `$tts-audio-assets` for the reusable TTS/audio asset workflow. This skill is
+the Shane and His Thai overlay: project paths, Google Chirp commands, voice
+policy, and course-data wiring.
+
 Use this skill for Shane and His Thai audio asset work, especially Google Chirp TTS for lesson words, phrases, sentences, dialogues, story lines, grammar examples, spelling prompts, read prompts, quiz/listening prompts, and UI audio buttons.
 
 ## Core Rule
@@ -57,6 +61,18 @@ The npm scripts set `GOOGLE_CLOUD_PROJECT=thai-chirp-20260613`. The generator
 can also use `gcloud config get-value project` and `gcloud auth print-access-token`;
 if auth is missing, ask the user to run the appropriate Google auth command
 instead of faking or hand-writing audio files.
+
+Use adjacent skills when the task crosses boundaries:
+
+- `$tts-audio-assets` for the global TTS asset contract, reuse rules, naturalness
+  QA, and closeout.
+- `$shane-thai-image-assets` when lesson data, vocabulary IDs, badges, or card
+  mappings change alongside audio.
+- `$claude-to-a-tee` when audio controls or lesson UI must match a Claude
+  Design reference exactly.
+- `$mobile-web-qa` and `$snapshot` when audio-button behavior or layout must be
+  verified visually across responsive routes.
+- `$release-gate` before commit, push, deploy, or handoff.
 
 ## Workflow
 
@@ -198,6 +214,10 @@ For UI-affecting audio work, browser-test the affected routes and check:
 - replay works
 - active/completed tab state is unchanged by merely playing audio unless the product behavior requires it
 
+If audio and image/course-data mappings changed together, run the relevant image
+audit from `$shane-thai-image-assets` as well; keep one combined asset report
+instead of separate partial summaries.
+
 ## Reporting
 
 When finishing audio work, summarize:
@@ -205,4 +225,5 @@ When finishing audio work, summarize:
 - which unit/component/audio IDs changed
 - whether each item was generated, regenerated, reused, or left unchanged
 - which commands were run
+- adjacent Shane image/course-data checks when relevant
 - any items still needing human listening review

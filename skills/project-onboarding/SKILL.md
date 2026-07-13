@@ -1,6 +1,6 @@
 ---
 name: project-onboarding
-description: Read and map an unfamiliar or returning codebase before making changes. Use when the user asks Codex to study a project, read docs, continue work from handoff files, understand architecture, plan an architecture redesign, do an Extra High architecture pass, find commands, identify deploy paths, summarize current state, or prepare a safe implementation plan across any repository.
+description: Read and map an unfamiliar or returning codebase before making changes. Use when the user asks Codex to study a project, audit project docs, continue work from handoff files, understand architecture, plan an architecture redesign, do an Extra High architecture pass, find commands, identify deploy paths, identify relevant follow-on skills, summarize current state, or prepare a safe implementation plan across any repository.
 ---
 
 # Project Onboarding
@@ -12,14 +12,83 @@ assumptions, and keep the output short enough to be useful during active work.
 
 1. Identify the workspace root, git state, package manager, framework, and
    important top-level folders.
-2. Read project-local instructions first: `README*`, `CLAUDE*`, `AGENTS*`,
-   `HANDOFF*`, `Memory*`, `roadmap*`, `PLAYBOOK*`, `docs/**`, and CI/deploy
-   config. Use `rg --files` before broader search.
+2. Use `rg --files` before broader search. Read project-local instructions and
+   docs that match the task, especially:
+   - agent/handoff: `AGENTS*`, `CLAUDE*`, `HANDOFF*`, `Memory*`, `PLAYBOOK*`;
+   - project process: `README*`, `CONTRIBUTING*`, `CHANGELOG*`, `RELEASE*`,
+     `ROADMAP*`, `TODO*`;
+   - architecture decisions: `ARCHITECTURE*`, `ADR*`, `RFC*`, `DECISION*`,
+     `docs/**`;
+   - environment/deploy: `.env.example`, `.env.*.example`, `Dockerfile*`,
+     `docker-compose*`, `.devcontainer/**`, `.github/workflows/**`,
+     `.openai/hosting.json`, `vercel.json`, `netlify.toml`, `firebase.json`;
+   - API/data/security: `openapi*`, `swagger*`, `schema*`, `graphql*`,
+     `firestore.rules`, `storage.rules`, `SECURITY*`, `PRIVACY*`;
+   - design/product handoff: `DESIGN*`, `STYLEGUIDE*`, `UX*`, `FIGMA*`,
+     `WIREFRAME*`, `PROTOTYPE*`.
 3. Inspect build/test/dev commands from package files, lockfiles, Makefiles,
-   CI workflows, deployment config, and scripts.
+   workspace config, toolchain config, CI workflows, deployment config, and
+   scripts.
 4. Inventory app entry points, route structure, data/storage layer, auth,
    external services, styling system, test surface, and known generated assets.
 5. Check `git status --short` and protect existing user changes.
+
+## Skill Routing
+
+After the initial map, name any specialized skills that should take over or run
+alongside onboarding. Do not load every skill up front; use the matching skill
+only when the user request or project evidence points to it.
+
+- `$docs-cartographer`: create/update site maps, module maps, architecture
+  docs, onboarding docs, handoff docs, or Extra High architecture documents.
+- `$regression-hunter`: one bug suggests repeated patterns, stale constants,
+  duplicated logic, brittle selectors, or similar regressions elsewhere.
+- `$release-gate`: before commit, push, deploy, merge, PR, handoff, or after
+  substantial code/UI/data/auth/config/deploy changes.
+- `$snapshot`: capture, crop, compare, or present screenshots/visual evidence.
+- `$admin-ops`: admin portals, privileged actions, lifecycle operations,
+  destructive actions, audit logs, CMS/admin UX, or Admin SDK endpoints.
+- `$ledger-logic`: collaborative ledgers, expenses, splits, settlement,
+  participants, invites, guests, and shared financial contracts.
+- `$native-parity`: native iOS/Android app parity with web/product contracts,
+  Expo/React Native builds, shared backend contracts, or device build gates.
+- `$design-direction`: design briefs, visual north stars, critique, public/admin
+  UX direction, Claude prompts, and implementation guardrails.
+- `$site-maintainer`: website projects with source/build/deploy artifact
+  boundaries, generated output, service workers, tests, work logs, or hosting.
+- `$tts-audio-assets`: reusable TTS audio generation, reuse, naturalness QA, and
+  playback asset mapping.
+- `$course-image-assets`: reusable educational/vocabulary image generation,
+  semantic reuse, crop, mapping, and QA.
+- `$export-html`: create standalone/offline HTML exports or clickable prototypes
+  from live/product screens for design handoff, Claude Design, or state review.
+- `$claude-to-a-tee`: implement or audit exact UI parity from offline Claude
+  HTML, screenshots, exported assets, or Claude Design handoffs.
+- `$mobile-web-qa`: mobile/tablet/Safari/Chrome-on-iPhone responsive QA, touch
+  targets, safe areas, keyboard behavior, or horizontal overflow.
+- `$placeholder-image`: source, replace, generate, crop, or audit website/app
+  images and placeholder media.
+- `$firebase-account-management`: Firebase Auth users, signup/login, providers,
+  user profiles, custom claims, Admin SDK user management, or account flows.
+- `$firebase-security-rules`: Firestore/Storage rules, Admin SDK endpoints,
+  service-account env vars, billing/security assumptions, or production access.
+- `$openai-docs`: OpenAI API, model, Codex, or OpenAI product docs/questions.
+- `sites:sites-building` / `sites:sites-hosting`: site build/deploy work,
+  especially when `.openai/hosting.json` exists.
+- `$notenwert-maintainer` / `$notenwert-design-direction`: Notenwert project
+  implementation, CMS/admin, deploy prep, or visual direction; use with
+  `$site-maintainer` / `$design-direction` for reusable workflow.
+- `$shane-thai-audio-generator` / `$shane-thai-image-assets`: Shane and His
+  Thai lesson audio, Chirp TTS, vocabulary images, badges, or lesson artwork;
+  use with `$tts-audio-assets` / `$course-image-assets` for reusable workflow.
+- `$coin-quest-ledger-logic`, `$coin-quest-admin-ops`,
+  `$coin-quest-native-parity`: Coin Quest Ledger web/admin/native work; use
+  with `$ledger-logic`, `$admin-ops`, or `$native-parity` for reusable workflow.
+- `$image-boundary-iteration`: nudity_reference_prompting image iteration,
+  boundary-forward non-explicit image prompting, logging, or visual baselines.
+
+If multiple skills match, state the order and why. Read each selected skill's
+`SKILL.md` before acting on that part of the task.
 
 ## Map The Project
 
@@ -30,8 +99,24 @@ Produce a compact map with:
 - key runtime commands and env files;
 - frontend/backend/data/deploy flow;
 - docs or handoff files that matter most;
+- relevant follow-on skills and why they apply;
 - risky areas, stale notes, or contradictions;
 - immediate next steps for the requested task.
+
+Use this shape when onboarding itself is the deliverable:
+
+```text
+Project:
+Current goal:
+Docs read:
+Commands found:
+Architecture map:
+Data/auth/deploy flow:
+Relevant skills:
+Risks / stale docs:
+Safe next steps:
+Unknowns needing audit:
+```
 
 ## Extra High Architecture Pass
 
@@ -49,6 +134,8 @@ Collect:
   assets, and server routes;
 - auth, permissions, persistence, offline/sync, deployment, and environment
   boundaries;
+- architecture docs, ADRs/RFCs, API schemas, env/deploy/security docs, and
+  places where documentation conflicts with current code;
 - design-system surfaces, visual handoff sources, and places where UI primitives
   fork;
 - test coverage by surface and the gaps that would make refactors risky.

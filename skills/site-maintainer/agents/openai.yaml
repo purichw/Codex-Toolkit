@@ -1,0 +1,4 @@
+interface:
+  display_name: "Site Maintainer"
+  short_description: "Maintain generated/static site projects safely"
+  default_prompt: "Use $site-maintainer to work safely in site projects with source builds, generated deploy artifacts, tests, docs, and commit hygiene."

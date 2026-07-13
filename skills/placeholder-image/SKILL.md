@@ -152,6 +152,19 @@ Add alt text that describes the visible content, not the marketing slogan. If an
 
 Use responsive `srcset` or optimized image components when the framework supports them. For static prototypes, keep files reasonably sized and verify load behavior.
 
+Maintain a source log when replacing more than one or two images, or when the
+prototype is client/partner-facing:
+
+```text
+slot | chosen file/url | source/license | crop/object-position | reason | caveat
+```
+
+Use `$snapshot` for before/after visual evidence, `$mobile-web-qa` for
+responsive image QA, and `$release-gate` before commit/deploy. Use
+`$course-image-assets` for educational/vocabulary/course images, and
+project-specific image skills, such as `$shane-thai-image-assets`, when the app
+has its own asset contract.
+
 ## Responsive Verification
 
 After replacing images, render and inspect every affected route and component:
@@ -205,6 +218,7 @@ Report:
 
 - routes/components touched;
 - image sources or generation method;
+- source/license log for multi-image or client-facing work;
 - notable crop/object-position choices;
 - responsive viewports checked;
 - any intentional compromises, such as prototype-only licensing or unavailable exact activity imagery.

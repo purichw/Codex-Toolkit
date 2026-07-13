@@ -18,6 +18,25 @@ pattern without wandering into unrelated refactors.
 3. Search with `rg` before opening many files. Include strings, selectors,
    function names, constants, route names, data fields, and test names.
 
+Use `$project-onboarding` first when the repo structure is unknown. Use
+`$mobile-web-qa`, `$firebase-security-rules`, `$snapshot`, or project-specific
+skills when the pattern points to those domains.
+
+## Search Recipes
+
+- **Text/copy drift:** user-visible strings, i18n keys, fallback copy, seed data,
+  snapshots, stories, fixtures, demos, and docs.
+- **Data contract drift:** field names, normalization helpers, migrations,
+  adapters, API schemas, Firebase rules, import/export code, and tests.
+- **Selector/UI drift:** IDs, classes, `data-*` attributes, delegated listeners,
+  Playwright locators, CSS modules, and component variants.
+- **Generated asset drift:** image/audio IDs, manifest files, generated reports,
+  public assets, source maps, and audit scripts.
+- **Permission drift:** auth guards, allowlists, claims/roles, Admin SDK routes,
+  Firestore/Storage rules, test-mode bypasses, and destructive actions.
+- **Responsive drift:** duplicated breakpoints, fixed widths, sticky bars,
+  overflow rules, long labels, keyboard/focus states, and hidden scroll regions.
+
 ## Audit Nearby Risk
 
 - Compare all implementations of the same behavior.
@@ -39,9 +58,23 @@ pattern without wandering into unrelated refactors.
 - Add focused regression tests when a future break would be silent.
 - Do not mass-rewrite files just because a pattern search found harmless
   mentions.
+- Record safe mentions explicitly when they looked suspicious but are not the
+  same bug; this prevents repeated re-auditing later.
 
 ## Report
 
 List patterns searched, files changed, files intentionally left alone, tests
 added or run, and residual risk. If no broader issue is found, say that clearly
 and include the searches that support it.
+
+Use this compact ledger:
+
+```text
+Bug/invariant:
+Pattern classes searched:
+Queries/files inspected:
+Confirmed related fixes:
+Suspicious but safe:
+Tests/evidence:
+Remaining risk:
+```

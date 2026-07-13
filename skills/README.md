@@ -12,12 +12,15 @@ as a standalone skill directory under `~/.codex/skills`.
 | [`regression-hunter`](regression-hunter/SKILL.md) | Turns one bug into a targeted search for related patterns and nearby regressions. | Use after finding a suspicious hardcoded value, duplicated behavior, brittle selector, or repeated logic bug. |
 | [`release-gate`](release-gate/SKILL.md) | Defines the verification checklist before publishing, committing, pushing, deploying, or handing off work. | Use when changes are about to leave the local working state. |
 | [`mobile-web-qa`](mobile-web-qa/SKILL.md) | Verifies responsive UI across representative mobile, tablet, and desktop viewports. | Use for mobile web bugs, pre-deploy QA, keyboard behavior, overflow, safe areas, and touch interaction checks. |
+| [`snapshot`](snapshot/SKILL.md) | Captures screenshots with enough visual context for review. | Use for UI snapshots, before/after evidence, viewport captures, or production smoke proof. |
 
 ## Design And Frontend Parity
 
 | Skill | Description | Context |
 | --- | --- | --- |
 | [`claude-to-a-tee`](claude-to-a-tee/SKILL.md) | Treats offline Claude HTML as executable design documentation and verifies measured component parity. | Use for exact visual implementation from Claude Design exports, screenshots, or handoff files. |
+| [`design-direction`](design-direction/SKILL.md) | Defines and preserves product visual direction across projects. | Use for visual north stars, design briefs, redesign strategy, guardrails, Claude prompts, and handoff guidance. |
+| [`export-html`](export-html/SKILL.md) | Creates live-parity standalone HTML exports and clickable prototypes. | Use for offline HTML, design handoff, Claude/Figma inspection, or representative UI state review. |
 | [`notenwert-design-direction`](notenwert-design-direction/SKILL.md) | Captures Notenwert's editorial, civic, cultural-network design intent. | Use for Notenwert design direction, homepage hero behavior, NGA-style references, typography, imagery, and public/admin UX critique. |
 
 ## Firebase And Security
@@ -31,10 +34,15 @@ as a standalone skill directory under `~/.codex/skills`.
 
 | Skill | Description | Context |
 | --- | --- | --- |
+| [`admin-ops`](admin-ops/SKILL.md) | Defines reusable admin-operation rules for privileged actions, lifecycle flows, audit logs, and CMS/admin UX. | Use for admin portals across projects before applying a project-specific admin skill. |
 | [`coin-quest-admin-ops`](coin-quest-admin-ops/SKILL.md) | Defines safe behavior for the Coin Quest Ledger Admin Portal. | Use for Super Admin auth, users, boards, lifecycle actions, delete/reset flows, revisions, and Firebase-backed admin operations. |
+| [`ledger-logic`](ledger-logic/SKILL.md) | Protects collaborative ledger identity, split math, settlement, guests, invites, and persistence. | Use for shared expense/ledger behavior across projects before applying a project-specific ledger skill. |
 | [`coin-quest-ledger-logic`](coin-quest-ledger-logic/SKILL.md) | Protects Party Ledger rules for split math, invites, guests, Character IDs, and settlement. | Use for Coin Quest participant entry, payer/participant logic, reminders, direct invite links, or ledger regressions. |
+| [`native-parity`](native-parity/SKILL.md) | Keeps native apps aligned with product contracts, backend data, and design parity. | Use for Expo/React Native/iOS/Android work before applying a project-specific native skill. |
 | [`coin-quest-native-parity`](coin-quest-native-parity/SKILL.md) | Keeps the Coin Quest native Expo app aligned with the web data model and native build requirements. | Use for native app changes, iOS/Android gates, `playerModules`, and web/native parity checks. |
+| [`site-maintainer`](site-maintainer/SKILL.md) | Maintains website projects where source, generated deploy artifacts, docs, tests, and hosting output must stay aligned. | Use for static/built sites, CMS/admin site work, generated deploy folders, build scripts, deploy prep, and work logs. |
 | [`notenwert-maintainer`](notenwert-maintainer/SKILL.md) | Defines the operating playbook for the Notenwert project. | Use for Notenwert implementation, CMS/admin work, tests, docs, deploy prep, and commits. |
+| [`tts-audio-assets`](tts-audio-assets/SKILL.md) | Manages TTS audio generation, reuse, audits, naturalness QA, voice policy, and data wiring across projects. | Use for lesson audio, UI playback, dialogues, prompts, stale/missing audio, or audio ID wiring. |
 | [`shane-thai-audio-generator`](shane-thai-audio-generator/SKILL.md) | Manages Google Chirp audio generation, regeneration, audit, and QA for Thai lessons. | Use for Shane and His Thai lesson audio, Thai TTS text, audio IDs, voice selection, stale/missing audio, or naturalness fixes. |
 | [`shane-thai-image-assets`](shane-thai-image-assets/SKILL.md) | Manages image selection, generation, reuse, cropping, and QA for Thai vocabulary lessons. | Use for Shane and His Thai lesson art, badge imagery, Unit image generation, or semantic asset mapping. |
 | [`image-boundary-iteration`](image-boundary-iteration/SKILL.md) | Controls adult non-explicit image iteration with prompt hygiene, verdict loops, branch notes, and logging. | Use for the nudity-reference-prompting project when continuing boundary-forward visual iterations or maintaining baselines. |
@@ -43,4 +51,5 @@ as a standalone skill directory under `~/.codex/skills`.
 
 | Skill | Description | Context |
 | --- | --- | --- |
+| [`course-image-assets`](course-image-assets/SKILL.md) | Manages educational course image generation, reuse, mapping, crop fixes, and QA. | Use for vocabulary images, lesson card art, visual hints, badges, and semantic educational image mapping. |
 | [`placeholder-image`](placeholder-image/SKILL.md) | Sources, selects, replaces, crops, and audits placeholder images as real product content. | Use when populating missing images, replacing weak stock, finding hero/card/gallery photos, fixing crops, or making an image sourcing playbook. |

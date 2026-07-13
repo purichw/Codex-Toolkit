@@ -1,0 +1,4 @@
+interface:
+  display_name: "Course Image Assets"
+  short_description: "Generate and QA educational images"
+  default_prompt: "Use $course-image-assets to generate, reuse, crop, map, and QA educational course images, vocabulary art, badges, and visual hints."

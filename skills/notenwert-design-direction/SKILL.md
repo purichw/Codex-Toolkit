@@ -5,6 +5,10 @@ description: Use when designing, redesigning, critiquing, or briefing Notenwert 
 
 # Notenwert Design Direction
 
+Use `$design-direction` for reusable design-brief, critique, and implementation
+guardrail workflow. This skill is the Notenwert overlay: brand/product facts,
+specific design references, and local maintainer handoff.
+
 Use this skill for Notenwert design work. It is not for generic frontend coding;
 it is for preserving the product/design intent while evolving the site.
 
@@ -29,6 +33,16 @@ Screenshots for the NGA reference live in:
 ```text
 docs/design-reference/screenshots/
 ```
+
+Use adjacent skills when the task moves beyond direction:
+
+- `$design-direction` for the global design direction framework.
+- `$notenwert-maintainer` for implementation, tests, build, docs work-log, or
+  commit/deploy prep.
+- `$claude-to-a-tee` for exact Claude HTML parity.
+- `$mobile-web-qa` and `$snapshot` for responsive visual proof.
+- `$placeholder-image` for sourcing/cropping real imagery.
+- `$docs-cartographer` for durable design or architecture documentation.
 
 ## Design North Star
 
@@ -107,3 +121,14 @@ Follow Notenwert maintainer rules:
 - add/update focused regression tests for behavior changes
 - use browser verification for visual work when a dev server is involved
 - update `docs/codex-work-log.md` after meaningful work
+
+## Brief / Critique Output
+
+For design-only work, report:
+
+- design intent and audience;
+- references/docs inspected;
+- recommended visual direction;
+- responsive/admin/public-site implications;
+- implementation risks or required maintainer follow-up;
+- assets/images/screenshots needed.

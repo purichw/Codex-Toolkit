@@ -5,6 +5,10 @@ description: Use when working on Coin Quest Ledger native Expo app, iOS/Android 
 
 # Coin Quest Native Parity
 
+Use `$native-parity` for the reusable native/web product-contract workflow. This
+skill is the Coin Quest overlay: Expo paths, project contracts, playerModules,
+and web/native verification commands.
+
 ## Overview
 
 This skill prevents native work from drifting into a static sample app. Use it
@@ -25,6 +29,20 @@ Read these first:
 
 If a fresh Claude iOS/Android export is supplied, inspect it before changing
 visuals. If the user says "to a tee", also use `$claude-to-a-tee`.
+
+Use adjacent skills when the task crosses boundaries:
+
+- `$native-parity` for the global source-of-truth, native boundaries, build, and
+  closeout workflow.
+- `$coin-quest-ledger-logic` for settlement, participants, invites, Character
+  IDs, guests, and shared ledger contracts.
+- `$coin-quest-admin-ops` when native changes depend on Admin-managed account,
+  board, or lifecycle behavior.
+- `$firebase-account-management` or `$firebase-security-rules` for Auth,
+  Firestore, Admin SDK, rules, service accounts, or production access.
+- `$mobile-web-qa` only for web responsive parity, not native device testing.
+- `$release-gate` before commit, push, deploy, TestFlight/package handoff, or
+  web/native shared contract release.
 
 ## Native Boundaries
 
@@ -58,3 +76,9 @@ Before a physical iPhone build/install:
 - Root web regression after shared contract changes: from repo root, run
   `npm test`.
 - Update `NATIVE_WEB_PARITY.md` and `mobile/README.md` when contracts or gates change.
+
+## Closeout
+
+Report native screens/flows touched, shared contracts checked, web parity risk,
+native build/export evidence, adjacent skills used or intentionally not needed,
+and remaining device coverage gaps.

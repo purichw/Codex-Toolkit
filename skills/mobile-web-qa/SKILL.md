@@ -8,6 +8,9 @@ description: Audit and verify responsive web UI across iPhone, Android, tablet, 
 Verify the interface where people actually touch it. Treat mobile QA as layout,
 interaction, browser behavior, and content stress testing together.
 
+Use `$snapshot` when visual evidence will help the user judge the result. Use
+`$release-gate` before commit, push, deploy, PR, or handoff after UI changes.
+
 ## Viewport Matrix
 
 Use project-defined breakpoints first. For general mobile work, cover:
@@ -37,15 +40,45 @@ Chrome on iOS as WebKit behavior, not desktop Chromium behavior.
 - localization, long names, empty states, error states, and slow loading;
 - console errors, failed assets, and network failures.
 
+Exercise states that commonly fail only on mobile:
+
+- open and close nav menus, drawers, sheets, popovers, and modals;
+- focus each changed form input and verify keyboard scroll/focus recovery;
+- tap primary buttons twice when loading/disabled states matter;
+- rotate or compare tall/short viewport behavior when sticky elements exist;
+- scroll to the bottom of long pages and inside internal scroll containers.
+
 ## Browser Workflow
 
 1. Start the local app or open the target URL.
 2. Use a browser automation skill when available to capture screenshots and
    interact with the page at each viewport.
-3. Exercise primary flows, not just static screenshots.
-4. Compare against design references or existing production behavior when a
+3. Capture at least one context screenshot for each risky viewport; add tight
+   crops only for pixel-level details.
+4. Exercise primary flows, not just static screenshots.
+5. Compare against design references or existing production behavior when a
    regression is suspected.
-5. Fix, then re-run the affected viewport and interaction checks.
+6. Check console errors, page errors, failed network/assets, and page-level
+   horizontal overflow after hydration.
+7. Fix, then re-run the affected viewport and interaction checks.
+
+Evidence is invalid if it came from the wrong route, stale build, unauthenticated
+shell, hidden overlay, pre-hydration content, or a viewport different from the
+one being claimed.
+
+## Report Template
+
+```text
+Viewports:
+Browsers/tools:
+Routes/components:
+Interactions exercised:
+Screenshots:
+Bugs fixed:
+Skipped/unverified:
+Safari/WebKit caveats:
+Residual risk:
+```
 
 ## Report
 

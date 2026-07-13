@@ -1,0 +1,4 @@
+interface:
+  display_name: "Admin Ops"
+  short_description: "Operate admin portals safely"
+  default_prompt: "Use $admin-ops to map and change admin portal operations, privileged actions, lifecycle flows, and verification gates safely."

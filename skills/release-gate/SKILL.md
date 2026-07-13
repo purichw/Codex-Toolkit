@@ -49,6 +49,27 @@ and escalating only when the diff increases risk.
 - **T5 deploy/release**: use the platform's deployment skill/tooling when
   available and verify the resulting URL or artifact, not only the local build.
 
+## Check Packs
+
+Use these as starting packs, then adapt to repo-defined commands:
+
+- **Docs-only:** inspect diff, run `git diff --check`, docs lint/build when the
+  repo defines one, and confirm no generated runtime artifact changed
+  accidentally.
+- **Frontend UI:** targeted lint/typecheck/build, browser route check, console
+  and failed request check, `$snapshot` evidence when visual, `$mobile-web-qa`
+  when responsive/mobile risk exists.
+- **Claude parity:** use `$claude-to-a-tee`; require rendered reference/app
+  comparison and measured parity evidence before release.
+- **Firebase/rules/auth:** use `$firebase-security-rules` or
+  `$firebase-account-management`; run tests/emulator or scoped live checks
+  appropriate to risk, and document deploy/rollback path.
+- **Generated image/audio assets:** run the relevant audit/check scripts, verify
+  data mappings, inspect representative rendered UI, and avoid broad
+  regeneration unless requested.
+- **Sites deploy:** when `.openai/hosting.json` exists, use Sites tooling and
+  verify the deployed URL/artifact, not just local build.
+
 ## Gate By Action
 
 - **Commit**: require clean scope, intentional staged files, and checks matching
@@ -86,6 +107,19 @@ highest-risk touched surface, failures are unrelated or disclosed, key
 interactions still work, visual changes have browser evidence when relevant,
 the deploy target is known and reachable, and risky changes have an obvious
 rollback or recovery path.
+
+Use this compact decision format:
+
+```text
+Action/target:
+Changed scope:
+Risk tier:
+Checks run:
+Checks skipped and why:
+Failures:
+Decision:
+Rollback/recovery:
+```
 
 ## Commit And Deploy Hygiene
 

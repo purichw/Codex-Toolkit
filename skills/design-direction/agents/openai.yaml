@@ -1,0 +1,4 @@
+interface:
+  display_name: "Design Direction"
+  short_description: "Turn product identity into UI direction"
+  default_prompt: "Use $design-direction to define, critique, or preserve product visual direction, UX principles, and design implementation guardrails."

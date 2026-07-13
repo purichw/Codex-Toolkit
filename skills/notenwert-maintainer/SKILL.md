@@ -5,6 +5,11 @@ description: Use when working on the Notenwert project at /Users/point/Library/M
 
 # Notenwert Maintainer
 
+Use `$site-maintainer` for reusable website maintenance rules around source vs
+generated deploy artifacts, builds, tests, docs, and commit hygiene. This skill
+is the Notenwert overlay: project root, exact docs, compatibility rules, and
+task-specific commands.
+
 Use this skill to enter the Notenwert project safely and quickly.
 
 ## Project Root
@@ -25,6 +30,18 @@ Start there unless the user gives a different checkout.
    - `docs/content-model.md` for CMS/data-shape work.
    - `docs/design-reference/nga-banner-system.md` for homepage hero/banner work.
 4. Use `rg` / `rg --files` for source discovery.
+
+Use adjacent skills when relevant:
+
+- `$site-maintainer` for the global site-maintenance workflow.
+- `$notenwert-design-direction` for visual direction, Claude prompts, homepage
+  hero motion, typography, imagery, public UX, or admin CMS UX.
+- `$docs-cartographer` when updating codebase maps, content model docs, design
+  references, handoffs, or architecture docs.
+- `$claude-to-a-tee` for exact Claude Design parity.
+- `$mobile-web-qa` and `$snapshot` for responsive/visual evidence.
+- `$placeholder-image` for image sourcing, crops, and placeholder replacement.
+- `$release-gate` before commit, push, deploy, PR, or handoff.
 
 ## Core Rules
 
@@ -111,3 +128,9 @@ When committing:
 3. Leave unrelated dirty files, especially generated build artifacts, unstaged.
 4. Use a concise commit message.
 5. Push only when the user asks.
+
+## Closeout
+
+Report source files changed, generated deploy artifacts intentionally included or
+left unstaged, tests/browser evidence, docs/work-log updates, adjacent skills
+used or intentionally not needed, and deploy status.

@@ -1,0 +1,4 @@
+interface:
+  display_name: "Native Parity"
+  short_description: "Keep native apps aligned with product contracts"
+  default_prompt: "Use $native-parity to align native app screens, builds, and data contracts with web or product source-of-truth behavior."

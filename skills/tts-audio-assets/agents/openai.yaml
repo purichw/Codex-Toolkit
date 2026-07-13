@@ -1,0 +1,4 @@
+interface:
+  display_name: "TTS Audio Assets"
+  short_description: "Generate and QA spoken learning audio"
+  default_prompt: "Use $tts-audio-assets to generate, reuse, audit, and QA TTS audio files for lessons, prompts, dialogues, and UI playback."

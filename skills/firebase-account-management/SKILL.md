@@ -58,6 +58,23 @@ Do not expose Admin SDK credentials to client code. Do not rely on hidden UI
 controls as authorization. Security must live in Firestore Rules and trusted
 server checks.
 
+Use `$firebase-security-rules` when the account flow depends on Firestore/Storage
+rules, Admin SDK endpoint authorization, service-account env vars, or production
+access guarantees.
+
+## Operation Matrix
+
+Map the requested operation before designing or changing code:
+
+| Operation | Primary layer | Verify |
+| --- | --- | --- |
+| Signup/login/recovery | Firebase Auth + client UI | provider config, authorized domains, Auth state, profile creation |
+| User profile edit | Firestore document + rules | owner/admin allow/deny, validation, stale session |
+| Admin edit/delete user data | App role + backend or rules | server-side auth, audit log, recovery/tombstone |
+| Manage Auth users/custom claims | Admin SDK backend | service account, allowlist/roles, token refresh |
+| Storage/avatar/media access | Storage rules + metadata | read/write rules, file ownership, cleanup |
+| Billing/plan question | Firebase/GCP project state | official docs or live billing state |
+
 ## Spark vs Blaze Decision
 
 Use this decision flow:
@@ -92,6 +109,11 @@ Firebase Console or official docs.
   stale-session cases.
 - Documentation names the actual plan, project id, env vars, and deploy/rules
   commands.
+
+## Closeout
+
+Report which layer each operation used, what was verified vs inferred, billing
+evidence when relevant, tests/checks run, and remaining account/security risk.
 
 ## Answering Plan Questions
 

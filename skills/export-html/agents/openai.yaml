@@ -1,0 +1,4 @@
+interface:
+  display_name: "Export HTML"
+  short_description: "Live-parity offline HTML prototypes"
+  default_prompt: "Use $export-html to export this screen as a live-parity standalone HTML prototype with representative states."

@@ -13,7 +13,12 @@ service-account setup, Spark/Blaze claims, or "is this secure?" questions.
 
 ## Required Context
 
-For Coin Quest Ledger, read:
+For any repo, first locate the Firebase config, rules files, backend Admin SDK
+entrypoints, deployment target, and environment variable source. Use
+`$firebase-account-management` when the task is primarily account lifecycle,
+Auth users, providers, custom claims, or admin user management.
+
+For Coin Quest Ledger specifically, read:
 
 - `SECURITY_AND_FIREBASE_RULES.md`
 - `ACCOUNT_MANAGEMENT_IMPLEMENTATION.md`
@@ -24,9 +29,6 @@ For Coin Quest Ledger, read:
 - API files under `api/` when privileged backend behavior is involved
 - `.github/workflows/test.yml` and `DEPLOYMENT_AND_ROLLBACK_RUNBOOK.md` when deploy
   or secrets are involved
-
-For other repos, first locate the Firebase config, rules files, backend Admin SDK
-entrypoints, deployment target, and environment variable source.
 
 ## Core Rules
 
@@ -43,6 +45,22 @@ entrypoints, deployment target, and environment variable source.
 - Display privacy flags are not database authorization.
 - Do not deploy rules casually; treat rules deploys as production changes with
   rollback notes.
+
+## Test Strategy
+
+Choose the smallest trustworthy security evidence:
+
+- **Static/rules syntax:** inspect `firestore.rules`, `storage.rules`,
+  `firebase.json`, and run repo-defined lint/syntax checks.
+- **Local behavior:** use Firebase Emulator when available for allow/deny cases,
+  especially owner/admin/public access.
+- **Scoped live check:** use only when emulator coverage is absent or the bug is
+  deployment-specific; use test accounts and avoid destructive production data.
+- **Deploy verification:** confirm project id, deploy target, rollback command,
+  and post-deploy access behavior.
+
+Never count hidden UI, `?test=1`, or local-only gates as production security
+evidence.
 
 ## Workflow
 
@@ -62,3 +80,9 @@ entrypoints, deployment target, and environment variable source.
    - app behavior: targeted tests or `npm test`
    - live security/rules: Firebase emulator or carefully scoped live test account
    - deploy/rollback: follow the repo deployment runbook
+
+## Closeout
+
+Report the project id checked, rules/endpoints touched, allow/deny cases tested,
+emulator or live evidence used, deploy/rollback status, and residual security
+risk.

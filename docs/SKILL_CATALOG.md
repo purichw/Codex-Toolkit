@@ -58,6 +58,18 @@ this file is for choosing the right skill during real work.
 - Typical context: A local or deployed URL, primary flows, viewport matrix,
   screenshots, console output, failed assets, and dynamic content states.
 
+### snapshot
+
+- Skill file: [../skills/snapshot/SKILL.md](../skills/snapshot/SKILL.md)
+- Description: Captures, crops, inspects, and presents UI screenshots with
+  enough surrounding context for review.
+- Use when: The user asks for screenshots, snapshots, before/after evidence,
+  UI comparisons, crops, viewport captures, production smoke evidence, or says a
+  screenshot is too tight or missing context.
+- Typical context: Target URL or app state, viewport, route, scroll position,
+  interaction state, computed geometry when useful, and absolute screenshot
+  paths for final presentation.
+
 ## Design And Visual Parity
 
 ### claude-to-a-tee
@@ -71,6 +83,30 @@ this file is for choosing the right skill during real work.
 - Typical context: Offline Claude HTML/CSS/JS, screenshots, reference assets,
   existing product behavior, responsive states, interactions, measured parity
   audit rows, and verification checklist.
+
+### design-direction
+
+- Skill file: [../skills/design-direction/SKILL.md](../skills/design-direction/SKILL.md)
+- Description: Defines, critiques, or preserves product visual direction across
+  projects.
+- Use when: Creating design briefs, redesign strategy, visual north stars,
+  brand/product UX principles, public vs admin UX direction, typography/color/
+  imagery guardrails, Claude Design prompts, or implementation handoff guidance.
+- Typical context: Product purpose, audience, positioning, existing design
+  briefs, screenshots/prototypes, brand assets, current implementation, design
+  system primitives, responsive behavior, and release constraints.
+
+### export-html
+
+- Skill file: [../skills/export-html/SKILL.md](../skills/export-html/SKILL.md)
+- Description: Creates to-a-tee standalone/offline HTML exports and clickable
+  prototypes for design handoff, visual audit, or state review.
+- Use when: The user asks to export HTML, standalone HTML, offline HTML,
+  clickable prototypes, design handoff files, or Claude/Figma-inspectable
+  reference artifacts.
+- Typical context: Source screen or route, live app screenshots/computed
+  dimensions, state inventory, product CSS/assets/copy, responsive breakpoints,
+  and browser verification of the exported file.
 
 ### notenwert-design-direction
 
@@ -106,6 +142,56 @@ this file is for choosing the right skill during real work.
   auth gates, secrets, Firebase security posture, or billing-sensitive claims.
 - Typical context: `firestore.rules`, `firebase.json`, Firebase config, backend
   Admin SDK entrypoints, deployment secrets, CI workflows, and security docs.
+
+## Reusable Product Domains
+
+### admin-ops
+
+- Skill file: [../skills/admin-ops/SKILL.md](../skills/admin-ops/SKILL.md)
+- Description: Guides admin portal operations where UI can change real data,
+  permissions, content, accounts, or operational state.
+- Use when: Designing, auditing, implementing, or verifying admin auth/roles,
+  dashboards, lifecycle actions, revisions, audit logs, destructive actions,
+  relationship maps, privileged backend actions, or CMS/admin UX.
+- Typical context: Admin routes, auth/role source, data contracts, privileged
+  routes, Admin SDK/service accounts, audit logs, destructive confirmations,
+  fixtures, deploy/runbooks, and rollback notes.
+
+### ledger-logic
+
+- Skill file: [../skills/ledger-logic/SKILL.md](../skills/ledger-logic/SKILL.md)
+- Description: Protects collaborative ledger behavior where actors, entries,
+  shares, payments, obligations, and settlement outputs must stay correct.
+- Use when: Implementing, auditing, or debugging expenses, splits, payer/
+  participant logic, settlement math, reciprocal netting, guests vs real
+  accounts, invites, imports/exports, persistence contracts, or ledger tests.
+- Typical context: Actor identity model, entry shape, split modes, settlement
+  algorithm, rounding examples, persistence shape, invite/guest lifecycle, and
+  regression tests.
+
+### native-parity
+
+- Skill file: [../skills/native-parity/SKILL.md](../skills/native-parity/SKILL.md)
+- Description: Keeps native iOS/Android apps aligned with web/product source of
+  truth behavior.
+- Use when: Working on Expo, React Native, native builds, web/native data
+  parity, shared backend contracts, native screen parity, mobile design
+  handoffs, device build gates, or preventing static sample-app drift.
+- Typical context: Native root, build docs, environment files, shared data
+  contracts, backend routes, navigation map, design references, platform config,
+  and typecheck/build/simulator commands.
+
+### site-maintainer
+
+- Skill file: [../skills/site-maintainer/SKILL.md](../skills/site-maintainer/SKILL.md)
+- Description: Maintains website projects where source files, generated deploy
+  artifacts, tests, docs, and hosting outputs must stay aligned.
+- Use when: Working on static or built sites, generated deploy folders, service
+  worker/version churn, CMS/admin site work, build scripts, deploy prep, commit
+  hygiene, or project work logs.
+- Typical context: Project root, source folder, generated output, build/dev
+  commands, tests, hosting target, docs/runbooks, generated assets, and deploy
+  path.
 
 ## Coin Quest
 
@@ -158,6 +244,18 @@ this file is for choosing the right skill during real work.
 
 ## Image And Asset Work
 
+### course-image-assets
+
+- Skill file: [../skills/course-image-assets/SKILL.md](../skills/course-image-assets/SKILL.md)
+- Description: Manages educational course image generation, reuse, cropping,
+  mapping, audits, and QA across projects.
+- Use when: Working on vocabulary images, lesson card art, visual hints, badges,
+  semantic image mapping, inclusive learning imagery, crop/centering fixes, or
+  generated educational illustrations.
+- Typical context: Learning item, meaning, lesson context, target component,
+  existing mappings/files/manifests, image audit reports, canonical helper/
+  manifest, crop constraints, alt text, and card/thumbnail rendering.
+
 ### placeholder-image
 
 - Skill file: [../skills/placeholder-image/SKILL.md](../skills/placeholder-image/SKILL.md)
@@ -183,6 +281,18 @@ this file is for choosing the right skill during real work.
   Thai text, English meaning, speaker role, politeness particle, voice policy,
   generation commands, audit reports, and whether the item is a word, phrase,
   sentence, dialogue line, grammar example, quiz prompt, or UI prompt.
+
+### tts-audio-assets
+
+- Skill file: [../skills/tts-audio-assets/SKILL.md](../skills/tts-audio-assets/SKILL.md)
+- Description: Generates, regenerates, reuses, audits, and QA-checks text-to-
+  speech audio assets across projects.
+- Use when: Working on lesson audio, prompts, UI playback, dialogues, story
+  lines, voice/pacing policy, stale or missing audio audits, naturalness fixes,
+  or audio ID/data wiring.
+- Typical context: Audio ID, source entry, target path, displayed vs spoken
+  text, language/script, pronunciation overrides, meaning, lesson/component,
+  voice policy, provider credentials/project, and audit/naturalness reports.
 
 ### shane-thai-image-assets
 
