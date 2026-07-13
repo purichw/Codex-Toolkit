@@ -1,6 +1,6 @@
 ---
 name: project-onboarding
-description: Read and map an unfamiliar or returning codebase before making changes. Use when the user asks Codex to study a project, read docs, continue work from handoff files, understand architecture, find commands, identify deploy paths, summarize current state, or prepare a safe implementation plan across any repository.
+description: Read and map an unfamiliar or returning codebase before making changes. Use when the user asks Codex to study a project, read docs, continue work from handoff files, understand architecture, plan an architecture redesign, do an Extra High architecture pass, find commands, identify deploy paths, summarize current state, or prepare a safe implementation plan across any repository.
 ---
 
 # Project Onboarding
@@ -32,6 +32,39 @@ Produce a compact map with:
 - docs or handoff files that matter most;
 - risky areas, stale notes, or contradictions;
 - immediate next steps for the requested task.
+
+## Extra High Architecture Pass
+
+When the user asks for a new architecture, an architecture redesign, or an
+“Extra High” pass, do not stop at a directory tour. Build enough evidence to
+propose a target architecture that can survive implementation.
+
+Collect:
+
+- runtime entry points, route graph, and major UI shells;
+- bounded contexts or domains, with their source folders and current owners;
+- module dependency direction, including cross-domain imports and oversized
+  files;
+- data contracts: local state, storage keys, Firestore/API documents, generated
+  assets, and server routes;
+- auth, permissions, persistence, offline/sync, deployment, and environment
+  boundaries;
+- design-system surfaces, visual handoff sources, and places where UI primitives
+  fork;
+- test coverage by surface and the gaps that would make refactors risky.
+
+Then produce:
+
+- current-state architecture summary;
+- proposed bounded-context/module map;
+- dependency rules to enforce going forward;
+- migration seams that allow incremental delivery;
+- phase plan with validation gates and rollback points;
+- risk register: data loss, auth/security, deploy, performance, UX parity,
+  generated assets, and test debt.
+
+Mark anything inferred as inferred. Prefer “unknown / needs audit” over fake
+certainty.
 
 ## Working Rules
 

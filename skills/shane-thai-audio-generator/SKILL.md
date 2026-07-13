@@ -19,6 +19,7 @@ If the user says an audio item sounds chopped, rushed, discontinuous, or like re
 
 - Repo: `/Users/point/Website Projects/thai-flashcards`
 - Main-course Chirp output: `public/audio/chirp/main-course/<unit-id>/<audio-id>.mp3`
+- Main-course audio helper: `src/data/mainCourseAudio.ts` via `mainCourseAudio(unitId, itemId, text, labelOrOptions?, options?)`
 - Generator: `tools/generate-main-course-chirp-audio.mjs`
 - Audit: `tools/audit-chirp-audio.mjs`
 - Naturalness triage: `tools/audio-naturalness-triage.mjs`
@@ -33,6 +34,7 @@ npm run audio:main-course
 npm run audio:main-course:force
 GOOGLE_TTS_FORCE=true GOOGLE_TTS_ONLY='unit-id/audio-id,unit-id/other-audio-id' npm run audio:main-course
 GOOGLE_TTS_FORCE=true GOOGLE_TTS_SPEAKING_RATE=0.78 GOOGLE_TTS_ONLY='unit-id/audio-id' npm run audio:main-course
+AUDIO_NATURALNESS_ONLY='unit-id/audio-id' npm run audio:naturalness
 npm run audio:audit
 npm run audio:audit:check
 npm run audio:naturalness
@@ -44,8 +46,17 @@ Voice overrides are available through environment variables and data-level audio
 ```bash
 GOOGLE_TTS_MALE_VOICE='th-TH-Chirp3-HD-Iapetus'
 GOOGLE_TTS_FEMALE_VOICE='th-TH-Chirp3-HD-Despina'
+GOOGLE_TTS_FORCE_MALE=true
+GOOGLE_TTS_FORCE_FEMALE=true
 GOOGLE_TTS_SPEAKING_RATE=0.82
+GOOGLE_TTS_PITCH=0
+GOOGLE_OAUTH_ACCESS_TOKEN='<token>'
 ```
+
+The npm scripts set `GOOGLE_CLOUD_PROJECT=thai-chirp-20260613`. The generator
+can also use `gcloud config get-value project` and `gcloud auth print-access-token`;
+if auth is missing, ask the user to run the appropriate Google auth command
+instead of faking or hand-writing audio files.
 
 ## Workflow
 
@@ -60,6 +71,7 @@ GOOGLE_TTS_SPEAKING_RATE=0.82
 
 2. Confirm the source data is wired to the intended full text:
    - Prefer existing helpers such as `mainCourseAudio(...)` and local course data patterns.
+   - Search by both `audio ID` and Thai text before editing, because some units use wrapper helpers such as `greetingsAudio`, `daysAudio`, `monthAudio`, or runtime-collected audio objects.
    - Do not change lesson IDs, order, routes, progress keys, quiz IDs, audio IDs, image IDs, or Firebase keys unless explicitly asked.
    - If adding a new kind of audio source, update the generator and audit collectors together.
 
@@ -75,8 +87,19 @@ GOOGLE_TTS_SPEAKING_RATE=0.82
 
 5. Audit and verify:
    - Run `npm run audio:audit` after generating files so `docs/audio-audit.json` reflects current durations and hashes.
-   - Run `npm run audio:naturalness` when checking phrase continuity, duration outliers, clipping, or rushed speech.
+   - Run `npm run audio:naturalness` when checking phrase continuity, duration outliers, clipping, or rushed speech. Use `AUDIO_NATURALNESS_ONLY='unit-id/audio-id'` for focused triage.
    - Use `:check` commands in release gates, but remember check mode should not be the only step after new generation if reports need updating.
+
+## Fast Targeted Loop
+
+Use this loop for user-reported bad audio or small batches:
+
+1. Locate the data entry with `rg` using the audio ID and Thai text.
+2. Confirm the spoken Thai text, label text, voice, and output path.
+3. Regenerate only the affected IDs with `GOOGLE_TTS_ONLY`; add `GOOGLE_TTS_FORCE=true` only when replacing existing files.
+4. If the generator says no metadata matched `GOOGLE_TTS_ONLY`, treat the unit ID or audio ID as wrong and fix the source mapping before generating.
+5. Run `npm run audio:audit` and targeted/full `npm run audio:naturalness`.
+6. If the phrase still sounds unnatural, try a targeted speaking-rate or voice override; do not make a global voice-policy change for one rough file.
 
 ## Reuse Rules
 
@@ -115,6 +138,7 @@ Generate a new full take when any are true:
 - Do not globally change the voice policy to fix one rough file.
 - For a rough phrase, regenerate that exact audio ID as full Thai text first; then try a targeted speaking rate or alternate Chirp voice only if needed.
 - When tuning speed, keep beginner listening needs in mind: clear and natural beats, not robotic over-enunciation.
+- Use `GOOGLE_TTS_FORCE_MALE=true` or `GOOGLE_TTS_FORCE_FEMALE=true` only for intentional same-voice regeneration passes.
 
 ## Naturalness Audit
 
@@ -164,7 +188,7 @@ npm run test:data
 npm run build
 ```
 
-Use narrower validation only when the change is tiny and clearly isolated, and say what was not run.
+Use narrower validation only when the change is tiny and clearly isolated, such as a single regenerated file with no data change. Say what was not run and why.
 
 For UI-affecting audio work, browser-test the affected routes and check:
 

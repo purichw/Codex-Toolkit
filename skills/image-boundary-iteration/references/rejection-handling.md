@@ -10,6 +10,26 @@ This reference summarizes stop rules and known unstable families. Use it for str
 - Repeated local edits that melt details mean the base is probably exhausted.
 - If a prompt family rejected because the same unwanted costume returned twice, backtrack to the latest accepted visual or build a new pose base.
 
+## Underdelivery Rules
+
+Underdelivery is different from rejection. If the image is safe and coherent but
+too conservative, do not praise it as a boundary pass. Classify the miss and
+change HOW:
+
+- Costume bulk returned: use crop/composition, waterline, sofa edge, light
+  surface, or one-signature-accent structure instead of stronger removal words.
+- Pose is too tame: keep costume language stable and strengthen pose, gaze,
+  camera, grouping, or dancer silhouette.
+- Boundary is close but not enough: use one local edit if the target is narrow;
+  otherwise regenerate with the successful material/composition system.
+- Tool keeps inventing coverage: switch base or branch HOW after two attempts.
+- Image quality or identity drifts: repair identity first, then resume the
+  boundary ladder.
+
+When the user asks for stronger or more exposed, start from the strongest
+branch-specific HOW that has evidence, not from a conservative reset, unless
+the context is already rejecting or the branch is new.
+
 ## Known Risk Families
 
 ### Central Garment Reduction

@@ -8,7 +8,7 @@ change to GitHub.
 From the repository root:
 
 ```sh
-rsync -a --delete --exclude '.system' --exclude '/README.md' ~/.codex/skills/ skills/
+rsync -a --delete --exclude '.system' --exclude '/README.md' --exclude '__pycache__/' ~/.codex/skills/ skills/
 git status --short
 git diff --check
 ```

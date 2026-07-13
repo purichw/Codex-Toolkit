@@ -1,0 +1,4 @@
+interface:
+  display_name: "Notenwert Maintainer"
+  short_description: "Maintain the Notenwert project safely"
+  default_prompt: "Use $notenwert-maintainer to work safely in the Notenwert project, run the right checks, and protect generated deploy files."

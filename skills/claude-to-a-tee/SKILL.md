@@ -118,6 +118,14 @@ Either make the behavior real end to end, adapt the component so it expresses
 the same design principles with real product behavior, or omit it and document
 the intentional divergence.
 
+Run the same stub scrub against the target product's inherited UI, not only
+against controls copied from Claude. If an existing product button, input,
+select, toggle, search field, nav item, footer action, or dashboard shortcut is
+visible inside the mapped Claude surface, it must also be functional, honestly
+passive/status-only, deliberately disabled with a real current-state reason, or
+removed. A control that "has always been there" but now appears in the
+Claude-to-a-tee surface is part of the release gate.
+
 When the reference and handoff disagree about whether a control is mock-only,
 prefer the handoff's explicit functional language. For example, controls named
 Grant/Revoke, Freeze/Restore, Complete/Reset, Lock/Unlock, Mark passed, or
@@ -147,6 +155,26 @@ surface:
 - implementation decision: implement, adapt, omit, or defer;
 - reason for any omission or adaptation;
 - verification required.
+
+Also create a functional controls ledger for every visible action in each
+surface. Include controls that are below the fold, inside drawers/rails, hidden
+behind expanders, or shown only after scrolling. For each control, record:
+
+- label/icon and source section;
+- intended state transition from the Claude UI or handoff;
+- target product read path and write path;
+- permission/security boundary;
+- expected success, failure, loading, and persisted-after-reload state;
+- automated or manual verification performed.
+
+Include inherited target controls in this ledger even when they are absent from
+the Claude reference. Their decision must be `make real`, `make passive`,
+`remove`, or `defer with user-approved reason`; `looks disabled enough` is not
+a valid terminal state.
+
+Do not mark a surface complete while this ledger contains a handoff-declared
+control with no real write path, no product-approved omission, or no exercised
+terminal state.
 
 Do not start implementation until this ledger covers the default rendered state,
 all navigation targets, tabs, forms, dialogs, onboarding/step flows, empty/error
@@ -197,58 +225,13 @@ colors, and the homepage match.
 
 ## Interaction Depth Requirement
 
-Do not treat a visual match of the first screen as sufficient. For every
-reachable control in the reference and mapped product surface, click or operate
-it until it reaches its terminal or representative states. This includes:
-
-- every tab, route, drawer, dropdown, segmented control, filter, jump list, and
-  disabled or locked navigation item;
-- every reveal/hide, play/stop/replay audio, mark complete, reset, retry,
-  practice-again, got-it, answer, review, shuffle, next/previous, and submit
-  action;
-- every modal open, cancel, close, confirm, keyboard escape, and outside-click
-  behavior;
-- every success, failure, completed, empty, locked, disabled, selected,
-  persisted-after-reload, and reset-after-completion state;
-- every keyboard/touch path that the product claims to support.
-
-When a control affects persisted product state, verify both the immediate UI
-state and the stored/reloaded state. When the reference has separate visual
-completion and product-earned completion semantics, test both paths rather than
-collapsing them into one.
-
-For onboarding tours, coach marks, or spotlight overlays, verify the full step
-sequence rather than only the first overlay. Each step must measure the intended
-live target after any route/tab/screen switch, keep the target visually
-spotlit, avoid fighting manual scroll, support skip/back/next/done and keyboard
-escape, and remain usable at every required mobile, tablet, and desktop
-breakpoint. Also verify the rest of the product after the tour is dismissed:
-the overlay/backdrop must no longer intercept clicks, search results and
-navigation targets must be clickable, and first-run onboarding state must not be
-mistaken for a broken page during release smoke tests.
-
-For tabbed learning products, verify navigation from every entry point, not just
-the top tab strip. This includes overview path rows, next/previous footers,
-dropdown/jump menus, locked tabs, deep links, browser back/forward, and reload.
-After each navigation, confirm the URL, active tab, scroll position, completion
-mark, and persisted progress agree with the product rules.
-
-For search or deep-linkable result cards, verify the full click-through contract:
-the visible result metadata must name the real destination section, the click
-must route to that section rather than a generic fallback, the URL must include
-the target item state when supported, and the target word/phrase/sentence must
-be visible or highlighted after navigation.
-
-For embedded scroll regions such as card indexes, sidebars, carousels, and
-jump-around lists, test the scroll container itself. Confirm the first and last
-items are reachable and visible inside the container, and that automatic
-active-item scrolling does not fight the learner's manual scroll.
-
-If automation output shows the wrong page, an empty selector set, missing target
-selectors, a login screen, or a route that silently failed to load, discard that
-evidence and rerun the audit after fixing the setup. Never count screenshots or
-metrics from an unauthenticated shell, placeholder route, or selector miss as
-Claude-to-a-tee verification.
+Use the interaction-depth checklist in
+[references/verification-checklist.md](references/verification-checklist.md) as
+a release-blocking requirement. A first-screen visual match is insufficient:
+every reachable reference control and mapped product control must be exercised
+to terminal or representative states, including persisted, responsive,
+scroll-container, search/deep-link, onboarding, and automation-setup failure
+cases.
 
 ## Inspect The Reference
 
@@ -412,65 +395,11 @@ the Claude reference's hierarchy, spacing, tone, and interaction language.
 
 ### Evidence Provenance
 
-For every reference, local, preview, and production capture, record enough
-provenance to prove what was measured:
-
-- reference filename and a stable hash or modification identity;
-- target commit SHA and generated build/version identifier;
-- requested URL, final URL after redirects, route/hash, page title, and viewport;
-- authenticated/loading/hydrated state and the marker used to prove it;
-- whether the run targets local, preview, or production.
-
-Set test base URLs explicitly. Do not rely on a runner's default URL when local
-and production are both plausible targets. After building, confirm the generated
-deploy artifact contains the changed source and reports the expected build
-identifier before testing or deploying it.
-
-If navigation ends on a login page, deployment-protection screen, generic shell,
-404, old service-worker build, or different host than intended, invalidate the
-entire capture. Fix access or use the public production alias, then rerun.
-
-Keep legacy screenshot baselines separate from current Claude parity evidence.
-When an intentional redesign makes an old baseline stale, report that fact and
-refresh it only after the new Claude parity is approved. A stale baseline failure
-is neither proof of a product regression nor permission to skip current visual
-comparison.
-
-For responsive Claude references, verify every source-defined breakpoint and
-then the default mobile/tablet/desktop matrix from the checklist unless the user
-explicitly narrows the scope. At each size, test the first viewport and at least
-one scrolled position for long screens. Check that intentionally scrollable
-regions, such as tab strips or horizontal carousels, do not create page-level
-horizontal overflow. If full-page screenshots of long mobile pages are slow or
-unstable, capture viewport screenshots for key states and collect computed
-layout metrics across all sizes; do not skip the size coverage.
-
-Responsive verification must include interaction states at those sizes, not just
-static screenshots. At minimum, open menus/dropdowns, switch tabs, press audio
-buttons, complete/reset one activity where relevant, and inspect a scrolled
-mid-page and bottom-page state on long screens.
-
-For slide-overs, drawers, modals with internal scroll, sticky footers, and
-right/left rails, verify the scroll container itself at top, middle, and bottom.
-Record the first visible and last visible section names, whether lower sections
-such as badges/streak/history are reachable, and whether sticky actions cover
-content. A screenshot where the footer appears before below-fold reference
-sections, or where lower sections require hidden/unclear scrolling, is a
-critical mismatch until fixed or explicitly accepted.
-
-When authentication, emulators, seeded data, feature flags, or remote state are
-needed to see the real product screen, set them up before visual verification.
-If the app lands on login, loading, or account-error screens, fix the test setup
-first and rerun. Verification starts only after the actual mapped product
-surface is visible.
-
-Use a WebKit or real Safari verification path when Safari-specific behavior is
-part of the request and such a path is available. Never label Chromium-only
-testing as Safari verification. State any browser coverage limitation plainly.
-
-If a named browser skill is unavailable, use the closest browser automation and
-inspection capability in the environment, preserve the same evidence standard,
-and report the substitution.
+Use the artifact provenance, default responsive matrix, and browser evidence
+sections in [references/verification-checklist.md](references/verification-checklist.md)
+as release-blocking checks. Reject captures from the wrong route, login/protect
+screens, stale artifacts, pre-hydration shells, unsupported browser claims, or
+selector misses; fix setup and recapture before claiming parity.
 
 ## Enforce The Release Gate
 

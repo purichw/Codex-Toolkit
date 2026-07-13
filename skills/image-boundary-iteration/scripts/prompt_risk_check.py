@@ -26,14 +26,14 @@ class Finding:
 PATTERNS = [
     (
         "high",
-        r"\b(ultra[- ]short|much smaller|tighter|less fabric area|no fabric|no coverage|no garment)\b",
+        r"\b(ultra[- ]short|much smaller|tighter|less fabric area|no fabric|no coverage|no garment|no clothing|remove garment|remove clothing|garment removal)\b",
         "Direct garment/coverage reduction wording has triggered rejects in boundary-adjacent contexts.",
         "Use positive design wording such as compact polished emblem, low-bulk ceremonial mark, or streamlined ceremonial design.",
     ),
     (
         "high",
-        r"\b(nude|naked|genital|genitals|explicit anatomy|anatomically correct)\b",
-        "Explicit anatomy or nudity wording can change the safety interpretation.",
+        r"\b(nude|naked|genital|genitals|explicit|porn|sex act|sexual act|underwear|bulge|crotch|explicit anatomy|anatomically correct)\b",
+        "Explicit, anatomy-isolated, or porn-coded wording can change the safety interpretation.",
         "Use non-explicit sculptural or fantasy costume language, with no genital detail.",
     ),
     (

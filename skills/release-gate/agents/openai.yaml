@@ -1,4 +1,4 @@
 interface:
   display_name: "Release Gate"
-  short_description: "Verify before commit and deploy"
-  default_prompt: "Use $release-gate to verify the current change before commit, push, or deploy."
+  short_description: "Fast risk-tiered release checks"
+  default_prompt: "Use $release-gate to verify the current change quickly before commit, push, or deploy."

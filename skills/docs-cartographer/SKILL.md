@@ -1,6 +1,6 @@
 ---
 name: docs-cartographer
-description: Create or update project documentation that maps site structure, modules, data flow, interactions, ownership boundaries, commands, and where to find things. Use when the user asks for site maps, architecture maps, module maps, interaction docs, onboarding docs, memory docs, handoff docs, or better project navigation.
+description: Create or update project documentation that maps site structure, modules, data flow, interactions, ownership boundaries, commands, and where to find things. Use when the user asks for site maps, architecture maps, target-state architecture plans, module maps, interaction docs, onboarding docs, memory docs, handoff docs, Extra High architecture documentation, or better project navigation.
 ---
 
 # Docs Cartographer
@@ -33,6 +33,23 @@ Include only sections that help the project:
 - design source-of-truth and asset locations;
 - known risks, invariants, and “do not break” rules;
 - handoff checklist for next sessions.
+
+For target-state architecture plans, include:
+
+- current-state map: what exists now and where;
+- desired bounded contexts and ownership rules;
+- dependency direction rules and forbidden imports;
+- data contract map for client state, persistence, API, Firestore, storage,
+  generated assets, and admin-only operations;
+- migration phases with “ship/no-ship” gates;
+- compatibility strategy for old data, old routes, generated assets, and
+  existing user progress;
+- verification matrix: unit, data contract, Firebase/rules, e2e, responsive,
+  visual parity, asset/audio/image audits, and production smoke;
+- risk register with mitigations and rollback notes.
+
+Separate facts from proposals. Label uncertain claims as `needs audit` and
+avoid presenting aspirations as current behavior.
 
 Use Mermaid diagrams when relationships are easier to scan visually. Keep
 diagrams simple and labels quoted when punctuation appears.

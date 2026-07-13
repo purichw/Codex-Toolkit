@@ -1,47 +1,91 @@
 ---
 name: release-gate
-description: Verify changes before commit, push, deploy, release, or handoff. Use when the user asks to commit, push, deploy, ship, release, merge, open a PR, check readiness, or make sure a feature is safe; also use after substantial code, UI, data, auth, or configuration changes before publishing.
+description: Fast, risk-tiered verification before commit, push, deploy, release, merge, PR, or handoff. Use when the user asks to commit, push, deploy, ship, release, merge, open a PR, check readiness, or make sure a feature is safe; also use after substantial code, UI, data, auth, configuration, or deployment changes before publishing.
 ---
 
 # Release Gate
 
-Block avoidable releases by collecting evidence before publishing. Keep the gate
-proportional to risk, but do not skip checks silently.
+Block avoidable releases with the smallest trustworthy evidence set. Optimize for
+speed by separating commit, push, and deploy gates, using targeted checks first,
+and escalating only when the diff increases risk.
 
-## Scope
+## Fast Protocol
 
-1. Confirm the intended release target: branch, PR, production, preview, package,
-   static artifact, or docs-only.
-2. Inspect `git status --short`, staged files, unstaged files, and recent diff.
-   Do not include unrelated user changes without explicit intent.
-3. Identify affected surfaces: UI, API, data model, auth, build config,
-   deployment config, docs, tests, generated assets.
+1. Confirm the intended action and target: commit, push, PR, preview,
+   production deploy, package, static artifact, docs-only, or handoff. If the
+   target is obvious from the request and repo state, state the assumption and
+   continue.
+2. Inspect scope before checks: `git status --short`, staged files, unstaged
+   files, recent diff, and changed filenames. Do not include unrelated user
+   changes without explicit intent.
+3. Classify the highest-risk touched surface: docs/assets-only, narrow code,
+   frontend UI, shared runtime behavior, API, data model, auth, build config,
+   deployment config, migrations, environment variables, tests, or generated
+   assets.
+4. Choose the shortest evidence path that covers that risk. Prefer targeted
+   commands for changed packages/files/tests before full-suite commands. Run
+   independent checks in parallel when possible.
+5. Summarize evidence, failures, and skipped checks. Never skip a relevant
+   check silently.
 
-## Required Checks
+## Risk Tiers
 
-- Run formatting/lint/typecheck/tests/build commands that the repo defines or
-  that match the touched risk.
-- For frontend changes, run the app and verify with a browser automation skill
-  when available. Capture screenshots or interaction evidence for visual work.
-- For deploy work, use the platform's deployment skill/tooling when available
-  and verify the resulting URL, not only the local build.
-- Check browser console and failed network/asset requests for web releases.
-- Confirm environment variables, migrations, cron jobs, storage, or feature
-  flags when touched.
+- **T0 docs/static metadata**: inspect scope and diff. Run docs generation or
+  spelling/link checks only when the repo defines them or docs are published as
+  a built artifact.
+- **T1 narrow non-runtime changes**: run focused formatting/linting or the
+  nearest targeted test. Skip browser/build checks unless the touched files feed
+  a runtime bundle.
+- **T2 runtime code**: run targeted tests plus the relevant typecheck, lint, or
+  build command defined by the repo. Escalate to broader tests when the changed
+  code is shared across packages or has no focused test.
+- **T3 frontend UI**: run the app or reuse a healthy existing dev server, verify
+  the changed route with browser automation when available, and check console
+  errors plus failed network/asset requests. Capture screenshot or interaction
+  evidence for visual work.
+- **T4 data/auth/API/config risk**: run the relevant build/tests and inspect
+  environment variables, migrations, storage, cron jobs, feature flags, rules,
+  or rollback path when touched.
+- **T5 deploy/release**: use the platform's deployment skill/tooling when
+  available and verify the resulting URL or artifact, not only the local build.
+
+## Gate By Action
+
+- **Commit**: require clean scope, intentional staged files, and checks matching
+  the changed risk tier. Do not run deploy checks for commit-only work.
+- **Push**: verify branch/upstream, run any missing checks expected before CI,
+  and push only the current intended branch.
+- **PR/merge**: include the checks above plus CI status or clearly disclose that
+  CI was not available.
+- **Deploy**: confirm target, run build/test evidence appropriate to the risk,
+  deploy only when authorized, then verify the deployed URL or artifact.
+- **Handoff**: report diff scope, checks run, skipped checks, known risks, and
+  next command or recovery path.
+
+## Speed Rules
+
+- Use repository-defined commands first: package scripts, Makefile, justfile,
+  task runner, monorepo filters, affected/changed-test modes, and CI hints.
+- Prefer cached and targeted checks when risk is low; escalate to full-suite
+  checks for lockfile/dependency changes, shared build config, auth/data/API
+  changes, broad refactors, flaky focused results, or production deploys.
+- Reuse running dev servers when healthy. Start a new server only when needed
+  for verification, and stop or report long-running sessions clearly.
+- Do not ask for confirmation for routine checks when the user already asked to
+  commit, push, or deploy. Ask only when the target is ambiguous, the operation
+  is destructive, production-impacting beyond the request, or expected to take a
+  long time with no targeted alternative.
+- If a full check is slow and a targeted check covers the changed surface, run
+  the targeted check first and disclose whether broader CI/build coverage
+  remains pending.
 
 ## Decision
 
-Proceed only when:
-
-- diffs match the requested scope;
-- tests/builds pass or failures are unrelated and disclosed;
-- key interactions still work;
-- visual changes have browser evidence when relevant;
-- deploy target is known and reachable;
-- rollback or recovery path is obvious for risky changes.
-
-If a check cannot run, state exactly why and decide whether the remaining
-evidence is enough for the user's requested release action.
+Proceed only when the diff matches the requested scope, evidence covers the
+highest-risk touched surface, failures are unrelated or disclosed, key
+interactions still work, visual changes have browser evidence when relevant,
+the deploy target is known and reachable, and risky changes have an obvious
+rollback or recovery path.
 
 ## Commit And Deploy Hygiene
 
@@ -49,4 +93,4 @@ evidence is enough for the user's requested release action.
 - Push the current branch only when asked or when repo policy requires it.
 - Deploy only when asked or already authorized by the task.
 - After deploy, verify production/preview URL and report commit SHA, deploy URL,
-  checks run, and any skipped coverage.
+  checks run, skipped coverage, and any residual risk.

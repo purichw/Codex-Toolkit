@@ -70,6 +70,12 @@ For hospitality/travel/activity pages, prefer images with human scale plus place
 - social: warm eye-level moments, low-pressure groups, shared tables, courtyard drinks;
 - wellness: calm group activity, not spa-luxury unless the brand supports it.
 
+## Generated Image Workflow
+
+Use the system `imagegen` skill/tool when generating or editing raster images. Before the image call, state the exact prompt, target slot, crop/aspect requirements, and intended file or use. After the tool returns, do not add extra text in the same response; let the image output stand and continue evaluation in the next turn or next message.
+
+Keep prompts task-local: include subject, mood, crop/aspect needs, brand constraints, and "no text or watermark." Do not paste full audit notes, source lists, or unrelated implementation details into the prompt.
+
 ## Selection Criteria
 
 Choose images by scoring them informally:

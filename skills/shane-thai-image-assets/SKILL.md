@@ -7,6 +7,28 @@ description: Generate, reuse, crop, replace, optimize, and QA image assets for t
 
 Use this skill before adding, replacing, mapping, cropping, or auditing images in the Shane and His Thai app.
 
+## Project context
+
+- Repo: `/Users/point/Website Projects/thai-flashcards`
+- Main-course visual assets: `src/assets/main-course/visuals/<filename>.webp`
+- Visual helper: `src/data/mainCourseVisuals.ts`
+- Main-course image mapping: use `mainCourseVisual(filename, alt)` for course visuals and `visualHint(filename, alt)` for shared visual hints.
+- Main-course image audit: `tools/audit-main-course-images.mjs`
+- General asset audit: `tools/audit-assets.mjs`
+- Badge assets: `public/assets/badges/` and `public/assets/badges/thumbs/`
+- Mascot assets: `public/assets/mascots/` and `src/assets/mascotRegistry.ts`
+
+Common commands:
+
+```bash
+npm run images:audit
+npm run images:audit:check
+npm run assets:audit
+npm run test:data
+npm run build
+node tools/audit-main-course-images.mjs --json
+```
+
 ## Core rule
 
 Reuse only when the existing asset is truly correct. If no correct asset exists, generate or create a new one. Never fill a missing word with a merely similar image.
@@ -17,7 +39,10 @@ Correct action: generate a new key image and map it to the key vocabulary item.
 ## Asset decision workflow
 
 1. Identify the exact Thai item, English meaning, lesson, and semantic context.
-2. Search existing asset mappings and files first.
+2. Search existing asset mappings and files first:
+   - Search `src/data` for the item ID, Thai, English, and current `mainCourseVisual(...)` call.
+   - Search `src/assets/main-course/visuals` for exact or near-exact filenames.
+   - Run `npm run images:audit` when looking for missing main-course card images.
 3. Reuse an asset only when all are true:
    - It depicts the same concept, not just a nearby category.
    - It matches the same meaning where Thai has ambiguity.
@@ -29,7 +54,11 @@ Correct action: generate a new key image and map it to the key vocabulary item.
    - The available asset is semantically wrong.
    - The available asset is low quality, off-center, over-cropped, cluttered, or confusing.
    - The word has a different meaning from a reused Thai homograph.
-5. Preserve existing assets unless intentionally replacing them with a better, verified version.
+5. Wire the asset through the existing helper:
+   - Place main-course card art in `src/assets/main-course/visuals/<slug>.webp`.
+   - Reference it as `mainCourseVisual('<slug>', '<clear alt text>')`.
+   - Use `visualHint(...)` only for shared visual hints from `src/assets/visual-hints`.
+6. Preserve existing assets unless intentionally replacing them with a better, verified version.
 
 ## Meaning and dedupe rules
 
@@ -77,6 +106,20 @@ Every asset must pass these before use:
 - No accidental background object competes with the target.
 
 If a generated image is good but off-center, recrop it. If recropping cannot fix it, regenerate.
+
+## Generation and editing workflow
+
+When generating a new image, use the system `imagegen` skill/tool and obey its output rules. Before calling the tool, provide the exact prompt and target filename/meaning. After the tool returns, do not add extra text in that same image response; inspect and continue in the next step.
+
+For local crop/resize/format work, use deterministic image tools rather than regenerating. Keep source scratch files out of committed/public asset folders unless they are intentional final assets.
+
+Before wiring a generated asset:
+
+- Inspect the image file directly.
+- Confirm the subject is semantically exact for the Thai item.
+- Convert/optimize to WebP when the asset belongs in `src/assets/main-course/visuals`.
+- Use a stable kebab-case filename that reflects the concept, not an internal prompt name.
+- Add useful alt text; do not leave generic alt such as `image` or duplicate unrelated alt text.
 
 ## Badge assets
 
@@ -127,6 +170,9 @@ For family or people-centered vocabulary, include inclusive casting when it stil
 
 - Inspect the actual image files or rendered UI.
 - Verify the mapping points to the correct semantic item.
+- Run `npm run images:audit:check` when main-course image mappings changed.
+- Run `npm run assets:audit` when public badges, mascots, thumbnails, or other public assets changed.
+- Run `npm run test:data` when course data/image mappings changed.
 - Check card display size and crop.
 - Check mobile/tablet if the image appears in responsive layouts.
 - Confirm no unrelated asset was substituted.

@@ -73,6 +73,41 @@ Avoid around sensitive garment zones:
 - object/shadow/weapon-as-censor wording
 - direct pants / waist garment / lower-garment removal wording in the Seraph-Elf champagne single-sash branch
 
+## Boundary Acceleration Playbook
+
+Use this when the user wants the image stronger, hotter, more exposed, fewer
+pieces, or closer to the known boundary while remaining non-explicit.
+
+Do not treat Imagen as pure trial and error. Treat each prompt as one
+hypothesis about HOW to make the image read stronger:
+
+1. **Simplify**: remove visual clutter, reduce accessory count, clean the
+   silhouette, and keep only one signature accent.
+2. **Reframe**: change crop, camera distance, pose angle, or lower-frame
+   structure so the composition naturally carries the boundary.
+3. **Change material system**: use water, mist, reflected light, lacquer,
+   marble shadow, luminous surface, editorial crop, or sofa edge as the
+   non-explicit visual structure.
+4. **Increase pose/read**: stronger S-curve, direct gaze, closer triangular
+   grouping, charged but composed expression, bare-shoulder focus, or dancer
+   line.
+5. **Switch base/HOW**: if the same wording underdelivers twice, change scene,
+   style, base image, material language, or generation/edit mode.
+
+For speed, choose the strongest likely HOW for the active branch instead of
+making a timid prompt first. Only run a safer base first when the current
+context is contaminated by rejects, the requested branch is new, or identity
+quality is unstable.
+
+Outcome mapping:
+
+- `Works`: preserve the HOW and ask the user for verdict.
+- `Underdelivers`: keep the same goal but change one stronger axis.
+- `Rejects`: stop or step down the risky wording family.
+- `Drifts`: restore identity/branch anchors before pushing boundary again.
+- `Conservative regression`: treat as `PARTIAL / COSTUME / CHANGE HOW`, not as
+  a successful safer result.
+
 ## Latest Seraph-Elf Champagne Branch
 
 Current known full-pass baseline:
@@ -356,8 +391,8 @@ Skin-tone hierarchy for the current trio:
 
 Useful current bases:
 
-- `/Users/point/.codex/generated_images/019f458c-315b-7ca2-a036-fe9bc9fc6fe0/call_wh3JuT0bCq6U0tVsFE90Ykc1.png`
-- `/Users/point/.codex/generated_images/019f458c-315b-7ca2-a036-fe9bc9fc6fe0/call_jVhDklibTgPV1Xfcvr4y0xHK.png`
+- `/Users/point/.codex/generated_images/019f4acb-8094-76b3-a07c-80c979667fda/call_wh3JuT0bCq6U0tVsFE90Ykc1.png`
+- `/Users/point/.codex/generated_images/019f4acb-8094-76b3-a07c-80c979667fda/call_jVhDklibTgPV1Xfcvr4y0xHK.png`
 
 ## Soft-Anime Style Shift Caution - 2026-07-09
 

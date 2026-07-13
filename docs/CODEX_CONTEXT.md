@@ -66,7 +66,7 @@ ask or make a conservative assumption and state it.
 From the repository root, refresh the repository from local personal skills:
 
 ```sh
-rsync -a --delete --exclude '.system' --exclude '/README.md' ~/.codex/skills/ skills/
+rsync -a --delete --exclude '.system' --exclude '/README.md' --exclude '__pycache__/' ~/.codex/skills/ skills/
 ```
 
 Then review:

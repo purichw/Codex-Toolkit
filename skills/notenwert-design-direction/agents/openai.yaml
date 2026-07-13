@@ -1,0 +1,4 @@
+interface:
+  display_name: "Notenwert Design Direction"
+  short_description: "Guide Notenwert visual direction"
+  default_prompt: "Use $notenwert-design-direction to design, critique, or brief Notenwert visual direction and responsive behavior."

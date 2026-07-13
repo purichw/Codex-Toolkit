@@ -21,6 +21,61 @@ only after inspecting both the reference and target surface.
 - Reject evidence captured from the wrong route, login/account screens, loading
   placeholders, or selector misses; fix setup and recapture.
 
+## Interaction Depth Requirement
+
+Do not treat a visual match of the first screen as sufficient. For every
+reachable control in the reference and mapped product surface, click or operate
+it until it reaches its terminal or representative states. This includes:
+
+- every tab, route, drawer, dropdown, segmented control, filter, jump list, and
+  disabled or locked navigation item;
+- every reveal/hide, play/stop/replay audio, mark complete, reset, retry,
+  practice-again, got-it, answer, review, shuffle, next/previous, and submit
+  action;
+- every modal open, cancel, close, confirm, keyboard escape, and outside-click
+  behavior;
+- every success, failure, completed, empty, locked, disabled, selected,
+  persisted-after-reload, and reset-after-completion state;
+- every keyboard/touch path that the product claims to support.
+
+When a control affects persisted product state, verify both the immediate UI
+state and the stored/reloaded state. When the reference has separate visual
+completion and product-earned completion semantics, test both paths rather than
+collapsing them into one.
+
+For onboarding tours, coach marks, or spotlight overlays, verify the full step
+sequence rather than only the first overlay. Each step must measure the intended
+live target after any route/tab/screen switch, keep the target visually
+spotlit, avoid fighting manual scroll, support skip/back/next/done and keyboard
+escape, and remain usable at every required mobile, tablet, and desktop
+breakpoint. Also verify the rest of the product after the tour is dismissed:
+the overlay/backdrop must no longer intercept clicks, search results and
+navigation targets must be clickable, and first-run onboarding state must not be
+mistaken for a broken page during release smoke tests.
+
+For tabbed learning products, verify navigation from every entry point, not just
+the top tab strip. This includes overview path rows, next/previous footers,
+dropdown/jump menus, locked tabs, deep links, browser back/forward, and reload.
+After each navigation, confirm the URL, active tab, scroll position, completion
+mark, and persisted progress agree with the product rules.
+
+For search or deep-linkable result cards, verify the full click-through contract:
+the visible result metadata must name the real destination section, the click
+must route to that section rather than a generic fallback, the URL must include
+the target item state when supported, and the target word/phrase/sentence must
+be visible or highlighted after navigation.
+
+For embedded scroll regions such as card indexes, sidebars, carousels, and
+jump-around lists, test the scroll container itself. Confirm the first and last
+items are reachable and visible inside the container, and that automatic
+active-item scrolling does not fight the learner's manual scroll.
+
+If automation output shows the wrong page, an empty selector set, missing target
+selectors, a login screen, or a route that silently failed to load, discard that
+evidence and rerun the audit after fixing the setup. Never count screenshots or
+metrics from an unauthenticated shell, placeholder route, or selector miss as
+Claude-to-a-tee verification.
+
 ## Artifact Provenance
 
 - Record target commit SHA and generated build/version identifier.
@@ -160,6 +215,18 @@ At each required width, check first viewport, scrolled content, menus/dialogs,
 keyboard-sensitive forms, safe-area spacing, and horizontal overflow.
 When a reference uses horizontally scrollable controls, confirm the control
 itself scrolls while the page-level document width remains within the viewport.
+If full-page screenshots of long mobile pages are slow or unstable, capture
+viewport screenshots for key states and collect computed layout metrics across
+all sizes; do not skip the size coverage.
+Responsive verification must include interaction states at those sizes, not just
+static screenshots. At minimum, open menus/dropdowns, switch tabs, press audio
+buttons, complete/reset one activity where relevant, and inspect a scrolled
+mid-page and bottom-page state on long screens.
+For slide-overs, drawers, modals with internal scroll, sticky footers, and
+right/left rails, verify the scroll container itself at top, middle, and bottom.
+Record the first visible and last visible section names, whether lower sections
+such as badges/streak/history are reachable, and whether sticky actions cover
+content.
 
 ## Browser Evidence
 
@@ -171,9 +238,14 @@ itself scrolls while the page-level document width remains within the viewport.
   after live data hydration.
 - Confirm selector queries in automation are hitting the intended product
   components; empty selector results are a failed audit, not a pass.
+- When authentication, emulators, seeded data, feature flags, or remote state are
+  needed to see the real product screen, set them up before visual verification.
 - Use WebKit or real Safari for Safari-specific claims when available.
 - Treat Chrome on iOS as WebKit behavior, not desktop Chromium behavior.
 - Report any browser or device that could not be tested.
+- If a named browser skill is unavailable, use the closest browser automation
+  and inspection capability, preserve the same evidence standard, and report the
+  substitution.
 - After deploy, run the same small parity smoke against the production URL; do
   not count a generic HTTP/functionality smoke as Claude-to-a-tee verification.
 

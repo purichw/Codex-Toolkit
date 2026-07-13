@@ -41,6 +41,7 @@ Keep branch knowledge separated. Reuse workflow discipline across branches, but 
 - RPG / celestial / chroma branches: use `rpg_guy_visual_baselines.md`, PV-076, PV-077, and celestial prompt-strategy notes.
 - Watercolor bathhouse branch: use `watercolor_bathhouse_branch_notes_2026-07-05.md` and `watercolor_bathhouse_visual_baselines.md`; preserve watercolor bathhouse medium, robe/wrap drapery, adult Elf identity, and cozy non-explicit scene anchors.
 - Moonlit celestial fountain branch: use `moonlit_celestial_fountain_branch_notes_2026-07-05.md` and `moonlit_celestial_fountain_visual_baselines.md`; preserve adult white-haired Elf identity, masculine S-curve dancer presence, moonlit fountain courtyard, black reflective marble, water curtains, star motes, compact white-gold center accent, and narrow translucent energy ribbons.
+- Classical black-marble bath trio branch: use the 2026-07-10 sections in `references/prompt-strategy.md` and `references/rejection-handling.md`; preserve classical museum oil painting, three adult mythic men, black-marble pool, continuous reflective waterline, moonlight, steam, and non-explicit water/reflection lower-frame structure.
 - If a branch departs from the old RPG style, create/update branch notes, branch asset names, workbook tags/notes, and handoff pointers instead of mixing baselines.
 
 ## Latest Must-Know
@@ -113,6 +114,10 @@ Useful current evidence:
 - Strong continuation candidate:
   `/Users/point/.codex/generated_images/019f4d1d-df10-75c2-92c9-e8d845a555d3/ig_08cb9899d80519b2016b0d755d90d88191ba7634384c01718a.png`
 
+These `.codex/generated_images` paths are ephemeral. Verify they exist before
+using them; if missing, search handoff/project assets or continue from the
+latest visible user-provided image instead of inventing evidence.
+
 Best prompt HOW for this branch:
 
 - Use `mature graphic-novel fashion editorial`, `close triangular lounge portrait`, `bare shoulders and upper-body focus`, `reduced fabric bulk`, `lower-body styling mostly outside the crop`, `sofa edge / arm placement / crop as natural non-explicit visual structure`.
@@ -141,6 +146,7 @@ If generating/editing images, also use the system `imagegen` skill and read its 
 Before each image call:
 
 - Tell the exact prompt.
+- Tell the user to give `Pass`, `Partial`, or `Reject` after the image appears.
 - Keep the prompt clean and task-local.
 - Translate risky user wording into non-explicit artistic/fantasy/design/sculptural wording without weakening intent.
 - Do not paste avoid lists, workbook rows, retrospective notes, or project rules into prompts.
@@ -148,11 +154,24 @@ Before each image call:
 
 After each image call:
 
-- Show the image.
-- Let the user decide `Pass`, `Partial`, or `Reject`.
+- Do not add extra text in the same response after the image tool returns.
+- Let the image tool output stand, then wait for the user's next verdict.
 
 ## Strategy
 
+- For stronger/boundary-forward requests, use a boundary acceleration loop:
+  identify the missing axis, choose one stronger HOW, generate/edit once, then
+  classify the result from user verdict or visible output. Missing axes include
+  costume bulk, visual clutter, pose/body language, crop/composition,
+  material/surface system, atmosphere/light structure, identity, and quality.
+- Prefer changing HOW over simply intensifying the same wording. Stronger HOW
+  includes tighter editorial crop, more direct gaze, cleaner lower-frame
+  structure, fewer accent pieces, continuous water/light/lacquer surface,
+  stronger pose silhouette, or branch-specific atmosphere carrying the
+  non-explicit structure.
+- Imagen remains empirical. Treat each prompt as a hypothesis with evidence:
+  `works`, `underdelivers`, `rejects`, `drifts`, or `regresses conservative`.
+  Preserve the winning HOW and stop repeating losing families.
 - Stop a prompt family after 2 related rejects; then backtrack, switch base, cold reset, or change HOW.
 - One high-risk ladder rejection can be enough to step back.
 - If user says `Pass`/`Partial` and one local issue remains, prefer local edit.
