@@ -21,6 +21,7 @@ Before finalizing, produce this compact self-check in working notes or closeout:
 REFERENCE RENDERED: yes/no + file/hash/state/viewport
 APP RENDERED: yes/no + URL/commit/state/viewport
 COVERAGE LEDGER: matched / behavior exception / visual exception / not done
+HTML/CSS VISUAL LAYER: shell/header | spacing | typography | card/list geometry | responsive breakpoints | matched/exception/not done
 MEASURED PARITY TABLE: component | viewport | reference x/y/w/h/style/count | implementation x/y/w/h/style/count | delta | status
 BEHAVIOR/ENGINEERING EXCEPTIONS:
 VISUAL EXCEPTIONS:

@@ -36,6 +36,14 @@ and page rhythm. Wrong default route, stale artifact, selector miss, loading or
 login state, shell geometry, primary component geometry, item order/count, or
 undocumented product-driven visual change is a critical mismatch by default.
 
+Treat the HTML/CSS visual layer as a first-class contract. Before editing,
+extract and preserve the reference's rendered DOM/component structure, shell and
+header geometry, page spacing rhythm, typography system, card/list geometry,
+border/radius/shadow/background treatment, image/media frames, and responsive
+breakpoints. Use exact source or computed values from the Claude HTML/CSS when
+available; screenshots are required evidence for rendered state and visual
+inspection, but they do not replace source/computed measurement.
+
 Behavior exceptions are allowed only when they preserve Claude geometry. Visual
 exceptions must be explicit, and critical ones require acceptance before
 commit/push/deploy. Do not claim success, commit, push, deploy, open a PR, or
@@ -106,14 +114,15 @@ when the recorded SHA still matches the current Claude HTML.
    reference manually from the first screen through every reachable page,
    control, and state.
 3. Build the coverage ledger, controls ledger, route component manifest,
-   component contracts, and parity table seed.
+   HTML/CSS visual layer contract, component contracts, and parity table seed.
 4. Map each Claude component and visible action to product-owned files, data,
    permissions, persistence, tests, and operations; mark static/no-op Claude
    behavior explicitly instead of guessing.
 5. Implement component-level parity while preserving product-owned engineering
    behavior.
 6. Measure reference vs implementation with screenshots, computed geometry,
-   responsive states, interactions, and browser evidence.
+   source/computed CSS values, responsive states, interactions, and browser
+   evidence.
 7. Apply the release gate before claiming done or shipping.
 
 ## Required Distinctions
@@ -157,6 +166,7 @@ Before finalizing, produce this compact self-check in working notes or closeout:
 REFERENCE RENDERED: yes/no + file/hash/state/viewport
 APP RENDERED: yes/no + URL/commit/state/viewport
 COVERAGE LEDGER: matched / behavior exception / visual exception / not done
+HTML/CSS VISUAL LAYER: shell/header | spacing | typography | card/list geometry | responsive breakpoints | matched/exception/not done
 MEASURED PARITY TABLE: component | viewport | reference x/y/w/h/style/count | implementation x/y/w/h/style/count | delta | status
 BEHAVIOR/ENGINEERING EXCEPTIONS:
 VISUAL EXCEPTIONS:

@@ -152,6 +152,27 @@ Do not infer exact values from a screenshot when the offline source exposes
 them. Do not copy isolated Claude CSS onto incompatible markup and call it
 complete.
 
+## HTML/CSS Visual Layer Contract
+
+Treat the HTML/CSS visual layer as a first-class contract before editing. Record
+the rendered DOM/component structure, shell and header geometry, page spacing
+rhythm, typography system, card/list geometry, border/radius/shadow/background
+treatment, image/media frames, and responsive breakpoints.
+
+Use exact source or browser-computed values from the Claude HTML/CSS when they
+are available. Screenshots are required evidence for rendered state and visual
+inspection, but they do not replace source/computed measurement.
+
+The visual layer contract should become the bridge between the coverage ledger
+and the measured parity table:
+
+```text
+surface | shell/header | spacing rhythm | typography | card/list geometry | media frames | breakpoints | status
+```
+
+Each row must end as `matched`, `behavior exception`, `visual exception`,
+`deferred with user-approved reason`, or `not done`.
+
 Before editing, extract a small "component contract" for every affected Claude
 component. Include the source values that can visually drift, especially:
 layout mode (`flex`, `grid`, wrapping), width/min/max constraints, font size,
