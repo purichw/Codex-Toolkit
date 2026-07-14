@@ -22,8 +22,9 @@ storage, or state reducer), implement it when it is within the requested scope,
 and only then classify anything truly impossible as a blocker or user-approved
 defer. A missing backend hook is implementation work, not a visual exception.
 
-Preserve newer product behavior when it intentionally differs from Claude.
-Match Claude exactly everywhere else, and report intentional divergences.
+Preserve newer product behavior when it intentionally differs from Claude and
+has evidence of product value. Match Claude exactly everywhere else, and report
+intentional divergences.
 
 Split every intended divergence into two labels:
 
@@ -37,6 +38,57 @@ Split every intended divergence into two labels:
 Behavior exceptions are allowed when needed. Visual exceptions require explicit
 documentation and should be treated as failed Claude-to-a-tee parity unless the
 user accepts them or the reference cannot support a real product path.
+
+## Prove Product UX Before Preserving It
+
+Do not preserve current product UX merely because it already exists. Preserve it
+over Claude only when evidence shows it is more complete, safer, or more useful.
+
+Valid evidence includes:
+
+- functional completeness: real search/filter/save/auth/data behavior where
+  Claude is static, mock-only, or no-op;
+- task success: the product completes a user/admin/learner flow Claude does not
+  complete;
+- state coverage: loading, empty, denied, disabled, validation, failure,
+  persisted-after-reload, long-label, localized, mobile keyboard, or offline
+  states;
+- container behavior: useful sub-containers, internal scroll regions, sticky
+  subpanels, virtualized lists, active-item auto-scroll, or scroll restoration
+  that Claude omits or flattens;
+- operational safety: role checks, confirmations, audit logs, tombstones,
+  rollback, destructive-action safeguards, or permission-denied paths;
+- accessibility, mobile, performance, or reliability evidence;
+- tests, documented product rules, production usage, analytics, support notes,
+  or known regression history.
+
+Use this pre-implementation ledger:
+
+```text
+Component:
+Claude behavior/UI:
+Current product behavior/UX:
+Evidence current is better:
+Decision: Claude adopted / product UX preserved / hybrid / needs user decision
+Reason:
+Implementation rule:
+Verification:
+Risk:
+```
+
+Default to `hybrid` when current UX is proven better: preserve Claude visual
+language, geometry, hierarchy, rhythm, and component feel while keeping the
+product's stronger task flow, state model, container behavior, or safety
+behavior. Default to `Claude adopted` when the current product advantage is
+unproven. Use `needs user decision` when both choices are product-valid but
+imply different UX, scope, or release risk.
+
+Do not flatten an existing sub-container, nested scroll region, sticky subpanel,
+virtualized list, or scroll-restoration behavior just because a newer Claude
+HTML uses a simpler page flow. Restyle it to Claude when possible, but preserve
+the product container when it improves task success, information density,
+keyboard/touch handling, active-item navigation, or mobile usability. If the
+container is removed, document the evidence, risk, and user acceptance.
 
 Do not silently reinterpret "to a tee" as general polish. Treat spacing,
 typography, geometry, states, animation, assets, and responsive overrides as

@@ -31,6 +31,7 @@ Some skills also include reference notes, helper scripts, or agent metadata.
 | [`course-image-assets`](skills/course-image-assets/SKILL.md) | Manages educational course image generation, reuse, mapping, crop fixes, audits, and QA. | Working on vocabulary images, lesson card art, visual hints, badges, semantic mappings, or generated educational illustrations. |
 | [`design-direction`](skills/design-direction/SKILL.md) | Defines, critiques, or preserves product visual direction across projects. | Creating design briefs, redesign strategy, visual north stars, guardrails, Claude Design prompts, or implementation handoff guidance. |
 | [`docs-cartographer`](skills/docs-cartographer/SKILL.md) | Creates useful maps of routes, modules, data flow, commands, ownership boundaries, and handoff context. | A project needs architecture docs, site maps, onboarding docs, interaction maps, or better navigation for future sessions. |
+| [`efficient-execution`](skills/efficient-execution/SKILL.md) | Chooses the fastest workflow that still preserves the required evidence and quality bar. | Work feels slow, checks need batching, context can be reused, or a task needs a smaller safe path without hiding risk. |
 | [`export-html`](skills/export-html/SKILL.md) | Creates live-parity standalone/offline HTML exports and clickable prototypes. | Exporting product screens, design handoffs, Claude/Figma-inspectable HTML, visual audit files, or representative UI states. |
 | [`firebase-account-management`](skills/firebase-account-management/SKILL.md) | Separates Firebase billing, Auth, Firestore, Admin SDK, and account-management concerns. | Designing, auditing, or debugging signup/login, user profiles, admin CRUD, custom claims, or Spark vs Blaze assumptions. |
 | [`firebase-security-rules`](skills/firebase-security-rules/SKILL.md) | Audits Firebase Auth, Firestore Rules, Admin SDK endpoints, service accounts, and production access guarantees. | Reviewing or changing Firestore rules, privileged backend behavior, auth gates, secrets, or Firebase security posture. |
@@ -49,6 +50,7 @@ Some skills also include reference notes, helper scripts, or agent metadata.
 | [`site-maintainer`](skills/site-maintainer/SKILL.md) | Maintains website projects where source, generated artifacts, tests, docs, and hosting outputs must stay aligned. | Working on static/built sites, generated deploy folders, CMS/admin site work, build scripts, deploy prep, or work logs. |
 | [`snapshot`](skills/snapshot/SKILL.md) | Captures, crops, inspects, and presents screenshots with enough context for review. | Producing UI screenshots, visual proof, before/after comparisons, viewport captures, or production smoke evidence. |
 | [`tts-audio-assets`](skills/tts-audio-assets/SKILL.md) | Manages text-to-speech audio generation, reuse, audit, naturalness QA, and data wiring across projects. | Working on lesson audio, UI playback, dialogues, prompts, voice/pacing policy, stale/missing audio, or audio IDs. |
+| [`uat-environment`](skills/uat-environment/SKILL.md) | Defines lightweight preview/UAT environments, seeded test data, auth policy, and promotion evidence. | A frontend, admin, data, auth, asset, or deployment change needs production-like verification before release. |
 
 ## Installing A Skill
 
@@ -67,5 +69,5 @@ diff, then commit.
 Verify the archive with:
 
 ```sh
-python3 scripts/verify_skills.py --expected-count 26
+python3 scripts/verify_skills.py --expected-count 28
 ```

@@ -25,6 +25,11 @@ Use `$claude-to-a-tee` for exact offline Claude parity, `$placeholder-image` for
 image sourcing/crop choices, `$mobile-web-qa` and `$snapshot` for visual proof,
 and project maintainer skills before implementation.
 
+Use `$efficient-execution` when direction work is broad: inspect enough
+references to define the decision, then stop before it becomes a full redesign
+audit. Escalate only when the user asks for architecture, Claude parity,
+responsive verification, or implementation.
+
 ## Direction Frame
 
 Produce or preserve:

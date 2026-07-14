@@ -47,6 +47,31 @@ this file is for choosing the right skill during real work.
   available test/build commands, browser verification for frontend changes, and
   deployment target.
 
+### efficient-execution
+
+- Skill file: [../skills/efficient-execution/SKILL.md](../skills/efficient-execution/SKILL.md)
+- Description: Chooses the fastest quality-preserving path through discovery,
+  implementation, verification, commit, push, deploy, and handoff work.
+- Use when: Work feels slow, the user asks to move faster, a check plan needs
+  batching or trimming, existing evidence might be reused, or a task needs clear
+  stop rules without lowering the acceptance bar.
+- Typical context: User target, changed risk tier, current diff or source
+  state, previously gathered evidence, repo-defined commands, selected domain
+  skills, skipped-check rationale, and the next fastest safe step.
+
+### uat-environment
+
+- Skill file: [../skills/uat-environment/SKILL.md](../skills/uat-environment/SKILL.md)
+- Description: Defines lightweight production-like preview/UAT environments,
+  seed/reset data, auth bypass policy, promotion gates, and rollback evidence.
+- Use when: Frontend UI, admin/CMS, auth/data/API/config, generated assets,
+  Claude parity, mobile QA, or deploy readiness needs realistic verification
+  before production.
+- Typical context: UAT URL, build or commit, isolated env vars/secrets, data
+  fixture/reset plan, test accounts and roles, auth mode, external-service
+  boundaries, routes/flows checked, logs/screenshots, skips, promotion decision,
+  and rollback path.
+
 ### mobile-web-qa
 
 - Skill file: [../skills/mobile-web-qa/SKILL.md](../skills/mobile-web-qa/SKILL.md)

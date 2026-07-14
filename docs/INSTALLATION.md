@@ -53,7 +53,7 @@ in [SKILL_CATALOG.md](SKILL_CATALOG.md).
 If `~/.codex/skills` is the active source of truth, refresh this repository with:
 
 ```sh
-rsync -a --delete --exclude '.system' --exclude '/README.md' --exclude '__pycache__/' ~/.codex/skills/ skills/
+rsync -a --delete --exclude '.system' --exclude '/README.md' --exclude '__pycache__/' --exclude '*.orig' ~/.codex/skills/ skills/
 ```
 
 Review the diff before committing.

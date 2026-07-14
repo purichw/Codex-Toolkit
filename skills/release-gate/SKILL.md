@@ -9,6 +9,9 @@ Block avoidable releases with the smallest trustworthy evidence set. Optimize fo
 speed by separating commit, push, and deploy gates, using targeted checks first,
 and escalating only when the diff increases risk.
 
+Use `$efficient-execution` when the user asks to make commit/push/deploy faster
+or when the gate is taking longer than the risk justifies.
+
 ## Fast Protocol
 
 1. Confirm the intended action and target: commit, push, PR, preview,
@@ -48,6 +51,8 @@ and escalating only when the diff increases risk.
   or rollback path when touched.
 - **T5 deploy/release**: use the platform's deployment skill/tooling when
   available and verify the resulting URL or artifact, not only the local build.
+  Use `$uat-environment` when production-like preview/UAT evidence is needed
+  before promotion.
 
 ## Check Packs
 
@@ -64,6 +69,9 @@ Use these as starting packs, then adapt to repo-defined commands:
 - **Firebase/rules/auth:** use `$firebase-security-rules` or
   `$firebase-account-management`; run tests/emulator or scoped live checks
   appropriate to risk, and document deploy/rollback path.
+- **UAT/preview promotion:** use `$uat-environment` for T3-T5 changes that need
+  production-like verification. Record UAT URL, build/version, data fixture,
+  auth mode, roles tested, skipped checks, and rollback.
 - **Generated image/audio assets:** run the relevant audit/check scripts, verify
   data mappings, inspect representative rendered UI, and avoid broad
   regeneration unless requested.
@@ -79,7 +87,9 @@ Use these as starting packs, then adapt to repo-defined commands:
 - **PR/merge**: include the checks above plus CI status or clearly disclose that
   CI was not available.
 - **Deploy**: confirm target, run build/test evidence appropriate to the risk,
-  deploy only when authorized, then verify the deployed URL or artifact.
+  deploy only when authorized, then verify the deployed URL or artifact. For
+  production deploys with UI/auth/data/admin/config risk, prefer UAT/preview
+  evidence before promotion.
 - **Handoff**: report diff scope, checks run, skipped checks, known risks, and
   next command or recovery path.
 
@@ -99,6 +109,21 @@ Use these as starting packs, then adapt to repo-defined commands:
 - If a full check is slow and a targeted check covers the changed surface, run
   the targeted check first and disclose whether broader CI/build coverage
   remains pending.
+- Do not require UAT for docs-only or tiny non-runtime changes. Use it where it
+  reduces production risk, not as a blanket ceremony.
+
+## Reusable Evidence
+
+Reuse previous evidence only when it still proves the current diff: same commit
+or changed files, same dependency/build config, same target URL or artifact,
+same reference hash, same viewport/auth/data state, and no relevant failures
+since the evidence was captured.
+
+Good reuse examples: a still-healthy dev server for the same branch, a Claude
+reference manifest with the same HTML SHA, targeted tests already run after the
+latest edit, or CI for the exact pushed commit. Stale screenshots, old preview
+URLs, pre-hydration captures, and checks run before the last relevant edit are
+not release evidence.
 
 ## Decision
 

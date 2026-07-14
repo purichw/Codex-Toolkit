@@ -1,0 +1,4 @@
+interface:
+  display_name: "Efficient Execution"
+  short_description: "Move faster without lowering quality"
+  default_prompt: "Use $efficient-execution to choose the fastest safe workflow for this task without lowering quality."

@@ -22,6 +22,11 @@ maps/docs should be updated, `$design-direction` for visual direction,
 `$claude-to-a-tee` for exact reference parity, `$mobile-web-qa`/`$snapshot` for
 visual evidence, and `$release-gate` before commit/deploy.
 
+Use `$efficient-execution` when site work is slowed by repeated discovery,
+unnecessary rebuilds, or unclear commit/push/deploy gates. Reuse a healthy dev
+server, current project map, and previous build evidence only when they match
+the current source, route, target, and environment.
+
 ## Source vs Generated
 
 Define:

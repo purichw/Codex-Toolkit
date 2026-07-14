@@ -1,4 +1,4 @@
 interface:
   display_name: "Claude To A Tee"
-  short_description: "Reproduce offline Claude UI with measured visual fidelity"
-  default_prompt: "Use $claude-to-a-tee to implement this offline Claude HTML with exact measured UI fidelity, preserve product-owned engineering behavior, and verify every responsive state before release."
+  short_description: "Balance Claude UI with proven product UX"
+  default_prompt: "Use $claude-to-a-tee to implement this offline Claude HTML with measured UI fidelity, preserve proven product UX, and report the decision/risk ledger before release."

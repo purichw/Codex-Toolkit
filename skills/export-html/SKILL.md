@@ -52,6 +52,18 @@ Create HTML exports as executable design documentation. The export must preserve
    - Summarize which states are included and any intentional omissions.
    - Say what verification was performed.
 
+## Efficient Export
+
+Use `$efficient-execution` to avoid building unnecessary state galleries. For a
+narrow export, capture the source route, list the visually distinct states, and
+export only states that change layout, hierarchy, copy, controls, or user
+decision-making.
+
+Reuse a source screenshot, DOM snapshot, or component harness only when route,
+commit/build, data state, viewport, CSS/assets, and auth state match the export
+target. If the source cannot render, fixing the render path is usually faster
+than hand-building an inaccurate facsimile.
+
 ## Parity Standard
 
 The export must be live/source **to a tee**: component-perfect wherever technically possible. "Close enough" is not acceptable unless the exception is documented in the export notes and final response.

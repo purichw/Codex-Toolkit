@@ -1,0 +1,4 @@
+interface:
+  display_name: "UAT Environment"
+  short_description: "Design lightweight preview/UAT gates"
+  default_prompt: "Use $uat-environment to design a lightweight UAT/preview environment, test data, bypass rules, and promotion gate before production."

@@ -41,6 +41,8 @@ Use adjacent skills when relevant:
 - `$claude-to-a-tee` for exact Claude Design parity.
 - `$mobile-web-qa` and `$snapshot` for responsive/visual evidence.
 - `$placeholder-image` for image sourcing, crops, and placeholder replacement.
+- `$efficient-execution` for reusing current maps/dev servers/build evidence
+  only when they match the source and target.
 - `$release-gate` before commit, push, deploy, PR, or handoff.
 
 ## Core Rules

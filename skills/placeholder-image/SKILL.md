@@ -165,6 +165,10 @@ responsive image QA, and `$release-gate` before commit/deploy. Use
 project-specific image skills, such as `$shane-thai-image-assets`, when the app
 has its own asset contract.
 
+Use `$efficient-execution` for large image passes: brief all slots first, reject
+obvious mismatches quickly, source or generate only unresolved slots, and verify
+representative crop families before checking every repeated card.
+
 ## Responsive Verification
 
 After replacing images, render and inspect every affected route and component:

@@ -37,6 +37,10 @@ Locate:
 Use `$claude-to-a-tee` for exact design reference parity, `$mobile-web-qa` only
 for web responsive checks, and `$release-gate` before package/deploy/handoff.
 
+Use `$efficient-execution` to keep native checks ordered: validate shared
+contracts and type/build errors before slower simulator/device passes, then run
+device coverage only for changed screens or release gates.
+
 ## Native Boundaries
 
 - Do not replace real backend state with static demo data.

@@ -23,6 +23,17 @@ border thickness, icon shape, crop edge, or text overlap. When sending a tight
 crop, also send or mention a wider snapshot unless the user explicitly asked
 for only the tiny detail.
 
+## Efficient Capture
+
+Use `$efficient-execution` when a visual task starts producing too many images.
+For a narrow change, capture one wide/context shot for the relevant state and
+add one tight crop only if it clarifies the decision. For before/after work,
+capture matched pairs after the fix stabilizes instead of taking a full set on
+every edit.
+
+Reuse a screenshot only when URL or local route, build/source, viewport, auth
+state, data state, scroll position, and overlay state still match.
+
 ## Framing Defaults
 
 Choose the smallest frame that still explains the issue:

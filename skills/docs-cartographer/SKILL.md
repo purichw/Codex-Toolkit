@@ -26,6 +26,15 @@ materially better.
 Prefer improving the canonical doc over adding another isolated note. Create a
 new document only when the information has a distinct audience or lifecycle.
 
+Use `$efficient-execution` when documentation work is getting broad. Update the
+smallest canonical document that will make future work faster. Do not remap the
+whole repository for a narrow doc change unless the user asked for onboarding,
+architecture, or a full handoff.
+
+Stop discovery when the doc can answer: where the thing lives, how it connects,
+how to run or verify it, what must not break, and which skill or owner should
+handle the next step.
+
 Use this placement rule:
 
 - **current-state navigation:** project map, site map, module map, interaction map;

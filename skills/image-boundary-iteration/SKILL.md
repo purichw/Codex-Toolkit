@@ -13,6 +13,12 @@ Do not default back to conservative armor/coverage unless the user asks for a re
 
 Never claim `generated`, `Pass`, `Partial`, `Reject`, or `accepted` without actual tool output or user verdict.
 
+Use `$efficient-execution` only for batching logs, reusing verified baselines,
+choosing the next controlled step, and avoiding repeated failed wording. Do not
+use efficiency as a reason to weaken the user's boundary-forward intent, reduce
+sensual/explicit-leaning direction within non-explicit policy, skip risk checks,
+or collapse Pass/Partial/Reject discipline.
+
 ## Operational Synthesis
 
 Use the user's shorthand as a three-part control signal when present:

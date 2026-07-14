@@ -72,7 +72,9 @@ post-acceptance synchronization are expected.
    rule changed.
 6. Use `$regression-hunter` when one ledger bug suggests repeated data or math
    patterns. Use `$admin-ops` when admin surfaces can edit ledger state. Use
-   `$native-parity` when web/native clients share the contract.
+   `$native-parity` when web/native clients share the contract. Use
+   `$efficient-execution` to run pure calculation checks before slower UI,
+   persistence, or deploy verification.
 
 ## Verification
 

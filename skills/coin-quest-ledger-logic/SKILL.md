@@ -43,6 +43,8 @@ Use adjacent skills when the task crosses boundaries:
   Firestore Rules, Admin SDK, service-account, or production access changes.
 - `$regression-hunter` when a ledger bug suggests repeated settlement,
   participant, invite, or normalization failures.
+- `$efficient-execution` for running pure ledger checks before slower UI or
+  deploy gates.
 - `$release-gate` before commit, push, deploy, or handoff.
 
 ## Non-Negotiable Rules

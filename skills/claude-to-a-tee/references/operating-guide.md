@@ -44,11 +44,14 @@ These markers are for context discipline, not for skipping requirements:
    inventory, and parity table seed.
 5. Map Claude visual components to product-owned files, data paths, actions,
    permissions, and tests.
-6. Implement component-level parity while preserving product-owned behavior; do
+6. Produce a decision and risk ledger before edits: what follows Claude, what
+   preserves current product UX, what becomes hybrid, why, verification, and
+   risk.
+7. Implement component-level parity while preserving product-owned behavior; do
    not invent animation or interactions just because Claude is static.
-7. Measure reference vs implementation with rendered screenshots, computed
+8. Measure reference vs implementation with rendered screenshots, computed
    geometry, responsive states, interactions, and browser evidence.
-8. Apply the release gate before claiming done or shipping.
+9. Apply the release gate before claiming done or shipping.
 
 ## Worklog Shape
 
@@ -62,7 +65,9 @@ COVERAGE LEDGER:
 CONTROLS LEDGER:
 ROUTE COMPONENT MANIFEST:
 COMPONENT CONTRACTS:
+DECISION LEDGER:
 PRODUCT MAPPING:
+PRODUCT UX PRESERVED:
 BEHAVIOR EXCEPTIONS:
 VISUAL EXCEPTIONS:
 MEASURED PARITY TABLE:

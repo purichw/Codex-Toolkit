@@ -11,6 +11,8 @@ as a standalone skill directory under `~/.codex/skills`.
 | [`docs-cartographer`](docs-cartographer/SKILL.md) | Produces living documentation for routes, modules, data flow, interactions, deployment paths, and ownership boundaries. | Use when a codebase needs better maps, handoff notes, or future-maintainer context. |
 | [`regression-hunter`](regression-hunter/SKILL.md) | Turns one bug into a targeted search for related patterns and nearby regressions. | Use after finding a suspicious hardcoded value, duplicated behavior, brittle selector, or repeated logic bug. |
 | [`release-gate`](release-gate/SKILL.md) | Defines the verification checklist before publishing, committing, pushing, deploying, or handing off work. | Use when changes are about to leave the local working state. |
+| [`efficient-execution`](efficient-execution/SKILL.md) | Finds the fastest quality-preserving path by reusing valid context, batching checks, and keeping stop rules explicit. | Use when work needs to move faster without lowering verification, release, or product-quality standards. |
+| [`uat-environment`](uat-environment/SKILL.md) | Defines lightweight production-like preview/UAT targets, seeded data, auth modes, and promotion evidence. | Use when UI, admin, auth/data, asset, or deployment changes need realistic pre-production verification. |
 | [`mobile-web-qa`](mobile-web-qa/SKILL.md) | Verifies responsive UI across representative mobile, tablet, and desktop viewports. | Use for mobile web bugs, pre-deploy QA, keyboard behavior, overflow, safe areas, and touch interaction checks. |
 | [`snapshot`](snapshot/SKILL.md) | Captures screenshots with enough visual context for review. | Use for UI snapshots, before/after evidence, viewport captures, or production smoke proof. |
 

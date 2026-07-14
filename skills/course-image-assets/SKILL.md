@@ -31,6 +31,10 @@ Use `$placeholder-image` for general web image sourcing, `$snapshot` for visual
 evidence, `$mobile-web-qa` for responsive card/crop checks, `$tts-audio-assets`
 when course data/audio changes together, and `$release-gate` before shipping.
 
+Use `$efficient-execution` for batches: audit semantic mappings first, reuse
+verified assets, fix deterministic crop/resize issues locally, and generate
+only items whose meaning or quality actually fails.
+
 ## Meaning And Deduplication
 
 - Same term + same meaning: reuse when quality is good.

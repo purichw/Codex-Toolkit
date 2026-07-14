@@ -43,7 +43,12 @@ Before changing admin behavior, locate:
 
 Use project-specific skills for domain rules, `$firebase-account-management` or
 `$firebase-security-rules` for Firebase-backed admin behavior, `$claude-to-a-tee`
-for exact admin UI parity, and `$release-gate` before shipping.
+for exact admin UI parity, `$uat-environment` for UAT role/test-data/bypass
+design, and `$release-gate` before shipping.
+
+Use `$efficient-execution` to keep admin checks targeted: start with the changed
+operation, role boundary, and data lifecycle, then expand only when a shared
+admin shell, permission contract, or destructive backend path is touched.
 
 ## Operation Map
 
@@ -83,6 +88,8 @@ Use the smallest evidence that covers the risk:
 - admin UI state: targeted browser/e2e check with console/network inspection;
 - data/lifecycle: unit or integration tests plus reload/persistence check;
 - auth/permissions: allow/deny tests with real role boundaries or emulator;
+- UAT/admin preview: auth may be bypassed only when auth is not the feature
+  under test, and only through UAT/test-only gates that cannot affect production;
 - destructive/backend: server authorization, audit log, recovery/tombstone, and
   rollback evidence;
 - deploy/handoff: use `$release-gate`.

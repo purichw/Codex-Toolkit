@@ -62,6 +62,11 @@ Use `$firebase-security-rules` when the account flow depends on Firestore/Storag
 rules, Admin SDK endpoint authorization, service-account env vars, or production
 access guarantees.
 
+Use `$efficient-execution` to avoid over-auditing Firebase: map the exact
+operation layer first, then verify only the provider, rule, endpoint, billing, or
+profile path that can affect that operation. Escalate to official docs or live
+project checks for billing-sensitive or recently changed platform claims.
+
 ## Operation Matrix
 
 Map the requested operation before designing or changing code:

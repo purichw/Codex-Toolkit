@@ -72,6 +72,8 @@ Use adjacent skills when the task crosses boundaries:
   Design reference exactly.
 - `$mobile-web-qa` and `$snapshot` when audio-button behavior or layout must be
   verified visually across responsive routes.
+- `$efficient-execution` for batch scoping, targeted generation, and avoiding
+  full-course regeneration when focused IDs are enough.
 - `$release-gate` before commit, push, deploy, or handoff.
 
 ## Workflow

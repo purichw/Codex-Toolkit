@@ -33,18 +33,36 @@ assumptions, and keep the output short enough to be useful during active work.
    external services, styling system, test surface, and known generated assets.
 5. Check `git status --short` and protect existing user changes.
 
+## Efficient Intake
+
+Read enough to act safely; do not turn every task into a full architecture pass.
+For returning projects, start from current maps/handoffs plus `git status`,
+changed files, package scripts, and deploy config. Deep-read only the docs and
+source areas that can affect the user's requested outcome.
+
+Stop onboarding and move into implementation when you know the owner files, data
+or runtime surface, relevant commands, risky unknowns, follow-on skills, and
+verification path. Escalate to the Extra High pass only when the user asks for
+architecture work or the change crosses module, data, auth, deploy, or product
+contract boundaries.
+
 ## Skill Routing
 
 After the initial map, name any specialized skills that should take over or run
 alongside onboarding. Do not load every skill up front; use the matching skill
 only when the user request or project evidence points to it.
 
+- `$efficient-execution`: choose a faster safe path, reuse current evidence,
+  define stop rules, or optimize slow checks without lowering quality.
 - `$docs-cartographer`: create/update site maps, module maps, architecture
   docs, onboarding docs, handoff docs, or Extra High architecture documents.
 - `$regression-hunter`: one bug suggests repeated patterns, stale constants,
   duplicated logic, brittle selectors, or similar regressions elsewhere.
 - `$release-gate`: before commit, push, deploy, merge, PR, handoff, or after
   substantial code/UI/data/auth/config/deploy changes.
+- `$uat-environment`: production-like preview/UAT setup, seeded test data, auth
+  bypass policy, environment isolation, promotion gates, or deciding what needs
+  UAT before production.
 - `$snapshot`: capture, crop, compare, or present screenshots/visual evidence.
 - `$admin-ops`: admin portals, privileged actions, lifecycle operations,
   destructive actions, audit logs, CMS/admin UX, or Admin SDK endpoints.

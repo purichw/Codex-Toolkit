@@ -22,6 +22,16 @@ Use `$project-onboarding` first when the repo structure is unknown. Use
 `$mobile-web-qa`, `$firebase-security-rules`, `$snapshot`, or project-specific
 skills when the pattern points to those domains.
 
+## Search Budget
+
+Use `$efficient-execution` for large repositories. Start with three to five
+query families that directly express the invariant. Expand only when hits show
+the same failure family or a shared helper/contract. Stop when each query family
+has no relevant hits or the suspicious hits are logged as safe.
+
+Do not scan unrelated domains just because the search is available. A focused
+negative result with the exact queries is better than a broad, unbounded tour.
+
 ## Search Recipes
 
 - **Text/copy drift:** user-visible strings, i18n keys, fallback copy, seed data,

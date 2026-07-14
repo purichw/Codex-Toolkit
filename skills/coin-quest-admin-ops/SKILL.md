@@ -44,6 +44,8 @@ Use adjacent skills when the task crosses boundaries:
 - `$firebase-security-rules` for Firestore/Storage rules, Admin SDK endpoint
   authorization, or production access.
 - `$claude-to-a-tee` for exact Admin UI parity from Claude handoffs.
+- `$efficient-execution` for targeted admin checks and avoiding unnecessary
+  full-project gates.
 - `$release-gate` before commit, push, deploy, or handoff.
 
 ## Live Admin Rules

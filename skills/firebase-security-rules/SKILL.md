@@ -18,6 +18,11 @@ entrypoints, deployment target, and environment variable source. Use
 `$firebase-account-management` when the task is primarily account lifecycle,
 Auth users, providers, custom claims, or admin user management.
 
+Use `$efficient-execution` for scoped security work: start with the rule or
+endpoint that gates the reported access path, then expand only to adjacent
+collections, storage buckets, claims, or Admin SDK calls sharing the same
+authorization invariant.
+
 For Coin Quest Ledger specifically, read:
 
 - `SECURITY_AND_FIREBASE_RULES.md`

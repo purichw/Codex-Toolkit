@@ -28,6 +28,17 @@ Use project-defined breakpoints first. For general mobile work, cover:
 Use WebKit or real Safari for Safari-specific claims when available. Treat
 Chrome on iOS as WebKit behavior, not desktop Chromium behavior.
 
+## Risk-Based Coverage
+
+Use `$efficient-execution` when choosing a reduced matrix. Start with the
+changed viewport class, one adjacent mobile size, and desktop sanity for narrow
+layout fixes. Run the full matrix when touching navigation, sticky/fixed
+regions, forms/keyboard behavior, global layout primitives, typography scale,
+responsive media, launch-critical pages, or pre-deploy QA.
+
+Reuse screenshots only when route, build, viewport, auth/data state, scroll
+position, and relevant source files match. A stale screenshot is not mobile QA.
+
 ## Audit Checklist
 
 - first viewport, scrolled content, sticky/fixed regions, bottom bars, modals;

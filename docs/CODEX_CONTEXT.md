@@ -10,7 +10,7 @@ user's intent.
 - Local checkout used when this file was written: `/Users/point/Codex-Toolkit`
 - Visibility at initial setup: private
 - Purpose: archive and document the user's personal Codex skills
-- Current skill count: 26 `SKILL.md` files under `skills/`
+- Current skill count: 28 `SKILL.md` files under `skills/`
 
 The first import copied personal skills from:
 
@@ -66,7 +66,7 @@ ask or make a conservative assumption and state it.
 From the repository root, refresh the repository from local personal skills:
 
 ```sh
-rsync -a --delete --exclude '.system' --exclude '/README.md' --exclude '__pycache__/' ~/.codex/skills/ skills/
+rsync -a --delete --exclude '.system' --exclude '/README.md' --exclude '__pycache__/' --exclude '*.orig' ~/.codex/skills/ skills/
 ```
 
 Then review:
@@ -87,6 +87,7 @@ Expected current skill folders:
 - `course-image-assets`
 - `design-direction`
 - `docs-cartographer`
+- `efficient-execution`
 - `export-html`
 - `firebase-account-management`
 - `firebase-security-rules`
@@ -105,6 +106,7 @@ Expected current skill folders:
 - `site-maintainer`
 - `snapshot`
 - `tts-audio-assets`
+- `uat-environment`
 
 If the count or names change, update `README.md`, `skills/README.md`, and
 `docs/SKILL_CATALOG.md`.
@@ -147,7 +149,7 @@ updates, enough verification is usually:
 
 ```sh
 git diff --check
-python3 scripts/verify_skills.py --expected-count 26
+python3 scripts/verify_skills.py --expected-count 28
 ```
 
 For skill script changes, run the script's smoke-test or help path when one
@@ -163,6 +165,8 @@ As of this document, the repository has:
 - one archive update adding 2 more skills and updating the verifier count to 17.
 - one archive update adding 9 more reusable/generalized skills and updating the
   verifier count to 26.
+- one archive update adding `efficient-execution` and `uat-environment`,
+  broadening existing skill instructions, and updating the verifier count to 28.
 
 The main thing future Codex should preserve is the distinction between live local
 skills and the GitHub archive. That distinction prevents accidental overwrites

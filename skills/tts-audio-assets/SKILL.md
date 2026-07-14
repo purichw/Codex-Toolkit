@@ -46,6 +46,10 @@ Use `$course-image-assets` when course data/images change with audio,
 `$mobile-web-qa`/`$snapshot` for UI playback evidence, and `$release-gate`
 before commit, push, deploy, or handoff.
 
+Use `$efficient-execution` for batches: audit IDs first, regenerate only the
+confirmed stale or unnatural takes, and defer human listening to the changed
+items plus representative neighbors.
+
 ## Text And Voice Rules
 
 - Send the intended spoken text to the TTS provider, not romanization or display

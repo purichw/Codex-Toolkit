@@ -22,6 +22,9 @@ only after inspecting both the reference and target surface.
   including persistence after reload when the interaction writes state.
 - Record source breakpoints and capture baseline screenshots.
 - Note behavior that the reference mocks but the target implements for real.
+- Produce the pre-implementation decision ledger before edits that could replace
+  current product UX. For each component, state what follows Claude, what
+  preserves product UX, what is hybrid, why, verification, and risk.
 - Reject evidence captured from the wrong route, login/account screens, loading
   placeholders, or selector misses; fix setup and recapture.
 
@@ -198,6 +201,15 @@ behavior.
 
 ## Behavior Protection
 
+- Verify every `product UX preserved` and `hybrid` decision against its stated
+  evidence. A current-product behavior cannot beat Claude unless the task,
+  state, container, safety, accessibility, mobile, performance, test,
+  documentation, or production evidence was actually checked.
+- For existing sub-containers or nested scroll regions, verify the scroll
+  container itself after implementation: first item reachable, last item
+  reachable, manual scroll works, active-item auto-scroll does not fight manual
+  scroll, keyboard/touch behavior works, sticky actions do not cover content,
+  and page-level horizontal overflow remains absent.
 - inventory event listeners, delegated selectors, IDs, data attributes, and tests
   before changing markup
 - preserve auth, persistence, APIs, calculations, i18n, and accessibility

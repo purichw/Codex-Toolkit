@@ -41,6 +41,8 @@ Use adjacent skills when the task crosses boundaries:
 - `$firebase-account-management` or `$firebase-security-rules` for Auth,
   Firestore, Admin SDK, rules, service accounts, or production access.
 - `$mobile-web-qa` only for web responsive parity, not native device testing.
+- `$efficient-execution` for ordering type/build/shared-contract checks before
+  slower simulator or package gates.
 - `$release-gate` before commit, push, deploy, TestFlight/package handoff, or
   web/native shared contract release.
 

@@ -66,6 +66,9 @@ surface:
 - target product mapping;
 - implementation decision: implement, adapt, omit, or defer;
 - reason for any omission or adaptation;
+- decision label: `Claude adopted`, `product UX preserved`, `hybrid`, or
+  `needs user decision`;
+- evidence and risk when current product UX wins over Claude;
 - verification required.
 
 Also create a functional controls ledger for every visible action in each
@@ -97,6 +100,17 @@ gate: every row must end in one of `matched`, `behavior exception`, `visual
 exception`, `deferred with user-approved reason`, or `not done`. A `not done`
 row blocks claims of completion and blocks deploy.
 
+Before editing, produce a user-facing or worklog decision summary for any row
+where Claude will not be followed exactly:
+
+```text
+component | decision | why | evidence | risk | verification
+```
+
+This summary is mandatory for preserving current product UX over Claude. It is
+also mandatory for hybrid choices that keep product behavior while adopting
+Claude presentation.
+
 ## Route Component Manifest
 
 Before editing a multi-route reference, create a route-by-route component
@@ -113,6 +127,9 @@ For each route or screen, record:
   footers, and repeated item counts;
 - stateful variants: pinned vs unpinned, empty vs filled media, carousel dots,
   selected filters, modal open states, and responsive-only substitutions;
+- product container behavior: sub-containers, internal scroll regions, sticky
+  subpanels, virtualized lists, active-item auto-scroll, scroll restoration, and
+  page-level overflow boundaries;
 - data contract: which visible item is lead/pinned/featured, whether it should
   also appear in a feed, and what happens if product data is missing;
 - target mapping: exact product component/file/selector that will render each

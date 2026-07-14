@@ -44,6 +44,8 @@ Use adjacent skills when the task crosses boundaries:
 - `$claude-to-a-tee` when card/image layout must match Claude Design exactly.
 - `$mobile-web-qa` and `$snapshot` when rendered card crop/responsive evidence is
   needed.
+- `$efficient-execution` for batch scoping, semantic-audit first passes, and
+  avoiding broad regeneration when deterministic crop or reuse is enough.
 - `$release-gate` before commit, push, deploy, or handoff.
 
 ## Core rule

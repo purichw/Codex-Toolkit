@@ -43,6 +43,7 @@ Use adjacent skills when the task moves beyond direction:
 - `$mobile-web-qa` and `$snapshot` for responsive visual proof.
 - `$placeholder-image` for sourcing/cropping real imagery.
 - `$docs-cartographer` for durable design or architecture documentation.
+- `$efficient-execution` for keeping design reads scoped before implementation.
 
 ## Design North Star
 

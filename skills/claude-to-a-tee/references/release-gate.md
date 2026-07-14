@@ -20,9 +20,11 @@ Before finalizing, produce this compact self-check in working notes or closeout:
 ```text
 REFERENCE RENDERED: yes/no + file/hash/state/viewport
 APP RENDERED: yes/no + URL/commit/state/viewport
+DECISION LEDGER: Claude adopted / product UX preserved / hybrid / needs user decision + reason/risk
 COVERAGE LEDGER: matched / behavior exception / visual exception / not done
 HTML/CSS VISUAL LAYER: shell/header | spacing | typography | card/list geometry | responsive breakpoints | matched/exception/not done
 MEASURED PARITY TABLE: component | viewport | reference x/y/w/h/style/count | implementation x/y/w/h/style/count | delta | status
+PRODUCT UX PRESERVED:
 BEHAVIOR/ENGINEERING EXCEPTIONS:
 VISUAL EXCEPTIONS:
 BLOCKERS BEFORE COMMIT:
@@ -39,6 +41,10 @@ undocumented product-driven visual change is a critical mismatch by default.
 These fail the skill:
 
 - "Claude-inspired polish" instead of component-level measured parity;
+- preserving current product UX without evidence or without reporting what does
+  not follow Claude and why;
+- flattening existing sub-containers, internal scroll regions, sticky subpanels,
+  or active-item scroll behavior without a decision ledger and verification;
 - editing first and measuring only after the user complains;
 - using product CSS clamps, spacing, or old primitives when they alter Claude
   geometry without declaring a visual exception;
@@ -93,6 +99,8 @@ selector misses; fix setup and recapture before claiming parity.
 Do not claim completion, commit, push, or deploy a Claude-to-a-tee change until:
 
 - relevant reference and implementation states were rendered and compared;
+- the pre-implementation decision ledger exists and every non-Claude decision
+  names its reason, evidence, risk, and verification;
 - the reference state/surface coverage ledger is complete, and every reference
   state is either implemented, product-adapted, explicitly omitted, or deferred
   with the reason documented;
@@ -118,6 +126,9 @@ Do not claim completion, commit, push, or deploy a Claude-to-a-tee change until:
 - the measured parity audit has no `critical` or `not done` rows;
 - product exceptions are separated into behavior exceptions and visual
   exceptions;
+- product-UX-preserved and hybrid rows have verification that proves the current
+  product UX is more complete, safer, or more useful than the Claude reference
+  for that component;
 - any visual exceptions are explicitly reported to and accepted by the user
   before release.
 
@@ -141,6 +152,7 @@ gate does not verify the changed UI and cannot close the release gate.
 
 ## Completion Report
 
-Report the reference files, routes/components, measured parity status, viewport
-matrix, tests, browser coverage, deployed URL if any, and every intentional or
-remaining divergence in the closeout.
+Report the reference files, routes/components, decision ledger summary, measured
+parity status, viewport matrix, tests, browser coverage, deployed URL if any,
+what followed Claude, what did not follow Claude, why, risks, and every
+intentional or remaining divergence in the closeout.

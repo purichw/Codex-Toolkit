@@ -1,6 +1,6 @@
 ---
 name: claude-to-a-tee
-description: Reproduce an offline Claude Design HTML reference exactly at component level while preserving required product behavior. Use when the user says "Claude to a tee", "to a tee", "exactly like the Claude HTML", "pixel-perfect", "holy grail", or asks Codex to implement, audit, compare, extract, or repair a web UI from Claude-generated offline HTML, screenshots, handoff files, exported assets, or reference manifests, especially when responsive mobile, tablet, desktop, animation, interaction, or pre-deploy visual verification is required.
+description: Reproduce an offline Claude Design HTML reference at component level while preserving proven product UX, behavior, and engineering contracts. Use when the user says "Claude to a tee", "to a tee", "exactly like the Claude HTML", "pixel-perfect", "holy grail", or asks Codex to implement, audit, compare, extract, repair, or balance a web UI from Claude-generated offline HTML, screenshots, handoff files, exported assets, or reference manifests, especially when responsive mobile, tablet, desktop, animation, interaction, product-UX preservation, decision/risk ledgers, or pre-deploy visual verification is required.
 ---
 
 # Claude To A Tee
@@ -54,6 +54,13 @@ references often omit behavior, persistence, real data, or animation; absence in
 Claude is not permission to ship broken product behavior, invent decorative
 motion, or drift away from the rendered UI. Match animations only when the
 reference shows them or the product already requires them.
+
+Before implementation, always output or maintain a decision ledger for the
+requested scope. The ledger must say what will follow Claude, what will preserve
+the current product, what will be hybridized, why, how it will be verified, and
+what risk remains. This can be a short user-facing plan, a working note, or
+both depending on task size, but it must exist before edits that could overwrite
+current UX.
 
 ## Quick Read Path
 
@@ -118,12 +125,14 @@ when the recorded SHA still matches the current Claude HTML.
 4. Map each Claude component and visible action to product-owned files, data,
    permissions, persistence, tests, and operations; mark static/no-op Claude
    behavior explicitly instead of guessing.
-5. Implement component-level parity while preserving product-owned engineering
-   behavior.
-6. Measure reference vs implementation with screenshots, computed geometry,
+5. Produce the decision and risk ledger before editing: Claude adopted, product
+   UX preserved, hybrid, needs user decision, risk, and verification.
+6. Implement component-level parity while preserving proven product UX and
+   product-owned engineering behavior.
+7. Measure reference vs implementation with screenshots, computed geometry,
    source/computed CSS values, responsive states, interactions, and browser
    evidence.
-7. Apply the release gate before claiming done or shipping.
+8. Apply the release gate before claiming done or shipping.
 
 ## Required Distinctions
 
@@ -148,6 +157,59 @@ Behavior exceptions are allowed when needed. Visual exceptions require explicit
 documentation and should be treated as failed Claude-to-a-tee parity unless the
 user accepts them or the reference cannot support a real product path.
 
+## Product UX Preservation Gate
+
+The current product may beat Claude only with evidence, not taste. Before
+preserving current UX over Claude, prove at least one of these:
+
+- real functionality exists where Claude is static, mock-only, no-op, or
+  visually implied but incomplete;
+- the product flow completes a user task that Claude does not support end to
+  end;
+- the product preserves useful nested containers, internal scroll regions,
+  sticky subpanels, virtualized lists, or scroll restoration that Claude omits
+  or flattens;
+- the product covers important states Claude omits: loading, empty, error,
+  denied, disabled, partial failure, long text, mobile keyboard, or reload;
+- the product protects operational safety: role checks, confirmation, audit
+  logs, rollback, destructive-action safeguards, or permission denial;
+- the product has stronger accessibility, mobile, performance, or reliability
+  evidence;
+- the product behavior is covered by tests, docs, production usage, or a known
+  regression history.
+
+If none of these are proven, Claude wins for design and interaction shape by
+default. When evidence exists, prefer `hybrid`: use Claude's visual language,
+geometry, hierarchy, and rhythm while preserving the product's stronger real
+behavior.
+
+Use this ledger before implementation and again in closeout:
+
+```text
+Component:
+Claude behavior/UI:
+Current product behavior/UX:
+Evidence current is better:
+Decision: Claude adopted / product UX preserved / hybrid / needs user decision
+Reason:
+Implementation rule:
+Verification:
+Risk:
+```
+
+Report the ledger explicitly when the decision affects user-visible UX, product
+behavior, release risk, or any place where Claude will not be followed exactly.
+If a `needs user decision` row blocks a critical visual or behavior choice, ask
+before editing that row or continue only on clearly independent work.
+
+Do not flatten an existing product sub-container, nested scroll region, sticky
+subpanel, virtualized list, or scroll-restoration behavior just because a newer
+Claude HTML puts the same content in a simpler page flow. First record the
+existing container behavior, decide `Claude adopted`, `product UX preserved`, or
+`hybrid`, and verify the post-change scroll container itself: first item, last
+item, manual scroll, active-item auto-scroll, keyboard/touch behavior, and
+page-level overflow.
+
 Do not silently reinterpret "to a tee" as general polish, a shell-level restyle,
 or copying Claude's demo architecture. Treat Claude JavaScript and demo
 interactions as evidence of intended visible states, not as architecture to
@@ -165,9 +227,11 @@ Before finalizing, produce this compact self-check in working notes or closeout:
 ```text
 REFERENCE RENDERED: yes/no + file/hash/state/viewport
 APP RENDERED: yes/no + URL/commit/state/viewport
+DECISION LEDGER: Claude adopted / product UX preserved / hybrid / needs user decision + reason/risk
 COVERAGE LEDGER: matched / behavior exception / visual exception / not done
 HTML/CSS VISUAL LAYER: shell/header | spacing | typography | card/list geometry | responsive breakpoints | matched/exception/not done
 MEASURED PARITY TABLE: component | viewport | reference x/y/w/h/style/count | implementation x/y/w/h/style/count | delta | status
+PRODUCT UX PRESERVED:
 BEHAVIOR/ENGINEERING EXCEPTIONS:
 VISUAL EXCEPTIONS:
 BLOCKERS BEFORE COMMIT:
