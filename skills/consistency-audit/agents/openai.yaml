@@ -1,4 +1,4 @@
 interface:
   display_name: "Consistency Audit"
-  short_description: "Audit UI consistency and pattern drift"
-  default_prompt: "Use $consistency-audit to audit UI consistency, pattern weight, and shared-component drift."
+  short_description: "Audit consistency without new surface area"
+  default_prompt: "Use $consistency-audit to audit UI consistency, pattern weight, and shared-component drift without inventing new UI."

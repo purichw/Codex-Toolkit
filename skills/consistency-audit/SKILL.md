@@ -1,6 +1,6 @@
 ---
 name: consistency-audit
-description: Audit website or app consistency across UI, UX, frontend implementation, and shared components. Use when checking whether layouts, components, typography, spacing, colors, icons, copy tone, interaction patterns, responsive behavior, states, forms, data-dense screens, or supposedly shared primitives are consistent with project requirements, design principles, inferred product patterns, pattern weight, and historical stability; also use to find duplicate components/CSS that should be consolidated without breaking layout, size, or behavior.
+description: Audit website or app consistency across UI, UX, frontend implementation, and shared components while preserving existing behavior and product surface area. Use when checking whether layouts, components, typography, spacing, colors, icons, copy tone, interaction patterns, responsive behavior, states, forms, data-dense screens, or supposedly shared primitives are consistent with project requirements, design principles, inferred product patterns, pattern weight, and historical stability; also use to prevent consistency fixes from inventing new UI/features/content and to find duplicate components/CSS that should be consolidated without breaking layout, size, or behavior.
 ---
 
 # Consistency Audit
@@ -30,6 +30,35 @@ Rank consistency sources:
 
 Do not invent a new system during an audit. If requirements conflict with the
 current product, report the conflict and the recommended owner decision.
+
+## Consistency-Only Guardrail
+
+Treat "nothing breaks" as a release criterion, not a preference. A consistency
+fix must not remove routes, flatten proven journeys, replace internal scroll
+containers, hide existing content, change permissions, alter data contracts,
+break forms, reduce accessibility, or change layout dimensions unless the user
+explicitly asks for that change.
+
+Do not add new product surface area during a consistency audit. Avoid adding
+new sections, pages, navigation items, buttons, controls, animations, content,
+imagery, data fields, copy blocks, onboarding, filters, or abstractions just
+because they seem useful or would make the design feel more complete.
+
+Add only when the addition fills a missing piece of an already-established
+pattern. Before adding, prove all of these:
+
+1. Comparable screens/components already have the piece, or an explicit
+   requirement says it should exist.
+2. The absence is an outlier, regression, incomplete state, accessibility gap,
+   missing shared variant, missing token, missing copy/state, or missing test.
+3. The addition does not introduce a new journey, permission, data entity,
+   business rule, layout model, or content strategy.
+4. The addition can be verified without breaking dimensions, scroll behavior,
+   routing, responsive behavior, or component contracts.
+
+When uncertain, report the idea as a recommendation or design decision, not as
+part of the consistency fix. Prefer aligning outliers back to the dominant
+proven pattern over expanding the whole product around a new outlier.
 
 ## Pattern Weighting
 
@@ -127,11 +156,13 @@ wrapping, scroll, table density, or mobile layout.
    inconsistencies.
 5. Build a weighted pattern ledger: comparable population, explicit requirement,
    current dominant pattern, count, history signal, recency/intent signal,
-   outliers, severity, recommended fix, and safety checks.
+   outliers, severity, recommended fix, missing-piece proof, and safety checks.
 6. For implementation inconsistencies, trace whether the outlier is a duplicate
    component, local CSS override, missing variant, stale copy, or intentional
    product-specific exception.
-7. Recommend fixes in phases: quick token/variant cleanup, component
+7. Classify every proposed change as align existing, restore removed behavior,
+   fill missing piece, consolidate duplicate, or new addition requiring approval.
+8. Recommend fixes in phases: quick token/variant cleanup, component
    consolidation, behavior/state fixes, docs/test updates.
 
 ## Severity
@@ -147,7 +178,11 @@ wrapping, scroll, table density, or mobile layout.
 ## Fix Safety
 
 - Preserve product UX contracts; use `$product-ux-contracts` when uncertain.
+- Preserve existing product surface area; do not add new UI, content, or
+  behavior without explicit requirement or missing-piece proof.
 - Preserve layout dimensions unless the fix explicitly changes layout.
+- Preserve internal scroll containers, route structure, navigation, permissions,
+  form behavior, data contracts, and responsive constraints.
 - Prefer existing tokens and primitives before adding new ones.
 - Add variants instead of one-off CSS when a pattern recurs.
 - Snapshot before/after for user-visible fixes.
@@ -157,5 +192,6 @@ wrapping, scroll, table density, or mobile layout.
 
 Report requirements inspected, inferred patterns, outliers found, duplicate
 components/CSS, consolidation candidates, items intentionally left separate,
-pattern weights/tie-breakers, severity, recommended phases, screenshots/tests,
-and risks before changing shared primitives.
+pattern weights/tie-breakers, missing-piece proof for any addition, changes
+deferred as new product/design decisions, severity, recommended phases,
+screenshots/tests, and risks before changing shared primitives.
