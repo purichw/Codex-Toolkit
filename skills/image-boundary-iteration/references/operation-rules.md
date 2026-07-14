@@ -13,8 +13,7 @@ Use this as the short operating contract for this project.
 ## Evidence Discipline
 
 - Say the exact image prompt before each image tool call.
-- Tell the user before the image tool call to give `Pass`, `Partial`, or `Reject` after the image appears.
-- After the image tool returns, do not add extra text in the same response; let the image output stand and wait for the user's verdict.
+- Show the image after each image tool call.
 - Do not say `generated`, `rejected`, `passed`, or `accepted` unless there is real tool/user evidence.
 - If there is no image file or viewable result, treat it as a plan or hypothesis only.
 

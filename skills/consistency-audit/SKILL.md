@@ -1,6 +1,6 @@
 ---
 name: consistency-audit
-description: Audit website or app consistency across UI, UX, frontend implementation, and shared components while preserving existing behavior and product surface area. Use when checking whether layouts, components, typography, spacing, colors, icons, copy tone, interaction patterns, responsive behavior, states, forms, data-dense screens, intentional/coexisting variants, deliberate component sizing/customization, or supposedly shared primitives are consistent with project requirements, design principles, inferred product patterns, pattern weight, and historical stability; also use to prevent consistency fixes from inventing new UI/features/content, exercise conservative best judgment when context is insufficient, and find duplicate components/CSS that should be consolidated without breaking layout, size, or behavior.
+description: Audit website or app consistency across UI, UX, frontend implementation, and shared components while preserving existing behavior and product surface area. Use when checking whether layouts, components, typography, spacing, colors, icons, copy tone, interaction patterns, responsive behavior, states, forms, data-dense screens, intentional/coexisting variants, deliberate component sizing/customization, or supposedly shared primitives are consistent with project requirements, design principles, inferred product patterns, pattern weight, and historical stability; also use to prevent consistency fixes from inventing new UI/features/content, bias uncertain differences toward provisional product decisions, exercise conservative best judgment when context is insufficient, and find duplicate components/CSS that should be consolidated without breaking layout, size, or behavior.
 ---
 
 # Consistency Audit
@@ -80,6 +80,15 @@ When using judgment under uncertainty:
 3. Prefer the smallest consistency adjustment over broad normalization.
 4. Prefer leaving a suspected intentional variant alone over flattening it.
 5. Mark the decision as provisional and list what evidence would change it.
+
+When unsure whether a difference is an inconsistency or a product decision, bias
+toward treating it as a provisional product decision. This does not mean doing
+nothing. Preserve the visible behavior/geometry first, then take only safe
+consistency actions around it: document the rationale, fix clearly broken states,
+restore missing peer behavior when proven, remove duplicate implementation by
+introducing a non-breaking variant, add tests/snapshots, or ask for an owner
+decision. Do not resize, restyle, remove, or flatten the suspected product
+decision until evidence shows it is accidental or the user explicitly approves.
 
 Escalate only when the decision could break a journey, remove product surface
 area, change data/permission behavior, alter shared primitives broadly, or add
@@ -216,7 +225,8 @@ scroll, table density, or mobile layout.
    product context.
 7. Classify every proposed change as align existing, restore removed behavior,
    fill missing piece, preserve coexisting variant, consolidate duplicate, or
-   new addition requiring approval.
+   preserve provisional product decision with safe adjacent fixes, or new
+   addition requiring approval.
 8. Recommend fixes in phases: quick token/variant cleanup, component
    consolidation, behavior/state fixes, docs/test updates.
 
@@ -250,6 +260,7 @@ Report requirements inspected, inferred patterns, outliers found, coexisting
 variants and deliberate customizations preserved, duplicate components/CSS,
 consolidation candidates, items intentionally left separate, pattern
 weights/tie-breakers, missing-piece proof for any addition, changes deferred as
-new product/design decisions, best-judgment assumptions made under insufficient
-context, severity, recommended phases, screenshots/tests, and risks before
-changing shared primitives.
+new product/design decisions, provisional product decisions preserved with safe
+adjacent fixes, best-judgment assumptions made under insufficient context,
+severity, recommended phases, screenshots/tests, and risks before changing
+shared primitives.

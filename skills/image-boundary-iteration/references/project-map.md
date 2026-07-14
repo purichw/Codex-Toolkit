@@ -45,6 +45,7 @@ Archive:
 - `rpg_guy_visual_baselines.md`: accepted visual baselines and caveats.
 - `watercolor_bathhouse_branch_notes_2026-07-05.md`: watercolor bathhouse branch rules, assets, rejects, and prompt direction.
 - `watercolor_bathhouse_visual_baselines.md`: accepted/useful visual baselines for the watercolor bathhouse branch.
+- `watercolor_genshin_trio_batch_notes_2026-07-14.md`: active watercolor fantasy trio branch notes, including PV-082 water north-star, PV-083 safe bedroom base, and PV-084 bedroom editorial-crop north-star.
 - `moonlit_celestial_fountain_branch_notes_2026-07-05.md`: moonlit fountain branch rules, assets, rejects, and prompt direction.
 - `moonlit_celestial_fountain_visual_baselines.md`: accepted/useful visual baselines for the moonlit fountain branch.
 - `boundary_iteration_playbook_v2_2026-07-03.md`: synthesized evidence-first strategy rules from workbook + Markdown + latest PV-077 branch.
@@ -55,6 +56,17 @@ Archive:
 - `sensitive_figure_reference_prompting_glossary.compiled.json`: active compiled JSON.
 - `sensitive_figure_reference_prompting_glossary.compiled.min.json`: active minified JSON.
 - `sensitive_figure_reference_prompting_glossary.eval_cases.json`: active eval cases.
+
+## Workbook Contract
+
+The active workbook is a mixed evidence/rules artifact. Keep current writes in the four packet-supported sheets:
+
+- `Retest Results Log`: run-level user verdicts and important reject/learning evidence.
+- `Passed Visuals`: user-passed image baselines only.
+- `Prompt Templates`: reusable prompt wording only.
+- `Adult Clarity Audit`: synthesis, cleanup, stale-note, and schema guidance.
+
+Historical/compiler sheets can stay even if they look old. Rename/delete/combine them only with a coordinated migration of the workbook updater, compiler, packet template, compiled JSON, and docs.
 
 ## Refresh Policy
 

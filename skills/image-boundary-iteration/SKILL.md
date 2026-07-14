@@ -46,7 +46,7 @@ Keep branch knowledge separated. Reuse workflow discipline across branches, but 
 
 - RPG / celestial / chroma branches: use `rpg_guy_visual_baselines.md`, PV-076, PV-077, and celestial prompt-strategy notes.
 - Watercolor bathhouse branch: use `watercolor_bathhouse_branch_notes_2026-07-05.md` and `watercolor_bathhouse_visual_baselines.md`; preserve watercolor bathhouse medium, robe/wrap drapery, adult Elf identity, and cozy non-explicit scene anchors.
-- Watercolor fantasy trio branch: use `watercolor_genshin_trio_batch_notes_2026-07-14.md`, PV-082, and PV-083; preserve the black-haired gold spear dancer, orange-haired hydro fighter, and silver-haired teal scholar-mage identities. Keep this branch separate from the older white-haired Elf / haloed man / Devil bathhouse branch.
+- Watercolor fantasy trio branch: use `watercolor_genshin_trio_batch_notes_2026-07-14.md`, PV-082, PV-083, and PV-084; preserve the black-haired gold spear dancer, orange-haired hydro fighter, and silver-haired teal scholar-mage identities. Keep this branch separate from the older white-haired Elf / haloed man / Devil bathhouse branch.
 - Moonlit celestial fountain branch: use `moonlit_celestial_fountain_branch_notes_2026-07-05.md` and `moonlit_celestial_fountain_visual_baselines.md`; preserve adult white-haired Elf identity, masculine S-curve dancer presence, moonlit fountain courtyard, black reflective marble, water curtains, star motes, compact white-gold center accent, and narrow translucent energy ribbons.
 - Classical black-marble bath trio branch: use the 2026-07-10 sections in `references/prompt-strategy.md` and `references/rejection-handling.md`; preserve classical museum oil painting, three adult mythic men, black-marble pool, continuous reflective waterline, moonlight, steam, and non-explicit water/reflection lower-frame structure.
 - If a branch departs from the old RPG style, create/update branch notes, branch asset names, workbook tags/notes, and handoff pointers instead of mixing baselines.
@@ -113,6 +113,14 @@ PV-083 verdict: user said `PASS PASS PASS` after the bedroom scene reset.
 PV-083 rule: preserve moonlit palace bedroom, large bed, white/pale-gold bedding, pillows, sheer curtains, arched windows, warm lantern light, open-collar linen robes, visible shoulders/chests, clear identities, and close triangular grouping. Bedding folds, pillows, crop, and soft shadow should carry the lower-frame visual structure.
 
 Bedroom safety rule: the first bedroom prompt rejected when bedroom intimacy and lower-frame/body-texture cues were stacked together. For bedroom scenes, start from PV-083 with safe linen-and-bedding framing and strengthen one axis at a time. Do not start a bedroom prompt with lower-frame anatomy/texture wording.
+
+Current strongest bedroom north-star:
+
+`/Users/point/outputs/nudity_reference_prompting/References for Codex/generated_assets/watercolor_trio_moonlit_bedroom_editorial_crop_single_sash_superpass_2026-07-14.png`
+
+PV-084 verdict: user said `PASS แรงมาก 1000000000 คะแนน`.
+
+PV-084 rule: preserve tight moonlit bedroom crop, identities, faces/hair/hands, smooth sculptural torsos and upper-leg silhouettes, pillow-shadow lower frame, warm lanterns, arched windows, and one hairline-thin pale-gold sash/cord per character. This passed after direct same-frame extreme reduction underdelivered or rejected. For further boundary pushes, use crop/composition/hands/pillows/shadow/single-sash fashion language instead of direct garment-removal or explicit anatomy language. If quality breaks, backtrack to the bedroom quality-restore pass or run a clean quality redraw before pushing again.
 
 Earlier single-Elf pass baseline:
 
@@ -231,6 +239,10 @@ Prefer positive design wording:
 - `small naturalistic anatomy refinement under opaque water and mist`
 - `soft watercolor indication of natural body volume beneath the waterline`
 - `lower torso / upper-thigh transition reads slightly more natural`
+- `gallery-safe high-fashion figure-study crop`
+- `one hairline-thin pale-gold sash or cord per character`
+- `bottom crop, hands, pillows, and soft shadow carry the non-explicit structure`
+- `smooth sculptural figure-study anatomy without explicit detail`
 
 Avoid unless the user explicitly asks for a controlled risky test:
 
@@ -239,6 +251,8 @@ Avoid unless the user explicitly asks for a controlled risky test:
 - pants / waist garment / lower-garment removal wording in the PV-077 branch
 - object/shadow/weapon-as-censor framing
 - direct `bulge`, `crotch`, genital, or explicit anatomy wording; translate into subtle natural form under water/steam when the intent is non-explicit naturalness
+- direct bedroom same-frame wording that says fabric is almost gone while the lower frame remains visible
+- combining bedroom intimacy, exact lower-frame detail, and sharpened anatomy in one prompt
 - long anatomy/explicitness negative lists
 - stacked relationship/carry words with close-face, torso touch, support, lift, or weight-shift
 

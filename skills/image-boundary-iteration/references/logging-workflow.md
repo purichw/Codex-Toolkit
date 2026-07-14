@@ -104,6 +104,14 @@ ln -sfn /Users/point/.cache/codex-runtimes/codex-primary-runtime/dependencies/no
 - `Prompt Templates`: reusable prompt structures only.
 - `Adult Clarity Audit`: strategy learnings that should affect next prompts.
 
+Workbook schema contract:
+
+- `Retest Results Log` is the run/evidence log. Keep result, safety, score, generated path/hash, decision, promotion, failure, and user-feedback fields here.
+- `Passed Visuals` is the user-approved visual gallery. Keep image ID/path/hash, intent, prompt family, proof level, drift risk, retest status, and notes here. Do not add run-only fields like `Result`, `Rejected?`, score columns, or `Too Much Clothing?`.
+- `Prompt Templates` is reusable wording only. Do not store image hashes or per-run verdicts there.
+- `Adult Clarity Audit` is for synthesis, stale-note cleanup, and schema guidance. Use it to record when something should be deprecated, combined, or migrated.
+- Do not physically delete/rename workbook sheets unless `compile_glossary_json.py`, `workbook_update_from_packet.mjs`, the packet template, and docs are migrated in the same change.
+
 ## Safety Checks
 
 - Never copy formatting in a way that copies old values.

@@ -73,41 +73,6 @@ Avoid around sensitive garment zones:
 - object/shadow/weapon-as-censor wording
 - direct pants / waist garment / lower-garment removal wording in the Seraph-Elf champagne single-sash branch
 
-## Boundary Acceleration Playbook
-
-Use this when the user wants the image stronger, hotter, more exposed, fewer
-pieces, or closer to the known boundary while remaining non-explicit.
-
-Do not treat Imagen as pure trial and error. Treat each prompt as one
-hypothesis about HOW to make the image read stronger:
-
-1. **Simplify**: remove visual clutter, reduce accessory count, clean the
-   silhouette, and keep only one signature accent.
-2. **Reframe**: change crop, camera distance, pose angle, or lower-frame
-   structure so the composition naturally carries the boundary.
-3. **Change material system**: use water, mist, reflected light, lacquer,
-   marble shadow, luminous surface, editorial crop, or sofa edge as the
-   non-explicit visual structure.
-4. **Increase pose/read**: stronger S-curve, direct gaze, closer triangular
-   grouping, charged but composed expression, bare-shoulder focus, or dancer
-   line.
-5. **Switch base/HOW**: if the same wording underdelivers twice, change scene,
-   style, base image, material language, or generation/edit mode.
-
-For speed, choose the strongest likely HOW for the active branch instead of
-making a timid prompt first. Only run a safer base first when the current
-context is contaminated by rejects, the requested branch is new, or identity
-quality is unstable.
-
-Outcome mapping:
-
-- `Works`: preserve the HOW and ask the user for verdict.
-- `Underdelivers`: keep the same goal but change one stronger axis.
-- `Rejects`: stop or step down the risky wording family.
-- `Drifts`: restore identity/branch anchors before pushing boundary again.
-- `Conservative regression`: treat as `PARTIAL / COSTUME / CHANGE HOW`, not as
-  a successful safer result.
-
 ## Latest Seraph-Elf Champagne Branch
 
 Current known full-pass baseline:
@@ -301,6 +266,48 @@ Acro-yoga:
 - If armor/long costume returns, treat it as costume regression, not a successful pose step.
 - If face or quality degrades over edits, return to a cleaner base instead of over-editing.
 
+## Watercolor Fantasy Trio Bedroom Editorial Crop - 2026-07-14
+
+Use this for the active watercolor trio made from the black-haired gold spear dancer, orange-haired hydro fighter, and silver-haired teal scholar-mage when the user wants the moonlit bedroom route pushed hard while staying non-explicit.
+
+Current strongest bedroom north-star:
+
+`/Users/point/outputs/nudity_reference_prompting/References for Codex/generated_assets/watercolor_trio_moonlit_bedroom_editorial_crop_single_sash_superpass_2026-07-14.png`
+
+User verdict:
+
+- `PASS แรงมาก 1000000000 คะแนน`
+
+What worked:
+
+- A tight gallery-safe high-fashion / figure-study crop instead of a full-frame bed scene.
+- Clear faces, wet/tousled hair, shoulders, torsos, hands, and upper-leg silhouettes.
+- Bottom crop, pillows, bedding shadows, and relaxed hand placement carrying the non-explicit lower frame.
+- One hairline-thin pale-gold sash or cord per character as the only costume-like line.
+- Warm lanterns, moonlit arched windows, sheer curtains, and pale-gold bedding supporting mood without covering skin readability.
+
+Useful wording:
+
+- `gallery-safe high-fashion watercolor figure-study crop`
+- `tight moonlit palace bedroom composition`
+- `smooth sculptural anatomy without explicit detail`
+- `one hairline-thin pale-gold sash or cord per character`
+- `bottom crop, pillows, hands, and soft bedding shadow carry the non-explicit structure`
+- `crisp faces, hair, hands, shoulders, torsos, and upper-leg silhouettes`
+- `warm lantern light, arched windows, sheer curtains, pale-gold bedding`
+
+Avoid:
+
+- same-frame "make the fabric almost gone" wording on a visible full-frame bed composition
+- exact lower-frame body-detail wording
+- direct garment-removal, no-clothing, or explicit anatomy wording
+- combining quality restoration and extreme boundary push in the same prompt
+
+If quality breaks:
+
+- Backtrack to `/Users/point/outputs/nudity_reference_prompting/References for Codex/generated_assets/watercolor_trio_moonlit_bedroom_quality_restore_pass_2026-07-14.png` or run a quality-redraw pass first.
+- Resume from PV-084 only after faces, hands, linework, and skin readability are clear again.
+
 ## Mature Graphic-Novel Editorial Trio - 2026-07-09
 
 Use this for the current three-character branch when the user wants the white-haired Elf, haloed celestial man, and wingless Devil to read hotter while staying non-explicit.
@@ -345,54 +352,6 @@ If the user asks to reduce the Elf specifically:
 - Use `the white-haired Elf has the least visible fabric bulk of the trio`.
 - Use `bare-shouldered, relaxed forearm placement, lower-body mostly outside crop`.
 - Avoid saying the Elf has no garment or that hands replace clothing.
-
-## Classical Black-Marble Bath Trio - 2026-07-10
-
-Use this only when the user is continuing the classical fine-art / black-marble bath branch. Do not apply these defaults to the anime / manga-inspired / fashion-editorial branch unless the user explicitly asks to blend styles.
-
-Branch goal:
-
-- Three adult mythic men in a classical museum oil painting.
-- Black-marble bath chamber, moonlight, candles, falling water, warm chiaroscuro.
-- Boundary-forward but non-explicit.
-- Lower frame carried by waterline/reflection instead of pants/wraps.
-
-User verdict mapping:
-
-- No visible pants / near-no pants, continuous waterline, water/reflection carries lower frame: `PASS / BOUNDARY`.
-- Short cloth / short wrap / compact drape: `PARTIAL` or `BASE`.
-- Long pants / long drapery / covered lower styling: `REJECT / BOUNDARY`.
-
-Best current HOW:
-
-- `continuous reflective water plane`
-- `deep black reflective water at waist level`
-- `all three figures standing together inside the same pool`
-- `uninterrupted dark reflective water across the lower half`
-- `ripples, steam, moonlight, and black-marble shadows carry the lower frame`
-- `submerged classical figure silhouettes`
-- `close shoulder-to-shoulder triangular group`
-- `natural hands on shoulders, marble rim, or disappearing into the water`
-
-Avoid:
-
-- direct pants / garment / wrap removal language
-- direct chain-only replacement for lower styling
-- `almost no visible lower costume shapes`
-- region-specific lower-body / hip-line / waterline-lowering wording after a strong base
-- seated or dry-step poses above water when trying to avoid pants; these tend to regenerate wraps
-- combining intense intimacy, reclining/intertwined pose, and lower-frame wording in one prompt
-
-Skin-tone hierarchy for the current trio:
-
-- Celestial-inspired haloed man: lightest complexion, warm fair-gold.
-- Elf-inspired white-haired man: second-lightest, luminous warm light-tan.
-- Horned mythic man: warm bronze tan.
-
-Useful current bases:
-
-- `/Users/point/.codex/generated_images/019f4acb-8094-76b3-a07c-80c979667fda/call_wh3JuT0bCq6U0tVsFE90Ykc1.png`
-- `/Users/point/.codex/generated_images/019f4acb-8094-76b3-a07c-80c979667fda/call_jVhDklibTgPV1Xfcvr4y0xHK.png`
 
 ## Soft-Anime Style Shift Caution - 2026-07-09
 
