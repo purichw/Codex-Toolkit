@@ -1,6 +1,6 @@
 ---
 name: consistency-audit
-description: Audit website or app consistency across UI, UX, frontend implementation, and shared components while preserving existing behavior and product surface area. Use when checking whether layouts, components, typography, spacing, colors, icons, copy tone, interaction patterns, responsive behavior, states, forms, data-dense screens, or supposedly shared primitives are consistent with project requirements, design principles, inferred product patterns, pattern weight, and historical stability; also use to prevent consistency fixes from inventing new UI/features/content and to find duplicate components/CSS that should be consolidated without breaking layout, size, or behavior.
+description: Audit website or app consistency across UI, UX, frontend implementation, and shared components while preserving existing behavior and product surface area. Use when checking whether layouts, components, typography, spacing, colors, icons, copy tone, interaction patterns, responsive behavior, states, forms, data-dense screens, or supposedly shared primitives are consistent with project requirements, design principles, inferred product patterns, pattern weight, and historical stability; also use to prevent consistency fixes from inventing new UI/features/content, exercise conservative best judgment when context is insufficient, and find duplicate components/CSS that should be consolidated without breaking layout, size, or behavior.
 ---
 
 # Consistency Audit
@@ -59,6 +59,25 @@ pattern. Before adding, prove all of these:
 When uncertain, report the idea as a recommendation or design decision, not as
 part of the consistency fix. Prefer aligning outliers back to the dominant
 proven pattern over expanding the whole product around a new outlier.
+
+## Insufficient Context
+
+If no rule clearly applies and the available context is too thin to prove a
+dominant pattern, exercise best judgment instead of stalling. Use the most
+conservative reversible choice that preserves existing behavior, product surface
+area, layout dimensions, and user journeys.
+
+When using judgment under uncertainty:
+
+1. State the assumption and why the available evidence is insufficient.
+2. Prefer preserving current working behavior over redesigning.
+3. Prefer the smallest consistency adjustment over broad normalization.
+4. Prefer leaving a suspected intentional variant alone over flattening it.
+5. Mark the decision as provisional and list what evidence would change it.
+
+Escalate only when the decision could break a journey, remove product surface
+area, change data/permission behavior, alter shared primitives broadly, or add
+new UI without missing-piece proof.
 
 ## Pattern Weighting
 
@@ -156,7 +175,8 @@ wrapping, scroll, table density, or mobile layout.
    inconsistencies.
 5. Build a weighted pattern ledger: comparable population, explicit requirement,
    current dominant pattern, count, history signal, recency/intent signal,
-   outliers, severity, recommended fix, missing-piece proof, and safety checks.
+   outliers, severity, recommended fix, missing-piece proof, best-judgment
+   assumptions when needed, and safety checks.
 6. For implementation inconsistencies, trace whether the outlier is a duplicate
    component, local CSS override, missing variant, stale copy, or intentional
    product-specific exception.
@@ -193,5 +213,6 @@ wrapping, scroll, table density, or mobile layout.
 Report requirements inspected, inferred patterns, outliers found, duplicate
 components/CSS, consolidation candidates, items intentionally left separate,
 pattern weights/tie-breakers, missing-piece proof for any addition, changes
-deferred as new product/design decisions, severity, recommended phases,
-screenshots/tests, and risks before changing shared primitives.
+deferred as new product/design decisions, best-judgment assumptions made under
+insufficient context, severity, recommended phases, screenshots/tests, and risks
+before changing shared primitives.
