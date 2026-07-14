@@ -1,13 +1,13 @@
 ---
 name: consistency-audit
-description: Audit website or app consistency across UI, UX, frontend implementation, and shared components while preserving existing behavior and product surface area. Use when checking whether layouts, components, typography, spacing, colors, icons, copy tone, interaction patterns, responsive behavior, states, forms, data-dense screens, or supposedly shared primitives are consistent with project requirements, design principles, inferred product patterns, pattern weight, and historical stability; also use to prevent consistency fixes from inventing new UI/features/content, exercise conservative best judgment when context is insufficient, and find duplicate components/CSS that should be consolidated without breaking layout, size, or behavior.
+description: Audit website or app consistency across UI, UX, frontend implementation, and shared components while preserving existing behavior and product surface area. Use when checking whether layouts, components, typography, spacing, colors, icons, copy tone, interaction patterns, responsive behavior, states, forms, data-dense screens, intentional/coexisting variants, deliberate component sizing/customization, or supposedly shared primitives are consistent with project requirements, design principles, inferred product patterns, pattern weight, and historical stability; also use to prevent consistency fixes from inventing new UI/features/content, exercise conservative best judgment when context is insufficient, and find duplicate components/CSS that should be consolidated without breaking layout, size, or behavior.
 ---
 
 # Consistency Audit
 
 Use this skill to answer: "Does the product feel and behave like one coherent
-system?" Audit against explicit project requirements first. If none exist,
-infer the dominant patterns from the current product and mark them as inferred.
+system?" Audit consistency without redesigning, expanding the product surface,
+or flattening valid contextual variants.
 
 Use `$usage-budget-gate` before whole-site audits, `$design-direction` for
 visual principles, `$design-system-guardian` for tokens/primitives,
@@ -22,8 +22,8 @@ shipping fixes.
 Rank consistency sources:
 
 1. Newest user requirement.
-2. Project design principles, brand/design docs, Figma/Claude handoff, styleguide,
-   component docs, and acceptance criteria.
+2. Project design principles, brand/design docs, Figma/Claude handoff,
+   styleguide, component docs, and acceptance criteria.
 3. Existing shared components, tokens, utilities, tests, and dominant production
    patterns.
 4. Inferred patterns from repeated real screens when docs are missing.
@@ -31,16 +31,22 @@ Rank consistency sources:
 Do not invent a new system during an audit. If requirements conflict with the
 current product, report the conflict and the recommended owner decision.
 
-## Consistency-Only Guardrail
+## Guardrails
 
-Treat "nothing breaks" as a release criterion, not a preference. A consistency
-fix must not remove routes, flatten proven journeys, replace internal scroll
-containers, hide existing content, change permissions, alter data contracts,
-break forms, reduce accessibility, or change layout dimensions unless the user
-explicitly asks for that change.
+Treat "nothing breaks" as a release criterion. A consistency fix must not remove
+routes, flatten proven journeys, replace internal scroll containers, hide
+existing content, change permissions, alter data contracts, break forms, reduce
+accessibility, or change layout dimensions unless the user explicitly asks for
+that change.
 
-Do not add new product surface area during a consistency audit. Avoid adding
-new sections, pages, navigation items, buttons, controls, animations, content,
+Consistency is not universal standardization. Do not change component size,
+shape, density, spacing, layout footprint, or custom treatment when it appears
+intentional, context-specific, or not part of a reusable pattern. Standardize
+only when comparable components share the same role, context, constraints, and
+contract, or when the user explicitly asks for standardization.
+
+Do not add new product surface area during a consistency audit. Avoid adding new
+sections, pages, navigation items, buttons, controls, animations, content,
 imagery, data fields, copy blocks, onboarding, filters, or abstractions just
 because they seem useful or would make the design feel more complete.
 
@@ -57,8 +63,8 @@ pattern. Before adding, prove all of these:
    routing, responsive behavior, or component contracts.
 
 When uncertain, report the idea as a recommendation or design decision, not as
-part of the consistency fix. Prefer aligning outliers back to the dominant
-proven pattern over expanding the whole product around a new outlier.
+part of the consistency fix. Prefer aligning outliers back to a dominant proven
+pattern over expanding the whole product around a new outlier.
 
 ## Insufficient Context
 
@@ -79,7 +85,7 @@ Escalate only when the decision could break a journey, remove product surface
 area, change data/permission behavior, alter shared primitives broadly, or add
 new UI without missing-piece proof.
 
-## Pattern Weighting
+## Pattern Decisions
 
 Compare like with like before declaring a pattern dominant. Count only screens,
 containers, or components with the same product role, content shape, density,
@@ -89,13 +95,13 @@ content pages unless the requirement says they share one pattern.
 
 Weight evidence in this order:
 
-1. Explicit requirements, acceptance criteria, or a confirmed design/product
-   decision override raw counts.
+1. Explicit requirements, acceptance criteria, or confirmed design/product
+   decisions override raw counts.
 2. Shared source of truth such as reusable components, tokens, utilities, tests,
-   docs, or design-system examples outweigh local one-offs unless they are stale.
+   docs, or design-system examples outweigh local one-offs unless stale.
 3. Frequency among comparable uses matters. If five comparable pages use one
    layout and one comparable page uses another, treat the five-page pattern as
-   dominant unless there is evidence the single page is an intentional redesign.
+   dominant unless there is evidence the single page is intentional.
 4. Historical stability matters. If an older pattern has stayed stable across
    releases, work logs, screenshots, commits, docs, or production usage, and a
    newer batch suddenly changes it without explicit instruction, treat the new
@@ -109,14 +115,40 @@ Weight evidence in this order:
 
 For ties such as five pages versus five pages, do not pick by count alone. Check
 shared implementation, oldest stable production behavior, newest explicit owner
-decision, rollout scope, user journey risk, and blast radius. If the tie is still
+decision, rollout scope, user journey risk, and blast radius. If still
 ambiguous, report both patterns, why each may be valid, what evidence would
-decide it, and the smallest reversible next step. Ask for an owner decision
-before changing shared primitives or wiping out a proven product pattern.
+decide it, and the smallest reversible next step.
 
-Treat intentional variants as variants, not drift. Different density, viewport,
-permissions, entity type, task criticality, or data shape may justify different
-layouts if the difference is named and consistently applied.
+## Coexisting Variants
+
+Not every mismatch is drift. Some variants should coexist when they express
+different context, density, role, input method, priority, or component contract.
+For example, an icon-only circular audio button in a compact media control and a
+rectangular labeled audio button in a content list may both be correct if their
+roles and constraints differ.
+
+Preserve deliberately customized sizes and treatments. A larger card, compact
+toolbar button, circular media control, wider form field, denser table action, or
+custom layout footprint may be a valid product decision even when it differs
+from nearby components. Do not resize or restyle it merely to match a generic
+primitive unless the customization is proven accidental or incompatible with the
+established pattern for that exact context.
+
+Classify a difference as a valid coexisting variant when:
+
+1. The variant has a named or inferable context such as compact control, primary
+   CTA, dense table action, mobile affordance, admin destructive action, media
+   playback, or accessibility fallback.
+2. It is applied consistently within that context.
+3. It preserves the same user expectation where meaning is shared, or clearly
+   signals a different role where meaning differs.
+4. It does not duplicate implementation unnecessarily when a shared primitive
+   with variants would preserve layout and behavior.
+
+Classify a difference as drift when comparable contexts differ without a clear
+reason, one-off CSS overrides bypass shared primitives, behavior differs behind
+matching visuals, or a variant appears only because a newer implementation
+overwrote a proven product pattern.
 
 ## Audit Dimensions
 
@@ -148,6 +180,7 @@ Existing implementations:
 Same role? yes/no
 Same visual contract? geometry / spacing / typography / state / icon
 Same behavior contract? click / route / form / permission / loading
+Intentional customization? size / density / shape / footprint / context
 Different context constraints:
 Decision: consolidate / shared primitive + variants / keep separate / needs design decision
 Safety checks:
@@ -159,13 +192,13 @@ when the role is shared but density, size, layout, or behavior differs by
 context. Keep separate when visual similarity hides different product meaning or
 risk.
 
-Before consolidating, capture the existing geometry and constraints: width,
-height, min/max, padding, gap, font size/line height, icon size, hit target,
-state styles, and responsive behavior. After consolidation, verify every usage
-still fits its parent layout. Do not "fix" consistency by breaking dimensions,
-wrapping, scroll, table density, or mobile layout.
+Before consolidating, capture geometry and constraints: width, height, min/max,
+padding, gap, font size/line height, icon size, hit target, state styles, and
+responsive behavior. After consolidation, verify every usage still fits its
+parent layout. Do not "fix" consistency by breaking dimensions, wrapping,
+scroll, table density, or mobile layout.
 
-## Audit Workflow
+## Workflow
 
 1. Choose audit depth with `$usage-budget-gate`: route/sample/whole-site.
 2. Read explicit requirements and design docs if present.
@@ -174,14 +207,16 @@ wrapping, scroll, table density, or mobile layout.
 4. Render representative screens and capture `$snapshot` evidence for high-risk
    inconsistencies.
 5. Build a weighted pattern ledger: comparable population, explicit requirement,
-   current dominant pattern, count, history signal, recency/intent signal,
-   outliers, severity, recommended fix, missing-piece proof, best-judgment
-   assumptions when needed, and safety checks.
-6. For implementation inconsistencies, trace whether the outlier is a duplicate
-   component, local CSS override, missing variant, stale copy, or intentional
-   product-specific exception.
+   current dominant pattern, coexisting variants, count, history signal,
+   recency/intent signal, outliers, severity, recommended fix, missing-piece
+   proof, intentional customization rationale, best-judgment assumptions when
+   needed, and safety checks.
+6. Trace implementation inconsistencies to duplicate components, local CSS
+   overrides, missing variants, stale copy, intentional exceptions, or changed
+   product context.
 7. Classify every proposed change as align existing, restore removed behavior,
-   fill missing piece, consolidate duplicate, or new addition requiring approval.
+   fill missing piece, preserve coexisting variant, consolidate duplicate, or
+   new addition requiring approval.
 8. Recommend fixes in phases: quick token/variant cleanup, component
    consolidation, behavior/state fixes, docs/test updates.
 
@@ -200,9 +235,10 @@ wrapping, scroll, table density, or mobile layout.
 - Preserve product UX contracts; use `$product-ux-contracts` when uncertain.
 - Preserve existing product surface area; do not add new UI, content, or
   behavior without explicit requirement or missing-piece proof.
-- Preserve layout dimensions unless the fix explicitly changes layout.
 - Preserve internal scroll containers, route structure, navigation, permissions,
-  form behavior, data contracts, and responsive constraints.
+  form behavior, data contracts, layout dimensions, and responsive constraints.
+- Preserve deliberately customized component sizes, shapes, density, and layout
+  footprints unless they are proven accidental or explicitly in scope to change.
 - Prefer existing tokens and primitives before adding new ones.
 - Add variants instead of one-off CSS when a pattern recurs.
 - Snapshot before/after for user-visible fixes.
@@ -210,9 +246,10 @@ wrapping, scroll, table density, or mobile layout.
 
 ## Closeout
 
-Report requirements inspected, inferred patterns, outliers found, duplicate
-components/CSS, consolidation candidates, items intentionally left separate,
-pattern weights/tie-breakers, missing-piece proof for any addition, changes
-deferred as new product/design decisions, best-judgment assumptions made under
-insufficient context, severity, recommended phases, screenshots/tests, and risks
-before changing shared primitives.
+Report requirements inspected, inferred patterns, outliers found, coexisting
+variants and deliberate customizations preserved, duplicate components/CSS,
+consolidation candidates, items intentionally left separate, pattern
+weights/tie-breakers, missing-piece proof for any addition, changes deferred as
+new product/design decisions, best-judgment assumptions made under insufficient
+context, severity, recommended phases, screenshots/tests, and risks before
+changing shared primitives.
