@@ -14,6 +14,9 @@ covers the risk.
 
 - `$design-direction`: north star, visual direction, critique, brand/product
   feel, public vs admin direction, Claude prompts.
+- `$consistency-audit`: site-wide or app-wide consistency across requirements,
+  inferred patterns, layout, components, typography, copy, interaction, and
+  shared-component implementation.
 - `$claude-to-a-tee`: exact offline Claude HTML/reference implementation or
   parity audit, including product UX vs Claude balancing.
 - `$product-ux-contracts`: preserve existing real UX while redesigning or
@@ -35,18 +38,24 @@ covers the risk.
   provenance, product UX contract evidence.
 - `$placeholder-image`: image sourcing, crop, visual media choices.
 - `$release-gate`: commit, push, deploy, PR, handoff, production/preview smoke.
+- `$usage-budget-gate`: choose fast, standard, deep, or release depth before
+  broad UI/UX audits, Claude parity, responsive matrices, or release checks.
 
 ## Pick The Smallest Useful Set
 
 Use this decision guide:
 
 - Need visual taste or direction? Start with `$design-direction`.
+- Need to know whether the site/app is coherent overall? Use
+  `$consistency-audit`.
+- Worried about usage or depth? Start with `$usage-budget-gate`.
 - Have Claude HTML/reference? Use `$claude-to-a-tee`, then add contracts/states
   only where the product has real behavior at risk.
 - Existing behavior might be overwritten? Use `$product-ux-contracts`.
 - Looks done but states may be missing? Use `$ui-state-matrix`.
 - Need to prove a journey? Use `$interaction-flow-qa`.
-- Components feel inconsistent? Use `$design-system-guardian`.
+- Components feel inconsistent across the product? Use `$consistency-audit`,
+  then `$design-system-guardian` for token/primitive fixes.
 - Keyboard/focus/touch/accessibility risk? Use `$accessible-interaction`.
 - Admin/table/list/dashboard density? Use `$data-dense-ux`.
 - Create/edit/save/cancel form work? Use `$form-flow-ux`.

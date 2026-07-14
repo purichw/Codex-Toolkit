@@ -10,7 +10,7 @@ user's intent.
 - Local checkout used when this file was written: `/Users/point/Codex-Toolkit`
 - Visibility at initial setup: private
 - Purpose: archive and document the user's personal Codex skills
-- Current skill count: 36 `SKILL.md` files under `skills/`
+- Current skill count: 40 `SKILL.md` files under `skills/`
 
 The first import copied personal skills from:
 
@@ -85,6 +85,7 @@ Expected current skill folders:
 - `coin-quest-admin-ops`
 - `coin-quest-ledger-logic`
 - `coin-quest-native-parity`
+- `consistency-audit`
 - `course-image-assets`
 - `data-dense-ux`
 - `design-direction`
@@ -103,18 +104,21 @@ Expected current skill folders:
 - `notenwert-design-direction`
 - `notenwert-maintainer`
 - `placeholder-image`
+- `prod-smoke-harness`
 - `product-ux-contracts`
 - `project-onboarding`
 - `regression-hunter`
 - `release-gate`
 - `shane-thai-audio-generator`
 - `shane-thai-image-assets`
+- `shane-thai-prod-smoke`
 - `site-maintainer`
 - `snapshot`
 - `tts-audio-assets`
 - `uat-environment`
 - `ui-state-matrix`
 - `ui-ux-orchestrator`
+- `usage-budget-gate`
 
 If the count or names change, update `README.md`, `skills/README.md`, and
 `docs/SKILL_CATALOG.md`.
@@ -157,7 +161,7 @@ updates, enough verification is usually:
 
 ```sh
 git diff --check
-python3 scripts/verify_skills.py --expected-count 36
+python3 scripts/verify_skills.py --expected-count 40
 ```
 
 For skill script changes, run the script's smoke-test or help path when one
@@ -177,6 +181,9 @@ As of this document, the repository has:
   broadening existing skill instructions, and updating the verifier count to 28.
 - one archive update adding 8 UI/UX quality skills and updating the verifier
   count to 36.
+- one archive update adding `usage-budget-gate`, `consistency-audit`,
+  `prod-smoke-harness`, and `shane-thai-prod-smoke`, plus related routing
+  updates, and updating the verifier count to 40.
 
 The main thing future Codex should preserve is the distinction between live local
 skills and the GitHub archive. That distinction prevents accidental overwrites

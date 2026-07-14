@@ -11,6 +11,8 @@ and escalating only when the diff increases risk.
 
 Use `$efficient-execution` when the user asks to make commit/push/deploy faster
 or when the gate is taking longer than the risk justifies.
+Use `$usage-budget-gate` before broad release checks when the correct depth is
+unclear or the user asks to control usage.
 
 ## Fast Protocol
 
@@ -71,6 +73,10 @@ Use these as starting packs, then adapt to repo-defined commands:
 - **Forms/data-dense/accessibility:** use `$form-flow-ux`, `$data-dense-ux`, or
   `$accessible-interaction` when those surfaces are touched; verify the relevant
   state, flow, keyboard/focus, and snapshot evidence before release.
+- **Consistency/consolidation:** use `$consistency-audit` and
+  `$design-system-guardian` when shared primitives, duplicated components, or
+  site-wide UI patterns are changed; verify affected usages keep layout,
+  dimensions, states, and behavior.
 - **Firebase/rules/auth:** use `$firebase-security-rules` or
   `$firebase-account-management`; run tests/emulator or scoped live checks
   appropriate to risk, and document deploy/rollback path.

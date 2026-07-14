@@ -59,6 +59,19 @@ this file is for choosing the right skill during real work.
   state, previously gathered evidence, repo-defined commands, selected domain
   skills, skipped-check rationale, and the next fastest safe step.
 
+### usage-budget-gate
+
+- Skill file: [../skills/usage-budget-gate/SKILL.md](../skills/usage-budget-gate/SKILL.md)
+- Description: Chooses and communicates the right work depth before expensive
+  discovery, UI/UX audit, Claude parity, regression hunts, release checks, UAT,
+  screenshots, test suites, or deploy verification.
+- Use when: The user asks to avoid high usage, move faster or cheaper, decide
+  fast versus deep mode, set stop rules, define escalation triggers, or prevent
+  broad audits from running unnecessarily.
+- Typical context: Proposed depth, why that depth fits, evidence needed, stop
+  rule, escalation triggers, checks intentionally skipped, user-visible risk,
+  and residual risk after the chosen pass.
+
 ### uat-environment
 
 - Skill file: [../skills/uat-environment/SKILL.md](../skills/uat-environment/SKILL.md)
@@ -71,6 +84,19 @@ this file is for choosing the right skill during real work.
   fixture/reset plan, test accounts and roles, auth mode, external-service
   boundaries, routes/flows checked, logs/screenshots, skips, promotion decision,
   and rollback path.
+
+### prod-smoke-harness
+
+- Skill file: [../skills/prod-smoke-harness/SKILL.md](../skills/prod-smoke-harness/SKILL.md)
+- Description: Sets up, documents, runs, or audits safe production and preview
+  smoke harnesses for web apps.
+- Use when: A deployed app needs HTTP smoke, browser smoke, authenticated smoke
+  policy, Playwright automation, production screenshot evidence, test-account
+  rules, or a reusable post-deploy harness.
+- Typical context: Production/preview URLs, commit or build under test, approved
+  smoke account policy, auth providers and roles, allowed live mutations,
+  cleanup/reset path, routes to verify, console/network failure policy,
+  snapshots, skipped checks, and release decision.
 
 ### mobile-web-qa
 
@@ -158,6 +184,21 @@ this file is for choosing the right skill during real work.
 - Typical context: Goal, primary UI/UX risk, available reference material,
   changed screens and flows, likely evidence needed, and which downstream skill
   files should be read next.
+
+### consistency-audit
+
+- Skill file: [../skills/consistency-audit/SKILL.md](../skills/consistency-audit/SKILL.md)
+- Description: Audits whether UI, UX, frontend implementation, shared
+  components, pattern weight, and consolidation opportunities form one coherent
+  product system.
+- Use when: Checking layouts, components, typography, spacing, colors, icons,
+  copy tone, interaction patterns, responsive behavior, states, forms,
+  data-dense screens, shared primitives, duplicated components, or CSS that may
+  need consolidation.
+- Typical context: Explicit requirements, design docs or handoffs, comparable
+  screens, shared components/tokens/utilities, weighted pattern ledger,
+  historical stability, outliers, duplicate implementation traces, screenshots,
+  severity, recommended fix phase, and safety checks.
 
 ### product-ux-contracts
 
@@ -368,6 +409,21 @@ this file is for choosing the right skill during real work.
 - Typical context: `AGENTS.md`, codebase map, content model, NGA reference for
   hero/banner work, source under `src/`, build script, regression tests, and
   work log.
+
+## Shane And His Thai
+
+### shane-thai-prod-smoke
+
+- Skill file: [../skills/shane-thai-prod-smoke/SKILL.md](../skills/shane-thai-prod-smoke/SKILL.md)
+- Description: Runs or sets up safe authenticated production smoke checks for
+  the Shane and His Thai app using the dedicated dummy learner account.
+- Use when: Verifying Shane production after Vercel deploys, checking the
+  production login surface, topbar, Learning hub, learner-flow smoke policy, or
+  collecting screenshot evidence for `https://shane-and-his-thai.vercel.app`.
+- Typical context: Project root, current commit/deploy URL, production alias,
+  dummy learner account policy, HTTP status/header smoke, unauthenticated title
+  and login surface, authenticated `codex` learner flow, console/network
+  failures, snapshot path, skipped live mutations, and failure classification.
 
 ## Image And Asset Work
 

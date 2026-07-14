@@ -1,0 +1,4 @@
+interface:
+  display_name: "Prod Smoke Harness"
+  short_description: "Set up safe production smoke harnesses"
+  default_prompt: "Use $prod-smoke-harness to set up or run a safe production smoke harness for this project."

@@ -54,6 +54,9 @@ only when the user request or project evidence points to it.
 
 - `$efficient-execution`: choose a faster safe path, reuse current evidence,
   define stop rules, or optimize slow checks without lowering quality.
+- `$usage-budget-gate`: choose fast, standard, deep, or release depth before
+  expensive onboarding, architecture, Claude parity, regression, UAT, or deploy
+  verification work.
 - `$docs-cartographer`: create/update site maps, module maps, architecture
   docs, onboarding docs, handoff docs, or Extra High architecture documents.
 - `$regression-hunter`: one bug suggests repeated patterns, stale constants,
@@ -72,6 +75,9 @@ only when the user request or project evidence points to it.
   Expo/React Native builds, shared backend contracts, or device build gates.
 - `$ui-ux-orchestrator`: broad or unclear UI/UX work where the right design,
   state, flow, accessibility, or visual QA skill is not obvious.
+- `$consistency-audit`: site/app consistency audits across requirements,
+  inferred patterns, layout, components, typography, interaction, content,
+  shared components, duplicated CSS, and consolidation candidates.
 - `$design-direction`: design briefs, visual north stars, critique, public/admin
   UX direction, Claude prompts, and implementation guardrails.
 - `$product-ux-contracts`: preserve routing, persistence, internal scroll,

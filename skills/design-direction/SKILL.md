@@ -23,7 +23,8 @@ Read only what the task needs:
 
 Use `$ui-ux-orchestrator` when the UI/UX task is broad or the right specialist
 skill is unclear. Use `$claude-to-a-tee` for exact offline Claude parity,
-`$design-system-guardian` for component/token consistency,
+`$consistency-audit` for site-wide coherence against requirements or inferred
+patterns, `$design-system-guardian` for component/token consistency,
 `$product-ux-contracts` for preserving proven product behavior,
 `$ui-state-matrix` for state coverage, `$interaction-flow-qa` for journeys,
 `$placeholder-image` for image sourcing/crop choices, `$mobile-web-qa` and

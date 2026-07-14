@@ -8,10 +8,11 @@ description: Preserve, audit, or extend a product design system while changing U
 Use this skill when UI work could fragment the product's component language.
 The goal is consistency without flattening product-specific UX.
 
-Use `$design-direction` for north-star decisions, `$claude-to-a-tee` for exact
-reference parity, `$product-ux-contracts` for behavior that must survive,
-`$ui-state-matrix` for variants/states, `$snapshot` for visual proof, and
-`$release-gate` before shipping.
+Use `$consistency-audit` for site-wide consistency discovery before fixing a
+large set of drift issues. Use `$design-direction` for north-star decisions,
+`$claude-to-a-tee` for exact reference parity, `$product-ux-contracts` for
+behavior that must survive, `$ui-state-matrix` for variants/states, `$snapshot`
+for visual proof, and `$release-gate` before shipping.
 
 ## Inventory
 

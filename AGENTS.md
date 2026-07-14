@@ -49,7 +49,7 @@ For most changes, run:
 
 ```sh
 git diff --check
-python3 scripts/verify_skills.py --expected-count 36
+python3 scripts/verify_skills.py --expected-count 40
 ```
 
 The verifier checks skill frontmatter, folder/name consistency, Markdown links,
