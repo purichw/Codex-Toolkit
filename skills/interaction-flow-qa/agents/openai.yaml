@@ -1,0 +1,4 @@
+interface:
+  display_name: "Interaction Flow QA"
+  short_description: "Verify user journeys by exercising flows"
+  default_prompt: "Use $interaction-flow-qa to prove this UI journey works end to end."

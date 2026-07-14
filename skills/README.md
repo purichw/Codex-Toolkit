@@ -25,6 +25,19 @@ as a standalone skill directory under `~/.codex/skills`.
 | [`export-html`](export-html/SKILL.md) | Creates live-parity standalone HTML exports and clickable prototypes. | Use for offline HTML, design handoff, Claude/Figma inspection, or representative UI state review. |
 | [`notenwert-design-direction`](notenwert-design-direction/SKILL.md) | Captures Notenwert's editorial, civic, cultural-network design intent. | Use for Notenwert design direction, homepage hero behavior, NGA-style references, typography, imagery, and public/admin UX critique. |
 
+## UI UX Quality Skills
+
+| Skill | Description | Context |
+| --- | --- | --- |
+| [`ui-ux-orchestrator`](ui-ux-orchestrator/SKILL.md) | Routes broad UI/UX work to the smallest useful set of design, UX, state, accessibility, flow, and QA skills. | Use when the request is broad, blurry, or needs help choosing which UI/UX skills should run together. |
+| [`product-ux-contracts`](product-ux-contracts/SKILL.md) | Preserves real product UX contracts while redesigning, restyling, refactoring, or matching a reference. | Use when routing, persistence, scroll, focus, permissions, destructive safety, media, or search click-through could be lost. |
+| [`ui-state-matrix`](ui-state-matrix/SKILL.md) | Covers UI states beyond the happy path. | Use for focus, selected, disabled, loading, empty, error, success, denied, long text, localization, and responsive states. |
+| [`interaction-flow-qa`](interaction-flow-qa/SKILL.md) | Exercises complete user/admin journeys end to end. | Use for search-to-detail, filter/reload/back, onboarding, modal/drawer, admin create/edit/publish, destructive, playback, or completion flows. |
+| [`design-system-guardian`](design-system-guardian/SKILL.md) | Protects component primitives, tokens, variants, typography, spacing, icons, radius, shadow, and consistency. | Use when UI work risks design-system drift, one-off CSS, duplicate variants, or inconsistent neighboring surfaces. |
+| [`accessible-interaction`](accessible-interaction/SKILL.md) | Verifies keyboard, focus, ARIA, semantic controls, contrast, touch targets, reduced motion, and modal/drawer accessibility. | Use when visual or interaction changes could break non-pointer access or screen-reader-visible behavior. |
+| [`data-dense-ux`](data-dense-ux/SKILL.md) | Guides dense dashboards, tables, lists, ledgers, filters, pagination, bulk actions, and operational panels. | Use when scanning, sorting, selecting, item counts, overflow, responsive compression, or large-data behavior matters. |
+| [`form-flow-ux`](form-flow-ux/SKILL.md) | Covers complete create/edit form journeys. | Use for validation, dirty state, autosave, save/cancel/reset, submit loading, duplicate prevention, server errors, permission denied, uploads, and mobile keyboard behavior. |
+
 ## Firebase And Security
 
 | Skill | Description | Context |

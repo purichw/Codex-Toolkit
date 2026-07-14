@@ -47,11 +47,17 @@ These markers are for context discipline, not for skipping requirements:
 6. Produce a decision and risk ledger before edits: what follows Claude, what
    preserves current product UX, what becomes hybrid, why, verification, and
    risk.
-7. Implement component-level parity while preserving product-owned behavior; do
+7. For existing product UX contracts, classify them in the ledger before
+   editing: persistence, routing/deep links, progressive disclosure,
+   sub-containers/internal scroll, sticky subpanels, pagination/page-size,
+   keyboard/focus, permission states, destructive safety, media fallbacks,
+   responsive interaction, search click-through, or scroll choreography. Decide
+   whether each is Claude adopted, product UX preserved, or hybrid.
+8. Implement component-level parity while preserving product-owned behavior; do
    not invent animation or interactions just because Claude is static.
-8. Measure reference vs implementation with rendered screenshots, computed
+9. Measure reference vs implementation with rendered screenshots, computed
    geometry, responsive states, interactions, and browser evidence.
-9. Apply the release gate before claiming done or shipping.
+10. Apply the release gate before claiming done or shipping.
 
 ## Worklog Shape
 

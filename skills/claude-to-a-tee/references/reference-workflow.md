@@ -69,6 +69,10 @@ surface:
 - decision label: `Claude adopted`, `product UX preserved`, `hybrid`, or
   `needs user decision`;
 - evidence and risk when current product UX wins over Claude;
+- product UX contracts at risk: persistence, routing, progressive disclosure,
+  keyboard/focus, non-happy states, permissions, destructive safety, data
+  density, responsive interaction, media handling, search click-through, or
+  scroll choreography;
 - verification required.
 
 Also create a functional controls ledger for every visible action in each
@@ -111,6 +115,11 @@ This summary is mandatory for preserving current product UX over Claude. It is
 also mandatory for hybrid choices that keep product behavior while adopting
 Claude presentation.
 
+When the decision preserves or hybridizes current product UX, include the
+existing selector, test, route, or screenshot evidence that will guard it after
+the visual change. If no guard exists, add a focused check instead of changing
+tests to accept the loss of that behavior.
+
 ## Route Component Manifest
 
 Before editing a multi-route reference, create a route-by-route component
@@ -130,6 +139,10 @@ For each route or screen, record:
 - product container behavior: sub-containers, internal scroll regions, sticky
   subpanels, virtualized lists, active-item auto-scroll, scroll restoration, and
   page-level overflow boundaries;
+- product UX contracts: state persistence, URL/deep-link behavior, progressive
+  disclosure, keyboard/focus, permission states, destructive safety, data
+  density, media fallbacks, search result click-through, and responsive
+  interaction;
 - data contract: which visible item is lead/pinned/featured, whether it should
   also appear in a feed, and what happens if product data is missing;
 - target mapping: exact product component/file/selector that will render each
@@ -164,6 +177,13 @@ colors, and the homepage match.
    rendered HTML inspection.
 5. Inventory the target application's current interactions and selectors before
    editing so visual work does not break behavior.
+6. Inventory target sub-containers, nested scroll regions, sticky subpanels,
+   pagination/page-size controls, active-item scroll behavior, and any tests
+   that currently prove them before copying Claude page flow.
+7. Inventory target persistence, routing/deep links, progressive disclosure,
+   keyboard/focus, non-happy states, permissions, destructive safety, data
+   density, media handling, search click-through, responsive interaction, and
+   scroll choreography before replacing existing structure with Claude markup.
 
 Do not infer exact values from a screenshot when the offline source exposes
 them. Do not copy isolated Claude CSS onto incompatible markup and call it

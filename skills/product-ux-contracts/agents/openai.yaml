@@ -1,0 +1,4 @@
+interface:
+  display_name: "Product UX Contracts"
+  short_description: "Preserve real product UX contracts"
+  default_prompt: "Use $product-ux-contracts to preserve real product UX contracts while changing the UI."

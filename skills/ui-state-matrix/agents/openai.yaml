@@ -1,0 +1,4 @@
+interface:
+  display_name: "UI State Matrix"
+  short_description: "Cover UI states beyond the happy path"
+  default_prompt: "Use $ui-state-matrix to verify every important UI state before shipping."

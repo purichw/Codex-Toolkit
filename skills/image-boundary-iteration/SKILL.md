@@ -46,6 +46,7 @@ Keep branch knowledge separated. Reuse workflow discipline across branches, but 
 
 - RPG / celestial / chroma branches: use `rpg_guy_visual_baselines.md`, PV-076, PV-077, and celestial prompt-strategy notes.
 - Watercolor bathhouse branch: use `watercolor_bathhouse_branch_notes_2026-07-05.md` and `watercolor_bathhouse_visual_baselines.md`; preserve watercolor bathhouse medium, robe/wrap drapery, adult Elf identity, and cozy non-explicit scene anchors.
+- Watercolor fantasy trio branch: use `watercolor_genshin_trio_batch_notes_2026-07-14.md`, PV-082, and PV-083; preserve the black-haired gold spear dancer, orange-haired hydro fighter, and silver-haired teal scholar-mage identities. Keep this branch separate from the older white-haired Elf / haloed man / Devil bathhouse branch.
 - Moonlit celestial fountain branch: use `moonlit_celestial_fountain_branch_notes_2026-07-05.md` and `moonlit_celestial_fountain_visual_baselines.md`; preserve adult white-haired Elf identity, masculine S-curve dancer presence, moonlit fountain courtyard, black reflective marble, water curtains, star motes, compact white-gold center accent, and narrow translucent energy ribbons.
 - Classical black-marble bath trio branch: use the 2026-07-10 sections in `references/prompt-strategy.md` and `references/rejection-handling.md`; preserve classical museum oil painting, three adult mythic men, black-marble pool, continuous reflective waterline, moonlight, steam, and non-explicit water/reflection lower-frame structure.
 - If a branch departs from the old RPG style, create/update branch notes, branch asset names, workbook tags/notes, and handoff pointers instead of mixing baselines.
@@ -86,6 +87,32 @@ Watercolor prompt discipline:
 - Best naturalness language: soft natural body volume under water/steam; lower torso / upper-thigh transition reads more natural.
 - Avoid: active shower + minimal costume, direct garment-removal wording, explicit anatomy words, object-as-censor framing, awkward raised tub poses, and over-preserving exact composition when the prompt asks for a subtle anatomical read.
 - If the tool regenerates instead of precise-edits, evaluate as `CHANGE HOW` rather than failed local edit unless identity or branch style is lost.
+
+Watercolor fantasy trio branch, 2026-07-14:
+
+Branch notes:
+
+`/Users/point/outputs/nudity_reference_prompting/References for Codex/watercolor_genshin_trio_batch_notes_2026-07-14.md`
+
+Current water north-star:
+
+`/Users/point/outputs/nudity_reference_prompting/References for Codex/generated_assets/watercolor_trio_underwater_volume_best_pass_2026-07-14.png`
+
+PV-082 verdict: user said this was the best result since the project began.
+
+PV-082 rule: preserve the three adult fantasy men from the Genshin-like references: black-haired gold spear dancer, orange-haired hydro fighter with blue eyes and a small red horn-like hair ornament, and silver-haired teal scholar-mage. Preserve close triangular shallow-water composition, compact blue crystal, clear faces/torsos/arms/hands, low turquoise waterline, marble bath, flowers, mist, and watercolor paper texture. Strongest HOW is clear skin-read plus abstract underwater body-volume/modesty cues with soft caustic shadow and ripples. Do not use direct explicit anatomy words in prompts.
+
+Quality rule: the lower-abdomen body-hair/modesty texture direction passed conceptually, but quality started breaking after repeated local edits. If texture gets muddy, backtrack to PV-082 or run a quality-restoration pass before adding new boundary cues. Do not keep editing the latest image only because it is latest.
+
+Current bedroom route base:
+
+`/Users/point/outputs/nudity_reference_prompting/References for Codex/generated_assets/watercolor_trio_moonlit_bedroom_base_pass_2026-07-14.png`
+
+PV-083 verdict: user said `PASS PASS PASS` after the bedroom scene reset.
+
+PV-083 rule: preserve moonlit palace bedroom, large bed, white/pale-gold bedding, pillows, sheer curtains, arched windows, warm lantern light, open-collar linen robes, visible shoulders/chests, clear identities, and close triangular grouping. Bedding folds, pillows, crop, and soft shadow should carry the lower-frame visual structure.
+
+Bedroom safety rule: the first bedroom prompt rejected when bedroom intimacy and lower-frame/body-texture cues were stacked together. For bedroom scenes, start from PV-083 with safe linen-and-bedding framing and strengthen one axis at a time. Do not start a bedroom prompt with lower-frame anatomy/texture wording.
 
 Earlier single-Elf pass baseline:
 

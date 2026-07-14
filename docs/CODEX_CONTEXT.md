@@ -10,7 +10,7 @@ user's intent.
 - Local checkout used when this file was written: `/Users/point/Codex-Toolkit`
 - Visibility at initial setup: private
 - Purpose: archive and document the user's personal Codex skills
-- Current skill count: 28 `SKILL.md` files under `skills/`
+- Current skill count: 36 `SKILL.md` files under `skills/`
 
 The first import copied personal skills from:
 
@@ -79,25 +79,31 @@ find skills -name SKILL.md | sort
 
 Expected current skill folders:
 
+- `accessible-interaction`
+- `admin-ops`
 - `claude-to-a-tee`
 - `coin-quest-admin-ops`
 - `coin-quest-ledger-logic`
 - `coin-quest-native-parity`
-- `admin-ops`
 - `course-image-assets`
+- `data-dense-ux`
 - `design-direction`
+- `design-system-guardian`
 - `docs-cartographer`
 - `efficient-execution`
 - `export-html`
 - `firebase-account-management`
 - `firebase-security-rules`
+- `form-flow-ux`
 - `image-boundary-iteration`
+- `interaction-flow-qa`
 - `ledger-logic`
 - `mobile-web-qa`
 - `native-parity`
 - `notenwert-design-direction`
 - `notenwert-maintainer`
 - `placeholder-image`
+- `product-ux-contracts`
 - `project-onboarding`
 - `regression-hunter`
 - `release-gate`
@@ -107,6 +113,8 @@ Expected current skill folders:
 - `snapshot`
 - `tts-audio-assets`
 - `uat-environment`
+- `ui-state-matrix`
+- `ui-ux-orchestrator`
 
 If the count or names change, update `README.md`, `skills/README.md`, and
 `docs/SKILL_CATALOG.md`.
@@ -149,7 +157,7 @@ updates, enough verification is usually:
 
 ```sh
 git diff --check
-python3 scripts/verify_skills.py --expected-count 28
+python3 scripts/verify_skills.py --expected-count 36
 ```
 
 For skill script changes, run the script's smoke-test or help path when one
@@ -167,6 +175,8 @@ As of this document, the repository has:
   verifier count to 26.
 - one archive update adding `efficient-execution` and `uat-environment`,
   broadening existing skill instructions, and updating the verifier count to 28.
+- one archive update adding 8 UI/UX quality skills and updating the verifier
+  count to 36.
 
 The main thing future Codex should preserve is the distinction between live local
 skills and the GitHub archive. That distinction prevents accidental overwrites

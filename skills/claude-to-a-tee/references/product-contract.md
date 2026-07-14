@@ -90,6 +90,45 @@ the product container when it improves task success, information density,
 keyboard/touch handling, active-item navigation, or mobile usability. If the
 container is removed, document the evidence, risk, and user acceptance.
 
+Do not update tests to accept the removal of proven product UX before the
+ledger classifies that removal as intentional. When preserving or hybridizing
+current UX, update tests to guard the retained behavior: selectors, item counts,
+page-size choices, scroll container dimensions, first/last item reachability,
+state persistence, or workflow completion as applicable.
+
+## Product UX Contracts Claude Must Not Flatten
+
+Before copying Claude structure, inspect whether the target product already has
+any of these contracts. Preserve or hybridize them unless the ledger proves the
+Claude version intentionally improves the real UX:
+
+- state persistence: filters, tabs, selected item, expanded rows, local drafts,
+  progress, reload, back/forward, and session return;
+- progressive disclosure: accordions, drawers, side panels, modals, details
+  panes, step flows, and show-more/show-less;
+- URL/routing: route params, hashes, query strings, shareable filters, anchors,
+  redirects, history, and fallback routes;
+- keyboard/focus: tab order, focus trap, escape/outside-click close, focus
+  restore, scroll-to-input, shortcuts, and screen-reader semantics;
+- non-happy states: loading, empty, error, denied, disabled-with-reason,
+  validation, partial failure, stale session, and retry;
+- permission-aware UI and destructive safety: role visibility, allow/deny,
+  readonly, confirmations, undo/restore, tombstones, audit logs, rollback, and
+  irreversible-action copy;
+- data density: pagination, load more, virtualization, page size, sorting,
+  filtering, bulk select, item counts, and large-list performance;
+- responsive interaction: mobile drawers, bottom sheets, sticky footers, safe
+  areas, touch targets, keyboard viewport, and tablet-specific layout;
+- real asset/media handling: lazy loading, fallbacks, failed asset state, CMS
+  visibility, audio/video controls, captions, poster frames, and source repair;
+- search/result click-through: real destination, target highlight, selected item
+  visibility, and non-generic fallback behavior;
+- scroll choreography: sticky offsets, anchor scroll, active-item auto-scroll,
+  manual scroll ownership, scroll restoration, and page-level overflow.
+
+Claude may define the visual treatment for these contracts. It must not erase
+the contract silently.
+
 Do not silently reinterpret "to a tee" as general polish. Treat spacing,
 typography, geometry, states, animation, assets, and responsive overrides as
 acceptance criteria.

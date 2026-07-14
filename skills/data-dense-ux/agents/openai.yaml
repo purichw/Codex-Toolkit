@@ -1,0 +1,4 @@
+interface:
+  display_name: "Data Dense UX"
+  short_description: "Design and verify dense data interfaces"
+  default_prompt: "Use $data-dense-ux to design or verify tables, lists, dashboards, and admin data views."

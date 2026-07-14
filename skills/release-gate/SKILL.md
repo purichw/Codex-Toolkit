@@ -63,9 +63,14 @@ Use these as starting packs, then adapt to repo-defined commands:
   accidentally.
 - **Frontend UI:** targeted lint/typecheck/build, browser route check, console
   and failed request check, `$snapshot` evidence when visual, `$mobile-web-qa`
-  when responsive/mobile risk exists.
+  when responsive/mobile risk exists, `$ui-state-matrix` for non-happy states,
+  `$interaction-flow-qa` for journeys, and `$product-ux-contracts` when real UX
+  contracts could be lost.
 - **Claude parity:** use `$claude-to-a-tee`; require rendered reference/app
   comparison and measured parity evidence before release.
+- **Forms/data-dense/accessibility:** use `$form-flow-ux`, `$data-dense-ux`, or
+  `$accessible-interaction` when those surfaces are touched; verify the relevant
+  state, flow, keyboard/focus, and snapshot evidence before release.
 - **Firebase/rules/auth:** use `$firebase-security-rules` or
   `$firebase-account-management`; run tests/emulator or scoped live checks
   appropriate to risk, and document deploy/rollback path.

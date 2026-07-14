@@ -144,6 +144,108 @@ this file is for choosing the right skill during real work.
 - Typical context: Notenwert design brief, NGA reference notes, codebase map,
   content model, screenshots, and current project rules.
 
+## UI UX Quality
+
+### ui-ux-orchestrator
+
+- Skill file: [../skills/ui-ux-orchestrator/SKILL.md](../skills/ui-ux-orchestrator/SKILL.md)
+- Description: Routes broad UI/UX work to the smallest useful set of design,
+  UX, visual QA, accessibility, flow, state, form, data-density, and release
+  skills.
+- Use when: A request is broad or blurry, the user asks for UI/UX polish or
+  audit work, a Claude/Figma/reference handoff has multiple risk types, or the
+  right combination of UI/UX skills is not obvious.
+- Typical context: Goal, primary UI/UX risk, available reference material,
+  changed screens and flows, likely evidence needed, and which downstream skill
+  files should be read next.
+
+### product-ux-contracts
+
+- Skill file: [../skills/product-ux-contracts/SKILL.md](../skills/product-ux-contracts/SKILL.md)
+- Description: Preserves or intentionally changes real product UX contracts
+  during redesign, restyling, Claude/Figma implementation, or frontend
+  refactors.
+- Use when: Routing, deep links, persistence, internal scroll, progressive
+  disclosure, focus, permissions, destructive safety, loading/empty/error
+  states, media fallbacks, or search click-through could be flattened by a new
+  design.
+- Typical context: Current product behavior, reference behavior, source/tests
+  for routes and state keys, decision ledger entries, implementation rule,
+  verification proof, and user acceptance for intentional removals.
+
+### ui-state-matrix
+
+- Skill file: [../skills/ui-state-matrix/SKILL.md](../skills/ui-state-matrix/SKILL.md)
+- Description: Defines and verifies UI state coverage beyond the happy path.
+- Use when: A component or flow needs default, hover, focus, selected, disabled,
+  loading, empty, error, success, validation, permission denied, long text,
+  localization, stale/offline, partial failure, or responsive state handling.
+- Typical context: Component or flow, reachable state set, triggers, expected
+  UI, data/auth condition, reference behavior when any, implementation path,
+  screenshots/tests, and skipped-state rationale.
+
+### interaction-flow-qa
+
+- Skill file: [../skills/interaction-flow-qa/SKILL.md](../skills/interaction-flow-qa/SKILL.md)
+- Description: Verifies real user/admin journeys by exercising routing, state,
+  data, permissions, feedback, reload, and back behavior end to end.
+- Use when: Search-to-detail, filter/reload/back, onboarding, navigation,
+  modal/drawer, admin create/edit/publish, signup, destructive action, media
+  playback, progress, or completion flows must be proven.
+- Typical context: Flow ledger, entry point, auth/role/data/viewport
+  preconditions, step-by-step expected URL/state/data, success and failure
+  states, screenshots, console/network results, and residual journey risk.
+
+### design-system-guardian
+
+- Skill file: [../skills/design-system-guardian/SKILL.md](../skills/design-system-guardian/SKILL.md)
+- Description: Preserves or extends a product design system while changing UI.
+- Use when: Component/token drift, inconsistent buttons/cards/forms/tables,
+  typography or spacing mismatch, one-off CSS, variant sprawl, icon/radius/
+  shadow inconsistency, cross-page regression, or reference integration risk
+  appears.
+- Typical context: Existing tokens, primitives, variants, layout rules,
+  neighboring surfaces, chosen reuse/extend/local-exception decision, state
+  coverage, screenshots, tests, and design-system debt.
+
+### accessible-interaction
+
+- Skill file: [../skills/accessible-interaction/SKILL.md](../skills/accessible-interaction/SKILL.md)
+- Description: Designs, audits, or verifies accessible UI interaction behavior.
+- Use when: Keyboard navigation, focus order, focus traps, focus restore, ARIA
+  names/states, semantic controls, screen-reader-visible state, contrast,
+  reduced motion, touch targets, mobile keyboard, modal/drawer accessibility, or
+  skip links matter.
+- Typical context: Changed controls and containers, keyboard path, focus target,
+  accessible name/role/state, dialog/menu behavior, contrast/motion/touch
+  coverage, screenshots/tests, and skipped assistive-technology checks.
+
+### data-dense-ux
+
+- Skill file: [../skills/data-dense-ux/SKILL.md](../skills/data-dense-ux/SKILL.md)
+- Description: Guides dense operational UI such as admin dashboards, tables,
+  lists, ledgers, CMS grids, filters, pagination, bulk actions, virtualized
+  lists, relationship maps, and panels.
+- Use when: Information density, scanning, sorting, item counts, selection,
+  overflow, responsive compression, large-data behavior, or repeated operational
+  workflows matter.
+- Typical context: Primary data task, fields by priority and risk, sorting/
+  filtering/pagination contracts, realistic item counts, long labels, edge
+  records, responsive behavior, screenshots/tests, and large-data residual risk.
+
+### form-flow-ux
+
+- Skill file: [../skills/form-flow-ux/SKILL.md](../skills/form-flow-ux/SKILL.md)
+- Description: Covers complete create/edit form journeys rather than only form
+  appearance.
+- Use when: Validation, dirty state, autosave, drafts, save/cancel/reset,
+  submit loading, duplicate-submit prevention, server errors, permission denied,
+  optimistic UI, mobile keyboard, uploads, crop state, multistep forms, or
+  admin/CMS form behavior is touched.
+- Typical context: Form mode, data source, field roles, validation timing,
+  dirty/autosave/cancel rules, submit/success/error behavior, permission mode,
+  mobile keyboard path, screenshots/tests, and unverified backend risk.
+
 ## Firebase And Security
 
 ### firebase-account-management

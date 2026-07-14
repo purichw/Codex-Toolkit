@@ -1,0 +1,4 @@
+interface:
+  display_name: "UI UX Orchestrator"
+  short_description: "Route broad UI/UX work to the right skills"
+  default_prompt: "Use $ui-ux-orchestrator to choose the right UI/UX skills and verification path for this task."

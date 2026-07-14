@@ -45,6 +45,13 @@ These fail the skill:
   not follow Claude and why;
 - flattening existing sub-containers, internal scroll regions, sticky subpanels,
   or active-item scroll behavior without a decision ledger and verification;
+- removing persistence, routing/deep links, progressive disclosure,
+  keyboard/focus, non-happy states, permission-aware UI, destructive safety,
+  data-density controls, responsive interaction, media fallbacks, search
+  click-through, or scroll choreography without a decision ledger and
+  verification;
+- rewriting tests or acceptance checks to bless the loss of proven product UX
+  before the ledger classifies that loss as intentional;
 - editing first and measuring only after the user complains;
 - using product CSS clamps, spacing, or old primitives when they alter Claude
   geometry without declaring a visual exception;
@@ -113,6 +120,13 @@ Do not claim completion, commit, push, or deploy a Claude-to-a-tee change until:
 - page rhythm and scroll/sticky outcomes were measured beyond the first viewport
   where they affect visible UI, while preserving product-owned scroll, scrub,
   lazy loading, load-more, pagination, and virtualization mechanics;
+- preserved or hybrid product UX has focused regression coverage or equivalent
+  recorded checks for the retained selectors, controls, item counts, scroll
+  bounds, first/last item reachability, and reload/session behavior;
+- every preserved or hybrid product UX contract named in the decision ledger has
+  a matching verification result: persistence, routing, disclosure, focus,
+  non-happy states, permissions, destructive safety, density, responsive
+  interaction, media fallback, search click-through, or scroll choreography;
 - desktop, tablet, and required mobile viewports passed without incoherent
   overlap, clipping, or page-level horizontal overflow;
 - required interactions and the product engineering contract still work;

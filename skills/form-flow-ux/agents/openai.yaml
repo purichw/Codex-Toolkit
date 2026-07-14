@@ -1,0 +1,4 @@
+interface:
+  display_name: "Form Flow UX"
+  short_description: "Verify complete form journeys and states"
+  default_prompt: "Use $form-flow-ux to verify create/edit form flows, validation, save, cancel, and errors."

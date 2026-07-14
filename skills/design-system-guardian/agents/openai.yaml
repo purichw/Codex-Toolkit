@@ -1,0 +1,4 @@
+interface:
+  display_name: "Design System Guardian"
+  short_description: "Prevent component and token drift"
+  default_prompt: "Use $design-system-guardian to keep UI components aligned with the design system."

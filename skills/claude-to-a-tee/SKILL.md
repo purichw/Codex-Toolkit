@@ -55,6 +55,13 @@ Claude is not permission to ship broken product behavior, invent decorative
 motion, or drift away from the rendered UI. Match animations only when the
 reference shows them or the product already requires them.
 
+Use `$product-ux-contracts` when Claude may overwrite proven product UX,
+`$ui-state-matrix` when Claude shows only the happy path, `$interaction-flow-qa`
+when visible controls imply real journeys, `$design-system-guardian` when
+Claude affects reusable primitives, `$accessible-interaction` for keyboard/focus
+risk, `$data-dense-ux` for tables/lists/admin density, and `$form-flow-ux` for
+forms.
+
 Before implementation, always output or maintain a decision ledger for the
 requested scope. The ledger must say what will follow Claude, what will preserve
 the current product, what will be hybridized, why, how it will be verified, and
@@ -209,6 +216,47 @@ existing container behavior, decide `Claude adopted`, `product UX preserved`, or
 `hybrid`, and verify the post-change scroll container itself: first item, last
 item, manual scroll, active-item auto-scroll, keyboard/touch behavior, and
 page-level overflow.
+
+Do not rewrite regression tests or acceptance checks to bless a Claude-flattened
+version until the decision ledger proves that change is intentional. Tests for
+preserved or hybrid UX must assert the preserved container, control, state, or
+workflow behavior, including item counts, page-size controls, scroll bounds, and
+first/last item reachability when relevant.
+
+## Product UX Contracts Claude Must Not Flatten
+
+Before copying a newer Claude page flow, inspect whether the target product
+already has any of these contracts. If yes, put them in the decision ledger and
+default to `hybrid` unless Claude clearly improves the real UX:
+
+- state persistence: selected tabs, filters, search, expanded rows, selected
+  item, progress, local draft, reload, browser back/forward, and session return;
+- progressive disclosure: accordions, details panels, drawers, modals, side
+  panels, step flows, and show-more/show-less behavior;
+- URL and routing: route params, hash/query deep links, shareable filters,
+  item anchors, redirects, browser history, and fallback routes;
+- keyboard and focus: tab order, focus trap, escape/outside-click close, focus
+  restore, scroll-to-input, shortcuts, and screen-reader semantics;
+- non-happy states: loading, skeleton, empty, error, denied, disabled with
+  reason, validation, partial failure, stale session, and retry;
+- permission-aware UI: role-based visibility, allowed/denied paths, readonly
+  state, audit-sensitive actions, and server-backed authorization;
+- destructive safety: confirmation, undo/restore, tombstone, audit log,
+  rollback, irreversible-action copy, and disabled current-state reasons;
+- data density: pagination, load more, virtualization, page-size controls,
+  sort, filters, bulk select, item counts, and large-list performance;
+- responsive interaction: mobile drawer, bottom sheet, sticky footer action,
+  safe areas, touch targets, keyboard viewport, and tablet-specific layout;
+- real asset/media handling: lazy loading, fallbacks, failed asset state, CMS
+  visibility, audio/video controls, captions, poster frames, and source repair;
+- search and result click-through: result metadata, real destination, highlight
+  target, selected item visibility, and non-generic fallback behavior;
+- scroll choreography: sticky offsets, anchor scroll, active-item auto-scroll,
+  manual scroll ownership, scroll restoration, and page-level overflow.
+
+Claude can restyle these contracts, but replacing or removing them requires
+evidence, risk disclosure, verification, and user acceptance when the tradeoff
+is product-visible.
 
 Do not silently reinterpret "to a tee" as general polish, a shell-level restyle,
 or copying Claude's demo architecture. Treat Claude JavaScript and demo

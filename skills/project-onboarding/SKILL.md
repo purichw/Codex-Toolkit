@@ -70,8 +70,25 @@ only when the user request or project evidence points to it.
   participants, invites, guests, and shared financial contracts.
 - `$native-parity`: native iOS/Android app parity with web/product contracts,
   Expo/React Native builds, shared backend contracts, or device build gates.
+- `$ui-ux-orchestrator`: broad or unclear UI/UX work where the right design,
+  state, flow, accessibility, or visual QA skill is not obvious.
 - `$design-direction`: design briefs, visual north stars, critique, public/admin
   UX direction, Claude prompts, and implementation guardrails.
+- `$product-ux-contracts`: preserve routing, persistence, internal scroll,
+  permissions, destructive safety, media fallbacks, search click-through, or
+  proven UX while redesigning/restyling.
+- `$ui-state-matrix`: default, selected, disabled, loading, empty, error,
+  success, permission, long-text, localization, and responsive UI states.
+- `$interaction-flow-qa`: click through complete user/admin journeys and prove
+  route, state, data, permissions, persistence, and feedback.
+- `$design-system-guardian`: prevent design-system/token/component drift across
+  buttons, cards, tables, forms, nav, dialogs, and reusable primitives.
+- `$accessible-interaction`: keyboard, focus, ARIA/semantics, contrast, reduced
+  motion, touch targets, modal/drawer accessibility, or mobile keyboard.
+- `$data-dense-ux`: tables, admin dashboards, lists, ledgers, filters,
+  pagination, bulk actions, virtualized lists, and operational panels.
+- `$form-flow-ux`: create/edit forms, validation, dirty state, autosave, save,
+  cancel, reset, server errors, permission denied, uploads, and mobile keyboard.
 - `$site-maintainer`: website projects with source/build/deploy artifact
   boundaries, generated output, service workers, tests, work logs, or hosting.
 - `$tts-audio-assets`: reusable TTS audio generation, reuse, naturalness QA, and

@@ -210,6 +210,16 @@ behavior.
   reachable, manual scroll works, active-item auto-scroll does not fight manual
   scroll, keyboard/touch behavior works, sticky actions do not cover content,
   and page-level horizontal overflow remains absent.
+- For preserved or hybrid sub-containers, record the selector, visible item
+  count, total item count or page size, `scrollHeight`, `clientHeight`, max
+  height/overflow style, and first/last reachable item evidence. Add or update
+  a regression check for these facts when the behavior could disappear silently.
+- For preserved or hybrid product UX contracts, verify the specific contract:
+  reload/back-forward persistence, route/hash/query deep link, expand/collapse
+  or modal state, keyboard/focus path, loading/empty/error/denied state,
+  permission allow/deny, confirmation/undo/audit, pagination/load-more,
+  mobile drawer/bottom sheet/safe area, media fallback, search result
+  click-through, and scroll restoration/anchor offsets as applicable.
 - inventory event listeners, delegated selectors, IDs, data attributes, and tests
   before changing markup
 - preserve auth, persistence, APIs, calculations, i18n, and accessibility

@@ -21,9 +21,14 @@ Read only what the task needs:
 - operational constraints: CMS, data shape, localization, accessibility, mobile,
   performance, and release requirements.
 
-Use `$claude-to-a-tee` for exact offline Claude parity, `$placeholder-image` for
-image sourcing/crop choices, `$mobile-web-qa` and `$snapshot` for visual proof,
-and project maintainer skills before implementation.
+Use `$ui-ux-orchestrator` when the UI/UX task is broad or the right specialist
+skill is unclear. Use `$claude-to-a-tee` for exact offline Claude parity,
+`$design-system-guardian` for component/token consistency,
+`$product-ux-contracts` for preserving proven product behavior,
+`$ui-state-matrix` for state coverage, `$interaction-flow-qa` for journeys,
+`$placeholder-image` for image sourcing/crop choices, `$mobile-web-qa` and
+`$snapshot` for visual proof, and project maintainer skills before
+implementation.
 
 Use `$efficient-execution` when direction work is broad: inspect enough
 references to define the decision, then stop before it becomes a full redesign

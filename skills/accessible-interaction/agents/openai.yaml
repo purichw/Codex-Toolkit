@@ -1,0 +1,4 @@
+interface:
+  display_name: "Accessible Interaction"
+  short_description: "Check keyboard, focus, and a11y behavior"
+  default_prompt: "Use $accessible-interaction to verify keyboard, focus, touch, and accessibility behavior."
