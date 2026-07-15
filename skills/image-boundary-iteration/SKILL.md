@@ -46,7 +46,7 @@ Keep branch knowledge separated. Reuse workflow discipline across branches, but 
 
 - RPG / celestial / chroma branches: use `rpg_guy_visual_baselines.md`, PV-076, PV-077, and celestial prompt-strategy notes.
 - Watercolor bathhouse branch: use `watercolor_bathhouse_branch_notes_2026-07-05.md` and `watercolor_bathhouse_visual_baselines.md`; preserve watercolor bathhouse medium, robe/wrap drapery, adult Elf identity, and cozy non-explicit scene anchors.
-- Watercolor fantasy trio branch: use `watercolor_genshin_trio_batch_notes_2026-07-14.md`, PV-082, PV-083, and PV-084; preserve the black-haired gold spear dancer, orange-haired hydro fighter, and silver-haired teal scholar-mage identities. Keep this branch separate from the older white-haired Elf / haloed man / Devil bathhouse branch.
+- Watercolor fantasy trio branch: use `watercolor_genshin_trio_batch_notes_2026-07-14.md`, PV-082, PV-083, PV-084, and PV-088; preserve the black-haired gold spear dancer, orange-haired hydro fighter, and silver-haired teal scholar-mage identities. Keep this branch separate from the older white-haired Elf / haloed man / Devil bathhouse branch.
 - Moonlit celestial fountain branch: use `moonlit_celestial_fountain_branch_notes_2026-07-05.md` and `moonlit_celestial_fountain_visual_baselines.md`; preserve adult white-haired Elf identity, masculine S-curve dancer presence, moonlit fountain courtyard, black reflective marble, water curtains, star motes, compact white-gold center accent, and narrow translucent energy ribbons.
 - Classical black-marble bath trio branch: use the 2026-07-10 sections in `references/prompt-strategy.md` and `references/rejection-handling.md`; preserve classical museum oil painting, three adult mythic men, black-marble pool, continuous reflective waterline, moonlight, steam, and non-explicit water/reflection lower-frame structure.
 - If a branch departs from the old RPG style, create/update branch notes, branch asset names, workbook tags/notes, and handoff pointers instead of mixing baselines.
@@ -121,6 +121,14 @@ Current strongest bedroom north-star:
 PV-084 verdict: user said `PASS แรงมาก 1000000000 คะแนน`.
 
 PV-084 rule: preserve tight moonlit bedroom crop, identities, faces/hair/hands, smooth sculptural torsos and upper-leg silhouettes, pillow-shadow lower frame, warm lanterns, arched windows, and one hairline-thin pale-gold sash/cord per character. This passed after direct same-frame extreme reduction underdelivered or rejected. For further boundary pushes, use crop/composition/hands/pillows/shadow/single-sash fashion language instead of direct garment-removal or explicit anatomy language. If quality breaks, backtrack to the bedroom quality-restore pass or run a clean quality redraw before pushing again.
+
+Current strongest waterline / lantern north-star:
+
+`/Users/point/outputs/nudity_reference_prompting/References for Codex/generated_assets/watercolor_trio_sunken_marble_pool_superpass_2026-07-15.png`
+
+PV-088 verdict: user said `PASS PASS PASS PASS`; PV-085, PV-086, and PV-087 are also Pass but can still be pushed. Other generated images from that run are BASE only.
+
+PV-088 rule: preserve sunken marble pool, blue moonlit waterline, central orange-haired fighter, flanking black-haired and silver-haired figures, crisp faces/hands/torsos, direct gaze triangle, warm lanterns, gold-blue pendants, robe edges reduced to thin draped lines, and water/reflection/crop as the non-explicit lower-frame structure. For the next hard push, build on PV-088 through waterline, crop, pose variation, hand placement, and robe-edge simplification rather than bedroom fabric-removal wording.
 
 Earlier single-Elf pass baseline:
 

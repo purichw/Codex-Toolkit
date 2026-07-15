@@ -500,3 +500,16 @@ this file is for choosing the right skill during real work.
 - Typical context: Branch notes, visual baseline files, workbook/JSON/Markdown
   logs, prompt strategy notes, rejection-handling notes, and the user's current
   verdict shorthand.
+
+### image-boundary-polish
+
+- Skill file: [../skills/image-boundary-polish/SKILL.md](../skills/image-boundary-polish/SKILL.md)
+- Description: Restores quality in accepted boundary-forward non-explicit image
+  iterations without changing the boundary level.
+- Use when: An accepted image is muddy, artifacted, breaking, or needs face,
+  hand, anatomy, water/reflection, linework, lighting, or rendering cleanup
+  before the `image-boundary-iteration` workflow continues.
+- Typical context: Strongest accepted base, branch identity and medium,
+  accepted boundary level, pose/crop/waterline/lower-frame structure to
+  preserve, defects to repair, forbidden boundary changes, verdict, and logging
+  decision.

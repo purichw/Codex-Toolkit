@@ -65,6 +65,7 @@ as a standalone skill directory under `~/.codex/skills`.
 | [`shane-thai-image-assets`](shane-thai-image-assets/SKILL.md) | Manages image selection, generation, reuse, cropping, and QA for Thai vocabulary lessons. | Use for Shane and His Thai lesson art, badge imagery, Unit image generation, or semantic asset mapping. |
 | [`shane-thai-prod-smoke`](shane-thai-prod-smoke/SKILL.md) | Runs safe authenticated production smoke checks for Shane and His Thai using the dedicated dummy learner account. | Use after Shane production deploys or when verifying login, topbar, Learning hub, learner-flow smoke, or production screenshot evidence. |
 | [`image-boundary-iteration`](image-boundary-iteration/SKILL.md) | Controls adult non-explicit image iteration with prompt hygiene, verdict loops, branch notes, and logging. | Use for the nudity-reference-prompting project when continuing boundary-forward visual iterations or maintaining baselines. |
+| [`image-boundary-polish`](image-boundary-polish/SKILL.md) | Restores image quality without increasing an accepted boundary level. | Use when boundary-forward non-explicit images need face, hand, linework, water, anatomy, or artifact cleanup before another iteration. |
 
 ## Image And Media Sourcing
 

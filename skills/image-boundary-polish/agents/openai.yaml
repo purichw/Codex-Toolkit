@@ -1,0 +1,4 @@
+interface:
+  display_name: "Image Boundary Polish"
+  short_description: "Restore image quality without pushing boundary"
+  default_prompt: "Use $image-boundary-polish to restore quality on the latest accepted image without changing its boundary level."

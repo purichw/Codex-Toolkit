@@ -41,6 +41,7 @@ Some skills also include reference notes, helper scripts, or agent metadata.
 | [`firebase-security-rules`](skills/firebase-security-rules/SKILL.md) | Audits Firebase Auth, Firestore Rules, Admin SDK endpoints, service accounts, and production access guarantees. | Reviewing or changing Firestore rules, privileged backend behavior, auth gates, secrets, or Firebase security posture. |
 | [`form-flow-ux`](skills/form-flow-ux/SKILL.md) | Covers complete create/edit form journeys including validation, dirty state, autosave, save/cancel, errors, and mobile keyboard. | A form must work as a real workflow, not only as a visually finished screen. |
 | [`image-boundary-iteration`](skills/image-boundary-iteration/SKILL.md) | Guides controlled adult non-explicit image iteration with branch-specific prompt strategy, verdicts, and logging. | Continuing the nudity-reference-prompting workflow, handling Pass/Partial/Reject loops, local edits, or visual baseline tracking. |
+| [`image-boundary-polish`](skills/image-boundary-polish/SKILL.md) | Restores quality in accepted boundary-forward non-explicit image iterations without changing the boundary level. | Faces, hands, linework, water, anatomy, or rendering quality need cleanup before continuing image-boundary iteration. |
 | [`interaction-flow-qa`](skills/interaction-flow-qa/SKILL.md) | Exercises real journeys end to end across routing, state, data, permissions, feedback, reload, and back behavior. | Search/detail, onboarding, admin create/edit/publish, modal/drawer, destructive, playback, or completion flows must actually work. |
 | [`ledger-logic`](skills/ledger-logic/SKILL.md) | Protects collaborative ledger math, identity, guests/invites, persistence, and settlement outputs. | Implementing, auditing, or debugging expenses, splits, payer/participant logic, reciprocal netting, import/export, or ledger tests. |
 | [`mobile-web-qa`](skills/mobile-web-qa/SKILL.md) | Audits responsive web interfaces across phone, tablet, and desktop viewports. | Checking mobile Safari/Chrome behavior, safe areas, keyboard states, tap targets, overflow, modals, or pre-deploy frontend QA. |
@@ -81,5 +82,5 @@ diff, then commit.
 Verify the archive with:
 
 ```sh
-python3 scripts/verify_skills.py --expected-count 40
+python3 scripts/verify_skills.py --expected-count 41
 ```

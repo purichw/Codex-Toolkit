@@ -10,7 +10,7 @@ user's intent.
 - Local checkout used when this file was written: `/Users/point/Codex-Toolkit`
 - Visibility at initial setup: private
 - Purpose: archive and document the user's personal Codex skills
-- Current skill count: 40 `SKILL.md` files under `skills/`
+- Current skill count: 41 `SKILL.md` files under `skills/`
 
 The first import copied personal skills from:
 
@@ -97,6 +97,7 @@ Expected current skill folders:
 - `firebase-security-rules`
 - `form-flow-ux`
 - `image-boundary-iteration`
+- `image-boundary-polish`
 - `interaction-flow-qa`
 - `ledger-logic`
 - `mobile-web-qa`
@@ -161,7 +162,7 @@ updates, enough verification is usually:
 
 ```sh
 git diff --check
-python3 scripts/verify_skills.py --expected-count 40
+python3 scripts/verify_skills.py --expected-count 41
 ```
 
 For skill script changes, run the script's smoke-test or help path when one
@@ -184,6 +185,8 @@ As of this document, the repository has:
 - one archive update adding `usage-budget-gate`, `consistency-audit`,
   `prod-smoke-harness`, and `shane-thai-prod-smoke`, plus related routing
   updates, and updating the verifier count to 40.
+- one archive update adding `image-boundary-polish`, broadening snapshot and
+  boundary-iteration guidance, and updating the verifier count to 41.
 
 The main thing future Codex should preserve is the distinction between live local
 skills and the GitHub archive. That distinction prevents accidental overwrites

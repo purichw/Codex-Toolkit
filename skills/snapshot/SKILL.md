@@ -96,8 +96,9 @@ unless the point is a microscopic edge inspection.
 6. Save screenshots with descriptive filenames that include route/component and
    state, for example:
    `/tmp/notenwert-dresden-life-sidebar-after-wide.png`.
-7. In the final answer, embed at least one useful image with an absolute path:
-   `![label](/absolute/path.png)`.
+7. In the final answer, embed at least one useful image directly in chat with
+   an absolute path: `![label](/absolute/path.png)`. Do not only list screenshot
+   file paths when visual evidence is the deliverable.
 
 For UI implementation work, run this workflow after the final edit/build state,
 not only during debugging. If a snapshot cannot be captured, disclose why and
@@ -199,7 +200,10 @@ Keep the final visual report compact:
 - State what was captured and from where: local app, reference HTML, or
   production URL.
 - State what the screenshot proves and any conditions needed to interpret it.
-- Include the screenshot inline.
+- Include the screenshot inline in the chat using Markdown image syntax with an
+  absolute filesystem path, for example `![label](/absolute/path.png)`.
+- For multiple relevant screenshots, embed the highest-signal images directly
+  in the chat; include additional paths only as supporting references.
 - Include measured values only when they answer the user's question.
 - For comparison/contact sheets, label reference/app, before/after, viewport,
   route/state, and scroll position.
@@ -217,6 +221,8 @@ Before claiming a visual change is done, check:
   browser, auth/data state, build or reference identity, and scroll/state.
 - No crop hides the very edge, neighbor, label, or parent needed for judgment.
 - The file path is absolute and renderable in the Codex app.
+- The visual evidence is shown in chat, not merely saved to disk or described by
+  path, unless the user explicitly asks for files only.
 - For UI changes, at least one current snapshot is included in the closeout.
 - After UI development, a current post-implementation snapshot is included even
   when the user did not explicitly request one.

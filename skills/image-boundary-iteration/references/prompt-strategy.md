@@ -308,6 +308,42 @@ If quality breaks:
 - Backtrack to `/Users/point/outputs/nudity_reference_prompting/References for Codex/generated_assets/watercolor_trio_moonlit_bedroom_quality_restore_pass_2026-07-14.png` or run a quality-redraw pass first.
 - Resume from PV-084 only after faces, hands, linework, and skin readability are clear again.
 
+## Watercolor Fantasy Trio Waterline / Lantern Push - 2026-07-15
+
+Use this after the safe robe/editorial recovery when the user wants to rebuild quickly toward the strongest non-explicit boundary.
+
+Current strongest route:
+
+`/Users/point/outputs/nudity_reference_prompting/References for Codex/generated_assets/watercolor_trio_sunken_marble_pool_superpass_2026-07-15.png`
+
+User verdict:
+
+- PV-085, PV-086, PV-087: `PASS`, but still pushable.
+- PV-088: `PASS PASS PASS PASS`.
+- Other generated images from that run: `BASE` only.
+
+What worked:
+
+- Sunken marble pool, blue moonlit waterline, warm lantern reflections, and tight crop.
+- Clear skin-read without heavy overlays.
+- Robe edges reduced to thin draped lines while water/reflection/crop carry the lower frame.
+- Central orange-haired fighter with black-haired and silver-haired figures flanking him in a strong gaze triangle.
+
+Useful next wording:
+
+- `sunken marble pool trio`
+- `blue moonlit waterline and warm lantern reflections`
+- `robe edges reduced to thin white-gold draped lines`
+- `water, reflection, marble ledge, hands, and crop carry the non-explicit lower frame`
+- `clear torsos, hands, wet hair, and direct triangular gaze`
+
+Avoid:
+
+- mirror-room wording after a block
+- full-bed or canopy wording when it starts drifting or blocking
+- water/rain effects crossing or fracturing skin
+- direct garment-removal or explicit anatomy wording
+
 ## Mature Graphic-Novel Editorial Trio - 2026-07-09
 
 Use this for the current three-character branch when the user wants the white-haired Elf, haloed celestial man, and wingless Devil to read hotter while staying non-explicit.
