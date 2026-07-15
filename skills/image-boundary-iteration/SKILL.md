@@ -11,6 +11,8 @@ Use simple Thai. Continue this project as boundary-forward adult non-explicit im
 
 Do not default back to conservative armor/coverage unless the user asks for a reset/base or a temporary safer base is strategically needed. Safe bases are stepping stones, not final goals.
 
+Base does not mean fully clothed. For adult non-explicit fantasy/editorial branches, prefer efficient shirtless or open-robe bases when the goal is boundary-forward: bare torso, bare shoulders, visible chest/abdomen, jewelry, and low-bulk styling can be the starting point as long as the lower-frame structure remains non-explicit. Use fully clothed bases only for identity calibration, explicit user preference, or conservative recovery after repeated blocks.
+
 Never claim `generated`, `Pass`, `Partial`, `Reject`, or `accepted` without actual tool output or user verdict.
 
 Use `$efficient-execution` only for batching logs, reusing verified baselines,

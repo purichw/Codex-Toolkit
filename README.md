@@ -40,8 +40,12 @@ Some skills also include reference notes, helper scripts, or agent metadata.
 | [`firebase-account-management`](skills/firebase-account-management/SKILL.md) | Separates Firebase billing, Auth, Firestore, Admin SDK, and account-management concerns. | Designing, auditing, or debugging signup/login, user profiles, admin CRUD, custom claims, or Spark vs Blaze assumptions. |
 | [`firebase-security-rules`](skills/firebase-security-rules/SKILL.md) | Audits Firebase Auth, Firestore Rules, Admin SDK endpoints, service accounts, and production access guarantees. | Reviewing or changing Firestore rules, privileged backend behavior, auth gates, secrets, or Firebase security posture. |
 | [`form-flow-ux`](skills/form-flow-ux/SKILL.md) | Covers complete create/edit form journeys including validation, dirty state, autosave, save/cancel, errors, and mobile keyboard. | A form must work as a real workflow, not only as a visually finished screen. |
+| [`image-boundary`](skills/image-boundary/SKILL.md) | Routes boundary-forward adult non-explicit image work to the right boundary, polish, safety, or recovery skill. | The user invokes image-boundary work, is unsure which boundary skill applies, or needs coordinated PASS/PARTIAL/REJECT iteration. |
 | [`image-boundary-iteration`](skills/image-boundary-iteration/SKILL.md) | Guides controlled adult non-explicit image iteration with branch-specific prompt strategy, verdicts, and logging. | Continuing the nudity-reference-prompting workflow, handling Pass/Partial/Reject loops, local edits, or visual baseline tracking. |
+| [`image-boundary-nonexplicit-max`](skills/image-boundary-nonexplicit-max/SKILL.md) | Pushes sensual, intimate, boundary-forward image prompts to the strongest safe non-explicit result. | The user wants the hardest allowed adult fantasy/editorial push without explicit nudity detail, sexual acts, or safety evasion. |
 | [`image-boundary-polish`](skills/image-boundary-polish/SKILL.md) | Restores quality in accepted boundary-forward non-explicit image iterations without changing the boundary level. | Faces, hands, linework, water, anatomy, or rendering quality need cleanup before continuing image-boundary iteration. |
+| [`image-boundary-rejection-recovery`](skills/image-boundary-rejection-recovery/SKILL.md) | Recovers after generation blocks, user rejects, underdelivery, identity drift, or quality collapse. | A boundary prompt family blocked, failed, got rejected, or needs a safe change-of-strategy/backtrack. |
+| [`image-boundary-safety-map`](skills/image-boundary-safety-map/SKILL.md) | Maps risk zones and chooses safe routes before prompting near the non-explicit boundary. | Stronger sensuality, fewer garments, transparent water, bedroom/bathhouse scenes, or other near-limit image requests need routing. |
 | [`interaction-flow-qa`](skills/interaction-flow-qa/SKILL.md) | Exercises real journeys end to end across routing, state, data, permissions, feedback, reload, and back behavior. | Search/detail, onboarding, admin create/edit/publish, modal/drawer, destructive, playback, or completion flows must actually work. |
 | [`ledger-logic`](skills/ledger-logic/SKILL.md) | Protects collaborative ledger math, identity, guests/invites, persistence, and settlement outputs. | Implementing, auditing, or debugging expenses, splits, payer/participant logic, reciprocal netting, import/export, or ledger tests. |
 | [`mobile-web-qa`](skills/mobile-web-qa/SKILL.md) | Audits responsive web interfaces across phone, tablet, and desktop viewports. | Checking mobile Safari/Chrome behavior, safe areas, keyboard states, tap targets, overflow, modals, or pre-deploy frontend QA. |
@@ -82,5 +86,5 @@ diff, then commit.
 Verify the archive with:
 
 ```sh
-python3 scripts/verify_skills.py --expected-count 41
+python3 scripts/verify_skills.py --expected-count 45
 ```

@@ -1,0 +1,4 @@
+interface:
+  display_name: "Image Boundary"
+  short_description: "Route all image-boundary workflows"
+  default_prompt: "Use $image-boundary to decide which image-boundary workflow applies and continue the image iteration."

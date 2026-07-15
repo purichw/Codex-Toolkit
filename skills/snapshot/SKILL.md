@@ -24,6 +24,13 @@ Do not crop exactly to the target element when the user needs to judge layout,
 alignment, spacing, hierarchy, or visual quality. Include surrounding context by
 default.
 
+For component, section, panel, modal, table, card, or page-surface screenshots,
+show at least a little side context outside the primary container whenever the
+viewport allows it. The left and right page gutters, parent background, or
+neighboring layout edges should be visible enough for a human to judge alignment.
+If a crop lands exactly on the component border, recapture wider or use the full
+viewport.
+
 Tight crops are allowed only when inspecting a pixel-level detail such as a
 border thickness, icon shape, crop edge, or text overlap. When sending a tight
 crop, also send or mention a wider snapshot unless the user explicitly asked
@@ -64,6 +71,9 @@ Choose the smallest frame that still explains the issue:
   includes the parent container, neighboring columns, and nearby headings.
 - **Sidebar, card, panel, or table row:** include the whole component plus at
   least one neighboring area or parent edge.
+- **Centered page sections or cards:** include visible left and right gutters
+  outside the section, normally at least 32-80px per side when available, so the
+  crop does not hide the side margins being judged.
 - **Small control, line, icon, or label:** crop with breathing room around it,
   normally 80-160px on each relevant side when available.
 - **Responsive issue:** capture at the relevant viewport and include enough
@@ -168,6 +178,11 @@ When building a crop from an element rectangle:
 - Expand the clip beyond the element bounds before taking the screenshot.
 - Prefer including parent edges and adjacent content over perfectly centered
   framing.
+- Preserve side gutters for layout evidence. For non-tight crops, make sure the
+  crop includes background outside both horizontal edges of the primary surface
+  when the page provides it. If either side gutter is unavailable because the
+  element touches the viewport, fall back to a wider viewport or full-viewport
+  screenshot.
 - Clamp the crop to the viewport/page bounds.
 - If the element is near an edge and padding cannot be added, use a wider
   viewport or full-page screenshot instead.
@@ -220,6 +235,9 @@ Before claiming a visual change is done, check:
 - Provenance is recorded for release/comparison evidence: URL, viewport,
   browser, auth/data state, build or reference identity, and scroll/state.
 - No crop hides the very edge, neighbor, label, or parent needed for judgment.
+- Non-tight layout screenshots show side context outside the main container;
+  crops that hug the left/right border of the component are rejected unless the
+  screenshot is explicitly a microscopic edge inspection.
 - The file path is absolute and renderable in the Codex app.
 - The visual evidence is shown in chat, not merely saved to disk or described by
   path, unless the user explicitly asks for files only.

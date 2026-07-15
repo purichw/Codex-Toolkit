@@ -1,0 +1,4 @@
+interface:
+  display_name: "Image Boundary Safety Map"
+  short_description: "Map non-explicit boundary risk and routes"
+  default_prompt: "Use $image-boundary-safety-map to map the safest route for this boundary-forward image request."

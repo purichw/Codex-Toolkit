@@ -1,0 +1,4 @@
+interface:
+  display_name: "Image Boundary Rejection Recovery"
+  short_description: "Recover safely after image prompt blocks"
+  default_prompt: "Use $image-boundary-rejection-recovery to diagnose this image rejection and choose the next safe continuation."

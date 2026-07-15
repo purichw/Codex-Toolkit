@@ -501,6 +501,33 @@ this file is for choosing the right skill during real work.
   logs, prompt strategy notes, rejection-handling notes, and the user's current
   verdict shorthand.
 
+### image-boundary
+
+- Skill file: [../skills/image-boundary/SKILL.md](../skills/image-boundary/SKILL.md)
+- Description: Routes all adult non-explicit image-boundary work to the
+  smallest useful set of boundary iteration, polish, max-push, recovery, and
+  safety-map skills.
+- Use when: The user invokes `/image-boundary`, is unsure which image-boundary
+  skill applies, asks to continue PASS/PARTIAL/REJECT loops, push sensual
+  non-explicit boundaries, recover from safety blocks, polish quality, map risk,
+  update docs, or coordinate several image-boundary skills.
+- Typical context: User request, current branch/base/verdict, whether the task
+  is normal iteration, quality repair, max non-explicit push, rejection
+  recovery, safety mapping, or docs/logging, plus the exact downstream skill
+  files to read.
+
+### image-boundary-nonexplicit-max
+
+- Skill file: [../skills/image-boundary-nonexplicit-max/SKILL.md](../skills/image-boundary-nonexplicit-max/SKILL.md)
+- Description: Pushes sensual, intimate, boundary-forward adult image prompts to
+  the strongest safe non-explicit result.
+- Use when: The user wants stronger sensuality, intimacy, reduced costume bulk,
+  visible skin-read, or maximum fantasy/editorial intensity without explicit
+  nudity detail, sexual acts, or safety-system evasion.
+- Typical context: Accepted base and branch, translated non-explicit visual
+  goal, selected push axis, coverage structure, quality requirements, generated
+  prompt, tool result, and PASS/PARTIAL/REJECT verdict.
+
 ### image-boundary-polish
 
 - Skill file: [../skills/image-boundary-polish/SKILL.md](../skills/image-boundary-polish/SKILL.md)
@@ -513,3 +540,28 @@ this file is for choosing the right skill during real work.
   accepted boundary level, pose/crop/waterline/lower-frame structure to
   preserve, defects to repair, forbidden boundary changes, verdict, and logging
   decision.
+
+### image-boundary-rejection-recovery
+
+- Skill file: [../skills/image-boundary-rejection-recovery/SKILL.md](../skills/image-boundary-rejection-recovery/SKILL.md)
+- Description: Recovers after image generation safety blocks, moderation
+  rejections, user REJECT verdicts, underdelivery, identity drift, local-edit
+  saturation, or quality collapse.
+- Use when: A boundary-forward prompt family blocks, repeats a failure, misses
+  the user's goal, damages quality, drifts identity, or needs a safe
+  change-of-HOW rather than another retry.
+- Typical context: Failure class, blocked or rejected prompt family, last
+  accepted base, branch identity, what worked, what failed, new visual
+  mechanism, stop rule, recovery prompt, and next verdict.
+
+### image-boundary-safety-map
+
+- Skill file: [../skills/image-boundary-safety-map/SKILL.md](../skills/image-boundary-safety-map/SKILL.md)
+- Description: Maps risk zones and safe routes for boundary-forward adult
+  non-explicit image prompting before generation.
+- Use when: The user asks for stronger sensuality, nudity-adjacent styling,
+  intimate poses, fewer garments, transparent water, bedroom/bathhouse scenes,
+  or anything near the non-explicit safety limit.
+- Typical context: Request translation, selected risk zone, route/skill choice,
+  current base type, allowed non-explicit mechanism, disallowed explicit detail
+  or repeated blocked family, exact prompt, and post-generation verdict.
