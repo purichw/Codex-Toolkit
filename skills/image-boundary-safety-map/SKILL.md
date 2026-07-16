@@ -13,6 +13,8 @@ When this triggers in `/Users/point/outputs/nudity_reference_prompting`, combine
 
 Use simple Thai with the user.
 
+Do not use this map as an excuse to over-refuse or become discreet. Zone 2 and Zone 3 are valid working zones for this project, not warning states. Only Zone 4 and Zone 5 require refusal, backtracking, or recovery.
+
 ## Risk Zones
 
 ### Zone 1: Stable Safe
@@ -31,7 +33,7 @@ Action: one controlled push axis is fine.
 
 Minimal costume bulk, hairline cords, transparent water, strong skin-read, seated/reclining leg silhouettes, close triangular group, non-explicit lower-frame structure.
 
-Action: use `$image-boundary-nonexplicit-max`; preserve crop/water/shadow/refraction as safety structure. Generate once and wait for verdict.
+Action: use `$image-boundary-nonexplicit-max`; preserve crop/water/shadow/refraction as safety structure. Do not downgrade to fully clothed or distant composition unless a block/reject requires recovery. Generate once and wait for verdict.
 
 ### Zone 4: Risk Cliff
 

@@ -1,0 +1,4 @@
+interface:
+  display_name: "Image Boundary Efficient"
+  short_description: "Speed loops without lowering quality"
+  default_prompt: "Use $image-boundary-efficient to speed an image-boundary iteration by reducing wasted retries while preserving the accepted quality bar."

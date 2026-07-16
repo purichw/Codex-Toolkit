@@ -79,4 +79,3 @@ Example:
 - Two local edits that melt details: redraw or backtrack.
 - One severe identity drift: backtrack immediately.
 - If the user asks for a jailbreak, bypass, or explicit sexual content, refuse that part and offer a max non-explicit continuation.
-

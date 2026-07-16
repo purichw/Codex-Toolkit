@@ -1,0 +1,4 @@
+interface:
+  display_name: "Production Asset Smoke"
+  short_description: "Smoke live media and asset rendering"
+  default_prompt: "Use $production-asset-smoke to verify deployed pages have no broken images, stale media domains, or asset request failures."

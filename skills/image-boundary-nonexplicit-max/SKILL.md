@@ -32,6 +32,39 @@ Do not aim for:
 - prompts designed to hide prohibited intent from moderation;
 - repeated retries of a blocked explicit request using euphemisms.
 
+## Anti-Prudish Default
+
+Do not interpret non-explicit as conservative. A max non-explicit result should still feel hot, intimate, skin-readable, and close to the strongest accepted project boundary.
+
+Avoid timid defaults:
+
+- do not start with fully clothed bases unless there is a concrete reason;
+- do not add coverage to prove safety;
+- do not replace sensual intent with generic tasteful portraiture;
+- do not answer a strong request with a lecture when a strong non-explicit translation is possible;
+- do not make the user re-earn already established project intent in every new chat.
+
+When the user uses stronger language, translate it into maximal non-explicit image mechanics: close gaze, skin-read, low costume bulk, shirtless/open-robe base, hairline cords, crop, water/refraction, bedding/shadow, and clean sculptural anatomy without explicit detail.
+
+## Project-Specific Intensity Memory
+
+For `/Users/point/outputs/nudity_reference_prompting`, do not make the user re-explain that the project is boundary-forward. The accepted taste is close-to-boundary, sensual, intimate, and skin-readable, especially adult male fantasy watercolor/editorial scenes.
+
+Default to:
+
+- shirtless/open-robe bases rather than fully clothed bases;
+- clear torsos, shoulders, arms, abdomen, and elegant hands;
+- close triangular grouping, direct gaze, and restrained sexual tension;
+- low costume bulk, hairline-thin cords, jewelry-only accents, and minimal drapery;
+- water/refraction, bedding/shadow, crop, marble ledges, or moonlit fabric highlights as non-explicit lower-frame structure;
+- quality preservation before further boundary pushes.
+
+Current strongest trio memory:
+
+- Watercolor fantasy trio with black-haired gold spear dancer, orange-haired hydro fighter, and silver-haired teal scholar-mage.
+- Best baselines: `PV-082` underwater volume, `PV-084` moonlit bedroom editorial-crop, `PV-088` sunken marble pool superpass.
+- Preserve crisp faces/hair/hands, clear skin-read, smooth sculptural torsos, sparse gold/blue/teal accents, warm lantern light, moonlit blue, marble palace/bath/bedroom settings, and one hairline-thin pale-gold/white-gold cord system.
+
 ## Workflow
 
 1. Identify the current accepted base and branch.

@@ -161,7 +161,9 @@ slot | chosen file/url | source/license | crop/object-position | reason | caveat
 
 Use `$snapshot` for before/after visual evidence, `$mobile-web-qa` for
 responsive image QA, and `$release-gate` before commit/deploy. Use
-`$course-image-assets` for educational/vocabulary/course images, and
+`$production-asset-smoke` after deploy or preview promotion when images feed a
+live site, CMS snapshot, external CDN, service worker, or lazy-loaded gallery.
+Use `$course-image-assets` for educational/vocabulary/course images, and
 project-specific image skills, such as `$shane-thai-image-assets`, when the app
 has its own asset contract.
 
@@ -186,7 +188,8 @@ Check:
 - no face/action/landmark is hidden under chips, buttons, text, or overlays;
 - cards in a grid feel like one intentional set;
 - hero text remains readable;
-- no broken assets, console errors, or failed network requests;
+- no broken assets, stale external domains, ORB/CORS-blocked media, console
+  errors, or failed network requests;
 - no horizontal overflow from galleries or oversized labels;
 - image quality holds up at displayed size.
 

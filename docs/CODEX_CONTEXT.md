@@ -10,7 +10,7 @@ user's intent.
 - Local checkout used when this file was written: `/Users/point/Codex-Toolkit`
 - Visibility at initial setup: private
 - Purpose: archive and document the user's personal Codex skills
-- Current skill count: 45 `SKILL.md` files under `skills/`
+- Current skill count: 50 `SKILL.md` files under `skills/`
 
 The first import copied personal skills from:
 
@@ -80,7 +80,9 @@ find skills -name SKILL.md | sort
 Expected current skill folders:
 
 - `accessible-interaction`
+- `account-recovery-key`
 - `admin-ops`
+- `admin-prototype-reconciliation`
 - `claude-to-a-tee`
 - `coin-quest-admin-ops`
 - `coin-quest-ledger-logic`
@@ -97,6 +99,7 @@ Expected current skill folders:
 - `firebase-security-rules`
 - `form-flow-ux`
 - `image-boundary`
+- `image-boundary-efficient`
 - `image-boundary-iteration`
 - `image-boundary-nonexplicit-max`
 - `image-boundary-polish`
@@ -111,10 +114,12 @@ Expected current skill folders:
 - `placeholder-image`
 - `prod-smoke-harness`
 - `product-ux-contracts`
+- `production-asset-smoke`
 - `project-onboarding`
 - `regression-hunter`
 - `release-gate`
 - `shane-thai-audio-generator`
+- `shane-thai-export`
 - `shane-thai-image-assets`
 - `shane-thai-prod-smoke`
 - `site-maintainer`
@@ -166,7 +171,7 @@ updates, enough verification is usually:
 
 ```sh
 git diff --check
-python3 scripts/verify_skills.py --expected-count 45
+python3 scripts/verify_skills.py --expected-count 50
 ```
 
 For skill script changes, run the script's smoke-test or help path when one
@@ -194,6 +199,9 @@ As of this document, the repository has:
 - one archive update adding the image-boundary router, non-explicit max,
   rejection recovery, and safety-map skills, plus snapshot/boundary guidance,
   and updating the verifier count to 45.
+- one archive update adding account recovery, admin prototype reconciliation,
+  image-boundary efficiency, production asset smoke, and Shane Thai export
+  skills, plus related routing updates, and updating the verifier count to 50.
 
 The main thing future Codex should preserve is the distinction between live local
 skills and the GitHub archive. That distinction prevents accidental overwrites

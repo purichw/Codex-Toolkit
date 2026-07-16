@@ -29,6 +29,13 @@ Start with exhaustive reference reconnaissance: open every reachable page,
 screen, tab, drawer, modal, and route; click every visible control; and record
 what happens even when the Claude reference is static or no-op.
 
+For broad pages, converge component-by-component. Do not treat a whole HTML file
+or a single full-page screenshot as enough detail to implement everything at
+once. Lock high-risk elements in small passes: shell/header, nav, hero/banner,
+sidebar/rail, list/grid rows, cards, drawers/modals, footer, and responsive
+breakpoints. Each pass needs rendered reference evidence, rendered app evidence,
+and a narrow measured parity table before moving to the next pass.
+
 A broad screenshot comparison is not enough. Use browser-computed geometry for
 high-risk components: global shell, header/topbar, nav/sidebar, page title,
 primary cards, filters/tabs, table/list rows, dialogs/drawers, history/footer,
@@ -59,8 +66,10 @@ Use `$product-ux-contracts` when Claude may overwrite proven product UX,
 `$ui-state-matrix` when Claude shows only the happy path, `$interaction-flow-qa`
 when visible controls imply real journeys, `$design-system-guardian` when
 Claude affects reusable primitives, `$accessible-interaction` for keyboard/focus
-risk, `$data-dense-ux` for tables/lists/admin density, and `$form-flow-ux` for
-forms.
+risk, `$data-dense-ux` for tables/lists/admin density, `$form-flow-ux` for
+forms, `$admin-prototype-reconciliation` when an admin prototype changes live
+data or publish contracts, and `$production-asset-smoke` when the parity work
+adds or repairs production media.
 
 Before implementation, always output or maintain a decision ledger for the
 requested scope. The ledger must say what will follow Claude, what will preserve
@@ -296,3 +305,6 @@ default route/page title, header/nav geometry, primary hero/card/grid geometry,
 first primary interaction, console errors, and page-level overflow at desktop
 and one mobile viewport. A production smoke that only checks HTTP 200 and basic
 functionality is not enough for Claude-to-a-tee work.
+If the changed screen uses CMS images, video, CSS backgrounds, external embeds,
+or generated assets, include `$production-asset-smoke` evidence for the deployed
+URL before saying the visual parity work is complete.

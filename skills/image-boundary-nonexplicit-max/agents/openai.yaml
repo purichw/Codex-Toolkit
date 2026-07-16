@@ -1,4 +1,4 @@
 interface:
   display_name: "Image Boundary Nonexplicit Max"
   short_description: "Maximize sensual non-explicit image prompts"
-  default_prompt: "Use $image-boundary-nonexplicit-max to push this image as far as possible while staying non-explicit."
+  default_prompt: "Use $image-boundary-nonexplicit-max to push this image to the strongest sensual adult non-explicit boundary without defaulting to fully clothed or discreet framing."

@@ -9,6 +9,13 @@ Use this skill when a product already has useful UX behavior that must not be
 lost during visual work. Visual references can restyle a contract; they should
 not erase it silently.
 
+Treat external design references as presentation source material, not product
+architecture. Preserve the target app's engineering contracts for data, auth,
+routing, persistence, performance, accessibility, security, testing hooks, and
+production operations. When a reference interaction conflicts with product-owned
+architecture, adapt the implementation to preserve the visible intent while
+keeping the product contract intact.
+
 Use `$claude-to-a-tee` when the pressure comes from Claude HTML, `$ui-state-matrix`
 for state coverage, `$interaction-flow-qa` for journeys, `$accessible-interaction`
 for keyboard/focus, `$data-dense-ux` for tables/lists, `$form-flow-ux` for forms,

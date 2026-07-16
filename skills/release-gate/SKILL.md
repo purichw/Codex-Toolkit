@@ -86,6 +86,11 @@ Use these as starting packs, then adapt to repo-defined commands:
 - **Generated image/audio assets:** run the relevant audit/check scripts, verify
   data mappings, inspect representative rendered UI, and avoid broad
   regeneration unless requested.
+- **Production media/assets:** use `$production-asset-smoke` after deploy or
+  preview promotion when the diff touches images, videos, CSS backgrounds,
+  generated assets, CMS media, external embeds, service-worker asset handling,
+  or placeholder/fallback logic. A local screenshot or page-level HTTP 200 does
+  not prove deployed media is healthy.
 - **Sites deploy:** when `.openai/hosting.json` exists, use Sites tooling and
   verify the deployed URL/artifact, not just local build.
 

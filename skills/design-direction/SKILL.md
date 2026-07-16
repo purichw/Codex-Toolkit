@@ -88,3 +88,21 @@ Follow-on skills:
 
 When the user asks to implement, hand off to the appropriate maintainer skill
 after the direction is clear.
+
+## Handoff Prompt Guidance
+
+When preparing a design prompt or handoff for another design agent, request
+artifacts that implementation agents can verify rather than mood alone:
+
+- standalone HTML or a runnable prototype for every referenced screen;
+- wide screenshots at desktop, tablet, and mobile with route/state labels;
+- component inventory, item counts, responsive rules, and visible interactions;
+- source-of-truth notes for what is presentation-only versus product-owned data,
+  auth, routing, persistence, and operations;
+- mock/unbuilt list for controls, dashboards, uploads, revisions, roles,
+  scheduling, or backend-dependent features;
+- asset brief and licensing/source expectations for images, video, and embeds;
+- explicit behavior exceptions and visual exceptions.
+
+Use `$claude-to-a-tee` for exact implementation from such a handoff and
+`$admin-prototype-reconciliation` when the handoff changes admin/data contracts.

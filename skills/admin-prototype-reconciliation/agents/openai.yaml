@@ -1,0 +1,4 @@
+interface:
+  display_name: "Admin Prototype Reconciliation"
+  short_description: "Reconcile admin prototypes with live systems"
+  default_prompt: "Use $admin-prototype-reconciliation to compare an admin prototype against the live admin/data layer before implementation."

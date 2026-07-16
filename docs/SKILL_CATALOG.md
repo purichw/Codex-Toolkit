@@ -98,6 +98,19 @@ this file is for choosing the right skill during real work.
   cleanup/reset path, routes to verify, console/network failure policy,
   snapshots, skipped checks, and release decision.
 
+### production-asset-smoke
+
+- Skill file: [../skills/production-asset-smoke/SKILL.md](../skills/production-asset-smoke/SKILL.md)
+- Description: Verifies deployed website media and asset rendering after image,
+  video, CMS, fallback, service-worker, or deploy changes.
+- Use when: Production or preview pages need proof that images, CSS
+  backgrounds, videos, posters, lazy-loaded assets, fallbacks, and external
+  media domains render without broken requests, stale URLs, ORB/CORS failures,
+  or blank boxes.
+- Typical context: Deploy URL, commit/build, route list, changed media surfaces,
+  stale domains to check, browser network failures, DOM media source inventory,
+  screenshots, fallback decisions, rerun result, and residual media risk.
+
 ### mobile-web-qa
 
 - Skill file: [../skills/mobile-web-qa/SKILL.md](../skills/mobile-web-qa/SKILL.md)
@@ -289,6 +302,20 @@ this file is for choosing the right skill during real work.
 
 ## Firebase And Security
 
+### account-recovery-key
+
+- Skill file: [../skills/account-recovery-key/SKILL.md](../skills/account-recovery-key/SKILL.md)
+- Description: Defines provider-neutral recovery-key flows for signup, password
+  reset, signed-in regeneration, hashing, invalidation, and display policy.
+- Use when: A project needs recovery codes/keys, recovery ID, password reset
+  without email, account-settings regeneration, recovery hash storage, old-key
+  invalidation, or reusable auth guidance across Firebase, Supabase, custom
+  auth, or local-first apps.
+- Typical context: Auth boundary, account identifier, profile/login records,
+  recovery-key format, hash/HMAC rule, signup reveal UI, reset flow,
+  regeneration surface, rate limiting, audit logging, mobile UX, and tests for
+  wrong-key and old-key invalidation.
+
 ### firebase-account-management
 
 - Skill file: [../skills/firebase-account-management/SKILL.md](../skills/firebase-account-management/SKILL.md)
@@ -324,6 +351,21 @@ this file is for choosing the right skill during real work.
 - Typical context: Admin routes, auth/role source, data contracts, privileged
   routes, Admin SDK/service accounts, audit logs, destructive confirmations,
   fixtures, deploy/runbooks, and rollback notes.
+
+### admin-prototype-reconciliation
+
+- Skill file: [../skills/admin-prototype-reconciliation/SKILL.md](../skills/admin-prototype-reconciliation/SKILL.md)
+- Description: Reconciles new admin/CMS/dashboard prototypes, Claude/Figma
+  references, offline HTML, and design-side data models against live production
+  admin systems before implementation.
+- Use when: Prototype fields, components, workflows, draft/publish states,
+  revisions, auth/roles, navigation/settings, store APIs, or fixture models
+  must be classified as already live, net-new, conflicting, or mock-only before
+  merging.
+- Typical context: Prototype files and fixtures, live admin routes and APIs,
+  validators, auth checks, live read/write data source, public consumption
+  paths, field map, component classification, gating decisions, mock/unbuilt
+  list, and do-not-implement-yet blockers.
 
 ### ledger-logic
 
@@ -425,6 +467,20 @@ this file is for choosing the right skill during real work.
   and login surface, authenticated `codex` learner flow, console/network
   failures, snapshot path, skipped live mutations, and failure classification.
 
+### shane-thai-export
+
+- Skill file: [../skills/shane-thai-export/SKILL.md](../skills/shane-thai-export/SKILL.md)
+- Description: Exports Shane and His Thai learner content, scene/dialogue
+  rewrite packets, unit text dumps, Claude/offline HTML handoffs, clickable
+  learner prototypes, and ChatGPT-ready restructuring briefs.
+- Use when: The user asks for Shane Thai exports, ChatGPT content packets,
+  unit exports, learner journey handoffs, dialogue/scene restructure material,
+  Claude design/offline HTML files, or which files to give ChatGPT or Claude.
+- Typical context: Thai flashcards project root, export type, target reader,
+  output folder, unit count, README instructions, unit content files, project
+  export command, spot-check unit, and files the next tool should or should not
+  receive.
+
 ## Image And Asset Work
 
 ### course-image-assets
@@ -515,6 +571,20 @@ this file is for choosing the right skill during real work.
   is normal iteration, quality repair, max non-explicit push, rejection
   recovery, safety mapping, or docs/logging, plus the exact downstream skill
   files to read.
+
+### image-boundary-efficient
+
+- Skill file: [../skills/image-boundary-efficient/SKILL.md](../skills/image-boundary-efficient/SKILL.md)
+- Description: Adds a removable speed-preserving operating layer over
+  image-boundary workflows without replacing the boundary, polish, recovery, or
+  safety skills.
+- Use when: The user wants Imagen/image-boundary iterations faster, cheaper,
+  less blocked, less retry-heavy, or asks to add, remove, pause, or toggle
+  efficient mode without lowering quality.
+- Typical context: Current base/verdict, active downstream boundary skill,
+  whether efficient mode should be active, one selected push axis, quality bar,
+  blocked prompt families to avoid, prompt shape, generated result, and reason
+  to turn the layer off.
 
 ### image-boundary-nonexplicit-max
 

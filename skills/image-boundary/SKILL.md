@@ -20,6 +20,7 @@ Choose the minimal set and read only the needed skill files:
 - `$image-boundary-nonexplicit-max`: strongest safe sensual/intimate/non-explicit prompt strategy.
 - `$image-boundary-rejection-recovery`: safety blocks, user rejects, failed prompt families, backtracking.
 - `$image-boundary-safety-map`: risk classification before generating near the boundary.
+- `$image-boundary-efficient`: removable speed layer that reduces wasted retries/blocks/drift without lowering quality; turn it off when quality starts falling.
 
 Skill paths:
 
@@ -28,17 +29,78 @@ Skill paths:
 - `/Users/point/.codex/skills/image-boundary-nonexplicit-max/SKILL.md`
 - `/Users/point/.codex/skills/image-boundary-rejection-recovery/SKILL.md`
 - `/Users/point/.codex/skills/image-boundary-safety-map/SKILL.md`
+- `/Users/point/.codex/skills/image-boundary-efficient/SKILL.md`
+
+## Project Memory Capsule
+
+This capsule is enough to start a fresh chat without re-reading the full handoff. Load the full handoff only when exact branch history, workbook logging, or old asset evidence matters:
+
+`/Users/point/outputs/nudity_reference_prompting/References for Codex/new_chat_handoff_prompt.md`
+
+Project:
+
+- Root: `/Users/point/outputs/nudity_reference_prompting`.
+- User wants adult fantasy/RPG/watercolor image-boundary iteration that is hot, intimate, skin-readable, and close to the highest non-explicit boundary.
+- The user dislikes prudish/discreet defaults, moralizing, conservative resets, and unnecessary shirts/armor/blankets/coverage.
+- The user uses words like `explicit`, `porn-like`, `แรง`, `ถอด`, and `เห็น...` colloquially for intensity. Translate to max-boundary non-explicit visual mechanisms unless the request actually requires visible genitalia, explicit anatomy detail, or sexual acts.
+
+Verdict shorthand:
+
+- `PASS`: preserve and continue from the accepted dimension.
+- `PASS PASS PASS` or higher praise: promote as a strong baseline.
+- `BASE`: usable stepping stone, not final.
+- `PARTIAL`: keep what worked, change the missing dimension.
+- `REJECT`: backtrack or change HOW; do not keep editing the rejected output unless asked.
+- Dimensions like `BOUNDARY`, `POSE`, `COSTUME`, `INTIMACY`, `LOOK`, `QUALITY` name the axis to adjust.
+
+Default posture in new chats:
+
+- Start operationally, not apologetically.
+- Do not ask the user to re-prove project intent.
+- Do not make safe/base images fully clothed unless identity calibration or recovery requires it.
+- Prefer shirtless/open-robe/bare-torso bases with clear chest/abdomen, jewelry, low costume bulk, and non-explicit lower-frame structure.
+- Use the strongest accepted base available; if quality is breaking, polish before pushing.
+
+Current primary branch:
+
+- `watercolor_fantasy_trio_2026-07-14`.
+- Three adult fantasy men: black-haired gold spear dancer; orange-haired hydro fighter with blue eyes and small red horn-like hair ornament; silver-haired teal scholar-mage with teal accents.
+- Preserve watercolor paper texture, crisp faces/hair/hands, smooth sculptural torsos, warm gold lanterns, moonlit blue water/windows, marble palace/bath/bedroom atmosphere, close triangular gaze, sparse gold/blue/teal jewelry, and hairline-thin white-gold robe-edge cords.
+
+Current strongest baselines:
+
+- `PV-082`: clean underwater volume/modesty route, user said best result since project began. Use for clear skin-read shallow-water scenes and abstract underwater body-volume cues.
+- `PV-083`: moonlit bedroom safe base with open-collar robes, bare shoulders/chests, bedding carrying lower frame.
+- `PV-084`: strongest bedroom editorial-crop superpass. Preserve tight crop, crisp faces/hands, smooth torsos and upper-leg silhouettes, one hairline-thin pale-gold sash/cord per character, pillows/shadows/crop as non-explicit structure.
+- `PV-088`: strongest sunken marble pool superpass. Preserve blue moonlit waterline, warm lantern reflections, central orange-haired fighter, flanking black-haired/silver-haired figures, clear torsos/hands, thin robe edges, water/reflection/crop as lower-frame structure.
+
+Winning HOW:
+
+- Use composition, crop, pose, water/refraction, bedding/shadow, marble reflection, single hairline cords, and low-bulk styling.
+- Strong image directions include shallow-water duet/trio, sunken marble pool, moonlit palace bedroom, candlelit bathhouse alcove, rain pavilion, reclining ledge, seated bathhouse, and close triangular lounge portrait.
+- Keep skin and anatomy readable. Heavy effects, ribbons, splashes, caustics, mist, or magic overlays should not hide bodies or fracture layout.
+- Quality polish is allowed and often successful: repair face/hair/hands/anatomy/water/linework without reducing the accepted boundary.
+
+Known failure modes:
+
+- Direct explicit anatomy wording, sexual acts, or visible genital focus.
+- Bedroom intimacy plus lower-frame anatomy/detail stacked in the same prompt.
+- Repeating a blocked prompt family with synonyms.
+- Fully clothed reset when the user wanted boundary-forward continuation.
+- Dense effects that obscure skin-read or create broken limbs.
+- Local edits after two failed attempts on the same lower-frame issue; redraw instead.
 
 ## Routing
 
 Use this decision order:
 
 1. Explicit named skill: use that skill.
-2. Quality/anatomy/water/clarity defect: use `$image-boundary-polish` plus `$image-boundary-iteration`.
-3. Safety block or repeated user reject: use `$image-boundary-rejection-recovery`.
-4. Stronger sensual/non-explicit push: use `$image-boundary-safety-map`, then `$image-boundary-nonexplicit-max`.
-5. Normal continuation from a verdict: use `$image-boundary-iteration`.
-6. Docs/workbook/skill updates: use `$image-boundary-iteration` logging references and the relevant skill being edited.
+2. User asks for faster/efficient loops without quality loss: use `$image-boundary-efficient` as a removable layer plus the relevant route below.
+3. Quality/anatomy/water/clarity defect: turn efficient layer off if active, then use `$image-boundary-polish` plus `$image-boundary-iteration`.
+4. Safety block or repeated user reject: use `$image-boundary-rejection-recovery`.
+5. Stronger sensual/non-explicit push: use `$image-boundary-safety-map`, then `$image-boundary-nonexplicit-max`.
+6. Normal continuation from a verdict: use `$image-boundary-iteration`.
+7. Docs/workbook/skill updates: use `$image-boundary-iteration` logging references and the relevant skill being edited.
 
 ## Boundary Stance
 
@@ -58,6 +120,22 @@ Keep the implementation non-explicit:
 - no jailbreak or bypass guidance;
 - no repeating blocked prompt families under disguised wording;
 - no sacrificing quality for boundary.
+
+## Tone And Continuity
+
+In a fresh chat, do not become prudish, evasive, or overly discreet merely because the project is close to the boundary. Treat boundary-forward adult non-explicit image work as the normal project mode.
+
+Use a direct working tone:
+
+- avoid moralizing, over-warning, or repeatedly restating safety policy;
+- do not soften every user request into conservative wording;
+- do not add shirts, armor, blankets, bulky robes, or distance unless the active route needs a reset;
+- translate risky language into strong visual mechanisms and proceed when the result can remain non-explicit;
+- refuse only the explicit sexual/anatomical/sexual-act part, then immediately offer the strongest non-explicit continuation.
+
+For new chats, this skill's Project Memory Capsule is the default context. Load the project handoff only if exact branch details or asset evidence are needed:
+
+`/Users/point/outputs/nudity_reference_prompting/References for Codex/new_chat_handoff_prompt.md`
 
 ## Base Defaults
 

@@ -1,4 +1,4 @@
 interface:
   display_name: "Image Boundary"
   short_description: "Route all image-boundary workflows"
-  default_prompt: "Use $image-boundary to decide which image-boundary workflow applies and continue the image iteration."
+  default_prompt: "Use $image-boundary for nudity_reference_prompting; load the handoff and continue boundary-forward adult non-explicit image iteration without a conservative reset."

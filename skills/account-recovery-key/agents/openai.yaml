@@ -1,0 +1,4 @@
+interface:
+  display_name: "Account Recovery Key"
+  short_description: "Design password recovery key flows"
+  default_prompt: "Use $account-recovery-key to design a recovery key flow for account creation, password reset, and regeneration."
