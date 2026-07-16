@@ -467,19 +467,18 @@ this file is for choosing the right skill during real work.
   and login surface, authenticated `codex` learner flow, console/network
   failures, snapshot path, skipped live mutations, and failure classification.
 
-### shane-thai-export
+### shane-thai-export-chatgpt
 
-- Skill file: [../skills/shane-thai-export/SKILL.md](../skills/shane-thai-export/SKILL.md)
-- Description: Exports Shane and His Thai learner content, scene/dialogue
-  rewrite packets, unit text dumps, Claude/offline HTML handoffs, clickable
-  learner prototypes, and ChatGPT-ready restructuring briefs.
-- Use when: The user asks for Shane Thai exports, ChatGPT content packets,
-  unit exports, learner journey handoffs, dialogue/scene restructure material,
-  Claude design/offline HTML files, or which files to give ChatGPT or Claude.
-- Typical context: Thai flashcards project root, export type, target reader,
-  output folder, unit count, README instructions, unit content files, project
-  export command, spot-check unit, and files the next tool should or should not
-  receive.
+- Skill file: [../skills/shane-thai-export-chatgpt/SKILL.md](../skills/shane-thai-export-chatgpt/SKILL.md)
+- Description: Exports Shane and His Thai learner lesson content into
+  ChatGPT-ready patch packets.
+- Use when: The user invokes `/shane-thai-export-ChatGPT`, asks to export all
+  lessons for ChatGPT, wants lesson patch packets, or needs packet structure
+  flexible enough for future learner tabs/modules such as Passage Reading.
+- Typical context: Thai flashcards project root, output folder, bundled
+  generator command, 17 unit packet files, folder-level protocol files, spot
+  check unit, source map, and exact files the user should give ChatGPT for
+  normal lesson edits, cross-unit work, or tab/module proposals.
 
 ## Image And Asset Work
 

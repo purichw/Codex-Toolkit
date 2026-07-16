@@ -1,4 +1,0 @@
-interface:
-  display_name: "Shane Thai Export"
-  short_description: "Export Shane Thai learner handoffs"
-  default_prompt: "Use $shane-thai-export to export Shane and His Thai learner content for ChatGPT or design handoff."

@@ -1,0 +1,4 @@
+interface:
+  display_name: "Shane Thai ChatGPT Export"
+  short_description: "Export lesson patch packets for ChatGPT"
+  default_prompt: "Use $shane-thai-export-chatgpt to export Shane and His Thai lesson content into ChatGPT-ready patch packets."

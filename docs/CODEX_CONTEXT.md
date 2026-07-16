@@ -119,7 +119,7 @@ Expected current skill folders:
 - `regression-hunter`
 - `release-gate`
 - `shane-thai-audio-generator`
-- `shane-thai-export`
+- `shane-thai-export-chatgpt`
 - `shane-thai-image-assets`
 - `shane-thai-prod-smoke`
 - `site-maintainer`
