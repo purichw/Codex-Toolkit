@@ -84,11 +84,18 @@ SOURCE_MAP.md
 
 New tabs are product/implementation proposals, not content-only patches. ChatGPT should propose section id, label, data model, tab order, progress/completion/reset behavior, affected source files, and tests for Codex to implement.
 
+## Critical ChatGPT Output Rule
+
+The packet must instruct ChatGPT to write the actual revised lesson content itself. ChatGPT should use the exported lesson material to return finished replacement content/objects with Thai, Paiboon, English, audio text, prompts, answers, tags, and metadata aligned.
+
+Do not accept responses that only give directions, suggestions, placeholders, or instructions for Codex to author the lesson later. Codex can apply and verify a patch, but ChatGPT must do the lesson-writing work in the response.
+
 ## Guardrails
 
 - Preserve stable IDs by default.
 - Prefer targeted object/array replacement over whole-unit rewrites.
 - Keep Thai, Paiboon, English, audio text, quiz answers, labels, tags, and group IDs aligned.
+- Require finished replacement lesson content for every touched object/array; patch plans alone are incomplete.
 - Do not let ChatGPT patch generated Markdown as source of truth.
 - Do not let ChatGPT silently add product surface. Use `TAB_EXTENSION_PROTOCOL.md`.
 - Default to learner-facing Main Course content only. Admin Portal exports need a separate request.

@@ -185,8 +185,9 @@ Generated ${generatedDate}. This packet is for ChatGPT-assisted lesson patching.
 2. Preserve existing stable IDs unless replacement/deletion is explicitly requested.
 3. If adding content, propose new IDs that match this unit's existing prefix pattern.
 4. Keep Thai, Paiboon, English, audio text, quiz answers, labels, tags, and group IDs aligned.
-5. Return a targeted patch plan first, then replacement objects/arrays or a unified diff only for the relevant source file(s).
-6. For new learner-facing tabs/modules, use \`TAB_EXTENSION_PROTOCOL.md\` and return a proposal instead of pretending the tab already exists.
+5. Write the actual revised lesson content yourself. Do not return only directions, placeholders, or instructions for Codex to author later.
+6. Return finished replacement objects/arrays or a unified diff only for the relevant source file(s), plus a targeted patch plan.
+7. For new learner-facing tabs/modules, use \`TAB_EXTENSION_PROTOCOL.md\` and return a proposal with fully authored target-unit content instead of pretending the tab already exists.
 
 ## Unit Metadata
 
@@ -276,6 +277,7 @@ For a possible new learner-facing tab/module:
 - Do not change stable IDs casually.
 - Do not add a new tab silently as a content-only patch.
 - Do not remove or rename existing tabs unless the user explicitly asks.
+- Do not respond with only directions, suggestions, placeholders, or instructions for Codex to write the lesson later.
 
 ## Prompt: Normal Patch
 
@@ -286,11 +288,13 @@ Read README.md, PATCH_PROTOCOL.md, and the unit packet below.
 
 Goal: [describe the change]
 
+Important: write the actual revised lesson content yourself using the exported packet. Do not return only advice, directions, placeholders, or "Codex should write..." instructions.
+
 Please respond with:
 1. Diagnosis.
 2. Exact stable IDs to keep, modify, add, or remove.
-3. Minimal patch plan.
-4. Replacement content for only the affected objects/arrays.
+3. Finished replacement lesson content for every touched object/array, with Thai / Paiboon / English / audio text / answers / tags aligned.
+4. Minimal patch plan or source-file diff showing where that content should be applied.
 5. Checks Codex should run after applying it.
 
 Do not rewrite unrelated sections.
@@ -305,11 +309,13 @@ Read README.md, PATCH_PROTOCOL.md, TAB_EXTENSION_PROTOCOL.md, SOURCE_MAP.md, and
 
 Goal: [example: add a Passage Reading tab to Unit 13]
 
+Important: write the actual content for the target unit. Do not stop at a data model or instructions for Codex to compose the passage/questions later.
+
 Please respond with:
 1. Whether this should be a new tab or fit an existing tab.
 2. Proposed section id, label, purpose, and tab order.
 3. Data model and stable ID pattern.
-4. Exact content for the target unit.
+4. Fully authored content for the target unit.
 5. Implementation checklist for Codex.
 6. Risks to progress, routing, completion, audio, images, and tests.
 \`\`\`
@@ -345,8 +351,12 @@ Use this for normal lesson content patches and existing-section restructuring.
 - Add:
 - Remove:
 
+## Authored Lesson Content
+- Write the finished Thai / Paiboon / English / prompts / answer keys / tags / metadata for every touched item.
+- Do not hand back only directions, placeholders, or a to-do list for Codex.
+
 ## Patch
-- Provide only the affected replacement objects/arrays, or a unified diff if asked.
+- Provide only the affected replacement objects/arrays, or a unified diff if asked, using the authored content above.
 
 ## Consistency Checks
 - Thai, Paiboon, English aligned.
@@ -360,6 +370,7 @@ Use this for normal lesson content patches and existing-section restructuring.
 
 - Preserve stable IDs by default.
 - Prefer modifying specific objects over rewriting whole arrays.
+- Author the revised lesson content in the response; Codex should apply and verify it, not invent it later.
 - Keep lesson order, route, unit ID, progress keys, audio IDs, and image IDs stable unless explicitly asked.
 - If a Thai phrase changes, update Paiboon, English, audio text, quiz answer, cloze option, and any matching card/reading/story reference as needed.
 - If the request adds a learner-facing tab or module, switch to \`TAB_EXTENSION_PROTOCOL.md\`.
@@ -370,6 +381,8 @@ function renderTabProtocol() {
   return `# Tab Extension Protocol For ChatGPT
 
 Use this only when the requested patch may add a learner-facing tab or module, such as a future \`Passage Reading\` tab.
+
+Even for a proposal, ChatGPT must write the actual target-unit lesson content. Do not return only a feature brief, content direction, or instructions for Codex to author later.
 
 ## Current Learner Unit Tabs
 
@@ -418,9 +431,10 @@ Current route shape:
 
 ## Content For This Unit
 - New stable IDs:
-- Thai:
-- Paiboon:
-- English:
+- Fully authored Thai:
+- Fully authored Paiboon:
+- Fully authored English:
+- Prompts / answer keys / notes:
 - Notes:
 
 ## Implementation Checklist For Codex
@@ -447,6 +461,7 @@ item IDs: <unit-prefix>-passage-01, <unit-prefix>-passage-q-01
 ## Guardrails
 
 - Treat new tabs as product decisions.
+- Fully author the MVP content for the requested unit; implementation notes alone are incomplete.
 - Do not remove or rename existing tabs to make room.
 - Preserve existing route behavior and progress data.
 - Prefer additive data fields over changing existing object meanings.
