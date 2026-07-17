@@ -41,7 +41,7 @@ aliases route to canonical skills and are listed in
 
 | Skill | Description | Context |
 | --- | --- | --- |
-| [`ui-ux-expert`](ui-ux-expert/SKILL.md) | Designs, audits, and implements polished user-facing UI/UX with portable fallback tokens, components, layouts, and QA rules. | Use for visual design, interaction design, responsive UI, design systems, frontend polish, anti-slop review, component galleries, decks, documents, or prototypes. |
+| [`ui-ux-expert`](ui-ux-expert/SKILL.md) | Designs, audits, and implements polished user-facing UI/UX with portable fallback tokens, UX behavior/state rules, components, layouts, and QA. | Use for visual design, interaction design, responsive UI, design systems, frontend polish, flow/state coverage, anti-slop review, component galleries, decks, documents, or prototypes. |
 | [`ui-ux-orchestrator`](ui-ux-orchestrator/SKILL.md) | Routes broad UI/UX work to the smallest useful set of design, UX, state, accessibility, flow, and QA skills. | Use when the request is broad, blurry, or needs help choosing which UI/UX skills should run together. |
 | [`consistency-audit`](consistency-audit/SKILL.md) | Audits whether UI, UX, implementation, shared components, and pattern weight form one coherent product system. | Use when checking layouts, components, typography, spacing, colors, icons, copy tone, interactions, responsive behavior, states, or duplicate primitives. |
 | [`product-ux-contracts`](product-ux-contracts/SKILL.md) | Preserves real product UX contracts while redesigning, restyling, refactoring, or matching a reference. | Use when routing, persistence, scroll, focus, permissions, destructive safety, media, or search click-through could be lost. |

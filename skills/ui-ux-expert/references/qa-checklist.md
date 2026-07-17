@@ -2,7 +2,8 @@
 
 > For Codex to run against a rendered artifact. Take screenshots, then verify each
 > item **from the image** (and a few from the DOM/computed styles where noted).
-> Source of truth: `tokens.css`, `components.md`, `layouts.md`, `anti-slop-examples.md`.
+> Source of truth: `SKILL.md`, `tokens.css`, `components.md`, `layouts.md`,
+> `anti-slop-examples.md`.
 > Legend: **[img]** = judge from screenshot · **[dom]** = check computed style/markup ·
 > **REQ** = must pass to ship · **OPT** = polish, note but don't block.
 
@@ -11,9 +12,11 @@
 1. Render the artifact; wait for fonts + async content to settle.
 2. Screenshot at **desktop 1280×800** and **mobile 390×844** (**REQ** both).
 3. For component work, also screenshot the gallery page showing every state.
-4. For interactive elements, capture **hover** and **focus-visible** states
+4. For data-bearing views, capture or inspect ideal, empty, loading, error, and
+   partial/edge states when the app exposes them.
+5. For interactive elements, capture **hover** and **focus-visible** states
    (`:focus-visible` via keyboard/`.focus()`), not just default.
-5. Save a **grayscale** copy of the desktop shot for the hierarchy check.
+6. Save a **grayscale** copy of the desktop shot for the hierarchy check.
 
 ---
 
@@ -24,6 +27,7 @@
 - [ ] **[img]** No horizontal scrollbar at 390px (except intentional `overflow-x` wrappers).
 - [ ] **[img]** No visible placeholder tokens leaked as text (`var(--…)`, `undefined`, `NaN`, `{{ }}`).
 - [ ] **[img]** No lorem ipsum or filler in a final deliverable.
+- [ ] **[img]** The primary task on each screen is obvious within ~3 seconds.
 
 ## B. Hierarchy & type — REQ
 
@@ -48,12 +52,18 @@
 - [ ] **[img]** Sibling groups use consistent `gap`, not uneven whitespace.
 - [ ] **[img]** Content has room to breathe; nothing cramped against edges.
 
-## E. Component states — REQ (gallery/interactive work)
+## E. Component states & UX behavior — REQ (gallery/interactive work)
 
 - [ ] **[img]** default · hover · focus-visible · active · disabled all present and distinct for every interactive component.
 - [ ] **[img]** Focus ring visible on keyboard focus (never removed).
 - [ ] **[img]** Inputs show error state (border + message) and loading/skeleton where they fetch.
-- [ ] **[img]** Data views show empty / loading / error, not just populated.
+- [ ] **[img]** Data views cover ideal / empty / loading / error / partial-edge, not just populated.
+- [ ] **[img]** Empty states explain what belongs there and offer a next step.
+- [ ] **[img]** Error states explain what happened and provide a way out; no dead ends.
+- [ ] **[img|dom]** Feedback appears immediately after input (press/selected/loading/inline response).
+- [ ] **[img|dom]** Control type matches the choice: radio/segmented for one-of-few, toggle for instant on/off, checkbox for multi-select, menu/select for many.
+- [ ] **[img]** Advanced or rare options are progressively disclosed, not dumped into the primary path.
+- [ ] **[img|dom]** Dangerous actions are confirmed, undoable, or visually separated from safe actions.
 - [ ] **[img]** Disabled elements are dimmed (~.5) and readable, `not-allowed` cursor.
 
 ## F. Responsive — REQ
@@ -75,6 +85,7 @@
 - [ ] **[dom]** Semantic elements (`button`/`nav`/`h1–h3` in order/`label`+`for`/`alt`).
 - [ ] **[dom]** No meaning by color alone (status has text/icon too).
 - [ ] **[dom]** `prefers-reduced-motion` respected for anything animated.
+- [ ] **[dom]** Icon-only controls have both accessible names and visible hover/focus affordance.
 
 ## I. Motion & polish — OPT (note, don't block)
 

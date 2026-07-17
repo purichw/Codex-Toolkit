@@ -61,7 +61,7 @@ version should run.
 | [`global-tts-audio-assets`](../skills/global-tts-audio-assets/SKILL.md) | [`tts-audio-assets`](../skills/tts-audio-assets/SKILL.md) | TTS audio generation, reuse, audit, QA, and data wiring across projects. |
 | [`global-uat-environment`](../skills/global-uat-environment/SKILL.md) | [`uat-environment`](../skills/uat-environment/SKILL.md) | Lightweight UAT/staging/preview environments and promotion evidence. |
 | [`global-ui-state-matrix`](../skills/global-ui-state-matrix/SKILL.md) | [`ui-state-matrix`](../skills/ui-state-matrix/SKILL.md) | UI state coverage beyond the happy path. |
-| [`global-ui-ux-expert`](../skills/global-ui-ux-expert/SKILL.md) | [`ui-ux-expert`](../skills/ui-ux-expert/SKILL.md) | Polished user-facing UI/UX design, implementation, audit, and QA. |
+| [`global-ui-ux-expert`](../skills/global-ui-ux-expert/SKILL.md) | [`ui-ux-expert`](../skills/ui-ux-expert/SKILL.md) | Polished user-facing UI/UX design, UX behavior/state coverage, implementation, audit, and QA. |
 | [`global-ui-ux-orchestrator`](../skills/global-ui-ux-orchestrator/SKILL.md) | [`ui-ux-orchestrator`](../skills/ui-ux-orchestrator/SKILL.md) | Routing broad UI/UX work to the right focused skills. |
 | [`global-usage-budget-gate`](../skills/global-usage-budget-gate/SKILL.md) | [`usage-budget-gate`](../skills/usage-budget-gate/SKILL.md) | Budget-aware depth, stop rules, and escalation triggers. |
 

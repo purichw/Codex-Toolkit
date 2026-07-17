@@ -1,9 +1,9 @@
 ---
 name: global-ui-ux-expert
-description: Global reusable alias for the canonical ui-ux-expert skill. Use when the user asks for $global-ui-ux-expert, says this should be global or non-project-specific, or wants the reusable version of ui ux expert. This alias routes to ui-ux-expert/SKILL.md; keep ui-ux-expert as the source of truth.
+description: Global reusable alias for the canonical UI/UX Expert skill. Use when the user asks for $global-ui-ux-expert, says this should be global or non-project-specific, or wants the reusable version of UI/UX Expert. This alias routes to ui-ux-expert/SKILL.md; keep ui-ux-expert as the source of truth.
 ---
 
-# Global Ui Ux Expert
+# Global UI/UX Expert
 
 This is a global alias for the canonical `ui-ux-expert` skill.
 

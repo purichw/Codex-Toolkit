@@ -231,6 +231,8 @@ As of this document, the repository has:
 - one archive update adding `global-full-design-spec` and
   `global-quick-design-spec`, adding the UI/UX design rule to `AGENTS.md`, and
   updating the verifier count to 95.
+- one archive update broadening `ui-ux-expert` and `global-ui-ux-expert` around
+  UX behavior, flow feedback, and ideal/empty/loading/error/edge state coverage.
 
 The main thing future Codex should preserve is the distinction between live local
 skills and the GitHub archive. That distinction prevents accidental overwrites

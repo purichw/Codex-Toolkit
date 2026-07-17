@@ -1,4 +1,4 @@
 interface:
-  display_name: "Global Ui Ux Expert"
-  short_description: "Global alias for ui-ux-expert"
-  default_prompt: "Use $global-ui-ux-expert for the global ui-ux-expert workflow."
+  display_name: "Global UI/UX Expert"
+  short_description: "Global alias for UI/UX Expert"
+  default_prompt: "Use $global-ui-ux-expert for the global UI/UX Expert workflow."

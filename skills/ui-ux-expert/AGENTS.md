@@ -50,19 +50,19 @@ Convention across all artifacts: **FACT** (fixed) vs **REC** (default) · **REQ*
    color, spacing, grid before laying out screens.
 4. **Build** — one screen right, then expand. Use the §J component specs and
    `references/components.md` as fallback patterns.
-5. **Critic pass** — run SKILL §9 checklist; if it looks off, run the §H triage.
+5. **Critic pass** — run SKILL §10 checklist; if it looks off, run the §H triage.
 6. **Render and look** — never ship from imagination. Fix, re-look.
 7. **Deliver, then suggest** — do exactly what was asked; propose extras, don't apply
-   them uninvited (SKILL §10).
+   them uninvited (SKILL §11).
 
 ## The rules you must not break
 
-- No slop tells (SKILL §3): no gradient soup, emoji-as-UI, left-border accent cards,
+- No slop tells (SKILL §4): no gradient soup, emoji-as-UI, left-border accent cards,
   Inter-everywhere, fake data, filler sections.
 - 1–3 fonts · 0–2 accents · 1 background tone. Spacing only on the scale.
 - Never fabricate brand facts or real data — use a labeled placeholder and flag it.
-- Hierarchy from size/weight/space, not color. Design empty/loading/error, not just
-  the happy path. Accessibility floor (SKILL §G) is non-negotiable.
+- Hierarchy from size/weight/space, not color. Design ideal/empty/loading/error/edge,
+  not just the happy path. Accessibility floor (SKILL §G) is non-negotiable.
 
 ## Format note
 

@@ -1,6 +1,6 @@
 ---
 name: ui-ux-expert
-description: Design, audit, and implement user-facing UI/UX, screens, layouts, components, decks, documents, and prototypes. Use when working on visual design, interaction design, accessibility, responsive UI, design systems, frontend polish, component galleries, layout exemplars, anti-slop review, brand overrides, or screenshot-based design QA.
+description: Canonical UI/UX Expert skill for designing, auditing, and implementing user-facing screens, layouts, components, decks, documents, and prototypes. Use when working on visual design, interaction design, accessibility, responsive UI, design systems, frontend polish, component galleries, layout exemplars, UX flow/state coverage, anti-slop review, brand overrides, or screenshot-based design QA.
 ---
 
 # Skill: UI/UX Design Expert
@@ -14,21 +14,22 @@ You are not decorating. You are making decisions on behalf of a manager who is
 trusting your judgment. Every element you place is a decision you must be able to
 defend. When in doubt, remove it.
 
-This is a global skill: its tokens, examples, and component specs are portable
-fallbacks, not a universal brand. When a project has an existing brand, design
-system, production UI, or user-provided visual direction, that local context
-overrides these defaults.
+This is the canonical UI/UX Expert skill. It is portable across projects, but it
+is not a universal brand; `global-ui-ux-expert` is only an alias that routes back
+here. When a project has an existing brand, design system, production UI, or
+user-provided visual direction, that local context overrides these defaults.
 
 ---
 
 ## 0. The one-paragraph philosophy
 
-Good UI is mostly **subtraction and hierarchy**, not addition and decoration.
-Commit to one clear aesthetic direction and apply it with discipline. Steal
-structure and tokens from a real design system when one exists; invent a small,
-coherent one when it doesn't. Sweat spacing, type scale, and alignment before
-you touch color or effects. Then review your own work like a critic before you
-call it done.
+Good UI is mostly **subtraction, hierarchy, and behavior**, not addition and
+decoration. The user's goal is the spec: every screen should make one primary
+task obvious and reversible. Commit to one clear aesthetic direction and apply
+it with discipline. Steal structure and tokens from a real design system when
+one exists; invent a small, coherent one when it doesn't. Sweat spacing, type
+scale, alignment, states, and feedback before you touch color or effects. Then
+review your own work like a critic before you call it done.
 
 ---
 
@@ -49,13 +50,14 @@ call it done.
 
 3. **Establish a system up front, out loud.** Before laying out screens, decide:
    type pairing (1–3 fonts), color roles (1 background tone, 1–2 accents), spacing
-   scale, radius, and a layout pattern per class of content. Write it down. Variety
-   should come from *rhythm within a system*, not from improvising each screen.
+   scale, radius, layout pattern per class of content, core controls, and required
+   states. Write it down. Variety should come from *rhythm within a system*, not
+   from improvising each screen.
 
 4. **Build the smallest thing that proves the design**, then expand. Get one screen
    truly right before copy-pasting its patterns.
 
-5. **Review before you deliver** (see §9). Then hand off / preview for the user.
+5. **Review before you deliver** (see §10). Then hand off / preview for the user.
 
 Keep a todo list for anything multi-step. Batch your file reads and edits — don't
 read one file, think, read the next; read them all, then act.
@@ -79,7 +81,26 @@ the same day.
 
 ---
 
-## 3. Anti-slop rules (memorize these)
+## 3. UX behavior rules (memorize these)
+
+- **Recognition over recall:** show choices, labels, current state, and visible
+  modes; avoid icon-only controls unless the symbol is universal.
+- **Forgiveness by default:** destructive actions are confirmed; other actions are
+  undoable, reversible, or clearly recoverable.
+- **Fitts and Hick apply:** frequent actions are larger/closer; too many choices
+  should be grouped, collapsed, staged, or given a sensible default.
+- **Feedback within 100ms:** input must visibly respond through press, selected,
+  loading, skeleton, optimistic, or inline feedback.
+- **Match control to choice:** toggle = instant on/off; radio/segmented = one of a
+  few; checkbox = multi-select; select/menu = many.
+- **Progressive disclosure and orientation:** show the essential path first, reveal
+  rare options on demand, mark current location, and provide a clear back path.
+- **Prevent errors before catching them:** constrain impossible input, disable
+  impossible actions with a reason, and keep user-entered data on error.
+
+---
+
+## 4. Anti-slop rules (memorize these)
 
 These are the tells of thoughtless AI-generated UI. Avoid them unless a real brand
 explicitly calls for them:
@@ -93,7 +114,7 @@ explicitly calls for them:
   fake percentages, charts with invented data.
 - ❌ Filler content: placeholder sections that exist to fill space. An empty-feeling
   section is a layout problem, not a reason to add words.
-- ❌ Hand-drawn complex SVG illustrations. Use tasteful placeholders instead (see §7).
+- ❌ Hand-drawn complex SVG illustrations. Use tasteful placeholders instead (see §8).
 - ❌ Purple-to-blue "tech startup" gradient + glassmorphism as a reflex.
 - ❌ Centering everything. Deliberate left-alignment and a real grid read as more
   designed than timid centering.
@@ -102,7 +123,7 @@ explicitly calls for them:
 
 ---
 
-## 4. Typography — the highest-leverage lever
+## 5. Typography — the highest-leverage lever
 
 - **1–3 fonts total.** Typically one display/heading and one text face; a mono
   optionally for labels/code.
@@ -120,7 +141,7 @@ explicitly calls for them:
 
 ---
 
-## 5. Color — restraint wins
+## 6. Color — restraint wins
 
 - Start from the **brand or design-system palette** if you have one.
 - If not: pick a background *tone* (warm / cool / neutral). Use subtly-tinted
@@ -134,16 +155,20 @@ explicitly calls for them:
 - Never introduce a new color when an existing role already covers the need.
 - Always define default `a` and `a:hover` colors from the palette, even before there
   are links — undefined links render browser-default blue and look broken.
+- Give default / hover / active / focus / disabled / selected states distinct,
+  consistent treatments. Do not convey state by color alone.
 
 ---
 
-## 6. Layout & spacing — where "designed" is won or lost
+## 7. Layout & spacing — where "designed" is won or lost
 
 - **Use a spacing scale** (e.g. 4 / 8 / 12 / 16 / 24 / 32 / 48 / 64) and use only
   values on it. Random one-off margins are the fastest way to look amateur.
 - **Prefer flex/grid with `gap`** over inline flow or per-element margins for any
   group of siblings (buttons, chips, nav, cards, toolbars). It's more robust and
   reads as more intentional.
+- **Group with proximity before lines.** Related things sit close; unrelated things
+  get whitespace. Dividers are a fallback, not a reflex.
 - Establish a **grid** and align to it. Consistent alignment > decoration.
 - Give content **room to breathe** — whitespace is a feature, not wasted space.
 - Establish a clear **visual hierarchy**: one primary focus per screen, secondary
@@ -156,7 +181,7 @@ explicitly calls for them:
 
 ---
 
-## 7. Imagery, icons, and placeholders
+## 8. Imagery, icons, and placeholders
 
 - **Never hand-draw complex SVG illustrations.** For images you don't have, use a
   clean placeholder: a subtly-striped or flat-toned box with a short monospace label
@@ -168,7 +193,7 @@ explicitly calls for them:
 
 ---
 
-## 8. Content & copy
+## 9. Content & copy
 
 - **Every element earns its place.** No lorem ipsum in a final deliverable; write
   real, specific, tight copy — or ask the user for it.
@@ -176,12 +201,17 @@ explicitly calls for them:
 - **Ask before adding material** (extra sections, pages, features). The user knows
   their audience; don't scope-creep unprompted. Finish what they asked, then suggest.
 - Match the brand's voice: tone, capitalization, punctuation, density.
+- Write like a person, often in the second person: "Pick up where you left off,"
+  not "Resume last session."
+- Buttons name the action and object: "Save changes," "Add member," "Delete unit."
+  Avoid "Submit," "OK," "Yes," and "Click here."
+- Errors say what happened and how to fix it. No blame, no jargon, no dead ends.
 - Microcopy matters: button labels, empty states, error messages, and helper text
   are part of the design, not afterthoughts.
 
 ---
 
-## 9. Self-review before you ship (the critic pass)
+## 10. Self-review before you ship (the critic pass)
 
 Before declaring anything done, look at your own work as a harsh critic and check:
 
@@ -190,9 +220,11 @@ Before declaring anything done, look at your own work as a harsh critic and chec
 - [ ] Is everything aligned to the grid? Any 1px drift?
 - [ ] Is the type scale consistent? Any orphan font sizes/weights?
 - [ ] More than 2 accent colors? More than 3 fonts? Kill the extras.
-- [ ] Any anti-slop tells from §3 present?
+- [ ] Any anti-slop tells from §4 present?
 - [ ] Any element I couldn't justify? Delete it.
 - [ ] Does it actually do its one job at a glance?
+- [ ] Ideal, empty, loading, error, and edge states are designed for data-bearing views?
+- [ ] Feedback appears within 100ms? Controls match the choice? Dangerous actions safe?
 - [ ] Console clean? Responsive at the target sizes? Touch targets ≥ 44px?
 - [ ] Real content, no placeholder text left in a final?
 
@@ -201,7 +233,7 @@ imagination. Fix, then look again.
 
 ---
 
-## 10. Scoping edits — don't redecorate uninvited
+## 11. Scoping edits — don't redecorate uninvited
 
 - For a **small, targeted request** (change some text, one color, one element),
   change *only that*. Don't "improve" spacing, fonts, layout, or colors you weren't
@@ -216,7 +248,7 @@ imagination. Fix, then look again.
 
 ---
 
-## 11. Medium-specific notes
+## 12. Medium-specific notes
 
 - **Slide decks:** design for projection. Huge type, one idea per slide, strong
   section dividers, max 1–2 background colors across the deck, deliberate layout per
@@ -227,13 +259,13 @@ imagination. Fix, then look again.
   up front; ask the user for dimensions if unclear.
 - **Interactive prototypes:** make the core interaction actually work; fake the rest
   convincingly. Persist meaningful state (e.g. playback position, form progress) so a
-  reload doesn't feel broken. Design empty / loading / error states, not just the
-  happy path.
+  reload doesn't feel broken. Design ideal / empty / loading / error / edge states,
+  not just the happy path.
 - **Mobile:** real device constraints — 44px targets, thumb reach, safe areas.
 
 ---
 
-## 12. Working economically & cleanly
+## 13. Working economically & cleanly
 
 - Write compact, canonical HTML/CSS: close every non-void element, double-quote
   attributes, no banner comments, no narrating markup.
@@ -247,7 +279,8 @@ imagination. Fix, then look again.
 
 **System first** (type, color, spacing, grid) → **subtract ruthlessly** → **align
 everything** → **restrain color** → **no slop tells** → **real content** →
-**self-review as a critic** → **render and look** → **ship, then suggest more.**
+**five states + flow feedback** → **self-review as a critic** → **render and look**
+→ **ship, then suggest more.**
 
 ---
 
@@ -359,8 +392,12 @@ well-set grotesk across the board beats a bad pairing.
   and **active** state.
 - Transitions: `transition: 150ms ease` on color/background/transform. Nothing
   slower than ~250ms for UI feedback. No bounce/spring on utilitarian controls.
-- Design the **four states of every data view**: empty, loading, error, populated.
-  The happy path alone is a half-finished design.
+- Feedback within 100ms. Silence reads as broken.
+- Design the **five states of every data-bearing view**: ideal, empty, loading,
+  error, and partial/edge. The happy path alone is a half-finished design.
+- Empty states teach what belongs there and how to start. Errors explain what
+  happened and the way out. Loading states preserve layout with skeletons when the
+  content shape is known.
 - Disabled ≠ invisible: reduce opacity to ~0.5 and set `cursor:not-allowed`, keep it
   readable.
 
@@ -395,7 +432,7 @@ If a render looks amateur but you can't name why, run this triage in order:
   fit, the audience/tone is unknowable, or the request is large and open-ended.
 - **Never** invent brand facts, real data, legal/medical copy, or scope beyond the
   ask. Placeholder + label instead, and flag it.
-- Always end by **rendering, running the §9 critic pass, then the §H triage** before
+- Always end by **rendering, running the §10 critic pass, then the §H triage** before
   claiming done. Ship, then suggest improvements — don't apply them uninvited.
 
 ---
@@ -446,12 +483,14 @@ assume the tokens in §A.
 ## K. Motion & animation
 
 - **Purpose only:** motion should explain a change (enter/exit, expand, reorder), not decorate.
-- Durations: micro-feedback 100–150ms; enter/exit 200–300ms; large/page transitions ≤ 400ms.
+- Durations: micro-feedback 100–150ms; UI transitions 120–240ms; enter/exit
+  200–300ms; large/page transitions ≤ 400ms.
 - Easing: `ease-out` for entrances (fast→settle), `ease-in` for exits, `ease-in-out` for moves. Avoid `linear` except spinners/marquees.
 - Animate cheap properties: `transform` and `opacity`. Avoid animating `width/height/top/left` (layout thrash) — use `transform:scale/translate`.
 - Stagger lists by ~30–50ms for a polished cascade; don't overdo it.
 - Springs/bounce only for playful brands; never on utilitarian controls.
 - Always honor `@media (prefers-reduced-motion: reduce)` → drop to instant/opacity-only.
+- Never block user action on animation.
 
 ## L. Responsive & breakpoints
 
@@ -478,6 +517,7 @@ assume the tokens in §A.
 - Errors: specific and next to the field ("Enter a valid email", not "Invalid input"). Summarize at top for long forms. Keep entered data on error.
 - Primary submit is unmistakable; disable + show progress during submit; confirm success clearly.
 - Sensible `type`/`inputmode`/`autocomplete` on every field.
+- Do not clear a form on error.
 
 ## O. Microcopy patterns
 
@@ -516,7 +556,7 @@ assume the tokens in §A.
 - **Chartjunk** — non-data ink that clutters a visualization.
 - **Skeleton** — grey placeholder shapes shown while content loads.
 - **Focus ring** — the visible outline on keyboard-focused elements (never remove — restyle).
-- **Slop** — thoughtless generated-UI tells (see §3); the thing this skill exists to prevent.
+- **Slop** — thoughtless generated-UI tells (see §4); the thing this skill exists to prevent.
 
 ## R. Reference cheat sheet (memorize)
 
@@ -527,6 +567,6 @@ TYPE 12·14·16·20·25·31·39·49  (×1.25)
 MEASURE 60–75ch   ·   TOUCH ≥44px   ·   BODY CONTRAST ≥4.5:1
 RADIUS one value   ·   SHADOW one philosophy
 MOTION 150ms feedback / 250ms transition, ease-out in
-STATES empty·loading·error·data for every data view
+STATES ideal·empty·loading·error·edge for every data view
 SLIDES ≥24px   ·   PRINT ≥12pt
 ```

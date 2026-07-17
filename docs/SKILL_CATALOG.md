@@ -261,15 +261,17 @@ that intentionally remain project-specific or specialized.
 
 - Skill file: [../skills/ui-ux-expert/SKILL.md](../skills/ui-ux-expert/SKILL.md)
 - Description: Designs, audits, and implements user-facing UI/UX with portable
-  fallback tokens, component/layout references, anti-slop examples, and QA rules.
+  fallback tokens, UX behavior/state coverage, component/layout references,
+  anti-slop examples, and QA rules.
 - Use when: Working on visual design, interaction design, accessibility,
   responsive UI, design systems, frontend polish, component galleries, layout
-  exemplars, decks, documents, prototypes, brand overrides, or screenshot-based
-  design QA.
+  exemplars, UX flow/state coverage, decks, documents, prototypes, brand
+  overrides, or screenshot-based design QA.
 - Typical context: User goal, audience, artifact type, existing brand or design
   system, screenshots or source files, tokens, component references, layout
-  patterns, anti-slop checks, responsive targets, accessibility expectations,
-  rendered preview/screenshot evidence, and QA checklist.
+  patterns, UX behavior and state requirements, anti-slop checks, responsive
+  targets, accessibility expectations, rendered preview/screenshot evidence, and
+  QA checklist.
 
 ### ui-ux-orchestrator
 
