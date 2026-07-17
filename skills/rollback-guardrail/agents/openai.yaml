@@ -1,0 +1,4 @@
+interface:
+  display_name: "Rollback Guardrail"
+  short_description: "Checkpoint risky rollback before it happens"
+  default_prompt: "Use $rollback-guardrail before rollback/revert/remove work that may discard in-progress implementation."

@@ -1,6 +1,6 @@
 ---
 name: prod-smoke-harness
-description: Set up, document, run, or audit safe production/preview smoke harnesses for web apps across projects, especially after deploys, release-gate checks, authenticated smoke needs, test-account policy questions, Playwright/browser smoke automation, production screenshot evidence, or requests like "use harness", "set up harness", "prod smoke", or "can we smoke test production".
+description: Set up, document, run, or audit safe production/preview smoke harnesses for web apps across projects. Use when the user asks for "use harness", "set up harness", "prod smoke", "can we smoke test production", authenticated smoke checks, test-account policy, Playwright/browser smoke automation, production screenshot evidence, or verification after deploys and release-gate checks.
 ---
 
 # Prod Smoke Harness

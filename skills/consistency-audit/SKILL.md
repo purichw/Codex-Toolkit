@@ -1,6 +1,6 @@
 ---
 name: consistency-audit
-description: Audit website or app consistency across UI, UX, frontend implementation, and shared components while preserving existing behavior and product surface area. Use when checking whether layouts, components, typography, spacing, colors, icons, copy tone, interaction patterns, responsive behavior, states, forms, data-dense screens, intentional/coexisting variants, deliberate component sizing/customization, or supposedly shared primitives are consistent with project requirements, design principles, inferred product patterns, pattern weight, and historical stability; also use to prevent consistency fixes from inventing new UI/features/content, bias uncertain differences toward provisional product decisions, exercise conservative best judgment when context is insufficient, and find duplicate components/CSS that should be consolidated without breaking layout, size, or behavior.
+description: Audit website or app consistency across UI, UX, frontend implementation, and shared components while preserving existing behavior and product surface area. Use when the user says the product feels inconsistent, asks for polish across screens, wants to check whether layouts/components/typography/spacing/colors/icons/copy/interactions/states/forms/data-heavy screens match established patterns, or needs duplicate components/CSS consolidated. Prefer conservative fixes that respect intentional variants, historical stability, product contracts, and existing layout/behavior.
 ---
 
 # Consistency Audit

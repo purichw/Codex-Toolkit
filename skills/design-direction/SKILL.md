@@ -1,6 +1,6 @@
 ---
 name: design-direction
-description: Define, critique, or preserve product visual direction across projects. Use for design briefs, redesign strategy, visual north stars, brand/product UX principles, public site vs admin UX direction, typography/color/imagery guardrails, Claude Design prompts, and implementation handoff guidance.
+description: Define, critique, or preserve product visual direction across projects. Use when the user asks what a product should feel like, wants a redesign strategy, visual north star, brand/product UX principles, public-site vs admin direction, typography/color/imagery guardrails, Claude Design prompts, design critique, or implementation handoff guidance before building UI.
 ---
 
 # Design Direction

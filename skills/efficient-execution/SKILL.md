@@ -1,6 +1,6 @@
 ---
 name: efficient-execution
-description: Choose, explain, and execute the fastest quality-preserving workflow across coding, docs, QA, assets, project discovery, commit, push, deploy, and handoff work. Use when work feels slow, when deciding fast path versus deep audit, batching or parallelizing checks, reusing prior evidence, defining stop rules, enforcing usage-budget gates, or optimizing release workflows without increasing risk.
+description: Choose, explain, and execute the fastest quality-preserving workflow across coding, docs, QA, assets, project discovery, commit, push, deploy, and handoff work. Use when the user asks to go faster, reduce wasted steps, avoid over-auditing, choose fast path versus deep audit, batch or parallelize checks, reuse prior evidence, define stop rules, enforce usage-budget gates, or optimize release workflows without increasing risk.
 ---
 
 # Efficient Execution

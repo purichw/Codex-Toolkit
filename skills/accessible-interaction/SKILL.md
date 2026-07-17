@@ -1,6 +1,6 @@
 ---
 name: accessible-interaction
-description: Design, audit, or verify accessible UI interaction behavior. Use for keyboard navigation, focus order, focus traps, focus restore, ARIA names/states, semantic controls, screen-reader-visible state, contrast, reduced motion, touch targets, mobile keyboard behavior, modal/drawer accessibility, skip links, or when visual changes risk breaking non-pointer interaction.
+description: Design, audit, implement, or verify accessible UI interaction behavior. Use when the user asks for accessibility, a11y, keyboard-only navigation, tab order, focus traps/restore, screen reader behavior, ARIA names/states, semantic controls, contrast, reduced motion, touch targets, mobile keyboard behavior, modal/drawer accessibility, skip links, or when visual/UI changes may break non-pointer interaction.
 ---
 
 # Accessible Interaction

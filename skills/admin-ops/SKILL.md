@@ -1,6 +1,6 @@
 ---
 name: admin-ops
-description: Design, audit, implement, or verify admin portal operations across projects. Use for admin auth/roles, dashboards, user or content lifecycle, draft/publish/restore, revisions, audit logs, destructive actions, relationship maps, privileged backend actions, Admin SDK endpoints, or CMS/admin UX.
+description: Design, audit, implement, or verify admin portal, CMS, back-office, or operator workflows across projects. Use when the user asks for admin panels, admin auth/roles, dashboards, user/content lifecycle, draft/publish/restore, revisions, audit logs, destructive actions, relationship maps, privileged backend actions, Admin SDK endpoints, or admin UX that must be safe for real operators.
 ---
 
 # Admin Ops

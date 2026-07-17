@@ -1,6 +1,6 @@
 ---
 name: design-system-guardian
-description: Preserve, audit, or extend a product design system while changing UI. Use for component/token drift, inconsistent buttons/cards/forms/tables, typography or spacing mismatch, duplicated one-off CSS, variant sprawl, icon/radius/shadow inconsistency, cross-page visual regressions, or integrating Claude/Figma/reference visuals without breaking existing reusable primitives.
+description: Preserve, audit, or extend a product design system while changing UI. Use when the user says the UI looks like different systems, asks to make components consistent, or needs to prevent component/token drift, inconsistent buttons/cards/forms/tables, typography/spacing mismatch, duplicated one-off CSS, variant sprawl, icon/radius/shadow inconsistency, cross-page visual regressions, or Claude/Figma/reference integration that could break reusable primitives.
 ---
 
 # Design System Guardian

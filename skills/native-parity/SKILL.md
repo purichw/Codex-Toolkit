@@ -1,6 +1,6 @@
 ---
 name: native-parity
-description: Keep native iOS/Android apps aligned with web or product source-of-truth behavior. Use for Expo/React Native/native builds, web-native data parity, shared backend contracts, native screen parity, mobile design handoffs, device build gates, and avoiding static sample-app drift.
+description: Keep native iOS/Android apps aligned with web or product source-of-truth behavior. Use when the user asks why native differs from web, or for Expo/React Native builds, web-native data parity, shared backend contracts, native screen parity, mobile design handoffs, device build gates, App Store/TestFlight readiness, and avoiding static sample-app drift.
 ---
 
 # Native Parity

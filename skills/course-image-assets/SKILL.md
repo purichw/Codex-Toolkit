@@ -1,6 +1,6 @@
 ---
 name: course-image-assets
-description: Generate, reuse, crop, map, audit, and QA educational course image assets across projects. Use for vocabulary images, lesson card art, visual hints, badges, semantic image mapping, inclusive learning imagery, crop/centering fixes, and generated educational illustrations.
+description: Generate, reuse, crop, map, audit, and QA educational course image assets across projects. Use when the user needs vocabulary or flashcard images, lesson card art, visual hints, badges, semantic image mapping, inclusive learning imagery, crop/centering fixes, placeholder replacement for course content, or generated educational illustrations.
 ---
 
 # Course Image Assets

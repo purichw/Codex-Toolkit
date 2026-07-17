@@ -1,6 +1,6 @@
 ---
 name: shane-thai-image-assets
-description: Generate, reuse, crop, replace, optimize, and QA image assets for the Shane and His Thai learning app. Use when Codex works on vocabulary images, lesson card artwork, Unit image generation, badge images, image asset mapping, crop/centering fixes, or visual asset reuse decisions for this project.
+description: Generate, reuse, crop, replace, optimize, and QA image assets for the Shane and His Thai learning app. Use when the user mentions Shane Thai images or when Codex works on vocabulary images, lesson card artwork, Unit image generation, badge images, image asset mapping, crop/centering fixes, placeholder replacement, or visual asset reuse decisions for this project.
 ---
 
 # Shane Thai Image Assets

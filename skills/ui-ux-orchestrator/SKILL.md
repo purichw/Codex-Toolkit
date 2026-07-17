@@ -1,6 +1,6 @@
 ---
 name: ui-ux-orchestrator
-description: Central router for UI/UX work when the user is unsure which design, UX, visual QA, or interaction skill to call. Use for broad UI/UX requests, design audits, implementation planning, Claude/Figma/reference handoffs, visual polish, product UX preservation, state coverage, flows, accessibility, data-heavy UI, forms, mobile/responsive QA, snapshots, or deciding which UI/UX skills should run together.
+description: Central router for UI/UX work when the user is unsure which design, UX, visual QA, or interaction skill to call. Use when the user broadly asks to improve, polish, audit, redesign, QA, or make an interface feel right, including Claude/Figma/reference handoffs, implementation planning, visual consistency, product UX preservation, state coverage, flows, accessibility, data-heavy UI, forms, mobile/responsive QA, snapshots, or deciding which UI/UX skills should run together.
 ---
 
 # UI UX Orchestrator

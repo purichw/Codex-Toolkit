@@ -1,6 +1,6 @@
 ---
 name: shane-thai-audio-generator
-description: Generate, regenerate, audit, and QA Google Chirp audio files for the Shane and His Thai learning app. Use when Codex works on lesson audio, main-course Chirp generation, audio ID wiring, Thai TTS text, voice selection, full-phrase regeneration, stale/missing audio audits, or naturalness fixes for this project.
+description: Generate, regenerate, audit, and QA Google Chirp audio files for the Shane and His Thai learning app. Use when the user mentions Shane Thai audio or when Codex works on lesson audio, main-course Chirp generation, audio ID wiring, Thai TTS text, voice selection, full-phrase regeneration, stale/missing audio audits, pronunciation, pacing, or naturalness fixes for this project.
 ---
 
 # Shane Thai Audio Generator

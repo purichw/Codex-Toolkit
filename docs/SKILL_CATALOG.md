@@ -47,6 +47,19 @@ this file is for choosing the right skill during real work.
   available test/build commands, browser verification for frontend changes, and
   deployment target.
 
+### rollback-guardrail
+
+- Skill file: [../skills/rollback-guardrail/SKILL.md](../skills/rollback-guardrail/SKILL.md)
+- Description: Hard-stops rollback-like operations until the current work is
+  recoverable and the impact is explicit.
+- Use when: The user asks to rollback, revert, reset, remove, undo, discard,
+  back out, delete a feature, strip an integration, change direction mid-work,
+  or commit/push/deploy after rollback-like work.
+- Typical context: `git status`, recent diffs, untracked files, checkpoint path,
+  staged and unstaged patches, restore note or `docs/rollback-parking-lot.md`,
+  live routes affected, parked features, removed verification, and follow-up
+  smoke/test evidence.
+
 ### efficient-execution
 
 - Skill file: [../skills/efficient-execution/SKILL.md](../skills/efficient-execution/SKILL.md)

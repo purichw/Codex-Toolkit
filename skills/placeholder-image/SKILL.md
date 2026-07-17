@@ -1,6 +1,6 @@
 ---
 name: placeholder-image
-description: Source, select, replace, crop, and audit placeholder images for websites, apps, decks, or prototypes. Use when the user asks to populate missing images, replace placeholders, find better hero/card/gallery photos, make images match a mood or content type, fix bad crops/object-position, audit responsive image reuse, remove low-quality stock/watermarked images, or create an image sourcing playbook for travel, hospitality, lifestyle, activity, product, or content-heavy pages.
+description: Source, select, replace, crop, and audit placeholder images for websites, apps, decks, or prototypes. Use when the user asks to populate missing images, replace placeholders, find better hero/card/gallery photos, make images less generic or stock-like, match a mood/content type, fix bad crops/object-position, audit responsive image reuse, remove low-quality stock/watermarked images, or create an image sourcing playbook for travel, hospitality, lifestyle, activity, product, or content-heavy pages.
 ---
 
 # Placeholder Image

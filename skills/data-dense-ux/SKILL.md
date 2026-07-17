@@ -1,6 +1,6 @@
 ---
 name: data-dense-ux
-description: Design, implement, audit, or verify data-dense UI such as admin dashboards, tables, lists, ledgers, CMS grids, search results, filters, pagination, bulk actions, virtualized lists, relationship maps, and operational panels. Use when information density, scanning, sorting, item counts, selection, overflow, responsive compression, or large-data behavior matters.
+description: Design, implement, audit, or verify data-dense UI such as admin dashboards, tables, lists, ledgers, CMS grids, search results, filters, pagination, bulk actions, virtualized lists, relationship maps, and operational panels. Use when the user asks to make dense information easier to scan, compare, sort, filter, select, paginate, compress responsively, or operate at large-data scale without turning it into a marketing-style layout.
 ---
 
 # Data Dense UX

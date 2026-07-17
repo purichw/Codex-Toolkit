@@ -1,6 +1,6 @@
 ---
 name: firebase-security-rules
-description: Use when auditing or changing Firebase Auth, Firestore Rules, Admin SDK endpoints, Firebase billing/Spark/Blaze assumptions, service-account env vars, or production access guarantees.
+description: Audit, implement, or debug Firebase security and access-control boundaries. Use when the user asks about Firestore Rules, Firebase Auth authorization, permission-denied errors, custom claims, Admin SDK endpoints, service-account env vars, Spark vs Blaze billing assumptions, emulator/rules tests, production data access guarantees, or whether a Firebase-backed app is actually secure.
 ---
 
 # Firebase Security Rules

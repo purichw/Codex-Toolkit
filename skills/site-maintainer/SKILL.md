@@ -1,6 +1,6 @@
 ---
 name: site-maintainer
-description: Maintain website projects safely when source files, generated deploy artifacts, tests, docs, and hosting outputs must stay aligned. Use for static or built sites, generated deploy folders, service worker/version churn, CMS/admin site work, build scripts, deploy prep, commit hygiene, and project work logs.
+description: Maintain website projects safely when source files, generated deploy artifacts, tests, docs, and hosting outputs must stay aligned. Use when the user asks to work on a website repo, static site, built site, generated deploy folder, service worker/version churn, CMS/admin site work, build scripts, deploy prep, commit hygiene, project work logs, or keeping source and production artifacts in sync.
 ---
 
 # Site Maintainer

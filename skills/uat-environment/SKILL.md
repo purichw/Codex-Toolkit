@@ -1,6 +1,6 @@
 ---
 name: uat-environment
-description: Design, implement, audit, or use lightweight UAT/preview environments before production. Use for production-like preview URLs, seeded test data, auth bypass policy, test accounts, environment isolation, feature flags, admin/data/API validation, promotion gates, rollback checks, or deciding what must be verified in UAT versus local or production.
+description: Design, implement, audit, or use lightweight UAT/staging/preview environments before production. Use when the user asks to test before production, create a safe preview, seed test data, define auth bypass/test-account policy, isolate environments, use feature flags, validate admin/data/API behavior, set promotion gates, plan rollback checks, or decide what belongs in UAT versus local or production.
 ---
 
 # UAT Environment

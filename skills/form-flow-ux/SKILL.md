@@ -1,6 +1,6 @@
 ---
 name: form-flow-ux
-description: Design, audit, implement, or verify complete form journeys. Use for create/edit forms, validation, dirty state, autosave, drafts, save/cancel/reset, submit loading, duplicate-submit prevention, server errors, permission denied, optimistic UI, mobile keyboard behavior, file/image upload, crop state, multistep forms, admin/CMS forms, and preserving form UX while restyling.
+description: Design, audit, implement, or verify complete form journeys. Use when the user asks why a form feels broken or unsafe, or for create/edit forms, validation, dirty/unsaved state, autosave, drafts, save/cancel/reset, submit loading, duplicate-submit prevention, server errors, permission denied, optimistic UI, mobile keyboard behavior, file/image upload, crop state, multistep forms, admin/CMS forms, and preserving form UX while restyling.
 ---
 
 # Form Flow UX

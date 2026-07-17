@@ -1,6 +1,6 @@
 ---
 name: production-asset-smoke
-description: Verify deployed website media and asset rendering after image, video, CMS, fallback, or deploy changes. Use when Codex must prove production or preview pages have no broken images, stale external media domains, lazy-load false positives, ORB/CORS-blocked assets, missing bundled files, bad image fallbacks, failed poster/video sources, or asset request failures, especially after using placeholder-image, release-gate, prod-smoke-harness, or snapshot.
+description: Verify deployed website media and asset rendering after image, video, CMS, fallback, or deploy changes. Use when the user says images/videos are missing or asks to prove production/preview assets load; check for broken images, stale external media domains, lazy-load false positives, ORB/CORS-blocked assets, missing bundled files, bad fallbacks, failed poster/video sources, and asset request failures, especially after placeholder-image, release-gate, prod-smoke-harness, or snapshot work.
 ---
 
 # Production Asset Smoke

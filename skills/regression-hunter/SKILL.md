@@ -1,6 +1,6 @@
 ---
 name: regression-hunter
-description: Search a repository for repeated bug patterns, stale hardcoded values, fragile selectors, duplicated logic, and nearby regressions after one issue is found. Use when the user asks to audit for similar problems, check other places, find weird hardcoded placeholders, make sure the same bug is not elsewhere, or investigate brittle behavior across a codebase.
+description: Search a repository for repeated bug patterns, stale hardcoded values, fragile selectors, duplicated logic, and nearby regressions after one issue is found. Use when the user asks whether the same bug exists elsewhere, to audit similar problems, check other places, find hardcoded placeholders, hunt brittle selectors, scan duplicated logic, or investigate nearby regressions across a codebase.
 ---
 
 # Regression Hunter

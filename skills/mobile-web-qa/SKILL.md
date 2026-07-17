@@ -1,6 +1,6 @@
 ---
 name: mobile-web-qa
-description: Audit and verify responsive web UI across iPhone, Android, tablet, and desktop. Use when the user mentions mobile web, Safari, Chrome on iPhone, iPhone SE/Pro/Pro Max, Android secondary support, tablet render, responsive bugs, keyboard behavior, safe areas, touch targets, horizontal overflow, or pre-deploy frontend QA.
+description: Audit and verify responsive web UI across iPhone, Android, tablet, and desktop. Use when the user says a page looks broken on phone/tablet, asks for mobile QA, responsive polish, Safari or Chrome on iPhone checks, iPhone SE/Pro/Pro Max coverage, Android secondary support, keyboard behavior, safe areas, touch targets, horizontal overflow, viewport screenshots, or pre-deploy frontend QA.
 ---
 
 # Mobile Web QA

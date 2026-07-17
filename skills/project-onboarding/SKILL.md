@@ -1,6 +1,6 @@
 ---
 name: project-onboarding
-description: Read and map an unfamiliar or returning codebase before making changes. Use when the user asks Codex to study a project, audit project docs, continue work from handoff files, understand architecture, plan an architecture redesign, do an Extra High architecture pass, find commands, identify deploy paths, identify relevant follow-on skills, summarize current state, or prepare a safe implementation plan across any repository.
+description: Read and map an unfamiliar or returning codebase before making changes. Use when the user asks Codex to get oriented, read the repo first, study a project, audit project docs, continue from handoff files, understand architecture, plan an architecture redesign, do an Extra High architecture pass, find commands, identify deploy paths, identify relevant follow-on skills, summarize current state, or prepare a safe implementation plan across any repository.
 ---
 
 # Project Onboarding

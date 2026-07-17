@@ -1,6 +1,6 @@
 ---
 name: tts-audio-assets
-description: Generate, regenerate, reuse, audit, and QA text-to-speech audio assets across projects. Use for lesson audio, prompts, UI playback, dialogues, story lines, voice/pacing policy, stale or missing audio audits, naturalness fixes, and audio ID/data wiring.
+description: Generate, regenerate, reuse, audit, and QA text-to-speech audio assets across projects. Use when the user asks for TTS, voiceover, lesson audio, spoken prompts, UI playback clips, dialogues, story lines, voice/pacing policy, stale or missing audio audits, pronunciation/naturalness fixes, or audio ID/data wiring.
 ---
 
 # TTS Audio Assets

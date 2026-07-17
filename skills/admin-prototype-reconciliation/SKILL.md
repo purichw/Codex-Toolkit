@@ -1,6 +1,6 @@
 ---
 name: admin-prototype-reconciliation
-description: Reconcile a new admin/CMS/dashboard prototype, Claude/Figma/offline HTML, or design-side data model against a live production admin system before implementation. Use when Codex must compare prototype fields, components, workflows, draft/publish states, revisions, auth/roles, navigation/settings, or store APIs with existing live code and data, classify already-live vs net-new vs conflicting pieces, preserve production contracts, and produce a confirmed diff before merging.
+description: Reconcile a new admin/CMS/dashboard prototype, Claude/Figma/offline HTML, or design-side data model against a live production admin system before implementation. Use when the user asks whether a prototype is already live, what is new or conflicting, or how to merge it safely; compare fields, components, workflows, draft/publish states, revisions, auth/roles, navigation/settings, and store APIs with existing code/data, then preserve production contracts and produce a confirmed diff.
 ---
 
 # Admin Prototype Reconciliation

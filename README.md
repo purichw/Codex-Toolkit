@@ -62,6 +62,7 @@ Some skills also include reference notes, helper scripts, or agent metadata.
 | [`project-onboarding`](skills/project-onboarding/SKILL.md) | Builds a compact, reliable map of an unfamiliar or returning codebase before edits. | Starting work in a repo, reading handoffs, finding commands, understanding architecture, or preparing a safe implementation plan. |
 | [`regression-hunter`](skills/regression-hunter/SKILL.md) | Searches for related bug patterns after one issue reveals a possible class of regressions. | Auditing for similar hardcoded values, duplicated logic, fragile selectors, stale fixtures, or nearby behavior breaks. |
 | [`release-gate`](skills/release-gate/SKILL.md) | Collects proportional verification evidence before commit, push, deploy, release, or handoff. | Shipping changes, opening PRs, deploying, merging, or checking whether a feature is ready to publish. |
+| [`rollback-guardrail`](skills/rollback-guardrail/SKILL.md) | Creates a hard-stop checkpoint before rollback, revert, remove, undo, discard, or mid-work direction changes. | Rollback-like work could discard uncommitted implementation, orphan prototype UI, remove verification, or ship with parked work. |
 | [`shane-thai-audio-generator`](skills/shane-thai-audio-generator/SKILL.md) | Generates, regenerates, audits, and QA-checks Google Chirp audio for Shane and His Thai. | Working on lesson audio, Thai TTS text, audio IDs, voice selection, missing/stale audio, or naturalness fixes. |
 | [`shane-thai-export-chatgpt`](skills/shane-thai-export-chatgpt/SKILL.md) | Exports Shane and His Thai learner lesson content into ChatGPT-ready patch packets. | The user needs lesson patch packets, all-lesson ChatGPT exports, or future learner tab/module proposal packets. |
 | [`shane-thai-image-assets`](skills/shane-thai-image-assets/SKILL.md) | Manages vocabulary image generation, reuse, cropping, optimization, and QA for the Shane and His Thai app. | Adding or replacing lesson artwork, mapping assets, fixing crops, generating Unit images, or deciding whether existing art is semantically correct. |
@@ -91,5 +92,5 @@ diff, then commit.
 Verify the archive with:
 
 ```sh
-python3 scripts/verify_skills.py --expected-count 50
+python3 scripts/verify_skills.py --expected-count 51
 ```

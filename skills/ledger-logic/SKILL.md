@@ -1,6 +1,6 @@
 ---
 name: ledger-logic
-description: Implement, audit, or debug collaborative ledger behavior across projects. Use for expenses, splits, payer/participant logic, settlement math, reciprocal netting, guests vs real accounts, invites, shared financial state, import/export, persistence contracts, and ledger regression tests.
+description: Implement, audit, or debug collaborative ledger behavior across projects. Use when the user asks about splitting bills, who paid, who owes whom, expenses, shares, payer/participant logic, settlement math, reciprocal netting, guests vs real accounts, invites, shared financial state, import/export, persistence contracts, or ledger regression tests.
 ---
 
 # Ledger Logic

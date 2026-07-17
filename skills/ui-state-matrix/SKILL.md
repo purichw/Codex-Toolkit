@@ -1,6 +1,6 @@
 ---
 name: ui-state-matrix
-description: Define, implement, audit, or verify complete UI state coverage beyond the happy path. Use for default, hover, focus, selected, disabled, loading, skeleton, empty, error, success, validation, permission denied, long text, localization, mobile keyboard, offline/stale, partial failure, and responsive component states before claiming UI work is complete.
+description: Define, implement, audit, or verify complete UI state coverage beyond the happy path. Use when the user asks for edge states, state matrix, empty/loading/error coverage, or to make UI feel complete; cover default, hover, focus, selected, disabled, loading, skeleton, empty, error, success, validation, permission denied, long text, localization, mobile keyboard, offline/stale, partial failure, and responsive states before claiming UI work is done.
 ---
 
 # UI State Matrix

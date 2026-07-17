@@ -1,6 +1,6 @@
 ---
 name: interaction-flow-qa
-description: Verify UI/UX journeys by exercising real user flows, not just static screens. Use for search-to-result-to-detail, filter/reload/back, onboarding, navigation, modal/drawer flows, admin create/edit/publish, checkout/signup, media playback, progress/completion, destructive actions, or any UI path that must prove routing, state, data, permissions, and feedback end to end.
+description: Verify UI/UX journeys by exercising real user flows, not just static screens. Use when the user asks to click through a flow, prove it works end to end, or test search-to-result-to-detail, filter/reload/back, onboarding, navigation, modal/drawer flows, admin create/edit/publish, checkout/signup, media playback, progress/completion, destructive actions, routing, state, data, permissions, and feedback.
 ---
 
 # Interaction Flow QA

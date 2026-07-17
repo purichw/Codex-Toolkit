@@ -1,6 +1,6 @@
 ---
 name: release-gate
-description: Fast, risk-tiered verification before commit, push, deploy, release, merge, PR, or handoff. Use when the user asks to commit, push, deploy, ship, release, merge, open a PR, check readiness, or make sure a feature is safe; also use after substantial code, UI, data, auth, configuration, or deployment changes before publishing.
+description: Fast, risk-tiered verification before commit, push, deploy, release, merge, PR, or handoff. Use when the user asks for a final check, readiness check, commit, push, deploy, ship, release, merge, PR, handoff, or "is this safe"; also use after substantial code, UI, data, auth, configuration, or deployment changes before publishing.
 ---
 
 # Release Gate
@@ -32,6 +32,24 @@ unclear or the user asks to control usage.
    independent checks in parallel when possible.
 5. Summarize evidence, failures, and skipped checks. Never skip a relevant
    check silently.
+
+## Hard Stops
+
+- **Rollback-like work**: if the diff follows rollback, revert, reset, remove,
+  undo, discard, back-out, or mid-work direction changes, use
+  `$rollback-guardrail` before releasing. Do not commit, push, deploy, or hand
+  off until the checkpoint path, restore note, impact, and follow-up
+  verification are known.
+- **Unresolved parking lot**: stop when `docs/rollback-parking-lot.md` or an
+  equivalent restore note contains unresolved items that affect the release
+  surface, unless the user explicitly accepts shipping with those items parked.
+- **Prototype/component not wired**: stop when a new Claude/Figma/prototype UI
+  component, handoff, or standalone export exists in the diff but the live app
+  route has no screenshot, snapshot, smoke test, or interaction evidence proving
+  that it renders and behaves in the real product.
+- **Removed verification**: stop when rollback-like work deletes or bypasses
+  tests, smoke coverage, route checks, or snapshots for behavior that is still
+  expected product scope.
 
 ## Risk Tiers
 
@@ -147,7 +165,9 @@ Proceed only when the diff matches the requested scope, evidence covers the
 highest-risk touched surface, failures are unrelated or disclosed, key
 interactions still work, visual changes have browser evidence when relevant,
 the deploy target is known and reachable, and risky changes have an obvious
-rollback or recovery path.
+rollback or recovery path. If rollback-like work happened during the task, the
+decision must include the rollback checkpoint path, restore note status, and
+whether any parked work is intentionally shipping.
 
 Use this compact decision format:
 

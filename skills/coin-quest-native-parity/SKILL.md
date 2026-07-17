@@ -1,6 +1,6 @@
 ---
 name: coin-quest-native-parity
-description: Use when working on Coin Quest Ledger native Expo app, iOS/Android build gates, native/web data parity, playerModules, or native Claude Design parity.
+description: Keep the Coin Quest Ledger native Expo app aligned with web behavior and design. Use when working on Coin Quest iOS/Android builds, Expo/native build gates, native-web data parity, playerModules, native screen parity, native Claude Design parity, or regressions where the app differs from the web source of truth.
 ---
 
 # Coin Quest Native Parity

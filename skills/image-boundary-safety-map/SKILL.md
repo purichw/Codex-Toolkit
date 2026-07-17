@@ -1,6 +1,6 @@
 ---
 name: image-boundary-safety-map
-description: Map risk and choose safe routes for boundary-forward adult non-explicit image prompting. Use before generating when the user asks for stronger sensuality, nudity-adjacent styling, intimate poses, fewer garments, transparent water, bedroom/bathhouse scenes, or anything near safety limits; helps preserve intent without explicit content or safety evasion.
+description: Map risk and choose safe routes for boundary-forward adult non-explicit image prompting. Use when the user asks for stronger sensuality, nudity-adjacent styling, intimate poses, fewer garments, transparent water, bedroom/bathhouse scenes, anything near safety limits, or a risk check before generating; preserve intent without explicit content or safety evasion.
 ---
 
 # Image Boundary Safety Map

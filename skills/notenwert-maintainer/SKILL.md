@@ -1,6 +1,6 @@
 ---
 name: notenwert-maintainer
-description: Use when working on the Notenwert project at /Users/point/Library/Mobile Documents/com~apple~CloudDocs/Website Projects/notenwert, including bug fixes, CMS/admin work, homepage hero changes, content model changes, tests, docs, deploy prep, or GitHub commits.
+description: Maintain the Notenwert project at /Users/point/Library/Mobile Documents/com~apple~CloudDocs/Website Projects/notenwert. Use when the user mentions Notenwert or asks for bug fixes, CMS/admin work, homepage hero changes, content model changes, tests, docs, deploy prep, GitHub commits, or project-specific implementation guidance.
 ---
 
 # Notenwert Maintainer

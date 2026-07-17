@@ -1,6 +1,6 @@
 ---
 name: notenwert-design-direction
-description: Use when designing, redesigning, critiquing, or briefing Notenwert visual direction, Claude Design prompts, homepage hero motion, NGA-style sticky/scrub interactions, public site UX, admin CMS UX, typography, color, imagery, or responsive behavior.
+description: Define, critique, or preserve Notenwert visual direction. Use when designing, redesigning, or briefing Notenwert public site/admin CMS UX, Claude Design prompts, homepage hero motion, NGA-style sticky/scrub interactions, typography, color, imagery, responsive behavior, or when the user asks how Notenwert should feel visually before implementation.
 ---
 
 # Notenwert Design Direction

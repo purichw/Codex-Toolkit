@@ -1,6 +1,6 @@
 ---
 name: image-boundary-rejection-recovery
-description: Recover after image generation safety blocks, moderation rejections, user REJECT verdicts, or repeated failed boundary-forward adult non-explicit image edits. Use to diagnose blocked prompt families, backtrack to accepted bases, change HOW safely, preserve non-explicit intent, and avoid repeated unsafe retries or quality collapse.
+description: Recover after image generation safety blocks, moderation rejections, user REJECT verdicts, or repeated failed boundary-forward adult non-explicit image edits. Use when the user says an image prompt was blocked, rejected, keeps failing, or quality collapsed; diagnose blocked prompt families, backtrack to accepted bases, change HOW safely, preserve non-explicit intent, and avoid repeated unsafe retries.
 ---
 
 # Image Boundary Rejection Recovery

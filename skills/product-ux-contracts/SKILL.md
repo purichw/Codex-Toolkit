@@ -1,6 +1,6 @@
 ---
 name: product-ux-contracts
-description: Preserve, audit, or intentionally change real product UX contracts while redesigning, restyling, implementing Claude/Figma/reference UI, or refactoring frontend surfaces. Use for routing, deep links, persistence, internal scroll, progressive disclosure, keyboard/focus behavior, permissions, destructive safety, loading/empty/error states, media fallbacks, search result click-through, or any proven user journey that a new design might flatten or remove.
+description: Preserve, audit, or intentionally change real product UX contracts while redesigning, restyling, implementing Claude/Figma/reference UI, or refactoring frontend surfaces. Use when the user says not to break existing behavior, a redesign lost functionality, or a UI change may affect routing, deep links, persistence, internal scroll, progressive disclosure, keyboard/focus behavior, permissions, destructive safety, loading/empty/error states, media fallbacks, search result click-through, or proven journeys.
 ---
 
 # Product UX Contracts

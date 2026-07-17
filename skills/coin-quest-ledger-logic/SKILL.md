@@ -1,6 +1,6 @@
 ---
 name: coin-quest-ledger-logic
-description: "Use when working on Coin Quest Ledger Party Ledger behavior: Split/Quest Log math, payer/participant logic, Add by Character ID, Add Guest, Reminders invites, direct invite links, guests, Character IDs, or settlement regressions."
+description: Implement, audit, or debug Coin Quest Ledger Party Ledger behavior. Use when working on Coin Quest Split or Quest Log math, payer/participant logic, who owes whom, Add by Character ID, Add Guest, guests, Reminders invites, direct invite links, Character IDs, Firebase persistence, or settlement regressions.
 ---
 
 # Coin Quest Ledger Logic

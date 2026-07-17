@@ -1,6 +1,6 @@
 ---
 name: coin-quest-admin-ops
-description: "Use when working on Coin Quest Ledger Admin Portal operations: Super Admin auth, boards, users, lifecycle, reset, delete, publish/restore, revisions, relationship map, or admin Firebase-backed behavior."
+description: Maintain Coin Quest Ledger Admin Portal operations. Use when working on Coin Quest admin auth, Super Admin behavior, boards, users, lifecycle actions, reset/delete flows, draft/publish/restore, revisions, relationship maps, admin Firebase-backed behavior, or admin-side regressions in the Coin Quest project.
 ---
 
 # Coin Quest Admin Ops

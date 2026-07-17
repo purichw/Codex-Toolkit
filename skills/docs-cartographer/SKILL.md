@@ -1,6 +1,6 @@
 ---
 name: docs-cartographer
-description: Create or update project documentation that maps site structure, modules, data flow, interactions, ownership boundaries, commands, and where to find things. Use when the user asks for site maps, architecture maps, target-state architecture plans, module maps, interaction docs, onboarding docs, memory docs, handoff docs, Extra High architecture documentation, or better project navigation.
+description: Create or update project documentation that maps site structure, modules, data flow, interactions, ownership boundaries, commands, and where to find things. Use when the user asks to document how a project works, make the repo easier to navigate, create site maps, architecture maps, target-state architecture plans, module maps, interaction docs, onboarding docs, memory docs, handoff docs, Extra High architecture documentation, or "where is X?" project guides.
 ---
 
 # Docs Cartographer
