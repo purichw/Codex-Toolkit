@@ -1,0 +1,4 @@
+interface:
+  display_name: "Global Design System Guardian"
+  short_description: "Global alias for design-system-guardian"
+  default_prompt: "Use $global-design-system-guardian for the global design-system-guardian workflow."

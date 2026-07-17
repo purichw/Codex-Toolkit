@@ -1,0 +1,4 @@
+interface:
+  display_name: "Global Ledger Logic"
+  short_description: "Global alias for ledger-logic"
+  default_prompt: "Use $global-ledger-logic for the global ledger-logic workflow."

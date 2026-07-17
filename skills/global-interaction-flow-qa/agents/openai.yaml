@@ -1,0 +1,4 @@
+interface:
+  display_name: "Global Interaction Flow Qa"
+  short_description: "Global alias for interaction-flow-qa"
+  default_prompt: "Use $global-interaction-flow-qa for the global interaction-flow-qa workflow."

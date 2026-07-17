@@ -1,0 +1,4 @@
+interface:
+  display_name: "Global Account Recovery Key"
+  short_description: "Global alias for account-recovery-key"
+  default_prompt: "Use $global-account-recovery-key for the global account-recovery-key workflow."

@@ -1,0 +1,4 @@
+interface:
+  display_name: "Global Accessible Interaction"
+  short_description: "Global alias for accessible-interaction"
+  default_prompt: "Use $global-accessible-interaction for the global accessible-interaction workflow."

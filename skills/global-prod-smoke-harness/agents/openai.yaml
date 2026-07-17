@@ -1,0 +1,4 @@
+interface:
+  display_name: "Global Prod Smoke Harness"
+  short_description: "Global alias for prod-smoke-harness"
+  default_prompt: "Use $global-prod-smoke-harness for the global prod-smoke-harness workflow."

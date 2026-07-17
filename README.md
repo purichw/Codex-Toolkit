@@ -7,12 +7,19 @@ playbooks.
 Each skill lives under `skills/<skill-name>/` and contains a `SKILL.md` file.
 Some skills also include reference notes, helper scripts, or agent metadata.
 
+Reusable, non-project-specific skills also have explicit `global-*` aliases such
+as [`global-release-gate`](skills/global-release-gate/SKILL.md) and
+[`global-ui-ux-expert`](skills/global-ui-ux-expert/SKILL.md). See
+[Global skills](docs/GLOBAL_SKILLS.md) for the full alias map.
+
 ## Documentation
 
 - [Codex context](docs/CODEX_CONTEXT.md): future-agent orientation, source of
   truth, and safe update workflow.
 - [Skill catalog](docs/SKILL_CATALOG.md): fuller descriptions and usage context
   for each skill.
+- [Global skills](docs/GLOBAL_SKILLS.md): reusable non-project-specific skills
+  and their `global-*` aliases.
 - [Installation and usage](docs/INSTALLATION.md): how to install skills locally
   and use the toolkit from another machine.
 - [Maintenance guide](docs/MAINTENANCE.md): how to refresh, add, review, and
@@ -44,6 +51,8 @@ Some skills also include reference notes, helper scripts, or agent metadata.
 | [`firebase-account-management`](skills/firebase-account-management/SKILL.md) | Separates Firebase billing, Auth, Firestore, Admin SDK, and account-management concerns. | Designing, auditing, or debugging signup/login, user profiles, admin CRUD, custom claims, or Spark vs Blaze assumptions. |
 | [`firebase-security-rules`](skills/firebase-security-rules/SKILL.md) | Audits Firebase Auth, Firestore Rules, Admin SDK endpoints, service accounts, and production access guarantees. | Reviewing or changing Firestore rules, privileged backend behavior, auth gates, secrets, or Firebase security posture. |
 | [`form-flow-ux`](skills/form-flow-ux/SKILL.md) | Covers complete create/edit form journeys including validation, dirty state, autosave, save/cancel, errors, and mobile keyboard. | A form must work as a real workflow, not only as a visually finished screen. |
+| [`global-full-design-spec`](skills/global-full-design-spec/SKILL.md) | Exports comprehensive implementation-ready UI design specs from screenshots, source, CSS, routes, prototypes, or live app state. | A future Codex/Claude/dev handoff needs a full page contract, source-mapped design spec, accessibility matrix, state matrix, and guardrails. |
+| [`global-quick-design-spec`](skills/global-quick-design-spec/SKILL.md) | Exports concise implementation-ready UI design specs quickly from screenshots, source, CSS, routes, prototypes, or live app state. | A user needs a fast lightweight design handoff or screenshot-to-spec export without redesigning or modifying app code. |
 | [`image-boundary`](skills/image-boundary/SKILL.md) | Routes boundary-forward adult non-explicit image work to the right boundary, polish, safety, or recovery skill. | The user invokes image-boundary work, is unsure which boundary skill applies, or needs coordinated PASS/PARTIAL/REJECT iteration. |
 | [`image-boundary-efficient`](skills/image-boundary-efficient/SKILL.md) | Adds a removable speed layer for image-boundary loops without lowering quality, safety, or verdict discipline. | The user wants faster, cheaper, less blocked image-boundary iteration, or wants to toggle efficient mode. |
 | [`image-boundary-iteration`](skills/image-boundary-iteration/SKILL.md) | Guides controlled adult non-explicit image iteration with branch-specific prompt strategy, verdicts, and logging. | Continuing the nudity-reference-prompting workflow, handling Pass/Partial/Reject loops, local edits, or visual baseline tracking. |
@@ -96,5 +105,5 @@ diff, then commit.
 Verify the archive with:
 
 ```sh
-python3 scripts/verify_skills.py --expected-count 55
+python3 scripts/verify_skills.py --expected-count 95
 ```

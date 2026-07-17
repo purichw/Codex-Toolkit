@@ -1,0 +1,4 @@
+interface:
+  display_name: "Global Mobile Web Qa"
+  short_description: "Global alias for mobile-web-qa"
+  default_prompt: "Use $global-mobile-web-qa for the global mobile-web-qa workflow."

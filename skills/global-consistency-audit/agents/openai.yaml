@@ -1,0 +1,4 @@
+interface:
+  display_name: "Global Consistency Audit"
+  short_description: "Global alias for consistency-audit"
+  default_prompt: "Use $global-consistency-audit for the global consistency-audit workflow."

@@ -1,0 +1,4 @@
+interface:
+  display_name: "Global Data Dense Ux"
+  short_description: "Global alias for data-dense-ux"
+  default_prompt: "Use $global-data-dense-ux for the global data-dense-ux workflow."

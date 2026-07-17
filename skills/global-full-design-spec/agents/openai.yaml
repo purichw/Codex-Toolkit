@@ -1,0 +1,4 @@
+interface:
+  display_name: "Global Full Design Spec"
+  short_description: "Export comprehensive design specs"
+  default_prompt: "Use $global-full-design-spec to export a comprehensive implementation-ready design spec from this screenshot and source."

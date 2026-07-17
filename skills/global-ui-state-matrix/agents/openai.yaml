@@ -1,0 +1,4 @@
+interface:
+  display_name: "Global Ui State Matrix"
+  short_description: "Global alias for ui-state-matrix"
+  default_prompt: "Use $global-ui-state-matrix for the global ui-state-matrix workflow."

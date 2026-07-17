@@ -1,0 +1,4 @@
+interface:
+  display_name: "Global Uat Environment"
+  short_description: "Global alias for uat-environment"
+  default_prompt: "Use $global-uat-environment for the global uat-environment workflow."

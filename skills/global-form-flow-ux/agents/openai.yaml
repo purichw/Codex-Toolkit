@@ -1,0 +1,4 @@
+interface:
+  display_name: "Global Form Flow Ux"
+  short_description: "Global alias for form-flow-ux"
+  default_prompt: "Use $global-form-flow-ux for the global form-flow-ux workflow."

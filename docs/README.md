@@ -8,6 +8,8 @@ This directory documents how to use and maintain the Codex Toolkit repository.
   purpose, source-of-truth rules, sync workflow, and safety checks.
 - [Skill catalog](SKILL_CATALOG.md): what each skill does, when to use it, and
   what kind of context it expects.
+- [Global skills](GLOBAL_SKILLS.md): reusable non-project-specific skills and
+  their `global-*` aliases.
 - [Installation and usage](INSTALLATION.md): how to install one skill, install
   all skills, or use symlinks during active development.
 - [Maintenance guide](MAINTENANCE.md): how to sync local skills into this repo,
@@ -20,6 +22,7 @@ This directory documents how to use and maintain the Codex Toolkit repository.
 ├── README.md
 ├── docs/
 │   ├── CODEX_CONTEXT.md
+│   ├── GLOBAL_SKILLS.md
 │   ├── INSTALLATION.md
 │   ├── MAINTENANCE.md
 │   ├── README.md

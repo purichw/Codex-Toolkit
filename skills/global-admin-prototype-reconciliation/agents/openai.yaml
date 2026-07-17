@@ -1,0 +1,4 @@
+interface:
+  display_name: "Global Admin Prototype Reconciliation"
+  short_description: "Global alias for admin-prototype-reconciliation"
+  default_prompt: "Use $global-admin-prototype-reconciliation for the global admin-prototype-reconciliation workflow."

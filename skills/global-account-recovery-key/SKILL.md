@@ -1,0 +1,16 @@
+---
+name: global-account-recovery-key
+description: Global reusable alias for the canonical account-recovery-key skill. Use when the user asks for $global-account-recovery-key, says this should be global or non-project-specific, or wants the reusable version of account recovery key. This alias routes to account-recovery-key/SKILL.md; keep account-recovery-key as the source of truth.
+---
+
+# Global Account Recovery Key
+
+This is a global alias for the canonical `account-recovery-key` skill.
+
+Before acting, read and follow the canonical skill:
+
+```text
+../account-recovery-key/SKILL.md
+```
+
+Use this alias when the user explicitly wants the global, reusable, or non-project-specific variant. Keep `account-recovery-key` as the source of truth; update the canonical skill first, then regenerate this alias if the routing language needs to change.

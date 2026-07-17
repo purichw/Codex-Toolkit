@@ -1,0 +1,4 @@
+interface:
+  display_name: "Global Rollback Guardrail"
+  short_description: "Global alias for rollback-guardrail"
+  default_prompt: "Use $global-rollback-guardrail for the global rollback-guardrail workflow."

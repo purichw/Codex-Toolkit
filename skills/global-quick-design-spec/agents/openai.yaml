@@ -1,0 +1,4 @@
+interface:
+  display_name: "Global Quick Design Spec"
+  short_description: "Export concise design specs fast"
+  default_prompt: "Use $global-quick-design-spec to export a concise implementation-ready design spec from this screenshot and source."

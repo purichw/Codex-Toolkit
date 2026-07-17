@@ -1,0 +1,4 @@
+interface:
+  display_name: "Global Ui Ux Orchestrator"
+  short_description: "Global alias for ui-ux-orchestrator"
+  default_prompt: "Use $global-ui-ux-orchestrator for the global ui-ux-orchestrator workflow."

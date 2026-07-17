@@ -1,0 +1,4 @@
+interface:
+  display_name: "Global Project Onboarding"
+  short_description: "Global alias for project-onboarding"
+  default_prompt: "Use $global-project-onboarding for the global project-onboarding workflow."

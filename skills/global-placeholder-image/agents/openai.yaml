@@ -1,0 +1,4 @@
+interface:
+  display_name: "Global Placeholder Image"
+  short_description: "Global alias for placeholder-image"
+  default_prompt: "Use $global-placeholder-image for the global placeholder-image workflow."

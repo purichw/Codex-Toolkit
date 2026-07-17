@@ -1,0 +1,4 @@
+interface:
+  display_name: "Global Snapshot"
+  short_description: "Global alias for snapshot"
+  default_prompt: "Use $global-snapshot for the global snapshot workflow."

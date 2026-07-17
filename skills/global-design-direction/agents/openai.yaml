@@ -1,0 +1,4 @@
+interface:
+  display_name: "Global Design Direction"
+  short_description: "Global alias for design-direction"
+  default_prompt: "Use $global-design-direction for the global design-direction workflow."

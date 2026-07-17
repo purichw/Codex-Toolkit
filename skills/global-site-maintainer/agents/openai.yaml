@@ -1,0 +1,4 @@
+interface:
+  display_name: "Global Site Maintainer"
+  short_description: "Global alias for site-maintainer"
+  default_prompt: "Use $global-site-maintainer for the global site-maintainer workflow."

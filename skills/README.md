@@ -3,6 +3,10 @@
 This folder contains custom Codex skills. Each subfolder is intended to be usable
 as a standalone skill directory under `~/.codex/skills`.
 
+Reusable, non-project-specific skills also have `global-*` alias folders. The
+aliases route to canonical skills and are listed in
+[../docs/GLOBAL_SKILLS.md](../docs/GLOBAL_SKILLS.md).
+
 ## General Workflow Skills
 
 | Skill | Description | Context |
@@ -29,6 +33,8 @@ as a standalone skill directory under `~/.codex/skills`.
 | [`codex-handoff-for-claude`](codex-handoff-for-claude/SKILL.md) | Packages Codex context into implementation-ready Markdown handoffs for Claude or Claude Design. | Use when handing off a screen, route, component, prototype, screenshot set, design task, or implementation brief with contracts and acceptance checks. |
 | [`design-direction`](design-direction/SKILL.md) | Defines and preserves product visual direction across projects. | Use for visual north stars, design briefs, redesign strategy, guardrails, Claude prompts, and handoff guidance. |
 | [`export-html`](export-html/SKILL.md) | Creates live-parity standalone HTML exports and clickable prototypes. | Use for offline HTML, design handoff, Claude/Figma inspection, or representative UI state review. |
+| [`global-full-design-spec`](global-full-design-spec/SKILL.md) | Exports comprehensive implementation-ready UI design specs. | Use for full page contracts, source-mapped specs, accessibility/state matrices, guardrails, and future Codex/Claude/dev handoffs. |
+| [`global-quick-design-spec`](global-quick-design-spec/SKILL.md) | Exports concise implementation-ready UI design specs quickly. | Use for lightweight screenshot-to-spec exports or fast design handoffs without redesigning or modifying app code. |
 | [`notenwert-design-direction`](notenwert-design-direction/SKILL.md) | Captures Notenwert's editorial, civic, cultural-network design intent. | Use for Notenwert design direction, homepage hero behavior, NGA-style references, typography, imagery, and public/admin UX critique. |
 
 ## UI UX Quality Skills

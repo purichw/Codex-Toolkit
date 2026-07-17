@@ -1,0 +1,4 @@
+interface:
+  display_name: "Global Release Gate"
+  short_description: "Global alias for release-gate"
+  default_prompt: "Use $global-release-gate for the global release-gate workflow."

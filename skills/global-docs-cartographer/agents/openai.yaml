@@ -1,0 +1,4 @@
+interface:
+  display_name: "Global Docs Cartographer"
+  short_description: "Global alias for docs-cartographer"
+  default_prompt: "Use $global-docs-cartographer for the global docs-cartographer workflow."

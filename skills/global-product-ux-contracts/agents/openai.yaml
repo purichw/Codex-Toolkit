@@ -1,0 +1,4 @@
+interface:
+  display_name: "Global Product Ux Contracts"
+  short_description: "Global alias for product-ux-contracts"
+  default_prompt: "Use $global-product-ux-contracts for the global product-ux-contracts workflow."

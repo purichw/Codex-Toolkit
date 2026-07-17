@@ -1,0 +1,4 @@
+interface:
+  display_name: "Global Tts Audio Assets"
+  short_description: "Global alias for tts-audio-assets"
+  default_prompt: "Use $global-tts-audio-assets for the global tts-audio-assets workflow."

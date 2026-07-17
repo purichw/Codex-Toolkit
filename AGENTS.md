@@ -24,6 +24,14 @@ This repository is the GitHub copy. Before changing skill content, determine
 whether the user wants to edit the live local skill, the repository copy, or
 both. If syncing from local skills, exclude `.system` and bundled plugin skills.
 
+## UI/UX Design
+
+For any user-facing UI, screen, layout, component, deck, doc, or prototype,
+load `/Users/point/.codex/skills/ui-ux-expert/SKILL.md` and follow it. Copy
+`/Users/point/.codex/skills/ui-ux-expert/tokens.css` as the default design
+system only when the project has no brand, design system, production UI, or
+user-provided visual direction.
+
 ## Repository Shape
 
 - `skills/<skill-name>/SKILL.md` is the required skill entrypoint.
@@ -49,7 +57,7 @@ For most changes, run:
 
 ```sh
 git diff --check
-python3 scripts/verify_skills.py --expected-count 55
+python3 scripts/verify_skills.py --expected-count 95
 ```
 
 The verifier checks skill frontmatter, folder/name consistency, Markdown links,

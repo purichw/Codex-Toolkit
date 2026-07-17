@@ -1,0 +1,4 @@
+interface:
+  display_name: "Global Regression Hunter"
+  short_description: "Global alias for regression-hunter"
+  default_prompt: "Use $global-regression-hunter for the global regression-hunter workflow."

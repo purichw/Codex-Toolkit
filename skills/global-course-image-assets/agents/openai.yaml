@@ -1,0 +1,4 @@
+interface:
+  display_name: "Global Course Image Assets"
+  short_description: "Global alias for course-image-assets"
+  default_prompt: "Use $global-course-image-assets for the global course-image-assets workflow."

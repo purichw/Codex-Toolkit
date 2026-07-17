@@ -1,0 +1,4 @@
+interface:
+  display_name: "Global Claude Design Md Request"
+  short_description: "Global alias for claude-design-md-request"
+  default_prompt: "Use $global-claude-design-md-request for the global claude-design-md-request workflow."

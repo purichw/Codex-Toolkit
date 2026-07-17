@@ -1,0 +1,4 @@
+interface:
+  display_name: "Global Firebase Security Rules"
+  short_description: "Global alias for firebase-security-rules"
+  default_prompt: "Use $global-firebase-security-rules for the global firebase-security-rules workflow."

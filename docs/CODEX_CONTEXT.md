@@ -10,7 +10,10 @@ user's intent.
 - Local checkout used when this file was written: `/Users/point/Codex-Toolkit`
 - Visibility at initial setup: private
 - Purpose: archive and document the user's personal Codex skills
-- Current skill count: 55 `SKILL.md` files under `skills/`
+- Current skill count: 95 `SKILL.md` files under `skills/`
+- Breakdown: 55 canonical personal skills, 38 `global-*` alias skills for
+  reusable non-project-specific workflows, and 2 standalone global design-spec
+  skills.
 
 The first import copied personal skills from:
 
@@ -135,8 +138,13 @@ Expected current skill folders:
 - `ui-ux-orchestrator`
 - `usage-budget-gate`
 
-If the count or names change, update `README.md`, `skills/README.md`, and
-`docs/SKILL_CATALOG.md`.
+Reusable non-project-specific skills also have `global-*` alias folders. The
+full alias map lives in [GLOBAL_SKILLS.md](GLOBAL_SKILLS.md); keep aliases as
+thin wrappers and update the canonical skill first. `global-full-design-spec`
+and `global-quick-design-spec` are standalone global skills, not alias wrappers.
+
+If the count or names change, update `README.md`, `skills/README.md`,
+`docs/SKILL_CATALOG.md`, and `docs/GLOBAL_SKILLS.md` when aliases are involved.
 
 ## Privacy And Risk Notes
 
@@ -161,6 +169,7 @@ Keep these docs synchronized:
 - `README.md`: quick public-facing overview, docs links, and compact skill table.
 - `skills/README.md`: grouped index for browsing the skill folders.
 - `docs/SKILL_CATALOG.md`: fuller usage context for each skill.
+- `docs/GLOBAL_SKILLS.md`: global alias map and project-specific exclusions.
 - `docs/INSTALLATION.md`: install and symlink instructions.
 - `docs/MAINTENANCE.md`: update, privacy, verification, and commit workflow.
 - `docs/CODEX_CONTEXT.md`: future-agent memory and source-of-truth rules.
@@ -176,7 +185,7 @@ updates, enough verification is usually:
 
 ```sh
 git diff --check
-python3 scripts/verify_skills.py --expected-count 55
+python3 scripts/verify_skills.py --expected-count 95
 ```
 
 For skill script changes, run the script's smoke-test or help path when one
@@ -216,6 +225,12 @@ As of this document, the repository has:
 - one archive update adding `codex-handoff-for-claude` and `ui-ux-expert`,
   documenting Codex-to-Claude handoffs and a portable UI/UX design expert skill,
   and updating the verifier count to 55.
+- one update adding 38 `global-*` alias wrappers for reusable non-project-
+  specific skills, documenting the global alias map, and updating the verifier
+  count to 93.
+- one archive update adding `global-full-design-spec` and
+  `global-quick-design-spec`, adding the UI/UX design rule to `AGENTS.md`, and
+  updating the verifier count to 95.
 
 The main thing future Codex should preserve is the distinction between live local
 skills and the GitHub archive. That distinction prevents accidental overwrites

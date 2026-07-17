@@ -1,0 +1,4 @@
+interface:
+  display_name: "Global Firebase Account Management"
+  short_description: "Global alias for firebase-account-management"
+  default_prompt: "Use $global-firebase-account-management for the global firebase-account-management workflow."

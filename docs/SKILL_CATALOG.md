@@ -4,6 +4,10 @@ This catalog explains what each skill is for and the context in which it should
 be used. The shorter index in [../README.md](../README.md) is for quick scanning;
 this file is for choosing the right skill during real work.
 
+Reusable, non-project-specific skills also have `global-*` aliases. See
+[GLOBAL_SKILLS.md](GLOBAL_SKILLS.md) for the alias map and the list of skills
+that intentionally remain project-specific or specialized.
+
 ## General Workflow
 
 ### project-onboarding
@@ -212,6 +216,33 @@ this file is for choosing the right skill during real work.
 - Typical context: Source screen or route, live app screenshots/computed
   dimensions, state inventory, product CSS/assets/copy, responsive breakpoints,
   and browser verification of the exported file.
+
+### global-full-design-spec
+
+- Skill file: [../skills/global-full-design-spec/SKILL.md](../skills/global-full-design-spec/SKILL.md)
+- Description: Exports comprehensive implementation-ready UI design specs from
+  screenshots, source files, CSS, routes, prototypes, live app state, or design
+  references.
+- Use when: The user asks for a full or detailed design spec, exhaustive design
+  handoff, complete page contract, source-mapped spec, accessibility/state
+  matrix, or Markdown artifact that future Codex/Claude/dev work can implement
+  from without rediscovery.
+- Typical context: Screenshot/design reference, runtime route or surface,
+  implementation files, styling/design-system files, components, states,
+  responsive behavior, accessibility contract, guardrails, and QA checklist.
+
+### global-quick-design-spec
+
+- Skill file: [../skills/global-quick-design-spec/SKILL.md](../skills/global-quick-design-spec/SKILL.md)
+- Description: Exports concise implementation-ready UI design specs quickly from
+  screenshots, source files, CSS, routes, prototypes, or live app state.
+- Use when: The user asks for a quick or fast design spec, lightweight design
+  handoff, concise page spec, screenshot-to-spec export, or reusable Markdown
+  artifact without redesigning or modifying app code.
+- Typical context: Provided screenshot or visual artifact, likely route/source
+  files, relevant component and style ranges, existing handoff examples,
+  layout, visible components, tokens/styles, responsive behavior, accessibility,
+  guardrails, and short QA checklist.
 
 ### notenwert-design-direction
 

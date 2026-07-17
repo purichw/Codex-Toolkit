@@ -1,0 +1,4 @@
+interface:
+  display_name: "Global Efficient Execution"
+  short_description: "Global alias for efficient-execution"
+  default_prompt: "Use $global-efficient-execution for the global efficient-execution workflow."

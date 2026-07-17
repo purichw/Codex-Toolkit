@@ -1,0 +1,4 @@
+interface:
+  display_name: "Global Export Html"
+  short_description: "Global alias for export-html"
+  default_prompt: "Use $global-export-html for the global export-html workflow."

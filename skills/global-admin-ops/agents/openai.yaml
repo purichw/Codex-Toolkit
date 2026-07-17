@@ -1,0 +1,4 @@
+interface:
+  display_name: "Global Admin Ops"
+  short_description: "Global alias for admin-ops"
+  default_prompt: "Use $global-admin-ops for the global admin-ops workflow."

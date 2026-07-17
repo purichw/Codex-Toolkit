@@ -1,0 +1,4 @@
+interface:
+  display_name: "Global Native Parity"
+  short_description: "Global alias for native-parity"
+  default_prompt: "Use $global-native-parity for the global native-parity workflow."

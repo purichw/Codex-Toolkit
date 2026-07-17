@@ -1,0 +1,4 @@
+interface:
+  display_name: "Global Production Asset Smoke"
+  short_description: "Global alias for production-asset-smoke"
+  default_prompt: "Use $global-production-asset-smoke for the global production-asset-smoke workflow."

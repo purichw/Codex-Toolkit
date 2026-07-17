@@ -1,0 +1,4 @@
+interface:
+  display_name: "Global Codex Handoff For Claude"
+  short_description: "Global alias for codex-handoff-for-claude"
+  default_prompt: "Use $global-codex-handoff-for-claude for the global codex-handoff-for-claude workflow."
