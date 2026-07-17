@@ -1,0 +1,4 @@
+interface:
+  display_name: "UI/UX Expert"
+  short_description: "Design and QA polished user interfaces"
+  default_prompt: "Use $ui-ux-expert to design, polish, or audit this user-facing interface."

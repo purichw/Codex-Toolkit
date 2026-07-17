@@ -163,6 +163,20 @@ this file is for choosing the right skill during real work.
   areas, required states/viewports, known product decisions, and acceptance
   checks Codex can verify.
 
+### codex-handoff-for-claude
+
+- Skill file: [../skills/codex-handoff-for-claude/SKILL.md](../skills/codex-handoff-for-claude/SKILL.md)
+- Description: Packages Codex's context, constraints, evidence, and acceptance
+  checks into implementation-ready Markdown handoffs for Claude or Claude
+  Design.
+- Use when: The user asks to hand off a screen, route, component, prototype,
+  screenshot set, design task, or implementation brief to Claude, especially for
+  UI/UX work using `ui-ux-expert`.
+- Typical context: Target surface, artifacts Codex has inspected, source-of-
+  truth precedence, `DO NOT TOUCH` boundaries, product contracts, visual
+  geometry, interaction states, responsive behavior, accessibility notes,
+  confidence labels, open questions, and acceptance checks.
+
 ### claude-to-a-tee
 
 - Skill file: [../skills/claude-to-a-tee/SKILL.md](../skills/claude-to-a-tee/SKILL.md)
@@ -211,6 +225,20 @@ this file is for choosing the right skill during real work.
   content model, screenshots, and current project rules.
 
 ## UI UX Quality
+
+### ui-ux-expert
+
+- Skill file: [../skills/ui-ux-expert/SKILL.md](../skills/ui-ux-expert/SKILL.md)
+- Description: Designs, audits, and implements user-facing UI/UX with portable
+  fallback tokens, component/layout references, anti-slop examples, and QA rules.
+- Use when: Working on visual design, interaction design, accessibility,
+  responsive UI, design systems, frontend polish, component galleries, layout
+  exemplars, decks, documents, prototypes, brand overrides, or screenshot-based
+  design QA.
+- Typical context: User goal, audience, artifact type, existing brand or design
+  system, screenshots or source files, tokens, component references, layout
+  patterns, anti-slop checks, responsive targets, accessibility expectations,
+  rendered preview/screenshot evidence, and QA checklist.
 
 ### ui-ux-orchestrator
 

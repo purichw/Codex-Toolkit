@@ -29,6 +29,7 @@ Some skills also include reference notes, helper scripts, or agent metadata.
 | [`admin-prototype-reconciliation`](skills/admin-prototype-reconciliation/SKILL.md) | Reconciles admin/CMS/dashboard prototypes against live production admin contracts before implementation. | A Claude/Figma/offline prototype must be compared with live fields, workflows, auth, APIs, drafts, publish, revisions, or data shape. |
 | [`claude-design-md-request`](skills/claude-design-md-request/SKILL.md) | Drafts Claude Design requests for implementation-ready Markdown handoffs/specs from visual artifacts. | A Claude prompt should separate visual facts from product decisions, map components, preserve product contracts, and produce implementable acceptance checks. |
 | [`claude-to-a-tee`](skills/claude-to-a-tee/SKILL.md) | Reproduces an offline Claude Design HTML reference at component level while preserving product behavior. | A UI must match a Claude-generated HTML design, screenshot, or handoff exactly across desktop and mobile. |
+| [`codex-handoff-for-claude`](skills/codex-handoff-for-claude/SKILL.md) | Prepares implementation-ready Markdown handoffs from Codex to Claude or Claude Design. | Codex needs to package source-of-truth rules, product contracts, visual geometry, states, responsive behavior, accessibility notes, and acceptance checks for Claude. |
 | [`coin-quest-admin-ops`](skills/coin-quest-admin-ops/SKILL.md) | Keeps Coin Quest Ledger Admin Portal work aligned with current Firebase-backed admin behavior. | Editing admin auth, boards, users, lifecycle actions, reset/delete flows, publish/restore, revisions, or relationship maps. |
 | [`coin-quest-ledger-logic`](skills/coin-quest-ledger-logic/SKILL.md) | Preserves Party Ledger split math, participants, guests, invites, Character IDs, and settlement behavior. | Changing Coin Quest ledger workflows, guest handling, invite links, reminders, payer/participant logic, or settlement tests. |
 | [`coin-quest-native-parity`](skills/coin-quest-native-parity/SKILL.md) | Prevents the Coin Quest Expo app from drifting away from web data contracts and native parity requirements. | Working on the native app, iOS/Android build gates, `playerModules`, or native/web backend parity. |
@@ -74,6 +75,7 @@ Some skills also include reference notes, helper scripts, or agent metadata.
 | [`tts-audio-assets`](skills/tts-audio-assets/SKILL.md) | Manages text-to-speech audio generation, reuse, audit, naturalness QA, and data wiring across projects. | Working on lesson audio, UI playback, dialogues, prompts, voice/pacing policy, stale/missing audio, or audio IDs. |
 | [`uat-environment`](skills/uat-environment/SKILL.md) | Defines lightweight preview/UAT environments, seeded test data, auth policy, and promotion evidence. | A frontend, admin, data, auth, asset, or deployment change needs production-like verification before release. |
 | [`ui-state-matrix`](skills/ui-state-matrix/SKILL.md) | Defines and verifies UI states beyond the happy path: focus, selected, disabled, loading, empty, error, success, denied, long text, and responsive states. | A component or flow can look finished but still needs state coverage before UI work is complete. |
+| [`ui-ux-expert`](skills/ui-ux-expert/SKILL.md) | Designs, audits, and implements polished user-facing UI/UX using disciplined systems, tokens, references, and QA. | Work involves visual design, interaction design, responsive UI, design systems, component galleries, layout exemplars, anti-slop review, or screenshot-based design QA. |
 | [`ui-ux-orchestrator`](skills/ui-ux-orchestrator/SKILL.md) | Routes broad or blurry UI/UX requests to the smallest useful set of design, UX, state, accessibility, flow, and QA skills. | The user asks for UI/UX polish, audits, planning, visual QA, Claude/Figma handoffs, or is unsure which UI/UX skill applies. |
 | [`usage-budget-gate`](skills/usage-budget-gate/SKILL.md) | Chooses and communicates fast, standard, deep, or release depth before expensive discovery, audit, QA, or deploy verification. | The user wants lower usage, faster work, stop rules, escalation triggers, or a proportional budget before broad work. |
 
@@ -94,5 +96,5 @@ diff, then commit.
 Verify the archive with:
 
 ```sh
-python3 scripts/verify_skills.py --expected-count 53
+python3 scripts/verify_skills.py --expected-count 55
 ```

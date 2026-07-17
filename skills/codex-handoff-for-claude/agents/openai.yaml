@@ -1,0 +1,4 @@
+interface:
+  display_name: "Codex Handoff for Claude"
+  short_description: "Prepare scoped handoffs from Codex to Claude"
+  default_prompt: "Use $codex-handoff-for-claude to prepare a Markdown handoff for Claude."

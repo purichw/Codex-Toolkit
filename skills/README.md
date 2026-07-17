@@ -26,6 +26,7 @@ as a standalone skill directory under `~/.codex/skills`.
 | --- | --- | --- |
 | [`claude-design-md-request`](claude-design-md-request/SKILL.md) | Drafts Claude Design prompts for implementation-ready Markdown handoffs/specs. | Use when Claude should produce component maps, visual geometry, state matrices, product-decision reviews, and acceptance checks from screenshots, HTML, or design references. |
 | [`claude-to-a-tee`](claude-to-a-tee/SKILL.md) | Treats offline Claude HTML as executable design documentation and verifies measured component parity. | Use for exact visual implementation from Claude Design exports, screenshots, or handoff files. |
+| [`codex-handoff-for-claude`](codex-handoff-for-claude/SKILL.md) | Packages Codex context into implementation-ready Markdown handoffs for Claude or Claude Design. | Use when handing off a screen, route, component, prototype, screenshot set, design task, or implementation brief with contracts and acceptance checks. |
 | [`design-direction`](design-direction/SKILL.md) | Defines and preserves product visual direction across projects. | Use for visual north stars, design briefs, redesign strategy, guardrails, Claude prompts, and handoff guidance. |
 | [`export-html`](export-html/SKILL.md) | Creates live-parity standalone HTML exports and clickable prototypes. | Use for offline HTML, design handoff, Claude/Figma inspection, or representative UI state review. |
 | [`notenwert-design-direction`](notenwert-design-direction/SKILL.md) | Captures Notenwert's editorial, civic, cultural-network design intent. | Use for Notenwert design direction, homepage hero behavior, NGA-style references, typography, imagery, and public/admin UX critique. |
@@ -34,6 +35,7 @@ as a standalone skill directory under `~/.codex/skills`.
 
 | Skill | Description | Context |
 | --- | --- | --- |
+| [`ui-ux-expert`](ui-ux-expert/SKILL.md) | Designs, audits, and implements polished user-facing UI/UX with portable fallback tokens, components, layouts, and QA rules. | Use for visual design, interaction design, responsive UI, design systems, frontend polish, anti-slop review, component galleries, decks, documents, or prototypes. |
 | [`ui-ux-orchestrator`](ui-ux-orchestrator/SKILL.md) | Routes broad UI/UX work to the smallest useful set of design, UX, state, accessibility, flow, and QA skills. | Use when the request is broad, blurry, or needs help choosing which UI/UX skills should run together. |
 | [`consistency-audit`](consistency-audit/SKILL.md) | Audits whether UI, UX, implementation, shared components, and pattern weight form one coherent product system. | Use when checking layouts, components, typography, spacing, colors, icons, copy tone, interactions, responsive behavior, states, or duplicate primitives. |
 | [`product-ux-contracts`](product-ux-contracts/SKILL.md) | Preserves real product UX contracts while redesigning, restyling, refactoring, or matching a reference. | Use when routing, persistence, scroll, focus, permissions, destructive safety, media, or search click-through could be lost. |

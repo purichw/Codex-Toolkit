@@ -10,7 +10,7 @@ user's intent.
 - Local checkout used when this file was written: `/Users/point/Codex-Toolkit`
 - Visibility at initial setup: private
 - Purpose: archive and document the user's personal Codex skills
-- Current skill count: 53 `SKILL.md` files under `skills/`
+- Current skill count: 55 `SKILL.md` files under `skills/`
 
 The first import copied personal skills from:
 
@@ -85,6 +85,7 @@ Expected current skill folders:
 - `admin-prototype-reconciliation`
 - `claude-design-md-request`
 - `claude-to-a-tee`
+- `codex-handoff-for-claude`
 - `coin-quest-admin-ops`
 - `coin-quest-ledger-logic`
 - `coin-quest-native-parity`
@@ -130,6 +131,7 @@ Expected current skill folders:
 - `tts-audio-assets`
 - `uat-environment`
 - `ui-state-matrix`
+- `ui-ux-expert`
 - `ui-ux-orchestrator`
 - `usage-budget-gate`
 
@@ -174,7 +176,7 @@ updates, enough verification is usually:
 
 ```sh
 git diff --check
-python3 scripts/verify_skills.py --expected-count 53
+python3 scripts/verify_skills.py --expected-count 55
 ```
 
 For skill script changes, run the script's smoke-test or help path when one
@@ -211,6 +213,9 @@ As of this document, the repository has:
 - one archive update adding `claude-design-md-request` and
   `shane-thai-new-chat`, documenting Claude Design Markdown handoff prompts and
   Shane Thai fresh-chat onboarding, and updating the verifier count to 53.
+- one archive update adding `codex-handoff-for-claude` and `ui-ux-expert`,
+  documenting Codex-to-Claude handoffs and a portable UI/UX design expert skill,
+  and updating the verifier count to 55.
 
 The main thing future Codex should preserve is the distinction between live local
 skills and the GitHub archive. That distinction prevents accidental overwrites
