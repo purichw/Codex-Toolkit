@@ -27,6 +27,7 @@ Some skills also include reference notes, helper scripts, or agent metadata.
 | [`account-recovery-key`](skills/account-recovery-key/SKILL.md) | Defines provider-neutral recovery-key flows for signup, reset, regeneration, hashing, and display policy. | A project needs recovery codes/keys, password reset without email, signed-in key regeneration, or reusable auth recovery guidance. |
 | [`admin-ops`](skills/admin-ops/SKILL.md) | Guides admin portal operations, privileged actions, lifecycle flows, auditability, and CMS/admin UX. | Designing, auditing, implementing, or verifying admin surfaces that change real data, permissions, content, or operational state. |
 | [`admin-prototype-reconciliation`](skills/admin-prototype-reconciliation/SKILL.md) | Reconciles admin/CMS/dashboard prototypes against live production admin contracts before implementation. | A Claude/Figma/offline prototype must be compared with live fields, workflows, auth, APIs, drafts, publish, revisions, or data shape. |
+| [`claude-design-md-request`](skills/claude-design-md-request/SKILL.md) | Drafts Claude Design requests for implementation-ready Markdown handoffs/specs from visual artifacts. | A Claude prompt should separate visual facts from product decisions, map components, preserve product contracts, and produce implementable acceptance checks. |
 | [`claude-to-a-tee`](skills/claude-to-a-tee/SKILL.md) | Reproduces an offline Claude Design HTML reference at component level while preserving product behavior. | A UI must match a Claude-generated HTML design, screenshot, or handoff exactly across desktop and mobile. |
 | [`coin-quest-admin-ops`](skills/coin-quest-admin-ops/SKILL.md) | Keeps Coin Quest Ledger Admin Portal work aligned with current Firebase-backed admin behavior. | Editing admin auth, boards, users, lifecycle actions, reset/delete flows, publish/restore, revisions, or relationship maps. |
 | [`coin-quest-ledger-logic`](skills/coin-quest-ledger-logic/SKILL.md) | Preserves Party Ledger split math, participants, guests, invites, Character IDs, and settlement behavior. | Changing Coin Quest ledger workflows, guest handling, invite links, reminders, payer/participant logic, or settlement tests. |
@@ -66,6 +67,7 @@ Some skills also include reference notes, helper scripts, or agent metadata.
 | [`shane-thai-audio-generator`](skills/shane-thai-audio-generator/SKILL.md) | Generates, regenerates, audits, and QA-checks Google Chirp audio for Shane and His Thai. | Working on lesson audio, Thai TTS text, audio IDs, voice selection, missing/stale audio, or naturalness fixes. |
 | [`shane-thai-export-chatgpt`](skills/shane-thai-export-chatgpt/SKILL.md) | Exports Shane and His Thai learner lesson content into ChatGPT-ready patch packets. | The user needs lesson patch packets, all-lesson ChatGPT exports, or future learner tab/module proposal packets. |
 | [`shane-thai-image-assets`](skills/shane-thai-image-assets/SKILL.md) | Manages vocabulary image generation, reuse, cropping, optimization, and QA for the Shane and His Thai app. | Adding or replacing lesson artwork, mapping assets, fixing crops, generating Unit images, or deciding whether existing art is semantically correct. |
+| [`shane-thai-new-chat`](skills/shane-thai-new-chat/SKILL.md) | Onboards a fresh Codex chat for Shane and His Thai with current docs, skills, rules, and starter prompts. | A future chat needs a copy-ready pickup prompt, required read order, project constraints, or task-specific Shane Thai context before work begins. |
 | [`shane-thai-prod-smoke`](skills/shane-thai-prod-smoke/SKILL.md) | Runs Shane and His Thai production smoke checks with the dedicated dummy learner account and safe learner-flow policy. | Verifying the Shane production Vercel app, topbar/Learning hub, login surface, learner smoke account, or post-deploy screenshot evidence. |
 | [`site-maintainer`](skills/site-maintainer/SKILL.md) | Maintains website projects where source, generated artifacts, tests, docs, and hosting outputs must stay aligned. | Working on static/built sites, generated deploy folders, CMS/admin site work, build scripts, deploy prep, or work logs. |
 | [`snapshot`](skills/snapshot/SKILL.md) | Captures, crops, inspects, and presents screenshots with enough context for review. | Producing UI screenshots, visual proof, before/after comparisons, viewport captures, or production smoke evidence. |
@@ -92,5 +94,5 @@ diff, then commit.
 Verify the archive with:
 
 ```sh
-python3 scripts/verify_skills.py --expected-count 51
+python3 scripts/verify_skills.py --expected-count 53
 ```

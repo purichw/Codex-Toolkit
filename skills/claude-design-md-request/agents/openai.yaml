@@ -1,0 +1,4 @@
+interface:
+  display_name: "Claude Design MD Request"
+  short_description: "Draft Claude MD prompts for implementation"
+  default_prompt: "Use $claude-design-md-request to draft a Claude Design markdown request that separates visual facts from product decisions."

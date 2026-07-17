@@ -59,7 +59,7 @@ False positives are normal. Read the matches before deciding.
 For most changes, run the toolkit verifier:
 
 ```sh
-python3 scripts/verify_skills.py --expected-count 51
+python3 scripts/verify_skills.py --expected-count 53
 ```
 
 It checks skill frontmatter, folder/name consistency, local Markdown links,

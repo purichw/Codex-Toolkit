@@ -10,7 +10,7 @@ user's intent.
 - Local checkout used when this file was written: `/Users/point/Codex-Toolkit`
 - Visibility at initial setup: private
 - Purpose: archive and document the user's personal Codex skills
-- Current skill count: 51 `SKILL.md` files under `skills/`
+- Current skill count: 53 `SKILL.md` files under `skills/`
 
 The first import copied personal skills from:
 
@@ -83,6 +83,7 @@ Expected current skill folders:
 - `account-recovery-key`
 - `admin-ops`
 - `admin-prototype-reconciliation`
+- `claude-design-md-request`
 - `claude-to-a-tee`
 - `coin-quest-admin-ops`
 - `coin-quest-ledger-logic`
@@ -122,6 +123,7 @@ Expected current skill folders:
 - `shane-thai-audio-generator`
 - `shane-thai-export-chatgpt`
 - `shane-thai-image-assets`
+- `shane-thai-new-chat`
 - `shane-thai-prod-smoke`
 - `site-maintainer`
 - `snapshot`
@@ -172,7 +174,7 @@ updates, enough verification is usually:
 
 ```sh
 git diff --check
-python3 scripts/verify_skills.py --expected-count 51
+python3 scripts/verify_skills.py --expected-count 53
 ```
 
 For skill script changes, run the script's smoke-test or help path when one
@@ -206,6 +208,9 @@ As of this document, the repository has:
 - one archive update adding `rollback-guardrail`, expanding `release-gate`
   hard stops, broadening skill trigger descriptions, and updating the verifier
   count to 51.
+- one archive update adding `claude-design-md-request` and
+  `shane-thai-new-chat`, documenting Claude Design Markdown handoff prompts and
+  Shane Thai fresh-chat onboarding, and updating the verifier count to 53.
 
 The main thing future Codex should preserve is the distinction between live local
 skills and the GitHub archive. That distinction prevents accidental overwrites

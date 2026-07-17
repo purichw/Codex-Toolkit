@@ -149,6 +149,20 @@ this file is for choosing the right skill during real work.
 
 ## Design And Visual Parity
 
+### claude-design-md-request
+
+- Skill file: [../skills/claude-design-md-request/SKILL.md](../skills/claude-design-md-request/SKILL.md)
+- Description: Drafts or refines Claude Design prompts that ask for
+  implementation-ready Markdown handoffs/specs.
+- Use when: The user wants a Claude MD request, Claude handoff prompt,
+  component mapping request, design-to-code spec request, or a prompt that
+  separates visual facts from product recommendations while preserving existing
+  app contracts.
+- Typical context: Target surface, screenshots, standalone HTML, prototypes,
+  Figma notes, existing app route/source files, prevail rules, do-not-touch
+  areas, required states/viewports, known product decisions, and acceptance
+  checks Codex can verify.
+
 ### claude-to-a-tee
 
 - Skill file: [../skills/claude-to-a-tee/SKILL.md](../skills/claude-to-a-tee/SKILL.md)
@@ -492,6 +506,21 @@ this file is for choosing the right skill during real work.
   generator command, 17 unit packet files, folder-level protocol files, spot
   check unit, source map, and exact files the user should give ChatGPT for
   normal lesson edits, cross-unit work, or tab/module proposals.
+
+### shane-thai-new-chat
+
+- Skill file: [../skills/shane-thai-new-chat/SKILL.md](../skills/shane-thai-new-chat/SKILL.md)
+- Description: Onboards a fresh Codex chat for Shane and His Thai using current
+  on-disk docs, skills, durable product rules, commands, and a copy-ready starter
+  prompt.
+- Use when: The user asks for a new-chat prompt, handoff prompt, context pickup
+  checklist, required docs/skills/setup for Shane Thai, or wants a future chat
+  to know what to read before learner, admin, content, audio, image, Firebase,
+  QA, deploy, or consistency work.
+- Typical context: Thai flashcards repo status, `README.md`,
+  `docs/project-intent.md`, `docs/memory.md`, `docs/course-status.md`,
+  task-specific docs, current on-disk Shane Thai skills, durable product rules,
+  commands, source areas, and `references/new-chat-context.md`.
 
 ## Image And Asset Work
 
