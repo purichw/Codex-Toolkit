@@ -64,6 +64,24 @@ commit/build, data state, viewport, CSS/assets, and auth state match the export
 target. If the source cannot render, fixing the render path is usually faster
 than hand-building an inaccurate facsimile.
 
+## Dependency Reuse & Cleanup
+
+Prefer speed-preserving dependency reuse when it does not reduce export quality.
+
+- Check for existing project tooling first, such as `node_modules/.bin/playwright`,
+  before running `npm ci` or equivalent installs.
+- Do not delete an existing `node_modules` directory as part of export cleanup.
+- If dependencies were installed only to verify an export, keep `node_modules` by
+  default when follow-up export/QA work is likely; mention this in the final
+  response instead of spending time removing and reinstalling it.
+- Remove `node_modules` only when the user asks, disk hygiene is explicitly in
+  scope, the install happened in a throwaway export directory, or the dependency
+  state is causing correctness/security problems.
+- Never commit `node_modules`. If it appears as an unignored git change, stop and
+  report the repository hygiene issue before committing.
+- Still clean temporary scripts, one-off caches, and broken intermediate artifacts
+  when they are not useful for repeat verification.
+
 ## Parity Standard
 
 The export must be live/source **to a tee**: component-perfect wherever technically possible. "Close enough" is not acceptable unless the exception is documented in the export notes and final response.

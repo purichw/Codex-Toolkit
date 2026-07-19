@@ -10,6 +10,10 @@ interaction, browser behavior, and content stress testing together.
 
 Use `$snapshot` when visual evidence will help the user judge the result. Use
 `$release-gate` before commit, push, deploy, PR, or handoff after UI changes.
+For full-site responsive implementation or QA that involves viewport meta,
+`100vh`/`svh`/`dvh`, iOS/Android browser behavior, WebViews, responsive media,
+zoom, browser engines, or mobile performance, also read
+`../ui-ux-expert/references/responsive-web-design.md`.
 
 ## Viewport Matrix
 

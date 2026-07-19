@@ -31,6 +31,7 @@ version should run.
 | [`global-admin-ops`](../skills/global-admin-ops/SKILL.md) | [`admin-ops`](../skills/admin-ops/SKILL.md) | Reusable admin portal, CMS, back-office, operator, lifecycle, and privileged-action workflows. |
 | [`global-admin-prototype-reconciliation`](../skills/global-admin-prototype-reconciliation/SKILL.md) | [`admin-prototype-reconciliation`](../skills/admin-prototype-reconciliation/SKILL.md) | Reconciling admin/CMS/dashboard prototypes against live admin contracts. |
 | [`global-claude-design-md-request`](../skills/global-claude-design-md-request/SKILL.md) | [`claude-design-md-request`](../skills/claude-design-md-request/SKILL.md) | Asking Claude Design for implementation-ready Markdown handoffs/specs. |
+| [`global-claude-design-reference-bundle`](../skills/global-claude-design-reference-bundle/SKILL.md) | [`claude-design-reference-bundle`](../skills/claude-design-reference-bundle/SKILL.md) | Claude Design reference bundles with screenshots, measured specs, product contracts, and prompts. |
 | [`global-claude-to-a-tee`](../skills/global-claude-to-a-tee/SKILL.md) | [`claude-to-a-tee`](../skills/claude-to-a-tee/SKILL.md) | Component-level visual parity from Claude/offline HTML references. |
 | [`global-codex-handoff-for-claude`](../skills/global-codex-handoff-for-claude/SKILL.md) | [`codex-handoff-for-claude`](../skills/codex-handoff-for-claude/SKILL.md) | Codex-to-Claude implementation handoffs with contracts and acceptance checks. |
 | [`global-consistency-audit`](../skills/global-consistency-audit/SKILL.md) | [`consistency-audit`](../skills/consistency-audit/SKILL.md) | UI/UX/frontend/shared-component consistency audits. |
@@ -72,6 +73,7 @@ These skills stay under their project or specialized names:
 - Coin Quest: `coin-quest-admin-ops`, `coin-quest-ledger-logic`,
   `coin-quest-native-parity`
 - Notenwert: `notenwert-design-direction`, `notenwert-maintainer`
+- Mongkol Wela: `mongkol-new-chat`
 - Shane and His Thai: `shane-thai-audio-generator`,
   `shane-thai-export-chatgpt`, `shane-thai-image-assets`,
   `shane-thai-new-chat`, `shane-thai-prod-smoke`

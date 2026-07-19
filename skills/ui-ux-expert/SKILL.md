@@ -1,6 +1,6 @@
 ---
 name: ui-ux-expert
-description: Canonical UI/UX Expert skill for designing, auditing, and implementing user-facing screens, layouts, components, decks, documents, and prototypes. Use when working on visual design, interaction design, accessibility, responsive UI, design systems, frontend polish, component galleries, layout exemplars, UX flow/state coverage, anti-slop review, brand overrides, or screenshot-based design QA.
+description: Canonical UI/UX Expert skill for designing, auditing, and implementing user-facing screens, layouts, components, decks, documents, and prototypes. Use when working on visual design, interaction design, accessibility, responsive UI, cross-browser/platform responsiveness, design systems, frontend polish, component galleries, layout exemplars, UX flow/state coverage, anti-slop review, brand overrides, or screenshot-based design QA.
 ---
 
 # Skill: UI/UX Design Expert
@@ -61,6 +61,11 @@ review your own work like a critic before you call it done.
 
 Keep a todo list for anything multi-step. Batch your file reads and edits — don't
 read one file, think, read the next; read them all, then act.
+
+For full-site responsive work that involves browser engines, iOS/Android quirks,
+viewport meta, safe areas, mobile keyboard behavior, responsive media, zoom, or
+performance, read `references/responsive-web-design.md` before implementation or
+QA.
 
 ---
 
@@ -500,6 +505,10 @@ assume the tokens in §A.
 - Collapse multi-column → single column below ~768. Sidebar → drawer/bottom-tab on mobile.
 - Touch: ≥44px targets, ≥8px between them, no hover-only affordances on touch.
 - Test at 360, 768, 1280, 1440 minimum.
+- When responsiveness depends on platform/browser behavior, read
+  `references/responsive-web-design.md` and verify viewport/layout, OS/platform,
+  browser engine, input model, media, accessibility zoom, and mobile performance
+  together.
 
 ## M. Data visualization
 

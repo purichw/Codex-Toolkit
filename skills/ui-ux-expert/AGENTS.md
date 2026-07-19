@@ -27,6 +27,10 @@ context wins.
   tokens. Build `assets/component-gallery.html` from it only when a gallery is requested.
 - **`references/layouts.md`** — five layout exemplars (app shell, dashboard, form, content page,
   marketing hero), each with desktop + mobile behavior and breakpoints.
+- **`references/responsive-web-design.md`** — full website responsiveness checklist:
+  viewport meta, mobile-first/intrinsic layout, `svh`/`dvh`, iOS/Android quirks,
+  OS/browser differences, hover/touch/pointer behavior, responsive media, zoom,
+  performance, and cross-engine testing.
 - **`references/anti-slop-examples.md`** — before/after fixes for the common generated-UI
   mistakes, plus a literal detection heuristic to scan output.
 - **`references/qa-checklist.md`** — screenshot-based QA Codex runs against a render (capture
@@ -54,6 +58,9 @@ Convention across all artifacts: **FACT** (fixed) vs **REC** (default) · **REQ*
 6. **Render and look** — never ship from imagination. Fix, re-look.
 7. **Deliver, then suggest** — do exactly what was asked; propose extras, don't apply
    them uninvited (SKILL §11).
+
+For full-site responsive implementation or QA, read
+`references/responsive-web-design.md` before the critic pass.
 
 ## The rules you must not break
 

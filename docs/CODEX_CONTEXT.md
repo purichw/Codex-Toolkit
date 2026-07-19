@@ -10,8 +10,8 @@ user's intent.
 - Local checkout used when this file was written: `/Users/point/Codex-Toolkit`
 - Visibility at initial setup: private
 - Purpose: archive and document the user's personal Codex skills
-- Current skill count: 95 `SKILL.md` files under `skills/`
-- Breakdown: 55 canonical personal skills, 38 `global-*` alias skills for
+- Current skill count: 98 `SKILL.md` files under `skills/`
+- Breakdown: 57 canonical personal skills, 39 `global-*` alias skills for
   reusable non-project-specific workflows, and 2 standalone global design-spec
   skills.
 
@@ -87,6 +87,7 @@ Expected current skill folders:
 - `admin-ops`
 - `admin-prototype-reconciliation`
 - `claude-design-md-request`
+- `claude-design-reference-bundle`
 - `claude-to-a-tee`
 - `codex-handoff-for-claude`
 - `coin-quest-admin-ops`
@@ -113,6 +114,7 @@ Expected current skill folders:
 - `interaction-flow-qa`
 - `ledger-logic`
 - `mobile-web-qa`
+- `mongkol-new-chat`
 - `native-parity`
 - `notenwert-design-direction`
 - `notenwert-maintainer`
@@ -185,7 +187,7 @@ updates, enough verification is usually:
 
 ```sh
 git diff --check
-python3 scripts/verify_skills.py --expected-count 95
+python3 scripts/verify_skills.py --expected-count 98
 ```
 
 For skill script changes, run the script's smoke-test or help path when one
@@ -233,6 +235,10 @@ As of this document, the repository has:
   updating the verifier count to 95.
 - one archive update broadening `ui-ux-expert` and `global-ui-ux-expert` around
   UX behavior, flow feedback, and ideal/empty/loading/error/edge state coverage.
+- one archive update adding `claude-design-reference-bundle`,
+  `global-claude-design-reference-bundle`, and `mongkol-new-chat`, plus
+  responsive-web guidance for UI/mobile QA and dependency cleanup guidance for
+  HTML exports, updating the verifier count to 98.
 
 The main thing future Codex should preserve is the distinction between live local
 skills and the GitHub archive. That distinction prevents accidental overwrites

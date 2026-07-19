@@ -1,0 +1,4 @@
+interface:
+  display_name: "Claude Design Reference Bundle"
+  short_description: "Bundle snapshots and specs for Claude Design"
+  default_prompt: "Use $claude-design-reference-bundle to prepare a Claude Design handoff bundle for this page."

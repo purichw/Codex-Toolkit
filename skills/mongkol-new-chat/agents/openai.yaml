@@ -1,0 +1,4 @@
+interface:
+  display_name: "Mongkol New Chat"
+  short_description: "Onboard new Mongkol Wela chats"
+  default_prompt: "Use $mongkol-new-chat to prepare a fresh Codex chat for Mongkol Wela work."

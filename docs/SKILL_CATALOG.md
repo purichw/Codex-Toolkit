@@ -132,12 +132,15 @@ that intentionally remain project-specific or specialized.
 
 - Skill file: [../skills/mobile-web-qa/SKILL.md](../skills/mobile-web-qa/SKILL.md)
 - Description: Audits responsive web UI across representative mobile, tablet,
-  and desktop viewports.
+  desktop, browser-engine, and platform constraints.
 - Use when: Checking iPhone, Android, tablet, Safari, Chrome on iOS, keyboard
-  behavior, safe areas, touch targets, overflow, sticky regions, modals, or
-  pre-deploy frontend QA.
+  behavior, safe areas, touch targets, overflow, sticky regions, modals,
+  WebViews, zoom, responsive media, mobile performance, or pre-deploy frontend
+  QA.
 - Typical context: A local or deployed URL, primary flows, viewport matrix,
-  screenshots, console output, failed assets, and dynamic content states.
+  screenshots, console output, failed assets, dynamic content states, and
+  `ui-ux-expert/references/responsive-web-design.md` for full-site responsive
+  work.
 
 ### snapshot
 
@@ -166,6 +169,20 @@ that intentionally remain project-specific or specialized.
   Figma notes, existing app route/source files, prevail rules, do-not-touch
   areas, required states/viewports, known product decisions, and acceptance
   checks Codex can verify.
+
+### claude-design-reference-bundle
+
+- Skill file: [../skills/claude-design-reference-bundle/SKILL.md](../skills/claude-design-reference-bundle/SKILL.md)
+- Description: Creates upload-ready Claude Design handoff/reference bundles
+  from live pages, local routes, screenshot sets, or prototypes.
+- Use when: Claude Design needs a visual replication package with screenshots,
+  measured specs, product context, state coverage, implementation contracts, and
+  a paste-ready prompt, especially when a standalone HTML/to-a-tee export would
+  be slower than a reference bundle.
+- Typical context: Source route/URL or local file, desktop and mobile
+  screenshots, relevant states, generated `metrics.json`, manifest, project
+  context, design spec, reference states, implementation contract, prompt file,
+  and quality-gate exceptions.
 
 ### codex-handoff-for-claude
 
@@ -215,7 +232,9 @@ that intentionally remain project-specific or specialized.
   reference artifacts.
 - Typical context: Source screen or route, live app screenshots/computed
   dimensions, state inventory, product CSS/assets/copy, responsive breakpoints,
-  and browser verification of the exported file.
+  browser verification of the exported file, existing dependency/tooling state,
+  and cleanup rules that avoid deleting useful `node_modules` while still never
+  committing it.
 
 ### global-full-design-spec
 
@@ -261,17 +280,18 @@ that intentionally remain project-specific or specialized.
 
 - Skill file: [../skills/ui-ux-expert/SKILL.md](../skills/ui-ux-expert/SKILL.md)
 - Description: Designs, audits, and implements user-facing UI/UX with portable
-  fallback tokens, UX behavior/state coverage, component/layout references,
-  anti-slop examples, and QA rules.
+  fallback tokens, cross-browser/platform responsiveness, UX behavior/state
+  coverage, component/layout references, anti-slop examples, and QA rules.
 - Use when: Working on visual design, interaction design, accessibility,
   responsive UI, design systems, frontend polish, component galleries, layout
-  exemplars, UX flow/state coverage, decks, documents, prototypes, brand
-  overrides, or screenshot-based design QA.
+  exemplars, UX flow/state coverage, cross-browser/platform responsive QA,
+  decks, documents, prototypes, brand overrides, or screenshot-based design QA.
 - Typical context: User goal, audience, artifact type, existing brand or design
   system, screenshots or source files, tokens, component references, layout
   patterns, UX behavior and state requirements, anti-slop checks, responsive
-  targets, accessibility expectations, rendered preview/screenshot evidence, and
-  QA checklist.
+  targets, `references/responsive-web-design.md` for full-site responsive work,
+  accessibility expectations, rendered preview/screenshot evidence, and QA
+  checklist.
 
 ### ui-ux-orchestrator
 
@@ -539,6 +559,23 @@ that intentionally remain project-specific or specialized.
 - Typical context: `AGENTS.md`, codebase map, content model, NGA reference for
   hero/banner work, source under `src/`, build script, regression tests, and
   work log.
+
+## Mongkol Wela
+
+### mongkol-new-chat
+
+- Skill file: [../skills/mongkol-new-chat/SKILL.md](../skills/mongkol-new-chat/SKILL.md)
+- Description: Onboards a fresh Codex chat for the Mongkol Wela / hora-astro
+  project using current on-disk docs, durable product rules, source maps,
+  commands, and a copy-ready starter prompt.
+- Use when: The user asks for a new-chat prompt, handoff prompt, context pickup
+  checklist, required docs/skills/setup for Mongkol Wela, or wants a future chat
+  to know what to read before temple, homepage, admin/CMS, data, anti-bot, QA,
+  export/prototype, commit, push, or deploy work.
+- Typical context: `/Users/point/Website Projects/hora-astro`, `AGENTS.md`,
+  `Architecture.md`, `Roadmap.md`, `README.md`, git status, task-specific
+  Mongkol docs/source areas, durable Thai-first temple-product constraints,
+  commands, and `references/new-chat-context.md`.
 
 ## Shane And His Thai
 

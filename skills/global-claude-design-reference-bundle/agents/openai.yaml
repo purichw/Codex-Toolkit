@@ -1,0 +1,4 @@
+interface:
+  display_name: "Global Claude Design Reference Bundle"
+  short_description: "Global alias for Claude Design bundles"
+  default_prompt: "Use $global-claude-design-reference-bundle for the global Claude Design reference bundle workflow."

@@ -17,6 +17,9 @@
 5. For interactive elements, capture **hover** and **focus-visible** states
    (`:focus-visible` via keyboard/`.focus()`), not just default.
 6. Save a **grayscale** copy of the desktop shot for the hierarchy check.
+7. For full-site responsive QA, also follow `responsive-web-design.md`: resize
+   continuously from about 320px, test short landscape/tall mobile constraints,
+   and cover relevant browser engines/platforms.
 
 ---
 
@@ -72,6 +75,11 @@
 - [ ] **[img]** Sidebar → drawer/tabs; action rows → full-width stacked on mobile.
 - [ ] **[img]** Touch targets ≥44px on the mobile shot.
 - [ ] **[img]** No text truncated/clipped; tables wrapped or restacked.
+- [ ] **[dom]** Correct viewport meta; no `maximum-scale=1` or `user-scalable=no`.
+- [ ] **[img|dom]** No page-level horizontal overflow at any width checked.
+- [ ] **[dom]** Full-height mobile sections avoid raw `100vh` when `svh`/`dvh` is needed.
+- [ ] **[img|dom]** iOS safe areas, mobile keyboard behavior, and hover alternatives are handled when relevant.
+- [ ] **[dom]** Responsive images reserve space and use suitable `srcset`/`sizes`/fallbacks when image-heavy.
 
 ## G. Anti-slop scan — REQ
 
