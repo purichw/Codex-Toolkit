@@ -131,6 +131,10 @@ apps.
 - The flow works on mobile and does not depend on hover-only UI.
 - Sensitive apps consider email confirmation, second factor, or admin-assisted
   recovery instead of recovery-key-only reset.
+- When the task includes a visible signup, reset, drawer, settings, or recovery
+  UI, use `$snapshot` automatically before the final response. Do not wait for
+  the user to ask. If no fresh UI snapshot can be captured, state what visual
+  evidence was used and what risk remains.
 
 ## Implementation Guidance
 
@@ -142,7 +146,9 @@ When implementing in a codebase:
 3. Keep the recovery-key reveal UI inside existing signup/reset/settings flows.
 4. Preserve routes, permissions, form behavior, data contracts, and responsive
    layout.
-5. Add tests for signup reveal, wrong-key failure, reset success, old-key
+5. Capture `$snapshot` evidence for visible recovery-key flows before the final
+   response when UI was changed or audited.
+6. Add tests for signup reveal, wrong-key failure, reset success, old-key
    invalidation, regeneration, and mobile rendering.
 
 Do not create a new account/security product surface unless the project already

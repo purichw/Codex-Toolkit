@@ -43,8 +43,9 @@ Before changing admin behavior, locate:
 
 Use project-specific skills for domain rules, `$firebase-account-management` or
 `$firebase-security-rules` for Firebase-backed admin behavior, `$claude-to-a-tee`
-for exact admin UI parity, `$uat-environment` for UAT role/test-data/bypass
-design, and `$release-gate` before shipping.
+for exact admin UI parity, `$snapshot` for mandatory visual evidence before the
+final response when an admin screen/workflow is visible, `$uat-environment` for
+UAT role/test-data/bypass design, and `$release-gate` before shipping.
 
 Use `$efficient-execution` to keep admin checks targeted: start with the changed
 operation, role boundary, and data lifecycle, then expand only when a shared
@@ -77,7 +78,11 @@ Classify the task before editing:
    destructive operations.
 6. Verify success, failure, denied, loading, empty, stale session, reload, and
    partial data states.
-7. Update admin docs, data contracts, runbooks, or architecture maps when
+7. Use `$snapshot` automatically before the final response when the task touches
+   a visible admin UI, prototype, flow state, responsive layout, or visual audit.
+   Do not wait for the user to ask. Capture key states, or state why a fresh
+   snapshot could not be captured.
+8. Update admin docs, data contracts, runbooks, or architecture maps when
    behavior changes.
 
 ## Verification
@@ -93,9 +98,10 @@ Use the smallest evidence that covers the risk:
 - destructive/backend: server authorization, audit log, recovery/tombstone, and
   rollback evidence;
 - deploy/handoff: use `$release-gate`.
+- visible admin UI/prototype: include `$snapshot` evidence before closeout.
 
 ## Closeout
 
 Report the operation, files/data paths touched, auth path checked, lifecycle or
-rollback decision, tests/evidence, docs updated, project-specific skill used,
-and residual admin risk.
+rollback decision, tests/evidence, snapshot evidence when UI was visible, docs
+updated, project-specific skill used, and residual admin risk.

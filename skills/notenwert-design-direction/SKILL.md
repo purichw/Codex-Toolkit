@@ -45,6 +45,12 @@ Use adjacent skills when the task moves beyond direction:
 - `$docs-cartographer` for durable design or architecture documentation.
 - `$efficient-execution` for keeping design reads scoped before implementation.
 
+Use `$snapshot` automatically before the final response for Notenwert UI/UX
+direction, critique, visual implementation, responsive checks, Claude handoffs,
+or reference comparisons whenever a live/renderable surface or visual artifact
+is involved. Do not wait for the user to ask. If no new snapshot can be
+captured, state the supplied artifacts used and the remaining visual risk.
+
 ## Design North Star
 
 Notenwert is a bilingual Dresden cultural network. It should feel like:

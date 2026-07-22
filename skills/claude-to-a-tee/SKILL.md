@@ -51,6 +51,12 @@ breakpoints. Use exact source or computed values from the Claude HTML/CSS when
 available; screenshots are required evidence for rendered state and visual
 inspection, but they do not replace source/computed measurement.
 
+Use `$snapshot` automatically for every Claude-to-a-tee implementation, parity
+audit, repair, or handoff before the final response. Do not wait for the user to
+ask. When a reference exists, the primary visual evidence must be a side-by-side
+`Reference` and `Development` comparison, with a mobile comparison included when
+responsive behavior is in scope.
+
 Behavior exceptions are allowed only when they preserve Claude geometry. Visual
 exceptions must be explicit, and critical ones require acceptance before
 commit/push/deploy. Do not claim success, commit, push, deploy, open a PR, or
@@ -145,9 +151,9 @@ when the recorded SHA still matches the current Claude HTML.
    UX preserved, hybrid, needs user decision, risk, and verification.
 6. Implement component-level parity while preserving proven product UX and
    product-owned engineering behavior.
-7. Measure reference vs implementation with screenshots, computed geometry,
-   source/computed CSS values, responsive states, interactions, and browser
-   evidence.
+7. Measure reference vs implementation with `$snapshot` evidence, screenshots,
+   computed geometry, source/computed CSS values, responsive states,
+   interactions, and browser evidence.
 8. Apply the release gate before claiming done or shipping.
 
 ## Required Distinctions
@@ -291,6 +297,7 @@ MEASURED PARITY TABLE: component | viewport | reference x/y/w/h/style/count | im
 PRODUCT UX PRESERVED:
 BEHAVIOR/ENGINEERING EXCEPTIONS:
 VISUAL EXCEPTIONS:
+SNAPSHOT EVIDENCE:
 BLOCKERS BEFORE COMMIT:
 PRODUCTION ARTIFACT SMOKE:
 ```

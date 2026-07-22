@@ -31,8 +31,13 @@ honor the cap.
 3. Use `rg` to find matching component classes, route names, headings, and CSS.
 4. Read only the relevant component and style ranges.
 5. Check existing `docs/design-handoffs/` examples if the repo has them.
-6. Write the spec in one pass using the concise template below.
-7. Run no tests for docs-only export; mention that no tests were run.
+6. Use `$snapshot` automatically before the final response when a
+   live/renderable UI, screenshot set, prototype, or visual reference is in
+   scope. Capture current wide/context evidence plus mobile when responsive
+   behavior matters. If no fresh snapshot can be captured, record the supplied
+   artifact used and the remaining visual risk.
+7. Write the spec in one pass using the concise template below.
+8. Run no tests for docs-only export; mention that no tests were run.
 
 If exact values are easy to extract from CSS, include them. If not, describe the
 design role rather than inventing values.
@@ -93,4 +98,5 @@ labels, behavior, and important states only.>
 
 Report the created file path with a clickable link when possible. Mention any
 important limitation, such as "docs-only, no tests run" or "source not found, spec
-based on screenshot only."
+based on screenshot only." Include the `$snapshot` evidence captured, or explain
+why no fresh snapshot was available.

@@ -35,7 +35,9 @@ Locate:
 - typecheck, lint, unit/e2e/device build commands.
 
 Use `$claude-to-a-tee` for exact design reference parity, `$mobile-web-qa` only
-for web responsive checks, and `$release-gate` before package/deploy/handoff.
+for web responsive checks, `$snapshot` for mandatory visual evidence before the
+final response when a native/web screen, design reference, or parity screenshot
+is in scope, and `$release-gate` before package/deploy/handoff.
 
 Use `$efficient-execution` to keep native checks ordered: validate shared
 contracts and type/build errors before slower simulator/device passes, then run
@@ -61,7 +63,11 @@ device coverage only for changed screens or release gates.
 4. Implement using native patterns while preserving product behavior.
 5. Verify typecheck/build/export and at least one representative device/simulator
    path when practical.
-6. Update parity docs/readme/build notes when contracts or gates change.
+6. Use `$snapshot` automatically before the final response when native visual
+   parity, screen implementation, screenshot comparison, or handoff evidence is
+   part of the task. Do not wait for the user to ask. If no device/browser
+   snapshot can be captured, state the coverage gap.
+7. Update parity docs/readme/build notes when contracts or gates change.
 
 ## Build And Verification
 
@@ -72,10 +78,11 @@ Run project-defined commands first. Typical evidence:
 - simulator/device smoke for changed screens;
 - backend/auth/data flow with a real or seeded account;
 - shared web regression when contracts changed;
-- screenshot/video only when it helps compare visual parity.
+- `$snapshot` evidence for visual parity, changed screens, or screenshot/video
+  comparison when a visible screen is in scope.
 
 ## Closeout
 
 Report native screens touched, source-of-truth references, backend/shared
-contracts checked, build/export evidence, device coverage gaps, web parity risk,
-and follow-on release gate.
+contracts checked, build/export evidence, snapshot evidence when UI was visible,
+device coverage gaps, web parity risk, and follow-on release gate.

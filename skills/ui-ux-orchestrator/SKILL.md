@@ -34,8 +34,9 @@ covers the risk.
 - `$form-flow-ux`: create/edit forms, validation, dirty state, save/cancel,
   autosave, server errors, mobile keyboard.
 - `$mobile-web-qa`: responsive/mobile/tablet/Safari/touch/safe-area verification.
-- `$snapshot`: post-implementation screenshots, visual proof, comparisons,
-  provenance, product UX contract evidence.
+- `$snapshot`: mandatory post-implementation/post-audit visual proof,
+  comparisons, provenance, and product UX contract evidence before final
+  response.
 - `$placeholder-image`: image sourcing, crop, visual media choices.
 - `$release-gate`: commit, push, deploy, PR, handoff, production/preview smoke.
 - `$usage-budget-gate`: choose fast, standard, deep, or release depth before
@@ -60,7 +61,9 @@ Use this decision guide:
 - Admin/table/list/dashboard density? Use `$data-dense-ux`.
 - Create/edit/save/cancel form work? Use `$form-flow-ux`.
 - Mobile or responsive risk? Use `$mobile-web-qa`.
-- Any UI implementation completed? Use `$snapshot` before final response.
+- Any UI/UX implementation, redesign, restyle, visual audit, responsive pass, or
+  reference comparison completed? Use `$snapshot` automatically before final
+  response; do not wait for the user to ask.
 
 ## Orchestration Output
 

@@ -10,8 +10,9 @@ journey?" Screenshots support this work, but do not replace exercised flows.
 
 Use `$product-ux-contracts` for existing journey contracts, `$ui-state-matrix`
 for state coverage, `$form-flow-ux` for forms, `$accessible-interaction` for
-keyboard/focus, `$snapshot` for visual proof, `$mobile-web-qa` for responsive
-flows, and `$release-gate` before shipping.
+keyboard/focus, `$snapshot` as mandatory visible flow proof before final
+response, `$mobile-web-qa` for responsive flows, and `$release-gate` before
+shipping.
 
 ## Flow Ledger
 
@@ -35,8 +36,8 @@ Risk:
 3. Exercise the flow by clicking, typing, scrolling, navigating, and reloading.
 4. Verify URL, selected state, data mutation, visible feedback, and persistence.
 5. Check at least one negative or alternate path when the flow can fail.
-6. Capture `$snapshot` evidence for key visible states and report console/network
-   failures when browser tools are available.
+6. Capture `$snapshot` evidence for key visible states before final response and
+   report console/network failures when browser tools are available.
 7. Add or run focused tests for journeys that are release-critical.
 
 ## Common Flows

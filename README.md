@@ -12,6 +12,11 @@ as [`global-release-gate`](skills/global-release-gate/SKILL.md) and
 [`global-ui-ux-expert`](skills/global-ui-ux-expert/SKILL.md). See
 [Global skills](docs/GLOBAL_SKILLS.md) for the full alias map.
 
+UI/UX-related skills have a mandatory snapshot gate: after implementation,
+redesign, restyle, visual audit, responsive QA, Claude/Figma/reference handoff,
+or screenshot-based design work, use [`snapshot`](skills/snapshot/SKILL.md)
+before the final response without waiting for the user to ask.
+
 ## Documentation
 
 - [Codex context](docs/CODEX_CONTEXT.md): future-agent orientation, source of
@@ -82,7 +87,7 @@ as [`global-release-gate`](skills/global-release-gate/SKILL.md) and
 | [`shane-thai-new-chat`](skills/shane-thai-new-chat/SKILL.md) | Onboards a fresh Codex chat for Shane and His Thai with current docs, skills, rules, and starter prompts. | A future chat needs a copy-ready pickup prompt, required read order, project constraints, or task-specific Shane Thai context before work begins. |
 | [`shane-thai-prod-smoke`](skills/shane-thai-prod-smoke/SKILL.md) | Runs Shane and His Thai production smoke checks with the dedicated dummy learner account and safe learner-flow policy. | Verifying the Shane production Vercel app, topbar/Learning hub, login surface, learner smoke account, or post-deploy screenshot evidence. |
 | [`site-maintainer`](skills/site-maintainer/SKILL.md) | Maintains website projects where source, generated artifacts, tests, docs, and hosting outputs must stay aligned. | Working on static/built sites, generated deploy folders, CMS/admin site work, build scripts, deploy prep, or work logs. |
-| [`snapshot`](skills/snapshot/SKILL.md) | Captures, crops, inspects, and presents screenshots with enough context for review. | Producing UI screenshots, visual proof, before/after comparisons, viewport captures, or production smoke evidence. |
+| [`snapshot`](skills/snapshot/SKILL.md) | Captures, crops, inspects, and presents screenshots with enough context for review. | Producing UI screenshots, visual proof, before/after comparisons, reference/development side-by-side evidence, viewport captures, or production smoke evidence. |
 | [`tts-audio-assets`](skills/tts-audio-assets/SKILL.md) | Manages text-to-speech audio generation, reuse, audit, naturalness QA, and data wiring across projects. | Working on lesson audio, UI playback, dialogues, prompts, voice/pacing policy, stale/missing audio, or audio IDs. |
 | [`uat-environment`](skills/uat-environment/SKILL.md) | Defines lightweight preview/UAT environments, seeded test data, auth policy, and promotion evidence. | A frontend, admin, data, auth, asset, or deployment change needs production-like verification before release. |
 | [`ui-state-matrix`](skills/ui-state-matrix/SKILL.md) | Defines and verifies UI states beyond the happy path: focus, selected, disabled, loading, empty, error, success, denied, long text, and responsive states. | A component or flow can look finished but still needs state coverage before UI work is complete. |

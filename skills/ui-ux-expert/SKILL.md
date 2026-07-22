@@ -236,6 +236,14 @@ Before declaring anything done, look at your own work as a harsh critic and chec
 Actually render it and *look at it* (screenshot / preview). Don't ship from
 imagination. Fix, then look again.
 
+After any UI/UX implementation, redesign, restyle, visual audit, responsive pass,
+component/state check, deck/doc/prototype visual work, or screenshot-based QA,
+use `$snapshot` automatically before the final response. Capture at least one
+current wide/context image of the final rendered state; add mobile or
+side-by-side evidence when responsive, reference, or before/after work is in
+scope. If a snapshot cannot be captured, disclose why and what visual risk
+remains.
+
 ---
 
 ## 11. Scoping edits — don't redecorate uninvited
@@ -285,7 +293,7 @@ imagination. Fix, then look again.
 **System first** (type, color, spacing, grid) → **subtract ruthlessly** → **align
 everything** → **restrain color** → **no slop tells** → **real content** →
 **five states + flow feedback** → **self-review as a critic** → **render and look**
-→ **ship, then suggest more.**
+→ **snapshot evidence** → **ship, then suggest more.**
 
 ---
 

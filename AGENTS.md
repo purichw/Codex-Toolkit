@@ -32,6 +32,11 @@ load `/Users/point/.codex/skills/ui-ux-expert/SKILL.md` and follow it. Copy
 system only when the project has no brand, design system, production UI, or
 user-provided visual direction.
 
+After UI/UX implementation, redesign, restyle, visual audit, responsive QA,
+Claude/Figma/reference handoff, or screenshot-based design work, load and use
+`/Users/point/.codex/skills/snapshot/SKILL.md` before the final response. Do
+not wait for the user to ask for visual evidence.
+
 ## Repository Shape
 
 - `skills/<skill-name>/SKILL.md` is the required skill entrypoint.

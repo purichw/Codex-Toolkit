@@ -148,11 +148,18 @@ that intentionally remain project-specific or specialized.
 - Description: Captures, crops, inspects, and presents UI screenshots with
   enough surrounding context for review.
 - Use when: The user asks for screenshots, snapshots, before/after evidence,
-  UI comparisons, crops, viewport captures, production smoke evidence, or says a
-  screenshot is too tight or missing context.
+  reference/development side-by-side evidence, UI comparisons, crops, viewport
+  captures, production smoke evidence, or says a screenshot is too tight or
+  missing context.
 - Typical context: Target URL or app state, viewport, route, scroll position,
   interaction state, computed geometry when useful, and absolute screenshot
   paths for final presentation.
+
+Snapshot gate: UI/UX-related skills must invoke `snapshot` automatically before
+the final response after visible implementation, redesign, restyle, visual
+audit, responsive QA, Claude/Figma/reference handoff, or screenshot-based design
+work. When a reference, previous UI, and new implementation exist, side-by-side
+comparison evidence is the default.
 
 ## Design And Visual Parity
 

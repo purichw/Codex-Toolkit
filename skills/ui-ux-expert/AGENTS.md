@@ -56,7 +56,9 @@ Convention across all artifacts: **FACT** (fixed) vs **REC** (default) · **REQ*
    `references/components.md` as fallback patterns.
 5. **Critic pass** — run SKILL §10 checklist; if it looks off, run the §H triage.
 6. **Render and look** — never ship from imagination. Fix, re-look.
-7. **Deliver, then suggest** — do exactly what was asked; propose extras, don't apply
+7. **Snapshot gate** — use `$snapshot` automatically for final visual evidence
+   before responding; don't wait for the user to ask.
+8. **Deliver, then suggest** — do exactly what was asked; propose extras, don't apply
    them uninvited (SKILL §11).
 
 For full-site responsive implementation or QA, read

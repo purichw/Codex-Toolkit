@@ -12,7 +12,8 @@ Use `$consistency-audit` for site-wide consistency discovery before fixing a
 large set of drift issues. Use `$design-direction` for north-star decisions,
 `$claude-to-a-tee` for exact reference parity, `$product-ux-contracts` for
 behavior that must survive, `$ui-state-matrix` for variants/states, `$snapshot`
-for visual proof, and `$release-gate` before shipping.
+as mandatory visual proof before final response, and `$release-gate` before
+shipping.
 
 ## Inventory
 
@@ -49,8 +50,8 @@ one component without checking adjacent surfaces.
 3. Decide reuse, extend, or local exception.
 4. Update component state coverage with `$ui-state-matrix` when variants change.
 5. Inspect neighboring pages that share the primitive.
-6. Capture `$snapshot` evidence for the changed surface and one adjacent surface
-   when drift risk is high.
+6. Capture `$snapshot` evidence for the changed surface before final response;
+   include one adjacent surface when drift risk is high.
 
 ## Closeout
 

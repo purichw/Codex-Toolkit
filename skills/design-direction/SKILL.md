@@ -31,6 +31,13 @@ patterns, `$design-system-guardian` for component/token consistency,
 `$snapshot` for visual proof, and project maintainer skills before
 implementation.
 
+Use `$snapshot` automatically before the final response whenever design
+direction work includes a live/renderable UI, supplied visual reference,
+screenshot comparison, concrete visual audit, implementation guidance tied to a
+specific surface, or completed UI change. Do not wait for the user to ask. If no
+new snapshot can be captured, state which supplied artifacts were used and what
+visual risk remains.
+
 Use `$efficient-execution` when direction work is broad: inspect enough
 references to define the decision, then stop before it becomes a full redesign
 audit. Escalate only when the user asks for architecture, Claude parity,

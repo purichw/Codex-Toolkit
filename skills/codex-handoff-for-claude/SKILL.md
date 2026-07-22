@@ -28,6 +28,12 @@ Codex is packaging context, constraints, evidence, and acceptance checks for Cla
 When the handoff is for UI/UX work and Claude should use `ui-ux-expert`, read
 `references/codex-handoff-prompt.md` and adapt it to the actual artifacts.
 
+Use `$snapshot` automatically before the final response for UI/UX handoffs that
+reference a live/renderable UI, screenshot set, prototype, standalone HTML, or
+specific visual surface. Do not wait for the user to ask. Include the snapshot
+evidence path/description in the handoff or final response, or state why no
+fresh snapshot could be captured.
+
 Prefer references to `ui-ux-expert` tokens and documents:
 
 - `tokens.css` token names for spacing, type, color, radius, shadow, and motion.

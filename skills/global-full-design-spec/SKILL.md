@@ -44,8 +44,13 @@ it structured and skimmable rather than verbose.
    - data/state props
    - accessibility attributes
 6. Distinguish observed source facts from inferred design intent.
-7. Create the spec artifact with the full template below.
-8. Run no tests for docs-only export; if app code changes are made separately,
+7. Use `$snapshot` automatically before the final response when a
+   live/renderable UI, screenshot set, prototype, or visual reference is in
+   scope. Capture current wide/context evidence plus mobile when responsive
+   behavior matters. If no fresh snapshot can be captured, record the supplied
+   artifact used and the remaining visual risk.
+8. Create the spec artifact with the full template below.
+9. Run no tests for docs-only export; if app code changes are made separately,
    run the repo's appropriate checks.
 
 Use existing project design systems and brand direction. If a UI/UX skill or
@@ -156,4 +161,6 @@ Report:
 
 - the created file path as a clickable link when possible;
 - whether the spec was based on screenshot only or screenshot plus source;
+- what `$snapshot` evidence was captured, or why no fresh snapshot was
+  available;
 - that no tests were run for docs-only export, unless tests actually ran.

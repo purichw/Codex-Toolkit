@@ -7,6 +7,11 @@ Reusable, non-project-specific skills also have `global-*` alias folders. The
 aliases route to canonical skills and are listed in
 [../docs/GLOBAL_SKILLS.md](../docs/GLOBAL_SKILLS.md).
 
+UI/UX-related skills must call [`snapshot`](snapshot/SKILL.md) automatically
+before the final response after visible implementation, redesign, restyle,
+visual audit, responsive QA, Claude/Figma/reference handoff, or
+screenshot-based design work.
+
 ## General Workflow Skills
 
 | Skill | Description | Context |
@@ -22,7 +27,7 @@ aliases route to canonical skills and are listed in
 | [`prod-smoke-harness`](prod-smoke-harness/SKILL.md) | Defines safe production/preview smoke harness policy, accounts, HTTP/browser checks, and screenshot evidence. | Use when a web app needs post-deploy smoke checks, Playwright smoke setup, authenticated smoke policy, or reusable production verification. |
 | [`production-asset-smoke`](production-asset-smoke/SKILL.md) | Verifies deployed media and asset rendering after image, video, CMS, fallback, or deploy changes. | Use when production or preview pages need proof that images, videos, CSS backgrounds, lazy assets, and fallbacks render correctly. |
 | [`mobile-web-qa`](mobile-web-qa/SKILL.md) | Verifies responsive UI across representative mobile, tablet, desktop, browser-engine, and platform constraints. | Use for mobile web bugs, pre-deploy QA, keyboard behavior, overflow, safe areas, WebViews, zoom, and touch interaction checks. |
-| [`snapshot`](snapshot/SKILL.md) | Captures screenshots with enough visual context for review. | Use for UI snapshots, before/after evidence, viewport captures, or production smoke proof. |
+| [`snapshot`](snapshot/SKILL.md) | Captures screenshots with enough visual context for review. | Use for UI snapshots, before/after evidence, reference/development side-by-side comparisons, viewport captures, or production smoke proof. |
 
 ## Design And Frontend Parity
 

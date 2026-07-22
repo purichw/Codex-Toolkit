@@ -13,5 +13,9 @@ Before acting, read and follow:
 ../claude-design-reference-bundle/SKILL.md
 ```
 
+Follow the canonical skill's `$snapshot` and visual-evidence requirements
+whenever they apply. Do not treat this global alias as a way to bypass the
+canonical snapshot gate.
+
 Do not duplicate workflow instructions here. Keep this wrapper thin so the
 canonical skill remains the single source of truth.

@@ -44,6 +44,9 @@ Use adjacent skills when the task crosses boundaries:
 - `$firebase-security-rules` for Firestore/Storage rules, Admin SDK endpoint
   authorization, or production access.
 - `$claude-to-a-tee` for exact Admin UI parity from Claude handoffs.
+- `$snapshot` for mandatory visual evidence before the final response when an
+  Admin screen, state, responsive layout, Claude handoff, or prototype
+  comparison is in scope.
 - `$efficient-execution` for targeted admin checks and avoiding unnecessary
   full-project gates.
 - `$release-gate` before commit, push, deploy, or handoff.
@@ -83,10 +86,14 @@ Use adjacent skills when the task crosses boundaries:
    - small copy/layout: `npm run test:syntax` plus browser spot-check
    - lifecycle/delete/reset/data: targeted unit/e2e plus `npm test` when risky
    - commit/deploy request or admin persistence change: full `npm test`
-7. Update `ADMIN_PORTAL_IMPLEMENTATION.md`, `ACCOUNT_MANAGEMENT_IMPLEMENTATION.md`,
+7. Use `$snapshot` automatically before the final response for visible Admin UI
+   changes, audits, responsive states, or prototype/live comparisons. Do not
+   wait for the user to ask; state why if fresh capture is blocked.
+8. Update `ADMIN_PORTAL_IMPLEMENTATION.md`, `ACCOUNT_MANAGEMENT_IMPLEMENTATION.md`,
    `SECURITY_AND_FIREBASE_RULES.md`, or `data-contracts.md` if behavior changes.
 
 ## Closeout
 
 Report the admin operation, auth/security path checked, docs updated, adjacent
-skills used or intentionally not needed, tests run, and production/admin risk.
+skills used or intentionally not needed, tests run, snapshot evidence when UI
+was visible, and production/admin risk.

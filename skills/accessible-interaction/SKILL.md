@@ -10,7 +10,8 @@ Accessibility is part of interaction quality, not a late checklist.
 
 Use `$ui-state-matrix` for focus/disabled/error states, `$interaction-flow-qa`
 for journeys, `$form-flow-ux` for forms, `$mobile-web-qa` for device behavior,
-`$snapshot` for visual focus evidence, and `$release-gate` before shipping.
+`$snapshot` as mandatory visual focus/layout evidence before final response,
+and `$release-gate` before shipping.
 
 ## Core Checks
 
@@ -32,7 +33,8 @@ for journeys, `$form-flow-ux` for forms, `$mobile-web-qa` for device behavior,
 3. Inspect focus target, accessible name, role, state, and disabled behavior.
 4. Test open/close and focus restore for modals, popovers, drawers, and menus.
 5. Check contrast and motion only where the change affects them.
-6. Capture `$snapshot` evidence when visible focus/layout is part of the issue.
+6. Capture `$snapshot` evidence for visible focus/layout before final response;
+   do not wait for the user to ask.
 7. Add focused tests when accessibility could regress silently.
 
 ## Common Failure Modes

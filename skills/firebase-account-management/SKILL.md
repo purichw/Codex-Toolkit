@@ -62,6 +62,12 @@ Use `$firebase-security-rules` when the account flow depends on Firestore/Storag
 rules, Admin SDK endpoint authorization, service-account env vars, or production
 access guarantees.
 
+Use `$snapshot` automatically before the final response when Firebase account
+work includes a visible signup/login/recovery/profile/admin account-management
+UI, responsive account flow, or visual audit. Do not wait for the user to ask.
+If the task is security/billing/docs-only and no UI can be rendered, state that
+no fresh snapshot was available.
+
 Use `$efficient-execution` to avoid over-auditing Firebase: map the exact
 operation layer first, then verify only the provider, rule, endpoint, billing, or
 profile path that can affect that operation. Escalate to official docs or live
@@ -114,11 +120,13 @@ Firebase Console or official docs.
   stale-session cases.
 - Documentation names the actual plan, project id, env vars, and deploy/rules
   commands.
+- Visible account or admin-account UI has `$snapshot` evidence before closeout.
 
 ## Closeout
 
 Report which layer each operation used, what was verified vs inferred, billing
-evidence when relevant, tests/checks run, and remaining account/security risk.
+evidence when relevant, tests/checks run, snapshot evidence when UI was visible,
+and remaining account/security risk.
 
 ## Answering Plan Questions
 

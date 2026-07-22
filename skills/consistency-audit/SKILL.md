@@ -14,8 +14,8 @@ visual principles, `$design-system-guardian` for tokens/primitives,
 `$product-ux-contracts` for behavior that must not be flattened,
 `$ui-state-matrix` for state coverage, `$interaction-flow-qa` for journeys,
 `$accessible-interaction` for keyboard/focus, `$data-dense-ux` for tables/lists,
-`$form-flow-ux` for forms, `$snapshot` for evidence, and `$release-gate` before
-shipping fixes.
+`$form-flow-ux` for forms, `$snapshot` as mandatory visual evidence before final
+response, and `$release-gate` before shipping fixes.
 
 ## Source Of Truth
 
@@ -213,8 +213,8 @@ scroll, table density, or mobile layout.
 2. Read explicit requirements and design docs if present.
 3. Inventory shared components, tokens, CSS modules, routes, layouts, and common
    UI primitives with `rg --files` and targeted search.
-4. Render representative screens and capture `$snapshot` evidence for high-risk
-   inconsistencies.
+4. Render representative screens and capture `$snapshot` evidence for
+   inconsistencies before final response; do not wait for the user to ask.
 5. Build a weighted pattern ledger: comparable population, explicit requirement,
    current dominant pattern, coexisting variants, count, history signal,
    recency/intent signal, outliers, severity, recommended fix, missing-piece

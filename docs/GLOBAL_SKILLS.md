@@ -20,6 +20,9 @@ version should run.
 - `global-*` folders route to the canonical skill's `SKILL.md`.
 - Update the canonical skill first. Regenerate the alias only if alias routing
   language or metadata needs to change.
+- If the canonical skill has `$snapshot` or visual-evidence requirements, the
+  global alias must preserve them; an alias is not a bypass around the snapshot
+  gate.
 - Do not create `global-*` aliases for project-specific skills.
 
 ## Global Alias Map

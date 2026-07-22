@@ -239,6 +239,10 @@ As of this document, the repository has:
   `global-claude-design-reference-bundle`, and `mongkol-new-chat`, plus
   responsive-web guidance for UI/mobile QA and dependency cleanup guidance for
   HTML exports, updating the verifier count to 98.
+- one update adding a mandatory `$snapshot` gate across UI/UX, design handoff,
+  visual parity, admin/native UX, and related global alias skills. Future
+  Codex sessions should capture snapshot evidence before final response for
+  visible UI/UX work instead of waiting for the user to ask.
 
 The main thing future Codex should preserve is the distinction between live local
 skills and the GitHub archive. That distinction prevents accidental overwrites

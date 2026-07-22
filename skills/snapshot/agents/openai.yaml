@@ -1,4 +1,4 @@
 interface:
   display_name: "Snapshot"
-  short_description: "Capture UI screenshots with useful surrounding context."
-  default_prompt: "Use $snapshot to capture or evaluate UI screenshots with enough surrounding context, provenance, and contract evidence to make the visual issue understandable."
+  short_description: "Capture UI screenshots and side-by-side comparisons."
+  default_prompt: "Use $snapshot to capture or evaluate UI screenshots, including side-by-side reference/development or before/after evidence when comparison inputs exist."

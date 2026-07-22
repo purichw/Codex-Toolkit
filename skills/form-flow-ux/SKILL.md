@@ -11,8 +11,9 @@ escape paths are clear.
 
 Use `$ui-state-matrix` for state coverage, `$accessible-interaction` for
 keyboard/focus, `$interaction-flow-qa` for journey proof, `$product-ux-contracts`
-for persistence/routing, `$snapshot` for visual evidence, `$mobile-web-qa` for
-mobile keyboard, and `$release-gate` before shipping.
+for persistence/routing, `$snapshot` as mandatory visual form evidence before
+final response, `$mobile-web-qa` for mobile keyboard, and `$release-gate` before
+shipping.
 
 ## Form Contract
 
@@ -58,7 +59,7 @@ Verification:
 5. Test invalid submit, valid submit, server failure, cancel/back with dirty
    data, reload/autosave when supported, and permission denied when relevant.
 6. Capture `$snapshot` evidence for default, error, loading/disabled, and mobile
-   keyboard states when visible.
+   keyboard states before final response; do not wait for the user to ask.
 
 ## File/Image Inputs
 

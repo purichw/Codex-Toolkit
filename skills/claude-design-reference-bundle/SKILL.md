@@ -19,6 +19,8 @@ Create a compact upload-ready bundle that helps Claude Design replicate an exist
    - Capture desktop and mobile by default.
    - Capture relevant states when they affect design: menus, filters, search result, empty state, modal/drawer, accordion open, sticky/floating UI.
    - If the user supplied screenshots, copy or reference them in the manifest and treat them as authored evidence.
+   - Use `$snapshot` automatically for the final visual evidence before the
+     final response. Do not wait for the user to ask.
 
 3. Scaffold the bundle:
    - Prefer `scripts/create_bundle.mjs` when a URL is renderable and Playwright is available.
@@ -35,6 +37,8 @@ Create a compact upload-ready bundle that helps Claude Design replicate an exist
    - Read `references/quality-gate.md` before finalizing.
    - Check that screenshots, metrics, Markdown, and prompt all describe the same route/state.
    - Report remaining visual or behavior exceptions.
+   - Confirm `$snapshot` evidence covers the bundle's primary desktop and
+     mobile references, or state why a fresh snapshot could not be captured.
 
 ## Output Shape
 

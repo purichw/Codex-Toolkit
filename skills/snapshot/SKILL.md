@@ -1,6 +1,6 @@
 ---
 name: snapshot
-description: Capture, crop, inspect, and present UI screenshots with enough visual context, provenance, and contract evidence for review. Use when the user asks for a snapshot, screenshot, visual proof, before/after image, UI comparison, crop, viewport capture, production smoke evidence, interaction-state evidence, scroll/container proof, after UI implementation, or complains that a screenshot is too tight, missing context, hard to judge, or not showing the surrounding layout.
+description: Capture, crop, inspect, and present UI screenshots with enough visual context, provenance, and contract evidence for review. Use when the user asks for a snapshot, screenshot, visual proof, Claude Design/reference-vs-development side-by-side comparison, before/after image, UI comparison, crop, viewport capture, production smoke evidence, interaction-state evidence, scroll/container proof, after UI implementation, after UI/UX skill work, or complains that a screenshot is too tight, missing context, hard to judge, or not showing the surrounding layout.
 ---
 
 # Snapshot
@@ -12,6 +12,10 @@ Use `$mobile-web-qa` for responsive/mobile audit, `$claude-to-a-tee` for
 reference-vs-implementation parity, and `$product-ux-contracts` when screenshots
 must prove preserved UX contracts. Use `$release-gate` when screenshots are part
 of commit/deploy evidence.
+
+Any UI/UX skill that implements, audits, verifies, redesigns, restyles, or hands
+off a visible screen must invoke `$snapshot` automatically before the final
+response. Do not wait for the user to ask for screenshots.
 
 After finishing UI development, capture and include a current snapshot before
 final response even if the user did not explicitly ask for one. For backend,
@@ -114,6 +118,28 @@ For UI implementation work, run this workflow after the final edit/build state,
 not only during debugging. If a snapshot cannot be captured, disclose why and
 what visual risk remains.
 
+## Side-By-Side Requirements
+
+When comparison inputs exist, present them side by side as the primary visual
+evidence. Do not make the user mentally compare separate, differently framed
+screenshots when a paired or contact-sheet image can be produced.
+
+- **Claude Design or reference available:** show `Reference` plus
+  `Development` side by side. A reference can be Claude Design HTML, a Claude
+  screenshot, Figma/exported design, static mock, competitor/example page, or
+  any user-provided visual target.
+- **Enhancing an existing UI:** show `Before` plus `After` side by side with
+  matched route, viewport, state, scroll, data, and framing whenever possible.
+- **Reference plus existing UI plus new implementation:** show all three
+  columns side by side, normally labeled `Reference`, `Before`, and
+  `After/Development`. Do not collapse the original UI into prose when it is
+  available and the new UI is meant to follow the reference.
+
+For responsive work, create matched comparison rows per viewport instead of
+mixing desktop, tablet, and mobile panels in one unlabeled row. If a side-by-side
+artifact cannot be produced, embed the individual screenshots in comparison
+order with clear labels and state why the contact sheet was not possible.
+
 ## Comparison Workflow
 
 For before/after, reference/app, or local/production comparison:
@@ -121,23 +147,27 @@ For before/after, reference/app, or local/production comparison:
 1. Use matching viewport size, route, scroll position, auth state, data state,
    and browser when possible.
 2. Capture a wide context shot for each side before any tight crops.
-3. When a reference or comparison HTML file is available, always include the
+3. Apply the side-by-side requirements above before deciding which screenshots
+   to capture: `Reference + Development`, `Before + After`, or
+   `Reference + Before + After/Development`.
+4. When a reference or comparison HTML file is available, always include the
    comparison artifact: capture the HTML reference and the implementation with
    matching framing, then present a side-by-side contact sheet or equivalent
-   paired image. If no comparison HTML/artifact is available, a single
-   implementation snapshot is acceptable.
-4. For responsive comparisons, include a mobile viewport as well as the primary
+   paired image. If no comparison HTML/artifact is available and there is no
+   existing UI to compare, a single implementation snapshot is acceptable.
+5. For responsive comparisons, include a mobile viewport as well as the primary
    desktop or tablet viewport. When comparing against HTML, produce matching
    side-by-side evidence for the mobile viewport too.
-5. Name files so pairs sort together, such as
+6. Name files so pairs sort together, such as
    `/tmp/checkout-card-before-390x844.png` and
    `/tmp/checkout-card-after-390x844.png`.
-6. For several screenshots, make or present a short contact sheet only when it
+7. For several screenshots, make or present a short contact sheet only when it
    helps comparison; otherwise embed the highest-signal images. When comparing
-   against HTML, prefer the side-by-side contact sheet as the primary evidence.
-7. Label comparison images or the report with source side, route, viewport,
+   against HTML, Claude Design, or before/after states, prefer the side-by-side
+   contact sheet as the primary evidence.
+8. Label comparison images or the report with source side, route, viewport,
    state, scroll position, build/commit, and reference hash when available.
-8. Record mismatched conditions instead of implying the screenshots are directly
+9. Record mismatched conditions instead of implying the screenshots are directly
    comparable.
 
 ## Product UX Contract Evidence
@@ -222,6 +252,8 @@ Keep the final visual report compact:
 - Include measured values only when they answer the user's question.
 - For comparison/contact sheets, label reference/app, before/after, viewport,
   route/state, and scroll position.
+- When Claude Design/reference, before UI, and after UI all exist, use a
+  labeled three-column side-by-side image as the primary comparison evidence.
 - If a screenshot is intentionally tight, say that and provide a wider context
   image when useful.
 
@@ -244,6 +276,12 @@ Before claiming a visual change is done, check:
 - For UI changes, at least one current snapshot is included in the closeout.
 - After UI development, a current post-implementation snapshot is included even
   when the user did not explicitly request one.
+- If Claude Design or another visual reference exists, the closeout includes a
+  side-by-side `Reference` and `Development` comparison.
+- If the task enhances an existing UI, the closeout includes a matched
+  side-by-side `Before` and `After` comparison.
+- If Claude Design/reference, the old UI, and the new implementation all exist,
+  the closeout includes all three side by side with clear labels.
 - For backend/data/auth/API/config changes that alter a user-visible journey,
   at least one snapshot or equivalent visual proof covers the affected journey.
 - For responsive work, a mobile snapshot or mobile side-by-side comparison is
@@ -254,5 +292,6 @@ Before claiming a visual change is done, check:
 
 A screenshot is invalid evidence when it shows the wrong route, stale build,
 loading shell, hidden overlay, wrong viewport, unauthenticated gate, pre-hydrated
-state, unlabeled comparison side, or a crop that hides the layout relationship
+state, unlabeled comparison side, omits an available reference/before/after panel
+required for the comparison, or uses a crop that hides the layout relationship
 being judged.

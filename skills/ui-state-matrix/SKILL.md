@@ -10,8 +10,8 @@ states are missing or broken.
 
 Use `$form-flow-ux` for form-specific state journeys, `$data-dense-ux` for
 tables/lists, `$accessible-interaction` for focus/keyboard states, `$snapshot`
-for visual proof, `$mobile-web-qa` for responsive state checks, and
-`$release-gate` before shipping.
+as mandatory visual state proof before final response, `$mobile-web-qa` for
+responsive state checks, and `$release-gate` before shipping.
 
 ## State Set
 
@@ -52,7 +52,8 @@ Risk if skipped:
 3. Implement state styling and behavior together; do not leave visual states
    disconnected from real product state.
 4. Verify states through real triggers where practical, not only forced CSS.
-5. Capture representative `$snapshot` evidence for risky visual states.
+5. Capture representative `$snapshot` evidence for visual states before final
+   response; do not wait for the user to ask.
 6. Add focused tests when a missing state would be silent.
 
 ## Quality Bar

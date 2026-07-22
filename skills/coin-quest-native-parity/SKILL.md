@@ -43,6 +43,8 @@ Use adjacent skills when the task crosses boundaries:
 - `$mobile-web-qa` only for web responsive parity, not native device testing.
 - `$efficient-execution` for ordering type/build/shared-contract checks before
   slower simulator or package gates.
+- `$snapshot` for mandatory visual evidence before the final response when a
+  Coin Quest native/web screen, Claude export, or parity comparison is in scope.
 - `$release-gate` before commit, push, deploy, TestFlight/package handoff, or
   web/native shared contract release.
 
@@ -77,10 +79,14 @@ Before a physical iPhone build/install:
 - iOS bundle export: `npx expo export --platform ios --output-dir /tmp/coinquest-mobile-export`.
 - Root web regression after shared contract changes: from repo root, run
   `npm test`.
+- Use `$snapshot` automatically before the final response when changed native
+  screens, web parity surfaces, Claude exports, or visual comparisons are part
+  of the task. Do not wait for the user to ask; state any simulator/device
+  capture gap.
 - Update `NATIVE_WEB_PARITY.md` and `mobile/README.md` when contracts or gates change.
 
 ## Closeout
 
 Report native screens/flows touched, shared contracts checked, web parity risk,
-native build/export evidence, adjacent skills used or intentionally not needed,
-and remaining device coverage gaps.
+native build/export evidence, snapshot evidence when UI was visible, adjacent
+skills used or intentionally not needed, and remaining device coverage gaps.

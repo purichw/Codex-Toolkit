@@ -12,7 +12,8 @@ authoritative for production contracts until an explicit migration changes it.
 Use `$admin-ops` for operational safety, `$claude-to-a-tee` for exact prototype
 UI parity, `$data-dense-ux` for dense admin lists/tables, `$form-flow-ux` for
 editors/drafts/saves, `$product-ux-contracts` for preserving proven behavior,
-and `$release-gate` before shipping.
+`$snapshot` for mandatory visual evidence before the final response, and
+`$release-gate` before shipping.
 
 ## Core Rule
 
@@ -68,7 +69,12 @@ Component | Classification: already live / net-new / conflicting | Live evidence
 6. Identify prototype-only UI or fake behavior. Decide whether to hide it,
    make it real, adapt it to a live equivalent, or defer with a documented
    blocker.
-7. Produce the confirmed diff and only then plan implementation.
+7. Use `$snapshot` automatically before the final response when reconciliation
+   includes a rendered admin UI, prototype, screenshot, visual comparison, or
+   implementation evidence. Do not wait for the user to ask. Capture prototype
+   vs live evidence when both sides are renderable, or state why a fresh
+   snapshot could not be captured.
+8. Produce the confirmed diff and only then plan implementation.
 
 ## Classification Rules
 

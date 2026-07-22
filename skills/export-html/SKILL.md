@@ -19,6 +19,10 @@ Create HTML exports as executable design documentation. The export must preserve
 - The file must open directly with `file://` unless the user asks for a server-backed prototype.
 - Every visible interaction included in the export must work locally with client-side mock state. Do not leave clickable-looking controls inert.
 - Verify the exported HTML in a browser before final response.
+- Use `$snapshot` automatically before the final response for every visual HTML
+  export. Include source/reference vs export evidence when a source or reference
+  exists, and mobile evidence when responsive behavior is in scope. Do not wait
+  for the user to ask.
 
 ## Workflow
 
@@ -46,11 +50,15 @@ Create HTML exports as executable design documentation. The export must preserve
    - Check desktop and mobile at minimum; add tablet when the layout changes there.
    - Check for console errors, page errors, horizontal overflow, clipped text, broken assets, and source-parity drift.
    - Compare against the live/source reference screenshots for the same route(s). If the export visibly diverges in layout, spacing, typography, or component hierarchy, iterate before delivering.
+   - Capture `$snapshot` evidence for the final export before the final response;
+     include side-by-side source/export evidence when available.
 
 5. **Deliver**
    - Provide the absolute file path.
    - Summarize which states are included and any intentional omissions.
    - Say what verification was performed.
+   - Mention the snapshot evidence captured, or explain why it could not be
+     captured.
 
 ## Efficient Export
 
@@ -168,5 +176,7 @@ Before final response:
 - Important components match source geometry closely.
 - Assets render.
 - Notes state what is mock-only.
+- `$snapshot` evidence exists for the final export, including mobile when
+  responsive behavior is in scope.
 
 Use Playwright or browser tooling whenever available. A final answer that says only "created the file" is incomplete.

@@ -7,6 +7,12 @@ description: Draft or refine prompts that ask Claude Design to produce implement
 
 Use this skill to write a request for Claude Design that returns a Markdown handoff Codex can implement with less guesswork. The request must make Claude separate evidence from opinion, and must not treat Claude's product decisions as automatically correct.
 
+When drafting from a live/renderable UI, screenshot set, standalone HTML,
+prototype, or current app surface, use `$snapshot` automatically before the final
+response so the request is anchored to current visual evidence. Do not wait for
+the user to ask. If this is a text-only prompt with no accessible visual
+artifact, state that no fresh snapshot was available.
+
 ## Core Rule
 
 Claude can be right or wrong. Ask Claude to document what it sees and recommends, but require every product-level recommendation to be classified:

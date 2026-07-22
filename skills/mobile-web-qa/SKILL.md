@@ -8,8 +8,9 @@ description: Audit and verify responsive web UI across iPhone, Android, tablet, 
 Verify the interface where people actually touch it. Treat mobile QA as layout,
 interaction, browser behavior, and content stress testing together.
 
-Use `$snapshot` when visual evidence will help the user judge the result. Use
-`$release-gate` before commit, push, deploy, PR, or handoff after UI changes.
+Use `$snapshot` automatically for mobile/responsive visual evidence before the
+final response; do not wait for the user to ask. Use `$release-gate` before
+commit, push, deploy, PR, or handoff after UI changes.
 For full-site responsive implementation or QA that involves viewport meta,
 `100vh`/`svh`/`dvh`, iOS/Android browser behavior, WebViews, responsive media,
 zoom, browser engines, or mobile performance, also read

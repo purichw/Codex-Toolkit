@@ -19,7 +19,8 @@ keeping the product contract intact.
 Use `$claude-to-a-tee` when the pressure comes from Claude HTML, `$ui-state-matrix`
 for state coverage, `$interaction-flow-qa` for journeys, `$accessible-interaction`
 for keyboard/focus, `$data-dense-ux` for tables/lists, `$form-flow-ux` for forms,
-`$snapshot` for visual proof, and `$release-gate` before shipping.
+`$snapshot` as mandatory visual contract proof before final response, and
+`$release-gate` before shipping.
 
 ## Contract Types
 
@@ -76,8 +77,8 @@ current contract is unproven, obsolete, or intentionally superseded.
 4. Implement visual changes around preserved contracts where possible.
 5. Add or update focused checks when a preserved contract could disappear
    silently.
-6. Capture `$snapshot` evidence for visible contracts and run `$release-gate`
-   before commit, deploy, PR, or handoff.
+6. Capture `$snapshot` evidence for visible contracts before final response; run
+   `$release-gate` before commit, deploy, PR, or handoff.
 
 ## Verification
 

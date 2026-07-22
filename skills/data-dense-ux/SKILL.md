@@ -10,9 +10,9 @@ repeatedly. Dense UI should be calm, legible, and fast, not decorative.
 
 Use `$admin-ops` for privileged admin operations, `$ledger-logic` for financial
 tables, `$product-ux-contracts` for pagination/scroll/routing contracts,
-`$ui-state-matrix` for empty/loading/error/selected states, `$snapshot` for
-visual proof, `$mobile-web-qa` for responsive compression, and `$release-gate`
-before shipping.
+`$ui-state-matrix` for empty/loading/error/selected states, `$snapshot` as
+mandatory visual proof before final response, `$mobile-web-qa` for responsive
+compression, and `$release-gate` before shipping.
 
 ## Design Rules
 
@@ -36,8 +36,8 @@ before shipping.
 4. Design dense states: loading, empty, no results, error, partial data, selected,
    disabled, permission denied, bulk action, and overflow.
 5. Verify with realistic item counts, long text, and at least one edge record.
-6. Capture `$snapshot` evidence for desktop and mobile/tablet when responsive
-   behavior changes.
+6. Capture `$snapshot` evidence before final response; include desktop and
+   mobile/tablet when responsive behavior changes.
 
 ## Verification
 
