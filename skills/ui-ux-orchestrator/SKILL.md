@@ -1,6 +1,6 @@
 ---
 name: ui-ux-orchestrator
-description: Central router for UI/UX work when the user is unsure which design, UX, visual QA, or interaction skill to call. Use when the user broadly asks to improve, polish, audit, redesign, QA, or make an interface feel right, including Claude/Figma/reference handoffs, implementation planning, visual consistency, product UX preservation, state coverage, flows, accessibility, data-heavy UI, forms, mobile/responsive QA, snapshots, or deciding which UI/UX skills should run together.
+description: Central router for UI/UX work when the user is unsure which design, UX, visual QA, or interaction skill to call. Use when the user broadly asks to improve, polish, audit, redesign, QA, make an interface feel right, choose UI/UX skills, or route design-quality specialists, including Claude/Figma/reference handoffs, implementation planning, visual consistency, product UX preservation, state coverage, flows, accessibility, data-heavy UI, forms, mobile/responsive QA, and snapshots.
 ---
 
 # UI UX Orchestrator
@@ -12,6 +12,8 @@ covers the risk.
 
 ## Routing
 
+- `$ui-ux-expert`: broad design lens for any visible user-facing UI work,
+  including screens, layouts, components, decks, docs, and prototypes.
 - `$design-direction`: north star, visual direction, critique, brand/product
   feel, public vs admin direction, Claude prompts.
 - `$design-quality-review`: shared `[FACT]` / `[CRAFT]` / `[PD]` language,
@@ -70,10 +72,33 @@ covers the risk.
 - `$usage-budget-gate`: choose fast, standard, deep, or release depth before
   broad UI/UX audits, Claude parity, responsive matrices, or release checks.
 
+## Trigger Cues
+
+Use these cues to select focused skills without loading every UI/UX skill:
+
+| User cue or risk | Start with |
+| --- | --- |
+| "UI/UX", visible screen/component, layout, polish, redesign, or prototype | `$ui-ux-expert` |
+| "looks off", cheap, cramped, scattered, generic, heavy, low-trust, unfinished | `$visual-diagnosis` |
+| formal design QA, rule IDs, severity, `[FACT]` / `[CRAFT]` / `[PD]`, 25-item pass | `$design-quality-review` |
+| category feels wrong, admin too roomy, ops too decorative, dashboard/ledger/editorial/learning conventions | `$domain-taste` |
+| navigation confusing, hierarchy unclear, grouping wrong, screen purpose unclear | `$information-architecture-ux` |
+| controls imply behavior, autosave, undo, retry, bulk actions, permissions, destructive safety | `$interaction-design` |
+| mobile feels squeezed, safe areas, keyboard, sheets, gestures, touch ergonomics | `$mobile-native-feel` |
+| tokens, variants, component taxonomy, gallery coverage, drift metrics, governance | `$design-system-architect` |
+| images, hero media, thumbnails, generated assets, crops, focal points, placeholders | `$art-direction-imagery` |
+| type scale, measure, numbers, headings, truncation, multilingual/RTL text | `$typography-refinement` |
+| transitions, loaders, overlays, hover/press feedback, scroll motion, reduced motion | `$motion-choreography` |
+| screen-reader flow, low vision, zoom, forced colors, complex widgets, charts | `$accessibility-beyond-basics` |
+| Claude/Figma/reference vs app, before/after, side-by-side parity defects | `$reference-implementation-critique` |
+| taste practice, works/fails specimens, calibration drill, smallest taste-improving change | `$taste-calibration` |
+
 ## Pick The Smallest Useful Set
 
 Use this decision guide:
 
+- Any visible user-facing UI work? Use `$ui-ux-expert` as the broad lens, then
+  add only the focused skills needed for the risk.
 - Need visual taste or direction? Start with `$design-direction`.
 - Need rule-backed design QA, severity, or a repeatable review protocol? Start
   with `$design-quality-review`, then select a specialist.

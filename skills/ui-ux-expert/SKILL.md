@@ -1,6 +1,6 @@
 ---
 name: ui-ux-expert
-description: Canonical UI/UX Expert skill for designing, auditing, and implementing user-facing screens, layouts, components, decks, documents, and prototypes. Use when working on visual design, interaction design, accessibility, responsive UI, cross-browser/platform responsiveness, design systems, frontend polish, component galleries, layout exemplars, UX flow/state coverage, anti-slop review, brand overrides, or screenshot-based design QA.
+description: Canonical UI/UX Expert skill for designing, auditing, and implementing user-facing screens, layouts, components, decks, documents, and prototypes. Use as the broad design lens for any visible user-facing UI work, including visual design, interaction design, accessibility, responsive UI, cross-browser/platform responsiveness, design systems, frontend polish, component galleries, layout exemplars, UX flow/state coverage, anti-slop review, brand overrides, or screenshot-based design QA.
 ---
 
 # Skill: UI/UX Design Expert

@@ -1,6 +1,6 @@
 ---
 name: reference-implementation-critique
-description: Compare a reference design against an implementation across geometry, rhythm, hierarchy, density, weight, affordance, states, and product decisions.
+description: Compare a reference design against an implementation across geometry, rhythm, hierarchy, density, weight, affordance, states, and product decisions. Use when Claude, Figma, screenshot, static mock, HTML reference, live reference, before/after UI, or production implementation needs measured side-by-side critique or parity defects.
 ---
 
 # Reference Implementation Critique

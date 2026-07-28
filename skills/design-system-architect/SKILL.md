@@ -1,6 +1,6 @@
 ---
 name: design-system-architect
-description: Architect, audit, or repair design-system tokens, component taxonomies, variants, galleries, drift metrics, and token-layer governance.
+description: Architect, audit, or repair design-system tokens, component taxonomies, variants, galleries, drift metrics, and token-layer governance. Use when the design system itself needs structure, token layers, semantic roles, component taxonomy, variant naming, state matrices, gallery coverage, drift metrics, or governance beyond a local component fix.
 ---
 
 # Design System Architect

@@ -1,6 +1,6 @@
 ---
 name: mobile-native-feel
-description: Design or audit mobile UI for safe areas, native controls, touch targets, keyboard behavior, thumb reach, sheets, gestures, and platform feel.
+description: Design or audit mobile UI for safe areas, native controls, touch targets, keyboard behavior, thumb reach, sheets, gestures, and platform feel. Use when mobile web or app UI feels like squeezed desktop, has unsafe insets, hidden keyboard actions, wrong sheet/dialog behavior, weak touch ergonomics, hover-only affordances, or non-native controls.
 ---
 
 # Mobile Native Feel

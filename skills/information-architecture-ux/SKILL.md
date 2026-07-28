@@ -1,6 +1,6 @@
 ---
 name: information-architecture-ux
-description: Structure navigation, grouping, hierarchy, progressive disclosure, screen purpose, and sequencing so user-facing UI is understandable.
+description: Structure navigation, grouping, hierarchy, progressive disclosure, screen purpose, and sequencing so user-facing UI is understandable. Use when users may not know where they are, what the screen is for, what matters first, which action is primary, what comes next, or why content/actions are grouped.
 ---
 
 # Information Architecture UX

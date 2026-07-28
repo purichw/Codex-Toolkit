@@ -1,6 +1,6 @@
 ---
 name: design-quality-review
-description: Apply the shared design-quality rule language, severity model, screenshot QA protocol, calibration library, and definition of done for UI reviews.
+description: Apply the shared design-quality rule language, severity model, screenshot QA protocol, calibration library, and definition of done for UI reviews. Use when Codex needs rigorous UI design QA, rule IDs, [FACT]/[CRAFT]/[PD] tagging, S1/S2/S3 severity, screenshot capture protocol, calibration drills, PR review notes, definition-of-done language, or routing among design-quality specialist skills.
 ---
 
 # Design Quality Review

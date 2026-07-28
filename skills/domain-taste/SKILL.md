@@ -1,6 +1,6 @@
 ---
 name: domain-taste
-description: Choose category-appropriate UI density, hierarchy, controls, and evidence for admin, SaaS ops, dashboards, ledgers, editorial, learning, landing, and mobile screens.
+description: Choose category-appropriate UI density, hierarchy, controls, and evidence for admin, SaaS ops, dashboards, ledgers, editorial, learning, landing, and mobile screens. Use when a screen feels generic, mismatched to its product category, too marketing-like for ops/admin, too sparse for data work, too dense for editorial/learning, or needs category-specific taste calibration.
 ---
 
 # Domain Taste

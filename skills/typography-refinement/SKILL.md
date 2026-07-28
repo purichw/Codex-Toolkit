@@ -1,6 +1,6 @@
 ---
 name: typography-refinement
-description: Refine UI typography for multilingual text, prose measure, numeric data, headings, tables, dashboards, truncation, line-height, and typographic rhythm.
+description: Refine UI typography for multilingual text, prose measure, numeric data, headings, tables, dashboards, truncation, line-height, and typographic rhythm. Use when type hierarchy, measure, line-height, font weights, widows, data precision, tabular numbers, dates, units, truncation, localization, RTL, or multilingual expansion carry the experience.
 ---
 
 # Typography Refinement

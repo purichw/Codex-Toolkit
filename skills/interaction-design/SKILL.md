@@ -1,6 +1,6 @@
 ---
 name: interaction-design
-description: Design and audit real UI interactions such as forms, autosave, undo, bulk actions, optimistic updates, permissions, interruption recovery, and destructive flows.
+description: Design and audit real UI interactions such as forms, autosave, undo, bulk actions, optimistic updates, permissions, interruption recovery, and destructive flows. Use when controls imply behavior, state transitions, feedback, retry, undo, pending, partial failure, permissions, interruption recovery, selection scope, or destructive-action safety.
 ---
 
 # Interaction Design

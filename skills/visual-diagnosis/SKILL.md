@@ -1,6 +1,6 @@
 ---
 name: visual-diagnosis
-description: Diagnose why a rendered UI looks cheap, cramped, scattered, generic, heavy, low-trust, or unfinished using observable visual rules.
+description: Diagnose why a rendered UI looks cheap, cramped, scattered, generic, heavy, low-trust, or unfinished using observable visual rules. Use when the user says a UI looks off, wrong, ugly, AI-made, unpolished, not premium, visually noisy, too empty, too dense, low trust, or hard to critique before editing.
 ---
 
 # Visual Diagnosis

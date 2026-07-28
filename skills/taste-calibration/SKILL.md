@@ -1,6 +1,6 @@
 ---
 name: taste-calibration
-description: Calibrate UI taste with paired works/fails specimens, weekly drills, category comparisons, and smallest-change improvement loops.
+description: Calibrate UI taste with paired works/fails specimens, weekly drills, category comparisons, and smallest-change improvement loops. Use when the user wants to sharpen design taste, compare a screen against category specimens, count fail-column traits, run a calibration drill, or find the single smallest change that improves a UI.
 ---
 
 # Taste Calibration

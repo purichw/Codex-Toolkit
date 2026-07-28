@@ -1,6 +1,6 @@
 ---
 name: motion-choreography
-description: Design, audit, or repair UI motion timing, easing, choreography, loading feedback, overlay transitions, scroll motion, and reduced-motion alternatives.
+description: Design, audit, or repair UI motion timing, easing, choreography, loading feedback, overlay transitions, scroll motion, and reduced-motion alternatives. Use when navigation, overlays, drawers, sheets, loading, hover/press feedback, drag, scroll, state changes, choreography, performance, or reduced-motion behavior needs design or QA.
 ---
 
 # Motion Choreography

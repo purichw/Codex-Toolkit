@@ -1,6 +1,6 @@
 ---
 name: art-direction-imagery
-description: Select, crop, place, and verify UI imagery, thumbnails, hero media, placeholders, loading media, captions, focal points, and asset states.
+description: Select, crop, place, and verify UI imagery, thumbnails, hero media, placeholders, loading media, captions, focal points, and asset states. Use when images, generated assets, video stills, hero media, thumbnails, placeholders, crops, captions, alt behavior, loading states, failure states, or text-over-image contrast affect UI quality.
 ---
 
 # Art Direction Imagery

@@ -1,6 +1,6 @@
 ---
 name: accessibility-beyond-basics
-description: Audit advanced accessibility for screen-reader flow, cognitive load, low vision, complex widgets, data visualization, touch, zoom, and forced-colors behavior.
+description: Audit advanced accessibility for screen-reader flow, cognitive load, low vision, complex widgets, data visualization, touch, zoom, and forced-colors behavior. Use when basic axe or keyboard checks are not enough, especially for charts, dashboards, dense forms, custom widgets, 200/400 percent zoom, forced colors, reduced motion, touch spacing, or screen-reader journey flow.
 ---
 
 # Accessibility Beyond Basics
