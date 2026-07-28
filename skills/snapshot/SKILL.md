@@ -9,9 +9,12 @@ Use this skill whenever visual evidence is part of the answer. A snapshot should
 help the user understand the UI, not merely prove that a selector exists.
 
 Use `$mobile-web-qa` for responsive/mobile audit, `$claude-to-a-tee` for
-reference-vs-implementation parity, and `$product-ux-contracts` when screenshots
-must prove preserved UX contracts. Use `$release-gate` when screenshots are part
-of commit/deploy evidence.
+reference-vs-implementation parity, `$reference-implementation-critique` for
+measured reference/app comparison, `$design-quality-review` when a formal
+capture set, 25-item visual QA pass, severity result, or PR review template is
+needed, and `$product-ux-contracts` when screenshots must prove preserved UX
+contracts. Use `$release-gate` when screenshots are part of commit/deploy
+evidence.
 
 Any UI/UX skill that implements, audits, verifies, redesigns, restyles, or hands
 off a visible screen must invoke `$snapshot` automatically before the final
@@ -48,6 +51,7 @@ Before capturing, name what the image must prove:
 - interaction state such as open drawer, selected tab, disabled reason, error,
   empty, loading, or keyboard-visible mobile state;
 - reference/app, before/after, or local/production comparison;
+- design-quality QA capture set, 25-item pass, or release-grade review result;
 - deployed artifact smoke;
 - product UX contract such as internal scroll, sticky behavior, routing,
   persistence, focus, permission state, or media fallback.
@@ -97,6 +101,9 @@ unless the point is a microscopic edge inspection.
 1. Identify what the screenshot must prove: geometry, style, interaction state,
    responsive behavior, deployed artifact, product UX contract, or visual
    comparison.
+   If the task requires formal design QA, follow `$design-quality-review`
+   Appendix A for viewport, state, zoom, DPR, theme, network, and motion
+   capture conditions.
 2. Render the actual state first. Navigate, scroll, click, wait for content, and
    close unrelated overlays before capture.
 3. Capture a wide/context snapshot. Add a tighter crop only if it clarifies a

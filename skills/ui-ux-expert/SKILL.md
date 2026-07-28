@@ -5,585 +5,215 @@ description: Canonical UI/UX Expert skill for designing, auditing, and implement
 
 # Skill: UI/UX Design Expert
 
-> Load this skill when the task involves designing or building any user-facing
-> interface, screen, layout, component, deck, document, or interactive prototype.
-> It turns you from "an engineer who writes correct markup" into "a designer who
-> ships work with taste, restraint, and craft."
-
-You are not decorating. You are making decisions on behalf of a manager who is
-trusting your judgment. Every element you place is a decision you must be able to
-defend. When in doubt, remove it.
+Load this skill for any user-facing interface, screen, layout, component, deck,
+document, or interactive prototype. Its job is not to decorate output; its job is
+to make Codex act like a disciplined product designer who can implement.
 
 This is the canonical UI/UX Expert skill. It is portable across projects, but it
-is not a universal brand; `global-ui-ux-expert` is only an alias that routes back
-here. When a project has an existing brand, design system, production UI, or
+is not a universal brand. `global-ui-ux-expert` is only an alias that routes
+back here. If a project has an existing brand, design system, production UI, or
 user-provided visual direction, that local context overrides these defaults.
 
----
-
-## 0. The one-paragraph philosophy
-
-Good UI is mostly **subtraction, hierarchy, and behavior**, not addition and
-decoration. The user's goal is the spec: every screen should make one primary
-task obvious and reversible. Commit to one clear aesthetic direction and apply
-it with discipline. Steal structure and tokens from a real design system when
-one exists; invent a small, coherent one when it doesn't. Sweat spacing, type
-scale, alignment, states, and feedback before you touch color or effects. Then
-review your own work like a critic before you call it done.
-
----
-
-## 1. Process — do this in order, every time
-
-1. **Understand the ask and the context.** What is the artifact (web page? mobile
-   screen? slide deck? printable doc? prototype?), who is the audience, what is the
-   one job it must do? Read every file, link, screenshot, design system, or codebase
-   the user provided *before* writing anything. Starting without context is the #1
-   cause of bad output.
-
-2. **Ask before you build when the ask is ambiguous or new.** One focused round of
-   questions beats three rounds of rework. Confirm: the starting point (design
-   system / UI kit / brand / none), audience and tone, scope, and whether they want
-   variations. Skip questions only for small tweaks or when they already gave you
-   everything. If there is no design context at all, *say so* and ask what aesthetic
-   they want — don't silently pick one.
-
-3. **Establish a system up front, out loud.** Before laying out screens, decide:
-   type pairing (1–3 fonts), color roles (1 background tone, 1–2 accents), spacing
-   scale, radius, layout pattern per class of content, core controls, and required
-   states. Write it down. Variety should come from *rhythm within a system*, not
-   from improvising each screen.
-
-4. **Build the smallest thing that proves the design**, then expand. Get one screen
-   truly right before copy-pasting its patterns.
-
-5. **Review before you deliver** (see §10). Then hand off / preview for the user.
-
-Keep a todo list for anything multi-step. Batch your file reads and edits — don't
-read one file, think, read the next; read them all, then act.
-
-For full-site responsive work that involves browser engines, iOS/Android quirks,
-viewport meta, safe areas, mobile keyboard behavior, responsive media, zoom, or
-performance, read `references/responsive-web-design.md` before implementation or
-QA.
-
----
-
-## 2. Commit to an aesthetic direction
-
-Vague, hedged, "clean and modern" design reads as *nothing*. Pick a lane and lean
-in. Some directions to choose deliberately among:
-
-- **Refined / editorial** — generous whitespace, strong type hierarchy, restrained
-  color, considered detail.
-- **Brutalist / raw** — visible structure, mono type, hard edges, high contrast.
-- **Warm / humanist** — soft neutrals, rounded but not bubbly, friendly type.
-- **Technical / dense** — data-forward, tight grids, functional color coding.
-- **Playful** — only if the brand truly earns it; still needs discipline.
-
-Whatever you pick, every screen should feel like it came from the same studio on
-the same day.
-
----
-
-## 3. UX behavior rules (memorize these)
-
-- **Recognition over recall:** show choices, labels, current state, and visible
-  modes; avoid icon-only controls unless the symbol is universal.
-- **Forgiveness by default:** destructive actions are confirmed; other actions are
-  undoable, reversible, or clearly recoverable.
-- **Fitts and Hick apply:** frequent actions are larger/closer; too many choices
-  should be grouped, collapsed, staged, or given a sensible default.
-- **Feedback within 100ms:** input must visibly respond through press, selected,
-  loading, skeleton, optimistic, or inline feedback.
-- **Match control to choice:** toggle = instant on/off; radio/segmented = one of a
-  few; checkbox = multi-select; select/menu = many.
-- **Progressive disclosure and orientation:** show the essential path first, reveal
-  rare options on demand, mark current location, and provide a clear back path.
-- **Prevent errors before catching them:** constrain impossible input, disable
-  impossible actions with a reason, and keep user-entered data on error.
-
----
-
-## 4. Anti-slop rules (memorize these)
-
-These are the tells of thoughtless AI-generated UI. Avoid them unless a real brand
-explicitly calls for them:
-
-- ❌ Aggressive/rainbow gradient backgrounds and gradient text.
-- ❌ Emoji as UI/iconography (unless the brand genuinely uses them).
-- ❌ Rounded card + thick left-border accent stripe — the default "AI card."
-- ❌ Overused fonts as a crutch: Inter, Roboto, Arial everywhere; Fraunces for
-  "fancy." Choose type intentionally.
-- ❌ Data slop: decorative stat counters, meaningless icons next to every list item,
-  fake percentages, charts with invented data.
-- ❌ Filler content: placeholder sections that exist to fill space. An empty-feeling
-  section is a layout problem, not a reason to add words.
-- ❌ Hand-drawn complex SVG illustrations. Use tasteful placeholders instead (see §8).
-- ❌ Purple-to-blue "tech startup" gradient + glassmorphism as a reflex.
-- ❌ Centering everything. Deliberate left-alignment and a real grid read as more
-  designed than timid centering.
-
-**One thousand no's for every yes.** Less is more. Bias to minimalism.
-
----
-
-## 5. Typography — the highest-leverage lever
-
-- **1–3 fonts total.** Typically one display/heading and one text face; a mono
-  optionally for labels/code.
-- Establish a **modular type scale** (e.g. ~1.2–1.33 ratio) and stick to it. Don't
-  pick arbitrary px sizes per element.
-- **Hierarchy comes from size, weight, and spacing — not color.** A page should be
-  legible in grayscale.
-- Set generous line-height for body (1.4–1.6), tight for large headings (1.0–1.15).
-- Constrain measure: ~60–75 characters per line for body text.
-- Use `text-wrap: pretty` / `balance` where supported.
-- **Minimum sizes:** slide text never below 24px (ideally far larger) at 1920×1080;
-  print docs ≥ 12pt; mobile touch targets ≥ 44px.
-- Respect the brand's type if one exists. If not, choose a pairing with a clear
-  personality — not the default sans.
-
----
-
-## 6. Color — restraint wins
-
-- Start from the **brand or design-system palette** if you have one.
-- If not: pick a background *tone* (warm / cool / neutral). Use subtly-tinted
-  whites and blacks — avoid pure `#fff`/`#000` and avoid saturation > ~0.02 on your
-  "whites." A hint of warmth or cool reads as intentional.
-- **0–2 accent colors.** Keep them at the same lightness and chroma, varying only
-  hue (OKLCH makes this easy: fix L and C, rotate H). Don't invent a rainbow.
-- Assign colors to *roles* (background, surface, text, muted text, border, accent,
-  danger/success) — not to individual elements ad hoc.
-- Check contrast: body text should clear WCAG AA (4.5:1); large text 3:1.
-- Never introduce a new color when an existing role already covers the need.
-- Always define default `a` and `a:hover` colors from the palette, even before there
-  are links — undefined links render browser-default blue and look broken.
-- Give default / hover / active / focus / disabled / selected states distinct,
-  consistent treatments. Do not convey state by color alone.
-
----
-
-## 7. Layout & spacing — where "designed" is won or lost
-
-- **Use a spacing scale** (e.g. 4 / 8 / 12 / 16 / 24 / 32 / 48 / 64) and use only
-  values on it. Random one-off margins are the fastest way to look amateur.
-- **Prefer flex/grid with `gap`** over inline flow or per-element margins for any
-  group of siblings (buttons, chips, nav, cards, toolbars). It's more robust and
-  reads as more intentional.
-- **Group with proximity before lines.** Related things sit close; unrelated things
-  get whitespace. Dividers are a fallback, not a reflex.
-- Establish a **grid** and align to it. Consistent alignment > decoration.
-- Give content **room to breathe** — whitespace is a feature, not wasted space.
-- Establish a clear **visual hierarchy**: one primary focus per screen, secondary
-  and tertiary elements clearly subordinate.
-- Use **full-bleed** and large scale deliberately when imagery or a hero is the
-  point; use tight, dense grids when data is the point. Vary rhythm across a deck or
-  a long page so it doesn't feel monotonous — but within one system.
-- Consistent border radius and shadow language. Pick a shadow philosophy (flat / one
-  soft elevation / layered) and hold to it.
-
----
-
-## 8. Imagery, icons, and placeholders
-
-- **Never hand-draw complex SVG illustrations.** For images you don't have, use a
-  clean placeholder: a subtly-striped or flat-toned box with a short monospace label
-  saying what belongs there (e.g. `product shot`, `founder portrait`). This looks
-  intentional and tells the user exactly what to drop in.
-- Use a real, consistent **icon set** (one family, one weight). Don't mix icon
-  styles. Don't sprinkle icons decoratively.
-- Ask the user for real assets (logos, photos, copy) rather than inventing them.
-
----
-
-## 9. Content & copy
-
-- **Every element earns its place.** No lorem ipsum in a final deliverable; write
-  real, specific, tight copy — or ask the user for it.
-- Don't pad. If a section feels empty, fix the layout, don't add words.
-- **Ask before adding material** (extra sections, pages, features). The user knows
-  their audience; don't scope-creep unprompted. Finish what they asked, then suggest.
-- Match the brand's voice: tone, capitalization, punctuation, density.
-- Write like a person, often in the second person: "Pick up where you left off,"
-  not "Resume last session."
-- Buttons name the action and object: "Save changes," "Add member," "Delete unit."
-  Avoid "Submit," "OK," "Yes," and "Click here."
-- Errors say what happened and how to fix it. No blame, no jargon, no dead ends.
-- Microcopy matters: button labels, empty states, error messages, and helper text
-  are part of the design, not afterthoughts.
-
----
-
-## 10. Self-review before you ship (the critic pass)
-
-Before declaring anything done, look at your own work as a harsh critic and check:
-
-- [ ] Does it read cleanly in grayscale? (Hierarchy shouldn't depend on color.)
-- [ ] Is every spacing value on the scale? Any random margins?
-- [ ] Is everything aligned to the grid? Any 1px drift?
-- [ ] Is the type scale consistent? Any orphan font sizes/weights?
-- [ ] More than 2 accent colors? More than 3 fonts? Kill the extras.
-- [ ] Any anti-slop tells from §4 present?
-- [ ] Any element I couldn't justify? Delete it.
-- [ ] Does it actually do its one job at a glance?
-- [ ] Ideal, empty, loading, error, and edge states are designed for data-bearing views?
-- [ ] Feedback appears within 100ms? Controls match the choice? Dangerous actions safe?
-- [ ] Console clean? Responsive at the target sizes? Touch targets ≥ 44px?
-- [ ] Real content, no placeholder text left in a final?
-
-Actually render it and *look at it* (screenshot / preview). Don't ship from
-imagination. Fix, then look again.
-
-After any UI/UX implementation, redesign, restyle, visual audit, responsive pass,
-component/state check, deck/doc/prototype visual work, or screenshot-based QA,
-use `$snapshot` automatically before the final response. Capture at least one
-current wide/context image of the final rendered state; add mobile or
-side-by-side evidence when responsive, reference, or before/after work is in
-scope. If a snapshot cannot be captured, disclose why and what visual risk
-remains.
-
----
-
-## 11. Scoping edits — don't redecorate uninvited
-
-- For a **small, targeted request** (change some text, one color, one element),
-  change *only that*. Don't "improve" spacing, fonts, layout, or colors you weren't
-  asked about. Prefer surgical edits over rewrites.
-- A **redesign / new direction / from-scratch** request is different — then make the
-  substantial changes.
-- When you think a broader change would help a small ask, do the small thing and
-  *suggest* the rest. Don't apply it unprompted.
-- When extending an existing UI, learn its vocabulary first: copy style, palette,
-  hover/active states, animation, shadow/card/layout patterns, density — then match
-  it.
-
----
-
-## 12. Medium-specific notes
-
-- **Slide decks:** design for projection. Huge type, one idea per slide, strong
-  section dividers, max 1–2 background colors across the deck, deliberate layout per
-  slide class (title / section / content / image). Never a wall of small text.
-- **Printable docs:** design for paper. Real margins, ≥12pt body, sensible page
-  breaks, consistent running heads. Let the page size the content.
-- **Fixed-size canvases** (poster, social post, banner): set an explicit pixel size
-  up front; ask the user for dimensions if unclear.
-- **Interactive prototypes:** make the core interaction actually work; fake the rest
-  convincingly. Persist meaningful state (e.g. playback position, form progress) so a
-  reload doesn't feel broken. Design ideal / empty / loading / error / edge states,
-  not just the happy path.
-- **Mobile:** real device constraints — 44px targets, thumb reach, safe areas.
-
----
-
-## 13. Working economically & cleanly
-
-- Write compact, canonical HTML/CSS: close every non-void element, double-quote
-  attributes, no banner comments, no narrating markup.
-- Plan a file before writing it so it lands right in one pass, not write-then-fix.
-- Prefer targeted edits over full rewrites; don't re-print unchanged files.
-- Comment only where genuinely non-obvious.
-
----
-
-## TL;DR checklist to keep in view
-
-**System first** (type, color, spacing, grid) → **subtract ruthlessly** → **align
-everything** → **restrain color** → **no slop tells** → **real content** →
-**five states + flow feedback** → **self-review as a critic** → **render and look**
-→ **snapshot evidence** → **ship, then suggest more.**
-
----
-
-# APPENDIX — The autonomous playbook
-
-Everything above is judgment. This appendix is *defaults* — copy them when you
-have no better information, so you can move without asking. Deviate deliberately,
-never by accident.
-
-## A. Copy-paste design tokens (a safe, tasteful default system)
-
-Use these verbatim when the user gives no brand. They are deliberately restrained.
-
-```css
-:root {
-  /* Neutrals — warm-tinted, never pure black/white */
-  --bg:        #faf9f6;   /* app background */
-  --surface:   #ffffff;   /* cards */
-  --ink:       #1a1917;   /* primary text (not #000) */
-  --muted:     #6b6a66;   /* secondary text */
-  --faint:     #9a998f;   /* tertiary / captions */
-  --border:    #e7e5df;   /* hairlines */
-  /* One accent — swap the hue only */
-  --accent:    oklch(0.55 0.13 250);   /* pick ONE hue: 250 blue, 150 green, 25 red-orange, 300 violet */
-  --accent-ink:#ffffff;                /* text on accent */
-  /* Feedback (use sparingly, only when semantically needed) */
-  --success:   oklch(0.60 0.13 150);
-  --danger:    oklch(0.58 0.15 25);
-
-  /* Spacing scale — use ONLY these */
-  --s1:4px; --s2:8px; --s3:12px; --s4:16px; --s5:24px; --s6:32px; --s7:48px; --s8:64px; --s9:96px;
-
-  /* Type scale (1.25 ratio) */
-  --t-xs:12px; --t-sm:14px; --t-base:16px; --t-lg:20px; --t-xl:25px; --t-2xl:31px; --t-3xl:39px; --t-4xl:49px;
-
-  /* Radius & elevation — pick one philosophy and hold it */
-  --radius:10px;
-  --shadow-sm:0 1px 2px rgba(20,18,15,.06);
-  --shadow-md:0 6px 24px -8px rgba(20,18,15,.14);
-}
-```
-
-To restyle for a different mood, change **only** the accent hue and, if needed,
-warm↔cool the neutrals (shift the neutral hue, keep chroma ≤ 0.02). Don't touch the
-scales.
-
-## B. Font pairings that aren't slop (Google Fonts, pick ONE row)
-
-| Mood | Display / Heading | Body / Text |
-|---|---|---|
-| Editorial refined | Fraunces *(sparingly)* or Newsreader | Source Serif / system sans |
-| Modern neutral | Space Grotesk | IBM Plex Sans |
-| Warm humanist | Bricolage Grotesque | Hanken Grotesk |
-| Technical / dense | IBM Plex Mono (labels) | IBM Plex Sans |
-| Confident sans | Archivo / Anton (display only) | Inter Tight |
-
-Rule: exactly one personality font, paired with one workhorse. If unsure, a single
-well-set grotesk across the board beats a bad pairing.
-
-## C. Decision trees (resolve common forks without asking)
-
-- **How wide is body content?** → 60–75ch measure → `max-width: 68ch` for prose,
-  `max-width: 1100–1280px` for app shells.
-- **Card or no card?** → Cards only when items are independent objects you act on.
-  For a reading flow, use whitespace + hairline dividers, not boxes.
-- **Border vs shadow vs fill to separate?** → Prefer whitespace first, then a 1px
-  `--border`, then a single soft shadow. Never all three at once.
-- **How many nav items before it's a menu?** → ≤5 inline; more → group or collapse.
-- **Icon or label?** → Label unless the icon is universally understood (search,
-  close, menu, back). If icon-only, add an accessible label.
-- **Empty section?** → It's a layout problem. Merge, resize, or cut — don't add filler.
-- **Need a chart?** → Only with real data. No data → a labeled placeholder, not a
-  fake chart.
-
-## D. Worked before → after (calibrate your eye)
-
-**Buttons**
-- ❌ `<button style="background:linear-gradient(90deg,#7c3aed,#2563eb);border-radius:9999px;box-shadow:0 10px 30px #7c3aed88">✨ Get Started</button>`
-- ✅ `<button style="background:var(--accent);color:var(--accent-ink);border:0;border-radius:var(--radius);padding:var(--s3) var(--s5);font-weight:600;font-size:var(--t-base)">Get started</button>`
-- Why: no gradient, no pill-by-default, no emoji, no glow shadow, sentence case,
-  spacing on the scale.
-
-**Card**
-- ❌ Rounded card with a thick colored left border and an emoji in a colored circle.
-- ✅ `background:var(--surface); border:1px solid var(--border); border-radius:var(--radius); padding:var(--s5); box-shadow:var(--shadow-sm);` — hierarchy from a bold title + muted meta, not from a stripe.
-
-**Section heading**
-- ❌ Centered, gradient text, 3 sizes bigger than everything with no supporting copy.
-- ✅ Left-aligned `--t-2xl` bold + a `--muted` `--t-base` subhead, generous `--s7`
-  space above. Hierarchy from size/weight/space, not effects.
-
-## E. Layout starting points (reach for these, don't reinvent)
-
-- **App shell:** left sidebar (240–280px, `--surface`, `--border` right edge) +
-  main content max-width'd and centered with `--s7` padding.
-- **Marketing hero:** left-aligned headline (`--t-4xl`), one-line `--muted` subhead,
-  one primary + one ghost button, image/placeholder to the right on a 12-col grid.
-- **Content page:** single column, `68ch`, `--s6`–`--s7` between sections, hairline
-  dividers, no cards.
-- **Dashboard:** 12-col grid, `--s5` gap, cards only for distinct metrics/objects,
-  numbers big and in `--ink`, labels in `--muted`.
-- **Form:** single column, labels above inputs, `--s4` between fields, group related
-  fields with `--s6`, primary action bottom-left or full-width on mobile.
-
-## F. Interaction & state defaults
-
-- Every interactive element gets a visible **hover**, **focus-visible** (never remove
-  the focus ring — restyle it: `outline:2px solid var(--accent); outline-offset:2px`),
-  and **active** state.
-- Transitions: `transition: 150ms ease` on color/background/transform. Nothing
-  slower than ~250ms for UI feedback. No bounce/spring on utilitarian controls.
-- Feedback within 100ms. Silence reads as broken.
-- Design the **five states of every data-bearing view**: ideal, empty, loading,
-  error, and partial/edge. The happy path alone is a half-finished design.
-- Empty states teach what belongs there and how to start. Errors explain what
-  happened and the way out. Loading states preserve layout with skeletons when the
-  content shape is known.
-- Disabled ≠ invisible: reduce opacity to ~0.5 and set `cursor:not-allowed`, keep it
-  readable.
-
-## G. Accessibility floor (non-negotiable)
-
-- Contrast: body ≥ 4.5:1, large text/UI ≥ 3:1. Check the accent-on-white and
-  text-on-accent pairs specifically.
-- Semantic HTML: real `<button>`, `<nav>`, `<h1>`–`<h3>` in order, `<label>` tied to
-  inputs, `alt` on images.
-- Keyboard: everything reachable and operable; visible focus; logical tab order.
-- Don't encode meaning in color alone (add text/icon/shape).
-- Respect `prefers-reduced-motion` for anything that moves.
-
-## H. Failure recovery — when your output looks "off"
-
-If a render looks amateur but you can't name why, run this triage in order:
-
-1. **Too busy?** Remove the 3 least-necessary elements. Re-look.
-2. **Flat / no hierarchy?** Increase the size/weight gap between primary and
-   secondary text; add whitespace above the primary thing.
-3. **Cramped?** Every gap up one step on the scale; widen padding before anything else.
-4. **Misaligned / drifting?** Put it on a grid; make edges share axes.
-5. **Garish?** Drop to one accent; desaturate neutrals; delete gradients/shadows.
-6. **Cheap type?** Change the pairing (§B); fix line-height and measure.
-7. Still off → screenshot it, compare against §D, and name the specific slop tell.
-
-## I. Autonomy contract (so Codex knows when it MAY proceed alone)
-
-- **Proceed without asking** when: the ask is concrete, or you can fill gaps from
-  these defaults, or it's a small/mechanical edit.
-- **Ask ONE focused round first** when: there's no design context and no defaults
-  fit, the audience/tone is unknowable, or the request is large and open-ended.
-- **Never** invent brand facts, real data, legal/medical copy, or scope beyond the
-  ask. Placeholder + label instead, and flag it.
-- Always end by **rendering, running the §10 critic pass, then the §H triage** before
-  claiming done. Ship, then suggest improvements — don't apply them uninvited.
-
----
-
-# ENCYCLOPEDIA — reference library
-
-Look these up mid-build. Each entry is a concrete spec, not a principle. Values
-assume the tokens in §A.
-
-## J. Component specs (build from these, don't guess)
-
-**Button hierarchy** — exactly three levels, no more:
-- *Primary:* `background:var(--accent); color:var(--accent-ink); border:0`. One per view.
-- *Secondary:* `background:transparent; color:var(--ink); border:1px solid var(--border)`.
-- *Ghost/tertiary:* `background:transparent; color:var(--muted); border:0`. For low-stakes actions.
-- All: `padding:var(--s3) var(--s5); border-radius:var(--radius); font-weight:600; font-size:var(--t-base); line-height:1`. Icon+label gap `var(--s2)`. Min height 40px (44px touch).
-
-**Text input** — `padding:var(--s3) var(--s4); border:1px solid var(--border); border-radius:var(--radius); background:var(--surface); font-size:var(--t-base)`. Label above in `--t-sm --muted`. Focus: `border-color:var(--accent); outline:2px solid color-mix(in oklch, var(--accent) 25%, transparent)`. Error: `border-color:var(--danger)` + `--t-xs --danger` message below. Placeholder is a hint, never a label substitute.
-
-**Select / dropdown** — same box as input + chevron. Menu: `--surface`, `--shadow-md`, `--radius`, `4px` item padding-y, hover `background:color-mix(in oklch, var(--ink) 5%, transparent)`, selected in `--accent`. Max height ~320px then scroll.
-
-**Checkbox / radio** — 18–20px box, `--border` unchecked, `--accent` fill checked, `--s3` gap to label, entire label clickable.
-
-**Toggle/switch** — track 44×24, knob 20px, `--border`→`--accent` on. Use for instant on/off state, *not* for form submission choices (use radio there).
-
-**Card** — `background:var(--surface); border:1px solid var(--border); border-radius:var(--radius); padding:var(--s5)`. Optional `--shadow-sm`. Border OR shadow, not both heavy. Hoverable card: add `transition:150ms; :hover{border-color:var(--accent); box-shadow:var(--shadow-md)}`.
-
-**Modal / dialog** — overlay `rgba(20,18,15,.45)`; panel `--surface`, `--radius` (or larger, 16px), `--shadow-md`, `max-width:min(92vw,520px)`, `padding:var(--s6)`. Title `--t-xl` bold, close top-right, actions bottom-right (primary rightmost). Trap focus; `Esc` closes; scroll-lock the body.
-
-**Tooltip** — `--ink` bg, `--bg` text, `--t-xs`, `padding:6px 8px`, `radius:6px`, small delay (~300ms), never for essential info.
-
-**Toast** — bottom or top-right, `--surface`, `--shadow-md`, `--border`, auto-dismiss ~4s, max ~3 stacked, one line + optional action. Success/error tint via a 3px accent bar or a small colored icon — not a full colored background.
-
-**Tabs** — labels in a row, `--s5` gap, active gets `--ink` + a 2px `--accent` underline; inactive `--muted`. Underline animates. Panel below with `--s5` top padding.
-
-**Table** — header `--t-sm --muted` uppercase-optional, `--s3` cell padding, rows separated by `1px --border` (no vertical lines, no zebra unless very dense). Right-align numbers, tabular-nums. Sticky header for long tables.
-
-**Badge / chip** — `--t-xs`, `padding:2px 10px`, `radius:9999px` OK *here*, subtle fill `color-mix(in oklch, var(--accent) 12%, transparent)` + `--accent` text. Status chips use success/danger the same muted way.
-
-**Avatar** — circle, `--border` ring optional, initials fallback on a muted neutral, never a random bright color.
-
-**Pagination** — prev/next + current context ("12–24 of 340"); numbered pages only when ≤ ~7. Current page in `--accent`.
-
-**Nav bar** — `--surface`/`--bg`, `--border` bottom, `56–64px` tall, logo left, actions right, `--s5` item gap. Sticky OK; add a subtle shadow only once scrolled.
-
-**Progress / skeleton** — skeletons for loading (animated `--border`↔`--bg` shimmer), determinate bar for known progress, spinner only for short indeterminate waits.
-
-## K. Motion & animation
-
-- **Purpose only:** motion should explain a change (enter/exit, expand, reorder), not decorate.
-- Durations: micro-feedback 100–150ms; UI transitions 120–240ms; enter/exit
-  200–300ms; large/page transitions ≤ 400ms.
-- Easing: `ease-out` for entrances (fast→settle), `ease-in` for exits, `ease-in-out` for moves. Avoid `linear` except spinners/marquees.
-- Animate cheap properties: `transform` and `opacity`. Avoid animating `width/height/top/left` (layout thrash) — use `transform:scale/translate`.
-- Stagger lists by ~30–50ms for a polished cascade; don't overdo it.
-- Springs/bounce only for playful brands; never on utilitarian controls.
-- Always honor `@media (prefers-reduced-motion: reduce)` → drop to instant/opacity-only.
-- Never block user action on animation.
-
-## L. Responsive & breakpoints
-
-- Reference breakpoints: `480` (phone), `768` (tablet), `1024` (small laptop), `1280` (desktop), `1536` (wide).
-- **Mobile-first:** design the narrow layout, then enhance up. It forces prioritization.
-- Fluid over fixed: `clamp()` for type (`font-size:clamp(1.75rem,4vw,3rem)`) and spacing; `%`/`fr`/`minmax` for grids; `min(92vw, 1200px)` for containers.
-- Collapse multi-column → single column below ~768. Sidebar → drawer/bottom-tab on mobile.
-- Touch: ≥44px targets, ≥8px between them, no hover-only affordances on touch.
-- Test at 360, 768, 1280, 1440 minimum.
-- When responsiveness depends on platform/browser behavior, read
-  `references/responsive-web-design.md` and verify viewport/layout, OS/platform,
-  browser engine, input model, media, accessibility zoom, and mobile performance
-  together.
-
-## M. Data visualization
-
-- Chart type by intent: **bar** = compare categories; **line** = trend over time; **area** = cumulative trend; **scatter** = correlation; **single stat/BAN** = one number that matters. Avoid pie beyond 2–3 slices; never 3D or donuts-with-many-slices.
-- Ink-to-data: kill chartjunk — no gridline clutter, no heavy borders, no drop shadows on bars. Light `--border` gridlines, direct labels over legends when possible.
-- One accent for the primary series; neutrals for context. Sequential/qualitative palettes only when categories demand it; keep chroma consistent.
-- Always: axis labels, units, a title stating the takeaway, and a source. Start bar-chart y-axis at zero.
-- Never fabricate data. No real data → labeled placeholder describing the chart.
-
-## N. Forms & validation
-
-- One column. Labels above fields. Logical grouping with `--s6` between groups, `--s4` within.
-- Ask for the minimum; mark *optional*, not required (or mark required consistently with `*`).
-- Validate on blur, not on every keystroke; show success inline for slow-to-fill fields.
-- Errors: specific and next to the field ("Enter a valid email", not "Invalid input"). Summarize at top for long forms. Keep entered data on error.
-- Primary submit is unmistakable; disable + show progress during submit; confirm success clearly.
-- Sensible `type`/`inputmode`/`autocomplete` on every field.
-- Do not clear a form on error.
-
-## O. Microcopy patterns
-
-- **Buttons:** verb + object, sentence case ("Save changes", "Add member"). Not "Submit", "OK", "Click here".
-- **Empty states:** one line explaining what goes here + one action. Encouraging, not apologetic.
-- **Errors:** what happened + how to fix, plain language, no codes/blame ("We couldn't reach the server. Try again.").
-- **Confirmations:** name the consequence ("Delete 3 files? This can't be undone.") — destructive action in `--danger`, cancel is the safe default.
-- **Tone:** clear > clever. Consistent capitalization and terminology (don't call it "profile" here and "account" there).
-
-## P. Do / Don't quick table
-
-| Area | ✅ Do | ❌ Don't |
-|---|---|---|
-| Color | 1 bg tone + 1–2 accents by role | Rainbow, per-element colors |
-| Type | 1–3 fonts, one scale | Random px, 5 weights |
-| Space | Values on the scale, `gap` | Ad-hoc margins, inline spacing |
-| Depth | Border OR one soft shadow | Border + shadow + gradient |
-| Icons | One family, meaningful | Mixed sets, decorative sprinkles |
-| Shape | One radius everywhere | Pills + sharp + rounded mixed |
-| Content | Real, specific, tight | Lorem, filler sections |
-| Emphasis | Size/weight/space | Color-only, ALL CAPS everywhere |
-| Motion | Purposeful, ≤300ms | Bouncy decoration, slow fades |
-| States | Empty/loading/error/data | Happy path only |
-
-## Q. Glossary (shared vocabulary)
-
-- **Affordance** — a visual cue that signals how to use something (a button *looks* pressable).
-- **Hierarchy** — the ordering of importance via size, weight, color, position, space.
-- **Measure** — line length of text (target 60–75 characters).
-- **Modular scale** — sizes derived from a ratio (1.2/1.25/1.333) rather than picked ad hoc.
-- **Rhythm** — repeated, consistent spacing/sizing that makes a layout feel composed.
-- **Whitespace / negative space** — empty area; a design tool, not wasted room.
-- **Optical alignment** — aligning by how it *looks*, not just by pixel box edges.
-- **Contrast ratio** — legibility measure of text vs background (AA: 4.5:1 body).
-- **BAN** — "Big-Ass Number": one headline metric shown huge.
-- **Chartjunk** — non-data ink that clutters a visualization.
-- **Skeleton** — grey placeholder shapes shown while content loads.
-- **Focus ring** — the visible outline on keyboard-focused elements (never remove — restyle).
-- **Slop** — thoughtless generated-UI tells (see §4); the thing this skill exists to prevent.
-
-## R. Reference cheat sheet (memorize)
-
-```
-FONTS 1–3   ·   ACCENTS 0–2   ·   BG TONES 1
-SPACE 4·8·12·16·24·32·48·64·96
-TYPE 12·14·16·20·25·31·39·49  (×1.25)
-MEASURE 60–75ch   ·   TOUCH ≥44px   ·   BODY CONTRAST ≥4.5:1
-RADIUS one value   ·   SHADOW one philosophy
-MOTION 150ms feedback / 250ms transition, ease-out in
-STATES ideal·empty·loading·error·edge for every data view
-SLIDES ≥24px   ·   PRINT ≥12pt
-```
+## Operating Principle
+
+Good UI is mostly subtraction, hierarchy, behavior, and verification. The user's
+goal is the spec: every screen should make one primary task obvious, reversible,
+and trustworthy. Establish a small system, build the smallest surface that proves
+it, render the result, critique it from screenshots, and fix what still feels
+off before calling it done.
+
+## Process
+
+1. **Read context first.** Inspect the ask, existing files, screenshots, design
+   system, brand rules, production UI, and target audience before writing UI.
+2. **Ask once only when needed.** Ask a focused question when the task is broad,
+   has no design context, no defaults fit, or the audience/tone is unknowable.
+   For small or concrete work, proceed.
+3. **Choose the source of truth.** Prefer project brand/design system/production
+   UI. If absent, use `tokens.css` and the references listed below.
+4. **Establish the system.** Decide type, color roles, spacing scale, radius,
+   layout pattern, control vocabulary, state coverage, and responsive behavior
+   before laying out screens.
+5. **Build one surface well.** Make the smallest screen/component/flow correct
+   before duplicating patterns.
+6. **Design behavior with visuals.** Cover feedback, loading, errors, disabled
+   states, focus, destructive safety, persistence, and responsive compression.
+7. **Render and inspect.** Use a real browser/app/deck/doc preview whenever
+   possible. Do not ship from imagination.
+8. **Capture `$snapshot` evidence automatically.** Before the final response,
+   capture wide/current visual evidence. Add mobile or side-by-side reference /
+   before / after evidence when responsive, parity, or comparison work is in
+   scope. If capture is blocked, disclose why and what visual risk remains.
+
+## Reference Routing
+
+Read these only when the task needs them:
+
+- `tokens.css`: default fallback design system. Copy it only when no local brand,
+  design system, production UI, or user-provided visual direction exists.
+- `references/token-map.md`: token roles and hard token-use rules.
+- `references/craft-defaults.md`: typography, color, spacing, motion, forms,
+  microcopy, data-viz, accessibility, failure recovery, and cheat-sheet defaults.
+- `references/components.md`: component specs and state requirements; read before
+  building reusable controls or a component gallery.
+- `references/layouts.md`: app shell, dashboard, form, content page, and hero
+  exemplars; read before building a new screen layout.
+- `references/responsive-web-design.md`: read before full-site responsive work,
+  mobile QA, platform/browser engine checks, viewport meta, safe areas, keyboard,
+  responsive media, zoom, or performance work.
+- `references/anti-slop-examples.md`: read when a render looks generic, AI-made,
+  too decorative, or hard to diagnose.
+- `references/qa-checklist.md`: read before claiming visual work is complete when
+  screenshots or DOM reads can verify the result.
+- `$design-quality-review`: read when the user asks for a rigorous design review,
+  severity-tagged visual QA, screenshot protocol, rule IDs, or definition of
+  done. It routes to specialist skills for visual diagnosis, domain taste,
+  information architecture, interaction design, mobile-native feel, design-system
+  architecture, art direction, typography, motion, advanced accessibility,
+  reference critique, and taste calibration.
+- `references/brand-override.template.md`: copy into a branded project when the
+  user provides brand assets or a brand source of truth.
+- `references/claude-design-learning-brief.md`: gaps this skill still has and a
+  prompt outline for asking Claude Design to teach or improve those areas.
+- `assets/component-gallery.html`: optional local test bench for default tokens
+  and components. Do not copy it into user projects unless explicitly asked.
+
+## Design System Precedence
+
+Use this order:
+
+1. User-provided visual direction, screenshot, Figma, Claude Design artifact, or
+   brand guide.
+2. Existing production UI and local project design system.
+3. Project-specific skill or maintainer instructions.
+4. `ui-ux-expert` defaults: `tokens.css` plus references.
+
+Never invent brand facts, real data, logos, testimonials, legal/medical copy, or
+metrics. Use labeled placeholders and mark unknowns instead.
+
+## Aesthetic Direction
+
+Pick a lane deliberately. Vague "clean and modern" usually reads as nothing.
+Choose one direction, then apply it consistently:
+
+- refined/editorial;
+- brutalist/raw;
+- warm/humanist;
+- technical/dense;
+- playful, only when the product earns it.
+
+Public/marketing/editorial surfaces can be more expressive. Admin, CMS, CRM,
+ledger, dashboard, and operator surfaces should be quiet, dense, predictable,
+and optimized for repeated work.
+
+## UX Behavior Rules
+
+- Show choices, labels, current state, and visible modes.
+- Use the correct control: toggle for instant on/off, radio/segmented for one of
+  a few, checkbox for multi-select, select/menu for many.
+- Provide feedback within 100ms through press, selected, loading, optimistic, or
+  inline response.
+- Make destructive actions confirmed, undoable, reversible, or clearly
+  recoverable.
+- Constrain impossible input, disable impossible actions with a reason, and keep
+  user-entered data on errors.
+- Orient the user with current location, clear back paths, and progressive
+  disclosure for rare options.
+
+## Anti-Slop Rules
+
+Avoid these unless a real brand explicitly requires them:
+
+- aggressive rainbow gradients or gradient text;
+- emoji as UI/iconography;
+- rounded card plus thick left-border accent stripe;
+- default font reflexes without intent;
+- decorative stat counters, fake percentages, or invented chart data;
+- filler sections or placeholder prose in final output;
+- complex hand-drawn SVG illustrations where real images or labeled
+  placeholders would be better;
+- purple/blue glassmorphism as a reflex;
+- centering everything instead of using a real grid.
+
+When a render looks off and you cannot name why, read
+`references/anti-slop-examples.md`, use `$visual-diagnosis` when available, and
+run the failure recovery section in `references/craft-defaults.md`.
+
+## Craft Rules
+
+Use `references/craft-defaults.md` for detailed values. Keep these core rules in
+working memory:
+
+- 1-3 fonts total; one display/personality face plus one workhorse is usually
+  enough.
+- 0-2 accent colors; assign colors by role, not by decoration.
+- Hierarchy comes from size, weight, position, and spacing, not color alone.
+- Use spacing and type scales; avoid arbitrary one-off px values.
+- Prefer grid/flex with `gap` for sibling groups.
+- Cards are for independent objects users can inspect or act on; reading flows
+  usually need whitespace and dividers instead.
+- Use real assets where possible. Missing assets get labeled placeholders, not
+  invented logos, stock-gradient panels, or fake screenshots.
+- Every interactive element needs default, hover, focus-visible, active, and
+  disabled states; inputs/data views also need loading/error/empty/edge states.
+- Accessibility floor: semantic controls, labels, visible focus, keyboard path,
+  contrast, touch target size, no color-only meaning, reduced-motion support.
+
+## Medium Notes
+
+- **Web/app screens:** verify in browser, check console/network, responsive
+  layout, state coverage, and snapshot evidence.
+- **Slide decks:** design for projection; one idea per slide, large type, strong
+  section rhythm, no walls of small text.
+- **Documents/PDFs:** design for reading/printing; real margins, hierarchy,
+  page breaks, and at least 12pt body text.
+- **Fixed canvases:** confirm dimensions before designing if they are missing.
+- **Interactive prototypes:** make the core interaction work and persist state
+  where the user would expect continuity.
+- **Mobile:** design for 44px touch targets, thumb reach, keyboard, safe areas,
+  and no hover-only affordances.
+
+## Scoping Rules
+
+- For a small request, change only the requested surface. Do not redecorate.
+- For redesign/from-scratch work, make a clear system decision and apply it
+  consistently.
+- When a broader improvement would help, finish the requested change first, then
+  suggest the rest instead of applying it uninvited.
+- When extending an existing UI, learn its vocabulary first: density, tokens,
+  copy tone, interaction states, radius, shadows, icons, and responsive behavior.
+
+## Critic Pass
+
+Before final response, check:
+
+- Does the primary task read within about 3 seconds?
+- Does hierarchy still work in grayscale?
+- Are type, spacing, radius, and shadow values consistent?
+- Are there more than 2 accents or more than 3 fonts?
+- Are any anti-slop tells visible?
+- Does every visible element earn its place?
+- Are ideal, empty, loading, error, and edge states handled for data-bearing
+  views?
+- Do controls match the user's choice model?
+- Is destructive behavior safe?
+- Are console/network errors absent?
+- Does mobile avoid overflow, clipping, unreachable controls, and tiny targets?
+- Is there real content or a labeled placeholder, not lorem/filler?
+- When formal design QA is in scope, can defects be tagged with `[FACT]`,
+  `[CRAFT]`, or `[PD]`, severity, rule ID, observed measurement, and fix?
+- Does `$snapshot` evidence exist for the final visible state?
+
+If any answer is no, fix and re-render before final response.
+
+## Closeout
+
+Report:
+
+- what changed or what design decision was made;
+- source of truth used: brand, production UI, reference artifact, or fallback
+  defaults;
+- visual evidence captured with `$snapshot`, including mobile/side-by-side when
+  applicable;
+- checks run and any visual risk that remains;
+- focused follow-up suggestions only after the requested work is complete.

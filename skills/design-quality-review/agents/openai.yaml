@@ -1,0 +1,4 @@
+interface:
+  display_name: "Design Quality Review"
+  short_description: "Shared rule language and QA protocol for design reviews."
+  default_prompt: "Use $design-quality-review to run a rule-tagged UI design-quality review with screenshot evidence and severity."

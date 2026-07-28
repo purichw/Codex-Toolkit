@@ -1,0 +1,4 @@
+interface:
+  display_name: "Visual Diagnosis"
+  short_description: "Name visible UI defects before fixing them."
+  default_prompt: "Use $visual-diagnosis to classify the visible UI defect, cite rule IDs, and propose the smallest repair."

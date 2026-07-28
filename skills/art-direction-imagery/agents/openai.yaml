@@ -1,0 +1,4 @@
+interface:
+  display_name: "Art Direction Imagery"
+  short_description: "Direct imagery, crops, focal points, and media states."
+  default_prompt: "Use $art-direction-imagery to choose/crop/place images and verify focal points, placeholders, captions, and loading states."

@@ -1,0 +1,4 @@
+interface:
+  display_name: "Mobile Native Feel"
+  short_description: "Make mobile web or app UI feel native and usable."
+  default_prompt: "Use $mobile-native-feel to audit safe areas, touch, keyboard, sheets, and native-feeling mobile interaction."

@@ -1,0 +1,4 @@
+interface:
+  display_name: "Accessibility Beyond Basics"
+  short_description: "Advanced accessibility beyond basic axe checks."
+  default_prompt: "Use $accessibility-beyond-basics to audit screen-reader flow, zoom, cognitive load, widgets, charts, and forced-colors behavior."

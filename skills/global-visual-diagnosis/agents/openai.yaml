@@ -1,0 +1,4 @@
+interface:
+  display_name: "Global Visual Diagnosis"
+  short_description: "Global alias for visual-diagnosis"
+  default_prompt: "Use $global-visual-diagnosis for the global visual-diagnosis workflow."

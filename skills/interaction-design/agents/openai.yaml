@@ -1,0 +1,4 @@
+interface:
+  display_name: "Interaction Design"
+  short_description: "Design real interaction behavior, not just screens."
+  default_prompt: "Use $interaction-design to specify or audit the interaction states, recovery paths, permissions, and destructive safety for this flow."

@@ -1,0 +1,4 @@
+interface:
+  display_name: "Global Design System Architect"
+  short_description: "Global alias for design-system-architect"
+  default_prompt: "Use $global-design-system-architect for the global design-system-architect workflow."

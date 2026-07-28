@@ -1,0 +1,4 @@
+interface:
+  display_name: "Reference Implementation Critique"
+  short_description: "Critique reference versus implementation with measurable axes."
+  default_prompt: "Use $reference-implementation-critique to compare the reference and implementation, cite axes/rules, and produce a measured defect table."

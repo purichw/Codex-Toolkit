@@ -1,0 +1,4 @@
+interface:
+  display_name: "Global Typography Refinement"
+  short_description: "Global alias for typography-refinement"
+  default_prompt: "Use $global-typography-refinement for the global typography-refinement workflow."

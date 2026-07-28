@@ -1,0 +1,4 @@
+interface:
+  display_name: "Global Art Direction Imagery"
+  short_description: "Global alias for art-direction-imagery"
+  default_prompt: "Use $global-art-direction-imagery for the global art-direction-imagery workflow."

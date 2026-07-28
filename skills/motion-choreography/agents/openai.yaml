@@ -1,0 +1,4 @@
+interface:
+  display_name: "Motion Choreography"
+  short_description: "Choreograph motion, timing, feedback, and reduced motion."
+  default_prompt: "Use $motion-choreography to specify or audit UI motion timing, easing, transitions, feedback, and reduced-motion behavior."

@@ -9,11 +9,12 @@ Use this skill when UI work could fragment the product's component language.
 The goal is consistency without flattening product-specific UX.
 
 Use `$consistency-audit` for site-wide consistency discovery before fixing a
-large set of drift issues. Use `$design-direction` for north-star decisions,
-`$claude-to-a-tee` for exact reference parity, `$product-ux-contracts` for
-behavior that must survive, `$ui-state-matrix` for variants/states, `$snapshot`
-as mandatory visual proof before final response, and `$release-gate` before
-shipping.
+large set of drift issues. Use `$design-system-architect` when the system needs
+token-layer, taxonomy, variant, gallery, drift-metric, or governance work. Use
+`$design-direction` for north-star decisions, `$claude-to-a-tee` for exact
+reference parity, `$product-ux-contracts` for behavior that must survive,
+`$ui-state-matrix` for variants/states, `$snapshot` as mandatory visual proof
+before final response, and `$release-gate` before shipping.
 
 ## Inventory
 
@@ -48,9 +49,11 @@ one component without checking adjacent surfaces.
 1. Locate source components and tokens.
 2. Map the requested UI change to existing primitives and variants.
 3. Decide reuse, extend, or local exception.
-4. Update component state coverage with `$ui-state-matrix` when variants change.
-5. Inspect neighboring pages that share the primitive.
-6. Capture `$snapshot` evidence for the changed surface before final response;
+4. Use `$design-system-architect` before broad token, variant, gallery, or drift
+   governance changes.
+5. Update component state coverage with `$ui-state-matrix` when variants change.
+6. Inspect neighboring pages that share the primitive.
+7. Capture `$snapshot` evidence for the changed surface before final response;
    include one adjacent surface when drift risk is high.
 
 ## Closeout

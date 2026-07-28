@@ -43,7 +43,8 @@
 ### `--accent` (single brand/action hue)
 - **USE:** the one primary button, active/selected state, focus ring, links, primary chart series, tab underline, progress fill.
 - **DON'T:** large background areas; body text (contrast/overuse); more than one hue — **REQ** keep to a single accent. Multiple accents = slop.
-- **RETHEME:** change only this hue to reskin (SKILL §A).
+- **RETHEME:** change only this hue to reskin (`tokens.css` and
+  `references/craft-defaults.md`).
 
 ### `--accent-ink` (text/icons on accent)
 - **USE:** label on a filled `--accent` button/badge/bar.

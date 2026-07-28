@@ -1,0 +1,4 @@
+interface:
+  display_name: "Global Reference Implementation Critique"
+  short_description: "Global alias for reference-implementation-critique"
+  default_prompt: "Use $global-reference-implementation-critique for the global reference-implementation-critique workflow."

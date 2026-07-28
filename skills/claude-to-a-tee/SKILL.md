@@ -57,6 +57,12 @@ ask. When a reference exists, the primary visual evidence must be a side-by-side
 `Reference` and `Development` comparison, with a mobile comparison included when
 responsive behavior is in scope.
 
+Use `$reference-implementation-critique` when a Claude/Figma/screenshot
+reference must be compared against the implementation across measured geometry,
+rhythm, hierarchy, density, visual weight, affordance, states, and product
+decisions. Treat its defect table as the design-quality companion to this
+skill's parity ledger.
+
 Behavior exceptions are allowed only when they preserve Claude geometry. Visual
 exceptions must be explicit, and critical ones require acceptance before
 commit/push/deploy. Do not claim success, commit, push, deploy, open a PR, or
@@ -72,7 +78,8 @@ Use `$product-ux-contracts` when Claude may overwrite proven product UX,
 `$ui-state-matrix` when Claude shows only the happy path, `$interaction-flow-qa`
 when visible controls imply real journeys, `$design-system-guardian` when
 Claude affects reusable primitives, `$accessible-interaction` for keyboard/focus
-risk, `$data-dense-ux` for tables/lists/admin density, `$form-flow-ux` for
+risk, `$reference-implementation-critique` for measured visual/reference
+comparison, `$data-dense-ux` for tables/lists/admin density, `$form-flow-ux` for
 forms, `$admin-prototype-reconciliation` when an admin prototype changes live
 data or publish contracts, and `$production-asset-smoke` when the parity work
 adds or repairs production media.

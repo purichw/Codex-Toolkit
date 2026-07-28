@@ -1,0 +1,4 @@
+interface:
+  display_name: "Global Taste Calibration"
+  short_description: "Global alias for taste-calibration"
+  default_prompt: "Use $global-taste-calibration for the global taste-calibration workflow."

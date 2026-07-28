@@ -1,0 +1,4 @@
+interface:
+  display_name: "Global Motion Choreography"
+  short_description: "Global alias for motion-choreography"
+  default_prompt: "Use $global-motion-choreography for the global motion-choreography workflow."

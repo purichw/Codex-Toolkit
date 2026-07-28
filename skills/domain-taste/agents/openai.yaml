@@ -1,0 +1,4 @@
+interface:
+  display_name: "Domain Taste"
+  short_description: "Apply category-specific taste and density rules."
+  default_prompt: "Use $domain-taste to set the right density, hierarchy, and category conventions for this screen."

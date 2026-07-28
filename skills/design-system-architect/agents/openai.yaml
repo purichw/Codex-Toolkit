@@ -1,0 +1,4 @@
+interface:
+  display_name: "Design System Architect"
+  short_description: "Architect tokens, variants, galleries, and drift checks."
+  default_prompt: "Use $design-system-architect to structure tokens, component variants, and drift checks for this design system."

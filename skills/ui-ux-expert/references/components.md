@@ -113,9 +113,11 @@ Global focus rule (**FACT**, from tokens.css): `:focus-visible { outline:2px sol
 | default | box above; **OPT** `box-shadow:var(--shadow-sm)` |
 | hover (interactive only) | `border-color:var(--accent); box-shadow:var(--shadow-md); transition:var(--dur) var(--ease-out)` |
 | focus (if link/button card) | global ring on the card |
-| loading | skeleton (§12) inside the same box |
+| loading | skeleton (see "Progress & skeleton" below) inside the same box |
 
-- **REQ** border **or** heavy shadow, not both. Cards only for independent, actionable objects (SKILL §C). Reading flows use dividers, not cards.
+- **REQ** border **or** heavy shadow, not both. Cards only for independent,
+  actionable objects (`SKILL.md` "Craft Rules"). Reading flows use dividers, not
+  cards.
 
 ## 7. Modal / dialog
 
@@ -143,7 +145,10 @@ Global focus rule (**FACT**, from tokens.css): `:focus-visible { outline:2px sol
 **FACT** header `var(--t-sm)` `var(--muted)`; cell `padding:var(--s3)`; rows separated by `1px solid var(--border)`; numbers right-aligned, `font-variant-numeric:tabular-nums`.
 
 - States: row hover `background:color-mix(in oklch,var(--ink) 3%,transparent)`; sortable header hover shows arrow; selected row `background:var(--accent-soft)`.
-- **REQ** no vertical rules; zebra only for very dense tables. Sticky header (`position:sticky;top:0`) for long tables. **REQ** empty state row (§O) when no data — never a blank table.
+- **REQ** no vertical rules; zebra only for very dense tables. Sticky header
+  (`position:sticky;top:0`) for long tables. **REQ** empty state row using
+  `references/craft-defaults.md` microcopy rules when no data — never a blank
+  table.
 
 ## 10. Badge / chip
 

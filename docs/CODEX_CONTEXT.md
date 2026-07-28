@@ -10,8 +10,8 @@ user's intent.
 - Local checkout used when this file was written: `/Users/point/Codex-Toolkit`
 - Visibility at initial setup: private
 - Purpose: archive and document the user's personal Codex skills
-- Current skill count: 98 `SKILL.md` files under `skills/`
-- Breakdown: 57 canonical personal skills, 39 `global-*` alias skills for
+- Current skill count: 124 `SKILL.md` files under `skills/`
+- Breakdown: 70 canonical personal skills, 52 `global-*` alias skills for
   reusable non-project-specific workflows, and 2 standalone global design-spec
   skills.
 
@@ -82,10 +82,12 @@ find skills -name SKILL.md | sort
 
 Expected current skill folders:
 
+- `accessibility-beyond-basics`
 - `accessible-interaction`
 - `account-recovery-key`
 - `admin-ops`
 - `admin-prototype-reconciliation`
+- `art-direction-imagery`
 - `claude-design-md-request`
 - `claude-design-reference-bundle`
 - `claude-to-a-tee`
@@ -97,8 +99,11 @@ Expected current skill folders:
 - `course-image-assets`
 - `data-dense-ux`
 - `design-direction`
+- `design-quality-review`
+- `design-system-architect`
 - `design-system-guardian`
 - `docs-cartographer`
+- `domain-taste`
 - `efficient-execution`
 - `export-html`
 - `firebase-account-management`
@@ -111,10 +116,14 @@ Expected current skill folders:
 - `image-boundary-polish`
 - `image-boundary-rejection-recovery`
 - `image-boundary-safety-map`
+- `information-architecture-ux`
+- `interaction-design`
 - `interaction-flow-qa`
 - `ledger-logic`
+- `mobile-native-feel`
 - `mobile-web-qa`
 - `mongkol-new-chat`
+- `motion-choreography`
 - `native-parity`
 - `notenwert-design-direction`
 - `notenwert-maintainer`
@@ -123,6 +132,7 @@ Expected current skill folders:
 - `product-ux-contracts`
 - `production-asset-smoke`
 - `project-onboarding`
+- `reference-implementation-critique`
 - `regression-hunter`
 - `release-gate`
 - `rollback-guardrail`
@@ -133,12 +143,15 @@ Expected current skill folders:
 - `shane-thai-prod-smoke`
 - `site-maintainer`
 - `snapshot`
+- `taste-calibration`
 - `tts-audio-assets`
+- `typography-refinement`
 - `uat-environment`
 - `ui-state-matrix`
 - `ui-ux-expert`
 - `ui-ux-orchestrator`
 - `usage-budget-gate`
+- `visual-diagnosis`
 
 Reusable non-project-specific skills also have `global-*` alias folders. The
 full alias map lives in [GLOBAL_SKILLS.md](GLOBAL_SKILLS.md); keep aliases as
@@ -187,7 +200,7 @@ updates, enough verification is usually:
 
 ```sh
 git diff --check
-python3 scripts/verify_skills.py --expected-count 98
+python3 scripts/verify_skills.py --expected-count 124
 ```
 
 For skill script changes, run the script's smoke-test or help path when one
@@ -243,6 +256,14 @@ As of this document, the repository has:
   visual parity, admin/native UX, and related global alias skills. Future
   Codex sessions should capture snapshot evidence before final response for
   visible UI/UX work instead of waiting for the user to ask.
+- one update refactoring `ui-ux-expert` into a smaller routed core, adding
+  `craft-defaults` and `claude-design-learning-brief` references, and preserving
+  the mandatory `$snapshot` gate.
+- one update importing the Claude Design `design-quality` guide as
+  `design-quality-review`, adding twelve specialist UI/UX quality skills and 13
+  matching `global-*` aliases, wiring them into UI/UX, snapshot, accessibility,
+  design-system, and Claude-to-a-tee routing, and updating the verifier count to
+  124.
 
 The main thing future Codex should preserve is the distinction between live local
 skills and the GitHub archive. That distinction prevents accidental overwrites

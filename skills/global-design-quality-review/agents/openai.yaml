@@ -1,0 +1,4 @@
+interface:
+  display_name: "Global Design Quality Review"
+  short_description: "Global alias for design-quality-review"
+  default_prompt: "Use $global-design-quality-review for the global design-quality-review workflow."

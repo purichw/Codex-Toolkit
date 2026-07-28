@@ -70,7 +70,8 @@ Shared container (**REC**): `.wrap{max-width:min(92vw,1200px);margin-inline:auto
 ```
 - **FACT/REQ** `display:grid; grid-template-columns:1.1fr .9fr; gap:var(--s8); align-items:center; padding-block:var(--s9)`.
 - Headline `font-size:clamp(2.5rem,5vw,var(--t-4xl)); line-height:var(--lh-tight); text-wrap:balance; max-width:16ch`. Subhead `var(--t-lg) var(--muted); max-width:48ch`.
-- One primary + one ghost button. **?** Hero image unknown → striped placeholder box with a mono label (SKILL §7); never a stock gradient.
+- One primary + one ghost button. **?** Hero image unknown → striped placeholder
+  box with a mono label (`SKILL.md` "Craft Rules"); never a stock gradient.
 
 **Mobile (<768)** — **REQ** stack to single column, text first then image; headline `clamp(2rem,8vw,2.75rem)`; buttons full-width stacked; reduce `padding-block` to `var(--s7)`.
 
@@ -80,6 +81,7 @@ Shared container (**REC**): `.wrap{max-width:min(92vw,1200px);margin-inline:auto
 
 - **REQ** test at 360 / 768 / 1280 / 1440. No horizontal scroll at any width (except intentional `overflow-x` wrappers).
 - **REQ** hierarchy legible in grayscale; spacing only on the scale; one radius + one shadow philosophy throughout.
-- **REQ** keyboard reachable, visible focus, logical tab order (SKILL §G).
+- **REQ** keyboard reachable, visible focus, logical tab order
+  (`references/craft-defaults.md` accessibility floor).
 - **REC** deliver each exemplar as its own `*.html` linking `tokens.css` so the QA checklist can screenshot desktop + mobile widths.
 - **?/assumption boundary:** these are structural exemplars. Any brand, copy, imagery, icon set, or data is **unknown** — insert labeled placeholders; do **not** invent.

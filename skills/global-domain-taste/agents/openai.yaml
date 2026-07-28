@@ -1,0 +1,4 @@
+interface:
+  display_name: "Global Domain Taste"
+  short_description: "Global alias for domain-taste"
+  default_prompt: "Use $global-domain-taste for the global domain-taste workflow."

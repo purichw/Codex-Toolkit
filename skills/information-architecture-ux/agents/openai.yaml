@@ -1,0 +1,4 @@
+interface:
+  display_name: "Information Architecture UX"
+  short_description: "Structure navigation, grouping, and hierarchy."
+  default_prompt: "Use $information-architecture-ux to organize the screen, navigation, grouping, and hierarchy before visual polish."

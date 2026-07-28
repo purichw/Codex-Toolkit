@@ -14,6 +14,34 @@ covers the risk.
 
 - `$design-direction`: north star, visual direction, critique, brand/product
   feel, public vs admin direction, Claude prompts.
+- `$design-quality-review`: shared `[FACT]` / `[CRAFT]` / `[PD]` language,
+  rule IDs, severity model, screenshot QA protocol, calibration drills, and
+  definition-of-done templates.
+- `$visual-diagnosis`: name why a UI looks cheap, cramped, scattered, generic,
+  heavy, low-trust, unfinished, or otherwise visibly off.
+- `$domain-taste`: category-specific density and conventions for admin, SaaS
+  ops, dashboards, ledgers, editorial, learning, landing, and mobile screens.
+- `$information-architecture-ux`: navigation, grouping, hierarchy, screen
+  purpose, sequencing, and progressive disclosure.
+- `$interaction-design`: autosave, undo, bulk actions, optimistic updates,
+  permissions, interruption recovery, and destructive flows.
+- `$mobile-native-feel`: safe areas, touch targets, keyboard behavior, sheets,
+  gestures, and native-feeling mobile interaction.
+- `$design-system-architect`: token layers, component taxonomy, variants,
+  galleries, drift metrics, and design-system governance.
+- `$art-direction-imagery`: image selection, crops, focal points, hero media,
+  thumbnails, placeholders, captions, and asset states.
+- `$typography-refinement`: type scale, prose measure, line-height, multilingual
+  behavior, numeric data, dates, units, and truncation.
+- `$motion-choreography`: motion timing, easing, choreography, feedback,
+  overlays, scroll motion, and reduced-motion alternatives.
+- `$accessibility-beyond-basics`: screen-reader flow, cognitive load, low
+  vision, complex widgets, data visualization, zoom, and forced colors.
+- `$reference-implementation-critique`: measured reference-vs-implementation
+  critique across geometry, rhythm, hierarchy, density, weight, affordance, and
+  states.
+- `$taste-calibration`: paired works/fails specimens, weekly drills, and the
+  smallest-change loop for improving design taste.
 - `$consistency-audit`: site-wide or app-wide consistency across requirements,
   inferred patterns, layout, components, typography, copy, interaction, and
   shared-component implementation.
@@ -47,6 +75,17 @@ covers the risk.
 Use this decision guide:
 
 - Need visual taste or direction? Start with `$design-direction`.
+- Need rule-backed design QA, severity, or a repeatable review protocol? Start
+  with `$design-quality-review`, then select a specialist.
+- UI looks off but the defect is hard to name? Use `$visual-diagnosis`.
+- Need the screen to feel right for its product category? Use `$domain-taste`.
+- Navigation, grouping, hierarchy, or sequencing feels wrong? Use
+  `$information-architecture-ux`.
+- Interaction behavior is underspecified? Use `$interaction-design`.
+- Mobile feels like squeezed desktop or misses platform behavior? Use
+  `$mobile-native-feel`.
+- Reference and implementation need measured comparison? Use
+  `$reference-implementation-critique`.
 - Need to know whether the site/app is coherent overall? Use
   `$consistency-audit`.
 - Worried about usage or depth? Start with `$usage-budget-gate`.

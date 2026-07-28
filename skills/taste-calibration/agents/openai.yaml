@@ -1,0 +1,4 @@
+interface:
+  display_name: "Taste Calibration"
+  short_description: "Use paired specimens and drills to sharpen UI taste."
+  default_prompt: "Use $taste-calibration to compare this screen against category specimens and identify the smallest taste-improving change."

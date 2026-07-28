@@ -1,0 +1,4 @@
+interface:
+  display_name: "Global Interaction Design"
+  short_description: "Global alias for interaction-design"
+  default_prompt: "Use $global-interaction-design for the global interaction-design workflow."

@@ -1,0 +1,4 @@
+interface:
+  display_name: "Global Mobile Native Feel"
+  short_description: "Global alias for mobile-native-feel"
+  default_prompt: "Use $global-mobile-native-feel for the global mobile-native-feel workflow."

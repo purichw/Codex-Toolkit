@@ -313,6 +313,97 @@ comparison evidence is the default.
   changed screens and flows, likely evidence needed, and which downstream skill
   files should be read next.
 
+### accessibility-beyond-basics
+
+- Skill file: [../skills/accessibility-beyond-basics/SKILL.md](../skills/accessibility-beyond-basics/SKILL.md)
+- Description: Extends accessibility review past basic keyboard and axe checks.
+- Use when: screen-reader flow, cognitive load, low vision, zoom reflow, forced colors, complex widgets, charts/data visualization, touch, or reduced motion need advanced review.
+- Typical context: Heading/landmark/label map, live region/error announcement behavior, zoom and forced-colors captures, chart alternatives, touch spacing, skipped assistive-tech checks, and residual risk.
+
+### art-direction-imagery
+
+- Skill file: [../skills/art-direction-imagery/SKILL.md](../skills/art-direction-imagery/SKILL.md)
+- Description: Directs image and media treatment as part of UI quality.
+- Use when: hero images, thumbnails, generated assets, crops, captions, focal points, placeholder behavior, lazy loading, media failure states, or text-over-image contrast matter.
+- Typical context: Image job, source/provenance, aspect ratios, focal points per breakpoint, alt/caption policy, placeholder/loading/failure states, production asset checks, and screenshots.
+
+### design-quality-review
+
+- Skill file: [../skills/design-quality-review/SKILL.md](../skills/design-quality-review/SKILL.md)
+- Description: Applies the shared design-quality guide as a reusable review protocol.
+- Use when: a UI needs rule IDs, `[FACT]` / `[CRAFT]` / `[PD]` labels, S1/S2/S3 severity, capture protocol, 25-item QA, PR review notes, definition of done, or a router to the design-quality specialist suite.
+- Typical context: Claude Design guide files under `references/design-quality/`, target screenshots or rendered route, desired review depth, capture conditions, defect table, product-decision list, and snapshot evidence.
+
+### visual-diagnosis
+
+- Skill file: [../skills/visual-diagnosis/SKILL.md](../skills/visual-diagnosis/SKILL.md)
+- Description: Diagnoses why a rendered UI looks visually wrong before fixing it.
+- Use when: a screen feels cheap, cramped, scattered, generic, heavy, low-trust, unfinished, or hard to critique in precise language.
+- Typical context: Rendered screenshots, grayscale/blur/invert/edge checks, measured spacing/alignment/type/color defects, VD rule IDs, severity, and smallest proposed fix.
+
+### domain-taste
+
+- Skill file: [../skills/domain-taste/SKILL.md](../skills/domain-taste/SKILL.md)
+- Description: Applies category-specific taste, density, hierarchy, and evidence conventions.
+- Use when: designing or reviewing admin lists, SaaS ops consoles, dashboards, ledgers/statements, editorial pages, learning screens, landing heroes, or mobile settings-style screens.
+- Typical context: Screen category, primary question, density tier, real data length, state obligations, category-specific conventions, and any `[PD]` choices that product must own.
+
+### information-architecture-ux
+
+- Skill file: [../skills/information-architecture-ux/SKILL.md](../skills/information-architecture-ux/SKILL.md)
+- Description: Structures screen purpose, navigation, grouping, hierarchy, sequencing, and progressive disclosure.
+- Use when: users cannot tell where they are, what matters, which action is primary, what comes next, or whether empty/loading/error/permission states are distinct.
+- Typical context: Screen purpose written as a question, nav/landmark/heading map, grouping rationale, progressive disclosure choices, state taxonomy, and snapshot proof that the hierarchy reads.
+
+### interaction-design
+
+- Skill file: [../skills/interaction-design/SKILL.md](../skills/interaction-design/SKILL.md)
+- Description: Designs real interaction behavior and recovery paths.
+- Use when: autosave, save/cancel, undo, retry, bulk selection, optimistic updates, permissions, interruption recovery, or destructive safety must be specified or audited.
+- Typical context: Action inventory, state transitions, feedback timing, partial failure behavior, permission outcomes, destructive friction rung, flow proof, and visible state evidence.
+
+### mobile-native-feel
+
+- Skill file: [../skills/mobile-native-feel/SKILL.md](../skills/mobile-native-feel/SKILL.md)
+- Description: Makes mobile UI feel platform-native instead of desktop-compressed.
+- Use when: safe areas, dvh, touch targets, thumb reach, mobile keyboard, sheets/dialogs, gestures, platform controls, or mobile settings/list conventions matter.
+- Typical context: 390x844 and 360x800 captures, safe-area checks, keyboard and sticky-action behavior, platform conventions, target sizes, scroll ownership, and mobile snapshot evidence.
+
+### design-system-architect
+
+- Skill file: [../skills/design-system-architect/SKILL.md](../skills/design-system-architect/SKILL.md)
+- Description: Architects design-system structure beyond local drift fixes.
+- Use when: token layers, semantic roles, component taxonomy, variants, state matrices, gallery coverage, drift metrics, naming, and governance need definition or repair.
+- Typical context: Token inventory, primitive/component map, variant matrix, gallery/test surface, drift checks, token-exception ledger, adjacent surface screenshots, and governance notes.
+
+### typography-refinement
+
+- Skill file: [../skills/typography-refinement/SKILL.md](../skills/typography-refinement/SKILL.md)
+- Description: Refines the typographic system for UI, prose, multilingual text, and data.
+- Use when: type scale, measure, line-height, heading rhythm, tabular numbers, date/unit formats, truncation, localization, or RTL behavior affects quality.
+- Typical context: Type role inventory, font sizes/weights/leading, measure, number/date precision, multilingual expansion, logical properties, realistic text lengths, and snapshot/measurement evidence.
+
+### motion-choreography
+
+- Skill file: [../skills/motion-choreography/SKILL.md](../skills/motion-choreography/SKILL.md)
+- Description: Specifies purposeful UI motion and reduced-motion alternatives.
+- Use when: overlays, route transitions, loading feedback, hover/press states, drag, scroll, choreography, timing, easing, or reduced-motion behavior needs design or QA.
+- Typical context: State-change map, duration/easing tiers, enter/exit relationship, performance constraints, reduced-motion behavior, interaction proof, and snapshots or short visual evidence.
+
+### reference-implementation-critique
+
+- Skill file: [../skills/reference-implementation-critique/SKILL.md](../skills/reference-implementation-critique/SKILL.md)
+- Description: Turns reference-vs-implementation comparison into measured defect axes.
+- Use when: Claude, Figma, screenshot, static mock, or live reference must be compared with implementation across geometry, rhythm, hierarchy, density, weight, affordance, states, and product decisions.
+- Typical context: Matched reference and implementation captures, viewport/state/provenance, measured deltas, RC axes, derived values, accessibility overrides, product decisions, and defect table.
+
+### taste-calibration
+
+- Skill file: [../skills/taste-calibration/SKILL.md](../skills/taste-calibration/SKILL.md)
+- Description: Uses paired specimens to calibrate design judgment over time.
+- Use when: improving taste, comparing a shipped screen to works/fails examples, running a weekly 15-minute drill, or identifying the smallest change that improves a category-specific screen.
+- Typical context: Fair screenshot capture, screen category, fail-trait count, visual diagnosis word, smallest change, score log, and `[PD]` items that need product confirmation.
+
 ### consistency-audit
 
 - Skill file: [../skills/consistency-audit/SKILL.md](../skills/consistency-audit/SKILL.md)

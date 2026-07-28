@@ -2,7 +2,8 @@
 
 > Source of truth: `tokens.css`. Each entry: the slop pattern, why it reads as
 > generated, and a corrected version using tokens. `❌` = don't ship · `✅` = ship.
-> These map to SKILL §3 (anti-slop) and §D (worked examples). All fixes are
+> These map to `SKILL.md` "Anti-Slop Rules" and the failure recovery section in
+> `references/craft-defaults.md`. All fixes are
 > **REQUIRED** unless marked OPT.
 
 ---
@@ -67,7 +68,7 @@ Fix: meaning never encoded in color alone (**REQ**, accessibility); consistent c
 
 ❌ `font-family:Inter` everywhere, 5 arbitrary sizes (13/17/22/28/33px), 4 weights, centered.
 
-✅ One personality + one workhorse font, sizes only from the scale (`--t-sm`…`--t-3xl`), max 2 weights (400/600), left-aligned. Hierarchy from size/weight/space (SKILL §4).
+✅ One personality + one workhorse font, sizes only from the scale (`--t-sm`…`--t-3xl`), max 2 weights (400/600), left-aligned. Hierarchy from size/weight/space (`SKILL.md` "Craft Rules").
 
 ## 5. Everything centered
 
@@ -107,7 +108,9 @@ Never fabricate numbers, logos, testimonials, or metrics.
 
 ❌ A "Features" grid padded to 6 cards with generic copy to fill the row.
 
-✅ Show only real content; if a section feels empty it's a **layout** problem — merge, resize, or cut (SKILL §8). Ask the user before adding material.
+✅ Show only real content; if a section feels empty it's a **layout** problem —
+merge, resize, or cut (`SKILL.md` "Scoping Rules"). Ask the user before adding
+material.
 
 ---
 

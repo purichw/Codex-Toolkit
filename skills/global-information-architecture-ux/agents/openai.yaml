@@ -1,0 +1,4 @@
+interface:
+  display_name: "Global Information Architecture UX"
+  short_description: "Global alias for information-architecture-ux"
+  default_prompt: "Use $global-information-architecture-ux for the global information-architecture-ux workflow."

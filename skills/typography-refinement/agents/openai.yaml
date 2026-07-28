@@ -1,0 +1,4 @@
+interface:
+  display_name: "Typography Refinement"
+  short_description: "Refine type, numbers, measure, and text rhythm."
+  default_prompt: "Use $typography-refinement to audit or refine type scale, measure, line-height, numbers, and multilingual text behavior."

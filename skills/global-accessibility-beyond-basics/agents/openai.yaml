@@ -1,0 +1,4 @@
+interface:
+  display_name: "Global Accessibility Beyond Basics"
+  short_description: "Global alias for accessibility-beyond-basics"
+  default_prompt: "Use $global-accessibility-beyond-basics for the global accessibility-beyond-basics workflow."

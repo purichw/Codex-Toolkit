@@ -74,7 +74,8 @@ Provide real values; keep the same variable NAMES so components keep working.
 ## 6. Imagery & illustration
 
 - Photography/illustration style: `<rule + source library>` — **FACT / UNKNOWN**
-- **REQ** missing imagery → labeled placeholder (SKILL §7), never stock gradients or fabricated screenshots.
+- **REQ** missing imagery → labeled placeholder (`SKILL.md` "Craft Rules"),
+  never stock gradients or fabricated screenshots.
 
 ## 7. Component deviations from global spec
 
