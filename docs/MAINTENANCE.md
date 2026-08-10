@@ -8,13 +8,21 @@ change to GitHub.
 From the repository root:
 
 ```sh
-rsync -a --delete --exclude '.system' --exclude '/README.md' --exclude '__pycache__/' --exclude '*.orig' ~/.codex/skills/ skills/
+rsync -ani --delete --exclude '.system' --exclude '/README.md' --exclude '__pycache__/' --exclude '*.orig' ~/.codex/skills/ skills/
 git status --short
 git diff --check
 ```
 
-Then inspect the diff. Do not commit generated cache folders, system skills, or
-anything that belongs to a plugin bundle rather than the personal skill set.
+Then inspect the dry-run diff. Do not commit generated cache folders, system
+skills, or anything that belongs to a plugin bundle rather than the personal
+skill set.
+
+If the dry run would delete repo-only `global-*` aliases, do not apply the broad
+delete sync. Sync changed canonical folders selectively instead:
+
+```sh
+rsync -a ~/.codex/skills/<skill-name>/ skills/<skill-name>/
+```
 
 Before editing, future Codex sessions should read [CODEX_CONTEXT.md](CODEX_CONTEXT.md)
 and root [../AGENTS.md](../AGENTS.md). Those files explain the repository's
@@ -59,7 +67,7 @@ False positives are normal. Read the matches before deciding.
 For most changes, run the toolkit verifier:
 
 ```sh
-python3 scripts/verify_skills.py --expected-count 124
+python3 scripts/verify_skills.py --expected-count 126
 ```
 
 It checks skill frontmatter, folder/name consistency, local Markdown links,

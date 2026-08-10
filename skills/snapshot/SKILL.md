@@ -25,7 +25,18 @@ final response even if the user did not explicitly ask for one. For backend,
 data, auth, API, or config work, do this only when the change affects a
 user-visible journey, admin flow, state, or screen.
 
+If a screenshot is captured or visual evidence is part of the answer, the final
+chat response must embed at least one current, useful image inline using Markdown
+image syntax and an absolute filesystem path. Do not finish with only screenshot
+paths, prose descriptions, or "saved at ..." references. The only exceptions are
+when the user explicitly asks for files/paths only or when the environment cannot
+render/capture images; in those cases, state the exception clearly.
+
 ## Core Rule
+
+Snapshots must be shown in chat. The saved file is not the deliverable by
+itself; the user must be able to see the evidence in the conversation without
+opening a path manually.
 
 Do not crop exactly to the target element when the user needs to judge layout,
 alignment, spacing, hierarchy, or visual quality. Include surrounding context by
@@ -249,6 +260,8 @@ Adjust the padding to the UI scale; 80-160px is a starting point, not a law.
 
 Keep the final visual report compact:
 
+- Always embed at least one current snapshot directly in chat when any snapshot
+  exists for the task. Listing paths alone is not acceptable visual evidence.
 - State what was captured and from where: local app, reference HTML, or
   production URL.
 - State what the screenshot proves and any conditions needed to interpret it.
@@ -279,7 +292,9 @@ Before claiming a visual change is done, check:
   screenshot is explicitly a microscopic edge inspection.
 - The file path is absolute and renderable in the Codex app.
 - The visual evidence is shown in chat, not merely saved to disk or described by
-  path, unless the user explicitly asks for files only.
+  path. Reject a closeout that lists screenshot paths without embedding at least
+  one image, unless the user explicitly asks for files only or capture/rendering
+  is impossible.
 - For UI changes, at least one current snapshot is included in the closeout.
 - After UI development, a current post-implementation snapshot is included even
   when the user did not explicitly request one.

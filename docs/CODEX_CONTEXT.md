@@ -10,8 +10,8 @@ user's intent.
 - Local checkout used when this file was written: `/Users/point/Codex-Toolkit`
 - Visibility at initial setup: private
 - Purpose: archive and document the user's personal Codex skills
-- Current skill count: 124 `SKILL.md` files under `skills/`
-- Breakdown: 70 canonical personal skills, 52 `global-*` alias skills for
+- Current skill count: 126 `SKILL.md` files under `skills/`
+- Breakdown: 72 canonical personal skills, 52 `global-*` alias skills for
   reusable non-project-specific workflows, and 2 standalone global design-spec
   skills.
 
@@ -66,10 +66,19 @@ ask or make a conservative assumption and state it.
 
 ## Sync Workflow
 
-From the repository root, refresh the repository from local personal skills:
+From the repository root, inspect local personal-skill changes with a dry run:
 
 ```sh
-rsync -a --delete --exclude '.system' --exclude '/README.md' --exclude '__pycache__/' --exclude '*.orig' ~/.codex/skills/ skills/
+rsync -ani --delete --exclude '.system' --exclude '/README.md' --exclude '__pycache__/' --exclude '*.orig' ~/.codex/skills/ skills/
+```
+
+Review deletions before applying them. The live local tree may not contain the
+repo-only `global-*` alias layer. If the dry run would delete `global-*` aliases
+or standalone global design-spec skills, do not run the broad delete sync. Sync
+changed canonical folders selectively, for example:
+
+```sh
+rsync -a ~/.codex/skills/<skill-name>/ skills/<skill-name>/
 ```
 
 Then review:
@@ -97,6 +106,8 @@ Expected current skill folders:
 - `coin-quest-native-parity`
 - `consistency-audit`
 - `course-image-assets`
+- `covermate-design-spec`
+- `covermate-new-chat`
 - `data-dense-ux`
 - `design-direction`
 - `design-quality-review`
@@ -200,7 +211,7 @@ updates, enough verification is usually:
 
 ```sh
 git diff --check
-python3 scripts/verify_skills.py --expected-count 124
+python3 scripts/verify_skills.py --expected-count 126
 ```
 
 For skill script changes, run the script's smoke-test or help path when one
@@ -264,6 +275,9 @@ As of this document, the repository has:
   matching `global-*` aliases, wiring them into UI/UX, snapshot, accessibility,
   design-system, and Claude-to-a-tee routing, and updating the verifier count to
   124.
+- one archive update adding `covermate-design-spec` and `covermate-new-chat`,
+  preserving the repo-only global alias layer during sync, tightening snapshot
+  closeout evidence, and updating the verifier count to 126.
 
 The main thing future Codex should preserve is the distinction between live local
 skills and the GitHub archive. That distinction prevents accidental overwrites

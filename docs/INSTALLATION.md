@@ -53,7 +53,9 @@ in [SKILL_CATALOG.md](SKILL_CATALOG.md).
 If `~/.codex/skills` is the active source of truth, refresh this repository with:
 
 ```sh
-rsync -a --delete --exclude '.system' --exclude '/README.md' --exclude '__pycache__/' --exclude '*.orig' ~/.codex/skills/ skills/
+rsync -ani --delete --exclude '.system' --exclude '/README.md' --exclude '__pycache__/' --exclude '*.orig' ~/.codex/skills/ skills/
 ```
 
-Review the diff before committing.
+Review the dry-run diff before applying it. If the dry run would delete
+repo-only `global-*` aliases, sync changed canonical folders selectively instead
+of running a broad delete sync.

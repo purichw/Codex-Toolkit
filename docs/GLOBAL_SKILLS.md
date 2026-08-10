@@ -88,6 +88,7 @@ These skills stay under their project or specialized names:
 
 - Coin Quest: `coin-quest-admin-ops`, `coin-quest-ledger-logic`,
   `coin-quest-native-parity`
+- CoverMate: `covermate-design-spec`, `covermate-new-chat`
 - Notenwert: `notenwert-design-direction`, `notenwert-maintainer`
 - Mongkol Wela: `mongkol-new-chat`
 - Shane and His Thai: `shane-thai-audio-generator`,

@@ -644,6 +644,42 @@ comparison evidence is the default.
 - Typical context: Native parity docs, mobile README, iOS build notes,
   architecture docs, data contracts, site map, and relevant `mobile/src/` files.
 
+## CoverMate
+
+### covermate-design-spec
+
+- Skill file: [../skills/covermate-design-spec/SKILL.md](../skills/covermate-design-spec/SKILL.md)
+- Description: Maintains, updates, audits, snapshots, and hands off the
+  CoverMate website and admin designs against the current production product
+  spec.
+- Use when: Working on CoverMate public visitor pages, the `/#motor` alias,
+  admin login, admin launcher, owner edit mode, owner arrange panel, admin
+  analytics, Claude Design handoffs, design reconciliation, responsive/UI
+  polish, production snapshot suites, Firestore CMS content behavior, SEO or
+  analytics design implications, or product decisions that must not drift.
+- Typical context: `/Users/point/CoverMate`, production
+  `https://covermate.vercel.app`, `docs/covermate-website-full-design-spec.md`
+  or the bundled `references/current-design-spec.md`, snapshot matrix in
+  `references/snapshot-suite.md`, current visitor/admin routes, Firestore CMS
+  source-of-truth rules, GA4/privacy guardrails, screenshots, and Claude Design
+  references.
+
+### covermate-new-chat
+
+- Skill file: [../skills/covermate-new-chat/SKILL.md](../skills/covermate-new-chat/SKILL.md)
+- Description: Onboards a fresh Codex chat for CoverMate using current on-disk
+  docs, skills, durable product rules, setup commands, source areas, and a
+  copy-ready starter prompt.
+- Use when: The user asks for a new-chat prompt, handoff prompt, context pickup
+  checklist, required docs/skills/setup for CoverMate, or wants a future chat to
+  know what to read before visitor, admin, CMS, Firebase, analytics, Claude
+  Design, QA, snapshot, push, deploy, or consistency work.
+- Typical context: `/Users/point/CoverMate`, git status, `README.md`,
+  `PROJECT_MAP.md`, `docs/ADMIN_CMS_REBUILD_DECISIONS.md`, `docs/HANDOFF.md`,
+  `docs/RELEASE_RUNBOOK.md`, task-specific CoverMate docs/source areas, current
+  on-disk skills, durable route/admin/CMS rules, and
+  `references/new-chat-context.md`.
+
 ## Notenwert
 
 ### notenwert-maintainer

@@ -48,6 +48,8 @@ before the final response without waiting for the user to ask.
 | [`coin-quest-native-parity`](skills/coin-quest-native-parity/SKILL.md) | Prevents the Coin Quest Expo app from drifting away from web data contracts and native parity requirements. | Working on the native app, iOS/Android build gates, `playerModules`, or native/web backend parity. |
 | [`consistency-audit`](skills/consistency-audit/SKILL.md) | Audits UI, UX, implementation, shared components, pattern weight, and consolidation opportunities for product consistency. | Checking whether layouts, components, typography, spacing, copy, states, responsive behavior, or shared primitives feel coherent. |
 | [`course-image-assets`](skills/course-image-assets/SKILL.md) | Manages educational course image generation, reuse, mapping, crop fixes, audits, and QA. | Working on vocabulary images, lesson card art, visual hints, badges, semantic mappings, or generated educational illustrations. |
+| [`covermate-design-spec`](skills/covermate-design-spec/SKILL.md) | Maintains CoverMate public/admin design contracts against the current production product spec. | Working on CoverMate visitor sections, admin login/launcher/edit/arrange/analytics, Claude Design handoffs, production snapshot suites, Firestore CMS behavior, SEO/analytics design implications, or product-decision reconciliation. |
+| [`covermate-new-chat`](skills/covermate-new-chat/SKILL.md) | Onboards fresh Codex chats for CoverMate with current docs, skills, durable rules, and starter prompts. | A future chat needs CoverMate read order, setup, durable constraints, source areas, or a copy-ready pickup prompt before visitor, admin, CMS, Firebase, analytics, QA, release, or consistency work. |
 | [`data-dense-ux`](skills/data-dense-ux/SKILL.md) | Guides dense dashboards, tables, lists, ledgers, filters, pagination, bulk actions, and operational panels. | Users need to scan, compare, sort, select, or operate large amounts of information without losing clarity. |
 | [`design-direction`](skills/design-direction/SKILL.md) | Defines, critiques, or preserves product visual direction across projects. | Creating design briefs, redesign strategy, visual north stars, guardrails, Claude Design prompts, or implementation handoff guidance. |
 | [`design-system-guardian`](skills/design-system-guardian/SKILL.md) | Preserves reusable components, tokens, variants, typography, spacing, icons, radius, shadow, and visual consistency. | UI changes risk component drift, one-off CSS, variant sprawl, or breaking existing primitives while adopting a reference design. |
@@ -122,8 +124,12 @@ The source-of-truth local skills currently live in `~/.codex/skills`. To refresh
 the repository copy, sync the personal skill folders into `skills/`, review the
 diff, then commit.
 
+Do not let a broad `--delete` sync remove repo-only `global-*` aliases. If the
+live local tree lacks those aliases, sync changed canonical skill folders
+selectively and preserve the archive's global layer.
+
 Verify the archive with:
 
 ```sh
-python3 scripts/verify_skills.py --expected-count 124
+python3 scripts/verify_skills.py --expected-count 126
 ```

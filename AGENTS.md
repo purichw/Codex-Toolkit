@@ -23,6 +23,9 @@ The live personal skills usually live in:
 This repository is the GitHub copy. Before changing skill content, determine
 whether the user wants to edit the live local skill, the repository copy, or
 both. If syncing from local skills, exclude `.system` and bundled plugin skills.
+If the live local tree does not contain repo-only `global-*` aliases, do not run
+a broad delete sync that removes them. Sync changed canonical folders
+selectively unless the user explicitly asks to rebuild the global layer.
 
 ## UI/UX Design
 
@@ -62,7 +65,7 @@ For most changes, run:
 
 ```sh
 git diff --check
-python3 scripts/verify_skills.py --expected-count 124
+python3 scripts/verify_skills.py --expected-count 126
 ```
 
 The verifier checks skill frontmatter, folder/name consistency, Markdown links,
