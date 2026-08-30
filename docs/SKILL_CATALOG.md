@@ -708,18 +708,20 @@ closeouts unless the user explicitly scoped the capture that way.
 - Skill file: [../skills/kaset-tan-phai-new-chat/SKILL.md](../skills/kaset-tan-phai-new-chat/SKILL.md)
 - Description: Onboards a fresh Codex chat for the Kaset Tan Phai /
   เกษตรทันภัย public flood, drought, and water-risk alert project using current
-  on-disk docs, durable public-safety rules, source maps, commands, and a
-  copy-ready starter prompt.
+  on-disk docs, durable public-safety rules, Nakhon Ratchasima dashboard
+  decisions, source maps, commands, and a copy-ready starter prompt.
 - Use when: The user asks for a new-chat prompt, handoff prompt, context pickup
   checklist, required docs/skills/setup for Kaset Tan Phai, or wants a future
-  chat to know what to read before UI, data, map, alerts, notifications,
+  chat to know what to read before UI, data, Nakhon Ratchasima
+  routes/geodata/dashboard work, map behavior, alerts, notifications,
   operations, QA, push, or deploy work.
 - Typical context: `/Users/point/Kaset-Tan-Phai`, production
   `https://kasettanphai.vercel.app`, `README.md`, `PROJECT_MAP.md`,
   `docs/HANDOFF.md`, git status, task-specific docs/source areas, Thai-first
-  public-safety constraints, canonical JSON, 77-province GeoJSON joins,
-  localStorage key behavior, setup/verification commands, and
-  `references/new-chat-context.md`.
+  public-safety constraints, canonical JSON, Nakhon Ratchasima `TH-P29`
+  district/subdistrict hierarchy, code-based joins, 77-province GeoJSON joins,
+  map interaction contracts, localStorage key behavior, setup/verification
+  commands, and `references/new-chat-context.md`.
 
 ## Mongkol Wela
 

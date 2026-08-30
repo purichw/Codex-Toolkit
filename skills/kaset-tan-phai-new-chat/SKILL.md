@@ -23,14 +23,16 @@ checklist for the next chat.
 2. Inspect current state first:
 
 ```bash
-git -C "/Users/point/Kaset-Tan-Phai" status --short
+git -C "/Users/point/Kaset-Tan-Phai" status --short --branch
 ```
 
 3. Read the shared new-chat shape:
    `/Users/point/.codex/skills/project-onboarding/references/new-chat-template.md`.
 4. Read `references/new-chat-context.md` from this skill.
 5. Read only the project docs relevant to the next task, using the required-doc
-   order from the reference.
+   order from the reference. For Nakhon Ratchasima, dashboard, map, water,
+   drought, data provenance, or release work, use the current product decisions
+   and common source areas in the reference before relying on older assumptions.
 6. If the user asks for a prompt, return a copy-ready prompt for a new chat. If
    the user asks to continue work, summarize what was read and proceed with the
    relevant task.
@@ -47,10 +49,17 @@ git -C "/Users/point/Kaset-Tan-Phai" status --short
 - Preserve routes/surfaces, data contracts, localStorage keys, GeoJSON joins,
   alert workflow gates, public-safety wording constraints, responsive behavior,
   and Thai-first language unless the task explicitly changes them.
+- For Nakhon Ratchasima work, preserve the canonical province `TH-P29`, the
+  32-district/289-subdistrict hierarchy, and code-based joins. Do not treat
+  "Korat" or "โคราช" as the province name unless quoting an official source.
+- Prefer shared UI/data primitives over one-off patches when changing metric
+  cards, filters, provenance chips, map controls, or dashboard panels.
 - Treat เกษตรทันภัย as a public flood, drought, and water-risk alert product,
   not a generic dashboard. Residents and local operators must be able to
   understand risk, uncertainty, geography, freshness, and recommended actions.
-- For UI work, provide snapshot or browser evidence in the final handoff.
+- For UI work, provide snapshot or browser evidence in the final handoff. For
+  page-level dashboard changes, capture enough context to review the whole page
+  or a top/middle/bottom contact sheet across desktop and mobile.
 - For release work, use `$release-gate`; for rollback-like requests, use
   `$rollback-guardrail` before changing files.
 
