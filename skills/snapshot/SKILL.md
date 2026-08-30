@@ -43,6 +43,14 @@ Snapshots must be shown in chat. The saved file is not the deliverable by
 itself; the user must be able to see the evidence in the conversation without
 opening a path manually.
 
+For whole-page, dashboard, page redesign, information-architecture, "too long",
+or reference-parity work, do not use a single above-the-fold viewport as the
+primary visual proof. Include either a full-page screenshot or a labeled
+top/middle/bottom contact sheet, and also include an above-the-fold viewport
+when first-impression hierarchy matters. If the full page is too tall to judge
+comfortably in chat, use the contact sheet as the primary evidence and keep the
+full-page image as supporting evidence.
+
 Do not crop exactly to the target element when the user needs to judge layout,
 alignment, spacing, hierarchy, or visual quality. Include surrounding context by
 default.
@@ -93,6 +101,10 @@ Choose the smallest frame that still explains the issue:
 
 - **Layout or alignment:** capture the full viewport or a wide section that
   includes the parent container, neighboring columns, and nearby headings.
+- **Whole page or dashboard:** capture the whole scrollable page or a
+  top/middle/bottom contact sheet with consistent viewport width. A single
+  first viewport is only a supplement unless the user explicitly asks for the
+  first viewport only.
 - **Sidebar, card, panel, or table row:** include the whole component plus at
   least one neighboring area or parent edge.
 - **Centered page sections or cards:** include visible left and right gutters
@@ -124,6 +136,10 @@ unless the point is a microscopic edge inspection.
    close unrelated overlays before capture.
 3. Capture a wide/context snapshot. Add a tighter crop only if it clarifies a
    specific detail.
+   For whole-page, dashboard, page-redesign, page-length, or reference-parity
+   tasks, capture page-level evidence now: full-page screenshot or a labeled
+   top/middle/bottom contact sheet. Do not wait until closeout to discover that
+   only the first viewport was captured.
 4. For UI changes, record key computed values when useful: x/y/w/h, font size,
    line height, border width/color, overflow, visible count, or console errors.
 5. Record provenance for important evidence: requested URL, final URL,
@@ -280,6 +296,9 @@ Keep the final visual report compact:
 - Include measured values only when they answer the user's question.
 - For comparison/contact sheets, label reference/app, before/after, viewport,
   route/state, and scroll position.
+- For whole-page or dashboard work, embed the page-level evidence directly in
+  chat: full-page if readable, otherwise the top/middle/bottom contact sheet.
+  The first viewport alone is not enough unless explicitly requested.
 - When Claude Design/reference, before UI, and after UI all exist, use a
   labeled three-column side-by-side image as the primary comparison evidence.
 - If a screenshot is intentionally tight, say that and provide a wider context
@@ -303,6 +322,10 @@ Before claiming a visual change is done, check:
   path. Reject a closeout that lists screenshot paths without embedding at least
   one image, unless the user explicitly asks for files only or capture/rendering
   is impossible.
+- Whole-page, dashboard, page-redesign, page-length, or reference-parity
+  closeouts include full-page evidence or a top/middle/bottom contact sheet.
+  Reject a closeout that shows only the first viewport for these tasks unless
+  the user explicitly scoped the snapshot to above-the-fold only.
 - For UI changes, at least one current snapshot is included in the closeout.
 - After UI development, a current post-implementation snapshot is included even
   when the user did not explicitly request one.

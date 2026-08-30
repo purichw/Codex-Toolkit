@@ -59,6 +59,8 @@ Use the current on-disk `SKILL.md` each time a skill is invoked.
 ## Durable Product Rules
 
 - Do not commit, push, deploy, rollback, revert, or remove unless explicitly asked in the current task.
+- Do not run hosted UAT smoke, create a fresh UAT preview, or seed UAT data for small work by default. Skip UAT for copy edits, one-off CSS/font/spacing tweaks, docs-only edits, small icon/image swaps outside CMS media contracts, and narrow visual fixes that targeted local/browser evidence can cover.
+- Use UAT when the change touches Firebase/Auth, Firestore Rules, CMS live/draft/version paths, Admin session/publish/save flows, public lead capture, Operations or Analytics APIs, environment resolution, Vercel config/protection, route rewrites, production-like routing behavior, or an explicit owner request for UAT/regression.
 - Production implementation, current docs, and Firestore live/draft data prevail over older external prototypes, SPEC files, or exports.
 - New SPEC/html/handoff references are inputs to reconcile, not automatic source of truth. Preserve accepted Product Decisions unless the owner explicitly changes them.
 - Any prototype/export that renders raw `{{ ... }}`, `sc-if`, `sc-for`, `x-dc`, or `[object Object]` is incomplete and not a portable implementation target.
@@ -113,6 +115,13 @@ npm run smoke
 git diff --check
 ```
 
+Hosted UAT checks are opt-in by risk, not default ceremony. Use them only for
+the UAT-triggering surfaces documented above:
+
+```bash
+npm run smoke:uat
+```
+
 Deploy only when explicitly asked:
 
 ```bash
@@ -150,6 +159,7 @@ Before doing work, use $covermate-new-chat and read current on-disk docs, not pr
 Important constraints:
 - Production repo files, current docs, and Firestore live CMS state prevail over older external prototypes/exports unless I explicitly reopen a Product Decision.
 - Do not commit, push, deploy, rollback, revert, remove, or undo unless I explicitly ask in this current task.
+- Do not run hosted UAT smoke, create fresh UAT previews, or seed UAT data for small copy/CSS/docs/icon tweaks by default. Use UAT only for Firebase/Auth, Firestore Rules, CMS data paths, Admin session/publish/save flows, lead capture, Operations/Analytics APIs, environment/routing/Vercel config, production-like routing behavior, or explicit UAT/regression requests.
 - Preserve routes, Firebase/Firestore contracts, localStorage keys, noindex boundaries, admin session behavior, responsive constraints, and owner-mode UI contracts unless explicitly in scope.
 - If a named skill is used, read its current on-disk SKILL.md first.
 - UI work needs snapshot evidence in the final handoff.

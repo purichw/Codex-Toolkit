@@ -37,6 +37,7 @@ git -C "/Users/point/CoverMate" status --short
 - Preserve existing routes, Firebase/Firestore contracts, localStorage keys, SEO/noindex boundaries, admin session behavior, responsive constraints, and owner-mode UI contracts unless the task explicitly changes them.
 - For UI work, provide snapshots or screenshots in the final handoff.
 - For release work, use `$release-gate`; for rollback-like requests, use `$rollback-guardrail` before changing files.
+- Use UAT proportionally. Do not run hosted UAT smoke, create fresh UAT previews, or seed UAT data for small copy/CSS/docs/icon tweaks by default. Use UAT only when the diff touches Firebase/Auth, Firestore Rules, CMS data paths, Admin session/publish/save flows, lead capture, Operations/Analytics APIs, environment/routing/Vercel config, production-like routing behavior, or when the owner explicitly asks for UAT/regression.
 
 ## Reference
 
