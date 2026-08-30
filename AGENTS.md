@@ -40,6 +40,28 @@ Claude/Figma/reference handoff, or screenshot-based design work, load and use
 `/Users/point/.codex/skills/snapshot/SKILL.md` before the final response. Do
 not wait for the user to ask for visual evidence.
 
+## Proportional Effort And Usage Budget
+
+Default to the smallest safe pass for the user's current request. Do not carry
+deep-audit, release, or whole-site verification momentum from a previous turn
+into a tiny follow-up unless the new request has a fresh escalation trigger.
+
+- Fast pass: for tiny copy, CSS, selector, spacing, typography, or one-off visual
+  tweaks. Read only owner files and nearby selectors, make the focused edit, run
+  `git diff --check`, and use one targeted browser/computed-style/snapshot check
+  only when the change is visible.
+- Standard pass: for one component, one route, one flow, or narrow runtime logic.
+  Read the relevant source and run targeted checks for the touched risk.
+- Deep or release pass: only for architecture, auth, data/admin/CMS contracts,
+  cache/fallback behavior, routing, broad shared logic, migrations, destructive
+  actions, production, or when the user asks to commit, push, deploy, merge, or
+  release.
+- Escalate only when targeted evidence requires it: a check fails, ownership is
+  unclear, the bug appears across routes or breakpoints, a shared contract is
+  changing, or the user explicitly broadens the scope.
+- Stop verification once the highest-risk touched surface is covered. Report
+  skipped broader checks instead of running them by habit.
+
 ## Repository Shape
 
 - `skills/<skill-name>/SKILL.md` is the required skill entrypoint.
@@ -56,6 +78,14 @@ not wait for the user to ask for visual evidence.
   private URLs, personal data, and sensitive project details before pushing.
 - Do not add generated caches, system skills, plugin cache contents, or unrelated
   local project files.
+- Do not delete, move, overwrite, chmod, chown, or bulk-edit files outside this
+  project without explicit approval in the current turn.
+- Do not run destructive commands unless the user explicitly requests that exact
+  operation. Destructive commands include `rm`, `rm -rf`, `unlink`,
+  `git reset --hard`, `git clean`, `git checkout --`, `find -delete`, `trash`,
+  and `mv` over existing files.
+- Preserve unrelated user changes. Never revert or overwrite changes you did not
+  make unless the user explicitly asks.
 - Preserve executable bits on helper scripts.
 - Use concise commits and push only the intended scope.
 
@@ -65,7 +95,7 @@ For most changes, run:
 
 ```sh
 git diff --check
-python3 scripts/verify_skills.py --expected-count 126
+python3 scripts/verify_skills.py --expected-count 127
 ```
 
 The verifier checks skill frontmatter, folder/name consistency, Markdown links,

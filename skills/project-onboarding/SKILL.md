@@ -59,6 +59,9 @@ only when the user request or project evidence points to it.
   verification work.
 - `$docs-cartographer`: create/update site maps, module maps, architecture
   docs, onboarding docs, handoff docs, or Extra High architecture documents.
+- `references/new-chat-template.md`: shared shape for project-specific
+  `*-new-chat` starter prompts and context checklists; use it from
+  project-specific new-chat skills without duplicating project facts.
 - `$regression-hunter`: one bug suggests repeated patterns, stale constants,
   duplicated logic, brittle selectors, or similar regressions elsewhere.
 - `$release-gate`: before commit, push, deploy, merge, PR, handoff, or after

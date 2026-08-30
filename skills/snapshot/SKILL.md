@@ -20,6 +20,11 @@ Any UI/UX skill that implements, audits, verifies, redesigns, restyles, or hands
 off a visible screen must invoke `$snapshot` automatically before the final
 response. Do not wait for the user to ask for screenshots.
 
+Keep the capture depth proportional. For a tiny copy, CSS, selector, spacing,
+typography, or one-control visual tweak, one current targeted screenshot is
+enough, optionally backed by computed values, unless responsive behavior,
+comparison, release, or a shared UI contract is in scope.
+
 After finishing UI development, capture and include a current snapshot before
 final response even if the user did not explicitly ask for one. For backend,
 data, auth, API, or config work, do this only when the change affects a
@@ -132,22 +137,25 @@ unless the point is a microscopic edge inspection.
    an absolute path: `![label](/absolute/path.png)`. Do not only list screenshot
    file paths when visual evidence is the deliverable.
 
-For UI implementation work, run this workflow after the final edit/build state,
-not only during debugging. If a snapshot cannot be captured, disclose why and
-what visual risk remains.
+For UI implementation work, run this workflow after the final edit state, not
+only during debugging. Use a built or deployed artifact when release/build risk
+is in scope. If a snapshot cannot be captured, disclose why and what visual risk
+remains.
 
 ## Side-By-Side Requirements
 
-When comparison inputs exist, present them side by side as the primary visual
-evidence. Do not make the user mentally compare separate, differently framed
-screenshots when a paired or contact-sheet image can be produced.
+When the task depends on comparison inputs, present them side by side as the
+primary visual evidence. Do not make the user mentally compare separate,
+differently framed screenshots when a paired or contact-sheet image can be
+produced.
 
 - **Claude Design or reference available:** show `Reference` plus
   `Development` side by side. A reference can be Claude Design HTML, a Claude
   screenshot, Figma/exported design, static mock, competitor/example page, or
   any user-provided visual target.
-- **Enhancing an existing UI:** show `Before` plus `After` side by side with
-  matched route, viewport, state, scroll, data, and framing whenever possible.
+- **Enhancing an existing UI with before/after proof in scope:** show `Before`
+  plus `After` side by side with matched route, viewport, state, scroll, data,
+  and framing whenever possible.
 - **Reference plus existing UI plus new implementation:** show all three
   columns side by side, normally labeled `Reference`, `Before`, and
   `After/Development`. Do not collapse the original UI into prose when it is
@@ -298,10 +306,11 @@ Before claiming a visual change is done, check:
 - For UI changes, at least one current snapshot is included in the closeout.
 - After UI development, a current post-implementation snapshot is included even
   when the user did not explicitly request one.
-- If Claude Design or another visual reference exists, the closeout includes a
-  side-by-side `Reference` and `Development` comparison.
-- If the task enhances an existing UI, the closeout includes a matched
-  side-by-side `Before` and `After` comparison.
+- If Claude Design or another visual reference is in scope, the closeout
+  includes a side-by-side `Reference` and `Development` comparison.
+- If the task asks for before/after proof or the comparison is needed to judge
+  the change, the closeout includes a matched side-by-side `Before` and `After`
+  comparison.
 - If Claude Design/reference, the old UI, and the new implementation all exist,
   the closeout includes all three side by side with clear labels.
 - For backend/data/auth/API/config changes that alter a user-visible journey,

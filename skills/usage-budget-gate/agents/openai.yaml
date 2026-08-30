@@ -1,4 +1,4 @@
 interface:
   display_name: "Usage Budget Gate"
-  short_description: "Choose work depth before spending heavily"
-  default_prompt: "Use $usage-budget-gate to choose the right work depth and stop rules before starting this task."
+  short_description: "Route work-depth and usage decisions"
+  default_prompt: "Use $usage-budget-gate to route work-depth and usage decisions through $efficient-execution."

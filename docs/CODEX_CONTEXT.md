@@ -10,8 +10,8 @@ user's intent.
 - Local checkout used when this file was written: `/Users/point/Codex-Toolkit`
 - Visibility at initial setup: private
 - Purpose: archive and document the user's personal Codex skills
-- Current skill count: 126 `SKILL.md` files under `skills/`
-- Breakdown: 72 canonical personal skills, 52 `global-*` alias skills for
+- Current skill count: 127 `SKILL.md` files under `skills/`
+- Breakdown: 73 canonical personal skills, 52 `global-*` alias skills for
   reusable non-project-specific workflows, and 2 standalone global design-spec
   skills.
 
@@ -130,6 +130,7 @@ Expected current skill folders:
 - `information-architecture-ux`
 - `interaction-design`
 - `interaction-flow-qa`
+- `kaset-tan-phai-new-chat`
 - `ledger-logic`
 - `mobile-native-feel`
 - `mobile-web-qa`
@@ -211,7 +212,7 @@ updates, enough verification is usually:
 
 ```sh
 git diff --check
-python3 scripts/verify_skills.py --expected-count 126
+python3 scripts/verify_skills.py --expected-count 127
 ```
 
 For skill script changes, run the script's smoke-test or help path when one
@@ -278,6 +279,11 @@ As of this document, the repository has:
 - one archive update adding `covermate-design-spec` and `covermate-new-chat`,
   preserving the repo-only global alias layer during sync, tightening snapshot
   closeout evidence, and updating the verifier count to 126.
+- one consolidation update moving proportional-effort depth rules into
+  `efficient-execution`, keeping `usage-budget-gate` as a compatibility router,
+  adding a shared project new-chat template under `project-onboarding`, wiring
+  project-specific `*-new-chat` skills to that template, importing
+  `kaset-tan-phai-new-chat`, and updating the verifier count to 127.
 
 The main thing future Codex should preserve is the distinction between live local
 skills and the GitHub archive. That distinction prevents accidental overwrites

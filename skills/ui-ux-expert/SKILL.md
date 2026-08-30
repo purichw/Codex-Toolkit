@@ -105,6 +105,8 @@ This includes implementation, redesign, restyle, visual audit, responsive QA,
 Claude/Figma/reference handoff, screenshot-based design work, new screens,
 reference/parity work, formal audits, and final visual QA. Add mobile or
 side-by-side evidence when viewport behavior or comparison is in scope.
+For micro visual edits, keep this to the smallest useful current visual proof
+instead of expanding into a full visual QA run by default.
 
 If capture is genuinely blocked, state why, what was not visually verified, and
 the remaining risk. Do not silently skip snapshot evidence for UI/UX work.
@@ -119,7 +121,8 @@ Before final response on UI work, check:
 - controls match the choice model;
 - data views include relevant loading/empty/error/edge states;
 - destructive behavior is safe;
-- mobile has no overflow, clipping, tiny targets, or hover-only affordances;
+- mobile has no overflow, clipping, tiny targets, or hover-only affordances when
+  mobile/responsive behavior is touched or in scope;
 - console/network errors are absent when a browser check is practical;
 - visible content is real or clearly labeled placeholder;
 - anti-slop tells are absent or intentionally justified.

@@ -23,9 +23,11 @@ Prepare a fresh Codex chat to work safely on Mongkol Wela without relying on sta
 git -C "/Users/point/Website Projects/hora-astro" status --short --branch
 ```
 
-3. Read `references/new-chat-context.md` from this skill.
-4. Read only the project docs relevant to the next task, using the required-doc order from the reference.
-5. If the user asks for a prompt, return a copy-ready prompt for a new chat. If the user asks to continue work, summarize what was read and proceed with the relevant task.
+3. Read the shared new-chat shape:
+   `/Users/point/.codex/skills/project-onboarding/references/new-chat-template.md`.
+4. Read `references/new-chat-context.md` from this skill.
+5. Read only the project docs relevant to the next task, using the required-doc order from the reference.
+6. If the user asks for a prompt, return a copy-ready prompt for a new chat. If the user asks to continue work, summarize what was read and proceed with the relevant task.
 
 ## Required Discipline
 
@@ -43,4 +45,10 @@ Read this when the skill triggers:
 
 ```text
 /Users/point/.codex/skills/mongkol-new-chat/references/new-chat-context.md
+```
+
+Use the shared starter-prompt shape from:
+
+```text
+/Users/point/.codex/skills/project-onboarding/references/new-chat-template.md
 ```

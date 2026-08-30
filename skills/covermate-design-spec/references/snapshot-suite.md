@@ -1,6 +1,6 @@
 # CoverMate Production Snapshot Suite
 
-Use this reference when the user asks for complete snapshots, production visual evidence, release proof, Claude Design handoff evidence, or any audit where "all screens" matters.
+Use this reference when the user asks for complete snapshots, production visual evidence, release proof, design handoff evidence, or any audit where "all screens" matters.
 
 ## Snapshot Types
 
@@ -13,7 +13,7 @@ Ad-hoc evidence:
 
 Complete production suite:
 
-- Use for full-site visual archive, release evidence, or Claude handoff.
+- Use for full-site visual archive, release evidence, or design handoff.
 - Capture the full matrix below.
 - Save into a stable timestamped directory, for example `/tmp/covermate-production-snapshots-YYYYMMDD-HHMMSS/`.
 - Write `manifest.json` with every screenshot path and provenance.
@@ -52,6 +52,8 @@ Capture these in Thai:
 | ID | URL | Viewports | Mode |
 | --- | --- | --- | --- |
 | `public-home-full` | `/` | desktop, tablet, mobile | `fullPage: true` |
+| `public-motor-full` | `/motor` | desktop, tablet, mobile | `fullPage: true` |
+| `public-motor-hero` | `/motor` | desktop, mobile | viewport/context |
 | `public-cover-anchor` | `/#cover` | desktop, mobile | viewport/context |
 | `public-fit-anchor` | `/#fit` | desktop, mobile | viewport/context |
 | `public-insurers-anchor` | `/#insurers` | desktop, mobile | viewport/context |
@@ -59,7 +61,15 @@ Capture these in Thai:
 | `public-claim-anchor` | `/#claim` | desktop, mobile | viewport/context |
 | `public-talk-anchor` | `/#talk` | desktop, mobile | viewport/context |
 
-For `public-motor-alias`, prove the contract with behavior evidence:
+For `public-motor-full`, prove that the route is the dedicated motor page with:
+
+- requested URL `/motor`;
+- canonical `https://covermate.vercel.app/motor`;
+- local motor-page nav including `Home`;
+- visible `motor`, `motor-trust`, `motor-cover`, `insurers`, `tiers`, `how`,
+  `claim`, `renew`, `guides`, `faq`, and `talk` sections.
+
+For `public-motor-alias`, prove the backward-compatible home alias contract with behavior evidence:
 
 - requested URL;
 - final URL/hash after app handling;

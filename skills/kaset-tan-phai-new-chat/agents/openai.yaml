@@ -1,0 +1,4 @@
+interface:
+  display_name: "Kaset Tan Phai New Chat"
+  short_description: "Onboard fresh เกษตรทันภัย chats"
+  default_prompt: "Use $kaset-tan-phai-new-chat to prepare a fresh Codex chat for Kaset Tan Phai work."

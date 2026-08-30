@@ -56,7 +56,7 @@ version should run.
 | [`global-reference-implementation-critique`](../skills/global-reference-implementation-critique/SKILL.md) | [`reference-implementation-critique`](../skills/reference-implementation-critique/SKILL.md) | Compares reference design and implementation across geometry, rhythm, hierarchy, density, visual weight, affordance, states, and product decisions. |
 | [`global-taste-calibration`](../skills/global-taste-calibration/SKILL.md) | [`taste-calibration`](../skills/taste-calibration/SKILL.md) | Uses paired works/fails specimens and calibration drills to improve UI taste with measurable smallest-change loops. |
 | [`global-docs-cartographer`](../skills/global-docs-cartographer/SKILL.md) | [`docs-cartographer`](../skills/docs-cartographer/SKILL.md) | Architecture, route, module, data-flow, command, and handoff documentation. |
-| [`global-efficient-execution`](../skills/global-efficient-execution/SKILL.md) | [`efficient-execution`](../skills/efficient-execution/SKILL.md) | Faster quality-preserving workflows, batching, and scoped evidence. |
+| [`global-efficient-execution`](../skills/global-efficient-execution/SKILL.md) | [`efficient-execution`](../skills/efficient-execution/SKILL.md) | Faster quality-preserving workflows, depth modes, batching, scoped evidence, and usage control. |
 | [`global-export-html`](../skills/global-export-html/SKILL.md) | [`export-html`](../skills/export-html/SKILL.md) | Standalone/offline HTML exports and clickable prototypes. |
 | [`global-firebase-account-management`](../skills/global-firebase-account-management/SKILL.md) | [`firebase-account-management`](../skills/firebase-account-management/SKILL.md) | Firebase Auth users, profiles, Admin SDK, custom claims, and account flows. |
 | [`global-firebase-security-rules`](../skills/global-firebase-security-rules/SKILL.md) | [`firebase-security-rules`](../skills/firebase-security-rules/SKILL.md) | Firestore Rules, Auth authorization, Admin SDK boundaries, and Firebase security. |
@@ -80,7 +80,7 @@ version should run.
 | [`global-ui-state-matrix`](../skills/global-ui-state-matrix/SKILL.md) | [`ui-state-matrix`](../skills/ui-state-matrix/SKILL.md) | UI state coverage beyond the happy path. |
 | [`global-ui-ux-expert`](../skills/global-ui-ux-expert/SKILL.md) | [`ui-ux-expert`](../skills/ui-ux-expert/SKILL.md) | Polished user-facing UI/UX design, UX behavior/state coverage, implementation, audit, and QA. |
 | [`global-ui-ux-orchestrator`](../skills/global-ui-ux-orchestrator/SKILL.md) | [`ui-ux-orchestrator`](../skills/ui-ux-orchestrator/SKILL.md) | Routing broad UI/UX work to the right focused skills. |
-| [`global-usage-budget-gate`](../skills/global-usage-budget-gate/SKILL.md) | [`usage-budget-gate`](../skills/usage-budget-gate/SKILL.md) | Budget-aware depth, stop rules, and escalation triggers. |
+| [`global-usage-budget-gate`](../skills/global-usage-budget-gate/SKILL.md) | [`usage-budget-gate`](../skills/usage-budget-gate/SKILL.md) | Compatibility alias for budget-aware depth routing now owned by `efficient-execution`. |
 
 ## Not Global
 
@@ -89,6 +89,7 @@ These skills stay under their project or specialized names:
 - Coin Quest: `coin-quest-admin-ops`, `coin-quest-ledger-logic`,
   `coin-quest-native-parity`
 - CoverMate: `covermate-design-spec`, `covermate-new-chat`
+- Kaset Tan Phai: `kaset-tan-phai-new-chat`
 - Notenwert: `notenwert-design-direction`, `notenwert-maintainer`
 - Mongkol Wela: `mongkol-new-chat`
 - Shane and His Thai: `shane-thai-audio-generator`,

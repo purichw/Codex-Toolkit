@@ -1,4 +1,4 @@
 interface:
   display_name: "Global Usage Budget Gate"
-  short_description: "Global alias for usage-budget-gate"
-  default_prompt: "Use $global-usage-budget-gate for the global usage-budget-gate workflow."
+  short_description: "Global alias for usage routing"
+  default_prompt: "Use $global-usage-budget-gate to route proportional-effort decisions through $efficient-execution."

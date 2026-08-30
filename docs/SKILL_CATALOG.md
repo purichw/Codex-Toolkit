@@ -67,27 +67,30 @@ that intentionally remain project-specific or specialized.
 ### efficient-execution
 
 - Skill file: [../skills/efficient-execution/SKILL.md](../skills/efficient-execution/SKILL.md)
-- Description: Chooses the fastest quality-preserving path through discovery,
-  implementation, verification, commit, push, deploy, and handoff work.
-- Use when: Work feels slow, the user asks to move faster, a check plan needs
-  batching or trimming, existing evidence might be reused, or a task needs clear
-  stop rules without lowering the acceptance bar.
-- Typical context: User target, changed risk tier, current diff or source
-  state, previously gathered evidence, repo-defined commands, selected domain
-  skills, skipped-check rationale, and the next fastest safe step.
+- Description: Chooses the smallest quality-preserving path through discovery,
+  implementation, verification, commit, push, deploy, handoff work, and
+  usage-budget decisions.
+- Use when: Work feels slow, the user asks to move faster or spend less usage, a
+  check plan needs batching or trimming, existing evidence might be reused, or a
+  task needs fast/standard/deep/release depth and stop rules without lowering
+  the acceptance bar.
+- Typical context: User target, deliverable, chosen depth, changed risk tier,
+  current diff or source state, previously gathered evidence, repo-defined
+  commands, selected domain skills, skipped-check rationale, escalation triggers,
+  and the next fastest safe step.
 
 ### usage-budget-gate
 
 - Skill file: [../skills/usage-budget-gate/SKILL.md](../skills/usage-budget-gate/SKILL.md)
-- Description: Chooses and communicates the right work depth before expensive
-  discovery, UI/UX audit, Claude parity, regression hunts, release checks, UAT,
-  screenshots, test suites, or deploy verification.
-- Use when: The user asks to avoid high usage, move faster or cheaper, decide
-  fast versus deep mode, set stop rules, define escalation triggers, or prevent
-  broad audits from running unnecessarily.
-- Typical context: Proposed depth, why that depth fits, evidence needed, stop
-  rule, escalation triggers, checks intentionally skipped, user-visible risk,
-  and residual risk after the chosen pass.
+- Description: Thin compatibility router for proportional-effort prompts now
+  owned by `efficient-execution`.
+- Use when: Existing prompts mention `$usage-budget-gate`, or the user asks to
+  avoid high usage, move faster or cheaper, decide fast versus deep mode, set
+  stop rules, define escalation triggers, or prevent broad audits from running
+  unnecessarily.
+- Typical context: Read `$efficient-execution`; then report chosen depth,
+  evidence needed, stop rule, escalation triggers, checks intentionally skipped,
+  user-visible risk, and residual risk after the chosen pass.
 
 ### uat-environment
 
@@ -693,6 +696,26 @@ comparison evidence is the default.
 - Typical context: `AGENTS.md`, codebase map, content model, NGA reference for
   hero/banner work, source under `src/`, build script, regression tests, and
   work log.
+
+## Kaset Tan Phai
+
+### kaset-tan-phai-new-chat
+
+- Skill file: [../skills/kaset-tan-phai-new-chat/SKILL.md](../skills/kaset-tan-phai-new-chat/SKILL.md)
+- Description: Onboards a fresh Codex chat for the Kaset Tan Phai /
+  เกษตรทันภัย public flood, drought, and water-risk alert project using current
+  on-disk docs, durable public-safety rules, source maps, commands, and a
+  copy-ready starter prompt.
+- Use when: The user asks for a new-chat prompt, handoff prompt, context pickup
+  checklist, required docs/skills/setup for Kaset Tan Phai, or wants a future
+  chat to know what to read before UI, data, map, alerts, notifications,
+  operations, QA, push, or deploy work.
+- Typical context: `/Users/point/Kaset-Tan-Phai`, production
+  `https://kasettanphai.vercel.app`, `README.md`, `PROJECT_MAP.md`,
+  `docs/HANDOFF.md`, git status, task-specific docs/source areas, Thai-first
+  public-safety constraints, canonical JSON, 77-province GeoJSON joins,
+  localStorage key behavior, setup/verification commands, and
+  `references/new-chat-context.md`.
 
 ## Mongkol Wela
 

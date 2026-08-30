@@ -1,22 +1,23 @@
-# CoverMate Website Full Design Spec For Claude
+# CoverMate Website Current Product Spec
 
-Last updated: 2026-07-31
+Last updated: 2026-08-29
 
 Production baseline: `https://covermate.vercel.app`
 
-Implementation baseline: git commit `97181c7` (`Polish visitor and admin release`)
+Implementation baseline: current production bundle in this repository. Use the
+latest git commit/deployment record for the exact deployed revision.
 
-Audience: Claude Design or any design partner updating the corresponding website/admin designs.
+Audience: future maintainers, design partners, product owners, and implementation agents updating the website/admin product.
 
 ## Purpose
 
 CoverMate is a Thai insurance advisory site for life, health, and motor insurance. The public site must feel like a calm, trustworthy personal advisor rather than a generic insurance comparison marketplace. The admin side is private owner tooling for editing content, arranging sections, publishing Firestore drafts, and reviewing owner analytics.
 
-This spec exports the current product and visual contract so design updates can be made against the real site, not older standalone exports.
+This spec records the current product and visual contract so future updates are made against the real site, not older offline prototypes or screenshots.
 
 ## Snapshot Evidence
 
-Current complete production suite:
+Most recent complete production suite:
 
 - Snapshot folder: `/Users/point/CoverMate/docs/snapshots/production-2026-07-31`
 - Manifest: `/Users/point/CoverMate/docs/snapshots/production-2026-07-31/manifest.json`
@@ -24,53 +25,148 @@ Current complete production suite:
 - Intentionally missing states: contact and renewal success states, because this run did not submit real production lead data.
 - Signed-in admin and owner-hash captures use a mocked `covermate-admin-session`; the manifest labels these as `mock-admin-session`.
 
+Latest SPEC (5) release evidence is narrower than the complete production suite
+above and should be treated as targeted proof for the motor tier reconciliation:
+
+- Snapshot folder: `/Users/point/CoverMate/docs/snapshots/local-2026-08-02-spec5`
+- Includes public home desktop, public tiers desktop/mobile, public `#motor`
+  alias desktop, and admin Content tab tier editing.
+- Manifest: `/Users/point/CoverMate/docs/snapshots/local-2026-08-02-spec5/manifest.json`
+
+Latest local regression evidence for admin/public mode sync and legacy
+Firestore content normalization:
+
+- Snapshot folder: `/Users/point/CoverMate/docs/snapshots/local-2026-08-02-admin-sync`
+- Manifest: `/Users/point/CoverMate/docs/snapshots/local-2026-08-02-admin-sync/manifest.json`
+- Includes public insurer section desktop/mobile, admin-to-visitor new-tab behavior,
+  and the clean public view with owner chrome suppressed.
+
+Latest local regression evidence for admin actions and anchor-navigation
+stability:
+
+- Snapshot folder: `/Users/point/CoverMate/docs/snapshots/local-2026-08-02-admin-actions`
+- Manifest: `/Users/point/CoverMate/docs/snapshots/local-2026-08-02-admin-actions/manifest.json`
+- Includes public `#how` anchor jump, custom `Save draft` confirmation,
+  `Publish` success toast with 30-second `Undo`, and mobile admin drawer
+  stacking/action-bar spacing.
+
+Latest local regression evidence for public/admin chrome separation:
+
+- Snapshot folder: `/Users/point/CoverMate/docs/snapshots/local-2026-08-02-public-chrome-guard`
+- Manifest: `/Users/point/CoverMate/docs/snapshots/local-2026-08-02-public-chrome-guard/manifest.json`
+- Includes a clean public `/` route with a mocked admin session and stale owner
+  marker, `/admin` return after closing `/#admin`, and the clean visitor popup
+  after clicking `Public site`.
+
+
 The following screenshots are historical ad-hoc visual evidence from production. They are useful for the exported spec context, but they are not a complete production snapshot suite:
 
 - Public desktop: `/tmp/covermate-spec-home-desktop.png`
 - Public mobile: `/tmp/covermate-spec-home-mobile.png`
 - Admin login desktop: `/tmp/covermate-spec-admin-login.png`
-- Admin launcher desktop: `/tmp/covermate-spec-admin-launcher.png`
+- Admin Portal desktop: `/tmp/covermate-spec-admin-launcher.png`
 - Admin analytics mobile: `/tmp/covermate-spec-admin-analytics.png`
 
 These screenshots were captured from production on 2026-07-31 with mixed routes, viewports, and auth states. Do not treat them as exhaustive proof of every public/admin screen.
 
-For release evidence, Claude handoff evidence, or "all screens" visual QA, capture a complete production snapshot suite instead:
+For release evidence, design handoff evidence, or "all screens" visual QA, capture a complete production snapshot suite instead:
 
 - public full-page desktop/tablet/mobile;
 - anchor states for `#cover`, `#fit`, `#insurers`, `#motor`, `#claim`, and `#talk`;
 - TH and EN states when copy, typography, nav, or translation is in scope;
 - admin signed-out login and redirect states;
-- admin signed-in launcher, analytics, owner edit, owner arrange panel tabs, drawer-closed/reopen state, and preview;
+- admin signed-in portal, analytics, owner edit, owner control panel tabs, drawer-closed/reopen state, and preview;
 - public form empty/validation/safe success states when form or analytics behavior is in scope;
 - a `manifest.json` with URL, final URL, viewport, auth state, data state, language, scroll position, `fullPage` flag, commit, timestamp, and missing-state reasons.
 
 If this spec is being read from the bundled skill, follow `references/snapshot-suite.md` for the complete matrix.
 
+Latest local needs-calculator evidence:
+
+- Snapshot folder:
+  `/Users/point/CoverMate/docs/snapshots/2026-08-16-needs-calculator`
+- Scope: targeted local proof for the `#fit` section after migrating the
+  calculator to the `covermate-reference-data-v0.1` methodology.
+- The screenshot may still show Firestore-live section heading copy because
+  live CMS content wins over embedded defaults. The calculator controls and
+  methodology payload are the evidence target.
+
 ## Source Of Truth
 
 Use this precedence order:
 
-1. Production site at `https://covermate.vercel.app`, currently commit `97181c7`.
+1. Production site at `https://covermate.vercel.app`; verify the deployed commit for the current release in Vercel or `git log`.
 2. Repository implementation in `/Users/point/CoverMate`.
 3. Project docs in `/Users/point/CoverMate/docs`.
 4. Firestore live CMS state when present: `sites/covermate/states/live`.
-5. Earlier Claude/standalone/screenshots only as visual calibration.
+5. The current external machine-readable handoff package at
+   `/Users/point/Downloads/Insurance Agent Poster Concepts.zip` for
+    implementation planning, schema/API/rules references, and source-module cross-checks. The filename is misleading; it contains a `handoff/` implementation
+   package, not only poster concepts.
+6. Earlier offline prototypes and screenshots only as historical visual calibration.
 
 If older references conflict with this spec or the live site, this spec and the live implementation win.
 
-## Claude Update Brief
+## External Prototype Guardrail
 
-Update the corresponding Claude designs to reflect the current product decisions:
+Offline prototype HTML files are historical reference artifacts, not production
+source of truth. Use them only for visual calibration after checking whether
+they are complete and intentionally current for the task.
 
-- The public site is one continuous page. `/#motor` is only an alias that scrolls to `#insurers`; it must not become a separate-looking page.
-- The visitor navbar must show only one motor item: Thai `ประกันรถยนต์`, English `Motor`, pointing to `#insurers`.
-- Keep the hidden focused motor variant available conceptually, but do not expose it in the public nav/design unless the owner explicitly asks.
+A valid portable prototype must:
+
+- open directly from `file://` without a dev server;
+- include or inline every runtime dependency;
+- avoid missing-file console errors for `support.js`, `image-slot.js`, or
+  `_ds/*/_ds_bundle.js`;
+- render no visible raw template markers such as `{{ brandName }}`,
+  `{{ n.label }}`, `sc-if`, `sc-for`, `x-dc`, or `[object Object]`;
+- render public, admin, edit, preview, and relevant route states after reload.
+
+If an offline prototype fails those checks, do not patch production around it.
+Update the prototype or request a complete self-contained export before using it
+as evidence.
+
+## Design Update Brief
+
+Future external designs, local prototypes, or handoff updates must reflect the current product decisions:
+
+- First read `/Users/point/CoverMate/docs/ADMIN_CMS_REBUILD_DECISIONS.md`; it is the current Admin/CMS rebuild authority.
+- The public product now has two visitor entry points in the same CoverMate
+  site: `/` is the full home page, and `/motor` is the dedicated
+  motor-insurance campaign page for motor-specific ads/search.
+- `/#motor` remains a backward-compatible home-page alias that scrolls to
+  `#insurers`; it is not the campaign route. Use `/motor` for motor-only
+  landing links.
+- The home visitor navbar must show only one motor item: Thai
+  `ประกันรถยนต์`, English `Motor`, pointing to `#insurers`. The `/motor`
+  navbar may have its own local motor anchors plus a `Home` link.
+- `/#motor-focus` is legacy/unexposed compatibility only; `/motor` is the
+  current dedicated motor-page design source.
 - Add the expanded public sections that now exist after the original reference: policy review, claims, renewal reminder, guides, fee transparency, and PDPA/privacy.
-- Admin launcher has three primary cards: `Edit the words`, `Arrange & customise`, and `Analytics`.
+- Admin Portal Home target has four primary modules: `Operations`,
+  `Website content`, `Analytics`, and `Settings`. The home lives inside the
+  same admin shell as those modules; `/admin/ops` remains only a compatibility
+  entry that defaults to Operations. The `Website content` module must not
+  split editing and arranging into separate launcher cards; `Edit the words`
+  opens the editor, and its `Tools -> Panel` command opens the control panel for
+  section order, visibility, brand, footer, preview, publish, backup, and
+  restore.
 - Admin menu/chrome labels are intentionally English: `Main`, `Public site`, `Log out`, `Panel`, `Edit text`, `Save draft`, `Preview`, `Publish`, `Success`.
+- Admin `Public site` actions must open the clean public route in a new browser
+  tab without showing owner chrome. Legacy `/?view=public` may be consumed for
+  compatibility, but new UI must not generate it.
+- A signed-in admin session is not a visible public-page mode. A clean `/` load
+  or reload must hide owner chrome even if stale local owner markers exist.
 - All visible Thai and English text uses the Google Sans family. Headings and logo text may use heavier Google Sans weights, but do not reintroduce unrelated serif/display fonts.
 - The AIA logo asset is the transparent red mark at `assets/logos/aia-logo.png`.
 - Contact heading Thai `ขอรับคำปรึกษา` must remain one line on desktop and should avoid awkward word breaks elsewhere.
+- Known stale Firestore CMS values that conflict with product decisions must be
+  normalized on render/save/publish: duplicate `#motor` nav entries, stale
+  insurer-count copy, and forced-line-break contact headings. Insurer-count copy
+  follows the active `insurers.items` logo data; with the current committed logo
+  set, the count is `14`. Do not reintroduce stale higher-count claims unless
+  the logo data and owner approval both support the new count.
 - All behavior described here is a product decision as of this release, excluding future bugs that have not appeared yet.
 
 ## Visual Direction
@@ -91,7 +187,7 @@ The product should feel personal, careful, and financially credible. It should n
 Primary files:
 
 - Public visitor site and owner hash modes: `/Users/point/CoverMate/index.html`
-- Admin launcher: `/Users/point/CoverMate/admin/index.html`
+- Admin Portal shell: `/Users/point/CoverMate/admin/index.html`
 - Admin login: `/Users/point/CoverMate/admin/login/index.html`
 - Admin analytics: `/Users/point/CoverMate/admin/analytics/index.html`
 - Firebase helpers: `/Users/point/CoverMate/covermate-firebase.js`
@@ -106,6 +202,7 @@ Supporting docs:
 - Analytics: `/Users/point/CoverMate/docs/ANALYTICS.md`
 - SEO: `/Users/point/CoverMate/docs/SEO.md`
 - Interaction map: `/Users/point/CoverMate/docs/INTERACTION_MAP.md`
+- Needs calculator: `/Users/point/CoverMate/docs/NEEDS_CALCULATOR.md`
 - Assets: `/Users/point/CoverMate/docs/DESIGN_ASSETS.md`
 - NFRs: `/Users/point/CoverMate/docs/NON_FUNCTIONAL_REQUIREMENTS.md`
 
@@ -113,14 +210,21 @@ Supporting docs:
 
 | Route | Surface | Audience | Indexing |
 | --- | --- | --- | --- |
-| `/` | Public visitor site | Prospective customers | Indexable |
-| `/#motor` | Alias into public `#insurers` section | Prospective motor customers | Same page, no separate surface |
+| `/` | Public home page | Prospective customers | Indexable |
+| `/motor` | Dedicated motor-insurance campaign page | Prospective motor customers from motor-specific ads/search | Indexable |
+| `/#motor` | Backward-compatible alias into home `#insurers` | Existing links / home-page context | Same document as `/`; not sitemap |
+| `/#life` | Alias into public `#cover` section | Prospective life/health customers | Same page, no separate surface |
+| `/#motor-focus` | Legacy unexposed motor campaign variant | Compatibility only | Same page, no sitemap/nav exposure |
+| `/#life-focus` | Unexposed life/health campaign variant | Campaign visitors when explicitly linked | Same page, no sitemap/nav exposure |
 | `/#edit` | Owner click-to-edit text mode | Admin only | No separate index route |
-| `/#admin` | Owner arrange/customise drawer over public page | Admin only | No separate index route |
+| `/#admin` | Legacy owner control-panel drawer over public page | Admin only | No separate index route |
 | `/#preview` | Owner preview of draft | Admin only | No separate index route |
 | `/admin/login` | Google sign-in gate | Admin only | `noindex` |
-| `/admin` | Admin launcher | Admin only | `noindex` |
-| `/admin/analytics` | Owner analytics | Admin only | `noindex` |
+| `/admin` | Admin Portal shell | Admin only | `noindex` |
+| `/admin/ops` | Compatibility entry into Operations in the Admin Portal shell | Admin only | `noindex` |
+| `/admin/content?page=motor` | Control panel scoped to the motor page | Admin only | `noindex` |
+| `/admin/edit?page=motor` | Inline text editor scoped to the motor page | Admin only | `noindex` |
+| `/admin/preview?page=motor` | Draft preview scoped to the motor page | Admin only | `noindex` |
 
 ## Brand Baseline
 
@@ -132,6 +236,7 @@ Brand fields:
 - English role: `Insurance Advisory`
 - Thai credential: `ตัวแทน AIA · นายหน้าประกันรถยนต์ · ดูแลถึงการเคลม`
 - English credential: `AIA agent · motor broker · support through claims`
+- Advisor proof logo path: `assets/logos/aia-logo.png`
 
 Licensing copy must remain present in admin and footer surfaces:
 
@@ -214,10 +319,9 @@ Components:
 - Logo mark: pale green circular `C`, brand name, Thai/English role line.
 - Nav:
   - `#cover`: `ความคุ้มครอง` / `Cover`
+  - `#review`: `ตรวจกรมธรรม์` / `Policy review`
   - `#insurers`: `ประกันรถยนต์` / `Motor`
-  - `#claim`: `เกิดเหตุ` / `Claims`
-  - `#fit`: `คำนวณทุน` / `Calculator`
-  - `#how`: `ขั้นตอน` / `Process`
+  - `#fit`: `เครื่องมือ` / `Resources`
   - `#faq`: `คำถามที่พบบ่อย` / `FAQ`
 - Language segmented control: `TH` and `EN`.
 - Primary CTA: chat icon + `แอดไลน์` / LINE copy.
@@ -225,22 +329,30 @@ Components:
 Guardrails:
 
 - Never show two `ประกันรถยนต์` nav items.
-- Do not make `#motor` appear like a separate website.
+- Do not make `/#motor` appear like a separate website. The separate,
+  canonical motor campaign surface is `/motor`.
 - Header should stay calm and not become a marketing mega-nav.
+- Header/footer nav and any CTA that points to a same-page section must be
+  visibility-aware: if the target section is hidden in Admin, the link/button is
+  hidden too rather than leaving a dead anchor on the visitor surface.
 
 ## Visitor Section Order
 
-The current public page has 16 live sections:
+The current public page has 16 visible live sections plus one embedded `cover`
+data source. `cover` is no longer a standalone public/Admin section; its
+product details render inside the hero coverage accordion cluster, and the
+`#cover` anchor lands there for existing nav and `/#life` compatibility.
 
 | Order | ID | Type | Background | Columns | Content Count |
 | --- | --- | --- | --- | --- | --- |
 | 1 | `hero` | Hero | cream | 2 | brand/value proposition |
 | 2 | `trust` | Trust bar | cream | 4 | 4 trust chips |
-| 3 | `cover` | Products | surface | 3 | 6 insurance product rows |
-| 4 | `review` | Policy review | cream | 3 | 3 review steps |
-| 5 | `fit` | Coverage calculator | dark | 2 | interactive calculator |
-| 6 | `how` | Process steps | cream | 4 | 4 steps |
-| 7 | `insurers` | Motor insurers | sage | 4 | 14 logo items + 2 credential cards |
+| embedded | `cover` | Hero coverage accordions | hero | auto | 6 insurance product accordions |
+| 3 | `review` | Policy review | cream | 3 | 3 review steps |
+| 4 | `fit` | Coverage calculator | dark | 2 | interactive calculator |
+| 5 | `how` | Process steps | cream | 4 | 4 steps |
+| 6 | `insurers` | Motor insurers | sage | 4 | 14 data-driven logo items + 2 credential cards |
+| 7 | `tiers` | Motor class comparison | cream | 1 | 5 rows x 5 coverage axes |
 | 8 | `claim` | Claims help | dark | 4 | 4 steps + 4 proof metrics/cards |
 | 9 | `renew` | Renewal reminder | sage | 3 | reminder form + 3 benefits |
 | 10 | `guides` | Buying guides | surface | 2 | 4 FAQ-style guide rows |
@@ -251,7 +363,33 @@ The current public page has 16 live sections:
 | 15 | `privacy` | PDPA/privacy | cream | 2 | 5 privacy bullets |
 | 16 | `talk` | Contact | dark | 2 | contact panel + lead form |
 
-Claude designs should include all sections. Do not stop at the older shorter reference page.
+Design updates should include all sections. Do not stop at older shorter reference pages.
+
+## Dedicated Motor Page
+
+The current production contract includes `/motor` as a separate visitor page
+inside the same CoverMate product. It is intended for motor-insurance ads and
+search traffic that should not land midway through the broader home page.
+
+Page contract:
+
+- Canonical URL: `https://covermate.vercel.app/motor`
+- SEO: indexable `WebPage` metadata distinct from `/`, while keeping the same
+  CoverMate `InsuranceAgency` identity.
+- Header: same brand, language control, and LINE CTA, with local motor-page nav
+  for `Home`, motor coverage, insurers, tier comparison/process, and contact.
+- Section order: `motor`, `motor-trust`, `motor-cover`, `insurers`, `tiers`,
+  `how`, `claim`, `renew`, `guides`, `faq`, `talk`.
+- Data model: local hero/trust/coverage blocks live under `motorPage.*`;
+  shared insurer logos, tier table, process, claim, renewal, guides, FAQ, and
+  contact content reuse the CMS-backed arrays used by Home.
+- Admin: `/admin/content?page=motor`, `/admin/edit?page=motor`, and
+  `/admin/preview?page=motor` must stay reachable from owner tools and must not
+  leak owner chrome onto `/motor` or `/`.
+- Firestore fallback: if a pre-`motorPage` live document loads, the runtime
+  seeds the missing motor-page schema and keeps required shared motor sections
+  visible for the new route. Once Firestore has `motorPage`, live Firestore
+  values win over local fallback/cache.
 
 ## Visitor Component Specs
 
@@ -283,16 +421,19 @@ Structure:
 
 Keep pills stable and readable across widths.
 
-### Coverage Products
+### Hero Coverage Accordions
 
 Purpose: show coverage categories the advisor can help with.
 
 Structure:
 
-- Warm surface band.
-- Centered section heading.
-- Product rows/cards with circular icon chips, title, short subtitle, and expand affordance.
+- Embedded in the hero assist-card cluster under the coverage prompt.
+- `#cover` is an anchor on this cluster, not on a standalone section.
+- Product cards use circular icon chips, title, short subtitle, and accordion expand affordance.
 - Product types currently include life, health, disease/critical illness, personal accident, home, and motor.
+- Expanded details use the existing `cover.items[*].b1/b2/b3/note` data.
+- The Admin Sections list must not show `#cover`; owners edit this copy inline
+  where it appears on the page.
 
 Rows should feel like actionable advisory categories, not commodity cards.
 
@@ -316,15 +457,26 @@ Structure:
 - Dark brown section.
 - Left copy block with warm heading.
 - Right or adjacent calculator panel depending on viewport.
-- Segmented/card-like choices for life stage.
-- Sliders/inputs for income, dependents, debt, existing cover.
-- Calculated number prominent but not alarmist.
+- Segmented/card-like choices for situation context.
+- Inputs for essential monthly spending, support years, debts/future
+  obligations, liquid assets/existing cover, current room benefit, and recovery
+  period.
+- Three outputs: life starting need, health room-reference gap, and
+  critical-illness/recovery buffer.
+- Calculated numbers are prominent but not alarmist and must read as advisory
+  starting points rather than guaranteed costs or quotations.
 
 Current refinements:
 
 - Life-stage option cards center their icon and label.
 - Cards must not look left-heavy.
 - Use terracotta cards against deep brown.
+- The calculator follows `/Users/point/CoverMate/docs/NEEDS_CALCULATOR.md`.
+  Do not reintroduce arbitrary salary/dependency multipliers.
+  `fit.calculator` in Firestore is the source of truth; embedded defaults only
+  fill missing nested assumptions. Situation-card labels, icons, tints, and
+  recommendation bullets are `fit.calculator.situations` data, and the first
+  enabled situation renders by default so results appear on initial load.
 
 ### Process
 
@@ -343,8 +495,10 @@ Purpose: prove motor-insurance comparison breadth.
 Structure:
 
 - Sage/green band.
-- Centered heading: motor insurance can be compared across more than 26 insurers.
-- Logo grid in a warm rounded panel.
+- Centered heading: copy must follow the active `insurers.items` logo data. With
+  the current committed logo set, the visible and stated count is `14`.
+- Logo grid in a warm rounded panel. The grid is generated from the
+  `insurers.items` content array, not a separate hard-coded logo list.
 - Credential cards for AIA and Srikrung Broker.
 - Small check note below.
 
@@ -358,7 +512,32 @@ Guardrails:
 
 - Logo grid should not be empty or placeholder-only.
 - The first two lines in credential cards, logo and company/category row, are centered.
-- Do not create a separate motor page in nav. This is the `#insurers` anchor.
+- Do not duplicate the insurer logo list for `/motor`; reuse `insurers.items`
+  so Home, `/motor`, and Admin stay in sync.
+
+### Motor Tier Comparison
+
+Purpose: explain the practical difference between motor insurance classes
+without sending visitors to a separate comparison page.
+
+Structure:
+
+- Section ID/type: `tiers`.
+- Desktop renders a table with 5 rows (`ชั้น 1`, `ชั้น 2+`, `ชั้น 2`,
+  `ชั้น 3+`, `ชั้น 3`) and 5 coverage axes.
+- Mobile renders stacked class cards so the visitor does not horizontally
+  scroll.
+- Cell states are data-driven: `y` covered, `p` conditional, `n` not covered.
+- The admin Content tab can edit headings, rows, row notes, cell states, add
+  columns, and add tiers.
+
+Guardrails:
+
+- Keep this as part of the main public page. Do not expose a second motor nav
+  item.
+- Missing cell states must render as not covered instead of breaking layout.
+- Keep section copy advisory and plain-language, not a legal substitute for
+  policy wording.
 
 ### Claims Help
 
@@ -476,8 +655,14 @@ Structure:
 Visitor interactions:
 
 - Language toggle updates visible text between Thai and English.
-- Header nav scrolls to anchors on the same page.
-- `/#motor` normalizes to the motor insurer anchor behavior.
+- Header nav scrolls to anchors on the same page without rebuilding the visitor
+  DOM or causing a visible flicker.
+- `/motor` renders the dedicated motor page with its own local nav and
+  canonical metadata.
+- `/#motor` remains a legacy alias to the home motor insurer anchor behavior.
+- `/#life` normalizes to the coverage anchor behavior.
+- `/#motor-focus` and `/#life-focus` render legacy unexposed campaign variants and
+  must not appear in the public header nav or sitemap.
 - Product/FAQ/guide rows can expand/collapse when configured.
 - Calculator updates estimate live.
 - Lead form writes validated Firestore data.
@@ -511,34 +696,50 @@ Behavior:
 - Do not use a demo-only copy in production.
 - The login card should feel centered and breathable, not squeezed.
 
-## Admin Launcher
+## Admin Portal Home
 
 Route: `/admin`
 
-Purpose: private owner menu after login.
+Purpose: private owner starting point inside the single Admin Portal shell.
 
 Required elements:
 
-- Brand header and licence text.
+- Single shared admin shell; sidebar changes views client-side without a full
+  document reload.
 - OIC verify link.
-- H1: `Manage your site`.
-- Intro copy explaining that visitors never see this page.
-- Three equal-weight cards:
-  - `Edit the words`
-  - `Arrange & customise`
+- H1: `Admin Portal`.
+- Four primary cards:
+  - `Operations`
+  - `Website content`
   - `Analytics`
-- Bottom actions:
-  - `View public site`
-  - `Log out`
-- Tip about `/admin` and Firestore/export backup.
+  - `Settings`
+- Cards expose only surfaces that are live or operationally useful today.
+  Unbuilt modules stay hidden until real API contracts exist.
+- Quick actions:
+  - `Edit public-page words`
+  - `Preview website draft`
+  - `Review lead intake`
+  - `Open follow-ups`
+- System status rows for Firebase admin session, Operations backend, Website
+  CMS, and first-party analytics.
+- Inside the `Website content` module, use one unified `Edit the words` entry
+  for copy and panel access. Do not reintroduce a separate `Arrange and
+  customise` card; the panel is reached from the editor dock through `Tools ->
+  Panel`.
+- `Public site` and `Log out` actions.
+
+`Public site` links open clean `/` in a new browser tab after clearing owner
+markers for that public context.
+The public bundle may still consume old `/?view=public` links for compatibility.
+Clean public loads must also clear or ignore stale owner markers. Owner controls live on `/admin`, `/#admin`, `/#edit`, and `/#preview`, not on the visitor site.
 
 Layout:
 
-- Desktop: three cards in one row with equal visual weight.
-- Tablet: two then one, or one column if needed.
+- Desktop: four cards in one row when space allows.
+- Tablet: two-column modules.
 - Mobile: one column with generous spacing.
 
-Do not remove the launcher after login. It is the required hub.
+Do not remove the Admin Portal Home after login. It is the required hub.
 
 ## Owner Edit Mode
 
@@ -549,12 +750,40 @@ Purpose: click-to-type text editing over the public page.
 Behavior:
 
 - Editable text fields become tappable/clickable.
+- Empty editable text fields must persist in edit mode. Deleting all text from a
+  slot records an intentional blank value and leaves a visible placeholder such
+  as `ว่าง - คลิกเพื่อใส่ข้อความ` / `Empty - click to add text` so the owner can
+  type into it again.
+- Media is not changed through inline binary upload. The advisor proof logo is
+  managed as metadata in the owner panel through `brand.advisorLogo` and
+  `brand.advisorLogoAlt`, defaulting to `assets/logos/aia-logo.png`.
 - Edits support Thai and English separately.
-- Owner bar should provide a route back to `Main`, switch to `Panel`, and `Log out`.
+- Owner bar should provide a route back to `Main`, switch to `Panel`, `Save
+  draft`, `Preview`, `Publish`, finish the mode, and `Log out`.
 - Drafts save to Firestore/local working state according to the data contract.
 - Visitor styling should remain close to the live site while edit affordances are visible.
 
-## Owner Arrange Panel
+## Owner Draft Preview
+
+Route/hash: `/#preview`
+
+Purpose: authenticated preview of the saved draft as a visitor would see it.
+
+Behavior:
+
+- Reads draft content, not live content, as the normal preview source.
+- Shows exactly one top preview bar.
+- Preview bar actions are `Open editor`, `Public site`, and `Publish`.
+- `Open editor` returns to `/#edit`.
+- `Public site` opens clean `/` in a new browser tab.
+- Does not generate `/?view=public`.
+- Does not show the edit dock, admin drawer, screen switcher, public reopen bar,
+  or `purich-admin-ever-v7` marker.
+- Uses runtime `noindex,nofollow` metadata like other owner modes.
+- Mobile preview bar must wrap without horizontal overflow and should not cover
+  the visitor page's header/hero content.
+
+## Owner Control Panel
 
 Route/hash: `/#admin`
 
@@ -564,12 +793,47 @@ Required capabilities:
 
 - Sections tab: reorder, hide/show, choose background tone, change columns.
 - Content tab: edit structured section content.
-- Brand & chrome tab: edit brand/contact/footer/header/sticky settings.
+- Repeatable Content tab rows/cards/columns are additive and reversible: adding
+  creates a blank durable-ID item, duplicating creates a new ID, and hide/remove
+  controls set `on:false` with an admin-visible Restore path rather than deleting
+  the object.
+- Brand & contact tab: edit brand text, advisor logo path/alt metadata,
+  contact links, guarded SEO title/description, footer copy, and
+  header/sticky visibility. It must not expose direct file upload, Firebase
+  Storage upload, base64/data-image storage, crop tools, or drag/drop image
+  processing.
 - Theme & data tab: accent selection, import/export, reset/restore.
 - Draft save, preview, publish, status/success feedback.
-- Closing the drawer should not trap the owner. A reopen owner bar must stay available.
+- Explicit `Save draft` and `Publish` must open custom confirmation dialogs, not
+  native browser dialogs.
+- Successful `Save draft` waits for the Firestore draft write, then shows a
+  dismissible toast with `Undo` available for 30 seconds.
+- Successful `Publish` waits for Firestore live/draft/version writes, then shows
+  a dismissible toast with `Undo` available for 30 seconds.
+- `Undo` after publish restores the previous live snapshot by publishing it
+  back to Firestore.
+- Closing the drawer from the direct `/admin/content` control-panel route returns to
+  `/admin`.
+- Closing the drawer after it was opened from `/admin/edit` via `Tools → Panel`
+  only hides the drawer; it must stay on `/admin/edit`, keep the editor dock
+  visible, and keep inline text/image edit affordances active.
+- No owner bar should appear on a fresh or reloaded public `/` route just because the browser is signed in.
 - Must include a way to switch to edit mode and return to Main.
+- `/admin/edit` uses the warm-ink owner dock product direction.
+  The default state shows only `Editing on page` and `Tools`; if the admin
+  drawer is open while inline editing remains active, the status becomes
+  `Editing on page · Panel open`. `Tools` expands a single dark-ink command
+  palette above the dock. Desktop uses two
+  groups, `Draft` (`Save draft`, `Preview`, `Publish`) and `Go to` (`Panel`,
+  `Main`, `Public site`, `Log out`); mobile stacks the same groups in one
+  scrollable column with a 460px cap when viewport height allows. `Publish` is
+  the only terracotta-filled dock action.
+- Save/Preview/Publish remain available from the control panel and the
+  inline-edit dock. Closing a direct control panel returns to `/admin`;
+  closing the panel opened from the editor stays in `/admin/edit`.
 - `Log out` should be available consistently from owner surfaces.
+- The drawer must stack above visitor sticky header/navigation on mobile and
+  should not fade in over the public header.
 
 Admin panel labels should be English even when public language is Thai.
 
@@ -582,15 +846,21 @@ Purpose: private operating view for traffic quality, consultation intent, and le
 Current state:
 
 - GA4 measurement ID: `G-5TF3C235EF`, installed on public production traffic.
-- GA4 Data API is not connected in the static app yet.
 - Firestore leads render live when available.
-- Traffic charts are backend-ready placeholders until a GA4 Data API or scheduled Firestore export exists.
+- GA4 traffic connects through the server-only `/api/analytics` endpoint when
+  Vercel has the numeric GA4 property ID and service-account env vars.
+- If GA4 env vars are missing or the Data API fails, traffic charts show honest
+  setup/unavailable states, not fake data.
+- LocalStorage-only admin sessions must not reveal analytics data. The route
+  must verify active Firebase admin authorization before showing the private
+  dashboard.
 
 Required layout:
 
 - Top brand/chrome with `Main`, `Public site`, and `Log out`.
 - Heading group: `OWNER ANALYTICS`, `Analytics`, explanatory copy.
-- Measurement card showing GA4 installed and Data API not connected/backend needed.
+- Measurement card showing GA4 installed and Data API `Live`, `Setup needed`,
+  or `Unavailable`.
 - KPI cards:
   - Sessions
   - Active users
@@ -599,6 +869,8 @@ Required layout:
 - Lead trend chart from Firestore lead timestamps when available.
 - Enquiry mix chart from lead `qtype`.
 - Coverage interest chart from lead `coverage`.
+- Acquisition/channel table from GA4 when live.
+- Device mix and top public pages from GA4 when live.
 - Recent leads table/list.
 - Empty states should explain what data source is missing without looking broken.
 
@@ -610,8 +882,11 @@ Firestore-first behavior:
 
 - Public live content reads from `sites/covermate/states/live`.
 - Draft content reads/writes `sites/covermate/states/draft`.
+- Brand/config fields such as `brand.advisorLogo` are draft/live CMS values, not
+  hard-coded public-only constants or stale fallback counts.
 - Publish/restore history writes `sites/covermate/versions/{versionId}`.
 - Public lead submissions write `contactLeads/{leadId}`.
+- Live GA4 traffic reads through `/api/analytics` with server-only secrets.
 - Reserved analytics summaries may live under `sites/covermate/analytics/{analyticsDoc}`.
 
 Cache policy:
@@ -633,13 +908,21 @@ Public GA4:
 - Measurement ID: `G-5TF3C235EF`.
 - Loads only on `covermate.vercel.app`.
 - Suppresses owner hashes and active admin sessions.
-- Tracks aggregate events such as CTA clicks, quote success/error, renewal reminder success/error, calculator usage, and navigation engagement.
+- Tracks only the deployed aggregate event inventory:
+  `page_view`, `line_click`, `phone_click`, `email_click`, `language_change`,
+  `calculator_interaction`, `form_start`, `quote_submit`,
+  `quote_submit_success`, and `quote_submit_error`.
+- Drops query strings from `page_location` / `page_path` and rejects unknown
+  event names or unsafe event parameters.
 
 Private admin analytics:
 
 - Does not load the public GA script.
-- Reads Firestore leads when available.
-- Treats GA4 charts as placeholders until a backend/export is added.
+- Requires active Firebase admin authorization, not localStorage alone.
+- Reads only dashboard-needed Firestore lead fields when available.
+- Reads aggregate GA4 traffic only through `/api/analytics`; service-account
+  secrets must stay server-side.
+- Shows `Live`, `Setup needed`, or `Unavailable` status for GA4 traffic.
 
 ## SEO Contract
 
@@ -703,9 +986,12 @@ Do:
 - Preserve the current warm advisory brand.
 - Keep the public page continuous and anchor-based.
 - Keep admin private surfaces visually related but operationally clear.
-- Keep Analytics as the third admin launcher card.
+- Keep `/admin` as the Admin Portal Home with Operations, Website content,
+  Analytics, and Settings.
 - Keep Google Sans family everywhere.
 - Keep Firestore-first live content behavior visible in design copy/states.
+- Keep unbuilt admin modules hidden instead of showing fake records or
+  not-wired surfaces.
 - Add breathing room where cards or text are crowded.
 
 Do not:
@@ -713,26 +999,33 @@ Do not:
 - Reintroduce duplicate motor nav items.
 - Reintroduce `[object Object]` nav labels.
 - Make `#motor` a separate public website.
-- Remove `/admin` launcher after login.
+- Remove `/admin` Admin Portal Home after login.
 - Hide logout in only one owner mode.
-- Remove switch paths between edit mode, arrange panel, and main admin launcher.
+- Keep explicit paths between `/admin`, `/admin/edit`, and `/admin/content`;
+  public-site actions open clean public routes in a new tab, while close/main
+  actions return to Admin/editor context instead of dumping the current tab on
+  the visitor page.
 - Replace live/dynamic CMS text with hard-coded design-only content.
-- Let fallback/cache states override live Firestore content.
+- Let fallback/cache states override live Firestore content or current logo-count normalization.
 - Send private visitor contact details to GA.
 - Use unrelated fonts for body/admin text.
 - Switch to a generic blue SaaS/dashboard theme.
 - Commit, push, or deploy without explicit owner instruction.
 
-## Acceptance Checklist For Claude Design Updates
+## Acceptance Checklist For Design Updates
 
 Public visitor:
 
 - Header has one motor nav item and no duplicate `ประกันรถยนต์`.
 - `#motor` is represented as an alias to the motor insurer section, not a separate surface.
-- All 16 sections are represented in the design.
+- All visible sections are represented in the design, including motor tier
+  comparison, while `cover` is represented as hero accordions rather than a
+  standalone band.
 - Hero first viewport matches the current warm organic direction.
 - AIA logo appears with the current transparent red asset.
-- Motor insurer logo grid is present and credible.
+- Motor insurer logo grid is present, credible, and driven by editable
+  `insurers.items`.
+- Motor tier table/cards render correctly on desktop and mobile.
 - Coverage calculator cards have centered icon/title treatment.
 - Fee cards do not clip text or decorative numbers.
 - Contact heading Thai `ขอรับคำปรึกษา` fits as one line on desktop.
@@ -741,11 +1034,17 @@ Public visitor:
 Admin:
 
 - Login page shows Firebase Auth, not demo-only wording.
-- Admin launcher exists after login.
-- Launcher has exactly three primary cards: Edit, Arrange, Analytics.
+- Admin Portal Home exists after login.
+- Portal target has exactly four primary cards: Operations, Website content,
+  Analytics, Settings.
+- Operations sub-tabs expose Dashboard, Leads, Tasks, and Audit without leaving
+  the admin shell. Unbuilt modules stay hidden instead of rendering not-wired
+  states or fake records.
 - Owner/admin controls use English labels.
-- Logout and mode switching are reachable from edit and arrange flows.
-- Closing arrange panel leaves a visible way to reopen or go Main.
+- Logout and mode switching are reachable from edit and control-panel flows.
+- Closing the control panel while editing returns to the same editor context;
+  use `Public site` only when intentionally opening the clean public route in a
+  new tab.
 - Analytics page includes GA4 installed status, Data API placeholder, KPI cards, charts, and recent leads states.
 - Analytics mobile spacing is comfortable.
 
