@@ -7,7 +7,7 @@ description: Choose and execute the smallest quality-preserving workflow while t
 
 Move faster by removing waste, not by removing evidence. Use this skill as a
 thin operating layer with domain skills such as `$project-onboarding`,
-`$release-gate`, `$claude-to-a-tee`, `$mobile-web-qa`, `$uat-environment`, or
+`$release-gate`, `$reference-to-a-tee`, `$mobile-web-qa`, `$uat-environment`, or
 project-specific skills.
 
 ## Core Rule
@@ -53,7 +53,7 @@ Stopping additional checks does not mean the whole task is complete.
   touched risk.
 - **Deep pass:** architecture, auth, data/admin/CMS contracts, cache/fallback
   behavior, routing, broad shared logic, migrations, destructive actions,
-  Claude-to-a-tee parity, or broad redesign. Build wider evidence before editing
+  Reference-to-a-tee parity, or broad redesign. Build wider evidence before editing
   or shipping.
 - **Release pass:** commit, push, deploy, PR, merge, release, or handoff. Verify
   the diff and target environment with `$release-gate`; do not repeat unrelated
@@ -154,7 +154,7 @@ Run the deeper path when any of these appear:
 - auth, permissions, secrets, billing, destructive operations, migrations, or
   production data risk;
 - shared helpers, cross-client contracts, or generated manifests;
-- visual parity, Claude-to-a-tee, mobile layout, or accessibility claims;
+- visual parity, Reference-to-a-tee, mobile layout, or accessibility claims;
 - flaky targeted results or missing focused tests for a risky change;
 - production deploy, PR merge, or user-visible release.
 

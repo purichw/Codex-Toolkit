@@ -11,7 +11,7 @@ The goal is consistency without flattening product-specific UX.
 Use `$consistency-audit` for site-wide consistency discovery before fixing a
 large set of drift issues. Use `$design-system-architect` when the system needs
 token-layer, taxonomy, variant, gallery, drift-metric, or governance work. Use
-`$design-direction` for north-star decisions, `$claude-to-a-tee` for exact
+`$design-direction` for north-star decisions, `$reference-to-a-tee` for exact
 reference parity, `$product-ux-contracts` for behavior that must survive,
 `$ui-state-matrix` for variants/states, `$snapshot` as mandatory visual proof
 before final response, and `$release-gate` before shipping.

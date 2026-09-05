@@ -9,7 +9,7 @@ Use this skill before implementing an admin prototype into a real product. The
 prototype is evidence of desired UI and workflow; the live admin/data layer is
 authoritative for production contracts until an explicit migration changes it.
 
-Use `$admin-ops` for operational safety, `$claude-to-a-tee` for exact prototype
+Use `$admin-ops` for operational safety, `$reference-to-a-tee` for exact prototype
 UI parity, `$data-dense-ux` for dense admin lists/tables, `$form-flow-ux` for
 editors/drafts/saves, `$product-ux-contracts` for preserving proven behavior,
 `$snapshot` for mandatory visual evidence before the final response, and

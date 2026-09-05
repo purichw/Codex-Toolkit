@@ -39,7 +39,7 @@ Use adjacent skills when the task moves beyond direction:
 - `$design-direction` for the global design direction framework.
 - `$notenwert-maintainer` for implementation, tests, build, docs work-log, or
   commit/deploy prep.
-- `$claude-to-a-tee` for exact Claude HTML parity.
+- `$reference-to-a-tee` for exact Claude HTML parity.
 - `$mobile-web-qa` and `$snapshot` for responsive visual proof.
 - `$placeholder-image` for sourcing/cropping real imagery.
 - `$docs-cartographer` for durable design or architecture documentation.

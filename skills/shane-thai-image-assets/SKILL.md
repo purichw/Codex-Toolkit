@@ -41,7 +41,7 @@ Use adjacent skills when the task crosses boundaries:
   controls change alongside images.
 - `$placeholder-image` for generic sourcing/crop judgment outside Shane-specific
   warm educational assets.
-- `$claude-to-a-tee` when card/image layout must match Claude Design exactly.
+- `$reference-to-a-tee` when card/image layout must match Claude Design exactly.
 - `$mobile-web-qa` and `$snapshot` when rendered card crop/responsive evidence is
   needed.
 - `$efficient-execution` for batch scoping, semantic-audit first passes, and

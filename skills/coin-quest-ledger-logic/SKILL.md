@@ -28,7 +28,7 @@ From the repo root, read these before implementation:
 - `tests/unit/pointy-logic.test.mjs`
 - relevant Playwright tests in `tests/e2e/coin-quest-ledger.spec.mjs`
 
-If the user asks for exact Claude visual parity, also use `$claude-to-a-tee` and
+If the user asks for exact Claude visual parity, also use `$reference-to-a-tee` and
 `CLAUDE_TO_A_TEE_QA.md`.
 
 Use adjacent skills when the task crosses boundaries:

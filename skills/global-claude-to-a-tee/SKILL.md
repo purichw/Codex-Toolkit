@@ -1,20 +1,21 @@
 ---
 name: global-claude-to-a-tee
-description: Global reusable alias for the canonical claude-to-a-tee skill. Use when the user asks for $global-claude-to-a-tee, says this should be global or non-project-specific, or wants the reusable version of claude to a tee. This alias routes to claude-to-a-tee/SKILL.md; keep claude-to-a-tee as the source of truth.
+description: Legacy global alias for reference-to-a-tee. Use when an existing prompt invokes global-claude-to-a-tee; follow the generic HTML, image-only, or mixed-reference workflow.
 ---
 
-# Global Claude To A Tee
+# Global Claude To A Tee (Compatibility)
 
-This is a global alias for the canonical `claude-to-a-tee` skill.
+This legacy name routes to the canonical `reference-to-a-tee` skill.
 
 Before acting, read and follow the canonical skill:
 
 ```text
-../claude-to-a-tee/SKILL.md
+../reference-to-a-tee/SKILL.md
 ```
 
 Follow the canonical skill's `$snapshot` and visual-evidence requirements
 whenever they apply. Do not treat this global alias as a way to bypass the
 canonical snapshot gate.
 
-Use this alias when the user explicitly wants the global, reusable, or non-project-specific variant. Keep `claude-to-a-tee` as the source of truth; update the canonical skill first, then regenerate this alias if the routing language needs to change.
+New prompts should use `$global-reference-to-a-tee` or `$reference-to-a-tee`.
+Keep this compatibility entrypoint for existing prompts.

@@ -30,6 +30,8 @@ before the final response without waiting for the user to ask.
 - [Maintenance guide](docs/MAINTENANCE.md): how to refresh, add, review, and
   publish changes to this repository.
 - [Docs index](docs/README.md): quick map of the documentation set.
+- [Reference parity migration](docs/REFERENCE_PARITY_MIGRATION.md): generic
+  reference-to-a-tee modes, image evidence, and compatibility with old prompts.
 
 ## Skills
 
@@ -41,7 +43,8 @@ before the final response without waiting for the user to ask.
 | [`admin-prototype-reconciliation`](skills/admin-prototype-reconciliation/SKILL.md) | Reconciles admin/CMS/dashboard prototypes against live production admin contracts before implementation. | A Claude/Figma/offline prototype must be compared with live fields, workflows, auth, APIs, drafts, publish, revisions, or data shape. |
 | [`claude-design-md-request`](skills/claude-design-md-request/SKILL.md) | Drafts Claude Design requests for implementation-ready Markdown handoffs/specs from visual artifacts. | A Claude prompt should separate visual facts from product decisions, map components, preserve product contracts, and produce implementable acceptance checks. |
 | [`claude-design-reference-bundle`](skills/claude-design-reference-bundle/SKILL.md) | Creates upload-ready Claude Design reference bundles from live pages, screenshots, routes, or prototypes. | Claude Design needs screenshots, measured specs, state notes, product constraints, and a paste-ready prompt without building a standalone HTML export. |
-| [`claude-to-a-tee`](skills/claude-to-a-tee/SKILL.md) | Reproduces an offline Claude Design HTML reference at component level while preserving product behavior. | A UI must match a Claude-generated HTML design, screenshot, or handoff exactly across desktop and mobile. |
+| [`reference-to-a-tee`](skills/reference-to-a-tee/SKILL.md) | Implements and audits component-level visual parity from HTML, image-only, or mixed references from any source. | Rebuilding UI from screenshots or image files, matching an HTML/prototype, resolving mixed-reference authority, or verifying fidelity while preserving product behavior. |
+| [`claude-to-a-tee`](skills/claude-to-a-tee/SKILL.md) | Compatibility name routing to `reference-to-a-tee`. | Existing prompts or extractor commands still use the old Claude-specific name. |
 | [`codex-handoff-for-claude`](skills/codex-handoff-for-claude/SKILL.md) | Prepares implementation-ready Markdown handoffs from Codex to Claude or Claude Design. | Codex needs to package source-of-truth rules, product contracts, visual geometry, states, responsive behavior, accessibility notes, and acceptance checks for Claude. |
 | [`coin-quest-admin-ops`](skills/coin-quest-admin-ops/SKILL.md) | Keeps Coin Quest Ledger Admin Portal work aligned with current Firebase-backed admin behavior. | Editing admin auth, boards, users, lifecycle actions, reset/delete flows, publish/restore, revisions, or relationship maps. |
 | [`coin-quest-ledger-logic`](skills/coin-quest-ledger-logic/SKILL.md) | Preserves Party Ledger split math, participants, guests, invites, Character IDs, and settlement behavior. | Changing Coin Quest ledger workflows, guest handling, invite links, reminders, payer/participant logic, or settlement tests. |
@@ -132,5 +135,5 @@ selectively and preserve the archive's global layer.
 Verify the archive with:
 
 ```sh
-python3 scripts/verify_skills.py --expected-count 127
+python3 scripts/verify_skills.py --expected-count 129
 ```

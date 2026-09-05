@@ -42,7 +42,7 @@ Before changing admin behavior, locate:
   notes.
 
 Use project-specific skills for domain rules, `$firebase-account-management` or
-`$firebase-security-rules` for Firebase-backed admin behavior, `$claude-to-a-tee`
+`$firebase-security-rules` for Firebase-backed admin behavior, `$reference-to-a-tee`
 for exact admin UI parity, `$snapshot` for mandatory visual evidence before the
 final response when an admin screen/workflow is visible, `$uat-environment` for
 UAT role/test-data/bypass design, and `$release-gate` before shipping.

@@ -36,7 +36,7 @@ Use the current on-disk `SKILL.md` each time a skill is invoked.
 
 - New-chat onboarding: `$shane-thai-new-chat`
 - Lesson export for ChatGPT patching: `$shane-thai-export-chatgpt`
-- Claude/offline HTML visual parity: `$claude-to-a-tee`
+- Image, HTML, or mixed-reference visual parity: `$reference-to-a-tee`
 - UI/UX routing and broad UX judgment: `$ui-ux-orchestrator`
 - Consistency-only audits: `$consistency-audit`
 - Screenshots/snapshots: `$snapshot`
@@ -56,6 +56,9 @@ Use the current on-disk `SKILL.md` each time a skill is invoked.
 
 ## Durable Product Rules
 
+- Preserve the project's Google Sans font system during reference parity work,
+  even when a supplied reference uses another typeface, unless the user explicitly
+  changes app-wide typography. Record it as an accepted project visual exception.
 - Communication-first. Thai script stays visible. Paiboon only; do not add IPA.
 - Lesson content, media, progress, and IDs should remain data-driven.
 - Preserve stable IDs by default.

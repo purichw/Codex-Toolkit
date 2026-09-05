@@ -18,7 +18,7 @@ materially better.
 4. Identify audiences: new chat handoff, future maintainer, release operator,
    designer, or product owner.
 5. Note which follow-on skills apply, such as `$project-onboarding`,
-   `$release-gate`, `$claude-to-a-tee`, `$mobile-web-qa`, `$firebase-*`, or
+   `$release-gate`, `$reference-to-a-tee`, `$mobile-web-qa`, `$firebase-*`, or
    project-specific skills.
 
 ## Consolidate Before Creating

@@ -18,6 +18,11 @@ cp -R skills/project-onboarding ~/.codex/skills/project-onboarding
 
 Replace `project-onboarding` with the skill folder you want to install.
 
+Aliases and compatibility routers require their canonical skill alongside them.
+For `claude-to-a-tee`, `global-claude-to-a-tee`, or
+`global-reference-to-a-tee`, also install `reference-to-a-tee`. See
+[reference parity migration](REFERENCE_PARITY_MIGRATION.md).
+
 ## Install All Skills
 
 From the repository root:

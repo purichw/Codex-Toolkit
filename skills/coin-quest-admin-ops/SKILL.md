@@ -43,7 +43,7 @@ Use adjacent skills when the task crosses boundaries:
   documents, service accounts, or account lifecycle.
 - `$firebase-security-rules` for Firestore/Storage rules, Admin SDK endpoint
   authorization, or production access.
-- `$claude-to-a-tee` for exact Admin UI parity from Claude handoffs.
+- `$reference-to-a-tee` for exact Admin UI parity from Claude handoffs.
 - `$snapshot` for mandatory visual evidence before the final response when an
   Admin screen, state, responsive layout, Claude handoff, or prototype
   comparison is in scope.
@@ -79,7 +79,7 @@ Use adjacent skills when the task crosses boundaries:
 3. Trace source and persistence through `ADMIN_PORTAL_IMPLEMENTATION.md` and
    `data-contracts.md`.
 4. Preserve Super Admin checks and test-mode boundaries.
-5. For visual work from Claude, use `$claude-to-a-tee` and preserve Admin
+5. For visual work from Claude, use `$reference-to-a-tee` and preserve Admin
    vocabulary such as `page-head`, `card`, `stat`, `tbl`, `detail-grid`,
    `profile-card`, `log-list`, and modal patterns.
 6. Verify:

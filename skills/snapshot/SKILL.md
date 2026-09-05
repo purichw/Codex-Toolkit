@@ -8,7 +8,7 @@ description: Capture, crop, inspect, and present UI screenshots with enough visu
 Use this skill whenever visual evidence is part of the answer. A snapshot should
 help the user understand the UI, not merely prove that a selector exists.
 
-Use `$mobile-web-qa` for responsive/mobile audit, `$claude-to-a-tee` for
+Use `$mobile-web-qa` for responsive/mobile audit, `$reference-to-a-tee` for
 reference-vs-implementation parity, `$reference-implementation-critique` for
 measured reference/app comparison, `$design-quality-review` when a formal
 capture set, 25-item visual QA pass, severity result, or PR review template is
@@ -192,14 +192,16 @@ For before/after, reference/app, or local/production comparison:
 3. Apply the side-by-side requirements above before deciding which screenshots
    to capture: `Reference + Development`, `Before + After`, or
    `Reference + Before + After/Development`.
-4. When a reference or comparison HTML file is available, always include the
-   comparison artifact: capture the HTML reference and the implementation with
-   matching framing, then present a side-by-side contact sheet or equivalent
-   paired image. If no comparison HTML/artifact is available and there is no
-   existing UI to compare, a single implementation snapshot is acceptable.
-5. For responsive comparisons, include a mobile viewport as well as the primary
-   desktop or tablet viewport. When comparing against HTML, produce matching
-   side-by-side evidence for the mobile viewport too.
+4. When any visual reference is available, include it beside the implementation.
+   Render an HTML reference, or use the original supplied image for image-only
+   work. Match comparable regions and record crop/scale/viewport assumptions;
+   do not stretch the reference or invent an HTML requirement. A supplied crop
+   proves only its visible region. If no reference or existing UI is available,
+   a single implementation snapshot is acceptable.
+5. For responsive comparisons, include mobile implementation evidence as well
+   as the primary desktop or tablet viewport. Pair mobile with matching reference
+   evidence when supplied or renderable. If only desktop imagery exists, label
+   mobile as an adaptation and verify it without claiming mobile-reference parity.
 6. Name files so pairs sort together, such as
    `/tmp/checkout-card-before-390x844.png` and
    `/tmp/checkout-card-after-390x844.png`.
@@ -232,8 +234,8 @@ actual contract, not only the pretty surface.
 - **Permission/destructive states:** capture allowed, denied, disabled-with-reason,
   confirmation, success/failure, and audit/rollback state when relevant.
 
-Use `$claude-to-a-tee` when the contract is being balanced against a Claude
-reference, and include the snapshot evidence in the decision ledger.
+Use `$reference-to-a-tee` when the contract is balanced against image, HTML,
+or mixed references, and include snapshot evidence in the decision ledger.
 
 ## Behavior Evidence
 

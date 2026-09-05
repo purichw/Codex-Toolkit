@@ -38,7 +38,7 @@ Use adjacent skills when relevant:
   hero motion, typography, imagery, public UX, or admin CMS UX.
 - `$docs-cartographer` when updating codebase maps, content model docs, design
   references, handoffs, or architecture docs.
-- `$claude-to-a-tee` for exact Claude Design parity.
+- `$reference-to-a-tee` for exact Claude Design parity.
 - `$mobile-web-qa` and `$snapshot` for responsive/visual evidence.
 - `$placeholder-image` for image sourcing, crops, and placeholder replacement.
 - `$efficient-execution` for reusing current maps/dev servers/build evidence

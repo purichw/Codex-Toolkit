@@ -22,7 +22,7 @@ Read only what the task needs:
   performance, and release requirements.
 
 Use `$ui-ux-orchestrator` when the UI/UX task is broad or the right specialist
-skill is unclear. Use `$claude-to-a-tee` for exact offline Claude parity,
+skill is unclear. Use `$reference-to-a-tee` for exact offline Claude parity,
 `$consistency-audit` for site-wide coherence against requirements or inferred
 patterns, `$design-system-guardian` for component/token consistency,
 `$product-ux-contracts` for preserving proven product behavior,
@@ -111,5 +111,5 @@ artifacts that implementation agents can verify rather than mood alone:
 - asset brief and licensing/source expectations for images, video, and embeds;
 - explicit behavior exceptions and visual exceptions.
 
-Use `$claude-to-a-tee` for exact implementation from such a handoff and
+Use `$reference-to-a-tee` for exact implementation from such a handoff and
 `$admin-prototype-reconciliation` when the handoff changes admin/data contracts.

@@ -86,8 +86,9 @@ Use these as starting packs, then adapt to repo-defined commands:
   when responsive/mobile risk exists, `$ui-state-matrix` for non-happy states,
   `$interaction-flow-qa` for journeys, and `$product-ux-contracts` when real UX
   contracts could be lost.
-- **Claude parity:** use `$claude-to-a-tee`; require rendered reference/app
-  comparison and measured parity evidence before release.
+- **Reference parity:** use `$reference-to-a-tee`; compare the rendered app
+  with authoritative rendered HTML or inspected image references. Apply its
+  mode-aware measurements, uncertainty rules, and snapshot evidence before release.
 - **Forms/data-dense/accessibility:** use `$form-flow-ux`, `$data-dense-ux`, or
   `$accessible-interaction` when those surfaces are touched; verify the relevant
   state, flow, keyboard/focus, and snapshot evidence before release.

@@ -105,7 +105,8 @@ Choose checks by risk:
 - **Auth/data/API:** real or bypassed auth according to scope, read/write paths,
   permission denied cases, migrations, rollback, rules via Firebase skills when
   relevant.
-- **Claude parity:** rendered reference vs UAT build with `$claude-to-a-tee`.
+- **Reference parity:** authoritative HTML or inspected image reference versus
+  the rendered UAT build with `$reference-to-a-tee`.
 - **Assets/audio/images:** mapping audits, representative rendered UI, failed
   asset handling via `$tts-audio-assets` or `$course-image-assets`.
 - **Deploy:** correct commit/build id, env target, URL, service worker/cache,

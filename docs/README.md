@@ -14,6 +14,8 @@ This directory documents how to use and maintain the Codex Toolkit repository.
   all skills, or use symlinks during active development.
 - [Maintenance guide](MAINTENANCE.md): how to sync local skills into this repo,
   add a new skill, review privacy risk, and verify docs before pushing.
+- [Reference parity migration](REFERENCE_PARITY_MIGRATION.md): generic image,
+  HTML, and mixed modes; legacy aliases, helper compatibility, and checks.
 
 ## Repository Map
 
@@ -26,6 +28,7 @@ This directory documents how to use and maintain the Codex Toolkit repository.
 │   ├── INSTALLATION.md
 │   ├── MAINTENANCE.md
 │   ├── README.md
+│   ├── REFERENCE_PARITY_MIGRATION.md
 │   └── SKILL_CATALOG.md
 ├── scripts/
 │   └── verify_skills.py

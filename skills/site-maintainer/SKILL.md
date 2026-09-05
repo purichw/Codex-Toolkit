@@ -19,7 +19,7 @@ boundaries and generated deployment artifacts.
 
 Use `$project-onboarding` when the repo is unfamiliar, `$docs-cartographer` when
 maps/docs should be updated, `$design-direction` for visual direction,
-`$claude-to-a-tee` for exact reference parity, `$mobile-web-qa`/`$snapshot` for
+`$reference-to-a-tee` for exact reference parity, `$mobile-web-qa`/`$snapshot` for
 visual evidence, and `$release-gate` before commit/deploy.
 
 Use `$efficient-execution` when site work is slowed by repeated discovery,

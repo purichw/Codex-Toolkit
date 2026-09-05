@@ -28,7 +28,7 @@ Read these first:
 - relevant files under `mobile/src/`
 
 If a fresh Claude iOS/Android export is supplied, inspect it before changing
-visuals. If the user says "to a tee", also use `$claude-to-a-tee`.
+visuals. If the user says "to a tee", also use `$reference-to-a-tee`.
 
 Use adjacent skills when the task crosses boundaries:
 

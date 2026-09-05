@@ -218,17 +218,32 @@ closeouts unless the user explicitly scoped the capture that way.
   geometry, interaction states, responsive behavior, accessibility notes,
   confidence labels, open questions, and acceptance checks.
 
+### reference-to-a-tee
+
+- Skill file: [../skills/reference-to-a-tee/SKILL.md](../skills/reference-to-a-tee/SKILL.md)
+- Description: Implements or audits measured component parity from HTML,
+  image-only, or mixed references from any source while preserving real product UX.
+- Use when: The user asks for screenshot-to-UI, image-file reconstruction,
+  reference-to-code, to-a-tee matching, or precise visual repair from a designer,
+  Figma export, Claude output, prototype, or another selected visual reference.
+- Typical context: Source mode and authority, image dimensions/crop/scale,
+  observed facts versus inferred or unknown properties, component/decision
+  ledgers, existing product contracts, measured comparisons, and automatic
+  `snapshot` Reference/Development evidence. Image-only work does not require
+  reference HTML, DOM, or known breakpoints; unobserved behavior is not claimed
+  as recovered source behavior.
+- Migration and checks: [REFERENCE_PARITY_MIGRATION.md](REFERENCE_PARITY_MIGRATION.md).
+
 ### claude-to-a-tee
 
 - Skill file: [../skills/claude-to-a-tee/SKILL.md](../skills/claude-to-a-tee/SKILL.md)
-- Description: Treats offline Claude HTML as executable design documentation and
-  matches it at measured component level while preserving product behavior.
-- Use when: The user says "to a tee", asks for pixel/component parity, or wants
-  a UI implemented from Claude HTML, screenshots, handoff files, or exported
-  assets.
-- Typical context: Offline Claude HTML/CSS/JS, screenshots, reference assets,
-  existing product behavior, responsive states, interactions, measured parity
-  audit rows, and verification checklist.
+- Description: Compatibility router to `reference-to-a-tee`.
+- Use when: Existing prompts explicitly invoke the old name. New prompts should
+  use `reference-to-a-tee` or `global-reference-to-a-tee`.
+- Compatibility: Old reference paths redirect to canonical guidance. The old
+  extractor CLI forwards to the generic HTML helper, retaining its legacy
+  output-directory default and worklog filename. Install the canonical skill
+  alongside this router; do not maintain a second copy of the workflow here.
 
 ### design-direction
 

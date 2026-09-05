@@ -24,7 +24,7 @@ Read the main reference completely before making rule-backed claims. Read Append
 2. Compare the seven axes: geometry, rhythm, hierarchy, density, visual weight, affordance, states, and document mismatched conditions.
 3. Separate faithful adoption, derived values, accessibility overrides, product decisions, and deliberate deviations.
 4. Cite RC axes/rules plus specialist rule IDs when a deeper cause is clear.
-5. Feed Claude-specific parity and product-contract tradeoffs back into `$claude-to-a-tee` when applicable.
+5. Feed reference parity and product-contract tradeoffs into `$reference-to-a-tee`; distinguish source measurements, image measurements, and unknown properties.
 
 ## Output Shape
 

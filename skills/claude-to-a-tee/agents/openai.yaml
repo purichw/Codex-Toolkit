@@ -1,4 +1,4 @@
 interface:
-  display_name: "Claude To A Tee"
-  short_description: "Balance Claude UI with proven product UX"
-  default_prompt: "Use $claude-to-a-tee to implement this offline Claude HTML with measured UI fidelity, preserve proven product UX, and report the decision/risk ledger before release."
+  display_name: "Claude To A Tee (Compatibility)"
+  short_description: "Legacy name for Reference To A Tee"
+  default_prompt: "Use $claude-to-a-tee as a compatibility route to $reference-to-a-tee for measured HTML, image-only, or mixed-reference UI implementation."

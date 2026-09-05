@@ -10,10 +10,10 @@ user's intent.
 - Local checkout used when this file was written: `/Users/point/Codex-Toolkit`
 - Visibility at initial setup: private
 - Purpose: archive and document the user's personal Codex skills
-- Current skill count: 127 `SKILL.md` files under `skills/`
-- Breakdown: 73 canonical personal skills, 52 `global-*` alias skills for
-  reusable non-project-specific workflows, and 2 standalone global design-spec
-  skills.
+- Current skill count: 129 `SKILL.md` files under `skills/`
+- Breakdown: 74 personal skill folders (including compatibility routers),
+  53 `global-*` alias skills for reusable non-project-specific workflows, and
+  2 standalone global design-spec skills.
 
 The first import copied personal skills from:
 
@@ -145,6 +145,7 @@ Expected current skill folders:
 - `production-asset-smoke`
 - `project-onboarding`
 - `reference-implementation-critique`
+- `reference-to-a-tee`
 - `regression-hunter`
 - `release-gate`
 - `rollback-guardrail`
@@ -169,6 +170,13 @@ Reusable non-project-specific skills also have `global-*` alias folders. The
 full alias map lives in [GLOBAL_SKILLS.md](GLOBAL_SKILLS.md); keep aliases as
 thin wrappers and update the canonical skill first. `global-full-design-spec`
 and `global-quick-design-spec` are standalone global skills, not alias wrappers.
+
+`reference-to-a-tee` replaces the Claude-specific implementation workflow and
+supports HTML, image-only, and mixed references. `claude-to-a-tee` and
+`global-claude-to-a-tee` are compatibility routers; preserve their paths without
+reintroducing old HTML-only rules. See
+[REFERENCE_PARITY_MIGRATION.md](REFERENCE_PARITY_MIGRATION.md) for dependencies,
+legacy CLI behavior, and verification cases.
 
 If the count or names change, update `README.md`, `skills/README.md`,
 `docs/SKILL_CATALOG.md`, and `docs/GLOBAL_SKILLS.md` when aliases are involved.
@@ -212,7 +220,7 @@ updates, enough verification is usually:
 
 ```sh
 git diff --check
-python3 scripts/verify_skills.py --expected-count 127
+python3 scripts/verify_skills.py --expected-count 129
 ```
 
 For skill script changes, run the script's smoke-test or help path when one

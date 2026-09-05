@@ -1,0 +1,4 @@
+interface:
+  display_name: "Global Reference To A Tee"
+  short_description: "Global image and HTML reference parity"
+  default_prompt: "Use $global-reference-to-a-tee for the reusable image-only, HTML, or mixed-reference UI parity workflow."

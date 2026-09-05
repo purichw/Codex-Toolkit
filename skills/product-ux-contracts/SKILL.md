@@ -16,7 +16,7 @@ production operations. When a reference interaction conflicts with product-owned
 architecture, adapt the implementation to preserve the visible intent while
 keeping the product contract intact.
 
-Use `$claude-to-a-tee` when the pressure comes from Claude HTML, `$ui-state-matrix`
+Use `$reference-to-a-tee` for HTML, image-only, or mixed reference parity, `$ui-state-matrix`
 for state coverage, `$interaction-flow-qa` for journeys, `$accessible-interaction`
 for keyboard/focus, `$data-dense-ux` for tables/lists, `$form-flow-ux` for forms,
 `$snapshot` as mandatory visual contract proof before final response, and

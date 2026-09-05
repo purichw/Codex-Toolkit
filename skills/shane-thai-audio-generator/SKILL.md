@@ -68,7 +68,7 @@ Use adjacent skills when the task crosses boundaries:
   QA, and closeout.
 - `$shane-thai-image-assets` when lesson data, vocabulary IDs, badges, or card
   mappings change alongside audio.
-- `$claude-to-a-tee` when audio controls or lesson UI must match a Claude
+- `$reference-to-a-tee` when audio controls or lesson UI must match a Claude
   Design reference exactly.
 - `$mobile-web-qa` and `$snapshot` when audio-button behavior or layout must be
   verified visually across responsive routes.
