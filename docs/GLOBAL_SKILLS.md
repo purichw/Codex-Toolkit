@@ -41,7 +41,7 @@ version should run.
 | [`global-consistency-audit`](../skills/global-consistency-audit/SKILL.md) | [`consistency-audit`](../skills/consistency-audit/SKILL.md) | UI/UX/frontend/shared-component consistency audits. |
 | [`global-course-image-assets`](../skills/global-course-image-assets/SKILL.md) | [`course-image-assets`](../skills/course-image-assets/SKILL.md) | Educational course image generation, mapping, cropping, and QA. |
 | [`global-data-dense-ux`](../skills/global-data-dense-ux/SKILL.md) | [`data-dense-ux`](../skills/data-dense-ux/SKILL.md) | Dashboards, tables, lists, ledgers, filters, bulk actions, and dense operational UI. |
-| [`global-design-direction`](../skills/global-design-direction/SKILL.md) | [`design-direction`](../skills/design-direction/SKILL.md) | Product visual direction, design briefs, guardrails, and implementation handoffs. |
+| [`global-design-direction`](../skills/global-design-direction/SKILL.md) | [`design-direction`](../skills/design-direction/SKILL.md) | Product direction and image-only, HTML, or mixed handoffs. |
 | [`global-design-system-guardian`](../skills/global-design-system-guardian/SKILL.md) | [`design-system-guardian`](../skills/design-system-guardian/SKILL.md) | Component/token drift prevention and design-system consistency. |
 | [`global-accessibility-beyond-basics`](../skills/global-accessibility-beyond-basics/SKILL.md) | [`accessibility-beyond-basics`](../skills/accessibility-beyond-basics/SKILL.md) | Advanced accessibility beyond axe checks for screen-reader flow, cognitive load, low vision, complex widgets, charts, zoom, and forced colors. |
 | [`global-art-direction-imagery`](../skills/global-art-direction-imagery/SKILL.md) | [`art-direction-imagery`](../skills/art-direction-imagery/SKILL.md) | Directs imagery, crops, focal points, hero media, thumbnails, placeholders, captions, loading states, and asset failure states. |
@@ -72,14 +72,14 @@ version should run.
 | [`global-production-asset-smoke`](../skills/global-production-asset-smoke/SKILL.md) | [`production-asset-smoke`](../skills/production-asset-smoke/SKILL.md) | Deployed media and asset rendering checks. |
 | [`global-project-onboarding`](../skills/global-project-onboarding/SKILL.md) | [`project-onboarding`](../skills/project-onboarding/SKILL.md) | Reading and mapping unfamiliar or returning codebases before edits. |
 | [`global-regression-hunter`](../skills/global-regression-hunter/SKILL.md) | [`regression-hunter`](../skills/regression-hunter/SKILL.md) | Searching for repeated bug patterns and nearby regressions. |
-| [`global-release-gate`](../skills/global-release-gate/SKILL.md) | [`release-gate`](../skills/release-gate/SKILL.md) | Pre-commit, push, deploy, release, merge, PR, and handoff verification. |
-| [`global-rollback-guardrail`](../skills/global-rollback-guardrail/SKILL.md) | [`rollback-guardrail`](../skills/rollback-guardrail/SKILL.md) | Checkpoints and hard stops before rollback-like work. |
+| [`global-release-gate`](../skills/global-release-gate/SKILL.md) | [`release-gate`](../skills/release-gate/SKILL.md) | Complete-deliverable, action-specific verification with required-check gates. |
+| [`global-rollback-guardrail`](../skills/global-rollback-guardrail/SKILL.md) | [`rollback-guardrail`](../skills/rollback-guardrail/SKILL.md) | Risk-tiered rollback routing and authorized recovery for work-loss operations. |
 | [`global-site-maintainer`](../skills/global-site-maintainer/SKILL.md) | [`site-maintainer`](../skills/site-maintainer/SKILL.md) | Website maintenance where source, generated artifacts, tests, docs, and hosting must align. |
 | [`global-snapshot`](../skills/global-snapshot/SKILL.md) | [`snapshot`](../skills/snapshot/SKILL.md) | Screenshot/snapshot capture, crop, inspection, and presentation. |
 | [`global-tts-audio-assets`](../skills/global-tts-audio-assets/SKILL.md) | [`tts-audio-assets`](../skills/tts-audio-assets/SKILL.md) | TTS audio generation, reuse, audit, QA, and data wiring across projects. |
-| [`global-uat-environment`](../skills/global-uat-environment/SKILL.md) | [`uat-environment`](../skills/uat-environment/SKILL.md) | Lightweight UAT/staging/preview environments and promotion evidence. |
+| [`global-uat-environment`](../skills/global-uat-environment/SKILL.md) | [`uat-environment`](../skills/uat-environment/SKILL.md) | Isolated preview/UAT and complete acceptance/required-check promotion evidence. |
 | [`global-ui-state-matrix`](../skills/global-ui-state-matrix/SKILL.md) | [`ui-state-matrix`](../skills/ui-state-matrix/SKILL.md) | UI state coverage beyond the happy path. |
-| [`global-ui-ux-expert`](../skills/global-ui-ux-expert/SKILL.md) | [`ui-ux-expert`](../skills/ui-ux-expert/SKILL.md) | Polished user-facing UI/UX design, UX behavior/state coverage, implementation, audit, and QA. |
+| [`global-ui-ux-expert`](../skills/global-ui-ux-expert/SKILL.md) | [`ui-ux-expert`](../skills/ui-ux-expert/SKILL.md) | Cause-directed diagnosis, design tradeoffs, contextual rules, alternatives, and evidence. |
 | [`global-ui-ux-orchestrator`](../skills/global-ui-ux-orchestrator/SKILL.md) | [`ui-ux-orchestrator`](../skills/ui-ux-orchestrator/SKILL.md) | Routing broad UI/UX work to the right focused skills. |
 | [`global-usage-budget-gate`](../skills/global-usage-budget-gate/SKILL.md) | [`usage-budget-gate`](../skills/usage-budget-gate/SKILL.md) | Compatibility alias for budget-aware depth routing now owned by `efficient-execution`. |
 
@@ -91,6 +91,7 @@ These skills stay under their project or specialized names:
   `coin-quest-native-parity`
 - CoverMate: `covermate-design-spec`, `covermate-new-chat`
 - Kaset Tan Phai: `kaset-tan-phai-new-chat`
+- Korat Tan Phai: `korat-tan-phai-shared-components`
 - Notenwert: `notenwert-design-direction`, `notenwert-maintainer`
 - Mongkol Wela: `mongkol-new-chat`
 - Shane and His Thai: `shane-thai-audio-generator`,

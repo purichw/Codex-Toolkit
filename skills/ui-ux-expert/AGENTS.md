@@ -8,13 +8,12 @@
 ## Files in this skill
 
 - **`SKILL.md`** — the lean operating method: process, source-of-truth precedence,
-  reference routing, anti-slop rules, behavior rules, critic pass, and snapshot
+  diagnosis, tradeoffs, reference routing, behavior rules, critic pass, and snapshot
   gate. Read it top-to-bottom first; then load only the references needed for the
   task.
-- **`tokens.css`** — a ready-made, tasteful default design system (neutrals, one
-  accent, spacing + type scales, radius, shadow, motion, resets). **Copy this into a
-  project** when the user gives no brand, instead of retyping tokens. Re-theme by
-  changing only the accent hue.
+- **`tokens.css`** — optional fallback tokens. Copy only when the project has no
+  brand, design system, production UI, or supplied direction. Adapt roles to the
+  task; do not reduce every design decision to changing one accent hue.
 
 These defaults are fallbacks, not a universal brand. If a project has brand
 tokens, a design system, production UI, or user-provided direction, that local
@@ -42,21 +41,28 @@ context wins.
   overrides `tokens.css` (FACT / ASSUMPTION / UNKNOWN fields, never invented).
 - **`references/token-map.md`** — where each token should and shouldn't be used (role, not
   appearance) + a role→token lookup table.
-- **`references/claude-design-learning-brief.md`** — what this skill still lacks
-  and a copy-ready prompt for asking Claude Design to teach future improvements.
+- **`references/design-judgment.md`** — cause-directed diagnosis, conflict
+  resolution, and selective comparison of alternative structures.
+- **`references/contextual-rules.md`** — when defaults apply, when to adapt them,
+  and how to test multilingual/content constraints without universalizing examples.
+- **`references/evaluation-protocol.md`** — matched baseline/candidate evaluation,
+  synthetic scenario pack, human review, and evidence limitations.
+- **`references/claude-design-learning-brief.md`** — current coverage and remaining
+  evidence gaps; a focused prompt for external design critique.
 - **`assets/component-gallery.html`** — optional visual test bench for the default
   tokens/components. Do not copy it into user projects unless explicitly asked.
 
-Convention across all artifacts: **FACT** (fixed) vs **REC** (default) · **REQ**
-(must) vs **OPT** (polish) · **?/UNKNOWN** (ask or labeled placeholder, never invent).
+Read legacy FACT/REC/REQ labels in context. A measured value is not automatically
+a universal requirement. Use the shared design-quality conventions for formal
+review and the contextual-rules reference for applicability.
 
 ## The 30-second operating loop
 
 1. **Context** — read every file/link/screenshot/brand the user gave before writing.
-2. **Ask** — one focused round only if there's no design context and no default fits
-   (`SKILL.md` "Process" and "Scoping Rules" decide when you may proceed alone).
-3. **System first** — copy `tokens.css` (or the brand's tokens); commit to type,
-   color, spacing, grid before laying out screens.
+2. **Diagnose/decide** — distinguish symptom from cause; resolve consequential
+   uncertainty using `SKILL.md` "When To Ask" and "Judgment And Scope".
+3. **System first** — reuse the actual project system. Use fallback tokens only
+   under the conditions above; define the small set of roles the task needs.
 4. **Build** — one screen right, then expand. Use `references/components.md` and
    `references/layouts.md` as fallback patterns.
 5. **Critic pass** — run the `SKILL.md` critic pass; if it looks off, run the
@@ -64,8 +70,8 @@ Convention across all artifacts: **FACT** (fixed) vs **REC** (default) · **REQ*
 6. **Render and look** — never ship from imagination. Fix, re-look.
 7. **Snapshot gate** — use `$snapshot` automatically for final visual evidence
    before responding; don't wait for the user to ask.
-8. **Deliver, then suggest** — do exactly what was asked; propose extras, don't apply
-   them uninvited (`SKILL.md` "Scoping Rules").
+8. **Deliver** — cover the requested outcomes and material tradeoffs, evidence,
+   and untested claims. Do not apply unrelated extras.
 
 For full-site responsive implementation or QA, read
 `references/responsive-web-design.md` before the critic pass.
@@ -74,7 +80,8 @@ For full-site responsive implementation or QA, read
 
 - No slop tells (`SKILL.md` "Anti-Slop Rules"): no gradient soup, emoji-as-UI, left-border accent cards,
   Inter-everywhere, fake data, filler sections.
-- 1–3 fonts · 0–2 accents · 1 background tone. Spacing only on the scale.
+- Font/color counts and spacing examples are fallbacks, not universal pass/fail
+  thresholds. Respect the existing roles, scripts, content, and task.
 - Never fabricate brand facts or real data — use a labeled placeholder and flag it.
 - Hierarchy from size/weight/space, not color. Design ideal/empty/loading/error/edge,
   not just the happy path. Accessibility floor in `references/craft-defaults.md`

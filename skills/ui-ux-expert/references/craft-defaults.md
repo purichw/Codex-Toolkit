@@ -4,6 +4,12 @@ Use this reference when `SKILL.md` needs concrete values or a quick calibration
 pass. These are fallbacks, not a brand. Local brand, production UI, or user
 provided visual direction wins.
 
+Read [contextual-rules.md](contextual-rules.md) when a default does not fit. The
+values below are starting points, not mandatory dimensions or a compliance
+certificate. Inspect actual content, scripts, input method, and platform. For
+ambiguous defects use [design-judgment.md](design-judgment.md) before selecting a
+repair. Preserve applicable accessibility and product requirements.
+
 ## Table of Contents
 
 - [Default Tokens](#default-tokens)
@@ -30,9 +36,10 @@ Use `tokens.css` instead of retyping the full token block. Its default system is
 - 12/14/16/20/25/31/39/49 type scale;
 - restrained radius and neutral elevation.
 
-To restyle without a brand, change only the accent hue and, if necessary, shift
-neutral warmth/coolness while keeping chroma very low. Do not invent a new scale
-for every project.
+Reuse an existing scale where possible. For a truly unbranded surface, choose
+color and density roles that serve the task; accent-only restyling is an option,
+not the definition of a design system. The fallback palette is not a universal
+visual direction.
 
 ## Typography
 
@@ -43,8 +50,10 @@ for every project.
   1.0-1.15.
 - Constrain body measure to about 60-75 characters.
 - Use `text-wrap: pretty` or `balance` where supported.
-- Minimums: mobile touch targets 44px; slide text never below 24px at
-  1920x1080; print body at least 12pt.
+- Starting comfort targets: mobile controls around 44 CSS px, slide body around
+  24px at 1920x1080, print body around 12pt. Actual device, viewing distance,
+  script, font metrics, and applicable accessibility requirements govern; these
+  examples are not universal minimums for every medium.
 - Respect brand type when available. If not, a single well-set grotesk beats a
   bad pairing.
 
@@ -157,19 +166,27 @@ Common defaults:
 
 ## Failure Recovery
 
-If the render looks off:
+If the render looks off, use these as hypotheses, not automatic fixes:
 
-1. Too busy: remove the three least-necessary elements.
-2. Flat: increase size/weight contrast and add whitespace before the primary
-   element.
-3. Cramped: increase gaps one step on the scale.
-4. Misaligned: put related edges on shared axes.
-5. Garish: reduce to one accent, desaturate neutrals, remove gradients/shadows.
-6. Cheap type: choose a clearer pairing and fix line-height/measure.
-7. Still off: compare against `anti-slop-examples.md` and name the specific
-   visible problem before editing again.
+1. Busy: inspect competing actions, grouping, and redundant chrome before
+   demoting decoration. Do not remove required content or product functions.
+2. Flat: check whether the task lacks hierarchy before increasing type weight
+   or spacing; a deliberately quiet surface may already be appropriate.
+3. Cramped: distinguish actual collisions from poor grouping or visual weight.
+   Increase gaps only if usable spacing is the cause.
+4. Misaligned: inspect intended shared axes and content width; preserve deliberate
+   brand offsets and alignment appropriate to the script/data.
+5. Garish: inspect color roles and competing emphasis before reducing accents;
+   preserve meaningful states and coherent brand choices.
+6. Weak type: inspect loading/fallback, script coverage, line-height, wrapping,
+   and hierarchy before replacing the project's font.
+7. Make one cause-directed adjustment and compare the same state/viewport.
+   If it does not help, revisit the cause instead of stacking cosmetic changes.
 
 ## Quick Cheat Sheet
+
+Fallback reminders only; use the contextual checks above before treating any
+number as a target. A matching checklist does not establish good design.
 
 ```text
 FONTS 1-3  |  ACCENTS 0-2  |  BG TONES 1

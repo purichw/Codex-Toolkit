@@ -67,7 +67,7 @@ False positives are normal. Read the matches before deciding.
 For most changes, run the toolkit verifier:
 
 ```sh
-python3 scripts/verify_skills.py --expected-count 129
+python3 scripts/verify_skills.py --expected-count 130
 ```
 
 It checks skill frontmatter, folder/name consistency, local Markdown links,
@@ -82,6 +82,18 @@ find skills -name SKILL.md | sort | wc -l
 ```
 
 If you add scripts, run their basic help or smoke-test path before committing.
+
+For `ui-ux-expert` evaluation-pack changes, also run:
+
+```sh
+python3 skills/ui-ux-expert/evals/validate.py
+PYTHONDONTWRITEBYTECODE=1 python3 -m unittest discover -s skills/ui-ux-expert/evals/tests -v
+```
+
+These validate the input pack and brief/rubric separation, not design quality.
+Use its [evaluation protocol](../skills/ui-ux-expert/references/evaluation-protocol.md)
+for matched rendered runs and human review; never report those runs as completed
+just because the Python checks pass.
 
 ## Commit Style
 

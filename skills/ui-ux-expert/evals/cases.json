@@ -1,0 +1,77 @@
+{
+  "schema_version": 1,
+  "cases": [
+    {
+      "id": "crowded-admin",
+      "provenance": "synthetic",
+      "focus": ["diagnosis", "tradeoffs", "evidence"],
+      "prompt": "This orders list feels crowded. Improve scanability without removing actions or making comparison harder.",
+      "setup": ["Provide one runnable list with four equally prominent actions per row, wrapping amounts, and long customer labels.", "Use the same data, desktop viewport, and keyboard flow for both candidates."],
+      "review_criteria": ["Separates observed crowding from competing causes and performs a discriminating check.", "Preserves actions, permissions, numeric comparison, and usable focus/touch targets.", "Compares matching rendered states and does not claim user speed from a screenshot."],
+      "failure_modes": ["Adds padding everywhere without diagnosing the cause.", "Hides required actions or shrinks text simply to fit more rows."]
+    },
+    {
+      "id": "image-only-mobile",
+      "provenance": "synthetic",
+      "focus": ["tradeoffs", "contextual_rules", "evidence"],
+      "prompt": "Match this supplied desktop PNG and support mobile in the existing app. I have no HTML source or mobile reference.",
+      "setup": ["Provide one desktop PNG whose capture scale is unknown and a runnable app with existing navigation and form behavior.", "Provide representative long content and a fixed mobile test viewport."],
+      "review_criteria": ["Accepts image-only input and records unknown scale rather than treating image pixels as CSS pixels.", "Keeps desktop observations separate from derived mobile and interaction choices.", "Preserves existing behavior and compares actual reference/development captures."],
+      "failure_modes": ["Requires HTML before starting or invents a mobile source screenshot.", "Claims exact mobile parity or uses the screenshot as the application background."]
+    },
+    {
+      "id": "thai-content-zoom",
+      "provenance": "synthetic",
+      "focus": ["diagnosis", "contextual_rules", "evidence"],
+      "prompt": "This bilingual Thai/English settings form clips some labels on mobile. Fix it while preserving the design system and full field meanings.",
+      "setup": ["Provide a runnable form with actual Thai combining marks, long Latin labels, validation errors, and its current font.", "Use the same narrow viewport and enlarged-text/zoom conditions for both candidates."],
+      "review_criteria": ["Examines actual script rendering, wrapping, leading, and container constraints.", "Preserves meaning, logical order, controls, and error content.", "Checks the supplied longest content and relevant zoom condition, not only a generic character count."],
+      "failure_modes": ["Truncates critical labels without access to full meaning.", "Shrinks every font or forces a universal prose measure/row height."]
+    },
+    {
+      "id": "bulk-action-safety",
+      "provenance": "synthetic",
+      "focus": ["tradeoffs", "contextual_rules", "evidence"],
+      "prompt": "Simplify this bulk archive workflow but keep its selection semantics, permission checks, and partial-failure recovery.",
+      "setup": ["Provide a sandbox-only list with selected-page versus all-matching scope, role denial, and a deterministic partial failure.", "Provide the existing recovery contract; no production writes are permitted."],
+      "review_criteria": ["Names selection scope, consequences, and recovery rather than hiding them for visual minimalism.", "Exercises allowed/denied and partial-failure states with retained selection/context.", "Required behavior failures remain failures even if the default screenshot looks cleaner."],
+      "failure_modes": ["Removes safeguards without an explicit product decision.", "Claims functionality from a static screenshot or reports a disclosed required failure as passed."]
+    },
+    {
+      "id": "brand-counterexample",
+      "provenance": "synthetic",
+      "focus": ["tradeoffs", "contextual_rules", "evidence"],
+      "prompt": "Polish this distinctive editorial page while preserving the supplied brand direction. Do not redesign it as an admin dashboard.",
+      "setup": ["Provide a runnable editorial page, explicit brand/reference direction, real licensed or synthetic-labeled imagery, and a long article.", "Include intentional expressive composition so blind adherence to generic density defaults is detectable."],
+      "review_criteria": ["Preserves coherent brand choices within applicable user/project constraints.", "Justifies local exceptions to fallback density, color counts, or specimens.", "Inspects imagery, hierarchy, and reading context rather than counting arbitrary failing traits."],
+      "failure_modes": ["Copies fallback tokens over the existing system.", "Equates a category checklist score with demonstrated quality."]
+    },
+    {
+      "id": "micro-edit-budget",
+      "provenance": "synthetic",
+      "focus": ["alternatives", "contextual_rules", "evidence"],
+      "prompt": "Increase the gap between this field label and input by one existing spacing token. Leave everything else alone.",
+      "setup": ["Provide one runnable form component, known owner CSS, and an existing spacing scale.", "Record original source and provide a targeted route for a current capture."],
+      "review_criteria": ["Makes only the requested scoped adjustment.", "Skips alternative concepts, broad audits, new tokens, and unnecessary decision documents.", "Uses a targeted current visual check and diff validation; does not skip evidence entirely."],
+      "failure_modes": ["Runs the entire benchmark or all design specialists.", "Requires a rollback checkpoint merely to adjust a known reversible CSS value."]
+    },
+    {
+      "id": "review-workspace-choice",
+      "provenance": "synthetic",
+      "focus": ["diagnosis", "tradeoffs", "alternatives", "evidence"],
+      "prompt": "Design a record-review workspace. Reviewers compare nearby records, sometimes inspect long histories, and need a usable phone flow. Choose a structure and implement one approach.",
+      "setup": ["Provide record summaries, long histories, existing routes/tokens, and preservation requirements for filters and return position.", "Use identical wide/narrow viewports and data; no reference mandates a particular layout."],
+      "review_criteria": ["Briefly compares feasible structures using task costs, including a viable existing approach.", "Implements only the chosen approach and preserves return context and keyboard navigation.", "Names tradeoffs and tests the most likely responsive/interaction regression."],
+      "failure_modes": ["Builds multiple complete apps unnecessarily.", "Selects a fashionable structure without relating it to the review task."]
+    },
+    {
+      "id": "uncertain-status-dashboard",
+      "provenance": "synthetic",
+      "focus": ["diagnosis", "tradeoffs", "contextual_rules", "evidence"],
+      "prompt": "Make this status dashboard easier to trust. Missing and stale readings must not look healthy; retain units, timestamps, and links to underlying records.",
+      "setup": ["Provide a runnable dashboard with normal, unknown, stale, and partial-error fixtures, explicit units/timezone, and a drill-down route.", "Use synthetic data only and fix the clock for matched captures."],
+      "review_criteria": ["Distinguishes trust problems caused by data semantics from decorative styling.", "Preserves unknown/stale states, units, timestamps, and drill-down behavior.", "Uses rendered and interaction evidence without inventing data or claiming improved user trust without user evidence."],
+      "failure_modes": ["Converts missing values to zero/green or invents impressive metrics.", "Removes provenance to make the layout cleaner."]
+    }
+  ]
+}

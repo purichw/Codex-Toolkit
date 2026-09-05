@@ -18,13 +18,39 @@ and rendered evidence. Do not treat these defaults as a brand.
    - existing production UI and local design system;
    - project-specific skill or maintainer instructions;
    - this skill's fallback defaults and `tokens.css`.
-3. Define the small system needed for the surface: type, spacing, color roles,
-   radius, layout, controls, states, and responsive behavior.
-4. Build or review the smallest useful surface first; keep edits scoped unless
-   the user asked for broader redesign.
-5. Render in the real medium when possible. Use browser/app/deck/PDF previews
+3. Name the user's task, relevant constraints, and what would count as success.
+   For an unclear defect, separate observed symptoms from candidate causes;
+   choose a small check that can distinguish them before prescribing a fix.
+4. Resolve material tradeoffs, then define the small system needed: type,
+   spacing, color roles, layout, controls, states, and responsive behavior.
+   Compare 2-3 lightweight alternatives only for consequential new design or
+   structural choices; skip this for clear references and tiny edits.
+5. Build or review the smallest useful surface first; keep edits scoped unless
+   the user asked for broader redesign. Preserve product contracts and user work.
+6. Render in the real medium when possible. Use browser/app/deck/PDF previews
    instead of judging from source alone.
-6. Run a critic pass, fix visible issues, then close out with evidence and risk.
+7. Test the expected improvement and possible regressions, not just whether a
+   checklist passed. Run a critic pass and close out with evidence and risk.
+
+## Judgment And Scope
+
+Use [design-judgment.md](references/design-judgment.md) when the cause is unclear,
+principles conflict, or a consequential design choice needs alternatives. Keep
+the diagnosis, chosen tradeoff, and test compact; do not require a document for
+every edit. A source-of-truth order chooses visual direction, not permission to
+break accessibility, data integrity, product behavior, or higher-priority rules.
+
+Treat numerical craft defaults and category specimens as contextual starting
+points, not universal pass/fail thresholds. Use
+[contextual-rules.md](references/contextual-rules.md) when adapting them for the
+task, script/language, input method, content, or platform. Never present a craft
+preference or a screenshot inference as a measured fact or user-research result.
+
+`$ui-ux-orchestrator` owns broad skill selection; specialists own detailed rules.
+Use `$visual-diagnosis`, `$domain-taste`, `$interaction-design`, or another
+relevant specialist only for the present risk, not all specialists by default.
+Use `$reference-to-a-tee` for image/HTML/mixed fidelity rather than inventing
+alternative art directions for a faithful-copy request.
 
 ## When To Ask
 
@@ -51,6 +77,10 @@ Load extra files only when needed:
   can verify the result.
 - `$design-quality-review`: rigorous severity-tagged review, rule IDs, or
   definition-of-done work.
+- [evaluation-protocol.md](references/evaluation-protocol.md): benchmark this
+  skill or investigate repeated design failures. Includes a runnable scenario
+  pack, matched before/after protocol, human review, and evidence limits. Do not
+  run the benchmark suite for ordinary UI edits.
 - `references/brand-override.template.md`: copy into a branded project only when
   the user provides brand assets or a brand source of truth.
 - `assets/component-gallery.html`: optional local test bench; do not copy into
@@ -66,7 +96,9 @@ Load extra files only when needed:
 - Public and editorial surfaces may be expressive; admin, CMS, CRM, ledger,
   dashboard, and operator surfaces should be quiet, dense, and predictable.
 - Use hierarchy from size, weight, position, and spacing, not color alone.
-- Use 1-3 fonts, 0-2 accent colors, a spacing scale, and grid/flex `gap`.
+- Use a coherent role-based type, color, and spacing system. As fallbacks use
+  1-3 fonts, 0-2 accents, and grid/flex `gap`; context and script coverage matter
+  more than meeting these example counts.
 - Use real assets when possible. Use labeled placeholders for unknown assets,
   data, logos, metrics, testimonials, legal, or medical copy.
 
@@ -115,7 +147,8 @@ the remaining risk. Do not silently skip snapshot evidence for UI/UX work.
 
 Before final response on UI work, check:
 
-- primary task is clear within about 3 seconds;
+- the proposed fix addresses the diagnosed cause and preserves the user's task;
+- primary task appears clear on a brief scan (a heuristic, not a timed user test);
 - hierarchy works in grayscale;
 - type, spacing, radius, shadow, and accents are consistent;
 - controls match the choice model;
@@ -128,9 +161,13 @@ Before final response on UI work, check:
 - anti-slop tells are absent or intentionally justified.
 
 If a visible issue remains and is practical to fix now, fix and re-render before
-closing.
+closing. Compare the same viewport/state/content; vary only the intended design
+change where possible. If evidence contradicts the diagnosis, revise it instead
+of accumulating cosmetic fixes. One improvement does not establish general taste.
 
 ## Closeout
 
-Report the design decision or change, source of truth used, visual evidence
-captured or why it was skipped, checks run, and any remaining visual risk.
+Report the design decision or change, source of truth used, material tradeoff,
+visual evidence captured or why blocked, checks run, and remaining risk. Separate
+observed improvement, reasoned expectation, and untested user outcomes. Keep the
+closeout proportional and do not expose a lengthy internal reasoning transcript.

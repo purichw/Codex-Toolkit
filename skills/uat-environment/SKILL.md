@@ -16,7 +16,7 @@ production. UAT should be fast, isolated, resettable, and honest about what it
 does and does not prove.
 
 UAT is for T3-T5 risk: frontend UI, auth/data/API/config, admin/CMS, migrations,
-generated assets, Claude parity, mobile QA, and deploy readiness. It is usually
+generated assets, reference parity, mobile QA, and deploy readiness. It is usually
 not required for docs-only or tiny non-runtime changes.
 
 Use `$efficient-execution` to keep UAT lightweight. The goal is a small,
@@ -83,15 +83,18 @@ test results depend on accidental old state.
 
 ## Minimum Viable UAT Loop
 
-1. Deploy or open the preview build for the exact branch/version.
+1. Map active deliverables and acceptance criteria to required checks, using
+   `$efficient-execution`. Deploy or open the exact preview build/version.
 2. Seed only the roles and data states required by the changed risk.
 3. Use test-only auth bypass when auth is not under test; use real test accounts
    when auth, roles, or permissions are under test.
-4. Verify the smallest set of flows that can fail because of the change.
-5. Record URL, build, fixture, auth mode, checks, skips, and rollback.
+4. Verify the smallest set of flows covering those acceptance criteria and
+   changed failure modes. Record terminal check results, not just launches.
+5. Record URL, actual served build, fixture, auth mode, deliverable evidence,
+   required check results, optional skips, and rollback.
 
 Escalate to broader UAT only for shared layout, admin/data lifecycle, auth/rules,
-migrations, generated asset maps, Claude parity, mobile-critical releases, or
+migrations, generated asset maps, reference parity, mobile-critical releases, or
 production promotion.
 
 ## What To Verify In UAT
@@ -123,6 +126,8 @@ Data fixture/reset:
 Auth mode: real / bypassed / mixed
 Roles/accounts tested:
 Routes/flows:
+Deliverables / acceptance criteria / evidence:
+Required checks and terminal results:
 Checks run:
 Screenshots/logs:
 Known skips:
@@ -130,9 +135,24 @@ Decision:
 Rollback:
 ```
 
-Production promotion is allowed only when UAT evidence covers the highest-risk
-touched surface, skipped checks are explicit, test data is isolated, auth mode is
-appropriate to the change, and rollback/recovery is known.
+Production promotion is allowed only when every in-scope deliverable is tracked,
+all acceptance criteria due before promotion have current evidence, and all
+required pre-promotion checks have passed. Keep post-promotion criteria pending
+until checked; prioritize the highest risk without dropping other outcomes.
+Link local/docs/artifact evidence where appropriate; do not force non-runtime
+deliverables through browser UAT.
+
+A required pre-promotion check that failed, is pending, is blocked, or was not
+run blocks promotion. Disclosure is not approval; checks cannot be downgraded to
+optional. Explain skips only for genuinely non-required broader coverage.
+Evidence must match source edits, the actual served build, configuration, data,
+auth, and reference conditions relevant to the claim; a reused URL is not proof.
+
+Test data must be isolated, auth mode appropriate, and recovery known. Keep
+pre-promotion readiness distinct from completion: after authorized promotion,
+use `$release-gate` to verify the production endpoint and required post-deploy
+checks before declaring the whole task done. Promotion itself is not authorized
+by a passing gate.
 
 ## Anti-Patterns
 

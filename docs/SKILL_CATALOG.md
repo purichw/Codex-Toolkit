@@ -44,7 +44,8 @@ that intentionally remain project-specific or specialized.
 
 - Skill file: [../skills/release-gate/SKILL.md](../skills/release-gate/SKILL.md)
 - Description: Defines proportional verification before commit, push, deploy,
-  merge, release, or handoff.
+  merge, release, or handoff across all active deliverables. Required failed,
+  blocked, pending, or unrun checks block readiness; disclosure is not a pass.
 - Use when: Shipping changes, opening a PR, deploying, checking readiness, or
   confirming a feature is safe enough to publish.
 - Typical context: `git status`, staged and unstaged diffs, affected surfaces,
@@ -54,11 +55,10 @@ that intentionally remain project-specific or specialized.
 ### rollback-guardrail
 
 - Skill file: [../skills/rollback-guardrail/SKILL.md](../skills/rollback-guardrail/SKILL.md)
-- Description: Hard-stops rollback-like operations until the current work is
-  recoverable and the impact is explicit.
-- Use when: The user asks to rollback, revert, reset, remove, undo, discard,
-  back out, delete a feature, strip an integration, change direction mid-work,
-  or commit/push/deploy after rollback-like work.
+- Description: Classifies rollback risk. Pauses and understood reversible edits
+  stay lightweight; risky work loss requires concrete authorization and recovery.
+- Use when: Rollback, removal, replacement, history/data changes, or uncertain
+  ownership could discard work, or when releasing after a risky rollback.
 - Typical context: `git status`, recent diffs, untracked files, checkpoint path,
   staged and unstaged patches, restore note or `docs/rollback-parking-lot.md`,
   live routes affected, parked features, removed verification, and follow-up
@@ -102,9 +102,10 @@ that intentionally remain project-specific or specialized.
 
 - Skill file: [../skills/uat-environment/SKILL.md](../skills/uat-environment/SKILL.md)
 - Description: Defines lightweight production-like preview/UAT environments,
-  seed/reset data, auth bypass policy, promotion gates, and rollback evidence.
+  seed/reset data, auth policy, complete acceptance coverage, and promotion gates
+  that require passed checks and current evidence, plus post-promotion verification.
 - Use when: Frontend UI, admin/CMS, auth/data/API/config, generated assets,
-  Claude parity, mobile QA, or deploy readiness needs realistic verification
+  reference parity, mobile QA, or deploy readiness needs realistic verification
   before production.
 - Typical context: UAT URL, build or commit, isolated env vars/secrets, data
   fixture/reset plan, test accounts and roles, auth mode, external-service
@@ -249,13 +250,15 @@ closeouts unless the user explicitly scoped the capture that way.
 
 - Skill file: [../skills/design-direction/SKILL.md](../skills/design-direction/SKILL.md)
 - Description: Defines, critiques, or preserves product visual direction across
-  projects.
+  projects, including valid image-only, HTML/prototype, and mixed handoffs.
 - Use when: Creating design briefs, redesign strategy, visual north stars,
   brand/product UX principles, public vs admin UX direction, typography/color/
   imagery guardrails, Claude Design prompts, or implementation handoff guidance.
 - Typical context: Product purpose, audience, positioning, existing design
   briefs, screenshots/prototypes, brand assets, current implementation, design
-  system primitives, responsive behavior, and release constraints.
+  system primitives, responsive behavior, and release constraints. Handoffs name
+  source authority, image calibration limits, missing states, and adaptations;
+  they do not require HTML when only images are available.
 
 ### export-html
 
@@ -314,9 +317,9 @@ closeouts unless the user explicitly scoped the capture that way.
 ### ui-ux-expert
 
 - Skill file: [../skills/ui-ux-expert/SKILL.md](../skills/ui-ux-expert/SKILL.md)
-- Description: Designs, audits, and implements user-facing UI/UX with portable
-  fallback tokens, cross-browser/platform responsiveness, UX behavior/state
-  coverage, component/layout references, anti-slop examples, and QA rules.
+- Description: Designs, audits, and implements UI with cause-directed diagnosis,
+  explicit tradeoffs, contextual defaults, selective alternatives, existing
+  design systems, state coverage, and current visual/behavior evidence.
 - Use when: Working on visual design, interaction design, accessibility,
   responsive UI, design systems, frontend polish, component galleries, layout
   exemplars, UX flow/state coverage, cross-browser/platform responsive QA,
@@ -326,7 +329,11 @@ closeouts unless the user explicitly scoped the capture that way.
   patterns, UX behavior and state requirements, anti-slop checks, responsive
   targets, `references/responsive-web-design.md` for full-site responsive work,
   accessibility expectations, rendered preview/screenshot evidence, and QA
-  checklist.
+  checklist. See [design judgment](../skills/ui-ux-expert/references/design-judgment.md)
+  for consequential decisions and
+  [evaluation protocol](../skills/ui-ux-expert/references/evaluation-protocol.md)
+  for eight synthetic benchmark scenarios and matched human review. Pack
+  validation does not establish improved taste or real user outcomes.
 
 ### ui-ux-orchestrator
 
@@ -721,6 +728,20 @@ closeouts unless the user explicitly scoped the capture that way.
 - Typical context: `AGENTS.md`, codebase map, content model, NGA reference for
   hero/banner work, source under `src/`, build script, regression tests, and
   work log.
+
+## Korat Tan Phai
+
+### korat-tan-phai-shared-components
+
+- Skill file: [../skills/korat-tan-phai-shared-components/SKILL.md](../skills/korat-tan-phai-shared-components/SKILL.md)
+- Description: Preserves shared React components and domain semantics across
+  Korat province, district, and subdistrict surfaces; requires automatic snapshot
+  evidence for visible work and browser checks for changed interactions.
+- Use when: Auditing or changing stats, selects, provenance chips, map previews,
+  dashboard sections, local maps, or shared responsive behavior.
+- Typical context: `/Users/point/korattanphai`, `docs/SHARED_COMPONENTS.md`,
+  owner source/CSS, current usages, data-readiness vs hazard semantics, and the
+  smallest relevant route/state/breakpoint evidence.
 
 ## Kaset Tan Phai
 

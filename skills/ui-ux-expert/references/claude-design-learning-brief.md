@@ -1,8 +1,10 @@
-# Claude Design Learning Brief
+# External Design Learning Brief
 
-This file lists what `ui-ux-expert` still does not know deeply enough. Use it to
-ask Claude Design or another design specialist for lessons, critique rubrics,
-examples, and before/after artifacts that can become future references.
+The legacy filename is retained for existing links. Use this brief with Claude
+Design or any design reviewer. The twelve topics below now have specialist
+coverage; they are not twelve missing skills. Ask for concrete counterexamples,
+critique, and evidence that improves the existing guidance rather than another
+generic manual.
 
 ## Current Strength
 
@@ -13,81 +15,75 @@ examples, and before/after artifacts that can become future references.
 - it routes to component, layout, responsive, token, and QA references;
 - it requires rendered visual evidence through `$snapshot`;
 - it keeps brand/production UI above generic defaults.
+- it now includes cause-directed diagnosis, explicit tradeoffs, contextual rules,
+  selective alternatives, and a matched evaluation protocol with eight synthetic
+  scenarios. Those scenarios have not established a measured quality improvement.
 
 It is not yet equivalent to a senior product designer's trained eye. It lacks a
 large library of nuanced, domain-specific examples and critique patterns.
 
-## Gaps To Ask Claude Design About
+## Existing Coverage To Challenge
 
 1. **Visual diagnosis vocabulary**
-   - How to name why a screen feels cheap, heavy, cramped, scattered, generic,
-     or low-trust from screenshots.
+   - Existing: `$visual-diagnosis`. Challenge its symptom-to-cause reasoning for
+     cheap, heavy, cramped, scattered, generic, or low-trust screens.
    - Need: a taxonomy with concrete image examples and repair moves.
 
 2. **Domain-specific design taste**
-   - Admin/CMS, SaaS ops, editorial/cultural sites, education apps, finance
-     ledgers, mobile learning, dashboards, and landing pages need different
-     density, hierarchy, rhythm, and copy.
+   - Existing: `$domain-taste`. Challenge category defaults with real admin,
+     editorial, learning, ledger, and mobile counterexamples.
    - Need: before/after examples per domain and "do not use this pattern here"
      rules.
 
 3. **Information architecture and screen strategy**
-   - The skill can polish a screen, but it needs better guidance on choosing
-     navigation structure, content grouping, page sequencing, and progressive
-     disclosure for complex products.
+   - Existing: `$information-architecture-ux`. Challenge navigation/grouping
+     choices and the cost of alternatives for complex tasks.
    - Need: IA heuristics, route/screen decision trees, and examples.
 
 4. **Advanced interaction design**
-   - Better patterns for multi-step flows, undo/redo, autosave, bulk actions,
-     permissions, collaborative state, optimistic updates, and interruption
-     recovery.
+   - Existing: `$interaction-design`. Challenge multi-step, autosave, bulk,
+     permission, optimistic-update, and interruption-recovery tradeoffs.
    - Need: interaction pattern library with state diagrams.
 
 5. **Mobile-native product feel**
-   - The current guidance handles responsive web better than native iOS/Android
-     feel.
+   - Existing: `$mobile-native-feel`. Test actual platform behavior rather than
+     assuming responsive web evidence establishes native feel.
    - Need: iOS/Android screen patterns, safe areas, gestures, sheets, tab
      behavior, input ergonomics, and visual density examples.
 
 6. **Design-system architecture**
-   - The skill says "use a system" but needs stronger guidance on component
-     taxonomy, variant naming, token layering, theming, and when to split or
-     merge components.
+   - Existing: `$design-system-architect`. Challenge component boundaries,
+     token layering, themes, and split/merge decisions with real consumers.
    - Need: design-system audit rubrics and component inventory templates.
 
 7. **Art direction and imagery**
-   - The skill avoids bad placeholders, but does not deeply teach photo
-     direction, crop strategy, editorial image rhythm, illustration style, or
-     asset selection by brand mood.
+   - Existing: `$art-direction-imagery`. Challenge crops, image sequence,
+     editorial rhythm, and brand fit with actual image pairs.
    - Need: image critique examples and crop decision rules.
 
 8. **Typography refinement**
-   - The skill has safe defaults, but needs better advanced guidance for
-     editorial rhythm, multilingual text, dense tables, numerical dashboards,
-     slides, and mixed script systems.
+   - Existing: `$typography-refinement`. Test Thai/mixed-script rendering,
+     dense numbers, long text, and medium-specific reading conditions.
    - Need: type pairing critiques, hierarchy ladders, and real screenshots.
 
 9. **Motion choreography**
-   - The skill has duration/easing basics, but not detailed choreography for
-     complex transitions, scroll narratives, page changes, drawers, tabs, and
-     reduced-motion equivalents.
+   - Existing: `$motion-choreography`. Challenge transition intent, interruption,
+     and reduced-motion equivalents with recorded behavior, not still images.
    - Need: motion specs and examples that explain intent.
 
 10. **Accessibility beyond the floor**
-    - Current guidance covers basics. It needs stronger patterns for screen
-      reader flows, cognitive load, error prevention, low vision, localization,
-      complex widgets, and accessible data visualization.
+    - Existing: `$accessibility-beyond-basics`. Test assistive flows, complex
+      widgets, low vision, and data visualization with appropriate tools/users.
     - Need: advanced accessibility critique and acceptance examples.
 
 11. **Evidence-based design critique**
-    - The skill needs a better rubric for comparing reference vs implementation
-      beyond "looks close": geometry, rhythm, hierarchy, density, visual weight,
-      and interaction affordance.
+    - Existing: `$reference-implementation-critique` and `$reference-to-a-tee`.
+      Challenge geometry, hierarchy, and inferred behavior with calibrated pairs.
     - Need: screenshot annotation examples and scoring rubrics.
 
 12. **Taste calibration library**
-    - The skill lacks a broad set of excellent and poor examples across product
-      categories.
+    - Existing: `$taste-calibration` has textual specimens. A broad, permissioned
+      image library with independent review and counterexamples is still missing.
     - Need: curated examples with why each works, where it fails, and what rules
       Codex should infer.
 
@@ -96,11 +92,14 @@ large library of nuanced, domain-specific examples and critique patterns.
 ```markdown
 I have a Codex skill called `ui-ux-expert`. It already enforces system-first UI,
 anti-slop rules, responsive checks, component/state coverage, accessibility
-basics, and screenshot evidence.
+basics, and screenshot evidence. It also routes to specialists for the twelve
+topics below and now has diagnosis, tradeoff, contextual-rule, alternative-choice,
+and evaluation guidance. Do not assume those topics are absent.
 
-Please teach it like a senior product designer would. Focus on what an AI coding
-agent usually misses when judging UI from screenshots or implementing from a
-design reference.
+Please critique the supplied guidance and artifacts as a design reviewer. Focus
+on incorrect assumptions, competing explanations, counterexamples, and missing
+evidence when judging screenshots or implementing references. Mark anything you
+cannot verify; do not claim access to hidden methods or invent test results.
 
 For each topic below, provide:
 - the principle;
@@ -110,6 +109,7 @@ For each topic below, provide:
 - implementation-level rules Codex can follow;
 - screenshot QA checks Codex can run;
 - when the rule should be overridden.
+- how to test the proposed improvement and what would disprove the diagnosis.
 
 Topics:
 1. visual diagnosis vocabulary;

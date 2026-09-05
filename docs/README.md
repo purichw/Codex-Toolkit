@@ -16,6 +16,8 @@ This directory documents how to use and maintain the Codex Toolkit repository.
   add a new skill, review privacy risk, and verify docs before pushing.
 - [Reference parity migration](REFERENCE_PARITY_MIGRATION.md): generic image,
   HTML, and mixed modes; legacy aliases, helper compatibility, and checks.
+- [Design judgment and gates](SKILL_JUDGMENT_AND_GATES.md): UI/UX decision
+  methods, evaluation limits, complete-deliverable gates, and rollback risk tiers.
 
 ## Repository Map
 
@@ -29,7 +31,8 @@ This directory documents how to use and maintain the Codex Toolkit repository.
 │   ├── MAINTENANCE.md
 │   ├── README.md
 │   ├── REFERENCE_PARITY_MIGRATION.md
-│   └── SKILL_CATALOG.md
+│   ├── SKILL_CATALOG.md
+│   └── SKILL_JUDGMENT_AND_GATES.md
 ├── scripts/
 │   └── verify_skills.py
 └── skills/

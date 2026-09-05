@@ -22,7 +22,8 @@ Read only what the task needs:
   performance, and release requirements.
 
 Use `$ui-ux-orchestrator` when the UI/UX task is broad or the right specialist
-skill is unclear. Use `$reference-to-a-tee` for exact offline Claude parity,
+skill is unclear. Use `$reference-to-a-tee` for image-only, HTML/prototype, or
+mixed-reference parity from any source,
 `$consistency-audit` for site-wide coherence against requirements or inferred
 patterns, `$design-system-guardian` for component/token consistency,
 `$product-ux-contracts` for preserving proven product behavior,
@@ -40,7 +41,7 @@ visual risk remains.
 
 Use `$efficient-execution` when direction work is broad: inspect enough
 references to define the decision, then stop before it becomes a full redesign
-audit. Escalate only when the user asks for architecture, Claude parity,
+audit. Escalate only when the user asks for architecture, reference parity,
 responsive verification, or implementation.
 
 ## Direction Frame
@@ -101,8 +102,16 @@ after the direction is clear.
 When preparing a design prompt or handoff for another design agent, request
 artifacts that implementation agents can verify rather than mood alone:
 
-- standalone HTML or a runnable prototype for every referenced screen;
-- wide screenshots at desktop, tablet, and mobile with route/state labels;
+- declare the available mode: image-only, HTML/prototype, or mixed. Image-only
+  is a valid handoff; do not require HTML or build an export just to accept it;
+- for images: original files, dimensions, route/state/version labels, crop and
+  scale/DPR information when known, and which image governs each surface;
+- for existing HTML/prototypes: entry point, assets/fonts, runnable instructions,
+  and the states that can actually be exercised;
+- for mixed inputs: authority per surface/state/version; do not automatically
+  prefer HTML over a newer user-selected image;
+- supplied desktop/tablet/mobile views where available. Mark absent viewports
+  and interactions as unknown or proposed adaptations, never measured parity;
 - component inventory, item counts, responsive rules, and visible interactions;
 - source-of-truth notes for what is presentation-only versus product-owned data,
   auth, routing, persistence, and operations;
@@ -110,6 +119,13 @@ artifacts that implementation agents can verify rather than mood alone:
   scheduling, or backend-dependent features;
 - asset brief and licensing/source expectations for images, video, and embeds;
 - explicit behavior exceptions and visual exceptions.
+
+Separate observed visual facts, calibrated measurements, inferred behavior,
+product decisions, and unknowns. Image pixels are not automatically CSS pixels.
+Ask for missing artifacts only when they block the requested fidelity or a
+consequential decision; otherwise retain uncertainty and preserve existing
+product behavior. Use `$snapshot` for available rendered comparison evidence,
+not to invent source states absent from the images.
 
 Use `$reference-to-a-tee` for exact implementation from such a handoff and
 `$admin-prototype-reconciliation` when the handoff changes admin/data contracts.

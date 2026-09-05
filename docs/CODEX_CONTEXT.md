@@ -10,8 +10,8 @@ user's intent.
 - Local checkout used when this file was written: `/Users/point/Codex-Toolkit`
 - Visibility at initial setup: private
 - Purpose: archive and document the user's personal Codex skills
-- Current skill count: 129 `SKILL.md` files under `skills/`
-- Breakdown: 74 personal skill folders (including compatibility routers),
+- Current skill count: 130 `SKILL.md` files under `skills/`
+- Breakdown: 75 personal skill folders (including compatibility routers),
   53 `global-*` alias skills for reusable non-project-specific workflows, and
   2 standalone global design-spec skills.
 
@@ -131,6 +131,7 @@ Expected current skill folders:
 - `interaction-design`
 - `interaction-flow-qa`
 - `kaset-tan-phai-new-chat`
+- `korat-tan-phai-shared-components`
 - `ledger-logic`
 - `mobile-native-feel`
 - `mobile-web-qa`
@@ -220,11 +221,16 @@ updates, enough verification is usually:
 
 ```sh
 git diff --check
-python3 scripts/verify_skills.py --expected-count 129
+python3 scripts/verify_skills.py --expected-count 130
 ```
 
 For skill script changes, run the script's smoke-test or help path when one
 exists.
+
+For the UI/UX judgment/evaluation layer and the related gate corrections, read
+[SKILL_JUDGMENT_AND_GATES.md](SKILL_JUDGMENT_AND_GATES.md). Its scenario pack is
+synthetic and unscored; structural validation is not evidence of better taste.
+The six named skills were selectively synchronized, not the entire live tree.
 
 ## Handoff Summary
 

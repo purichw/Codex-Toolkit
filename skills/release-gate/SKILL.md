@@ -23,30 +23,34 @@ unclear or the user asks to control usage.
 2. Inspect scope before checks: `git status --short`, staged files, unstaged
    files, recent diff, and changed filenames. Do not include unrelated user
    changes without explicit intent.
-3. Classify the highest-risk touched surface: docs/assets-only, narrow code,
+3. List all active deliverables and their acceptance criteria, including docs,
+   generated artifacts, installed copies, and the requested publishing endpoint.
+   Classify the highest-risk touched surface first: docs/assets-only, narrow code,
    frontend UI, shared runtime behavior, API, data model, auth, build config,
    deployment config, migrations, environment variables, tests, or generated
    assets.
-4. Choose the shortest evidence path that covers that risk. Prefer targeted
-   commands for changed packages/files/tests before full-suite commands. Run
+4. Map each deliverable to proportionate evidence; one check may cover several.
+   Mark required checks and optional broader coverage before running them.
+   Prefer targeted commands for changed packages/files/tests before full suites. Run
    independent checks in parallel when possible.
-5. Summarize evidence, failures, and skipped checks. Never skip a relevant
-   check silently.
+5. Collect terminal results for required operations. Summarize evidence,
+   failures, and skipped checks. A queued command or pending CI is not a pass.
 
 ## Hard Stops
 
-- **Rollback-like work**: if the diff follows rollback, revert, reset, remove,
-  undo, discard, back-out, or mid-work direction changes, use
-  `$rollback-guardrail` before releasing. Do not commit, push, deploy, or hand
-  off until the checkpoint path, restore note, impact, and follow-up
-  verification are known.
+- **Risky rollback-like work**: use `$rollback-guardrail` to classify possible
+  work loss, history rewrites, data loss, or feature removal. Require its
+  checkpoint, restore note, approved impact, and verification for the risky
+  path. A pause or routine reversible edit with no work loss does not require
+  a checkpoint; record that classification without manufacturing parked work.
 - **Unresolved parking lot**: stop when `docs/rollback-parking-lot.md` or an
   equivalent restore note contains unresolved items that affect the release
   surface, unless the user explicitly accepts shipping with those items parked.
-- **Prototype/component not wired**: stop when a new Claude/Figma/prototype UI
-  component, handoff, or standalone export exists in the diff but the live app
-  route has no screenshot, snapshot, smoke test, or interaction evidence proving
-  that it renders and behaves in the real product.
+- **Required integration not wired**: when live-product integration is an
+  acceptance criterion, stop if a new component/prototype has no route and
+  interaction evidence proving it works there. An explicitly standalone export
+  or image-only handoff is checked as that artifact; do not invent a live-app
+  integration requirement for it.
 - **Removed verification**: stop when rollback-like work deletes or bypasses
   tests, smoke coverage, route checks, or snapshots for behavior that is still
   expected product scope.
@@ -119,8 +123,9 @@ Use these as starting packs, then adapt to repo-defined commands:
   the changed risk tier. Do not run deploy checks for commit-only work.
 - **Push**: verify branch/upstream, run any missing checks expected before CI,
   and push only the current intended branch.
-- **PR/merge**: include the checks above plus CI status or clearly disclose that
-  CI was not available.
+- **PR/merge**: include CI status. Missing, pending, or failed required CI blocks
+  merge/readiness; a permitted draft PR can report pending evidence without
+  claiming the merge gate passed.
 - **Deploy**: confirm target, run build/test evidence appropriate to the risk,
   deploy only when authorized, then verify the deployed URL or artifact. For
   production deploys with UI/auth/data/admin/config risk, prefer UAT/preview
@@ -149,10 +154,10 @@ Use these as starting packs, then adapt to repo-defined commands:
 
 ## Reusable Evidence
 
-Reuse previous evidence only when it still proves the current diff: same commit
-or changed files, same dependency/build config, same target URL or artifact,
-same reference hash, same viewport/auth/data state, and no relevant failures
-since the evidence was captured.
+Reuse evidence only when all conditions relevant to the claim still match:
+source including staged/unstaged edits, dependency/build config, actual served
+build or artifact version, reference hash, viewport, and auth/data state. A
+matching commit or URL alone is insufficient; refresh checks affected by edits.
 
 Good reuse examples: a still-healthy dev server for the same branch, a Claude
 reference manifest with the same HTML SHA, targeted tests already run after the
@@ -162,13 +167,25 @@ not release evidence.
 
 ## Decision
 
-Proceed only when the diff matches the requested scope, evidence covers the
-highest-risk touched surface, failures are unrelated or disclosed, key
-interactions still work, visual changes have browser evidence when relevant,
-the deploy target is known and reachable, and risky changes have an obvious
-rollback or recovery path. If rollback-like work happened during the task, the
-decision must include the rollback checkpoint path, restore note status, and
-whether any parked work is intentionally shipping.
+An action gate passes only with clean scope, all active deliverables tracked,
+and every acceptance criterion due before that action met with current evidence.
+Its required checks must have passed; failed, blocked, pending, or unrun checks
+required before that action block it. Disclosure is not a pass. Do not reclassify a
+failed required check as optional merely to ship. An unrelated failure needs
+evidence of non-impact and must not be a required gate for the target action.
+
+Keep action readiness separate from whole-task completion: an authorized push
+may be needed to start CI, but required post-push CI and deployment checks stay
+pending until their terminal results are known. Report intermediate completion
+honestly. Verify requested remote endpoints, not just successful local commands.
+Whole-task completion requires every active deliverable and all required
+post-action checks to be complete. Use `$efficient-execution` for tracking and
+completion rules.
+
+For relevant UI work require current visual/interaction evidence. For risky
+changes require recovery; for risky rollback include checkpoint, restore-note
+status, and explicitly accepted parked scope. A changed scope must be explicit,
+not a silent omission of an unfinished deliverable.
 
 Use this compact decision format:
 
@@ -176,10 +193,13 @@ Use this compact decision format:
 Action/target:
 Changed scope:
 Risk tier:
+Deliverables / acceptance / evidence:
+Required checks and terminal results:
 Checks run:
 Checks skipped and why:
 Failures:
 Decision:
+Requested endpoint / confirmed result:
 Rollback/recovery:
 ```
 

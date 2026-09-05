@@ -1,4 +1,4 @@
 interface:
   display_name: "UI/UX Expert"
-  short_description: "Design and QA polished flows and interfaces"
-  default_prompt: "Use $ui-ux-expert to design, polish, or audit this user-facing interface, including UX flow and state coverage."
+  short_description: "Diagnose, design, and verify product interfaces"
+  default_prompt: "Use $ui-ux-expert to diagnose and improve this interface, resolve material design tradeoffs, and verify the result with proportionate evidence."
