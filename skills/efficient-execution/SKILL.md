@@ -1,6 +1,6 @@
 ---
 name: efficient-execution
-description: Choose, explain, and execute the smallest quality-preserving workflow across coding, docs, QA, assets, project discovery, UI/UX audit, commit, push, deploy, and handoff work. Use when the user asks to go faster, reduce usage, avoid over-auditing, choose fast/standard/deep/release depth, batch or parallelize checks, reuse prior evidence, define stop rules, or optimize release workflows without increasing risk.
+description: Choose and execute the smallest quality-preserving workflow while tracking deliverables through completion. Use when the user asks to go faster, reduce usage, avoid over-auditing, prevent missed requirements, preserve unfinished work across interruptions, choose fast/standard/deep/release depth, batch checks, reuse evidence, or define reliable stop rules.
 ---
 
 # Efficient Execution
@@ -17,6 +17,31 @@ irrelevant checks, stale ceremony, serial reads that can run in parallel, and
 verification that does not cover the changed risk.
 
 Never hide skipped checks. If a check is not run, say why and what risk remains.
+
+Track completion separately from verification depth. Cover the highest-risk
+surface first, then finish every active deliverable with proportionate evidence.
+Stopping additional checks does not mean the whole task is complete.
+
+## Request Tracking And Continuity
+
+- Keep a compact list of active requests, their acceptance criteria, status
+  (`pending`, `done`, or `blocked`), and evidence. Use conversation context for
+  small tasks; use an existing task note or plan for longer work when useful.
+  Do not create a tracking file for every edit.
+- Include requested docs, artifacts, syncs, and publishing actions as separate
+  deliverables when each has its own completion condition. Record the target
+  path, branch, or environment where it matters. Tracking an action does not
+  authorize it; preserve the user's scope and existing authorization.
+- Incorporate incoming corrections and additions while retaining unfinished
+  requests. A status question does not cancel ongoing work. Replace or remove a
+  requirement only when the user cancels, defers, or clearly supersedes it.
+- After interruption or context compaction, recover the active list, decisions,
+  completed evidence, running operations, and blockers before continuing. Check
+  current source and operation state before retrying an action whose result is
+  uncertain, especially a publish or data mutation.
+- Before the final response, reconcile all still-active requests, including the
+  latest message. Continue work that can be completed now; report actual
+  blockers and remaining items explicitly without claiming full completion.
 
 ## Depth Modes
 
@@ -49,23 +74,59 @@ User-visible risk:
 
 ## Fast Loop
 
-1. Restate the user target and the deliverable: answer, edit, commit, push,
-   deploy, UAT, visual proof, handoff, or docs.
+1. Identify the user target and all active deliverables using request tracking.
 2. Classify the highest touched risk: docs/static, narrow code, runtime code,
    frontend UI, auth/data/API/config, generated assets, or production deploy.
-3. Reuse trustworthy context only when the source still matches: same commit or
-   diff, same reference hash, same build/version, same URL, same viewport, same
-   auth/data state, or same generated manifest.
-4. Choose the smallest evidence path that could catch a real failure for that
-   risk. Prefer repo-defined targeted commands, affected-package filters,
-   nearest tests, extractor manifests, and focused browser checks before broad
-   suites.
-5. Parallelize independent reads and checks. Use `rg`/`rg --files` for search,
-   batch file reads, and keep long-running servers only when they are useful.
+3. Reuse evidence only when every relevant source and environment condition
+   still matches; apply the evidence rules below.
+4. Choose the smallest evidence path for each acceptance criterion, beginning
+   with the highest risk. One check may cover several criteria. Prefer
+   repo-defined targeted commands, affected-package filters, nearest tests,
+   extractor manifests, and focused browser checks before broad suites.
+5. Parallelize independent reads and checks. Use `rg`/`rg --files` for search
+   and batch file reads. Collect every result, including failures, and keep
+   operations with dependencies sequential.
 6. Stop discovery once you know the owner files, data/runtime surface, relevant
-   commands, verification path, and likely rollback. Implement instead of
-   continuing to tour the project.
-7. Verify the riskiest surface, then report evidence, skips, and residual risk.
+   commands, affected outputs, verification path, and likely rollback. Implement
+   instead of continuing to tour the project.
+7. Verify the requested outcomes and apply the completion gate below before
+   reporting evidence, skips, and residual risk.
+
+## Evidence And Operation Results
+
+- Reuse evidence only when all conditions relevant to the claim match: source
+  state including staged and unstaged edits, dependencies/build configuration,
+  build or artifact version, target environment, reference hash, viewport,
+  auth/data state, and generated manifest where applicable.
+- The same commit can have a different working tree; the same URL can serve a
+  different build. Either identifier alone is insufficient. After a relevant
+  edit or state change, refresh the affected evidence, retaining unrelated
+  evidence that remains valid.
+- Track every required parallel or asynchronous operation through its terminal
+  result. Check exit status and meaningful output; a launched command, session
+  ID, or queued job is not proof of success. A failed check remains failed until
+  fixed and rerun or explicitly reported as unresolved, never relabeled skipped.
+- Confirm the requested endpoint: a created artifact exists and is usable;
+  a push places the intended commit on the intended remote branch; a deploy
+  reaches the intended URL with the intended version. A local success cannot
+  substitute for remote evidence. Apply `$release-gate` for publishing actions.
+- Resolve required running work before closeout. A dev server intentionally
+  kept for the user may remain running; report its URL and status. If the user
+  requests a pause or handoff, report pending operations and recovery details.
+
+## Dependent Outputs
+
+Inspect direct consumers and repo-defined generation or sync steps that the
+change affects. Update required companion outputs within the authorized scope:
+docs, catalogs, schemas, generated artifacts, installed copies, or exports as
+applicable. Do not expand this into an unrelated repository audit.
+
+When a skill update includes a maintained archive or backup, identify the
+authoritative live skill and archive copy, compare their relevant contents, and
+update affected catalog descriptions. Publish only when requested or already
+authorized. A clean archive working tree does not establish that it matches the
+live skill source. Preserve unrelated changes and repo-only aliases during
+selective syncs.
 
 ## Fast Path Matrix
 
@@ -97,9 +158,9 @@ Run the deeper path when any of these appear:
 - flaky targeted results or missing focused tests for a risky change;
 - production deploy, PR merge, or user-visible release.
 
-Stop verification when the highest-risk touched surface is covered and skipped
-broader checks are disclosed. Do not keep running broad checks just because they
-exist.
+Stop adding checks when the acceptance criteria and relevant failure modes have
+sufficient current evidence. Disclose skipped broader coverage, then apply the
+completion gate. Do not keep running broad checks just because they exist.
 
 ## Do Not Save Time By
 
@@ -112,17 +173,34 @@ exist.
 - shipping inert mock controls where the product needs real behavior;
 - lowering safety, compliance, visual parity, or data integrity requirements.
 
+## Completion Gate
+
+Before declaring the task complete:
+
+- Every active deliverable meets its acceptance criteria with current evidence;
+  fixing the highest-risk item alone does not satisfy the other requests.
+- Required dependent outputs are aligned, and every required operation has a
+  confirmed result. Inspect the final diff/status for edits in a git repository.
+- No required check is pending, failed, or silently skipped. If required
+  verification is unavailable, distinguish implemented work from unverified work
+  and report the blocker; disclosure alone does not make a requirement pass.
+- The final response matches the active request list and distinguishes completed
+  outcomes, verification, and any blocked work. Do not move authorized,
+  achievable work into a suggested next step merely to end the turn.
+
 ## Closeout
 
 Use this compact shape when speed decisions matter:
 
 ```text
 Target:
+Deliverables completed and evidence:
+Blocked or unverified items:
 Depth chosen:
 Evidence reused:
 Checks run:
 Checks skipped and why:
 Escalations triggered:
 Residual risk:
-Next fastest safe step:
+Next step, only if blocked or explicitly deferred:
 ```

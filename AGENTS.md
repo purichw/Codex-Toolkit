@@ -59,8 +59,14 @@ into a tiny follow-up unless the new request has a fresh escalation trigger.
 - Escalate only when targeted evidence requires it: a check fails, ownership is
   unclear, the bug appears across routes or breakpoints, a shared contract is
   changing, or the user explicitly broadens the scope.
-- Stop verification once the highest-risk touched surface is covered. Report
-  skipped broader checks instead of running them by habit.
+- Stop adding checks once each active deliverable has proportionate evidence.
+  Report skipped broader checks instead of running them by habit.
+
+Stopping additional checks does not finish the task. Follow `efficient-execution`
+to track all active deliverables through interruptions, confirm required
+operation results, and align affected companion outputs. Before closing, verify
+each requested outcome with proportionate evidence or report its actual blocker;
+do not silently drop remaining work after the highest-risk item passes.
 
 ## Repository Shape
 

@@ -69,15 +69,21 @@ that intentionally remain project-specific or specialized.
 - Skill file: [../skills/efficient-execution/SKILL.md](../skills/efficient-execution/SKILL.md)
 - Description: Chooses the smallest quality-preserving path through discovery,
   implementation, verification, commit, push, deploy, handoff work, and
-  usage-budget decisions.
+  usage-budget decisions while tracking every active deliverable to completion.
 - Use when: Work feels slow, the user asks to move faster or spend less usage, a
   check plan needs batching or trimming, existing evidence might be reused, or a
-  task needs fast/standard/deep/release depth and stop rules without lowering
-  the acceptance bar.
-- Typical context: User target, deliverable, chosen depth, changed risk tier,
-  current diff or source state, previously gathered evidence, repo-defined
-  commands, selected domain skills, skipped-check rationale, escalation triggers,
-  and the next fastest safe step.
+  task needs protection against missed requirements during interruptions,
+  context compaction, or work involving multiple deliverables.
+- Typical context: Active requests and acceptance criteria, pending/done/blocked
+  status, chosen depth, source and environment state, current evidence,
+  asynchronous operation results, affected companion outputs, and blockers.
+- Completion rule: Stop adding checks once evidence is sufficient, but finish
+  every active deliverable before claiming completion. Preserve unfinished work
+  when messages arrive, reuse evidence only when all relevant conditions match,
+  and distinguish implemented, verified, and blocked outcomes. For skill syncs,
+  compare the live source with the archive and update affected catalogs; confirm
+  the intended remote commit when publishing is authorized. A clean archive or
+  successful local command alone does not prove the requested endpoint.
 
 ### usage-budget-gate
 
