@@ -4,9 +4,14 @@ Use when runnable HTML or prototypes are supplied. For image inputs, also use
 [image-reference-workflow.md](image-reference-workflow.md); image-only work does
 not need this HTML path.
 
+Apply the fidelity/effort choice from [operating-guide.md](operating-guide.md).
+This is a menu for the affected scope, not a requirement to tour a prototype for
+every style edit. For a fast repair use its Fast Path and inspect only the source,
+computed values, and states needed for the requested property and touched risk.
+
 ## Inventory Accelerator
 
-For more than a tiny component, seed a source inventory when the helper can run:
+For broader work, optionally seed an inventory when it will save discovery time:
 
 ```bash
 python3 /Users/point/.codex/skills/reference-to-a-tee/scripts/extract_reference.py \
@@ -21,7 +26,7 @@ python3 /Users/point/.codex/skills/reference-to-a-tee/scripts/extract_reference.
   --render --screenshots --viewport 1440x900 --viewport 390x844
 ```
 
-Read `reference-manifest.json`, `reference-manifest.md`, and
+If using the helper, read `reference-manifest.json`, `reference-manifest.md`, and
 `REFERENCE_TO_A_TEE_WORKLOG.md`. Treat generated routes and component candidates
 as discovery hints, not exhaustive coverage. The helper's rendered probe samples
 initial states; it does not exercise every control or certify parity. It accepts
@@ -39,9 +44,10 @@ overwritten.
    handoff notes. In mixed mode, establish which artifact owns each surface.
 2. Render runnable source with available browser tooling. Check the initial
    route, title, load state, missing assets, and reference setup before measuring.
-3. Within requested scope, navigate all reachable screens, routes, tabs, drawers,
-   and dialogs; click every visible control and record its actual outcome:
-   state change, navigation, modal, visual-only, no-op, or broken setup.
+3. Inspect the states and exercise the controls needed for the requested result
+   or affected behavior. For flow reconstruction, cover all requested steps and
+   actions; for an isolated visual repair, do not click unrelated controls simply
+   because they appear nearby. Record observed outcomes or unknowns as relevant.
 4. Inspect HTML/CSS/JavaScript and search state/route handlers for surfaces that
    initial rendering misses. Record source breakpoints, selectors, assets,
    transitions, and component structure. Demo code is evidence, not architecture
@@ -59,7 +65,8 @@ claim is required, disclose that remaining blocker.
 
 ## Coverage And Controls
 
-Maintain a row for every in-scope surface and visible action:
+For broad reconstruction keep rows for requested surfaces/states/actions. For a
+local repair use a short property/check note; no full coverage table is required:
 
 ```text
 surface/state | reference artifact/version | how observed/opened | controls |
@@ -67,8 +74,9 @@ observed result or unknown | target component/data/action/permission |
 decision | preserved product contract | verification | status
 ```
 
-Include supplied below-fold regions, repeated item count/order, responsive-only
-controls, and inherited product controls within affected components. In mixed
+For broad coverage include supplied below-fold regions, repeated item count/order,
+responsive-only controls, and affected inherited product controls. A narrow
+property repair does not expand to all other features of its host page. In mixed
 mode, image-only states may have unknown reference behavior; apply the image
 workflow rather than pretending to have clicked them.
 
@@ -79,7 +87,7 @@ contracts; map product data explicitly and do not invent duplicate suppression
 or sorting rules. A missing secondary-route component is still a mismatch when
 that route is in scope.
 
-Before edits, classify product tradeoffs as `reference adopted`,
+Before edits that involve a material tradeoff, classify it as `reference adopted`,
 `product UX preserved`, `hybrid`, or `needs user decision`. Include reason,
 evidence, risk, and a check that guards preserved behavior. Record requested
 omissions or deferrals; do not silently implement a subset of the agreed scope.
@@ -98,9 +106,11 @@ last reachable items when relevant to the actual rendered reference. Match
 reference motion only when observed or explicitly specified; preserve product
 motion required for usability and accessibility.
 
-Keep a parity table with source identity, units, viewport/state, reference and
-implementation values, delta/tolerance, evidence type, and status. Use computed
-values for both sides where source is available; do not infer approximate CSS
+For multiple measurements or formal/broad audits, keep a parity table with
+source identity, units, viewport/state, reference and implementation values,
+delta/tolerance, evidence type, and status. One measured fix can use one short
+note with its comparison evidence instead. Use computed values for both sides
+where source is available; do not infer approximate CSS
 from a screenshot when matching authoritative source exposes the value.
 
 Work component by component. Keep geometry faithful while preserving data,

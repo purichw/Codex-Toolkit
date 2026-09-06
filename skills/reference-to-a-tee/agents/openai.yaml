@@ -1,4 +1,4 @@
 interface:
   display_name: "Reference To A Tee"
   short_description: "Match image and HTML references to real UI"
-  default_prompt: "Use $reference-to-a-tee to implement or audit this image, HTML, or mixed design reference with measured visual fidelity, preserve product behavior, and verify with snapshots."
+  default_prompt: "Use $reference-to-a-tee to match this reference exactly unless I authorize adaptation, choose effort by the changed risk, preserve product behavior, and verify with scoped snapshots."

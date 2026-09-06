@@ -5,6 +5,12 @@ owns observable presentation; product requirements own real engineering
 behavior. Apply the authority rules in [../SKILL.md](../SKILL.md), including
 per-surface authority for mixed references.
 
+Read and verify affected contracts, not every product subsystem for a style
+repair. Apply the effort matrix in [operating-guide.md](operating-guide.md).
+Preserving existing behavior is mandatory; re-testing untouched behavior is not
+automatic. Escalate when selectors, shared defaults, geometry, or other changes
+could affect that behavior, even if the textual diff is small.
+
 ## Separate Appearance And Behavior
 
 Reference JavaScript may demonstrate states but need not become product
@@ -37,12 +43,15 @@ tests, documented requirements, reliable accessibility, operational safety,
 usable containers, or coverage of loading/error/denied/reload states. Do not
 preserve old appearance merely because it already exists.
 
-Use the decision ledger in [../SKILL.md](../SKILL.md). Prefer `hybrid` when
+Use a short note for one material choice or the decision ledger in
+[../SKILL.md](../SKILL.md) for multiple choices. Prefer `hybrid` when
 existing mechanics are needed: adopt reference geometry, hierarchy, rhythm, and
 component feel while retaining real behavior. For unobservable reference
 behavior, preserve the known product contract and label the evidence limit.
 
-Inspect and protect affected contracts:
+Inspect and protect the contracts affected by the change, using this list as a
+menu. Flow reconstruction covers the full agreed flow; isolated visual edits do
+not require unrelated auth/data/persistence audits:
 
 - Persistence: selected tabs/filters/items, expanded rows, drafts/progress,
   reload, back/forward, and session return.
@@ -74,7 +83,9 @@ bless a lost contract without an intentional decision.
 
 ## Component Implementation
 
-Map each in-scope component to product files, selectors, data, and actions.
+Map the changed properties/components to their owner files and affected
+selectors, data, and actions. An isolated style repair needs only its owner and
+direct dependencies, not a fresh map of all component behavior.
 Rework incompatible markup when needed for faithful geometry; inspect shared
 consumers and test dependencies before renaming classes, IDs, or data attributes.
 Verify affected shared consumers without expanding into unrelated redesign.
@@ -102,9 +113,11 @@ transition timing or justify decorative animation.
 
 Every visible control within the agreed product scope must have real behavior,
 honest passive/status semantics, or a legitimate disabled state with a reason.
-Do not ship inert demo controls. Include inherited controls in this check.
-For explicit actions, verify the actual success/failure and persisted result;
-for image-implied actions, record the product requirement or assumption that
+Do not create inert substitutes for required controls. Include inherited controls
+when reconstructing or changing their behavior; an unchanged control appearing
+near a local style fix does not mandate a full action tour.
+For requested or behavior-affected actions, verify actual success/failure and
+persisted result; for image-implied actions, record the product requirement or assumption that
 defines behavior before implementing it.
 
 Do not expose internal tags, IDs, buckets, or schema categories as UI grouping

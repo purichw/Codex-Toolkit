@@ -53,11 +53,16 @@ Stopping additional checks does not mean the whole task is complete.
   touched risk.
 - **Deep pass:** architecture, auth, data/admin/CMS contracts, cache/fallback
   behavior, routing, broad shared logic, migrations, destructive actions,
-  Reference-to-a-tee parity, or broad redesign. Build wider evidence before editing
-  or shipping.
+  broad reference reconstruction, or broad redesign. Build wider evidence before
+  editing or shipping.
 - **Release pass:** commit, push, deploy, PR, merge, release, or handoff. Verify
   the diff and target environment with `$release-gate`; do not repeat unrelated
   discovery.
+
+Reference fidelity and effort are independent. An exact, isolated reference
+repair can use a fast pass with current scoped comparison evidence. A skill name
+or an exactness claim alone does not require deep verification; changed risks and
+the scope of the claim do. Never reduce fidelity to save effort without approval.
 
 Before expensive discovery, broad test suites, multi-route QA, or many
 screenshots, state:
@@ -154,7 +159,8 @@ Run the deeper path when any of these appear:
 - auth, permissions, secrets, billing, destructive operations, migrations, or
   production data risk;
 - shared helpers, cross-client contracts, or generated manifests;
-- visual parity, Reference-to-a-tee, mobile layout, or accessibility claims;
+- broad visual-parity claims, consequential/shared responsive or accessibility
+  changes, or targeted evidence insufficient for the requested visual claim;
 - flaky targeted results or missing focused tests for a risky change;
 - production deploy, PR merge, or user-visible release.
 

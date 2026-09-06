@@ -1,12 +1,19 @@
 # Verification Checklist
 
-Select applicable checks by reference mode and requested scope. Missing source
-capabilities in image-only mode are evidence limits, not failed HTML checks.
-Uninspected supplied evidence and missing requested behavior remain blockers.
+Select checks by fidelity, effort, reference mode, and requested scope using
+[operating-guide.md](operating-guide.md). This is not an always-run checklist:
+fast repairs use the requested-property check, current contextual comparison,
+and regression evidence for touched risk. No complete ledger/table, all-controls
+tour, or full-page/multi-viewport captures are required solely by the skill name.
+Broad reconstruction and risk-bearing changes retain the fuller checks below.
+Missing source capabilities in image-only mode are evidence limits, not failed
+HTML checks. Uninspected relevant evidence and missing requested behavior remain blockers.
 
 ## Reference Evidence
 
-- Record mode, artifact identity/version/hash, surface/state, and authority.
+- Identify fidelity, allowed adaptations, effort, input mode, source/version,
+  and compared region/state. Use hashes for reuse/version tracking or when the
+  handoff requires them, not as routine paperwork for a fresh direct comparison.
 - HTML: inspect actual rendered states, relevant source/dependencies, computed
   geometry, controls, and source breakpoints. A generated manifest is a seed.
 - Image-only: open originals; record pixel dimensions, crop, content region,
@@ -15,8 +22,10 @@ Uninspected supplied evidence and missing requested behavior remain blockers.
   Do not replace image-led visual authority with old source measurements.
 - Reject stale versions, wrong routes, unintended login screens, loading shells,
   missing target selectors, and broken reference setup as parity evidence.
-- Inventory all in-scope supplied states and components, including lower-page
-  content. Distinguish visible facts from inferred CSS and unknown behavior.
+- Cover all requested properties/surfaces and relevant supplied states. Include
+  lower-page content for page-level claims. A short note is enough for a narrow
+  repair; distinguish facts, inferred CSS, and unknown behavior without inventing
+  unrelated inventory work.
 
 ## Implementation Provenance
 
@@ -30,7 +39,9 @@ Uninspected supplied evidence and missing requested behavior remain blockers.
 
 ## Component Parity
 
-Maintain a table:
+For broad work, several measured properties, or a formal audit, maintain a table.
+For a one-property repair, record the useful value/tolerance or observation with
+its current comparison instead:
 
 ```text
 component | file/version/state | evidence type | viewport/crop/scale |
@@ -38,8 +49,10 @@ reference value + units | implementation value + units | delta/tolerance | statu
 ```
 
 Use `matched`, `behavior exception`, `visual exception`, or `not done` for observed
-scope. Keep unknown source properties in a separate evidence-limits list. A
-visible mismatch is not an unknown. Set tolerances before judging the result.
+scope. Note unknown source properties separately from mismatches; a short note
+suffices for one fix. A visible mismatch is not an unknown. Set tolerances before judging the result.
+Exact and faithful-adaptation claims stay distinct. An authorized adaptation
+passes only within its named flexibility; it is not measured exact parity.
 
 Check affected hierarchy, layout, bounds, alignment, wrapping, spacing, density,
 count/order, type metrics, line wraps, colors, borders/radii/shadows, icon baseline,
@@ -119,7 +132,9 @@ mobile parity or Safari support.
 
 ## Closeout
 
-Include mode, inspected references, compared surfaces, measured deltas/tolerances,
+For fast work briefly report what changed, the reference and compared region,
+relevant checks/snapshot, and material uncertainty. For broader work include
+fidelity, effort, mode, inspected references, compared surfaces, measured deltas/tolerances,
 snapshot evidence, viewport/browser coverage, exercised interactions, tests,
 assumptions, accepted differences, missing assets, and outstanding blockers.
 Do not conflate visual match with functional correctness or evidence limitations

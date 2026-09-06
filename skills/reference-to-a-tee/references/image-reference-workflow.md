@@ -4,11 +4,17 @@ Use for image-only work and for mixed references whose visual authority includes
 images. Implement from the supplied pixels without requiring HTML. Do not feed
 image bytes into the HTML extractor.
 
+Apply [operating-guide.md](operating-guide.md) first. Exact image matching can
+use fast effort for a small property repair; precision and uncertainty rules
+remain the same, but a full inventory/measurement table is not required.
+
 ## Inventory And Inspect
 
 Open every image relevant to the requested surface with the available image
-viewer. Preserve originals and record file identity/hash where a local file is
-available, pixel dimensions, orientation, and version. For inline-only images,
+viewer. Preserve originals and identify the source/version and relevant pixel
+dimensions/crop. Record hashes when tracking multiple versions, reusing evidence,
+or required by a handoff; a fresh direct comparison can use the actual source
+path/attachment identity without a hash inventory. For inline-only images,
 record the attachment identity; do not invent a filesystem path or hash.
 
 Record what each image depicts: route/screen, component, visible state, language,
@@ -39,12 +45,15 @@ explicitly says so. A cropped image says nothing about components outside it.
 
 ## Build Component Contracts
 
-Map the visible hierarchy: shell/header/nav, main columns, rails, sections,
+For component/page reconstruction map the visible hierarchy: shell/header/nav,
+main columns, rails, sections,
 cards/rows, text blocks, controls, overlays, media frames, and visible footer.
 Measure anchor positions, bounding boxes, repeated gaps, alignments, line wraps,
 item count/order, media aspect ratio, border/radius, and color roles.
 
-For each important value, record evidence type and confidence:
+For a fast repair, inspect the affected property and its surrounding relationships
+instead of measuring all these groups. For each value used to support a claim,
+retain evidence type and confidence; a short note is sufficient for a single fix:
 
 | Evidence | What it supports |
 | --- | --- |
@@ -95,9 +104,12 @@ conflict remains unresolved. Never promote old CSS over an explicitly chosen ima
 Capture the rendered implementation at the calibrated viewport and equivalent
 route/data/state. Use `$snapshot` for labeled side-by-side views; keep original
 and compared regions identifiable. Compare high-impact geometry first, then
-typography, media crop, detail, and states. Include supplied lower-page content.
+typography, media crop, detail, and states within the requested scope. Include
+supplied lower-page content for page-level claims, not merely because a button
+repair happens to be on a long page.
 
-Use a table such as:
+For several measurements or a formal audit use a table such as the following;
+for a fast repair use a brief measurement/uncertainty note and current comparison:
 
 ```text
 component | reference file/state | evidence type | reference bounds/units |

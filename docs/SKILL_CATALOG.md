@@ -77,6 +77,9 @@ that intentionally remain project-specific or specialized.
 - Typical context: Active requests and acceptance criteria, pending/done/blocked
   status, chosen depth, source and environment state, current evidence,
   asynchronous operation results, affected companion outputs, and blockers.
+- Reference depth: Exact fidelity alone does not trigger a deep pass. Use current
+  scoped evidence for isolated repairs; escalate for broader claims, affected
+  shared/behavioral contracts, or insufficient targeted evidence.
 - Completion rule: Stop adding checks once evidence is sufficient, but finish
   every active deliverable before claiming completion. Preserve unfinished work
   when messages arrive, reuse evidence only when all relevant conditions match,
@@ -160,8 +163,8 @@ that intentionally remain project-specific or specialized.
 - Use when: The user asks for screenshots, snapshots, before/after evidence,
   reference/development side-by-side evidence, UI comparisons, crops, viewport
   captures, production smoke evidence, or says a screenshot is too tight or
-  missing context. Also use page-level evidence for whole-page, dashboard,
-  redesign, page-length, information-architecture, or reference-parity work.
+  missing context. Also use page-level evidence for whole-page/dashboard reviews,
+  redesign, page-length, information-architecture, or page-level parity claims.
 - Typical context: Target URL or app state, viewport, route, scroll position,
   interaction state, computed geometry when useful, full-page or labeled
   top/middle/bottom contact-sheet proof when the whole page matters, and
@@ -170,10 +173,10 @@ that intentionally remain project-specific or specialized.
 Snapshot gate: UI/UX-related skills must invoke `snapshot` automatically before
 the final response after visible implementation, redesign, restyle, visual
 audit, responsive QA, Claude/Figma/reference handoff, or screenshot-based design
-work. When a reference, previous UI, and new implementation exist, side-by-side
-comparison evidence is the default. A single above-the-fold viewport is not
-enough for whole-page, dashboard, page-redesign, page-length, or reference-parity
-closeouts unless the user explicitly scoped the capture that way.
+work. Reference matching requires Reference/Development side-by-side evidence;
+add Before when before/after proof is requested or needed to judge the change.
+A contextual region pair can prove a tiny repair. A single above-the-fold view
+cannot prove whole-page/dashboard, page-length, or page-level reference parity.
 
 ## Design And Visual Parity
 
@@ -223,14 +226,20 @@ closeouts unless the user explicitly scoped the capture that way.
 
 - Skill file: [../skills/reference-to-a-tee/SKILL.md](../skills/reference-to-a-tee/SKILL.md)
 - Description: Implements or audits measured component parity from HTML,
-  image-only, or mixed references from any source while preserving real product UX.
+  image-only, or mixed references from any source while preserving real product
+  UX and separating fidelity from effort.
 - Use when: The user asks for screenshot-to-UI, image-file reconstruction,
   reference-to-code, to-a-tee matching, or precise visual repair from a designer,
   Figma export, Claude output, prototype, or another selected visual reference.
-- Typical context: Source mode and authority, image dimensions/crop/scale,
-  observed facts versus inferred or unknown properties, component/decision
-  ledgers, existing product contracts, measured comparisons, and automatic
-  `snapshot` Reference/Development evidence. Image-only work does not require
+- Fidelity and effort: Exact by default for matching requests, faithful adaptation
+  within requested flexibility, and design-skill routing for inspiration only.
+  Fast isolated repairs use a short note and current contextual comparison;
+  broader work adds affected states, measurements, and coverage/decision records.
+  Neither speed nor missing source detail silently lowers acceptance criteria.
+- Typical context: Source mode and authority, relevant image dimensions/crop/scale,
+  observed facts versus inferred or unknown properties, affected product
+  contracts, scoped measurements, and automatic `snapshot`
+  Reference/Development evidence. Image-only work does not require
   reference HTML, DOM, or known breakpoints; unobserved behavior is not claimed
   as recovered source behavior.
 - Migration and checks: [REFERENCE_PARITY_MIGRATION.md](REFERENCE_PARITY_MIGRATION.md).

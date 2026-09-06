@@ -5,6 +5,12 @@ authorized commit/push/deploy/handoff of that implementation. Skill-documentatio
 maintenance itself uses structural validation and scoped review, not fictional
 UI snapshots. Use `$release-gate` for the requested publishing action.
 
+Use [operating-guide.md](operating-guide.md) to separate fidelity from effort.
+An exact local repair can pass with a short property/check note and one current
+contextual Reference/Development comparison. It does not need a full ledger,
+all-controls tour, or page-wide captures. A release adds action-specific checks,
+not an automatic whole-site UI audit. Never lower fidelity to make the gate pass.
+
 ## Mode-Aware Evidence
 
 | Mode | Sufficient reference evidence |
@@ -20,10 +26,12 @@ limits and any inferred adaptation; do not claim they were recovered or verified
 
 ## Completion Conditions
 
-- All active requested deliverables and observed in-scope components are mapped,
-  implemented, and verified; no silent subset or uninspected supplied reference.
-- The before-edit decision ledger explains preserved/hybrid product contracts,
-  evidence, risks, and visual exceptions. Existing accepted decisions apply.
+- All active requested deliverables and properties/surfaces are implemented and
+  verified; no silent subset or uninspected relevant supplied reference. A local
+  property claim does not imply full component/page parity.
+- Material preserved/hybrid choices and visual adaptations are explained in a
+  short note or, for broader work, a decision ledger. Existing accepted decisions
+  apply; absence of a ledger alone does not block a verified micro repair.
 - Measurements and comparisons use the correct source version, route, state,
   data/auth, viewport/crop/scale, and implementation source/build.
 - Image bounds are not mislabeled CSS pixels without calibration. Supplied crops
@@ -59,8 +67,11 @@ changed; HTTP 200 or a login screen alone is not deployed UI evidence.
 
 ## Working Self-Check
 
+Use relevant fields only; a fast closeout can be a short paragraph with its
+snapshot. This template is for organizing evidence, not adding new requirements.
+
 ```text
-MODE / REQUESTED SCOPE:
+FIDELITY / ALLOWED ADAPTATIONS / EFFORT / INPUT MODE / REQUESTED SCOPE:
 REFERENCE INSPECTED: identities, states, and HTML render or image inspection
 AUTHORITY: artifact per conflicting surface/state
 IMAGE CALIBRATION: dimensions, crop, scale/viewport confidence, or not applicable

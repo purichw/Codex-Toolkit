@@ -22,8 +22,10 @@ response. Do not wait for the user to ask for screenshots.
 
 Keep the capture depth proportional. For a tiny copy, CSS, selector, spacing,
 typography, or one-control visual tweak, one current targeted screenshot is
-enough, optionally backed by computed values, unless responsive behavior,
-comparison, release, or a shared UI contract is in scope.
+enough, optionally backed by computed values. Reference comparison requires a
+matched pair, not automatically a full-page audit: one contextual region can
+prove a narrow repair. Add evidence for affected responsive/shared behavior and
+release requirements, not merely because a reference or publishing action exists.
 
 After finishing UI development, capture and include a current snapshot before
 final response even if the user did not explicitly ask for one. For backend,
@@ -43,13 +45,17 @@ Snapshots must be shown in chat. The saved file is not the deliverable by
 itself; the user must be able to see the evidence in the conversation without
 opening a path manually.
 
-For whole-page, dashboard, page redesign, information-architecture, "too long",
-or reference-parity work, do not use a single above-the-fold viewport as the
-primary visual proof. Include either a full-page screenshot or a labeled
-top/middle/bottom contact sheet, and also include an above-the-fold viewport
+For whole-page/dashboard reviews, page redesign, information-architecture,
+"too long", or page-level reference-parity claims, do not use a single
+above-the-fold viewport as the primary visual proof. Include either a full-page
+screenshot or a labeled top/middle/bottom contact sheet, and also include an above-the-fold viewport
 when first-impression hierarchy matters. If the full page is too tall to judge
 comfortably in chat, use the contact sheet as the primary evidence and keep the
 full-page image as supporting evidence.
+
+These page-level rules do not apply to an isolated repair merely because it is
+located on a dashboard or long page. Match evidence scope to the requested claim
+and possible effects; a local comparison cannot certify the whole page.
 
 Do not crop exactly to the target element when the user needs to judge layout,
 alignment, spacing, hierarchy, or visual quality. Include surrounding context by
@@ -136,10 +142,10 @@ unless the point is a microscopic edge inspection.
    close unrelated overlays before capture.
 3. Capture a wide/context snapshot. Add a tighter crop only if it clarifies a
    specific detail.
-   For whole-page, dashboard, page-redesign, page-length, or reference-parity
-   tasks, capture page-level evidence now: full-page screenshot or a labeled
-   top/middle/bottom contact sheet. Do not wait until closeout to discover that
-   only the first viewport was captured.
+   For whole-page/dashboard reviews, page-redesign, page-length, or page-level
+   reference-parity claims, capture page-level evidence now: full-page screenshot
+   or a labeled top/middle/bottom contact sheet. Do not wait until closeout to
+   discover that only the first viewport was captured.
 4. For UI changes, record key computed values when useful: x/y/w/h, font size,
    line height, border width/color, overflow, visible count, or console errors.
 5. Record provenance for important evidence: requested URL, final URL,
@@ -172,10 +178,11 @@ produced.
 - **Enhancing an existing UI with before/after proof in scope:** show `Before`
   plus `After` side by side with matched route, viewport, state, scroll, data,
   and framing whenever possible.
-- **Reference plus existing UI plus new implementation:** show all three
-  columns side by side, normally labeled `Reference`, `Before`, and
-  `After/Development`. Do not collapse the original UI into prose when it is
-  available and the new UI is meant to follow the reference.
+- **Reference plus before/after proof:** when before/after is requested or needed
+  to judge a substantive change or regression, show all three columns labeled
+  `Reference`, `Before`, and `After/Development`. For a tiny reference repair,
+  a contextual `Reference + Development` pair is sufficient; an existing old UI
+  alone does not require an extra Before column.
 
 For responsive work, create matched comparison rows per viewport instead of
 mixing desktop, tablet, and mobile panels in one unlabeled row. If a side-by-side
@@ -298,11 +305,11 @@ Keep the final visual report compact:
 - Include measured values only when they answer the user's question.
 - For comparison/contact sheets, label reference/app, before/after, viewport,
   route/state, and scroll position.
-- For whole-page or dashboard work, embed the page-level evidence directly in
+- For whole-page or dashboard reviews, embed the page-level evidence directly in
   chat: full-page if readable, otherwise the top/middle/bottom contact sheet.
   The first viewport alone is not enough unless explicitly requested.
-- When Claude Design/reference, before UI, and after UI all exist, use a
-  labeled three-column side-by-side image as the primary comparison evidence.
+- When reference matching also requires before/after proof, use a labeled
+  three-column side-by-side image as the primary comparison evidence.
 - If a screenshot is intentionally tight, say that and provide a wider context
   image when useful.
 
@@ -324,8 +331,9 @@ Before claiming a visual change is done, check:
   path. Reject a closeout that lists screenshot paths without embedding at least
   one image, unless the user explicitly asks for files only or capture/rendering
   is impossible.
-- Whole-page, dashboard, page-redesign, page-length, or reference-parity
-  closeouts include full-page evidence or a top/middle/bottom contact sheet.
+- Whole-page/dashboard reviews, page-redesign, page-length, or page-level
+  reference-parity closeouts include full-page evidence or a top/middle/bottom
+  contact sheet.
   Reject a closeout that shows only the first viewport for these tasks unless
   the user explicitly scoped the snapshot to above-the-fold only.
 - For UI changes, at least one current snapshot is included in the closeout.
@@ -336,8 +344,8 @@ Before claiming a visual change is done, check:
 - If the task asks for before/after proof or the comparison is needed to judge
   the change, the closeout includes a matched side-by-side `Before` and `After`
   comparison.
-- If Claude Design/reference, the old UI, and the new implementation all exist,
-  the closeout includes all three side by side with clear labels.
+- If reference matching also requires before/after proof, the closeout includes
+  all three side by side with clear labels. Mere availability is not a requirement.
 - For backend/data/auth/API/config changes that alter a user-visible journey,
   at least one snapshot or equivalent visual proof covers the affected journey.
 - For responsive work, a mobile snapshot or mobile side-by-side comparison is

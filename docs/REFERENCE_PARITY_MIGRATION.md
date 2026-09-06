@@ -18,6 +18,31 @@ Reference and Development views. Image-only parity covers supplied visible
 regions/states. Unseen mobile layouts, interactions, font identity, and original
 CSS remain assumptions or product decisions, not recovered source facts.
 
+## Fidelity And Effort
+
+The workflow separates what must match from how much verification it needs:
+
+- **Exact:** default for explicit invocation and matching/to-a-tee requests.
+  Match requested observable properties; retain honest image uncertainty.
+- **Faithful adaptation:** only within user-requested flexibility. Record fixed
+  and flexible dimensions; mobile adaptation does not loosen desktop fidelity.
+- **Inspiration only:** route to `ui-ux-expert` or `design-direction`, without
+  imposing or claiming reference parity.
+
+An isolated exact repair can use a fast pass: inspect relevant reference/target,
+make the focused edit, check the property and likely regression, and show one
+current contextual Reference/Development pair. No full ledger, extractor output,
+all-controls tour, full-page capture, or extra Before column is required by
+default. Before/after proof is still required when requested or needed to judge
+the change. Broader reconstruction, shared/behavioral changes, and page-level
+claims retain the corresponding coverage and required checks.
+
+`efficient-execution` and `snapshot` use the same risk-based distinction. A
+reference skill name does not itself trigger deep work. Speed does not authorize
+lower fidelity, skipped deliverables, or passing failed required checks. The
+[operating guide](../skills/reference-to-a-tee/references/operating-guide.md)
+owns the effort matrix, fast path, and eight maintainer decision scenarios.
+
 ## Names And Dependencies
 
 | Entry point | Purpose |
@@ -43,6 +68,8 @@ It accepts HTML only, defaults to `.design-reference`, and writes
 `reference-manifest.json`, `reference-manifest.md`, and
 `REFERENCE_TO_A_TEE_WORKLOG.md`. Use a fresh directory for new seeds to preserve
 completed notes. Static extraction is inventory, not parity verification.
+The helper is optional; use it when it saves discovery for the actual scope,
+not as mandatory ceremony for a small repair.
 
 The old command at `claude-to-a-tee/scripts/extract_reference.py` forwards to the
 canonical implementation. It retains `.claude-reference` as its default and
@@ -72,7 +99,7 @@ Use these cases when reviewing future workflow edits:
 | Desktop-only image plus mobile requirement | Verify a responsive adaptation; do not claim mobile source fidelity. |
 | User-selected newer image conflicts with old HTML | Resolve that surface in favor of the selected image; reuse only still-applicable source values/assets. |
 | Still image with tabs, save icon, or hidden panel | Record unknown reference behavior; preserve/specify actual product actions without inventing backend scope. |
-| Runnable HTML with nested states | Inspect actual controls and authoritative source geometry; image support must not weaken this path. |
+| Runnable HTML with nested states | Inspect authoritative source geometry and controls/states affected or requested by the task; reconstruction covers the agreed flow. |
 | Legacy prompt or extractor command | Route to canonical guidance and preserve old CLI outputs; never restore the old screenshots-alone prohibition. |
 
 Behavioral confidence still requires use on a real reference and rendered target;
