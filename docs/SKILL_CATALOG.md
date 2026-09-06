@@ -319,7 +319,9 @@ closeouts unless the user explicitly scoped the capture that way.
 - Skill file: [../skills/ui-ux-expert/SKILL.md](../skills/ui-ux-expert/SKILL.md)
 - Description: Designs, audits, and implements UI with cause-directed diagnosis,
   explicit tradeoffs, contextual defaults, selective alternatives, existing
-  design systems, state coverage, and current visual/behavior evidence.
+  design systems, state coverage, and current visual/behavior evidence. Routes
+  repeated UI and shared-contract changes to `design-system-guardian` for reuse,
+  extraction, and consumer verification without forcing abstractions on tiny edits.
 - Use when: Working on visual design, interaction design, accessibility,
   responsive UI, design systems, frontend polish, component galleries, layout
   exemplars, UX flow/state coverage, cross-browser/platform responsive QA,
@@ -494,14 +496,18 @@ closeouts unless the user explicitly scoped the capture that way.
 ### design-system-guardian
 
 - Skill file: [../skills/design-system-guardian/SKILL.md](../skills/design-system-guardian/SKILL.md)
-- Description: Preserves or extends a product design system while changing UI.
-- Use when: Component/token drift, inconsistent buttons/cards/forms/tables,
-  typography or spacing mismatch, one-off CSS, variant sprawl, icon/radius/
-  shadow inconsistency, cross-page regression, or reference integration risk
-  appears.
+- Description: Preserves or extends a design system and guides safe shared UI
+  reuse/extraction, minimal API/state contracts, and actual consumer migration.
+- Use when: Repeated UI, copy-forked components, duplicate fixes, consolidation,
+  shared API/default changes, component/token drift, variant sprawl, or reference
+  integration risk requires a reuse-versus-local decision.
 - Typical context: Existing tokens, primitives, variants, layout rules,
   neighboring surfaces, chosen reuse/extend/local-exception decision, state
-  coverage, screenshots, tests, and design-system debt.
+  coverage, screenshots, tests, and design-system debt. Read
+  [shared component workflow](../skills/design-system-guardian/references/shared-components.md)
+  for when not to merge, tokens/styles versus helper/hook versus UI reuse,
+  props/events/state ownership, scoped migration, and representative regression
+  checks. The eight review scenarios are guidance, not executed runtime tests.
 
 ### accessible-interaction
 

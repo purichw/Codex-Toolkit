@@ -1,9 +1,10 @@
 # Design Judgment And Completion Gates
 
-This update changes the live skills and their archive copies without renaming
-`ui-ux-expert`. It is scoped to six canonical skills; unrelated local updates
-are not part of this sync. Existing global aliases still delegate to canonical
-skills and need no separate implementation of these rules.
+The initial judgment/gate update changed six canonical skills and their archive
+copies without renaming `ui-ux-expert`. The shared-component follow-up below
+changes only `ui-ux-expert` and `design-system-guardian`, plus companion docs.
+Unrelated local updates are not part of either sync. Existing global aliases
+still delegate to canonical skills without duplicating their rules.
 
 ## UI/UX Expert: Five Additions
 
@@ -31,6 +32,23 @@ specialist coverage separately from missing real-world evidence. No claim of
 improved taste follows from adding instructions or passing structural tests.
 
 ## Related Skill Changes
+
+### Shared Component Follow-Up
+
+`ui-ux-expert` now explicitly routes repeated UI, duplicate fixes, consolidation,
+and shared API/default changes to `design-system-guardian`. The guardian owns
+the [shared component workflow](../skills/design-system-guardian/references/shared-components.md):
+when to share or keep local, reuse level, minimal props/events/state contracts,
+incremental migration of actual consumers, and proportionate regression evidence.
+
+Similar appearance or a third occurrence does not force a merge. Sharing a helper
+or style can be better than combining unrelated workflows. A component file is
+not a completed consolidation until its in-scope consumers use it and required
+checks pass. Existing safety/approval rules still govern file deletion and
+changes outside scope. Eight review scenarios cover these decisions; they are
+not new automated behavioral tests, and the original evaluation pack is unchanged.
+
+### Completion And Handoff Gates
 
 | Skill | Changed contract |
 | --- | --- |

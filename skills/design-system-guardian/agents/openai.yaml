@@ -1,4 +1,4 @@
 interface:
   display_name: "Design System Guardian"
-  short_description: "Prevent component and token drift"
-  default_prompt: "Use $design-system-guardian to keep UI components aligned with the design system."
+  short_description: "Reuse and extract shared UI components safely"
+  default_prompt: "Use $design-system-guardian to choose reuse or extraction, define the shared component contract, migrate consumers, and verify preserved behavior."

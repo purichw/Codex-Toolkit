@@ -42,7 +42,7 @@ version should run.
 | [`global-course-image-assets`](../skills/global-course-image-assets/SKILL.md) | [`course-image-assets`](../skills/course-image-assets/SKILL.md) | Educational course image generation, mapping, cropping, and QA. |
 | [`global-data-dense-ux`](../skills/global-data-dense-ux/SKILL.md) | [`data-dense-ux`](../skills/data-dense-ux/SKILL.md) | Dashboards, tables, lists, ledgers, filters, bulk actions, and dense operational UI. |
 | [`global-design-direction`](../skills/global-design-direction/SKILL.md) | [`design-direction`](../skills/design-direction/SKILL.md) | Product direction and image-only, HTML, or mixed handoffs. |
-| [`global-design-system-guardian`](../skills/global-design-system-guardian/SKILL.md) | [`design-system-guardian`](../skills/design-system-guardian/SKILL.md) | Component/token drift prevention and design-system consistency. |
+| [`global-design-system-guardian`](../skills/global-design-system-guardian/SKILL.md) | [`design-system-guardian`](../skills/design-system-guardian/SKILL.md) | Shared-component reuse/extraction, contracts, consumer migration, and drift prevention. |
 | [`global-accessibility-beyond-basics`](../skills/global-accessibility-beyond-basics/SKILL.md) | [`accessibility-beyond-basics`](../skills/accessibility-beyond-basics/SKILL.md) | Advanced accessibility beyond axe checks for screen-reader flow, cognitive load, low vision, complex widgets, charts, zoom, and forced colors. |
 | [`global-art-direction-imagery`](../skills/global-art-direction-imagery/SKILL.md) | [`art-direction-imagery`](../skills/art-direction-imagery/SKILL.md) | Directs imagery, crops, focal points, hero media, thumbnails, placeholders, captions, loading states, and asset failure states. |
 | [`global-design-quality-review`](../skills/global-design-quality-review/SKILL.md) | [`design-quality-review`](../skills/design-quality-review/SKILL.md) | Applies the shared design-quality rule language, severity model, screenshot QA protocol, calibration library, and definition of done. |
@@ -79,7 +79,7 @@ version should run.
 | [`global-tts-audio-assets`](../skills/global-tts-audio-assets/SKILL.md) | [`tts-audio-assets`](../skills/tts-audio-assets/SKILL.md) | TTS audio generation, reuse, audit, QA, and data wiring across projects. |
 | [`global-uat-environment`](../skills/global-uat-environment/SKILL.md) | [`uat-environment`](../skills/uat-environment/SKILL.md) | Isolated preview/UAT and complete acceptance/required-check promotion evidence. |
 | [`global-ui-state-matrix`](../skills/global-ui-state-matrix/SKILL.md) | [`ui-state-matrix`](../skills/ui-state-matrix/SKILL.md) | UI state coverage beyond the happy path. |
-| [`global-ui-ux-expert`](../skills/global-ui-ux-expert/SKILL.md) | [`ui-ux-expert`](../skills/ui-ux-expert/SKILL.md) | Cause-directed diagnosis, design tradeoffs, contextual rules, alternatives, and evidence. |
+| [`global-ui-ux-expert`](../skills/global-ui-ux-expert/SKILL.md) | [`ui-ux-expert`](../skills/ui-ux-expert/SKILL.md) | Diagnosis, design tradeoffs, shared-component routing, contextual rules, alternatives, and evidence. |
 | [`global-ui-ux-orchestrator`](../skills/global-ui-ux-orchestrator/SKILL.md) | [`ui-ux-orchestrator`](../skills/ui-ux-orchestrator/SKILL.md) | Routing broad UI/UX work to the right focused skills. |
 | [`global-usage-budget-gate`](../skills/global-usage-budget-gate/SKILL.md) | [`usage-budget-gate`](../skills/usage-budget-gate/SKILL.md) | Compatibility alias for budget-aware depth routing now owned by `efficient-execution`. |
 

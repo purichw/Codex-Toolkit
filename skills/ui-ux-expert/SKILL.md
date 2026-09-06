@@ -52,6 +52,30 @@ relevant specialist only for the present risk, not all specialists by default.
 Use `$reference-to-a-tee` for image/HTML/mixed fidelity rather than inventing
 alternative art directions for a faithful-copy request.
 
+## Shared Component Decisions
+
+When the task exposes repeated UI, copy-forked components, the same fix in
+several places, or a change to an existing shared API/default, load
+`$design-system-guardian` before extracting or changing the shared contract.
+It owns the reuse/extraction workflow; use `$design-system-architect` only when
+the wider token system, taxonomy, or governance needs redesign.
+
+Look for existing components and actual consumers first. Share a component when
+its semantics, behavior, and reasons to change belong together, not merely
+because screenshots or CSS look similar. Choose the smallest useful shared
+unit: tokens/styles, helper/hook, UI primitive, or feature/domain pattern. Keep
+different workflows separate and prefer composition over page-specific flags.
+
+Before extraction, define props/events, state ownership, styling/layout
+boundaries, and preserved behavior. Migrate the in-scope consumers to the real
+shared implementation, then verify its states and affected usages with targeted
+tests and automatic `$snapshot` evidence. A new component file with the old
+copies still active is not a completed consolidation.
+
+Do not turn a tiny unique edit into a component-library project. Recurrence is
+evidence, not a mandatory count; correctness-sensitive logic may warrant sharing
+early, while repeated but independently evolving workflows may stay separate.
+
 ## When To Ask
 
 Ask one focused question only when the audience, tone, required brand direction,

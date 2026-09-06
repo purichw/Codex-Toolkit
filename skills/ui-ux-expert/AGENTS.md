@@ -24,6 +24,10 @@ context wins.
 - **`references/components.md`** — component gallery spec: every component with default / hover /
   focus / active / disabled / error / loading states, as copyable markup + CSS on the
   tokens. Build `assets/component-gallery.html` from it only when a gallery is requested.
+- **`$design-system-guardian`** — owner of shared-component decisions and
+  extraction: when to share, what to share, contracts, consumer migration, and
+  regression checks. Use `SKILL.md` "Shared Component Decisions" for triggers;
+  the component gallery spec is not an extraction guide.
 - **`references/layouts.md`** — five layout exemplars (app shell, dashboard, form, content page,
   marketing hero), each with desktop + mobile behavior and breakpoints.
 - **`references/craft-defaults.md`** — typography, color, spacing, imagery, motion,
