@@ -58,7 +58,7 @@ not new automated behavioral tests, and the original evaluation pack is unchange
 | [rollback-guardrail](../skills/rollback-guardrail/SKILL.md) | Pause/discussion and understood reversible edits do not require a checkpoint. Risky work loss requires exact impact/authorization, recoverable files/data, and verification. Stricter project approval rules still apply. |
 | [korat-tan-phai-shared-components](../skills/korat-tan-phai-shared-components/SKILL.md) | Automatically use snapshot for visible work, plus browser behavior checks for changed interactions. Capture blockage is unverified, not a build-only visual pass. |
 
-Korat shared-components is newly archived, bringing the archive to 130 skills:
+At this update, Korat shared-components brought the archive to 130 skills:
 75 personal folders, 53 global aliases, and 2 standalone global design specs.
 Do not infer that other live-only skills have also been archived.
 
@@ -66,7 +66,7 @@ Do not infer that other live-only skills have also been archived.
 
 ```sh
 git diff --check
-python3 scripts/verify_skills.py --expected-count 130
+python3 scripts/verify_skills.py --expected-count 136
 python3 skills/ui-ux-expert/evals/validate.py
 PYTHONDONTWRITEBYTECODE=1 python3 -m unittest discover -s skills/ui-ux-expert/evals/tests -v
 ```

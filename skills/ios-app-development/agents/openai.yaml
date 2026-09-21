@@ -1,0 +1,4 @@
+interface:
+  display_name: "iOS App Development"
+  short_description: "Set up, build and debug iOS apps with Android in mind"
+  default_prompt: "Use $ios-app-development to inspect this project and Mac, then guide or complete the next setup, build, or device-testing step."

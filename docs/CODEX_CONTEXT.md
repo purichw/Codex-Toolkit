@@ -10,9 +10,9 @@ user's intent.
 - Local checkout used when this file was written: `/Users/point/Codex-Toolkit`
 - Visibility at initial setup: private
 - Purpose: archive and document the user's personal Codex skills
-- Current skill count: 130 `SKILL.md` files under `skills/`
-- Breakdown: 75 personal skill folders (including compatibility routers),
-  53 `global-*` alias skills for reusable non-project-specific workflows, and
+- Current skill count: 136 `SKILL.md` files under `skills/`
+- Breakdown: 79 personal skill folders (including compatibility routers),
+  55 `global-*` alias skills for reusable non-project-specific workflows, and
   2 standalone global design-spec skills.
 
 The first import copied personal skills from:
@@ -115,6 +115,7 @@ Expected current skill folders:
 - `design-system-guardian`
 - `docs-cartographer`
 - `domain-taste`
+- `dootaa-new-chat`
 - `efficient-execution`
 - `export-html`
 - `firebase-account-management`
@@ -130,11 +131,14 @@ Expected current skill folders:
 - `information-architecture-ux`
 - `interaction-design`
 - `interaction-flow-qa`
+- `ios-app-development`
 - `kaset-tan-phai-new-chat`
+- `korat-tan-phai-new-chat`
 - `korat-tan-phai-shared-components`
 - `ledger-logic`
 - `mobile-native-feel`
 - `mobile-web-qa`
+- `mockup-to-product`
 - `mongkol-new-chat`
 - `motion-choreography`
 - `native-parity`
@@ -221,7 +225,7 @@ updates, enough verification is usually:
 
 ```sh
 git diff --check
-python3 scripts/verify_skills.py --expected-count 130
+python3 scripts/verify_skills.py --expected-count 136
 ```
 
 For skill script changes, run the script's smoke-test or help path when one

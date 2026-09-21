@@ -29,11 +29,14 @@ git -C "/Users/point/Kaset-Tan-Phai" status --short --branch
 3. Read the shared new-chat shape:
    `/Users/point/.codex/skills/project-onboarding/references/new-chat-template.md`.
 4. Read `references/new-chat-context.md` from this skill.
-5. Read only the project docs relevant to the next task, using the required-doc
+5. Read `docs/PROJECT_PLAYBOOK.md` when the task touches product rules, data
+   source precedence, map behavior, UI component contracts, release gates, or
+   Nakhon Ratchasima water/drought work.
+6. Read only the project docs relevant to the next task, using the required-doc
    order from the reference. For Nakhon Ratchasima, dashboard, map, water,
    drought, data provenance, or release work, use the current product decisions
    and common source areas in the reference before relying on older assumptions.
-6. If the user asks for a prompt, return a copy-ready prompt for a new chat. If
+7. If the user asks for a prompt, return a copy-ready prompt for a new chat. If
    the user asks to continue work, summarize what was read and proceed with the
    relevant task.
 

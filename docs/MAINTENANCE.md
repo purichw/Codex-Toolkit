@@ -67,7 +67,7 @@ False positives are normal. Read the matches before deciding.
 For most changes, run the toolkit verifier:
 
 ```sh
-python3 scripts/verify_skills.py --expected-count 130
+python3 scripts/verify_skills.py --expected-count 136
 ```
 
 It checks skill frontmatter, folder/name consistency, local Markdown links,
@@ -82,6 +82,11 @@ find skills -name SKILL.md | sort | wc -l
 ```
 
 If you add scripts, run their basic help or smoke-test path before committing.
+
+The imported iOS inventory helper is invoked with `python3`, not executed
+directly. It retains the live source's non-executable file mode; the verifier's
+executable-bit warning is informational for this helper. Check its CLI with
+`python3 skills/ios-app-development/scripts/check-environment.py --help`.
 
 For `ui-ux-expert` evaluation-pack changes, also run:
 

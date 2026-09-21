@@ -32,7 +32,7 @@ Then choose by task:
 - SEO/crawler/social: `docs/SEO.md`, `robots.txt`, `sitemap.xml`, `vercel.json`, `site.webmanifest`
 - UI/visual design/assets: `docs/DESIGN_ASSETS.md`, `docs/covermate-website-full-design-spec.md`, `organic.css`, `assets/`, current snapshots under `docs/snapshots/`
 - External prototypes, SPEC files, or handoff packages: read the user-provided files only after the current product docs above, and reconcile them against accepted product decisions before implementing
-- QA/release: `package.json`, `scripts/validate-bundles.mjs`, `scripts/smoke.mjs`, `docs/RELEASE_RUNBOOK.md`
+- QA/release/UAT: `package.json`, `scripts/validate-bundles.mjs`, `scripts/smoke.mjs`, `scripts/uat-e2e-smoke.mjs`, `docs/RELEASE_RUNBOOK.md`, `docs/UAT.md`
 - Admin/CMS operations: `docs/ADMIN_CMS_REBUILD_DECISIONS.md`, `docs/INTERACTION_MAP.md`, `docs/DATA_CONTRACT.md`, `admin/index.html`, `index.html`, `covermate-firebase.js`
 
 ## Skills To Use
@@ -45,7 +45,7 @@ Use the current on-disk `SKILL.md` each time a skill is invoked.
 - Screenshots/snapshots: `$snapshot`
 - Release readiness: `$release-gate`
 - Efficient batching: `$efficient-execution`
-- Regression hunting: `$regression-hunter`, `$global-regression-hunter`
+- Regression hunting: `$regression-hunter`
 - Docs maps: `$docs-cartographer`
 - Rollback/revert/remove/undo guard: `$rollback-guardrail`
 - Admin operations: `$admin-ops`, `$admin-prototype-reconciliation`
@@ -54,7 +54,7 @@ Use the current on-disk `SKILL.md` each time a skill is invoked.
 - Interaction/browser QA: `$interaction-flow-qa`
 - Forms: `$form-flow-ux`
 - Accessibility: `$accessible-interaction`, `$accessibility-beyond-basics`
-- SEO/social asset smoke: `$production-asset-smoke`, `$prod-smoke-harness`
+- Production media/assets: `$production-asset-smoke`, `$prod-smoke-harness`
 
 ## Durable Product Rules
 
@@ -76,7 +76,8 @@ Use the current on-disk `SKILL.md` each time a skill is invoked.
 - Visible admin chrome labels are English-only: `Panel`, `Edit text`, `Main`, `Public site`, `Save draft`, `Preview`, `Publish`, `Success`, `Log out`.
 - Save draft and Publish use custom confirmation dialogs, progress/success feedback, dismissible toasts, and a 30-second Undo window.
 - Firestore live/draft data must prevail over hard-coded or local fallback content. Fallbacks may fill missing structure only; they must not override successful remote reads.
-- Insurer-count copy follows the active `insurers.items` logo data. With the current committed logo set, the count is `14`.
+- Insurer-count copy follows the active `insurers.items` logo data. With the current active logo set, the count is `14`.
+- Active insurer logo slot 13 is Aioi Bangkok Insurance at `assets/ins/13-aioi.png`. Legacy ThaiVivat names or `assets/ins/13-thaivivat.png` references may exist in old CMS data or historical assets, but visitor/Admin runtime normalization maps them to Aioi.
 - All visible visitor and admin text uses the Google Sans family stack across Thai and English unless a heading/logo exception is an explicit design choice.
 - Supported editable images should behave like CMS-managed content, not plain pasted image URLs, where the implementation supports it.
 - UI changes need snapshot evidence in the final handoff; snapshot outputs should be shown in chat when the snapshot skill is used.
@@ -103,7 +104,7 @@ cd "/Users/point/CoverMate"
 npm install
 node --input-type=module -e 'import { startStaticServer } from "./scripts/lib/static-server.mjs"; const { server, baseUrl } = await startStaticServer({ ownerRoutesToRoot: true }); console.log(baseUrl); process.stdin.resume();'
 npm run check:bundles
-npm run smoke
+COVERMATE_URL=http://127.0.0.1:<printed-port> npm run smoke
 COVERMATE_URL=https://covermate.vercel.app npm run smoke
 ```
 
@@ -111,12 +112,13 @@ Use targeted checks first, then broaden based on risk. The key local release che
 
 ```bash
 npm run check:bundles
-npm run smoke
+COVERMATE_URL=http://127.0.0.1:<printed-port> npm run smoke
 git diff --check
 ```
 
 Hosted UAT checks are opt-in by risk, not default ceremony. Use them only for
-the UAT-triggering surfaces documented above:
+the UAT-triggering surfaces documented above. UAT is usually a Vercel preview
+URL plus isolated Firestore namespace, not a standing production-like URL:
 
 ```bash
 npm run smoke:uat
@@ -126,7 +128,7 @@ Deploy only when explicitly asked:
 
 ```bash
 git push origin main
-vercel --prod --yes
+vercel deploy --prod --yes
 ```
 
 ## Common Source Areas
@@ -142,6 +144,7 @@ vercel --prod --yes
 - Smoke and bundle validation: `scripts/smoke.mjs`, `scripts/validate-bundles.mjs`
 - SEO/static metadata: `robots.txt`, `sitemap.xml`, `site.webmanifest`, `vercel.json`, `assets/covermate-og.*`
 - Insurer assets: `assets/ins/*.png`
+- Active insurer slot 13: `assets/ins/13-aioi.png` for Aioi Bangkok Insurance; legacy ThaiVivat refs normalize to Aioi
 - Brand/proof logos: `assets/logos/*`
 - Design/reference CSS: `organic.css`
 - Current docs: `PROJECT_MAP.md`, `README.md`, `docs/*.md`
@@ -163,7 +166,7 @@ Important constraints:
 - Preserve routes, Firebase/Firestore contracts, localStorage keys, noindex boundaries, admin session behavior, responsive constraints, and owner-mode UI contracts unless explicitly in scope.
 - If a named skill is used, read its current on-disk SKILL.md first.
 - UI work needs snapshot evidence in the final handoff.
-- Release work must use $release-gate; rollback-like work must use $rollback-guardrail first.
+- Release work must use $release-gate; deployed media/image changes should use $production-asset-smoke after deployment; rollback-like work must use $rollback-guardrail first.
 - Treat docs/ADMIN_CMS_REBUILD_DECISIONS.md as the current admin/CMS decision authority. `/admin` is the Admin Portal Home with Operations, Website content, Analytics, and Settings. Website content has one editor entry; open the panel from `Tools -> Panel`.
 - `Public site` opens a clean public route in a new tab and must not move the current Admin tab. Do not generate `/?view=public`.
 - Firestore live/draft data must prevail over hard-coded and local fallback content.

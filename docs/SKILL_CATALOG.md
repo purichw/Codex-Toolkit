@@ -244,6 +244,19 @@ cannot prove whole-page/dashboard, page-length, or page-level reference parity.
   as recovered source behavior.
 - Migration and checks: [REFERENCE_PARITY_MIGRATION.md](REFERENCE_PARITY_MIGRATION.md).
 
+### mockup-to-product
+
+- Skill file: [../skills/mockup-to-product/SKILL.md](../skills/mockup-to-product/SKILL.md)
+- Description: Translates approved mockups into coherent real-product experiences
+  using authorized judgment about layout, assets, content and responsive behavior.
+- Use when: The user wants recognizable composition and visual detail without
+  literal pixel matching, or repeated visual rework needs a full design review.
+- Typical context: Selected image/HTML references, actual rendered product,
+  fixed versus flexible constraints, shared owners, truthful data substitutions,
+  desktop/mobile image inspection, scoped snapshots and affected behavior checks.
+- Boundary: Explicit exact matching uses `reference-to-a-tee`; inspiration-only
+  work uses design-direction skills. Flexibility does not authorize lost features.
+
 ### claude-to-a-tee
 
 - Skill file: [../skills/claude-to-a-tee/SKILL.md](../skills/claude-to-a-tee/SKILL.md)
@@ -635,6 +648,19 @@ cannot prove whole-page/dashboard, page-length, or page-level reference parity.
   algorithm, rounding examples, persistence shape, invite/guest lifecycle, and
   regression tests.
 
+### ios-app-development
+
+- Skill file: [../skills/ios-app-development/SKILL.md](../skills/ios-app-development/SKILL.md)
+- Description: Reusable Mac/iOS setup, build, install, launch and troubleshooting
+  guidance, especially Expo/React Native, without forcing a stack migration.
+- Use when: Starting an app, checking Xcode/SDK readiness, selecting Simulator
+  versus iPhone, rebuilding native modules, diagnosing Metro or handling signing.
+- Typical context: Repo/app roots, package and runtime pins, generated versus
+  hand-maintained native ownership, current tool/device observations and build notes.
+- Helper: `scripts/check-environment.py` is read-only inventory, not a readiness
+  certificate. Android checks are optional; source/export/build/launch/feature
+  verification are separate outcomes. No installs or builds are implied by inventory.
+
 ### native-parity
 
 - Skill file: [../skills/native-parity/SKILL.md](../skills/native-parity/SKILL.md)
@@ -729,6 +755,22 @@ cannot prove whole-page/dashboard, page-length, or page-level reference parity.
   `docs/RELEASE_RUNBOOK.md`, task-specific CoverMate docs/source areas, current
   on-disk skills, durable route/admin/CMS rules, proportional UAT triggers, and
   `references/new-chat-context.md`.
+- Updated context includes preview-based UAT, explicit local smoke URLs,
+  deployed-media checks and legacy insurer-logo normalization.
+
+## DOOTAA
+
+### dootaa-new-chat
+
+- Skill file: [../skills/dootaa-new-chat/SKILL.md](../skills/dootaa-new-chat/SKILL.md)
+- Description: Onboards DOOTAA / VisionX app, close-eye camera, gaze benchmark,
+  dataset and website work from current repo evidence rather than old chat memory.
+- Use when: Preparing a new-chat prompt, locating task-specific owner docs or
+  continuing DOOTAA with its product, data and device-verification constraints.
+- Typical context: `/Users/point/Projects/DOOTAA`, current AGENTS/PROJECT_MAP/
+  PLAYBOOK, versioned specifications, acquisition policy, consent/account isolation,
+  evidence provenance and separate native/website checkpoints. No clinical
+  accuracy, dataset-use approval or cross-chat permission follows from onboarding.
 
 ## Notenwert
 
@@ -746,6 +788,17 @@ cannot prove whole-page/dashboard, page-length, or page-level reference parity.
 
 ## Korat Tan Phai
 
+### korat-tan-phai-new-chat
+
+- Skill file: [../skills/korat-tan-phai-new-chat/SKILL.md](../skills/korat-tan-phai-new-chat/SKILL.md)
+- Description: Onboards the Korat forecast dashboard and isolated iOS app with
+  current docs, rev03 origin/horizon semantics, Supabase boundaries and shared CI.
+- Use when: Preparing starter prompts or continuing web/mobile, map/data,
+  shared-component, brand, setup or release work in `/Users/point/korattanphai`.
+- Typical context: Current HANDOFF, DATA_CONTRACT, FORECAST_ONLY_RESTORATION,
+  SHARED_COMPONENTS, DESIGN_SYSTEM and mobile README; parked Actual code is not
+  active navigation, and a branded native shell is not connected product parity.
+
 ### korat-tan-phai-shared-components
 
 - Skill file: [../skills/korat-tan-phai-shared-components/SKILL.md](../skills/korat-tan-phai-shared-components/SKILL.md)
@@ -757,6 +810,9 @@ cannot prove whole-page/dashboard, page-length, or page-level reference parity.
 - Typical context: `/Users/point/korattanphai`, `docs/SHARED_COMPONENTS.md`,
   owner source/CSS, current usages, data-readiness vs hazard semantics, and the
   smallest relevant route/state/breakpoint evidence.
+- Version caveat: Its retained Actual/legacy-link guidance predates the forecast-only
+  restoration described by `korat-tan-phai-new-chat`. Read the current project's
+  restoration contract before using those temporal examples as active routing rules.
 
 ## Kaset Tan Phai
 
@@ -774,11 +830,15 @@ cannot prove whole-page/dashboard, page-length, or page-level reference parity.
   operations, QA, push, or deploy work.
 - Typical context: `/Users/point/Kaset-Tan-Phai`, production
   `https://kasettanphai.vercel.app`, `README.md`, `PROJECT_MAP.md`,
-  `docs/HANDOFF.md`, git status, task-specific docs/source areas, Thai-first
+  `docs/PROJECT_PLAYBOOK.md`, `docs/HANDOFF.md`, git status, task-specific docs/source areas, Thai-first
   public-safety constraints, canonical JSON, Nakhon Ratchasima `TH-P29`
   district/subdistrict hierarchy, code-based joins, 77-province GeoJSON joins,
   map interaction contracts, localStorage key behavior, setup/verification
   commands, and `references/new-chat-context.md`.
+
+The Kaset context also maps normalized Excel reconciliation, separate ThaiWater
+forecast inputs and inherited map controls; do not confuse it with Korat's newer
+forecast-only restoration contract.
 
 ## Mongkol Wela
 
@@ -797,16 +857,16 @@ cannot prove whole-page/dashboard, page-length, or page-level reference parity.
   Mongkol docs/source areas, durable Thai-first temple-product constraints,
   commands, and `references/new-chat-context.md`.
 
-## Shane And His Thai
+## Shane Thai
 
 ### shane-thai-prod-smoke
 
 - Skill file: [../skills/shane-thai-prod-smoke/SKILL.md](../skills/shane-thai-prod-smoke/SKILL.md)
 - Description: Runs or sets up safe authenticated production smoke checks for
-  the Shane and His Thai app using the dedicated dummy learner account.
+  the Shane Thai app using the dedicated dummy learner account.
 - Use when: Verifying Shane production after Vercel deploys, checking the
   production login surface, topbar, Learning hub, learner-flow smoke policy, or
-  collecting screenshot evidence for `https://shane-and-his-thai.vercel.app`.
+  collecting screenshot evidence for `https://shanethai.vercel.app`.
 - Typical context: Project root, current commit/deploy URL, production alias,
   dummy learner account policy, HTTP status/header smoke, unauthenticated title
   and login surface, authenticated `codex` learner flow, console/network
@@ -815,7 +875,7 @@ cannot prove whole-page/dashboard, page-length, or page-level reference parity.
 ### shane-thai-export-chatgpt
 
 - Skill file: [../skills/shane-thai-export-chatgpt/SKILL.md](../skills/shane-thai-export-chatgpt/SKILL.md)
-- Description: Exports Shane and His Thai learner lesson content into
+- Description: Exports Shane Thai learner lesson content into
   ChatGPT-ready patch packets.
 - Use when: The user invokes `/shane-thai-export-ChatGPT`, asks to export all
   lessons for ChatGPT, wants lesson patch packets, or needs packet structure
@@ -824,11 +884,13 @@ cannot prove whole-page/dashboard, page-length, or page-level reference parity.
   generator command, 17 unit packet files, folder-level protocol files, spot
   check unit, source map, and exact files the user should give ChatGPT for
   normal lesson edits, cross-unit work, or tab/module proposals.
+- Content contract: Shane/course romanization is the learner-facing default;
+  reference Paiboon/IPA is aligned only when the touched objects contain it.
 
 ### shane-thai-new-chat
 
 - Skill file: [../skills/shane-thai-new-chat/SKILL.md](../skills/shane-thai-new-chat/SKILL.md)
-- Description: Onboards a fresh Codex chat for Shane and His Thai using current
+- Description: Onboards a fresh Codex chat for Shane Thai using current
   on-disk docs, skills, durable product rules, commands, and a copy-ready starter
   prompt.
 - Use when: The user asks for a new-chat prompt, handoff prompt, context pickup
@@ -839,6 +901,10 @@ cannot prove whole-page/dashboard, page-length, or page-level reference parity.
   `docs/project-intent.md`, `docs/memory.md`, `docs/course-status.md`,
   task-specific docs, current on-disk Shane Thai skills, durable product rules,
   commands, source areas, and `references/new-chat-context.md`.
+
+Current Shane pickup notes include bounded account startup, background learning-
+event sync, unlocked Quiz/Fill/Listen, optional Typing order/checking, and the
+Romanized Thai / Thai Word Bank surfaces. Recheck project evidence during pickup.
 
 ## Image And Asset Work
 
@@ -871,7 +937,7 @@ cannot prove whole-page/dashboard, page-length, or page-level reference parity.
 
 - Skill file: [../skills/shane-thai-audio-generator/SKILL.md](../skills/shane-thai-audio-generator/SKILL.md)
 - Description: Generates, regenerates, audits, and QA-checks Google Chirp audio
-  files for the Shane and His Thai learning app.
+  files for the Shane Thai learning app.
 - Use when: Working on lesson audio, main-course Chirp generation, audio ID
   wiring, Thai TTS text, voice selection, full-phrase regeneration, stale or
   missing audio audits, or naturalness fixes.
@@ -879,6 +945,8 @@ cannot prove whole-page/dashboard, page-length, or page-level reference parity.
   Thai text, English meaning, speaker role, politeness particle, voice policy,
   generation commands, audit reports, and whether the item is a word, phrase,
   sentence, dialogue line, grammar example, quiz prompt, or UI prompt.
+- Romanized Thai / Word Bank batches also use packed audio and the committed
+  TypeScript readiness manifest; its generated worker JSON is not hand-edited.
 
 ### tts-audio-assets
 
@@ -896,7 +964,7 @@ cannot prove whole-page/dashboard, page-length, or page-level reference parity.
 
 - Skill file: [../skills/shane-thai-image-assets/SKILL.md](../skills/shane-thai-image-assets/SKILL.md)
 - Description: Guides image generation, reuse, crop fixes, optimization, and QA
-  for the Shane and His Thai learning app.
+  for the Shane Thai learning app.
 - Use when: Adding or replacing vocabulary images, mapping lesson card artwork,
   generating Unit images, fixing crops, making badge assets, or deciding whether
   an existing image is semantically correct.

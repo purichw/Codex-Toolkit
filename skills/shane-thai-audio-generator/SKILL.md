@@ -1,15 +1,15 @@
 ---
 name: shane-thai-audio-generator
-description: Generate, regenerate, audit, and QA Google Chirp audio files for the Shane and His Thai learning app. Use when the user mentions Shane Thai audio or when Codex works on lesson audio, main-course Chirp generation, audio ID wiring, Thai TTS text, voice selection, full-phrase regeneration, stale/missing audio audits, pronunciation, pacing, or naturalness fixes for this project.
+description: Generate, regenerate, audit, and QA Google Chirp audio files for the Shane Thai learning app. Use when the user mentions Shane Thai audio or when Codex works on lesson audio, main-course Chirp generation, audio ID wiring, Thai TTS text, voice selection, full-phrase regeneration, stale/missing audio audits, pronunciation, pacing, or naturalness fixes for this project.
 ---
 
 # Shane Thai Audio Generator
 
 Use `$tts-audio-assets` for the reusable TTS/audio asset workflow. This skill is
-the Shane and His Thai overlay: project paths, Google Chirp commands, voice
+the Shane Thai overlay: project paths, Google Chirp commands, voice
 policy, and course-data wiring.
 
-Use this skill for Shane and His Thai audio asset work, especially Google Chirp TTS for lesson words, phrases, sentences, dialogues, story lines, grammar examples, spelling prompts, read prompts, quiz/listening prompts, and UI audio buttons.
+Use this skill for Shane Thai audio asset work, especially Google Chirp TTS for lesson words, phrases, sentences, dialogues, story lines, grammar examples, spelling prompts, read prompts, quiz/listening prompts, and UI audio buttons.
 
 ## Core Rule
 
@@ -23,8 +23,16 @@ If the user says an audio item sounds chopped, rushed, discontinuous, or like re
 
 - Repo: `/Users/point/Website Projects/thai-flashcards`
 - Main-course Chirp output: `public/audio/chirp/main-course/<unit-id>/<audio-id>.mp3`
+- Romanized Thai / Word Bank Chirp output:
+  `public/audio/chirp/romanized-thai/<hash-prefix>/<audio-id>.mp3`
+- Packed Romanized Thai / Word Bank output:
+  `public/audio/chirp/romanized-thai-packs/<hash-prefix>.pack`
 - Main-course audio helper: `src/data/mainCourseAudio.ts` via `mainCourseAudio(unitId, itemId, text, labelOrOptions?, options?)`
 - Generator: `tools/generate-main-course-chirp-audio.mjs`
+- Romanized Thai generator: `tools/generate-romanized-thai-chirp-audio.mjs`
+- Romanized Thai packer: `tools/pack-romanized-thai-audio.mjs`
+- Romanized Thai audio manifest JSON writer:
+  `tools/write-romanized-thai-audio-manifest-json.mjs`
 - Audit: `tools/audit-chirp-audio.mjs`
 - Naturalness triage: `tools/audio-naturalness-triage.mjs`
 - Voice policy: `tools/chirpVoicePolicy.mjs`
@@ -36,6 +44,9 @@ Common commands:
 ```bash
 npm run audio:main-course
 npm run audio:main-course:force
+npm run audio:romanized-thai
+npm run audio:romanized-thai:pack
+npm run romanized:audio-manifest-json
 GOOGLE_TTS_FORCE=true GOOGLE_TTS_ONLY='unit-id/audio-id,unit-id/other-audio-id' npm run audio:main-course
 GOOGLE_TTS_FORCE=true GOOGLE_TTS_SPEAKING_RATE=0.78 GOOGLE_TTS_ONLY='unit-id/audio-id' npm run audio:main-course
 AUDIO_NATURALNESS_ONLY='unit-id/audio-id' npm run audio:naturalness
@@ -90,6 +101,7 @@ Use adjacent skills when the task crosses boundaries:
 2. Confirm the source data is wired to the intended full text:
    - Prefer existing helpers such as `mainCourseAudio(...)` and local course data patterns.
    - Search by both `audio ID` and Thai text before editing, because some units use wrapper helpers such as `greetingsAudio`, `daysAudio`, `monthAudio`, or runtime-collected audio objects.
+   - For Romanized Thai / Thai Word Bank audio, treat `src/data/romanizedThaiAudioManifest.ts` as the committed source of audio readiness. The ignored `public/data/romanized-thai-audio-manifest.json` is generated for the worker at build time and should not be hand-edited or committed.
    - Do not change lesson IDs, order, routes, progress keys, quiz IDs, audio IDs, image IDs, or Firebase keys unless explicitly asked.
    - If adding a new kind of audio source, update the generator and audit collectors together.
 
@@ -191,6 +203,9 @@ During generation:
 After generation:
 
 - Run `npm run audio:audit`.
+- Run `npm run audio:romanized-thai:pack` and
+  `npm run romanized:audio-manifest-json` when Romanized Thai / Thai Word Bank
+  audio files changed.
 - Run `npm run audio:naturalness` for phrase/sentence batches.
 - Inspect changed files and data references.
 - Verify audio buttons in the UI when practical, especially for the component the user reported.

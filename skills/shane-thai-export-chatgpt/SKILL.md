@@ -1,13 +1,13 @@
 ---
 name: shane-thai-export-chatgpt
-description: Export Shane and His Thai learner lesson content into ChatGPT-ready patch packets. Use when the user invokes /shane-thai-export-ChatGPT, $shane-thai-export-chatgpt, asks to export all lessons for ChatGPT, asks for lesson patch packets, wants ChatGPT to patch lesson content easily, or needs packets flexible enough for future learner tabs/modules such as Passage Reading.
+description: Export Shane Thai learner lesson content into ChatGPT-ready patch packets. Use when the user invokes /shane-thai-export-ChatGPT, $shane-thai-export-chatgpt, asks to export all lessons for ChatGPT, asks for lesson patch packets, wants ChatGPT to patch lesson content easily, or needs packets flexible enough for future learner tabs/modules such as Passage Reading.
 ---
 
 # Shane Thai Export ChatGPT
 
 ## Purpose
 
-Create a self-contained Markdown export of Shane and His Thai learner lesson content for ChatGPT. The export is optimized for patching lesson data, not design parity or admin work.
+Create a self-contained Markdown export of Shane Thai learner lesson content for ChatGPT. The export is optimized for patching lesson data, not design parity or admin work.
 
 Default project:
 
@@ -48,7 +48,9 @@ Each unit packet includes:
 - Unit metadata and route.
 - Owner source file(s) and shared source files.
 - Stable ID map by section.
-- Current data keys for welcome/overview, dialogue, cards, vocabulary, read, story, grammar, spelling, quiz, fill/cloze, listening, scene-first plan, and QA/design notes.
+- Current data keys for welcome/overview, dialogue, cards, read, story,
+  grammar, spelling, typing, quiz, fill/cloze, listening, scene-first plan, and
+  QA/design notes.
 
 The folder-level files are:
 
@@ -86,7 +88,11 @@ New tabs are product/implementation proposals, not content-only patches. ChatGPT
 
 ## Critical ChatGPT Output Rule
 
-The packet must instruct ChatGPT to write the actual revised lesson content itself. ChatGPT should use the exported lesson material to return finished replacement content/objects with Thai, Paiboon, English, audio text, prompts, answers, tags, and metadata aligned.
+The packet must instruct ChatGPT to write the actual revised lesson content
+itself. ChatGPT should use the exported lesson material to return finished
+replacement content/objects with Thai, Shane/course romanization, English,
+audio text, prompts, answers, tags, and metadata aligned. Reference Paiboon/IPA
+fields should be updated only when the target object explicitly includes them.
 
 Do not accept responses that only give directions, suggestions, placeholders, or instructions for Codex to author the lesson later. Codex can apply and verify a patch, but ChatGPT must do the lesson-writing work in the response.
 
@@ -94,7 +100,9 @@ Do not accept responses that only give directions, suggestions, placeholders, or
 
 - Preserve stable IDs by default.
 - Prefer targeted object/array replacement over whole-unit rewrites.
-- Keep Thai, Paiboon, English, audio text, quiz answers, labels, tags, and group IDs aligned.
+- Keep Thai, Shane/course romanization, English, audio text, quiz answers,
+  labels, tags, and group IDs aligned. Keep reference Paiboon/IPA aligned when
+  those fields are present.
 - Require finished replacement lesson content for every touched object/array; patch plans alone are incomplete.
 - Do not let ChatGPT patch generated Markdown as source of truth.
 - Do not let ChatGPT silently add product surface. Use `TAB_EXTENSION_PROTOCOL.md`.

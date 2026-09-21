@@ -18,6 +18,8 @@ consistent across province, district, and subdistrict surfaces.
    user changes.
 3. Read `/Users/point/korattanphai/docs/SHARED_COMPONENTS.md` before adding or
    changing any shared-looking component.
+   For actual/archive or temporal behavior, also read
+   `/Users/point/korattanphai/docs/ACTUAL_FORECAST_SEPARATION.md`.
 4. Inspect the owner file and nearby CSS before editing. Most visible component
    styling lives in `src/styles.css`.
 5. Use `rg` to find all current usages before changing a shared component
@@ -34,7 +36,17 @@ consistent across province, district, and subdistrict surfaces.
   text is centered by default; use `align="start"` only for an intentional
   scan-left layout.
 - Use `OperationalFilters` for page-wide filter summaries and mobile filter
-  bottom sheets. Local map filter rails still use `AppSelect`.
+  bottom sheets when its source-month/rice semantics fit. The operational
+  actual view composes shared `MonthSelect`/`AppSelect` instead; do not import
+  forecast-specific crop or T+ assumptions merely to reuse a whole container.
+  Local map filter rails still use `AppSelect`.
+- Keep option scrolling inside the dropdown's own scroll container. Map filter
+  fields share the container-query grid; avoid tambon-specific positional rules
+  that assume removed controls still exist. Mobile menu bounds must fit the
+  configured viewport, not merely an overflow-expanded `innerWidth`.
+- Use `MonthSelect` for searchable calendar-month controls and `ForecastMonthSelect`
+  where archive request/loading ownership is needed. Keep one primary month owner
+  and one archive horizon strip; actual views have no T+ control.
 - Use `MapPreviewFooter` for map preview actions and fallback notes. Fallback
   notes remain centered, and preview cards must stack above lower sections when
   they overlap. Clearing a transient map selection should not immediately reopen
@@ -44,6 +56,15 @@ consistent across province, district, and subdistrict surfaces.
 - Use `RiskMap` for inherited national map behavior and
   `NakhonRatchasimaLocalMap` for province/district/subdistrict local map
   behavior.
+- Reuse `OperationalDroughtWorkspace` across operational geographic levels and
+  existing archive compositions for explicit archive intent. The shared map's
+  `operationalUnavailable` variant is neutral-state presentation only, not an
+  actual classification renderer. Preserve camera, preview, fullscreen and
+  keyboard/touch behavior, not just visual similarity. Do not add aggregate
+  forecast charts to tambon pages.
+- Keep `WorkspaceBookmarks` shared. Geographic following works independently of
+  forecast criteria; saving/restoring an archive filter must retain the exact
+  origin/horizon. Actual valid months must not become forecast saved filters.
 
 ## Domain Guardrails
 
@@ -52,12 +73,19 @@ consistent across province, district, and subdistrict surfaces.
 - Agricultural figures are not official damage figures.
 - Data readiness is not hazard severity.
 - Missing evidence must not become green, normal, or low-risk UI.
+- Forecast archive provenance uses `FORECAST_ARCHIVE`, not the actual-observation
+  `REAL` label. Do not reuse forecast 0/1/2 colors for an unapproved actual metric.
+- Clear obsolete values atomically on period/family changes. Do not restore a
+  forecast cache or synthetic fixture when actual is missing or a request fails.
 - Current source code and docs beat old attachments or chat memory when they
   disagree.
 
 ## Verification
 
 For a small docs-only component inventory update, `git diff --check` is enough.
+For archive UI checks, enter with explicit `mapLayer=forecast-archive`; a bare
+legacy T/h URL now selects an operational valid month. Check operational states
+separately so an unavailable screen cannot accidentally pass an archive UI test.
 For shared UI behavior, run the relevant release-gate path for the changed
 surface, usually at least:
 

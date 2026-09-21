@@ -1,13 +1,13 @@
 ---
 name: shane-thai-new-chat
-description: Onboard a fresh Codex chat for the Shane and His Thai project. Use when the user asks for a new-chat prompt, handoff prompt, context pickup checklist, required docs/skills/setup for Shane Thai, or wants a future chat to know what to read before learner, admin, content, audio, image, Firebase, QA, deploy, or consistency work.
+description: Onboard a fresh Codex chat for the Shane Thai project. Use when the user asks for a new-chat prompt, handoff prompt, context pickup checklist, required docs/skills/setup for Shane Thai, or wants a future chat to know what to read before learner, admin, content, audio, image, Firebase, QA, deploy, or consistency work.
 ---
 
 # Shane Thai New Chat
 
 ## Purpose
 
-Prepare a fresh Codex chat to work safely on Shane and His Thai without relying on stale conversation memory. This skill is an onboarding router: read the current on-disk docs and skill files, then produce a concise starter prompt or context checklist for the next chat.
+Prepare a fresh Codex chat to work safely on Shane Thai without relying on stale conversation memory. This skill is an onboarding router: read the current on-disk docs and skill files, then produce a concise starter prompt or context checklist for the next chat.
 
 ## Workflow
 

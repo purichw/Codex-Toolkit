@@ -1,0 +1,4 @@
+interface:
+  display_name: "Global Mockup To Product"
+  short_description: "Adapt mockups into real product UI"
+  default_prompt: "Use $global-mockup-to-product to adapt this mockup into the product while preserving its design intent and real behavior."

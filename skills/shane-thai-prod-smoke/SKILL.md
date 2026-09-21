@@ -1,13 +1,13 @@
 ---
 name: shane-thai-prod-smoke
-description: Run or set up authenticated production smoke checks for the Shane and His Thai app after Vercel deploys, production verification, release-gate closeout, learner-flow checks, topbar/Learning hub checks, or screenshot evidence. Use when Codex needs the Shane-specific production smoke account, safe learner test policy, Playwright/browser smoke, or snapshot evidence for https://shane-and-his-thai.vercel.app.
+description: Run or set up authenticated production smoke checks for the Shane Thai app after Vercel deploys, production verification, release-gate closeout, learner-flow checks, topbar/Learning hub checks, or screenshot evidence. Use when Codex needs the Shane-specific production smoke account, safe learner test policy, Playwright/browser smoke, or snapshot evidence for https://shanethai.vercel.app.
 ---
 
 # Shane Thai Prod Smoke
 
 ## Overview
 
-Use this skill to verify Shane and His Thai production with the dedicated dummy learner account. It complements `$release-gate` and `$snapshot`; use those too when committing, deploying, or presenting visual evidence.
+Use this skill to verify Shane Thai production with the dedicated dummy learner account. It complements `$release-gate` and `$snapshot`; use those too when committing, deploying, or presenting visual evidence.
 
 ## Safety Rules
 
@@ -28,28 +28,30 @@ Use this skill to verify Shane and His Thai production with the dedicated dummy 
    - `docs/memory.md`
    - `docs/playbook.md`
 3. Confirm the deploy target:
-   - Production alias: `https://shane-and-his-thai.vercel.app`
+   - Production alias: `https://shanethai.vercel.app`
    - Vercel deployment URL may differ; smoke both the alias and the reported deployment URL when debugging alias issues.
 
 ## Smoke Protocol
 
 1. HTTP smoke:
    ```bash
-   curl -I -L 'https://shane-and-his-thai.vercel.app/?smoke=<commit-or-run-id>'
+   curl -I -L 'https://shanethai.vercel.app/?smoke=<commit-or-run-id>'
    ```
    Expect `200`, `content-type: text/html`, and the configured security headers.
 2. Browser unauthenticated smoke:
    - Open the production URL.
-   - Verify the title is `Shane and His Thai | Beginner Thai Course`.
+   - Verify the title is `Learn Thai for Beginners | Shane Thai`.
    - Verify the login surface is visible.
    - Record console errors and failed requests.
 3. Browser authenticated smoke:
    - Log in with `codex` / `codexcodex`.
+   - `Opening your account...` may appear briefly, but it should not hang while
+     background progress listeners or learning-event sync continue.
    - Dismiss the daily pace modal with `Skip for now` if it appears.
    - Verify `Signed in as codex`.
-   - Verify topbar/action nav contains `Today`, `Learning hub`, `Badges`, and `Switch user`.
-   - Click `Learning hub`.
-   - Verify the supporting sections heading `Open these when they help.` is visible.
+   - Verify topbar/action nav contains `Courses`, `Today`, `Badges`, and `Switch user`.
+   - Open `Courses`, then choose `Learning hub`.
+   - Verify supporting sections for Paiboon Reference, Romanized Thai, Thai Word Bank, Alphabet Explorer, and Reading Lab.
    - Capture a wide `$snapshot` that includes the topbar and main support-section context.
 4. Optional route probes when the change touched them:
    - Main course unit page route.
@@ -64,7 +66,7 @@ Use a one-off Playwright script or an existing project e2e harness. Keep it non-
 const page = await browser.newPage({ viewport: { width: 1440, height: 1000 } })
 page.on('console', ...)
 page.on('requestfailed', ...)
-await page.goto('https://shane-and-his-thai.vercel.app/?prodSmoke=<id>')
+await page.goto('https://shanethai.vercel.app/?prodSmoke=<id>')
 await page.getByLabel('Username').fill('codex')
 await page.getByLabel('Password').fill('codexcodex')
 await page.getByRole('button', { name: 'Sign in' }).click()

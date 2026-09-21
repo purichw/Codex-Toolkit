@@ -184,7 +184,7 @@ Generated ${generatedDate}. This packet is for ChatGPT-assisted lesson patching.
 1. Identify the exact section(s) to modify.
 2. Preserve existing stable IDs unless replacement/deletion is explicitly requested.
 3. If adding content, propose new IDs that match this unit's existing prefix pattern.
-4. Keep Thai, Paiboon, English, audio text, quiz answers, labels, tags, and group IDs aligned.
+4. Keep Thai, Shane/course romanization, English, audio text, quiz answers, labels, tags, and group IDs aligned. Keep reference Paiboon/IPA aligned when those fields are present.
 5. Write the actual revised lesson content yourself. Do not return only directions, placeholders, or instructions for Codex to author later.
 6. Return finished replacement objects/arrays or a unified diff only for the relevant source file(s), plus a targeted patch plan.
 7. For new learner-facing tabs/modules, use \`TAB_EXTENSION_PROTOCOL.md\` and return a proposal with fully authored target-unit content instead of pretending the tab already exists.
@@ -252,7 +252,7 @@ function renderReadme(records, generatedDate) {
 
 Generated ${generatedDate}.
 
-Purpose: make it easy for ChatGPT to patch Shane and His Thai learner lesson content without reading the React app or raw TypeScript first.
+Purpose: make it easy for ChatGPT to patch Shane Thai learner lesson content without reading the React app or raw TypeScript first.
 
 ## What To Give ChatGPT
 
@@ -282,7 +282,7 @@ For a possible new learner-facing tab/module:
 ## Prompt: Normal Patch
 
 \`\`\`text
-You are helping patch a beginner Thai lesson in the Shane and His Thai app.
+You are helping patch a beginner Thai lesson in the Shane Thai app.
 
 Read README.md, PATCH_PROTOCOL.md, and the unit packet below.
 
@@ -293,7 +293,7 @@ Important: write the actual revised lesson content yourself using the exported p
 Please respond with:
 1. Diagnosis.
 2. Exact stable IDs to keep, modify, add, or remove.
-3. Finished replacement lesson content for every touched object/array, with Thai / Paiboon / English / audio text / answers / tags aligned.
+3. Finished replacement lesson content for every touched object/array, with Thai / Shane-course romanization / English / audio text / answers / tags aligned. Include reference Paiboon/IPA only where those fields already exist.
 4. Minimal patch plan or source-file diff showing where that content should be applied.
 5. Checks Codex should run after applying it.
 
@@ -303,7 +303,7 @@ Do not rewrite unrelated sections.
 ## Prompt: New Tab Proposal
 
 \`\`\`text
-You are helping design a possible new learner-facing lesson tab for Shane and His Thai.
+You are helping design a possible new learner-facing lesson tab for Shane Thai.
 
 Read README.md, PATCH_PROTOCOL.md, TAB_EXTENSION_PROTOCOL.md, SOURCE_MAP.md, and the unit packet.
 
@@ -352,14 +352,14 @@ Use this for normal lesson content patches and existing-section restructuring.
 - Remove:
 
 ## Authored Lesson Content
-- Write the finished Thai / Paiboon / English / prompts / answer keys / tags / metadata for every touched item.
+- Write the finished Thai / Shane-course romanization / English / prompts / answer keys / tags / metadata for every touched item. Include reference Paiboon/IPA only where those fields already exist.
 - Do not hand back only directions, placeholders, or a to-do list for Codex.
 
 ## Patch
 - Provide only the affected replacement objects/arrays, or a unified diff if asked, using the authored content above.
 
 ## Consistency Checks
-- Thai, Paiboon, English aligned.
+- Thai, Shane/course romanization, English, audio, and answer keys aligned; reference Paiboon/IPA aligned when present.
 - Quiz answers still match options.
 - Listening audio text matches the intended prompt.
 - Tags/labels/groupIds still make sense.
@@ -372,7 +372,7 @@ Use this for normal lesson content patches and existing-section restructuring.
 - Prefer modifying specific objects over rewriting whole arrays.
 - Author the revised lesson content in the response; Codex should apply and verify it, not invent it later.
 - Keep lesson order, route, unit ID, progress keys, audio IDs, and image IDs stable unless explicitly asked.
-- If a Thai phrase changes, update Paiboon, English, audio text, quiz answer, cloze option, and any matching card/reading/story reference as needed.
+- If a Thai phrase changes, update Shane/course romanization, English, audio text, quiz answer, cloze option, and any matching card/reading/story reference as needed. Update reference Paiboon/IPA when those fields are present.
 - If the request adds a learner-facing tab or module, switch to \`TAB_EXTENSION_PROTOCOL.md\`.
 `
 }
@@ -432,7 +432,7 @@ Current route shape:
 ## Content For This Unit
 - New stable IDs:
 - Fully authored Thai:
-- Fully authored Paiboon:
+- Fully authored Shane/course romanization:
 - Fully authored English:
 - Prompts / answer keys / notes:
 - Notes:

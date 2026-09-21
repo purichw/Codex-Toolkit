@@ -1,4 +1,4 @@
 interface:
   display_name: "Shane Thai Audio Generator"
   short_description: "Generate and QA Chirp audio assets"
-  default_prompt: "Use $shane-thai-audio-generator to generate, regenerate, audit, or wire Google Chirp audio for Shane and His Thai."
+  default_prompt: "Use $shane-thai-audio-generator to generate, regenerate, audit, or wire Google Chirp audio for Shane Thai."

@@ -1,0 +1,4 @@
+interface:
+  display_name: "Global iOS App Development"
+  short_description: "Reusable iOS build and device workflow"
+  default_prompt: "Use $global-ios-app-development for this project's iOS setup, build, or device troubleshooting."

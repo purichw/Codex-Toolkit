@@ -1,0 +1,4 @@
+interface:
+  display_name: "DOOTAA New Chat"
+  short_description: "Pick up DOOTAA with current docs and build context"
+  default_prompt: "Use $dootaa-new-chat to read the current DOOTAA repository, summarize its verified state and continue my requested task."

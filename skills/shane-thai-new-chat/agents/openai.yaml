@@ -1,4 +1,4 @@
 interface:
   display_name: "Shane Thai New Chat"
   short_description: "Start a new Shane Thai task with context"
-  default_prompt: "Use $shane-thai-new-chat to onboard a fresh Shane and His Thai chat before starting work."
+  default_prompt: "Use $shane-thai-new-chat to onboard a fresh Shane Thai chat before starting work."

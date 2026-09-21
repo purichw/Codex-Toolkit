@@ -29,6 +29,8 @@ version should run.
 
 | Global alias | Canonical skill | Context |
 | --- | --- | --- |
+| [`global-ios-app-development`](../skills/global-ios-app-development/SKILL.md) | [`ios-app-development`](../skills/ios-app-development/SKILL.md) | Cross-project iOS toolchain, build/device workflows and runtime troubleshooting. |
+| [`global-mockup-to-product`](../skills/global-mockup-to-product/SKILL.md) | [`mockup-to-product`](../skills/mockup-to-product/SKILL.md) | Authorized mockup adaptation, composition/detail review and product-preserving responsive implementation. |
 | [`global-accessible-interaction`](../skills/global-accessible-interaction/SKILL.md) | [`accessible-interaction`](../skills/accessible-interaction/SKILL.md) | Accessibility, keyboard, focus, ARIA, contrast, touch, and modal/drawer behavior across projects. |
 | [`global-account-recovery-key`](../skills/global-account-recovery-key/SKILL.md) | [`account-recovery-key`](../skills/account-recovery-key/SKILL.md) | Provider-neutral recovery-key flows for auth and account reset patterns. |
 | [`global-admin-ops`](../skills/global-admin-ops/SKILL.md) | [`admin-ops`](../skills/admin-ops/SKILL.md) | Reusable admin portal, CMS, back-office, operator, lifecycle, and privileged-action workflows. |
@@ -90,11 +92,12 @@ These skills stay under their project or specialized names:
 - Coin Quest: `coin-quest-admin-ops`, `coin-quest-ledger-logic`,
   `coin-quest-native-parity`
 - CoverMate: `covermate-design-spec`, `covermate-new-chat`
+- DOOTAA: `dootaa-new-chat`
 - Kaset Tan Phai: `kaset-tan-phai-new-chat`
-- Korat Tan Phai: `korat-tan-phai-shared-components`
+- Korat Tan Phai: `korat-tan-phai-new-chat`, `korat-tan-phai-shared-components`
 - Notenwert: `notenwert-design-direction`, `notenwert-maintainer`
 - Mongkol Wela: `mongkol-new-chat`
-- Shane and His Thai: `shane-thai-audio-generator`,
+- Shane Thai: `shane-thai-audio-generator`,
   `shane-thai-export-chatgpt`, `shane-thai-image-assets`,
   `shane-thai-new-chat`, `shane-thai-prod-smoke`
 - Image-boundary workflow: `image-boundary`, `image-boundary-efficient`,
