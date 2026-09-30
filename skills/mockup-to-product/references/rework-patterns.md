@@ -6,6 +6,9 @@ These are decision examples, not mandatory components, dimensions or aesthetics.
 | Situation | Weak response | Better adaptation | Evidence to inspect |
 | --- | --- | --- | --- |
 | User says the page has the right sections but does not feel like the mockup | Adjust color and radius again | Compare dominant heading, image/text balance, section weight, rhythm, icon/material language and footer treatment | Whole requested page plus an actual-size crop |
+| User repeats "center" on two download buttons | Center the labels again while leaving the group at the left of a wide card | Center the whole action group within its intended parent; preserve balanced peers and appropriate mobile stacking | Current render including both parent edges and side space; group/parent centers when uncertain |
+| A download has a button class but still looks like a text URL | Assume the class name proves the appearance, or replace the link with a JavaScript button | Keep download-link semantics and give the shared style its complete intended surface, border, spacing, shape and focus treatment | Actual anchor rendering, relevant computed styles and a working download |
+| Upload button sits higher than the adjacent labeled select | Center both wrappers or add a one-off vertical offset | Align the interactive boxes and compatible control heights; account separately for labels, helper text and wrapping | Both control edges in the same row, plus the affected narrow layout |
 | Mockup has an illustrated forest/temple hero; product requires real photos | Use any temple and darken it heavily | Select a real subject with compatible light, focal position and negative space; adapt crop/overlay without obscuring the subject | Desktop and phone crops, all changed carousel slides |
 | Image-only mockup lacks source CSS | Stall, or pretend to know exact CSS values | Infer visible relationships, state uncertainty, implement a coherent responsive composition | Labeled current comparison; no unsupported pixel-parity claim |
 | Daily summary mockup has a moon, lunar text, favorable-day pill and lucky tiles; product only supports some data | Replace the entire layout with a generic text card, or invent the missing facts | Preserve supported heading/date/icon/meta grouping, rebalance the available data and qualify approximate values; reconsider unsupported tiles rather than filling them arbitrarily | Long date, missing optional data, real small-screen card |
@@ -15,8 +18,12 @@ These are decision examples, not mandatory components, dimensions or aesthetics.
 | Long selected-place text hides its remove control | Clip the entire chip or shrink the close icon | Let only the text flex/wrap/truncate as appropriate; keep the action visible, accessible and non-shrinking | Long names, horizontal scroll, keyboard removal |
 | Footer is too tall and lacks the reference's visual character | Reduce padding only | Recompose brand/nav/action groups, adopt relevant material/motifs, and use progressive disclosure if appropriate without losing destinations | Context above/footer, expanded mobile state and keyboard |
 | User asks for shared header across routes | Restyle Home and create an unused shared file | Change the actual owner, migrate authorized consumers, preserve necessary variants and verify representative uses | Consumer map, current routes, menu/search behavior |
+| Pages feel like different websites despite matching colors | Force every page into identical cards | Align outer frame, gutters, type roles and shell; retain task-specific inner grids | Header/content/footer edges on representative desktop and mobile routes |
+| Mobile picker tools push the first result far below its heading | Reduce every control's font and padding | Group primary tools; reveal search or management tools through clear controls, retaining active state and focus | Heading-to-first-result distance, active query, open tray and keyboard return path |
+| Selected photo cards look heavy and their actions are unclear | Put a thick outline around each selected card or make the whole card ambiguous | Separate selection status from the add/remove action; translate image share, surface weight and action placement together | Selected/unselected/disabled states, real photo and labelled fallback, touch area |
+| A shared banner builds successfully but its image vanishes | Accept the passing build or adjust the background color | Inspect slot/prop forwarding, CMS identity and decoded visible media | Initial render and relevant CMS refresh/fallback, actual desktop/mobile crops |
 | Mockup looks compact, but real copy is longer | Apply tiny fonts or fixed heights until the screenshot is short | Improve grouping and measure, use appropriate concise copy or wrapping, keep readable text and accessible controls | Actual-size rendering, long-content state, section rhythm |
-| Functional tests pass but the user keeps identifying visual omissions | Add more unrelated tests | Perform an explicit design critic pass and fix observed omissions; turn repeatable geometry defects into focused assertions | Current reference/development evidence, separate behavior results |
+| Functional tests pass but the user keeps identifying visual omissions | Add more unrelated tests | Personally compare current renders, fix observed omissions and recheck the user's exact correction; use a focused geometry check only when it helps establish the visible result | Current reference/development evidence with surrounding context, separate behavior results |
 
 ## A Compact Working Note
 
@@ -36,6 +43,50 @@ Evidence/checks needed to stop, and broader checks intentionally skipped:
 Track broad-page coverage as adopted, adapted, pending or outside scope. An
 adapted element is not inherently a failure; its reason and visual outcome
 matter. A pending obvious detail is not complete merely because the route works.
+
+## Compactness Is Composition
+
+Compare the space between a section heading and its first useful item, the
+image/text/action share inside that item, and the section's weight relative to
+its neighbors. These reveal excess toolbars, wrappers and metadata more reliably
+than total page height alone. Use this diagnosis on the affected region, not as
+a requirement to measure every element.
+
+In a selectable list, keep status and action distinct: a check may indicate
+selection while a separate add/remove control performs the change. Preserve
+pressed/disabled semantics, event ownership and focus after rerender. A navigation
+card with similar photography is a different contract, not automatically the
+same interactive component.
+
+When moving search, reorder or editing tools into disclosures, test a nonempty
+query, opening/closing, selection changes and mode switching. Do not silently
+clear state, hide an active filter without a visible indication, or collapse the
+committed result to reproduce an illustration. Short display labels must retain
+their underlying values and make the full meaning available without relying on
+desktop-only hover.
+
+## Compact-Page Lessons
+
+- Match color bands, contrast, integrated illustration, icon weight and footer
+  density along with layout. A photoreal floating leaf is not a substitute for
+  a flat botanical background merely because both depict leaves.
+- Measure visible logo artwork, not just its image box. White/transparent source
+  margins can make a nominally large logo tiny. Normalize optical scale without
+  distorting marks or silently overwriting CMS-selected assets.
+- Give collapsed sibling FAQ/category/process cards equal row geometry and
+  stable icon/action space. Allow open answers and long translations to grow;
+  do not clip them to preserve the closed-state height.
+- Check disclosure text's inline padding and reserve the plus/chevron track.
+  A rounded container alone does not keep its text away from the edge.
+- Tablet composition and input behavior are separate decisions: desktop-like
+  columns may still require tap menus, comfortable targets and no hover-only UI.
+- Public redesign and CMS parity ship together. Map each new copy/image owner,
+  ratio/crop and optional blank through edit, draft reload, publish and visitor
+  readback. Do not fabricate a hero team, insurer count or testimonial to fill
+  a mockup; recompose truthfully and state material differences.
+- Fix the whole in-scope density pattern when the user repeatedly identifies
+  oversized sections. Inspect current full-page desktop/mobile renders yourself
+  before handoff, then readable detail crops. Test success is not fidelity.
 
 ## Avoid Overgeneralizing
 

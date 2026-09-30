@@ -1,19 +1,21 @@
 # CoverMate Production Snapshot Suite
 
-Use this reference when the user asks for complete snapshots, production visual evidence, release proof, design handoff evidence, or any audit where "all screens" matters.
+Use the full matrix when the user requests a complete archive/handoff or an audit
+where all screens matter. A narrow release needs evidence for its touched risks,
+not this entire matrix. Personally inspect captures before claiming visual parity.
 
 ## Snapshot Types
 
 Ad-hoc evidence:
 
 - Use for one narrow bug, one component, or one interaction state.
-- Save under `/tmp`.
+- Save under the project's ignored `uat-results/` or a clearly labeled temporary directory.
 - Label it as partial evidence.
 - Include URL, route/hash, viewport, auth/data state, scroll position, and whether the screenshot is `fullPage`.
 
 Complete production suite:
 
-- Use for full-site visual archive, release evidence, or design handoff.
+- Use for an explicitly complete full-site visual archive or design handoff.
 - Capture the full matrix below.
 - Save into a stable timestamped directory, for example `/tmp/covermate-production-snapshots-YYYYMMDD-HHMMSS/`.
 - Write `manifest.json` with every screenshot path and provenance.
@@ -26,8 +28,8 @@ Before every capture:
 1. Navigate to the intended URL, not a reused tab with unknown state.
 2. Wait for `domcontentloaded`.
 3. Wait for `document.fonts.ready`.
-4. Wait for network idle when possible.
-5. Wait an additional short settle window, normally 1000-2000 ms.
+4. Wait for the surface's actual hydrated/data state. Firestore listeners may keep the network active; network idle alone is not readiness.
+5. Ensure fonts and relevant images have settled, and metrics are numbers or a genuine explicit empty/error state rather than pending dashes.
 6. Disable non-essential animations for deterministic review when the task is not motion-specific.
 7. Record console errors and failed network requests in the manifest.
 
@@ -64,10 +66,11 @@ Capture these in Thai:
 For `public-motor-full`, prove that the route is the dedicated motor page with:
 
 - requested URL `/motor`;
-- canonical `https://covermate.vercel.app/motor`;
+- canonical `https://covermateinsurance.com/motor`;
 - local motor-page nav including `Home`;
-- visible `motor`, `motor-trust`, `motor-cover`, `insurers`, `tiers`, `how`,
-  `claim`, `renew`, `guides`, `faq`, and `talk` sections.
+- CMS-enabled sections among `motor`, `motor-trust`, `motor-cover`, `insurers`,
+  `tiers`, `how`, `claim`, `renew`, `faq` and `talk`. Guides now belong to FAQ;
+  do not force disabled sections visible merely for a screenshot.
 
 For `public-motor-alias`, prove the backward-compatible home alias contract with behavior evidence:
 
@@ -112,6 +115,9 @@ Signed-in/admin session:
 | ID | URL | Viewports | Mode |
 | --- | --- | --- | --- |
 | `admin-launcher` | `/admin` | desktop, tablet, mobile | viewport/context |
+| `admin-cases` | `/admin#operations` | desktop, mobile | list/search/filter state with settled summary |
+| `admin-case-detail` | `/admin#operations` with synthetic case | desktop, mobile | detail drawer and reachable Save |
+| `admin-case-conflict` | real or labeled fixture conflict | desktop, mobile when touched | retained draft and visible conflict/reload message |
 | `admin-analytics` | `/admin/analytics` | desktop, mobile | `fullPage: true` if long |
 | `owner-edit` | `/#edit` | desktop, mobile | viewport/context |
 | `owner-panel-sections` | `/#admin` Sections tab | desktop, mobile | viewport/context |
@@ -120,6 +126,14 @@ Signed-in/admin session:
 | `owner-panel-theme` | `/#admin` Theme & data tab | desktop | viewport/context |
 | `owner-panel-closed-reopen` | close the `/#admin` drawer | desktop, mobile | screenshot + reopen/Main controls |
 | `owner-preview` | `/#preview` | desktop, mobile | viewport/context |
+| `owner-history` | `/admin/edit` or `/admin/content` | desktop, mobile when touched | Undo/Redo state and Reset confirmation/recovery |
+
+Use `docs/ADMIN_LANGUAGE.md` for current Thai controls and familiar English
+workflow terms; older screenshots are not authority for English-only Admin.
+Cases requires an owner identity. Use clearly synthetic UAT records and filter
+captures to those records; do not expose customer details in shared evidence.
+Scroll the drawer so the state named in the evidence (such as a conflict
+message) is actually visible. Label body/detail scroll positions separately.
 
 Use a real admin session for production release evidence when available. If using a mocked localStorage session to bypass the gate, label it clearly as `authState: "mock-admin-session"` in the manifest and do not call it a real login flow.
 
@@ -131,7 +145,7 @@ Create `manifest.json` in the snapshot directory:
 {
   "site": "CoverMate",
   "capturedAt": "2026-07-31T00:00:00.000Z",
-  "baseUrl": "https://covermate.vercel.app",
+  "baseUrl": "https://covermateinsurance.com",
   "commit": "97181c7",
   "browser": "chromium",
   "notes": [],
@@ -139,8 +153,8 @@ Create `manifest.json` in the snapshot directory:
     {
       "id": "public-home-full",
       "path": "/tmp/covermate-production-snapshots-YYYYMMDD-HHMMSS/public-home-full-desktop.png",
-      "requestedUrl": "https://covermate.vercel.app/",
-      "finalUrl": "https://covermate.vercel.app/",
+      "requestedUrl": "https://covermateinsurance.com/",
+      "finalUrl": "https://covermateinsurance.com/",
       "viewport": { "name": "desktop", "width": 1440, "height": 900 },
       "fullPage": true,
       "authState": "signed-out",

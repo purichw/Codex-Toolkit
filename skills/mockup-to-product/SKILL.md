@@ -49,6 +49,11 @@ Record only material tradeoffs. Do not require a ledger entry or approval for
 every spacing adjustment. Ask before changing product meaning, removing a
 capability, exceeding scope, or contradicting an explicit design decision.
 
+Identify the product state shown, not just the route: empty versus populated,
+draft versus committed, active query, selected items and open disclosures can
+change the composition. Use a comparable real state for review; do not remove
+required results or choices to match an illustrative screenshot's height.
+
 ## Read The Whole Requested Surface
 
 Review at three scales before implementing, not only the first visible section:
@@ -66,6 +71,14 @@ Do not treat motifs or transparency as optional just because they are decorative
 Inspect the mobile reference independently; it may express a different grouping
 or priority rather than smaller desktop dimensions.
 
+When compactness is explicit, establish a page/section height budget from the
+actual reference content area, excluding device framing. Compare measured CSS
+height and viewport count in equivalent language/data/disclosure states. This
+is a project-specific target, not a universal number. Reordering old oversized
+sections does not reproduce a compact reference. Match the complete visual
+language, not only its sequence; see the compact-page lessons in
+[rework-patterns.md](references/rework-patterns.md).
+
 ## Implement With Judgment
 
 Work from composition to component geometry to visual finish, checking both
@@ -77,9 +90,17 @@ These are priorities, not a rigid sequence or an excuse to omit finish.
 - Use the existing shared owner for repeated semantics/behavior. Add a variant
   when contexts differ; sharing does not mean universal dimensions. If asked to
   apply across the site, map and migrate the relevant consumers, not just Home.
+  Establish shared outer widths, gutters and type roles before forcing different
+  task layouts into one component. A copied override or an unused shared file
+  is not consolidation. For cross-page work, read
+  [shared-surfaces.md](references/shared-surfaces.md).
 - Prefer the established icon library or assets. Adapt visual weight and optical
   size, not only the icon's name. Center compact controls and grouped tiles where
   the reference calls for it; do not center all prose by default.
+  Distinguish content alignment, peer-control alignment and the entire group's
+  placement within its parent. Match the reference's action shape and prominence;
+  a plain text link or a left-anchored group can remain a visible mismatch even
+  when its labels are centered. Keep the correct interaction semantics.
 - Treat transparent/opaque surfaces and motifs as design materials. Keep readable
   contrast, layering and non-intercepting decoration; support a solid fallback
   where transparency effects are unavailable. Do not add decoration to a utilitarian
@@ -91,6 +112,9 @@ These are priorities, not a rigid sequence or an excuse to omit finish.
   controls, safe areas, text wrapping and accessible touch areas. A small visible
   icon need not have a tiny hit target. Do not make the entire UI illegible just
   to match total screenshot height or a fixed column count.
+  Reduce competing control rows and excess containers before shrinking type.
+  Disclose secondary tools only with a visible path back; active queries, errors
+  and the primary result must not disappear as a side effect of compactness.
 - Keep internal scrolling, selected-state persistence, search, links, menu focus,
   intentional motion and keyboard behavior. Diagnose repeated animation at its
   own lifecycle instead of disabling desired motion; preserve reduced-motion
@@ -161,20 +185,40 @@ Use five questions, not an invented numerical similarity score:
 
 Fix material, in-scope gaps you can see yourself. Do not return repeated
 "closer now" updates while leaving obvious details for the user to discover.
-When a user reports a point defect, inspect the likely underlying pattern and
-affected neighbors rather than patching that element blindly. A newly discovered
-broader problem warrants scoping it, not silently redesigning unrelated routes.
+When the user says "ไม่เหมือน" (does not match), returns the same correction, or
+marks a screenshot, revisit the selected reference and current render before
+adding another cosmetic override. Translate the feedback into a concrete
+expected-versus-observed difference: group position, scale, whitespace, density,
+action treatment, image role or another visible relationship. Compare the
+enclosing composition as well as the marked element; a crop may identify the
+defect without showing the parent needed to diagnose it.
+
+Keep that correction as an acceptance criterion through the next render. Fix
+the relevant layout/component owner and inspect affected peers for the same
+cause, using [rework-patterns.md](references/rework-patterns.md) when helpful.
+Do not call an unresolved visible mismatch an "adaptation" without a concrete
+product constraint or user-authorized design choice. If the fix still fails,
+revise the diagnosis instead of stacking overrides or waiting for the user to
+spot it again. A newly discovered broader problem warrants scoping it, not
+silently redesigning unrelated routes.
 
 Capture current contextual reference/development evidence with `snapshot` when
 available, or equivalent browser tooling. For full-page work include whole-page
 or top/middle/bottom coverage and the required mobile view. A tiny repair needs
 only the changed area, neighbors and affected viewport(s). Label actual viewport,
 state and any inferred reference scale; never stretch or retouch the reference.
+For alignment evidence, include the parent boundaries and surrounding space;
+a tight crop of centered labels cannot prove the group itself is centered.
 
 Test touched behavior and risk, not every control on the site by habit. Keep
 existing dependencies and a usable dev server; do not reinstall, rebuild or run
 whole-site suites on each cosmetic iteration without a reason. Reuse unaffected
 evidence, but refresh the changed area and any overall composition it alters.
+
+After a component/media migration, check the rendered asset itself, not only
+its wrapper: images must load and remain visible; glyphs must have visible
+geometry. Exercise the changed CMS refresh/fallback or interaction path where
+relevant. Build success and DOM presence cannot detect every missing visual.
 
 ## Finish Clearly
 

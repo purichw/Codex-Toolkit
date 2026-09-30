@@ -30,7 +30,7 @@ version should run.
 | Global alias | Canonical skill | Context |
 | --- | --- | --- |
 | [`global-ios-app-development`](../skills/global-ios-app-development/SKILL.md) | [`ios-app-development`](../skills/ios-app-development/SKILL.md) | Cross-project iOS toolchain, build/device workflows and runtime troubleshooting. |
-| [`global-mockup-to-product`](../skills/global-mockup-to-product/SKILL.md) | [`mockup-to-product`](../skills/mockup-to-product/SKILL.md) | Authorized mockup adaptation, composition/detail review and product-preserving responsive implementation. |
+| [`global-mockup-to-product`](../skills/global-mockup-to-product/SKILL.md) | [`mockup-to-product`](../skills/mockup-to-product/SKILL.md) | Authorized mockup adaptation, same-state visual review, shared surfaces, and product-preserving responsive implementation. |
 | [`global-accessible-interaction`](../skills/global-accessible-interaction/SKILL.md) | [`accessible-interaction`](../skills/accessible-interaction/SKILL.md) | Accessibility, keyboard, focus, ARIA, contrast, touch, and modal/drawer behavior across projects. |
 | [`global-account-recovery-key`](../skills/global-account-recovery-key/SKILL.md) | [`account-recovery-key`](../skills/account-recovery-key/SKILL.md) | Provider-neutral recovery-key flows for auth and account reset patterns. |
 | [`global-admin-ops`](../skills/global-admin-ops/SKILL.md) | [`admin-ops`](../skills/admin-ops/SKILL.md) | Reusable admin portal, CMS, back-office, operator, lifecycle, and privileged-action workflows. |
@@ -81,7 +81,7 @@ version should run.
 | [`global-tts-audio-assets`](../skills/global-tts-audio-assets/SKILL.md) | [`tts-audio-assets`](../skills/tts-audio-assets/SKILL.md) | TTS audio generation, reuse, audit, QA, and data wiring across projects. |
 | [`global-uat-environment`](../skills/global-uat-environment/SKILL.md) | [`uat-environment`](../skills/uat-environment/SKILL.md) | Isolated preview/UAT and complete acceptance/required-check promotion evidence. |
 | [`global-ui-state-matrix`](../skills/global-ui-state-matrix/SKILL.md) | [`ui-state-matrix`](../skills/ui-state-matrix/SKILL.md) | UI state coverage beyond the happy path. |
-| [`global-ui-ux-expert`](../skills/global-ui-ux-expert/SKILL.md) | [`ui-ux-expert`](../skills/ui-ux-expert/SKILL.md) | Diagnosis, design tradeoffs, shared-component routing, contextual rules, alternatives, and evidence. |
+| [`global-ui-ux-expert`](../skills/global-ui-ux-expert/SKILL.md) | [`ui-ux-expert`](../skills/ui-ux-expert/SKILL.md) | Design judgment, product/CMS/session contracts, shared-component routing, alignment, and rendered evidence. |
 | [`global-ui-ux-orchestrator`](../skills/global-ui-ux-orchestrator/SKILL.md) | [`ui-ux-orchestrator`](../skills/ui-ux-orchestrator/SKILL.md) | Routing broad UI/UX work to the right focused skills. |
 | [`global-usage-budget-gate`](../skills/global-usage-budget-gate/SKILL.md) | [`usage-budget-gate`](../skills/usage-budget-gate/SKILL.md) | Compatibility alias for budget-aware depth routing now owned by `efficient-execution`. |
 

@@ -254,6 +254,13 @@ cannot prove whole-page/dashboard, page-length, or page-level reference parity.
 - Typical context: Selected image/HTML references, actual rendered product,
   fixed versus flexible constraints, shared owners, truthful data substitutions,
   desktop/mobile image inspection, scoped snapshots and affected behavior checks.
+- Updated guidance: Compare the same UI state, derive compactness from the
+  selected reference, and preserve real results and controls rather than copying
+  an illustrative height. Check alignment within controls, between peers, and
+  within groups; inspect actual asset geometry and repeated user corrections.
+  [Shared surfaces](../skills/mockup-to-product/references/shared-surfaces.md)
+  separates page frames, banners, imagery, and primitives with real consumer
+  migration and cross-page proof.
 - Boundary: Explicit exact matching uses `reference-to-a-tee`; inspiration-only
   work uses design-direction skills. Flexibility does not authorize lost features.
 
@@ -358,6 +365,19 @@ cannot prove whole-page/dashboard, page-length, or page-level reference parity.
   [evaluation protocol](../skills/ui-ux-expert/references/evaluation-protocol.md)
   for eight synthetic benchmark scenarios and matched human review. Pack
   validation does not establish improved taste or real user outcomes.
+- Redesign contracts: Read
+  [product redesign contracts](../skills/ui-ux-expert/references/product-redesign-contracts.md)
+  when restyling data-backed products. Preserve existing actions, navigation,
+  CMS ownership/publication, deliberate empty values, asynchronous editor state,
+  session boundaries, and realistic API fixtures. Shared appearance does not
+  imply shared authentication or permissions.
+- Visual verification: Inspect reference density and real imagery, carry explicit
+  user corrections into acceptance criteria, and verify control/peer/group
+  alignment. Center stat/KPI content and dropdown selections/options unless the
+  user overrides that preference; do not generalize it to prose or every input.
+  The QA checklist uses bounded font/image/data readiness, lazy-media activation,
+  scoped viewport coverage, and failure triage instead of fixed sleeps or
+  retry-until-green evidence.
 
 ### ui-ux-orchestrator
 
@@ -725,20 +745,25 @@ cannot prove whole-page/dashboard, page-length, or page-level reference parity.
 ### covermate-design-spec
 
 - Skill file: [../skills/covermate-design-spec/SKILL.md](../skills/covermate-design-spec/SKILL.md)
-- Description: Maintains, updates, audits, snapshots, and hands off the
-  CoverMate website and admin designs against the current production product
-  spec.
-- Use when: Working on CoverMate public visitor pages, the `/#motor` alias,
-  admin login, admin launcher, owner edit mode, owner arrange panel, admin
-  analytics, Claude Design handoffs, design reconciliation, responsive/UI
-  polish, production snapshot suites, Firestore CMS content behavior, SEO or
-  analytics design implications, or product decisions that must not drift.
-- Typical context: `/Users/point/CoverMate`, production
-  `https://covermate.vercel.app`, `docs/covermate-website-full-design-spec.md`
-  or the bundled `references/current-design-spec.md`, snapshot matrix in
-  `references/snapshot-suite.md`, current visitor/admin routes, Firestore CMS
-  source-of-truth rules, GA4/privacy guardrails, screenshots, and Claude Design
-  references.
+- Description: Maintains, audits, snapshots, and hands off CoverMate public/admin
+  design contracts using current checkout docs and a dated bundled fallback.
+- Use when: Working on compact Home, Articles publishing, Cases v2, admin
+  login/launcher/edit/arrange/analytics, CMS content/media, design handoffs,
+  copy voice, responsive polish, or product decisions that must not drift.
+- Typical context: The active task checkout (default `/Users/point/CoverMate`),
+  the recorded production domain `https://covermateinsurance.com`, current
+  `docs/HANDOFF.md` and task-specific product docs, the bundled
+  `references/current-design-spec.md`, and scoped `references/snapshot-suite.md`.
+  Current project evidence overrides dated candidate or historical inventories;
+  the bundled spec does not establish which revision is deployed.
+- Updated contracts: Preserve CMS-owned section visibility/order and intentional
+  empty values, bilingual FAQ editing, Articles publication rules, Cases v2 draft
+  conflicts, separate draft history versus live-publish rollback, selected
+  Cloudinary media handling, and source/default changes versus CMS publication.
+- Portability and reconciliation: Bundled links into `/Users/point/CoverMate/docs`
+  require that project checkout and are not included in this toolkit. The skill
+  entrypoint retains older `#insurers`/`#motor` wording than the bundled spec;
+  resolve anchor behavior from current project docs/runtime before changing it.
 
 ### covermate-new-chat
 
@@ -750,13 +775,17 @@ cannot prove whole-page/dashboard, page-length, or page-level reference parity.
   checklist, required docs/skills/setup for CoverMate, or wants a future chat to
   know what to read before visitor, admin, CMS, Firebase, analytics, Claude
   Design, QA, snapshot, UAT/regression, push, deploy, or consistency work.
-- Typical context: `/Users/point/CoverMate`, git status, `README.md`,
+- Typical context: The active task checkout (default `/Users/point/CoverMate`),
+  git status, `README.md`,
   `PROJECT_MAP.md`, `docs/ADMIN_CMS_REBUILD_DECISIONS.md`, `docs/HANDOFF.md`,
   `docs/RELEASE_RUNBOOK.md`, task-specific CoverMate docs/source areas, current
   on-disk skills, durable route/admin/CMS rules, proportional UAT triggers, and
   `references/new-chat-context.md`.
-- Updated context includes preview-based UAT, explicit local smoke URLs,
-  deployed-media checks and legacy insurer-logo normalization.
+- Updated context includes compact Home and Articles, Cases v2, CMS publication
+  and editor-history boundaries, Thai admin copy, Cloudinary media, customer-facing
+  copy voice, and one-time legacy insurer migration that preserves later CMS
+  edits. Refactor/release work records the UAT baseline and exact production
+  revision; do not switch checkouts or infer deployed state from fallback notes.
 
 ## DOOTAA
 

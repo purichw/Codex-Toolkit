@@ -52,6 +52,45 @@ relevant specialist only for the present risk, not all specialists by default.
 Use `$reference-to-a-tee` for image/HTML/mixed fidelity rather than inventing
 alternative art directions for a faithful-copy request.
 
+## Reference-Led Redesigns
+
+Match the reference's density, grouping, surface contrast, illustration style,
+icon weight and complete page rhythm, not just its section order. Rebuild legacy
+geometry when authorized. Derive compactness targets from the current reference
+and real content; never generalize one project's palette or viewport count.
+Preserve CMS/Admin ownership while changing presentation. Check optical image
+size, equal collapsed peers, disclosure insets and tablet touch behavior as well
+as desktop/mobile composition. Personally open and inspect captured images before
+claiming fidelity; a screenshot path or green functional tests are not that review.
+Use `$mockup-to-product` for flexible translation and `$reference-to-a-tee` for
+explicit faithful/exact targets.
+
+Treat a mockup as presentation evidence, not a complete feature or data schema.
+Reconcile existing capabilities with the reference before replacing a screen.
+Keep supported fields/actions accessible even when absent from the mockup. Do
+not invent persistence, permissions, metrics, or service availability to make a
+reference-only control appear functional; resolve that dependency and record
+user-approved deferrals with their reintroduction condition in project docs.
+
+## Data-Backed Redesigns
+
+When a redesign touches CMS editing, publication, live content, or an Admin
+workflow, read [product-redesign-contracts.md](references/product-redesign-contracts.md).
+It covers shell reachability, shared UI versus session boundaries, field ownership,
+import/editor/export parity, explicit clearing, async form stability, and evidence
+that distinguishes a working UI from a richer test fixture.
+Use `$admin-ops` or `$product-ux-contracts` for deeper workflow work
+only when the touched risk warrants it. A visual cleanup is not authorization to
+migrate content, enable a service, or write to production.
+
+For nontechnical operators, make the supported workflow usable without code:
+use task-based labels in the audience's language, explain unfamiliar fields,
+and supply realistic sample values where users must enter or map data. Keep
+internal paths, schema keys and raw JSON out of the primary task. Verify a
+registry, option or action has a real purpose before exposing it; scaffolding
+and dead stubs are not useful navigation. Removing UI clutter does not itself
+authorize deleting stored data or supported capabilities.
+
 ## Shared Component Decisions
 
 When the task exposes repeated UI, copy-forked components, the same fix in
@@ -65,6 +104,12 @@ its semantics, behavior, and reasons to change belong together, not merely
 because screenshots or CSS look similar. Choose the smallest useful shared
 unit: tokens/styles, helper/hook, UI primitive, or feature/domain pattern. Keep
 different workflows separate and prefer composition over page-specific flags.
+
+Consistency includes behavior: comparable controls should preserve keyboard,
+focus/dismissal, scrolling, reset, loading, and recovery conventions across public
+and Admin surfaces, even when separate implementations are justified. Reuse the
+existing primitives instead of copying their appearance. Shared branding or a
+shared login form does not decide session, permission, or business-state ownership.
 
 Before extraction, define props/events, state ownership, styling/layout
 boundaries, and preserved behavior. Migrate the in-scope consumers to the real
@@ -97,8 +142,8 @@ Load extra files only when needed:
   engines, safe areas, keyboard, zoom, media, and performance.
 - `references/anti-slop-examples.md`: diagnose generic, AI-made, decorative, or
   visually weak output.
-- `references/qa-checklist.md`: final visual QA when screenshots or DOM reads
-  can verify the result.
+- `references/qa-checklist.md`: state-specific capture readiness, failed-check
+  triage, and final visual QA when screenshots or DOM reads can verify the result.
 - `$design-quality-review`: rigorous severity-tagged review, rule IDs, or
   definition-of-done work.
 - [evaluation-protocol.md](references/evaluation-protocol.md): benchmark this
@@ -120,11 +165,45 @@ Load extra files only when needed:
 - Public and editorial surfaces may be expressive; admin, CMS, CRM, ledger,
   dashboard, and operator surfaces should be quiet, dense, and predictable.
 - Use hierarchy from size, weight, position, and spacing, not color alone.
+- Stat/KPI cards always center their content horizontally and vertically:
+  center the icon, value, label, and supporting text as a balanced group, with
+  centered text on desktop and mobile. Prefer a centered vertical stack; keep
+  wrapping and equal peer sizing stable. This is the user's explicit design
+  preference, not a rule for tables, forms, prose, or every card. Only depart
+  from it when the user explicitly requests a different stat-card alignment.
+- Dropdown/select text is centered by default, both the selected value and
+  option labels, on desktop and mobile unless the user explicitly requests
+  otherwise. This is the user's design preference. Reserve balanced space for
+  chevrons/checkmarks so they do not shift the text off-center; preserve readable
+  wrapping, keyboard behavior, and native platform limitations. Do not center
+  unrelated form labels or text inputs as a side effect.
 - Use a coherent role-based type, color, and spacing system. As fallbacks use
   1-3 fonts, 0-2 accents, and grid/flex `gap`; context and script coverage matter
   more than meeting these example counts.
 - Use real assets when possible. Use labeled placeholders for unknown assets,
   data, logos, metrics, testimonials, legal, or medical copy.
+
+### Alignment And Action Affordance
+
+- Check three distinct relationships: content inside a control, peer controls
+  beside one another, and the whole group inside its parent. When the user says
+  "center" on a pictured action group, check the group's position in the card
+  or section as well as its labels/icons. Centered text does not center a group.
+  Use balanced surrounding space and a suitable group width; preserve readable
+  alignment of nearby prose, labels and tables.
+- Align the actual interactive boxes in a row. A select's label/helper wrapper
+  is taller than the select itself; centering a neighboring upload button against
+  that wrapper can visibly lift it. Use compatible control heights and align
+  their edges within the existing design system. Check wrapping and responsive
+  stacking; equal peer widths are appropriate when the design calls for them,
+  not for every action. Do not generalize one screen's pixel dimensions.
+- Make task actions such as upload, download and save visibly recognizable as
+  controls, with the intended surface/border, padding, shape and focus treatment.
+  A button class on an anchor does not prove it renders as a button: tag-specific
+  CSS may supply only part of the appearance. Keep correct semantics, including
+  real links for downloads/navigation and buttons for in-page actions; ordinary
+  prose links need not become buttons. Inspect the rendered result and verify
+  the relevant action still works after changing its element or styling.
 
 ## Interaction And State Rules
 
@@ -149,7 +228,8 @@ Avoid these unless a real brand explicitly requires them:
 - rounded card plus thick left accent stripe as a default pattern;
 - decorative stat counters, fake percentages, or invented chart data;
 - filler sections, lorem ipsum, generic claims, or fake screenshots;
-- centering everything instead of using a real grid;
+- centering everything instead of using a real grid (stat/KPI card contents and
+  dropdown text follow the centered alignment rules above);
 - complex hand-drawn SVG illustrations where real images or labeled
   placeholders would be clearer.
 
@@ -176,6 +256,8 @@ Before final response on UI work, check:
 - hierarchy works in grayscale;
 - type, spacing, radius, shadow, and accents are consistent;
 - controls match the choice model;
+- action affordance and all three alignment relationships hold in the rendered
+  UI; evidence includes the parent edges and surrounding space needed to judge;
 - data views include relevant loading/empty/error/edge states;
 - destructive behavior is safe;
 - mobile has no overflow, clipping, tiny targets, or hover-only affordances when
@@ -188,6 +270,13 @@ If a visible issue remains and is practical to fix now, fix and re-render before
 closing. Compare the same viewport/state/content; vary only the intended design
 change where possible. If evidence contradicts the diagnosis, revise it instead
 of accumulating cosmetic fixes. One improvement does not establish general taste.
+
+Treat explicit user corrections as acceptance criteria for the current scope.
+Before closing a repeated correction, recheck that criterion and the affected
+neighboring pattern against the latest chosen reference. A small fix needs a
+current contextual render and targeted checks, not a new whole-site audit or
+tests that merely assert the CSS you just wrote. Use geometry measurements when
+they resolve uncertainty; they supplement personal visual inspection.
 
 ## Closeout
 
