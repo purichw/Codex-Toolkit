@@ -13,6 +13,8 @@ Use `$efficient-execution` when the user asks to make commit/push/deploy faster
 or when the gate is taking longer than the risk justifies.
 Use `$usage-budget-gate` before broad release checks when the correct depth is
 unclear or the user asks to control usage.
+Use `$github-actions-repair` when a GitHub Actions failure needs diagnosis or
+repair; return here to assess readiness from the resulting evidence.
 
 ## Fast Protocol
 
@@ -85,6 +87,12 @@ Use these as starting packs, then adapt to repo-defined commands:
 - **Docs-only:** inspect diff, run `git diff --check`, docs lint/build when the
   repo defines one, and confirm no generated runtime artifact changed
   accidentally.
+- **CI workflow/setup:** validate the changed YAML/shell and inspect affected
+  triggers, permissions, checkout refs, and timeouts. Verify the relevant remote
+  run containing the fix. For setup-only changes, targeted checks plus that run
+  can provide evidence without a duplicate full local suite or new UI audit;
+  preserve all existing required checks. Use `$prod-smoke-harness` when real
+  authenticated deployment checks are part of the acceptance criteria.
 - **Frontend UI:** targeted lint/typecheck/build, browser route check, console
   and failed request check, `$snapshot` evidence when visual, `$mobile-web-qa`
   when responsive/mobile risk exists, `$ui-state-matrix` for non-happy states,
@@ -164,6 +172,14 @@ reference manifest with the same HTML SHA, targeted tests already run after the
 latest edit, or CI for the exact pushed commit. Stale screenshots, old preview
 URLs, pre-hydration captures, and checks run before the last relevant edit are
 not release evidence.
+
+For CI evidence, record the run link/ID, attempt, tested SHA, relevant jobs, and
+terminal conclusions. Verify that the trigger/ref covers the release candidate;
+for PR merge or merge-queue runs, identify the candidate merge revision as well.
+For deployment checks, also match the environment and deployed build/URL when
+identifiable. A green workflow whose required test jobs were skipped does not
+prove that coverage ran; confirm the required coverage actually executed.
+Secret presence alone does not prove a required authenticated smoke passed.
 
 ## Decision
 

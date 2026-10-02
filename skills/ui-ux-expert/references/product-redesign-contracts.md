@@ -96,6 +96,54 @@ last-known-good content, preserve its explicit freshness/error policy. State
 build-time boundaries, such as new static routes or SEO metadata, instead of
 claiming immediate synchronization.
 
+## Visual Editing Is Part Of The Product Contract
+
+Apply this section when the requested design must be authored in an editor.
+Trace each touched feature through schema/node model -> editing controls ->
+serialization/sanitization -> saved content -> canvas, preview, and public
+renderers. A front-end component or a richer fixture does not prove the editor
+can produce it. Prefer shared block definitions, typography, and rendering rules
+where semantics match; if the editor needs a separate rendering adapter, verify
+its parity explicitly instead of maintaining unrelated visual defaults.
+
+The live editable canvas must show the authored type, block treatments, media
+frames, spacing, and supported composition while typing. Selection outlines,
+handles, and toolbars may surround the content without changing its geometry.
+Compare at an equivalent content width and responsive mode. Preview checks the
+complete page shell and surrounding layout at realistic desktop/mobile widths;
+it must not be the first place the authored design becomes visible.
+
+Make the requested composition genuinely authorable:
+
+- Map supported operations for each in-scope block: insert, edit, reorder,
+  remove, visibility, and placement. Examples include moving a summary into the
+  middle, inserting an illustration at the selected position, editing a sidebar
+  quote, and editing or hiding decorative copy. Expose real controls rather than
+  requiring raw JSON or code. Do not imply unrestricted placement when only
+  specific regions or ordering are supported; implement the requested freedom
+  or resolve the material limitation instead of silently narrowing the request.
+- Define how sidebar/column content relates to the main flow and where it moves
+  on mobile. Persist ordering and visibility consistently across renderers.
+- Give each authored block one canonical owner. A removed/hidden summary or
+  quote must not survive as a second metadata-generated block or return through
+  a default fallback. Keep explicit off/empty distinct from never configured;
+  any retained legacy content must be reachable and understandable in the editor.
+- Match the approved reference by default, using role-specific typography.
+  When requested, provide semantic H1/H2/H3/H4/P choices and independent custom
+  font-size controls. Preserve valid overrides through saving and sanitization;
+  resetting restores the defined role baseline. Confirm actual font loading,
+  weights, and script coverage, not just a CSS family name. Project-specific
+  choices such as CoverMate's Google Sans do not become a global skill default.
+
+Verify the touched operations through the real editor UI using isolated content:
+create/edit -> move or insert -> hide/remove -> save/reopen -> preview -> public
+renderer. Include the relevant size override and a clear/delete case when these
+contracts change. Use the actual save/projection path; a direct database seed
+alone cannot prove authorability. Do not mutate production content solely for
+QA. Personally inspect the canvas and rendered results at matching widths, and
+report which operations were exercised rather than claiming "anything anywhere."
+For a narrow fix, test the affected block and shared risk, not every editor feature.
+
 ## Import, Editor, And Export Parity
 
 When no-code data management is in scope, trace the same records through API

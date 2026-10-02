@@ -65,6 +65,19 @@ claiming fidelity; a screenshot path or green functional tests are not that revi
 Use `$mockup-to-product` for flexible translation and `$reference-to-a-tee` for
 explicit faithful/exact targets.
 
+For a whole-surface fidelity request, the user's marked examples are a minimum
+defect list, not the boundary of inspection. Compare the complete component
+anatomy: icon and badge, heading, body/list markers, artwork, attribution, and
+their spacing inside the parent. A generic colored box or a roughly related
+icon does not reproduce that composition. Check actual glyph shape, optical
+size, stroke/fill, and alignment, including branded share controls.
+
+Derive typography by role at the reference's content scale: heading levels,
+body, captions, and controls. Match the loaded font, weight, line height, text
+measure, wrapping, and margins; do not inflate all text to make it readable in
+a reduced screenshot. A requested font is project direction (for example,
+Google Sans for CoverMate), not a new default for unrelated brands.
+
 Treat a mockup as presentation evidence, not a complete feature or data schema.
 Reconcile existing capabilities with the reference before replacing a screen.
 Keep supported fields/actions accessible even when absent from the mockup. Do
@@ -79,6 +92,11 @@ workflow, read [product-redesign-contracts.md](references/product-redesign-contr
 It covers shell reachability, shared UI versus session boundaries, field ownership,
 import/editor/export parity, explicit clearing, async form stability, and evidence
 that distinguishes a working UI from a richer test fixture.
+For visual authoring, also apply its live-editor contract: the editable canvas
+must show the authored typography, blocks, and composition while editing.
+Preview checks the complete page layout; it must not be the first place the
+design appears. Verify that the requested design can be created through real
+editor controls and survives save/reopen, not just rendered from seeded data.
 Use `$admin-ops` or `$product-ux-contracts` for deeper workflow work
 only when the touched risk warrants it. A visual cleanup is not authorization to
 migrate content, enable a service, or write to production.
@@ -88,8 +106,11 @@ use task-based labels in the audience's language, explain unfamiliar fields,
 and supply realistic sample values where users must enter or map data. Keep
 internal paths, schema keys and raw JSON out of the primary task. Verify a
 registry, option or action has a real purpose before exposing it; scaffolding
-and dead stubs are not useful navigation. Removing UI clutter does not itself
-authorize deleting stored data or supported capabilities.
+and dead stubs are not useful navigation. When their removal is requested,
+remove unsupported entry points while preserving needed backend permissions
+and future role extensibility. Distinguish a dead feature from a working control
+temporarily disabled by permissions, loading, or validation. Removing UI clutter
+does not itself authorize deleting stored data or supported capabilities.
 
 ## Shared Component Decisions
 
@@ -177,6 +198,13 @@ Load extra files only when needed:
   chevrons/checkmarks so they do not shift the text off-center; preserve readable
   wrapping, keyboard behavior, and native platform limitations. Do not center
   unrelated form labels or text inputs as a side effect.
+- Table/grid column headings are centered by default as the user's stated
+  preference, including headings with sorting or filtering controls. Balance
+  indicator space so the label remains visually centered. Keep body cells
+  aligned for their content; this does not center every cell or form label.
+  When the user requests this across the site, update the relevant shared
+  owners and in-scope consumers, including Admin and public variants, rather
+  than applying an Articles-only override or a blanket centering selector.
 - Use a coherent role-based type, color, and spacing system. As fallbacks use
   1-3 fonts, 0-2 accents, and grid/flex `gap`; context and script coverage matter
   more than meeting these example counts.
@@ -185,6 +213,29 @@ Load extra files only when needed:
 
 ### Alignment And Action Affordance
 
+- For icon-only controls, center the glyph in both axes of the actual painted
+  button and hit area, then check the button within its toolbar or surrounding
+  frame. Inspect computed border-box sizes, padding, grid tracks and minimum
+  sizes: a centered SVG can still sit off-center in a mismatched parent. Keep
+  intrinsic SVG proportions and balanced insets; do not compensate for a broken
+  layout with an arbitrary glyph translation. Verify disabled/loading variants
+  and narrow viewports as relevant.
+- For layered controls such as enhanced native selects, measure the painted
+  field and overlaid hit area separately: their bounds must agree before
+  centering labels or chevrons. A taller transparent button can look centered
+  internally while its icon sinks below the visible field. Check closed/open
+  indicators, text clearance, adjacent controls and mobile touch sizing; use
+  the existing icon library and fix the sizing owner rather than adding offsets.
+- When alignment is requested across a product, inspect the shared owners and
+  representative public/Admin consumers, including open menus and dialogs.
+  Fix proven shared causes at their owner rather than adding page-by-page
+  offsets. Preserve intentional leading/trailing icons and left-aligned prose;
+  report which surfaces were actually rendered instead of claiming exhaustive
+  coverage from a source search alone.
+- Size noninteractive legends and captions around their content, not inherited
+  button hit-target heights. Remove excess reserved space without shrinking the
+  primary visualization. Recheck wrapping, filters and alternate layers so a
+  compact default does not cause clipping or unexpected layout shifts.
 - Check three distinct relationships: content inside a control, peer controls
   beside one another, and the whole group inside its parent. When the user says
   "center" on a pictured action group, check the group's position in the card
@@ -229,7 +280,7 @@ Avoid these unless a real brand explicitly requires them:
 - decorative stat counters, fake percentages, or invented chart data;
 - filler sections, lorem ipsum, generic claims, or fake screenshots;
 - centering everything instead of using a real grid (stat/KPI card contents and
-  dropdown text follow the centered alignment rules above);
+  dropdown text and table headings follow the centered alignment rules above);
 - complex hand-drawn SVG illustrations where real images or labeled
   placeholders would be clearer.
 
@@ -243,6 +294,13 @@ reference/parity work, formal audits, and final visual QA. Add mobile or
 side-by-side evidence when viewport behavior or comparison is in scope.
 For micro visual edits, keep this to the smallest useful current visual proof
 instead of expanding into a full visual QA run by default.
+
+When before/after comparison is requested, preserve the before state before
+editing. For repeated fidelity corrections, inspect reference, available before,
+and current after evidence at comparable viewport, content scale, and state;
+include desktop/mobile only as scoped. Show enough parent context to assess
+composition. If before evidence is unavailable, say so; do not reconstruct it
+and present it as a captured earlier state.
 
 If capture is genuinely blocked, state why, what was not visually verified, and
 the remaining risk. Do not silently skip snapshot evidence for UI/UX work.
@@ -264,6 +322,8 @@ Before final response on UI work, check:
   mobile/responsive behavior is touched or in scope;
 - console/network errors are absent when a browser check is practical;
 - visible content is real or clearly labeled placeholder;
+- for visual-authoring changes, the live editable canvas, saved/reopened content,
+  and preview/public renderer agree on the touched design and operations;
 - anti-slop tells are absent or intentionally justified.
 
 If a visible issue remains and is practical to fix now, fix and re-render before

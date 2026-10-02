@@ -101,7 +101,7 @@ For most changes, run:
 
 ```sh
 git diff --check
-python3 scripts/verify_skills.py --expected-count 136
+python3 scripts/verify_skills.py --expected-count 138
 ```
 
 The verifier checks skill frontmatter, folder/name consistency, Markdown links,

@@ -1,0 +1,4 @@
+interface:
+  display_name: "GitHub Actions Repair"
+  short_description: "Diagnose failed CI runs and verify focused fixes"
+  default_prompt: "Use $github-actions-repair to investigate failed GitHub Actions runs, fix the confirmed causes, and verify the relevant final runs."

@@ -51,6 +51,27 @@ that intentionally remain project-specific or specialized.
 - Typical context: `git status`, staged and unstaged diffs, affected surfaces,
   available test/build commands, browser verification for frontend changes, and
   deployment target.
+- CI evidence: Record run/attempt, tested SHA, relevant jobs, terminal results,
+  and deployment target where applicable. A green workflow with required tests
+  skipped, or secrets merely present, does not establish readiness. Route actual
+  Actions failure diagnosis to `github-actions-repair`.
+
+### github-actions-repair
+
+- Skill file: [../skills/github-actions-repair/SKILL.md](../skills/github-actions-repair/SKILL.md)
+- Global alias: [global-github-actions-repair](../skills/global-github-actions-repair/SKILL.md)
+- Description: Diagnoses failed GitHub Actions runs and verifies the smallest
+  evidence-backed repair without weakening checks or exposing credentials.
+- Use when: Investigating recurring failure emails, workflow logs, setup timeouts,
+  missing/scoped secrets, authentication failures, flaky checks, or a mismatch
+  between workflow ref and deployment target.
+- Typical context: Repository/workflow/event, branch/SHA, run ID/attempt,
+  first causal error, recent relevant runs, exact secret names and scope,
+  authorized workflow side effects, and terminal checks for the fixed revision.
+- Boundary: Ordinary release readiness belongs to `release-gate`; authenticated
+  live checks use `prod-smoke-harness`. Historical notifications are not proof of
+  a current failure. Reruns, publishing, production writes, and cross-chat work
+  still require their own applicable authorization; secret values stay out of chat.
 
 ### rollback-guardrail
 
@@ -127,6 +148,11 @@ that intentionally remain project-specific or specialized.
   smoke account policy, auth providers and roles, allowed live mutations,
   cleanup/reset path, routes to verify, console/network failure policy,
   snapshots, skipped checks, and release decision.
+- Actions integration: Reuse exact workflow secret names, check event/environment
+  access, and prove real sign-in on the intended target. An explicitly authorized
+  dedicated privileged test account may be appropriate; harness configuration
+  alone does not authorize production writes. Setup-only repairs may reuse the
+  existing required harness reports without a new full-site visual audit.
 
 ### production-asset-smoke
 
@@ -261,8 +287,15 @@ cannot prove whole-page/dashboard, page-length, or page-level reference parity.
   [Shared surfaces](../skills/mockup-to-product/references/shared-surfaces.md)
   separates page frames, banners, imagery, and primitives with real consumer
   migration and cross-page proof.
+- Authoring and fidelity: Match complete component anatomy, actual glyphs, and
+  role-specific typography at comparable content scale. For editable designs,
+  exercise real insertion/order/visibility/style controls and save/reopen, then
+  inspect live canvas, Preview, and public output. Preserve requested before
+  evidence before editing and disclose missing captures. A narrow viewport repair
+  checks affected views; a responsive/page-level claim needs desktop and mobile.
 - Boundary: Explicit exact matching uses `reference-to-a-tee`; inspiration-only
-  work uses design-direction skills. Flexibility does not authorize lost features.
+  work uses design-direction skills. Naming this skill does not override an exact
+  request. Flexibility does not authorize lost features or unsupported authoring.
 
 ### claude-to-a-tee
 
@@ -371,10 +404,18 @@ cannot prove whole-page/dashboard, page-length, or page-level reference parity.
   CMS ownership/publication, deliberate empty values, asynchronous editor state,
   session boundaries, and realistic API fixtures. Shared appearance does not
   imply shared authentication or permissions.
+- Visual authoring: The live canvas must display authored design while editing,
+  not only in Preview. Trace model, controls, serialization, persistence, and
+  all rendered consumers. Test UI-authored save/reopen, ordering/placement,
+  deliberate hide/remove states, and supported typography overrides. Seeded
+  fixtures alone do not prove those editing capabilities.
 - Visual verification: Inspect reference density and real imagery, carry explicit
   user corrections into acceptance criteria, and verify control/peer/group
-  alignment. Center stat/KPI content and dropdown selections/options unless the
-  user overrides that preference; do not generalize it to prose or every input.
+  alignment. Center stat/KPI content, dropdown selections/options, and table/grid
+  headings per the user's preferences; preserve content-appropriate body-cell,
+  prose, and input alignment. Measure painted controls and layered hit areas
+  separately; inspect icon geometry and surrounding parent space. Requested
+  before/after comparisons use real preserved captures, not reconstructed history.
   The QA checklist uses bounded font/image/data readiness, lazy-media activation,
   scoped viewport coverage, and failure triage instead of fixed sleeps or
   retry-until-green evidence.

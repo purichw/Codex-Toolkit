@@ -21,7 +21,9 @@ permission to omit observable details or call a different composition complete.
 - Explicit exact/to-a-tee/pixel-perfect requests belong to `reference-to-a-tee`.
   It also supports faithful adaptation, but this skill starts from product/design
   judgment rather than exact parity plus exceptions. Do not weaken an exact
-  request by switching modes because it is difficult.
+  request by switching modes because it is difficult. If the user names this
+  skill alongside an exact request, retain that constraint and load the exact
+  workflow; invoking this skill does not grant visual freedom.
 - Inspiration-only requests belong to general design direction. If intent is
   materially ambiguous, ask once; do not repeatedly ask about already-approved
   visual freedom. A reference alone does not authorize new features or a
@@ -68,6 +70,11 @@ Review at three scales before implementing, not only the first visible section:
 Keep a compact coverage list for a full page, including header and footer if in
 scope. Record detail work still pending while building the larger structure.
 Do not treat motifs or transparency as optional just because they are decorative.
+For a whole-surface request, annotated or repeatedly reported defects are the
+minimum to fix, not an exhaustive list. Inspect unmarked peers and the enclosing
+composition too. A summary's lightbulb, check markers, artwork, and spacing; a
+quote's mark and attribution; and the complete share-icon set are part of those
+components when shown in the reference, not optional finishing touches.
 Inspect the mobile reference independently; it may express a different grouping
 or priority rather than smaller desktop dimensions.
 
@@ -78,6 +85,13 @@ is a project-specific target, not a universal number. Reordering old oversized
 sections does not reproduce a compact reference. Match the complete visual
 language, not only its sequence; see the compact-page lessons in
 [rework-patterns.md](references/rework-patterns.md).
+
+Map the reference's typography by role at equivalent content scale, excluding
+device framing: title, H1-H4, body, metadata, and controls as relevant. Match the
+actual loaded family, weights, line heights, measure, wrapping, and paragraph
+spacing. Do not inherit oversized generic editor headings or enlarge every role
+because the reference image is small. Keep approved defaults separate from
+explicit author overrides; the default should already reproduce the design.
 
 ## Implement With Judgment
 
@@ -95,7 +109,10 @@ These are priorities, not a rigid sequence or an excuse to omit finish.
   is not consolidation. For cross-page work, read
   [shared-surfaces.md](references/shared-surfaces.md).
 - Prefer the established icon library or assets. Adapt visual weight and optical
-  size, not only the icon's name. Center compact controls and grouped tiles where
+  size, not only the icon's name. Compare glyph shape, stroke/fill, baseline,
+  badge/background, and container proportions; use proper brand marks where
+  required. A present but mismatched icon still needs correction.
+  Center compact controls and grouped tiles where
   the reference calls for it; do not center all prose by default.
   Distinguish content alignment, peer-control alignment and the entire group's
   placement within its parent. Match the reference's action shape and prominence;
@@ -137,6 +154,15 @@ metadata; do not create hard-coded competing sources. Reusable decorative brand
 art may be a design-system asset instead. Preserve licenses and required credit;
 a demo is not an attribution exemption. Use imagery tooling/skills as appropriate.
 
+For editable designs, prove authoring capability alongside public rendering.
+Apply the visual-editing contract in
+[product-redesign-contracts.md](../ui-ux-expert/references/product-redesign-contracts.md):
+the live canvas shows the design, Preview checks the complete page, and real
+controls support the requested insertion, ordering, placement, visibility, and
+typography overrides. A template-only summary or sidebar quote is insufficient
+when the user must edit or move it. Verify a UI-authored save/reopen round trip
+and its rendered consumers; do not claim freedom that only seeded content has.
+
 Separate **data differences** from **design differences**. Missing fields do not
 prevent matching supported grouping, alignment and visual weight. Reflow or
 rebalance truthful content; do not invent ratings, usage totals or auspicious
@@ -153,13 +179,15 @@ visual judgment from functional tests: no overflow and a green test suite do not
 prove design quality. Check at actual viewing size as well as a uniform whole-page
 overview when overall composition is in scope.
 
-**Personally inspect the rendered images on both desktop and mobile every time
-you assess mockup fidelity.** Capturing screenshots, receiving file paths, reading
+**Personally inspect the rendered images when assessing mockup fidelity.** For
+responsive/page-level work, include both desktop and mobile. Capturing screenshots,
+receiving file paths, reading
 computed styles, or sending a comparison to the user is not visual review. Open
 the actual images with an image-viewing tool and examine them yourself before
 asking the user to judge the result. Desktop approval cannot stand in for mobile
-review, or vice versa. For a small fix, inspect the changed region and neighbors
-on both sizes; do not expand that into an unrelated whole-site audit.
+review when required, or vice versa. For a narrow viewport-specific repair,
+inspect the changed region and neighbors at that viewport, plus breakpoints
+affected by shared styles; do not expand into an unrelated whole-site audit.
 
 Use comparable framing: separate desktop and mobile reference crops, remove only
 device/slide framing when needed, preserve aspect ratio, and label inferred CSS
@@ -168,7 +196,7 @@ at unequal scale and treat that as a reliable proportion check. For page-level
 work, inspect top/middle/bottom at readable size as well as the full-page rhythm.
 
 Review, identify the largest remaining visible gaps, fix the in-scope ones, then
-open fresh desktop and mobile renders again. Track concrete observations such as
+open fresh renders of the affected views again. Track concrete observations such as
 an oversized toolbar, displaced map, missing chevron, wrong image crop, or inflated
 card body. The user should not be the first person to discover these. If the user
 sets a target such as "85-90% like the mockup", treat it as a high-fidelity visual
@@ -207,6 +235,11 @@ available, or equivalent browser tooling. For full-page work include whole-page
 or top/middle/bottom coverage and the required mobile view. A tiny repair needs
 only the changed area, neighbors and affected viewport(s). Label actual viewport,
 state and any inferred reference scale; never stretch or retouch the reference.
+When before/after is requested, capture before editing and present a comparable
+reference/before/after view. For repeated mismatches, use available before
+evidence to verify the correction as well as the current target. Label missing
+before evidence honestly; do not recreate it as a claimed historical capture.
+For authoring work, include the live editor, not only Preview or the public page.
 For alignment evidence, include the parent boundaries and surrounding space;
 a tight crop of centered labels cannot prove the group itself is centered.
 
@@ -230,6 +263,8 @@ If visual capture is blocked, report what remains unverified.
 Likewise, distinguish "captured" from "personally visually inspected" in evidence
 notes. Keep an honest record of the views inspected and material differences;
 do not imply user approval or defer a known, practical visual fix to user review.
+For editor work, distinguish supported controls, persisted changes, rendered
+output, and visual parity; none alone proves the others.
 
 Keep the closeout brief: what was adopted/adapted, current visual proof, relevant
 checks and remaining limitations. Do not carry a deep audit into the next tiny

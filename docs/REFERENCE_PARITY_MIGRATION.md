@@ -84,7 +84,7 @@ Run from the repository root:
 
 ```sh
 python3 -m unittest discover -s skills/reference-to-a-tee/tests -v
-python3 scripts/verify_skills.py --expected-count 136
+python3 scripts/verify_skills.py --expected-count 138
 git diff --check
 ```
 

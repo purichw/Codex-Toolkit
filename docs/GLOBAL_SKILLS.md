@@ -30,7 +30,8 @@ version should run.
 | Global alias | Canonical skill | Context |
 | --- | --- | --- |
 | [`global-ios-app-development`](../skills/global-ios-app-development/SKILL.md) | [`ios-app-development`](../skills/ios-app-development/SKILL.md) | Cross-project iOS toolchain, build/device workflows and runtime troubleshooting. |
-| [`global-mockup-to-product`](../skills/global-mockup-to-product/SKILL.md) | [`mockup-to-product`](../skills/mockup-to-product/SKILL.md) | Authorized mockup adaptation, same-state visual review, shared surfaces, and product-preserving responsive implementation. |
+| [`global-mockup-to-product`](../skills/global-mockup-to-product/SKILL.md) | [`mockup-to-product`](../skills/mockup-to-product/SKILL.md) | Authorized mockup adaptation, complete anatomy, shared surfaces, live authoring, and scoped visual comparisons. |
+| [`global-github-actions-repair`](../skills/global-github-actions-repair/SKILL.md) | [`github-actions-repair`](../skills/github-actions-repair/SKILL.md) | Failed Actions diagnosis, scoped credentials, authorized reruns, and fixed-revision/target evidence. |
 | [`global-accessible-interaction`](../skills/global-accessible-interaction/SKILL.md) | [`accessible-interaction`](../skills/accessible-interaction/SKILL.md) | Accessibility, keyboard, focus, ARIA, contrast, touch, and modal/drawer behavior across projects. |
 | [`global-account-recovery-key`](../skills/global-account-recovery-key/SKILL.md) | [`account-recovery-key`](../skills/account-recovery-key/SKILL.md) | Provider-neutral recovery-key flows for auth and account reset patterns. |
 | [`global-admin-ops`](../skills/global-admin-ops/SKILL.md) | [`admin-ops`](../skills/admin-ops/SKILL.md) | Reusable admin portal, CMS, back-office, operator, lifecycle, and privileged-action workflows. |
@@ -69,19 +70,19 @@ version should run.
 | [`global-mobile-web-qa`](../skills/global-mobile-web-qa/SKILL.md) | [`mobile-web-qa`](../skills/mobile-web-qa/SKILL.md) | Responsive web QA across phone, tablet, and desktop. |
 | [`global-native-parity`](../skills/global-native-parity/SKILL.md) | [`native-parity`](../skills/native-parity/SKILL.md) | Native iOS/Android parity with web/product source of truth. |
 | [`global-placeholder-image`](../skills/global-placeholder-image/SKILL.md) | [`placeholder-image`](../skills/placeholder-image/SKILL.md) | Placeholder image sourcing, replacement, crop, and audit workflows. |
-| [`global-prod-smoke-harness`](../skills/global-prod-smoke-harness/SKILL.md) | [`prod-smoke-harness`](../skills/prod-smoke-harness/SKILL.md) | Production/preview smoke harness policy and evidence. |
+| [`global-prod-smoke-harness`](../skills/global-prod-smoke-harness/SKILL.md) | [`prod-smoke-harness`](../skills/prod-smoke-harness/SKILL.md) | Deployed smoke policy, approved accounts, Actions secret scope, and actual authentication/target evidence. |
 | [`global-product-ux-contracts`](../skills/global-product-ux-contracts/SKILL.md) | [`product-ux-contracts`](../skills/product-ux-contracts/SKILL.md) | Preserving product behavior while redesigning or refactoring UI. |
 | [`global-production-asset-smoke`](../skills/global-production-asset-smoke/SKILL.md) | [`production-asset-smoke`](../skills/production-asset-smoke/SKILL.md) | Deployed media and asset rendering checks. |
 | [`global-project-onboarding`](../skills/global-project-onboarding/SKILL.md) | [`project-onboarding`](../skills/project-onboarding/SKILL.md) | Reading and mapping unfamiliar or returning codebases before edits. |
 | [`global-regression-hunter`](../skills/global-regression-hunter/SKILL.md) | [`regression-hunter`](../skills/regression-hunter/SKILL.md) | Searching for repeated bug patterns and nearby regressions. |
-| [`global-release-gate`](../skills/global-release-gate/SKILL.md) | [`release-gate`](../skills/release-gate/SKILL.md) | Complete-deliverable, action-specific verification with required-check gates. |
+| [`global-release-gate`](../skills/global-release-gate/SKILL.md) | [`release-gate`](../skills/release-gate/SKILL.md) | Complete-deliverable gates with terminal CI, actually executed required checks, and matching revision/target. |
 | [`global-rollback-guardrail`](../skills/global-rollback-guardrail/SKILL.md) | [`rollback-guardrail`](../skills/rollback-guardrail/SKILL.md) | Risk-tiered rollback routing and authorized recovery for work-loss operations. |
 | [`global-site-maintainer`](../skills/global-site-maintainer/SKILL.md) | [`site-maintainer`](../skills/site-maintainer/SKILL.md) | Website maintenance where source, generated artifacts, tests, docs, and hosting must align. |
 | [`global-snapshot`](../skills/global-snapshot/SKILL.md) | [`snapshot`](../skills/snapshot/SKILL.md) | Screenshot/snapshot capture, crop, inspection, and presentation. |
 | [`global-tts-audio-assets`](../skills/global-tts-audio-assets/SKILL.md) | [`tts-audio-assets`](../skills/tts-audio-assets/SKILL.md) | TTS audio generation, reuse, audit, QA, and data wiring across projects. |
 | [`global-uat-environment`](../skills/global-uat-environment/SKILL.md) | [`uat-environment`](../skills/uat-environment/SKILL.md) | Isolated preview/UAT and complete acceptance/required-check promotion evidence. |
 | [`global-ui-state-matrix`](../skills/global-ui-state-matrix/SKILL.md) | [`ui-state-matrix`](../skills/ui-state-matrix/SKILL.md) | UI state coverage beyond the happy path. |
-| [`global-ui-ux-expert`](../skills/global-ui-ux-expert/SKILL.md) | [`ui-ux-expert`](../skills/ui-ux-expert/SKILL.md) | Design judgment, product/CMS/session contracts, shared-component routing, alignment, and rendered evidence. |
+| [`global-ui-ux-expert`](../skills/global-ui-ux-expert/SKILL.md) | [`ui-ux-expert`](../skills/ui-ux-expert/SKILL.md) | Design judgment, product/CMS/session contracts, shared components, alignment, live authoring, and rendered evidence. |
 | [`global-ui-ux-orchestrator`](../skills/global-ui-ux-orchestrator/SKILL.md) | [`ui-ux-orchestrator`](../skills/ui-ux-orchestrator/SKILL.md) | Routing broad UI/UX work to the right focused skills. |
 | [`global-usage-budget-gate`](../skills/global-usage-budget-gate/SKILL.md) | [`usage-budget-gate`](../skills/usage-budget-gate/SKILL.md) | Compatibility alias for budget-aware depth routing now owned by `efficient-execution`. |
 

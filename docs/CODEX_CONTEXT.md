@@ -10,9 +10,9 @@ user's intent.
 - Local checkout used when this file was written: `/Users/point/Codex-Toolkit`
 - Visibility at initial setup: private
 - Purpose: archive and document the user's personal Codex skills
-- Current skill count: 136 `SKILL.md` files under `skills/`
-- Breakdown: 79 personal skill folders (including compatibility routers),
-  55 `global-*` alias skills for reusable non-project-specific workflows, and
+- Current skill count: 138 `SKILL.md` files under `skills/`
+- Breakdown: 80 personal skill folders (including compatibility routers),
+  56 `global-*` alias skills for reusable non-project-specific workflows, and
   2 standalone global design-spec skills.
 
 The first import copied personal skills from:
@@ -121,6 +121,7 @@ Expected current skill folders:
 - `firebase-account-management`
 - `firebase-security-rules`
 - `form-flow-ux`
+- `github-actions-repair`
 - `image-boundary`
 - `image-boundary-efficient`
 - `image-boundary-iteration`
@@ -225,7 +226,7 @@ updates, enough verification is usually:
 
 ```sh
 git diff --check
-python3 scripts/verify_skills.py --expected-count 136
+python3 scripts/verify_skills.py --expected-count 138
 ```
 
 For skill script changes, run the script's smoke-test or help path when one
