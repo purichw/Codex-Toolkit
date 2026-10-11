@@ -8,8 +8,10 @@ explicitly benchmarking it. Do not run the suite for ordinary UI edits.
 [cases.json](../evals/cases.json) contains eight synthetic scenarios, not real
 customer cases or observed results. They exercise diagnosis, tradeoffs,
 contextual rules, alternative selection, and evidence discipline. They need the
-listed fixtures before a rendered evaluation can run. No before/after UI assets
-or human scores are bundled; the baseline performance is unmeasured.
+listed fixtures before a rendered evaluation can run. Three narrow runnable
+fixtures now cover dashboard, bilingual mobile form, and editorial work; the
+other scenario setups still need preparation. No human scores or agent A/B
+results are bundled; generalized performance remains unmeasured.
 
 [validate.py](../evals/validate.py) validates the scenario pack and emits a task
 brief without its review rubric. It does not call a model, render a UI, inspect
@@ -25,10 +27,79 @@ PYTHONDONTWRITEBYTECODE=1 python3 -m unittest discover -s evals/tests -v
 ```
 
 Use the emitted task brief with only its raw, prepared fixtures for the solver.
-Keep the reviewer rubric separate; do not supply the intended solution or a
-pre-filled critique. Human reviewers may inspect criteria after judging outputs.
+Omitting rubric text from a prompt is not isolation when the solver can read it
+on disk. The preparation tool below excludes evals, reviewer criteria, authored
+repair CSS and earlier outputs. Links to excluded evaluation resources are converted
+to explicit omission notes and recorded in the preparation manifest; runtime
+design guidance is retained. Mount only this prepared workspace in an
+authorized isolated runner; sibling folders on a full-access machine are NOT a
+security boundary. Keep the reviewer outside it. Human reviewers may inspect
+criteria after judging outputs.
 Use only authorized evaluation resources; this protocol does not authorize new
 tasks, paid model runs, production actions, or importing private project data.
+
+## Local Render And Fixture Commands
+
+Requirements: Python 3.10+, Node.js, Playwright, and installed Chrome or a browser
+path in CHROMIUM_BIN. Use existing bundled/runtime dependencies when available.
+OUT paths below are examples and must be new, outside the skill/input folder.
+No dev server is needed for these standalone local HTML fixtures.
+
+```sh
+node evals/gallery-check.cjs . /absolute/new/gallery-evidence
+node evals/fixture-check.cjs evals/fixtures /absolute/new/fixture-before --record-baseline
+node evals/fixture-check.cjs evals/fixtures /absolute/new/fixture-demo --calibration evals/calibration.css
+python3 evals/prepare.py --skill-root /absolute/baseline/ui-ux-expert --case dashboard --out /absolute/new/baseline-solver
+python3 evals/prepare.py --skill-root /absolute/candidate/ui-ux-expert --case dashboard --out /absolute/new/candidate-solver
+```
+
+Repeat preparation for mobile-form and editorial when evaluating those domains.
+For a real agent run, use its prepared TASK.md and equal model/instructions/tools/
+budget, then run fixture-check.cjs on the resulting app directory WITHOUT
+--calibration. The runner stays outside the solver workspace. It checks all
+fixtures; compare the chosen case and retain untouched cases as controls. Do not
+let unrelated fixture failures alter the predeclared acceptance scope.
+
+Gallery checks cover 1280x800, 768x1024, 390x844 and 320x800, default and long-copy
+states. Fixture checks cover 1280x800, 390x844 and 320x800: filtering/action
+feedback, invalid email/input retention/focus, and editorial content/bitmap.
+Reports contain hashes, browser/version, measurements/checks and captures.
+Open images yourself; the runner intentionally leaves them unreviewed.
+
+--record-baseline records known failures without making the process fail;
+the report still lists them. Never use it to pass a candidate or release gate.
+--calibration injects AUTHOR-WRITTEN repair CSS into the same fixtures. This is
+a teaching demonstration, not a solver output, A/B trial, or behavior proof for
+production components. Gallery controls remain mostly static.
+
+## Evidence Integrity Contract
+
+[../evals/evidence.py](../evals/evidence.py) checks an independently fixed matrix
+against current sources and a capture manifest. Minimal matrix:
+
+```json
+{
+  "schema_version": 1,
+  "source_files": ["screen.html", "screen.css"],
+  "required": [{"id": "phone-error", "route": "/settings", "viewport": [320, 800], "state": "error", "checks": ["input-retained"]}]
+}
+```
+
+The manifest has schema_version and captures. Each capture needs the same id,
+route/viewport/state, relative PNG file, sha256, source_hashes for the complete
+matrix source set, checks mapping required names to passed/failed/blocked/not_run,
+and review with nonempty reviewer and note. Freeze the matrix before capture;
+include all relevant sources/assets, not just the file last edited.
+
+```sh
+python3 evals/evidence.py --matrix /path/matrix.json --manifest /path/manifest.json --source-root /path/source --evidence-root /path/captures
+```
+
+The gate rejects missing states/files, stale source/image hashes, wrong routes/
+viewports/states, absent review, path escapes, and non-passing required results.
+Passing means metadata integrity only: it cannot choose adequate requirements,
+decode design intent or prove reviewer honesty. Negative unit tests demonstrate
+rejection; they do not establish taste. Keep visual/behavior/human layers separate.
 
 ## Matched Baseline And Candidate
 

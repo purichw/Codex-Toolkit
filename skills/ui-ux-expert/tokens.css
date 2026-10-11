@@ -1,27 +1,28 @@
 /* ui-ux-expert · tokens.css
- * A restrained, tasteful default design system. Drop into any project when the
- * user gives no brand. To re-theme: change ONLY --accent's hue, and optionally
- * warm/cool the neutrals (shift hue, keep chroma <= 0.02). Never touch the scales.
+ * Optional role-based starting values, not a universal brand or CSS reset.
+ * Use only when no project system or supplied direction exists. Adapt colors,
+ * density, type and geometry together; verify actual rendered contrast.
  */
 :root {
-  /* Neutrals — warm-tinted, never pure black/white */
-  --bg:        #faf9f6;
+  /* Neutral canvas; text roles remain readable on these light surfaces. */
+  --bg:        #f7f8fa;
   --surface:   #ffffff;
-  --ink:       #1a1917;
-  --muted:     #6b6a66;
-  --faint:     #9a998f;
-  --border:    #e7e5df;
+  --ink:       #202124;
+  --muted:     #5e636b;
+  --faint:     #666b73;
+  --border:    #dfe2e6;
+  --control-border: #858b94;
 
-  /* One accent — swap the hue only: 250 blue · 150 green · 25 red-orange · 300 violet */
-  --accent:    oklch(0.55 0.13 250);
+  /* Action accent, separate from semantic feedback. */
+  --accent:    #126b67;
   --accent-ink:#ffffff;
   --accent-soft: color-mix(in oklch, var(--accent) 12%, transparent);
 
   /* Feedback — use sparingly, only when semantically needed */
-  --success:   oklch(0.60 0.13 150);
-  --danger:    oklch(0.58 0.15 25);
+  --success:   #286541;
+  --danger:    #aa3043;
 
-  /* Spacing scale — use ONLY these */
+  /* Starting scale; extend named roles for evidenced project needs. */
   --s1:4px; --s2:8px; --s3:12px; --s4:16px; --s5:24px;
   --s6:32px; --s7:48px; --s8:64px; --s9:96px;
 
@@ -33,29 +34,11 @@
   --lh-tight:1.1; --lh-snug:1.3; --lh-body:1.55;
 
   /* Radius & elevation — pick one philosophy and hold it */
-  --radius:10px; --radius-lg:16px; --radius-pill:9999px;
+  --radius:8px; --radius-lg:8px; --radius-pill:9999px;
   --shadow-sm:0 1px 2px rgba(20,18,15,.06);
   --shadow-md:0 6px 24px -8px rgba(20,18,15,.14);
 
   /* Motion */
   --ease-out:cubic-bezier(.2,.8,.2,1);
   --dur-fast:150ms; --dur:250ms;
-}
-
-/* Sensible resets */
-*,*::before,*::after { box-sizing:border-box; }
-body {
-  margin:0; background:var(--bg); color:var(--ink);
-  font-size:var(--t-base); line-height:var(--lh-body);
-  -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility;
-}
-h1,h2,h3 { line-height:var(--lh-tight); text-wrap:balance; margin:0; }
-p { text-wrap:pretty; max-width:68ch; }
-a { color:var(--accent); text-underline-offset:2px; }
-a:hover { color:color-mix(in oklch, var(--accent) 80%, var(--ink)); }
-:focus-visible { outline:2px solid var(--accent); outline-offset:2px; }
-img { max-width:100%; display:block; }
-
-@media (prefers-reduced-motion: reduce) {
-  *,*::before,*::after { animation-duration:.01ms!important; transition-duration:.01ms!important; }
 }

@@ -47,7 +47,7 @@ accessibility. Use `viewport-fit=cover` so iOS safe-area variables work.
 ```css
 *, *::before, *::after { box-sizing: border-box; }
 html, body { margin: 0; }
-body { overflow-x: hidden; text-rendering: optimizeLegibility; }
+body { text-rendering: optimizeLegibility; }
 img, picture, video, canvas, svg { display: block; max-width: 100%; height: auto; }
 html { -webkit-text-size-adjust: 100%; }
 ```
@@ -59,7 +59,8 @@ html { -webkit-text-size-adjust: 100%; }
 - Resize continuously from about `320px` upward and fix the first breakage.
 - Prefer intrinsic CSS before media queries:
   - `repeat(auto-fill, minmax(260px, 1fr))` for card grids.
-  - `clamp()` for bounded fluid type and spacing.
+  - Bounded spacing with `min()`/`clamp()`; use role-based text sizes, not
+    viewport-width font scaling. Let text wrap and containers grow.
   - `min()`, `max()`, and `minmax()` for widths/gutters.
   - Container queries for reusable components inside sidebars, drawers, or
     narrow columns.
@@ -67,6 +68,8 @@ html { -webkit-text-size-adjust: 100%; }
   two-dimensional layout.
 - Use `gap` for sibling spacing. Avoid per-item margins that break on wrap.
 - Avoid fixed heights around text. Use `min-height` and let content grow.
+- Diagnose overflowing children, minimum sizes and grid tracks. Do not use
+  page-level `overflow-x:hidden` to conceal clipped content or focus rings.
 - Test short landscape phones and split-screen tablets; height is a constraint.
 
 ## Mobile Viewport Height
@@ -93,7 +96,10 @@ iOS Safari needs explicit care:
 - Test sticky/fixed bars with the keyboard; use `visualViewport` when needed.
 - Use `overscroll-behavior: contain` for internal scroll containers when page
   rubber-banding is disruptive.
-- Remember every iOS browser uses WebKit behavior.
+- Verify the actual browser engine and supported OS/region. Safari is WebKit;
+  do not infer every installed iOS browser's engine from its platform alone.
+  Apple documents [alternative engines](https://developer.apple.com/support/alternative-browser-engines/)
+  under specific conditions (checked 2026-10-12).
 
 Android needs breadth:
 
@@ -128,7 +134,9 @@ can have both coarse and fine pointers.
 ```
 
 - Never hide essential content or actions behind hover.
-- Tap targets should be at least `44 x 44px`; Android guidance is `48dp`.
+- Around `44 x 44` CSS px is a touch-comfort default, not a universal AA
+  threshold or a native-unit conversion. See
+  [accessibility-checks.md](accessibility-checks.md) for targets and exceptions.
 - Use Pointer Events for shared mouse/touch/pen interactions where appropriate.
 - Correct viewport meta prevents old tap-delay problems.
 
@@ -137,7 +145,7 @@ can have both coarse and fine pointers.
 Test engines, not browser logos:
 
 - Blink: Chrome, Edge, Opera, most Android, Android WebView.
-- WebKit: Safari and all iOS browsers.
+- WebKit: Safari and browsers that actually use WebKit on the tested platform.
 - Gecko: Firefox.
 
 Use progressive enhancement:
@@ -180,8 +188,10 @@ CSS/JS features, and provide a usable fallback below the support baseline.
 ## Accessibility and Preferences
 
 - Use relative units (`rem`, `em`, `%`, `ch`) where user zoom/settings should scale.
-- Layouts should survive `200%` zoom and `400%` reflow without page-level
-  horizontal scrolling.
+- Check text enlargement and browser zoom separately from viewport emulation.
+  Reflow should preserve content/operation at the relevant 320-CSS-pixel
+  equivalent; genuinely two-dimensional regions have exceptions. See the
+  accessibility reference rather than treating all horizontal scroll as failure.
 - Honor `prefers-reduced-motion` and any supported color-scheme choices.
 - Keep focus states visible and keyboard paths usable at every viewport.
 - Maintain readable measure, usually `60-75ch`, on wide screens.
@@ -215,11 +225,12 @@ Responsive also means fast on a mid-range phone:
 - [ ] Correct viewport meta with `viewport-fit=cover`; no zoom blocking.
 - [ ] Global box sizing; no page-level horizontal overflow at any width.
 - [ ] Mobile-first layout with breakpoints where content actually breaks.
-- [ ] Intrinsic grids and fluid type/spacing via `minmax()` and `clamp()`.
+- [ ] Intrinsic grids, bounded spacing, role-based type and content-driven reflow.
 - [ ] `svh`/`dvh` used instead of raw `100vh` for full-height mobile sections.
 - [ ] iOS safe areas and form input zoom behavior handled.
 - [ ] Android keyboard resize and relevant WebViews checked.
-- [ ] Tap targets are at least `44px`; essential actions are not hover-only.
+- [ ] Targets meet applicable size/spacing criteria and are comfortable for the
+  intended input; essential actions are not hover-only.
 - [ ] Robust font stack and deliberate native-control/scrollbar handling.
 - [ ] Feature detection used; no brittle user-agent sniffing.
 - [ ] WebKit, Blink, Gecko, and key WebViews tested as required.

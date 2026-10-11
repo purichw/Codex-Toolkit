@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>UI/UX evaluation fixtures</title>
+<link rel="stylesheet" href="fixture.css">
+<script src="fixture.js" defer></script>
+</head>
+<body>
+<p class="provenance">Synthetic evaluation content. No customer data or network writes.</p>
+<main>
+<section id="dashboard" hidden>
+  <header><p class="eyebrow">Dispatch desk</p><h1>Orders awaiting review</h1><p>Delivery dates and amounts use fixed synthetic records.</p></header>
+  <div class="toolbar"><label>Customer <input id="filter" type="search" placeholder="Find a customer"></label><span id="count" role="status">3 records</span></div>
+  <div class="table-scroll" tabindex="0" aria-label="Orders table">
+  <table><thead><tr><th>Customer</th><th>Delivery</th><th>Amount (THB)</th><th>Actions</th></tr></thead><tbody>
+    <tr data-customer="Northern regional community supply cooperative"><td>Northern regional community supply cooperative</td><td>15 Oct 2026</td><td class="amount">128,450.00</td><td class="actions"><button data-action="Review">Review</button><button data-action="History">History</button><button data-action="Copy ID">Copy ID</button><button data-action="Archive preview">Archive preview</button></td></tr>
+    <tr data-customer="Central library"><td>Central library</td><td>16 Oct 2026</td><td class="amount">7,800.00</td><td class="actions"><button data-action="Review">Review</button><button data-action="History">History</button><button data-action="Copy ID">Copy ID</button><button data-action="Archive preview">Archive preview</button></td></tr>
+    <tr data-customer="East learning centre"><td>East learning centre</td><td>Unknown</td><td class="amount">920.50</td><td class="actions"><button data-action="Review">Review</button><button data-action="History">History</button><button data-action="Copy ID">Copy ID</button><button data-action="Archive preview">Archive preview</button></td></tr>
+  </tbody></table></div>
+  <p id="detail" role="status">Select an action to inspect a synthetic record.</p>
+</section>
+<section id="mobile-form" hidden>
+  <header><p class="eyebrow">Delivery preferences</p><h1>Contact and delivery</h1></header>
+  <form novalidate>
+    <label class="field"><span class="field-name">ชื่อผู้รับการติดต่อและผู้ประสานงานสำรอง / Contact person</span><input name="contact" autocomplete="name" value="กนกวรรณ Example"><span class="hint">Use the full name shown on the delivery instructions.</span></label>
+    <label class="field"><span class="field-name">อีเมลสำหรับรับรายละเอียดการจัดส่ง / Delivery email</span><input name="email" type="email" autocomplete="email" value="not-an-email" aria-describedby="email-error"><span id="email-error" class="error" hidden>Enter a complete email address, for example contact@example.com. Your other details are retained.</span></label>
+    <label class="field"><span class="field-name">Preferred delivery date / วันที่สะดวกรับสินค้า</span><input name="date" type="date" value="2026-10-15"></label>
+    <label class="field"><span class="field-name">Delivery instructions / รายละเอียดเพิ่มเติม</span><textarea name="notes" rows="3">Please call the contact person before arriving at the north entrance.</textarea></label>
+    <button type="submit">Save preferences</button><p id="form-status" role="status"></p>
+  </form>
+</section>
+<section id="editorial" hidden>
+  <header><p class="eyebrow">Field Notes / Issue 08</p><h1>A slower route through the city: reading the waterfront one crossing at a time</h1><p class="deck">How a connected walking route can reveal details that disappear on a fast commute.</p><p class="byline">Synthetic editorial study · 12 October 2026</p></header>
+  <figure><canvas width="1000" height="360" role="img" aria-label="Synthetic route diagram: three crossings connect a footpath beside the river."></canvas><figcaption>Synthetic route diagram, not a real map. Three crossings connect the footpath.</figcaption></figure>
+  <article>
+    <p>Begin at the first crossing, where the path meets a small public square. From here the river remains visible between the trees, but the route is not a single uninterrupted line. Entrances, crossings and changes in level shape the way a walker reads the place.</p>
+    <p>A useful walking route makes its next connection easy to find without reducing every decision to a sign. The position of a crossing, a clear view ahead and space to stop can all contribute. These observations describe this fictional study, not measured outcomes from a real city.</p>
+    <h2>Continuity matters</h2>
+    <p>The middle crossing connects the path to a library entrance. Someone pausing to read the map should not block the route for others. The diagram keeps the crossings visible together so their relationship can be understood before the reader examines each one.</p>
+    <p>At the final crossing, the route turns toward a garden. The article ends here without making a claim about travel times or visitor satisfaction. A future field study would need observations from the actual place and from the people who use it.</p>
+  </article>
+</section>
+</main>
+</body></html>

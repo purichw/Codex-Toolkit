@@ -96,6 +96,9 @@ PYTHONDONTWRITEBYTECODE=1 python3 -m unittest discover -s skills/ui-ux-expert/ev
 ```
 
 These validate the input pack and brief/rubric separation, not design quality.
+The suite also tests stale/missing/wrong-state evidence rejection and solver
+workspace packaging. Gallery/fixture browser commands and the distinction
+between authored demonstrations and agent A/B runs are in the protocol below.
 Use its [evaluation protocol](../skills/ui-ux-expert/references/evaluation-protocol.md)
 for matched rendered runs and human review; never report those runs as completed
 just because the Python checks pass.

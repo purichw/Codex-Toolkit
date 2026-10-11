@@ -4,6 +4,12 @@ Use for ambiguous defects, consequential redesign, or conflicting principles.
 For a clear small edit, keep only the task, constraint, change, and relevant test.
 This is a decision method, not another mandatory review ceremony.
 
+For composition, inspect page sequence, section relationships and control detail
+at appropriate scales before choosing a repair. Use
+[composition-and-calibration.md](composition-and-calibration.md) for an
+observation-to-owner map and same-content domain counterexamples. Do not confuse
+its authored demonstration repairs with independent agent or human evaluation.
+
 ## Diagnose Before Prescribing
 
 1. State the task in product terms: who needs to decide or do what, in which

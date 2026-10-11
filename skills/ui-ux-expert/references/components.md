@@ -1,177 +1,130 @@
-# Component Gallery Spec
+# Component Patterns And Behavior Contracts
 
-> Source of truth: `tokens.css` (all values below reference its custom properties).
-> Every component lists all interactive states. Build to the **REQUIRED** lines;
-> **OPTIONAL** lines are polish. `assets` = markup you can copy verbatim.
->
-> Legend — **FACT** = defined in tokens.css / fixed by spec · **REC** = recommended
-> default, may adapt · **REQ** = must implement · **OPT** = polish · **?** = unknown,
-> ask or leave a labeled placeholder.
+Use existing project components first. The
+[static gallery](../assets/component-gallery.html) is an optional visual specimen
+using [fallback tokens](../tokens.css) plus a separate
+[gallery base](../assets/gallery-base.css). It simulates some states; it is not
+a production component library, complete accessibility example, or proof that
+dialogs, tabs, menus and notifications work. Do not copy its inert markup verbatim.
 
-State coverage required for every interactive component: **default · hover · focus-visible · active · disabled**, plus **error** and **loading** where the component accepts input or fetches.
+Apply states that exist in the real contract, not every possible state to every
+component. Above-field names, selects/date values, stats and table headers follow
+[user-preferences.md](user-preferences.md). Accessibility thresholds live in
+[accessibility-checks.md](accessibility-checks.md).
 
-Global focus rule (**FACT**, from tokens.css): `:focus-visible { outline:2px solid var(--accent); outline-offset:2px }`. Never remove it; components below only override when a tighter ring is needed.
+## Buttons And Action Links
 
----
+Match hierarchy to decision scope; several independent objects can each have an
+action without requiring deletion to reach "exactly one primary per view."
+Use buttons for actions, anchors for navigation/downloads. Preserve accessible
+names during loading and prevent duplicate operations, not all interaction.
 
-## 1. Button
-
-**FACT** shared box: `padding:var(--s3) var(--s5); border-radius:var(--radius); font:600 var(--t-base)/1 inherit; min-height:40px; display:inline-flex; align-items:center; gap:var(--s2); cursor:pointer; transition:background var(--dur-fast) var(--ease-out), border-color var(--dur-fast) var(--ease-out)`.
-
-| Variant | default | hover | active | disabled |
-|---|---|---|---|---|
-| Primary | `background:var(--accent); color:var(--accent-ink); border:0` | `background:color-mix(in oklch, var(--accent) 88%, black)` | `background:color-mix(in oklch, var(--accent) 78%, black)` | `opacity:.5; cursor:not-allowed` |
-| Secondary | `background:transparent; color:var(--ink); border:1px solid var(--border)` | `border-color:var(--ink); background:color-mix(in oklch, var(--ink) 4%, transparent)` | `background:color-mix(in oklch, var(--ink) 8%, transparent)` | `opacity:.5; cursor:not-allowed` |
-| Ghost | `background:transparent; color:var(--muted); border:0` | `color:var(--ink); background:color-mix(in oklch, var(--ink) 5%, transparent)` | `background:color-mix(in oklch, var(--ink) 9%, transparent)` | `opacity:.5; cursor:not-allowed` |
-
-- **REQ** exactly one primary per view. Touch target ≥44px → set `min-height:44px` on touch layouts.
-- **loading** (**REQ** when the click triggers async): swap label for a spinner, keep width, set `aria-busy="true"`, disable pointer. Do not collapse the button.
-- **OPT** `:active { transform:translateY(1px) }` for tactile feedback.
-
-```html
-<button class="btn btn--primary">Save changes</button>
-<button class="btn btn--secondary">Cancel</button>
-<button class="btn btn--primary" aria-busy="true" disabled><span class="spinner"></span>Saving…</button>
-```
+Valid fallback typography (the font shorthand cannot end in `inherit`):
 ```css
-.btn{padding:var(--s3) var(--s5);border-radius:var(--radius);font:600 var(--t-base)/1 inherit;min-height:40px;display:inline-flex;align-items:center;gap:var(--s2);cursor:pointer;border:0;transition:background var(--dur-fast) var(--ease-out),border-color var(--dur-fast) var(--ease-out)}
-.btn--primary{background:var(--accent);color:var(--accent-ink)}
-.btn--primary:hover{background:color-mix(in oklch,var(--accent) 88%,black)}
-.btn--primary:active{background:color-mix(in oklch,var(--accent) 78%,black)}
-.btn--secondary{background:transparent;color:var(--ink);border:1px solid var(--border)}
-.btn--secondary:hover{border-color:var(--ink);background:color-mix(in oklch,var(--ink) 4%,transparent)}
-.btn--ghost{background:transparent;color:var(--muted)}
-.btn--ghost:hover{color:var(--ink);background:color-mix(in oklch,var(--ink) 5%,transparent)}
-.btn:disabled{opacity:.5;cursor:not-allowed}
+.btn {
+  font-family: inherit;
+  font-size: var(--t-base);
+  font-weight: 600;
+  line-height: 1.3;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--s2);
+  min-height: 44px;
+  max-width: 100%;
+  padding: var(--s3) var(--s5);
+}
 ```
+The 44px height is a comfort default, not the definition of WCAG AA.
+Use the project's icon library for familiar tools, with tooltips where useful.
+Verify the painted hit box, glyph, peer row and whole group's alignment; text
+centering alone does not establish any of those.
 
-## 2. Text input
+## Text Fields And Validation
 
-**FACT** box: `padding:var(--s3) var(--s4); border:1px solid var(--border); border-radius:var(--radius); background:var(--surface); color:var(--ink); font-size:var(--t-base); width:100%`.
+Associate labels, hints and errors programmatically; placeholders are not labels.
+Keep entered values through failure. Use appropriate type/inputmode/autocomplete.
+A readonly value is not a disabled field, and an async request need not lock
+the whole form. Test late responses without overwriting dirty inputs or focus.
 
-| State | style |
-|---|---|
-| default | box above; label above in `var(--t-sm)` `var(--muted)` |
-| hover | `border-color:var(--faint)` |
-| focus | `border-color:var(--accent); outline:2px solid var(--accent-soft); outline-offset:0` |
-| disabled | `background:color-mix(in oklch,var(--ink) 3%,var(--surface)); color:var(--faint); cursor:not-allowed` |
-| error | `border-color:var(--danger)` + message below in `var(--t-xs)` `var(--danger)`; set `aria-invalid="true"` (**REQ**) |
-| loading/readonly | `readonly` + `var(--faint)` text; **REQ** don't fake as disabled if value is real |
+Avoid fixed heights around labels/errors. Test actual long multilingual labels,
+empty/populated native controls and text enlargement.
+Validation timing must serve correction, not interrupt every keystroke.
+GOV.UK's [validation guidance](https://design-system.service.gov.uk/patterns/validation/)
+distinguishes invalid input from service problems; do not tell users to fix a
+field when the server is unavailable. Its [error summary](https://design-system.service.gov.uk/components/error-summary/)
+pairs navigable summary errors with field messages. Adapt that pattern to the
+product rather than importing GOV.UK's exact wording or blanket summary rule.
 
-- **REQ** placeholder is a hint (`var(--faint)`), never a label replacement. **REQ** associate `<label for>`.
-- **OPT** leading/trailing icon inside the box with `var(--s2)` gap.
+## Selects, Choices And Switches
 
-```html
-<label class="field">
-  <span class="field__label">Email</span>
-  <input class="input" type="email" inputmode="email" autocomplete="email" placeholder="you@example.com">
-  <span class="field__error" hidden>Enter a valid email address</span>
-</label>
-```
+Prefer native elements or the project's tested primitive. A custom combobox,
+listbox and action menu have different keyboard/selection contracts; a generic
+div menu plus arrow keys is not interchangeable with all three.
+Preserve value/label association, selection, escape/dismissal and focus behavior.
+Test open and closed states; centered native text does not prove popup alignment.
+Keep checkbox/radio/switch captions leading-aligned. Use a switch when the on/off
+meaning and commit behavior are clear; do not replace a mutually exclusive radio
+group just because switches look cleaner.
 
-## 3. Select / dropdown menu
+## Cards
 
-**FACT** trigger = input box + trailing chevron. Menu: `background:var(--surface); border:1px solid var(--border); border-radius:var(--radius); box-shadow:var(--shadow-md); padding:var(--s1); max-height:320px; overflow:auto`.
+Use for distinct repeated objects or genuinely framed tools, not every section.
+Let text determine height; stabilize media aspect ratio and shared peer tracks.
+Equal peer geometry does not justify clipping meaningful content.
+A link card must not produce nested interactive controls or obscure its action.
+Loading placeholders should approximate content geometry without impersonating
+real content. Center KPI groups only, not every card's prose.
 
-| Item state | style |
-|---|---|
-| default | `padding:var(--s2) var(--s3); border-radius:calc(var(--radius) - 4px); color:var(--ink)` |
-| hover/highlighted | `background:color-mix(in oklch,var(--ink) 5%,transparent)` |
-| selected | `color:var(--accent); font-weight:600` (+ **OPT** check icon) |
-| disabled item | `color:var(--faint); cursor:not-allowed` |
+## Modal Dialogs
 
-- **REQ** keyboard: ↑/↓ move highlight, Enter selects, Esc closes, focus returns to trigger.
-- **?** async option loading → show a skeleton row set; do not show an empty menu.
+Use the established dialog primitive and verify actual focus containment,
+background inertness, Escape, accessible title, reachable long content, close
+action and appropriate focus return. Backdrop dismissal is a product decision,
+not a universal requirement, especially with unsaved work.
+Do not mark a static specimen `aria-modal="true"` without modal behavior.
+The [WAI-ARIA dialog pattern](https://www.w3.org/WAI/ARIA/apg/patterns/dialog-modal/)
+describes these contracts and context-sensitive initial/return focus.
+The gallery frame grows with content only to display the specimen; a production
+dialog needs bounded viewport height and a usable scrolling region.
 
-## 4. Checkbox & radio
+## Tabs
 
-**FACT** control 18px (20px touch), `border:1.5px solid var(--faint)`, `border-radius:4px` (checkbox) / `50%` (radio); `gap:var(--s3)` to label; entire label clickable.
+Use links for navigation, tabs for switching related panels. Real tabs need
+selection state, panel association and the correct keyboard model. Test focus
+and activation rather than adding tab roles to inert text.
+Wrap, scroll or change the navigation pattern deliberately when labels no
+longer fit; do not hide destinations behind page-level overflow clipping.
 
-| State | style |
-|---|---|
-| checked | `background:var(--accent); border-color:var(--accent)` + `var(--accent-ink)` glyph |
-| hover | `border-color:var(--accent)` |
-| focus | global ring on the control |
-| disabled | `opacity:.5; cursor:not-allowed` |
-| error (group) | group label + helper in `var(--danger)` |
+## Tables
 
-- **REQ** radio for mutually exclusive choices, checkbox for independent ones. Toggle (below) is not a form-choice control.
+Preserve table semantics: styling a `td` as grid/flex can break column geometry.
+Style an inner wrapper when needed. Center headers including balanced sort
+indicators; align body numbers for comparison and text for reading.
+Keep units, freshness, selection scope and actions visible where needed.
+Row density, vertical rules, zebra stripes and sticky headers are contextual.
+Verify empty/loading/error states, sorting, selection and keyboard access when
+those capabilities exist. Use a local scroll container for genuinely wide data,
+with discoverability and focus visibility; never hide page overflow as a fix.
 
-## 5. Toggle / switch
+## Status, Toasts And Progress
 
-**FACT** track 44×24, knob 20px, `2px` inset. off → `background:var(--border)`; on → `background:var(--accent)`; knob `background:var(--surface)`, `transition:transform var(--dur-fast) var(--ease-out)`.
+Status text must remain readable on its actual composited fill. Use words/icons
+as well as hue. If a chip is removable, its remove control needs a usable target
+and an accessible name.
 
-- States: hover `+2%` track darkening; focus global ring on track; disabled `opacity:.5`.
-- **REQ** use only for instant on/off state, not deferred form submission.
+Notifications must reflow at narrow widths and longer translations. Use live
+regions appropriate to urgency without announcing every static gallery item.
+Do not auto-dismiss an important error or sole recovery action. Timing, stacking,
+pause and dismissal depend on content and task, not a universal four-second rule.
 
-## 6. Card
+Use determinate progress only when the amount is known; announce meaningful
+progress without excessive updates. Skeletons/spinners are options, not required
+for every load. Reduced motion must preserve a clear loading status when motion
+stops. A simulated skeleton proves neither request handling nor loading recovery.
 
-**FACT** `background:var(--surface); border:1px solid var(--border); border-radius:var(--radius); padding:var(--s5)`.
+## Verification Boundary
 
-| State | style |
-|---|---|
-| default | box above; **OPT** `box-shadow:var(--shadow-sm)` |
-| hover (interactive only) | `border-color:var(--accent); box-shadow:var(--shadow-md); transition:var(--dur) var(--ease-out)` |
-| focus (if link/button card) | global ring on the card |
-| loading | skeleton (see "Progress & skeleton" below) inside the same box |
-
-- **REQ** border **or** heavy shadow, not both. Cards only for independent,
-  actionable objects (`SKILL.md` "Craft Rules"). Reading flows use dividers, not
-  cards.
-
-## 7. Modal / dialog
-
-**FACT** overlay `background:rgba(20,18,15,.45)`; panel `background:var(--surface); border-radius:var(--radius-lg); box-shadow:var(--shadow-md); padding:var(--s6); max-width:min(92vw,520px)`.
-
-- **REQ** trap focus; Esc closes; overlay click closes (non-destructive only); scroll-lock body; return focus to trigger on close; `role="dialog" aria-modal="true"` + labelled title.
-- Layout: title `var(--t-xl)` bold; close button top-right (ghost); actions bottom-right, primary rightmost.
-- **OPT** enter: overlay fade `var(--dur)`, panel `translateY(8px)→0` + fade.
-
-## 8. Tabs
-
-**FACT** row of labels, `gap:var(--s5)`; active `color:var(--ink)` + `2px solid var(--accent)` underline; inactive `color:var(--muted)`.
-
-| State | style |
-|---|---|
-| hover | inactive → `color:var(--ink)` |
-| focus | global ring on the tab |
-| active | underline + bold; `aria-selected="true"` |
-| disabled | `opacity:.5` |
-
-- **REQ** roving tabindex, ←/→ move, `role="tab"/"tablist"/"tabpanel"`. **OPT** animate underline position.
-
-## 9. Table
-
-**FACT** header `var(--t-sm)` `var(--muted)`; cell `padding:var(--s3)`; rows separated by `1px solid var(--border)`; numbers right-aligned, `font-variant-numeric:tabular-nums`.
-
-- States: row hover `background:color-mix(in oklch,var(--ink) 3%,transparent)`; sortable header hover shows arrow; selected row `background:var(--accent-soft)`.
-- **REQ** no vertical rules; zebra only for very dense tables. Sticky header
-  (`position:sticky;top:0`) for long tables. **REQ** empty state row using
-  `references/craft-defaults.md` microcopy rules when no data — never a blank
-  table.
-
-## 10. Badge / chip
-
-**FACT** `font-size:var(--t-xs); padding:2px 10px; border-radius:var(--radius-pill); background:var(--accent-soft); color:var(--accent)`. Radius pill is allowed **only here** and toggles.
-- Status: success/danger variants swap the two colors to `--success`/`--danger` at the same soft tint. Removable chip: trailing × button (ghost, focusable).
-
-## 11. Toast / notification
-
-**FACT** `background:var(--surface); border:1px solid var(--border); border-radius:var(--radius); box-shadow:var(--shadow-md); padding:var(--s3) var(--s4)`; container top/bottom-right; max 3 stacked; auto-dismiss ~4s.
-- **REQ** `role="status"` (info) / `role="alert"` (error); pause dismiss on hover/focus; dismiss button.
-- Type signalled by a 3px left accent bar or small colored icon — **REQ** not a full colored background.
-
-## 12. Progress & skeleton
-
-- **Skeleton** (**REQ** for content loads): shapes filled `background:var(--border)` with a shimmer `@keyframes` between `--border`↔`--bg`, `border-radius:var(--radius)`. Match the real content's box sizes.
-- **Determinate bar** (known progress): track `var(--border)`, fill `var(--accent)`, `role="progressbar"` with aria values.
-- **Spinner** (short indeterminate only): 2px ring, `var(--border)` track + `var(--accent)` head, `@keyframes spin`.
-- **REQ** honor `prefers-reduced-motion` → freeze shimmer/spin to a static state.
-
----
-
-## Gallery page (build this to verify all states at once)
-
-**REQ** produce `component-gallery.html` linking `tokens.css`, rendering every component above in a grid, each showing its states side by side (default / hover-simulated / focus / disabled / error / loading) with a label under each. This is the artifact the QA checklist screenshots.
-
-**?** Unknowns to leave as labeled placeholders, not inventions: real icon set, brand fonts, product copy, and any data shown in the table/cards.
+Use the real app's rendered states and behavior for delivery. Build a gallery
+only when requested or a shared-component change makes it useful. Copy visual
+patterns selectively, preserve the framework's APIs, and test affected consumers.

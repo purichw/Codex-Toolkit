@@ -10,14 +10,16 @@ generic manual.
 
 `ui-ux-expert` is useful as an operating discipline:
 
-- it prevents generic AI visual habits;
-- it forces system-first design;
+- it instructs the agent to diagnose generic visual output in context;
+- it prioritizes system-first design;
 - it routes to component, layout, responsive, token, and QA references;
 - it requires rendered visual evidence through `$snapshot`;
 - it keeps brand/production UI above generic defaults.
 - it now includes cause-directed diagnosis, explicit tradeoffs, contextual rules,
   selective alternatives, and a matched evaluation protocol with eight synthetic
-  scenarios. Those scenarios have not established a measured quality improvement.
+  scenarios, three runnable synthetic fixtures, authored same-content calibration
+  repairs, and negative evidence-integrity tests. These are tools and examples,
+  not measured agent A/B improvement or independent human review.
 
 It is not yet equivalent to a senior product designer's trained eye. It lacks a
 large library of nuanced, domain-specific examples and critique patterns.

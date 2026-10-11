@@ -396,8 +396,12 @@ cannot prove whole-page/dashboard, page-length, or page-level reference parity.
   checklist. See [design judgment](../skills/ui-ux-expert/references/design-judgment.md)
   for consequential decisions and
   [evaluation protocol](../skills/ui-ux-expert/references/evaluation-protocol.md)
-  for eight synthetic benchmark scenarios and matched human review. Pack
-  validation does not establish improved taste or real user outcomes.
+  for eight synthetic scenarios, three runnable domain fixtures, authored
+  same-content demonstrations, negative evidence-integrity tests, and a matched
+  human-review protocol. Core instructions are routed by task; tokens contain
+  no global reset. Structural/rendered/behavior/comparative results stay separate.
+  No agent A/B improvement or real user outcome is established by those tools.
+  See the [2026-10-12 update report](UI_UX_EXPERT_UPDATE_2026-10-12.md).
 - Redesign contracts: Read
   [product redesign contracts](../skills/ui-ux-expert/references/product-redesign-contracts.md)
   when restyling data-backed products. Preserve existing actions, navigation,

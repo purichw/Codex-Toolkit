@@ -5,19 +5,23 @@
 > `tokens.css` defaults. Fill only what you can source; leave the rest marked
 > `UNKNOWN — ask`. **Do not invent brand facts.**
 >
-> Precedence: **brand facts here > global ui-ux-expert defaults**. Where this file
-> is blank/UNKNOWN, fall back to `tokens.css`.
+> Precedence: current explicit direction and established product contracts win;
+> sourced brand facts override fallback defaults. Blank fields do not authorize
+> replacing the existing system. Inspect local tokens/components first.
 >
 > Legend for every field: **FACT** = sourced from a real brand asset (link it) ·
 > **ASSUMPTION** = reasonable default you chose, flag it for review ·
-> **UNKNOWN** = not provided, must ask before shipping anything that depends on it.
+> **UNKNOWN** = not provided; ask only if consequential, otherwise preserve the
+> current product or record a reversible assumption.
 
 ---
 
 ## 0. Source of brand truth (fill first)
 
 - Brand assets provided: `<links: brand guide / Figma / logo files / live site>` — or **UNKNOWN**
-- If UNKNOWN → **REQ** ask the user for the brand guide/site before styling; use `tokens.css` meanwhile and flag output as unbranded.
+- If UNKNOWN, inspect existing production UI and project assets. Ask only when
+  missing direction materially changes the work. Use fallback tokens only when
+  no applicable system/direction exists; do not rebrand while waiting.
 
 ## 1. Logo & name
 
@@ -28,7 +32,8 @@
 
 ## 2. Color tokens (override tokens.css)
 
-Provide real values; keep the same variable NAMES so components keep working.
+Record real values using the project's variable names. The block below is a
+role-mapping worksheet, not executable CSS; do not paste empty declarations.
 ```css
 :root {
   --bg:        /* FACT|ASSUMPTION: */ ;
@@ -44,7 +49,8 @@ Provide real values; keep the same variable NAMES so components keep working.
   --danger:    ;
 }
 ```
-- **REQ** if only a primary is given, derive neutrals/soft/feedback from it but **flag as ASSUMPTION**.
+- If only a primary is given, retain existing neutral/feedback roles. In truly
+  unbranded work, propose missing roles as assumptions and verify actual pairs.
 - **REQ** verify text-on-accent and body contrast after overriding.
 - Semantic colors (success/danger/warning): `<brand values>` — **FACT / ASSUMPTION**
 
@@ -53,15 +59,16 @@ Provide real values; keep the same variable NAMES so components keep working.
 - Display/heading font: `<family + source: Google/self-hosted/license>` — **FACT / UNKNOWN**
 - Body font: `<family + source>` — **FACT / UNKNOWN**
 - Mono (if used): `<family>` — **FACT / UNKNOWN**
-- **REQ** load via the brand's licensed source; if unlicensed/unknown, keep the global pairing and flag it.
-- Keep the global **type scale** unless the brand specifies its own (then list it here).
+- Load via a licensed source; otherwise preserve an available project fallback
+  and disclose the limitation. Do not invent a global font pairing.
+- Keep the existing type roles/scale; adapt only where the task supplies a reason.
 - Casing rules (e.g. buttons sentence case, headings title case): `<rule>` — **FACT / ASSUMPTION**
 
 ## 4. Shape, depth, spacing
 
 - Radius: `<value>` — **FACT / ASSUMPTION** (else keep `--radius`)
 - Shadow philosophy: `<flat / one soft / layered>` — **FACT / ASSUMPTION**
-- Spacing scale: keep global unless brand defines one → `<values>`
+- Spacing scale: retain the existing project scale; record justified role changes → `<values>`
 - Iconography set: `<name + source>` — **FACT / UNKNOWN** (**REQ** one family, don't mix)
 
 ## 5. Voice & microcopy
@@ -74,14 +81,15 @@ Provide real values; keep the same variable NAMES so components keep working.
 ## 6. Imagery & illustration
 
 - Photography/illustration style: `<rule + source library>` — **FACT / UNKNOWN**
-- **REQ** missing imagery → labeled placeholder (`SKILL.md` "Craft Rules"),
+- Missing imagery → a clearly identified temporary placeholder,
   never stock gradients or fabricated screenshots.
 
 ## 7. Component deviations from global spec
 
 List only where the brand differs from `components.md`:
 - `<component>`: `<brand-specific state/style>` — **FACT / ASSUMPTION**
-- Everything not listed → follow `components.md` as-is.
+- Everything not listed retains the existing component contract. The skill's
+  components reference is optional fallback guidance, not a production library.
 
 ## 8. Domain / behavior facts
 
@@ -96,11 +104,11 @@ Paste at the top of the project instructions:
 
 > **Design:** Follow the global `ui-ux-expert` skill. This project overrides its
 > defaults per `design-brand.md`. Treat `FACT` fields as truth, surface `ASSUMPTION`
-> fields for review, and **ask** before shipping anything that depends on an
-> `UNKNOWN`. Fall back to `tokens.css` only where this file is blank. Do not invent
-> brand facts, data, or product behavior.
+> fields for review. Resolve consequential unknowns without erasing existing
+> product choices. Use fallback tokens only when no applicable system exists.
+> Do not invent brand facts, data, or product behavior.
 
-## Fill-completeness gate (REQ before styling)
+## Scoped Handoff Check
 
 - [ ] Colors: all six neutrals + accent set (or explicitly falling back), contrast verified.
 - [ ] Fonts: heading + body chosen and licensed-loadable (or global fallback flagged).

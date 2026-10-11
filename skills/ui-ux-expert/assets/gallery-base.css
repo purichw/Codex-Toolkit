@@ -1,0 +1,9 @@
+/* Optional base styles for this standalone specimen, not a production reset. */
+*, *::before, *::after { box-sizing: border-box; }
+body { margin: 0; background: var(--bg); color: var(--ink); font: var(--t-base)/var(--lh-body) system-ui, sans-serif; letter-spacing: 0; }
+h1, h2, h3 { margin: 0; line-height: var(--lh-snug); text-wrap: balance; overflow-wrap: anywhere; }
+p { text-wrap: pretty; max-width: 68ch; }
+button, input { font-family: inherit; }
+a { color: var(--accent); text-underline-offset: 2px; }
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+img { max-width: 100%; display: block; }

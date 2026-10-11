@@ -29,7 +29,7 @@ repair. Preserve applicable accessibility and product requirements.
 
 Use `tokens.css` instead of retyping the full token block. Its default system is:
 
-- warm neutral background and surfaces;
+- neutral light background and surfaces;
 - one accent hue;
 - semantic success/danger colors;
 - 4/8/12/16/24/32/48/64/96 spacing scale;
@@ -160,9 +160,14 @@ Common defaults:
 - Everything interactive must be keyboard reachable and operable.
 - Keep focus visible.
 - Do not use color as the only signal.
-- Body text contrast at least 4.5:1; large text/UI at least 3:1.
-- Touch targets at least 44px on mobile.
+- Distinguish text, large text and necessary non-text UI contrast; measure
+  actual foreground/background pairs, including alpha-composited fills.
+- Around 44px is a touch-comfort default; use the applicable size/spacing
+  criteria and exceptions, not a blanket rule for inline prose links.
 - Respect reduced motion.
+
+See [accessibility-checks.md](accessibility-checks.md) for current primary
+sources and exact distinctions. These few checks do not certify accessibility.
 
 ## Failure Recovery
 
