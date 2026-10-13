@@ -1,6 +1,6 @@
 ---
 name: global-github-actions-repair
-description: Global alias for github-actions-repair. Use for reusable diagnosis and repair of failed GitHub Actions runs, recurring failure notifications, setup problems, and deployment-smoke failures; ordinary release readiness belongs to release-gate.
+description: Global alias for github-actions-repair. Use for reusable diagnosis and repair of failed, slow or stalled GitHub Actions runs, missing triggers/checks, setup problems and deployment-smoke failures; ordinary release readiness belongs to release-gate.
 ---
 
 # Global GitHub Actions Repair

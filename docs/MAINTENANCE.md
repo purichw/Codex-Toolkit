@@ -46,8 +46,10 @@ source-of-truth assumptions and the safest update path.
 
 ## Privacy Review
 
-This repository is private, but treat every commit as something that might later
-be shared. Before pushing, scan for:
+This repository is public, with publication of the reviewed skill update
+confirmed by the user on 2026-10-13. Do not change visibility implicitly, and do
+not treat that confirmation as permission to publish secrets or private customer
+data. Before every push, scan for:
 
 - API keys, access tokens, service-account JSON, private keys, or passwords.
 - Client names, private URLs, emails, user identifiers, and personal data.
@@ -67,7 +69,7 @@ False positives are normal. Read the matches before deciding.
 For most changes, run the toolkit verifier:
 
 ```sh
-python3 scripts/verify_skills.py --expected-count 138
+python3 scripts/verify_skills.py --expected-count 141
 ```
 
 It checks skill frontmatter, folder/name consistency, local Markdown links,

@@ -9,10 +9,13 @@ user's intent.
 - Repository: `purichw/Codex-Toolkit`
 - Local checkout used when this file was written: `/Users/point/Codex-Toolkit`
 - Visibility at initial setup: private
+- Visibility checked on 2026-10-13: public; the user explicitly confirmed pushing
+  the reviewed skills and project context to the public repository. This archive
+  pass did not change visibility. Continue reviewing future diffs for sensitive data.
 - Purpose: archive and document the user's personal Codex skills
-- Current skill count: 138 `SKILL.md` files under `skills/`
-- Breakdown: 80 personal skill folders (including compatibility routers),
-  56 `global-*` alias skills for reusable non-project-specific workflows, and
+- Current skill count: 141 `SKILL.md` files under `skills/`
+- Breakdown: 82 personal skill folders (including compatibility routers),
+  57 `global-*` alias skills for reusable non-project-specific workflows, and
   2 standalone global design-spec skills.
 
 The first import copied personal skills from:
@@ -104,6 +107,7 @@ Expected current skill folders:
 - `coin-quest-admin-ops`
 - `coin-quest-ledger-logic`
 - `coin-quest-native-parity`
+- `coin-quest-new-chat`
 - `consistency-audit`
 - `course-image-assets`
 - `covermate-design-spec`
@@ -122,6 +126,7 @@ Expected current skill folders:
 - `firebase-security-rules`
 - `form-flow-ux`
 - `github-actions-repair`
+- `github-actions-usage`
 - `image-boundary`
 - `image-boundary-efficient`
 - `image-boundary-iteration`
@@ -189,9 +194,10 @@ If the count or names change, update `README.md`, `skills/README.md`,
 
 ## Privacy And Risk Notes
 
-Some skills intentionally contain project-specific context and local paths. That
-is acceptable for a private personal toolkit, but future commits should still
-check for:
+Some skills intentionally contain project-specific context and local paths. The
+user approved publishing the reviewed update to the public repository on
+2026-10-13; that does not authorize publishing credentials or private customer
+data. Review every future diff, especially newly added project context, for:
 
 - real API keys or provider tokens;
 - Firebase service-account JSON or private keys;
@@ -226,7 +232,7 @@ updates, enough verification is usually:
 
 ```sh
 git diff --check
-python3 scripts/verify_skills.py --expected-count 138
+python3 scripts/verify_skills.py --expected-count 141
 ```
 
 For skill script changes, run the script's smoke-test or help path when one
@@ -303,6 +309,13 @@ As of this document, the repository has:
   adding a shared project new-chat template under `project-onboarding`, wiring
   project-specific `*-new-chat` skills to that template, importing
   `kaset-tan-phai-new-chat`, and updating the verifier count to 127.
+
+- On 2026-10-13, selectively archived `coin-quest-new-chat`,
+  `github-actions-usage` and nine updated canonical skills; added the repo-only
+  `global-github-actions-usage` alias and refreshed repair-alias discovery.
+  The inventory is now 141. Release diagnosis/usage guidance and project
+  onboarding were synced from live files; no project runtime, deployment or
+  live skill content was changed by this archive pass.
 
 The main thing future Codex should preserve is the distinction between live local
 skills and the GitHub archive. That distinction prevents accidental overwrites

@@ -66,7 +66,7 @@ Do not infer that other live-only skills have also been archived.
 
 ```sh
 git diff --check
-python3 scripts/verify_skills.py --expected-count 138
+python3 scripts/verify_skills.py --expected-count 141
 python3 skills/ui-ux-expert/evals/validate.py
 PYTHONDONTWRITEBYTECODE=1 python3 -m unittest discover -s skills/ui-ux-expert/evals/tests -v
 ```

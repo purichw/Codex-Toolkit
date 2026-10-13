@@ -1,6 +1,6 @@
 ---
 name: github-actions-repair
-description: Diagnose and repair failed GitHub Actions runs, recurring Run failed emails, and CI or deployment-smoke failures. Use when investigating workflow logs, missing Actions secrets, setup timeouts, or flaky checks; ordinary pre-release verification belongs to release-gate.
+description: Diagnose and repair failed, unexpectedly slow or stalled GitHub Actions runs and deployment checks. Use for workflow logs, repeated failures, missing triggers/checks, setup timeouts, or flaky CI/smoke; ordinary pre-release verification belongs to release-gate.
 ---
 
 # GitHub Actions Repair
@@ -8,6 +8,19 @@ description: Diagnose and repair failed GitHub Actions runs, recurring Run faile
 Restore meaningful checks with the smallest evidence-backed fix. Keep project
 names, branches, URLs, account details, and secret values in project-specific
 configuration, never in this global skill.
+
+Use `$github-actions-usage` for requested runner-minute/billing optimization.
+If a job fails before runner allocation, read its check annotations: a quota or
+payment block needs different treatment from installation or test failures.
+Current public visibility does not establish historical billing, and zero billed
+amount does not mean included minutes remain. Never increase spending or change
+visibility merely to obtain a green run.
+
+For slow or missing runs, use the project's measured diagnostic checkpoints or
+the defaults in `$efficient-execution` → Release Delay Checkpoints. Do not wait
+for the platform's full timeout before investigating. Separate trigger/queue,
+setup/download, tests, deployment build and required-check/promotion waits;
+an unchanged `in_progress` label is not enough to identify the slow phase.
 
 ## Establish the failing target
 
@@ -21,7 +34,8 @@ configuration, never in this global skill.
 - Prefer the available GitHub connector or authenticated `gh` CLI. Use the
   browser for evidence unavailable through those tools, such as live logs.
   Read the first causal error and surrounding lines, not just the final exit
-  code or every log from every workflow.
+  code or every log from every workflow. Collect independent failed jobs in the
+  same pass so one full rerun is not used to uncover each already-visible cause.
 - Before editing, inspect repository instructions and git status. If the local
   checkout is dirty or stale, use a suitable isolated checkout without copying
   unrelated changes. Verify the intended source revision and deployment target;
@@ -49,12 +63,22 @@ the specific job.
 | Product/build/assertion regression | Inspect the failing assertion and owning source at the tested SHA. Fix the actual behavior and run its targeted check before broader CI. |
 | Browser-test timing or focus failure | Reproduce or establish the readiness/focus race from evidence. Wait for the relevant application state and target the intended control. Preserve the product assertion; arbitrary sleeps, catch-all retries, and wider tolerances are not a diagnosis. |
 | Event, checkout, branch, or deployment mismatch | Compare trigger payload, checkout ref, job environment, and deployed revision. A green run against another branch or URL does not validate the reported failure. |
+| Missing/queued run, repeated cancellation or pending promotion | Inspect expected trigger, queue/concurrency, superseding SHA, required check name/association and alias state. Separate a healthy dependency wait from a broken integration. Check remote acceptance before repeating an uncertain push; do not create a duplicate deploy to escape the gate. |
 
 Do not silence failures by disabling workflows, removing assertions, adding
 `continue-on-error`, skipping required authentication when secrets are absent,
 or muting notifications unless that specific behavior change is requested and
 its impact is clear. Do not bundle unrelated dependency/action upgrades or
 deprecation warnings into a focused repair.
+
+For intermittent async failures, control the suspected event order in a focused
+fixture and show it fails before the fix. Track browser fetch attempts separately
+from intercepted requests; late failures can arrive after a recovery event. Keep
+original promise rejection and new-request backoff assertions when repairing
+reconnect state. For controls moving during loading, establish the real dialog
+or panel postcondition through supported user interaction. Bound Node-side fixture
+promises as well as browser locators. Distinguish a reproduced defect from an
+unproven reconstruction of a historical run with insufficient diagnostics.
 
 ## Provision credentials without broadening access
 
@@ -87,9 +111,13 @@ deprecation warnings into a focused repair.
    change, test the revision containing the fix. Before dispatching, verify the
    ref and inputs; never accept a stale default branch just because it is the
    default. A rerun may still execute dependencies or external side effects.
-3. Normally allow one unchanged diagnostic rerun when evidence suggests a
-   transient cause. If the same failure recurs, inspect it before another
-   attempt. Do not retry until green or cancel unrelated runs to save time.
+3. Allow at most one unchanged diagnostic rerun when evidence suggests a
+   transient cause. If the same failure recurs, or two repair cycles fail,
+   revise the causal hypothesis and focused verification before another
+   attempt. Preserve evidence and batch known fixes across affected consumers.
+   Do not repeatedly rerun merely to obtain green; each attempt needs a
+   supported correction or the permitted transient diagnostic retry. Do not
+   cancel unrelated runs to save time.
 4. For workflow edits, inspect the diff, validate YAML/shell using available
    project tools, and verify triggers, permissions, checkout, and timeouts.
    Apply `$release-gate` for authorized publishing. Do not run all local suites
@@ -98,8 +126,10 @@ deprecation warnings into a focused repair.
 5. Record the resulting run ID and tested SHA. Follow required runs to a
    terminal result using bounded waits and modest polling/backoff. Reuse an
    existing watcher within this authorized chat/scope; inspect live logs for a meaningful stage change or stall,
-   rather than repeatedly dumping them. Report useful milestones and any
-   pending evidence without implying success.
+   rather than repeatedly dumping them. On a diagnostic checkpoint, identify
+   the blocking phase, supporting evidence, next action and next checkpoint;
+   continue the existing run if it is healthy. Report pending evidence without
+   implying success.
 6. For deployment smoke, confirm both the checked-out revision and the actual
    deployed build/URL when the harness supports that verification. A locally
    passing harness or an HTTP 200 alone does not prove authenticated behavior.

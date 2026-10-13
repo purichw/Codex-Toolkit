@@ -36,7 +36,7 @@ git -C "/Users/point/CoverMate" status --short --branch
 
 ## Required Discipline
 
-- Start from the current `docs/HANDOFF.md` checkpoint. Distinguish source, protected preview, published CMS and deployed production; a generated build is not deployment evidence.
+- Start from the current `docs/HANDOFF.md` checkpoint. Distinguish source, protected preview, published CMS and deployed production. Report Vercel build readiness, exact-SHA CI success, and production alias promotion separately; a ready build alone does not mean the change is live. Use the release evidence guidance in `references/new-chat-context.md`.
 - Check the active checkout, upstream and uncommitted scope before applying an old patch. Refactor UAT evidence may use an older production baseline than current `origin/main`; preserve newer runtime, build and test changes when integrating it. Read `docs/REFACTOR_20260924.md` for the extraction and evidence boundaries.
 - Primary origin is `https://covermateinsurance.com`. Read `docs/CMS_MEDIA.md` for the selected Cloudinary Free backend and current cost/security boundaries; Firebase Auth and Firestore remain in use, Firebase Storage does not.
 - Home redesign work must read `docs/HOME_REDESIGN.md`: the approved compact composition and current Admin ownership supersede old expanded-section geometry. Do not revive superseded constraints from historical specs.
@@ -50,6 +50,7 @@ git -C "/Users/point/CoverMate" status --short --branch
 - Keep this workflow inside the current chat. Preparing a handoff does not authorize inspecting, creating or messaging another chat, nor release actions described by historical notes.
 - For UI work, provide snapshots or screenshots in the final handoff.
 - For release work, use `$release-gate`; for deployed media/image changes, use `$production-asset-smoke` after deployment; for rollback-like requests, use `$rollback-guardrail` before changing files.
+- Before waiting on push/CI/deploy, read `docs/RELEASE_RUNBOOK.md#when-to-stop-waiting-and-diagnose` for measured checkpoints. On an error, repeated failure or overdue phase, inspect the exact run/step and deployment state before retrying or pushing again; use `$github-actions-repair` for diagnosis. A normally progressing CI gate can legitimately hold a ready build. Keep run durations and production SHA in living project docs, not cached skill claims.
 - Use UAT proportionally. Do not run hosted UAT smoke, create fresh UAT previews, or seed UAT data for small copy/CSS/docs/icon tweaks by default. Use UAT only when the diff touches Firebase/Auth, Firestore Rules, CMS data paths, Admin session/publish/save flows, lead capture, Operations/Analytics APIs, environment/routing/Vercel config, production-like routing behavior, or when the owner explicitly asks for UAT/regression.
 - Project skill sources are versioned under `skills/` in the repository. When updating this skill, keep its installed copy and versioned copy aligned; `references/new-chat-context.md` routes to the living docs rather than storing deployment status in the skill.
 

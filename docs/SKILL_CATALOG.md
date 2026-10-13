@@ -55,16 +55,20 @@ that intentionally remain project-specific or specialized.
   and deployment target where applicable. A green workflow with required tests
   skipped, or secrets merely present, does not establish readiness. Route actual
   Actions failure diagnosis to `github-actions-repair`.
+- Release waits: Set measured diagnostic checkpoints, inspect failures before
+  retrying, and keep push, CI, build readiness, promotion and monitoring evidence
+  separate. Docs-only evidence reuse must prove the exact eligible baseline.
 
 ### github-actions-repair
 
 - Skill file: [../skills/github-actions-repair/SKILL.md](../skills/github-actions-repair/SKILL.md)
 - Global alias: [global-github-actions-repair](../skills/global-github-actions-repair/SKILL.md)
-- Description: Diagnoses failed GitHub Actions runs and verifies the smallest
+- Description: Diagnoses failed, slow or stalled GitHub Actions runs and verifies the smallest
   evidence-backed repair without weakening checks or exposing credentials.
 - Use when: Investigating recurring failure emails, workflow logs, setup timeouts,
   missing/scoped secrets, authentication failures, flaky checks, or a mismatch
-  between workflow ref and deployment target.
+  between workflow ref and deployment target, missing triggers/checks or pending
+  promotion. Inspect causal errors and progress before another attempt.
 - Typical context: Repository/workflow/event, branch/SHA, run ID/attempt,
   first causal error, recent relevant runs, exact secret names and scope,
   authorized workflow side effects, and terminal checks for the fixed revision.
@@ -72,6 +76,21 @@ that intentionally remain project-specific or specialized.
   live checks use `prod-smoke-harness`. Historical notifications are not proof of
   a current failure. Reruns, publishing, production writes, and cross-chat work
   still require their own applicable authorization; secret values stay out of chat.
+
+### github-actions-usage
+
+- Skill file: [../skills/github-actions-usage/SKILL.md](../skills/github-actions-usage/SKILL.md)
+- Global alias: [global-github-actions-usage](../skills/global-github-actions-usage/SKILL.md)
+- Description: Measures Actions runner work, repeated runs and artifact/cache
+  usage, then chooses evidence-backed optimizations without losing coverage.
+- Use when: Auditing CI usage/costs, duplicate work, browser/dependency setup,
+  caching, artifacts or conservative docs-only workflow routing.
+- Typical context: Bounded run/attempt/job history, current billing evidence,
+  comparable workflow modes, runner types, exact baseline SHA, affected consumers
+  and required aggregate gates. Elapsed time and billed usage are different.
+- Boundary: Failures route to `github-actions-repair`; publishing uses
+  `release-gate`. No implicit spending, visibility/credential changes, artifact
+  deletion or required-check bypass. Savings need comparable post-change evidence.
 
 ### rollback-guardrail
 
@@ -108,6 +127,9 @@ that intentionally remain project-specific or specialized.
   compare the live source with the archive and update affected catalogs; confirm
   the intended remote commit when publishing is authorized. A clean archive or
   successful local command alone does not prove the requested endpoint.
+- Publishing recovery: Batch known corrections, collect existing review results,
+  and diagnose overdue phases with measured checkpoints. One evidence-supported
+  unchanged transient rerun is not permission to retry until green.
 
 ### usage-budget-gate
 
@@ -153,6 +175,9 @@ that intentionally remain project-specific or specialized.
   dedicated privileged test account may be appropriate; harness configuration
   alone does not authorize production writes. Setup-only repairs may reuse the
   existing required harness reports without a new full-site visual audit.
+- Hosting challenges: Distinguish provider 403/429 challenges from application
+  failure. Approved automation credentials need exact-origin and redirect safety,
+  sanitized logs and final live monitor evidence, not only fixture success.
 
 ### production-asset-smoke
 
@@ -752,6 +777,20 @@ cannot prove whole-page/dashboard, page-length, or page-level reference parity.
 
 ## Coin Quest
 
+### coin-quest-new-chat
+
+- Skill file: [../skills/coin-quest-new-chat/SKILL.md](../skills/coin-quest-new-chat/SKILL.md)
+- Description: Onboards Coin Quest Ledger from current checkout docs rather
+  than conversation memory or stale release claims.
+- Use when: Preparing a starter prompt, finding required reading/setup, or
+  picking up web, native, Firebase, ledger, Admin, QA or release work.
+- Typical context: The selected Coin Quest checkout (primary `/Users/point/toolbox`),
+  `Memory.md`, `PLAYBOOK.md`, `PROJECT_STRUCTURE_GUIDE.md` and the bundled
+  [task map](../skills/coin-quest-new-chat/references/new-chat-context.md).
+  Preserve identity, finance, cloud conflicts and player/Admin boundaries.
+- Boundary: A handoff does not authorize another chat or publishing. Source,
+  emulators, own-binary Simulator, exact-SHA CI and production are separate proof.
+
 ### coin-quest-admin-ops
 
 - Skill file: [../skills/coin-quest-admin-ops/SKILL.md](../skills/coin-quest-admin-ops/SKILL.md)
@@ -763,6 +802,10 @@ cannot prove whole-page/dashboard, page-length, or page-level reference parity.
 - Typical context: Admin implementation docs, security docs, data contracts,
   `/admin/` source files, privileged API routes, and Firestore rules when
   permissions are involved.
+- Updated contracts: UID-preserving Admin SDK recovery, reset leases and session
+  revocation, transactional lifecycle/publish conflicts and financial-record
+  preservation during deletion. Per-board ACL/public-hash migrations remain
+  separate work; backend emulator checks are not production mutations.
 
 ### coin-quest-ledger-logic
 
@@ -774,6 +817,9 @@ cannot prove whole-page/dashboard, page-length, or page-level reference parity.
   regressions.
 - Typical context: Current memory and invite docs, site map, data contracts,
   shared ledger logic, trip UI wiring, unit tests, and relevant Playwright tests.
+- Updated contracts: Satang precision, unique invitation attempts, transactional
+  reply/membership, no resurrection of deleted nested records, and guest
+  detachment that retains financial obligations.
 
 ### coin-quest-native-parity
 
@@ -784,6 +830,10 @@ cannot prove whole-page/dashboard, page-length, or page-level reference parity.
   `playerModules`, or web/native backend contract questions.
 - Typical context: Native parity docs, mobile README, iOS build notes,
   architecture docs, data contracts, site map, and relevant `mobile/src/` files.
+- Evidence: Use the app's own Simulator binary for affected native flows and
+  authorized Firebase/web round trips for shared writes. Expo Go, JS exports,
+  browser fixtures and web/API deployment do not establish native acceptance
+  or distribution. Preserve explicit local/cloud conflict choices.
 
 ## CoverMate
 
@@ -930,6 +980,11 @@ forecast-only restoration contract.
   `Architecture.md`, `Roadmap.md`, `README.md`, git status, task-specific
   Mongkol docs/source areas, durable Thai-first temple-product constraints,
   commands, and `references/new-chat-context.md`.
+
+The Mongkol pickup map now covers authoritative live CMS, immutable place keys
+and URL aliases, current bundled source owners, and Tarot research/import
+boundaries. Prepared research is not completed content or supported CMS schema;
+dated release evidence is not a new production check.
 
 ## Shane Thai
 

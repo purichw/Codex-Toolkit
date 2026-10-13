@@ -15,6 +15,16 @@ Use `$usage-budget-gate` before broad release checks when the correct depth is
 unclear or the user asks to control usage.
 Use `$github-actions-repair` when a GitHub Actions failure needs diagnosis or
 repair; return here to assess readiness from the resulting evidence.
+Use `$github-actions-usage` when reducing Actions minutes or storage is in scope.
+Preserve required coverage and distinguish elapsed time from summed job usage;
+do not dispatch duplicate full CI on the same candidate without new evidence.
+
+For push/CI/build/promotion delays, apply the project's measured checkpoints or
+`$efficient-execution` → Release Delay Checkpoints before waiting. A failed
+check, missing trigger, unexpected cancellation, repeated failure or breached
+checkpoint switches the work to diagnosis; it does not justify blind retries,
+extra pushes or bypassing a required gate. Confirm remote state before repeating
+an operation with an uncertain result. Return to this gate after repair.
 
 ## Fast Protocol
 
@@ -33,6 +43,12 @@ repair; return here to assess readiness from the resulting evidence.
    assets.
 4. Map each deliverable to proportionate evidence; one check may cover several.
    Mark required checks and optional broader coverage before running them.
+   When behavior changes, search the relevant tests, fixtures, and CI entrypoints
+   for assumptions about the old behavior, not only changed filenames. Examples
+   include visible-item counts, pagination, readiness, and selector cardinality.
+   Distinguish affected consumers from similar components whose contracts remain
+   unchanged. Update affected expectations and run their focused checks before
+   push, including relevant integration tests located in a broader CI suite.
    Prefer targeted commands for changed packages/files/tests before full suites. Run
    independent checks in parallel when possible.
 5. Collect terminal results for required operations. Summarize evidence,
@@ -93,6 +109,11 @@ Use these as starting packs, then adapt to repo-defined commands:
   can provide evidence without a duplicate full local suite or new UI audit;
   preserve all existing required checks. Use `$prod-smoke-harness` when real
   authenticated deployment checks are part of the acceptance criteria.
+  For changed scope/skip logic, test unavailable baseline evidence, mixed/renamed
+  runtime paths and failed/cancelled/missing dependencies. Keep the final check
+  present and fail closed; a documented docs-only skip must identify the exact
+  passing runtime baseline. A billing block before runner allocation leaves
+  remote proof pending even if local checks pass.
 - **Frontend UI:** targeted lint/typecheck/build, browser route check, console
   and failed request check, `$snapshot` evidence when visual, `$mobile-web-qa`
   when responsive/mobile risk exists, `$ui-state-matrix` for non-happy states,
@@ -130,7 +151,10 @@ Use these as starting packs, then adapt to repo-defined commands:
 - **Commit**: require clean scope, intentional staged files, and checks matching
   the changed risk tier. Do not run deploy checks for commit-only work.
 - **Push**: verify branch/upstream, run any missing checks expected before CI,
-  and push only the current intended branch.
+  and collect results from required local checks and already-running reviews of
+  the release candidate before pushing the current intended branch. Resolve
+  findings together; use `$efficient-execution` for batching and failed-run
+  recovery. Checks that require the push itself remain explicitly pending.
 - **PR/merge**: include CI status. Missing, pending, or failed required CI blocks
   merge/readiness; a permitted draft PR can report pending evidence without
   claiming the merge gate passed.
@@ -180,6 +204,17 @@ For deployment checks, also match the environment and deployed build/URL when
 identifiable. A green workflow whose required test jobs were skipped does not
 prove that coverage ran; confirm the required coverage actually executed.
 Secret presence alone does not prove a required authenticated smoke passed.
+
+For an explicitly supported docs-only mode, unchanged runtime evidence may be
+inherited from the exact eligible base. Verify the selector's baseline run and
+attempt, documented intentional skips, and successful stable aggregate gate.
+Report this as validated evidence reuse; do not claim the skipped suites ran.
+An unexplained skip or missing baseline still blocks the gate.
+
+Record monitoring source and deployed target separately. A credential-bearing
+monitor can pass against an older production deployment while a new candidate's
+CI is still failing. That proves the monitor's access and checked routes, not
+the candidate's readiness or promotion. Reuse each result only for its scope.
 
 ## Decision
 

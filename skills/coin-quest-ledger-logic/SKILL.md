@@ -66,6 +66,15 @@ Use adjacent skills when the task crosses boundaries:
 - Settlement uses pairwise per-expense obligations with reciprocal pair netting.
   Do not replace it with global creditor/debtor rerouting.
 - Keep web/native settlement expectations aligned.
+- Preserve satang: use the shared money helpers and half-satang comparison
+  threshold, not a one-baht cutoff that silently clears a remaining balance.
+- Invitation attempts have unique IDs; legacy IDs remain readable. Re-read the
+  current account, character and board, then commit reply + membership together.
+  Reject expired/replied/archived attempts instead of replaying them.
+- Persist freshly read board snapshots transactionally. Deep merge must not
+  resurrect removed nested keys. Preserve unknown fields and concurrent work.
+- Account deletion detaches a real member into a board-local guest while keeping
+  names, expenses, shares and financial obligations; remove registry/access links.
 
 ## Known Regression Case
 
@@ -93,6 +102,9 @@ Add or preserve unit coverage whenever settlement math changes.
    - syntax/UI state wiring: `npm run test:syntax`
    - invite/reminder/mobile flow: targeted Playwright or `npm run test:e2e`
    - commit/deploy request: full `npm test`
+   - Firestore transactions/invites/Admin cleanup: `npm run test:backend` using
+     isolated `demo-coin-quest` emulators, plus native contract tests when shared
+     behavior changes
 7. Update `INVITES_AND_GUESTS.md`, `data-contracts.md`, or `SITE_MAP_AND_INTERACTIONS.md`
    when behavior or persisted shape changes.
 

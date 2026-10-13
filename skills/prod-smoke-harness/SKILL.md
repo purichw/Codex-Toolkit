@@ -63,6 +63,25 @@ exact secret names and repository/environment scope. Check secret names and
 provisioning timestamps without retrieving or printing values. Listed secrets
 may still be unavailable to a job because of its environment or triggering event.
 
+For HTTP 403/429 before the app renders, distinguish a hosting bot/deployment
+challenge from application throttling using sanitized status, response title
+and selected headers. Prefer the provider's documented automation credential
+within the user's authorized scope; preserve application authentication and
+the actual HTTP/render assertions. Use a dedicated secret at the narrowest
+supported scope and inject it only into trusted workflow code that needs it.
+Restrict its destination to the exact approved origin and test cross-origin
+redirects: a request-header override can persist through redirects even when
+the initial URL was checked. Never log raw transport errors that may include
+credential headers. A fixture proves routing/privacy, not live acceptance;
+finish with the intended remote monitor after provisioning.
+
+Before creating an automation credential, distinguish a current missing value
+from an old setup note. Reuse the documented dedicated entry within the existing
+authorization, and preserve unrelated entries when provisioning or rotating.
+After verification, update the runbook with provisioning status and the passing
+run/target evidence, never the value. Separate monitor source, served deployment
+and release readiness as described in `$release-gate`.
+
 Missing values belong in the secret store, not in chat or committed fixtures.
 Give the user the exact names and settings destination; the credentials must be
 for the approved application test account. After provisioning, verify real

@@ -1,11 +1,14 @@
 # Codex Toolkit
 
-A private collection of custom Codex skills for project onboarding, release
+A personal collection of custom Codex skills for project onboarding, release
 checks, Firebase work, visual parity, QA, and project-specific operating
 playbooks.
 
 Each skill lives under `skills/<skill-name>/` and contains a `SKILL.md` file.
 Some skills also include reference notes, helper scripts, or agent metadata.
+
+This repository is public. It includes user-approved project context; credentials,
+private customer data and generated local exports must not be published.
 
 Reusable, non-project-specific skills also have explicit `global-*` aliases such
 as [`global-release-gate`](skills/global-release-gate/SKILL.md) and
@@ -55,6 +58,7 @@ before the final response without waiting for the user to ask.
 | [`coin-quest-admin-ops`](skills/coin-quest-admin-ops/SKILL.md) | Keeps Coin Quest Ledger Admin Portal work aligned with current Firebase-backed admin behavior. | Editing admin auth, boards, users, lifecycle actions, reset/delete flows, publish/restore, revisions, or relationship maps. |
 | [`coin-quest-ledger-logic`](skills/coin-quest-ledger-logic/SKILL.md) | Preserves Party Ledger split math, participants, guests, invites, Character IDs, and settlement behavior. | Changing Coin Quest ledger workflows, guest handling, invite links, reminders, payer/participant logic, or settlement tests. |
 | [`coin-quest-native-parity`](skills/coin-quest-native-parity/SKILL.md) | Prevents the Coin Quest Expo app from drifting away from web data contracts and native parity requirements. | Working on the native app, iOS/Android build gates, `playerModules`, or native/web backend parity. |
+| [`coin-quest-new-chat`](skills/coin-quest-new-chat/SKILL.md) | Onboards Coin Quest Ledger from current web, native, Firebase and release docs. | Preparing a starter prompt or picking up work while separating source, Simulator, CI and production evidence. |
 | [`consistency-audit`](skills/consistency-audit/SKILL.md) | Audits UI, UX, implementation, shared components, pattern weight, and consolidation opportunities for product consistency. | Checking whether layouts, components, typography, spacing, copy, states, responsive behavior, or shared primitives feel coherent. |
 | [`course-image-assets`](skills/course-image-assets/SKILL.md) | Manages educational course image generation, reuse, mapping, crop fixes, audits, and QA. | Working on vocabulary images, lesson card art, visual hints, badges, semantic mappings, or generated educational illustrations. |
 | [`covermate-design-spec`](skills/covermate-design-spec/SKILL.md) | Preserves CoverMate public/admin design contracts using current checkout docs and a dated fallback spec. | Compact Home, Articles, Cases v2, CMS ownership/history, media, copy voice, handoffs, and scoped snapshots; bundled context is not proof of deployment. |
@@ -81,7 +85,8 @@ before the final response without waiting for the user to ask.
 | [`firebase-account-management`](skills/firebase-account-management/SKILL.md) | Separates Firebase billing, Auth, Firestore, Admin SDK, and account-management concerns. | Designing, auditing, or debugging signup/login, user profiles, admin CRUD, custom claims, or Spark vs Blaze assumptions. |
 | [`firebase-security-rules`](skills/firebase-security-rules/SKILL.md) | Audits Firebase Auth, Firestore Rules, Admin SDK endpoints, service accounts, and production access guarantees. | Reviewing or changing Firestore rules, privileged backend behavior, auth gates, secrets, or Firebase security posture. |
 | [`form-flow-ux`](skills/form-flow-ux/SKILL.md) | Covers complete create/edit form journeys including validation, dirty state, autosave, save/cancel, errors, and mobile keyboard. | A form must work as a real workflow, not only as a visually finished screen. |
-| [`github-actions-repair`](skills/github-actions-repair/SKILL.md) | Diagnoses failed Actions runs and verifies focused repairs on the intended revision and target. | Failure emails, setup timeouts, missing secrets, auth failures, flaky checks, or wrong-ref deployment smoke; ordinary readiness stays with release-gate. |
+| [`github-actions-repair`](skills/github-actions-repair/SKILL.md) | Diagnoses failed, slow or stalled Actions runs and verifies focused repairs on the intended revision and target. | Missing triggers/checks, setup timeouts, auth failures, flaky checks, or pending promotion; ordinary readiness stays with release-gate. |
+| [`github-actions-usage`](skills/github-actions-usage/SKILL.md) | Measures and reduces Actions runner work, repeat runs and artifact/cache usage without losing required coverage. | Auditing usage/costs or optimizing workflows with measured baselines, safe docs-only gates and exact-revision evidence. |
 | [`global-full-design-spec`](skills/global-full-design-spec/SKILL.md) | Exports comprehensive implementation-ready UI design specs from screenshots, source, CSS, routes, prototypes, or live app state. | A future Codex/Claude/dev handoff needs a full page contract, source-mapped design spec, accessibility matrix, state matrix, and guardrails. |
 | [`global-quick-design-spec`](skills/global-quick-design-spec/SKILL.md) | Exports concise implementation-ready UI design specs quickly from screenshots, source, CSS, routes, prototypes, or live app state. | A user needs a fast lightweight design handoff or screenshot-to-spec export without redesigning or modifying app code. |
 | [`image-boundary`](skills/image-boundary/SKILL.md) | Routes boundary-forward adult non-explicit image work to the right boundary, polish, safety, or recovery skill. | The user invokes image-boundary work, is unsure which boundary skill applies, or needs coordinated PASS/PARTIAL/REJECT iteration. |
@@ -143,5 +148,5 @@ selectively and preserve the archive's global layer.
 Verify the archive with:
 
 ```sh
-python3 scripts/verify_skills.py --expected-count 138
+python3 scripts/verify_skills.py --expected-count 141
 ```

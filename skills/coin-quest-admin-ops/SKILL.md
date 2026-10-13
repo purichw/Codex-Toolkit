@@ -25,7 +25,8 @@ Read these first from the repo root:
 - `ACCOUNT_MANAGEMENT_IMPLEMENTATION.md`
 - `data-contracts.md`
 - `SITE_MAP_AND_INTERACTIONS.md`
-- `admin/app.js`, `admin/index.html`, `admin/admin.css`
+- `admin/app.js`, `admin/admin-utils.js`, `admin/index.html`, `admin/admin.css`
+  and `admin/design.css` when visuals are involved
 - `api/admin-delete-status.js` and `api/admin-delete-user.js` when delete/status is involved
 - `firestore.rules` when permissions are involved
 
@@ -66,8 +67,22 @@ Use adjacent skills when the task crosses boundaries:
   ID-token verification and Super Admin allowlist check.
 - Delete keeps reusable username tombstones so same-username recreation preserves
   public User ID and Character ID.
-- Admin password reset currently has Phase 1 limitations; do not call it fully
-  hardened unless moved behind Admin SDK.
+- Recovery and Admin reset use `api/account-recovery-core.js` through Admin SDK.
+  Preserve the same UID even when recreating missing Auth. Validate identity
+  ownership/current hash, honor both blocked lifecycle fields and the five-minute
+  reset lease, revoke sessions and rotate the key on successful completion.
+  Auth/Firestore are separate services; failure/retry is not cross-service atomicity.
+- Privileged APIs require a verified allowlisted email and revocation-checked
+  Firebase ID token. Never treat `/admin/?test=1` as that security evidence.
+- Lifecycle transactions update user, username and User ID reservation together.
+  Board publishing compares current data against the draft baseline and only
+  writes changed boards. Conflict keeps the draft and must not create a revision.
+- Deletion validates pointers before Auth deletion, removes module data/nested
+  invites and detaches Auth-linked board members into guests while preserving
+  expenses, shares and obligations. Do not reuse legacy orphan cleanup for this.
+- Legacy board access is still signed-in read / active-account write. Per-board
+  ACLs and existing public recovery-hash cleanup require coordinated migrations;
+  do not report these as solved by the current Rules.
 
 ## Workflow
 
@@ -85,6 +100,8 @@ Use adjacent skills when the task crosses boundaries:
 6. Verify:
    - small copy/layout: `npm run test:syntax` plus browser spot-check
    - lifecycle/delete/reset/data: targeted unit/e2e plus `npm test` when risky
+   - auth/Rules/Admin persistence: `npm run test:backend` (isolated Auth/Firestore
+     emulators, guarded `demo-coin-quest` project); do not mutate production as a shortcut
    - commit/deploy request or admin persistence change: full `npm test`
 7. Use `$snapshot` automatically before the final response for visible Admin UI
    changes, audits, responsive states, or prototype/live comparisons. Do not

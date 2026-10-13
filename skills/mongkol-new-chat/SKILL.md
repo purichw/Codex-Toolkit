@@ -1,6 +1,6 @@
 ---
 name: mongkol-new-chat
-description: Onboard a fresh Codex chat for the Mongkol Wela / hora-astro project. Use when the user asks for a new-chat prompt, handoff prompt, context pickup checklist, required docs/skills/setup for Mongkol Wela, or wants a future chat to know what to read before temple, homepage, admin/CMS, data, anti-bot, QA, export/prototype, commit, push, or deploy work.
+description: Onboard or refresh project context for Mongkol Wela / hora-astro. Use for new-chat or handoff prompts, project documentation/skill updates, required reading, or context pickup before temple, place URL, admin/CMS, Tarot editorial research, QA, or release work.
 ---
 
 # Mongkol New Chat
@@ -11,33 +11,46 @@ Prepare a fresh Codex chat to work safely on Mongkol Wela without relying on sta
 
 ## Workflow
 
-1. Treat the repo as:
+1. Use the current task's selected checkout/worktree. The primary checkout is a
+   fallback location, not an instruction to leave an active worktree:
 
 ```text
 /Users/point/Website Projects/hora-astro
 ```
 
-2. Inspect current state first:
+2. Inspect status in that selected checkout before edits:
 
 ```bash
-git -C "/Users/point/Website Projects/hora-astro" status --short --branch
+git status --short --branch
 ```
 
 3. Read the shared new-chat shape:
    `/Users/point/.codex/skills/project-onboarding/references/new-chat-template.md`.
 4. Read `references/new-chat-context.md` from this skill.
-5. Read only the project docs relevant to the next task, using the required-doc order from the reference.
+5. Read only task-relevant project docs and source owners from the reference.
+   Treat dated release notes as historical evidence, not a fresh production check.
 6. If the user asks for a prompt, return a copy-ready prompt for a new chat. If the user asks to continue work, summarize what was read and proceed with the relevant task.
+7. For documentation updates, reconcile claims against source and dated evidence;
+   keep project facts in project docs and the reference, not global design skills.
 
 ## Required Discipline
 
 - Use current on-disk skill files when a skill is named. Do not rely on older remembered skill behavior.
+- A starter prompt does not authorize creating, reading, monitoring or messaging
+  another chat. Stay in the current chat unless the user explicitly identifies
+  and authorizes the other task and scope.
 - Do not commit, push, deploy, rollback, revert, remove, or delete work unless the user explicitly asks in the current task.
 - Preserve routes, journeys, internal scroll containers, permissions, form behavior, data contracts, responsive constraints, and customized component geometry unless the task explicitly changes them.
-- Keep the site Thai-first. Do not add English routes/copy unless explicitly requested.
-- For UI work, provide browser/snapshot evidence in the final handoff.
+- Keep the site Thai-first. Approved English/romanized place URL slugs are not
+  English locale pages; preserve those URLs, aliases and stable CMS/planner keys.
+- Published CMS content is authoritative; bundled JSON is bootstrap, not failover.
+  A research prompt/proposed schema is not completed content or CMS support.
+- Use proportional verification. Documentation-only changes need reference and
+  diff checks, not screenshots/builds. Visible UI changes need current targeted
+  browser/snapshot evidence; expand coverage for responsive/shared-contract risk.
 - For rollback-like requests, use `$rollback-guardrail` before changing files.
-- For commit, push, deploy, release, or handoff, use `$release-gate`.
+- For commit, push, deploy or release readiness, use `$release-gate` and the repo
+  release workflow. A plain context handoff does not itself require a release pass.
 
 ## Reference
 

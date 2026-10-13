@@ -53,32 +53,51 @@ Use adjacent skills when the task crosses boundaries:
 - Native is player-side only. Do not add Admin native or an Admin WebView unless
   the user explicitly changes direction.
 - Native is not a WebView wrapper.
-- Native uses the same Firebase project and account contracts:
-  `users/{uid}`, `usernames/{username}`, `characters/{id}`, and `trips/{id}`.
-- Native-owned module state lives in `playerModules/{uid}` for Debt Dragon,
-  Treasury, and Compare.
-- Web Debt/Treasury/Compare localStorage stores are not automatically migrated.
+- Both clients use Firebase project `pointy-personal-toolkit`: `users/{uid}`,
+  `usernames/{username}`, `userIds/{id}`, `characters/{id}`, `trips/{id}` and
+  nested `users/{uid}/boardInvites`.
+- Debt Dragon, Treasury and Compare share `playerModules/{uid}`. The website
+  bridge is `shared/module-cloud.js`; preserve local drafts and backups, require
+  an explicit choice when local/cloud snapshots conflict, and stop stale writes
+  after an account switch. Refresh is explicit, not a realtime subscription.
+- Native imports canonical finance/settlement logic from `shared/pointy-logic.js`.
+  Replace the selected module map with `mergeFields`, preserving other modules;
+  do not deep-merge removed nested records back into existence.
 - Never replace real backend state with static Claude/sample finance data.
 - Empty states are acceptable only when tied to real create/log actions.
 
-## Pre-Build Gates
+## Simulator-First Workflow
 
-Before a physical iPhone build/install:
-
-1. Design parity gate: compare touched screens against the latest Claude iOS and
-   Android exports. Check native chrome, title spacing, cards, sheets, bottom
-   tabs/FAB, typography scale, asset usage, loading, empty, and error states.
-2. Backend gate: sign in or create a real Firebase account and verify dynamic
-   Firestore-backed data for the touched flow.
-3. Source gate: run `npm run typecheck` from `mobile/`, then export/build as
-   documented in `mobile/IOS_BUILD_NOTES.md`.
+- Read `mobile/AGENTS.md`, `.nvmrc` and `IOS_BUILD_NOTES.md` before building.
+  The rebuild uses Expo Router (`src/app/`), Expo 57 / React Native 0.86 and
+  Node 24. Use the committed versions, npm lockfile and two workers on this Mac.
+- Build, install and launch the app's own binary; use `npm run build:simulator`
+  and `npm run start:simulator`. Expo Go, an exported JS bundle and a browser
+  phone viewport do not establish native acceptance.
+- Exercise the affected flow on Simulator: tap/back, keyboard or native picker,
+  loading/error, save/reopen and process relaunch when persistence is involved.
+  Inspect current screenshots with build, account/state and device provenance.
+- Use an authorized test account to check native ↔ Firebase ↔ web round trips
+  for shared writes. Mock browser fixtures and emulator tests are separate evidence.
+- The approved direction is the Coin Quest brand adapted to native mobile.
+  Read `mobile/DESIGN_DIRECTION.md`; preserve website font roles: Mitr,
+  IBM Plex Sans Thai and Chakra Petch. Use a supplied reference only when relevant.
+- Device lock or unavailable Simulator is an explicit missing gate. Preserve
+  earlier per-flow evidence without representing it as proof of later changes.
+  App Store/TestFlight/Android distribution is separate from a web/API deployment.
 
 ## Verification
 
-- Native TypeScript: from `mobile/`, run `npm run typecheck`.
-- iOS bundle export: `npx expo export --platform ios --output-dir /tmp/coinquest-mobile-export`.
+- From `mobile/`: `npm run typecheck`, `npm run lint`,
+  `node --test tests/*.test.mjs` and `npm run check:dependencies` when dependencies change.
+- Optional bundle gate: `npx expo export --platform ios --output-dir .artifacts/ios-export`.
+  Rebuild the own-app binary after adding native dependencies.
 - Root web regression after shared contract changes: from repo root, run
   `npm test`.
+- Auth/rules/Admin/shared persistence changes also require `npm run test:backend`.
+  This uses isolated `demo-coin-quest` Auth/Firestore emulators, never production.
+- Use `docs/mobile-completion-worklist.md` and `docs/backend-audit-2026-10-12.md`
+  for historical evidence/known limits, and the release runbook for live status.
 - Use `$snapshot` automatically before the final response when changed native
   screens, web parity surfaces, Claude exports, or visual comparisons are part
   of the task. Do not wait for the user to ask; state any simulator/device

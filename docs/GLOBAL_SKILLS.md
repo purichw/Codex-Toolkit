@@ -32,6 +32,7 @@ version should run.
 | [`global-ios-app-development`](../skills/global-ios-app-development/SKILL.md) | [`ios-app-development`](../skills/ios-app-development/SKILL.md) | Cross-project iOS toolchain, build/device workflows and runtime troubleshooting. |
 | [`global-mockup-to-product`](../skills/global-mockup-to-product/SKILL.md) | [`mockup-to-product`](../skills/mockup-to-product/SKILL.md) | Authorized mockup adaptation, complete anatomy, shared surfaces, live authoring, and scoped visual comparisons. |
 | [`global-github-actions-repair`](../skills/global-github-actions-repair/SKILL.md) | [`github-actions-repair`](../skills/github-actions-repair/SKILL.md) | Failed Actions diagnosis, scoped credentials, authorized reruns, and fixed-revision/target evidence. |
+| [`global-github-actions-usage`](../skills/global-github-actions-usage/SKILL.md) | [`github-actions-usage`](../skills/github-actions-usage/SKILL.md) | Measured runner-minute/cost audits, duplicate-work reduction and coverage-preserving workflow optimization. |
 | [`global-accessible-interaction`](../skills/global-accessible-interaction/SKILL.md) | [`accessible-interaction`](../skills/accessible-interaction/SKILL.md) | Accessibility, keyboard, focus, ARIA, contrast, touch, and modal/drawer behavior across projects. |
 | [`global-account-recovery-key`](../skills/global-account-recovery-key/SKILL.md) | [`account-recovery-key`](../skills/account-recovery-key/SKILL.md) | Provider-neutral recovery-key flows for auth and account reset patterns. |
 | [`global-admin-ops`](../skills/global-admin-ops/SKILL.md) | [`admin-ops`](../skills/admin-ops/SKILL.md) | Reusable admin portal, CMS, back-office, operator, lifecycle, and privileged-action workflows. |
@@ -91,7 +92,7 @@ version should run.
 These skills stay under their project or specialized names:
 
 - Coin Quest: `coin-quest-admin-ops`, `coin-quest-ledger-logic`,
-  `coin-quest-native-parity`
+  `coin-quest-native-parity`, `coin-quest-new-chat`
 - CoverMate: `covermate-design-spec`, `covermate-new-chat`
 - DOOTAA: `dootaa-new-chat`
 - Kaset Tan Phai: `kaset-tan-phai-new-chat`

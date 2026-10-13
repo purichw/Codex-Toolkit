@@ -1,7 +1,8 @@
 # Codex Toolkit Agent Notes
 
-This repository stores the user's personal Codex skills. Treat it as a private
-toolkit and backup, not as a generic public package.
+This repository stores the user's personal Codex skills. Treat it as a personal
+toolkit and backup, not as a generic package. The repository is public; the user
+confirmed publication of the reviewed skill updates on 2026-10-13.
 
 ## First Read
 
@@ -79,7 +80,8 @@ do not silently drop remaining work after the highest-risk item passes.
 
 ## Safety Rules
 
-- Keep the repo private unless the user explicitly decides to publish it.
+- Preserve the user-approved public visibility; do not change visibility without
+  explicit authorization. Public publishing still requires the privacy review.
 - Review for secrets, service-account files, tokens, passwords, private keys,
   private URLs, personal data, and sensitive project details before pushing.
 - Do not add generated caches, system skills, plugin cache contents, or unrelated
@@ -101,7 +103,7 @@ For most changes, run:
 
 ```sh
 git diff --check
-python3 scripts/verify_skills.py --expected-count 138
+python3 scripts/verify_skills.py --expected-count 141
 ```
 
 The verifier checks skill frontmatter, folder/name consistency, Markdown links,

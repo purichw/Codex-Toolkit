@@ -97,6 +97,74 @@ User-visible risk:
 7. Verify the requested outcomes and apply the completion gate below before
    reporting evidence, skips, and residual risk.
 
+## Batch Publishing And Recovery
+
+- For an authorized push/deploy, finish the selected local checks and collect
+  already-running release reviews before pushing the candidate. Combine their
+  findings into one correction pass and refresh only affected evidence. Do not
+  start extra reviews or full local suites merely to satisfy this rule.
+- When CI fails, inspect the first causal failure and the affected assumptions
+  or readiness conditions before another push. Search adjacent tests for that
+  same failure pattern and run the relevant focused checks; do not use repeated
+  full CI runs to discover predictable omissions one at a time. Use
+  `$github-actions-repair` for GitHub Actions diagnosis.
+- Before superseding an active run, check whether the new push cancels or
+  restarts it. Batch remaining known corrections when practical, while keeping
+  required remote checks and necessary fixes. Do not cancel unrelated runs.
+- Follow remote checks with bounded waits and report meaningful phase changes,
+  failures, or stalled work. Repeated unchanged polling is not task progress;
+  diagnose an unexpected delay from run/step timings instead of restarting it.
+
+## Release Delay Checkpoints
+
+Before waiting on an authorized push/release, identify the exact revision,
+operation IDs, required endpoint and next diagnostic checkpoint. Prefer the
+project runbook or the latest 3–5 comparable successful runs: compare the same
+workflow graph, full/docs mode, runner and workload. Reuse available evidence;
+do not launch a benchmark or survey the entire history. One successful run is a
+provisional reference, not a promised duration.
+
+Use these starting checkpoints when the project has no better evidence:
+
+| Signal | When to inspect |
+| --- | --- |
+| Failed assertion, timeout, rejected push/auth, wrong SHA, unexpected cancellation, or required check absent when the workflow finishes | Immediately, before another attempt. |
+| Ordinary small push with no transfer/hook progress | 2 minutes; distinguish local hooks, transfer and remote acceptance. |
+| Expected CI/deployment has not appeared after a confirmed push | 3 minutes; verify triggers/ref/integration before pushing again. |
+| Queued operation or no observable progress | 5 minutes; read the current step/log timestamps. A stable status label alone is insufficient. |
+| Active phase or total duration beyond comparable successful runs | Inspect at `max(1.5 × usual duration, usual duration + 2 minutes)`. Without a baseline, inspect build/CI at 10 minutes. |
+| Production promotion still pending after build and exact-revision checks pass | 2 minutes; inspect check association and alias state. |
+
+These are investigation thresholds, not new job timeouts, SLAs or reasons to
+cancel healthy work. Adjust for evidenced long transfers, cold setup and actual
+progress. A ready build held behind still-running, normally progressing CI is
+an expected dependency wait.
+
+When a checkpoint is reached:
+
+1. Stop automatic retries/new pushes and identify the phase: local verification,
+   hooks/transfer, trigger/queue, setup, test, build, required gate, promotion, or
+   served-version verification. Check remote state if the previous result is
+   uncertain. Preserve the run's diagnostic evidence.
+2. Inspect identity, concurrency/superseding revisions and the first causal
+   error from each failed job in one pass. For running work, inspect available
+   progress before calling it stalled. Separate product regressions, stale test
+   expectations, harness races and infrastructure problems using evidence.
+3. State the blocker or observed progress, next diagnostic action and next
+   bounded checkpoint. If healthy, continue the existing operation. If broken,
+   fix the supported cause and refresh affected checks before one new attempt.
+4. Allow one unchanged diagnostic rerun only with evidence of a transient cause.
+   A repeated same-cause failure, or two failed repair cycles, requires revising
+   the hypothesis and verification plan before another push/full run. Inspect
+   direct consumers and batch all known corrections. Do not repeatedly rerun
+   merely to obtain green; each attempt needs a supported correction or the
+   permitted transient diagnostic retry.
+
+Do not substitute force pushes, duplicate manual deployments, unrelated-run
+cancellation, weaker budgets/assertions or bypassed checks for diagnosis. Use
+`$github-actions-repair` for Actions evidence and `$release-gate` for readiness.
+This rule does not grant access to other chats or additional publishing actions.
+
 ## Evidence And Operation Results
 
 - Reuse evidence only when all conditions relevant to the claim match: source
