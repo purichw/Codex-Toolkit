@@ -3,6 +3,11 @@
 This folder contains custom Codex skills. Each subfolder is intended to be usable
 as a standalone skill directory under `~/.codex/skills`.
 
+The separately installed
+[`ui-ux-expert-mobile-native`](../.agents/skills/ui-ux-expert-mobile-native/SKILL.md)
+is repo-scoped under `.agents/skills/`, outside this archive. Use it for native
+iOS/iPadOS and Android UI work; do not duplicate it here or replace `ui-ux-expert`.
+
 Reusable, non-project-specific skills also have `global-*` alias folders. The
 aliases route to canonical skills and are listed in
 [../docs/GLOBAL_SKILLS.md](../docs/GLOBAL_SKILLS.md).

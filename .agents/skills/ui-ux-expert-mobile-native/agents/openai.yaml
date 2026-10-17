@@ -1,0 +1,6 @@
+interface:
+  display_name: "UI/UX Expert Mobile Native"
+  short_description: "Design and verify native iOS and Android UI/UX"
+  default_prompt: "Use $ui-ux-expert-mobile-native to design, implement, inspect native renders, and refine this app while preserving product behavior and explicit preferences."
+policy:
+  allow_implicit_invocation: true

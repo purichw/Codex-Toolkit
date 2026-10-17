@@ -17,6 +17,9 @@ user's intent.
 - Breakdown: 82 personal skill folders (including compatibility routers),
   57 `global-*` alias skills for reusable non-project-specific workflows, and
   2 standalone global design-spec skills.
+- Separate repo-scoped installation: one skill,
+  `ui-ux-expert-mobile-native`, under `.agents/skills/` (142 skill entrypoints
+  across both maintained roots). It is not part of the 141-folder archive count.
 
 The first import copied personal skills from:
 
@@ -25,6 +28,13 @@ The first import copied personal skills from:
 ```
 
 System and plugin-provided skills are not meant to be copied here.
+
+The native skill was installed separately from the user-supplied v0.1.0 package
+on 2026-10-17. Keep its `.agents/skills/` location and standalone contents; do not
+sync it from the user-level skill archive, duplicate it under `skills/`, replace
+the web `ui-ux-expert`, or install it globally without a new request. Its local
+Codex discovery was verified; native UI quality was not. See the catalog entry
+and maintenance commands for scope and verification.
 
 ## What This Repo Is For
 

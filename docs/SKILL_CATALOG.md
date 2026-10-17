@@ -8,6 +8,26 @@ Reusable, non-project-specific skills also have `global-*` aliases. See
 [GLOBAL_SKILLS.md](GLOBAL_SKILLS.md) for the alias map and the list of skills
 that intentionally remain project-specific or specialized.
 
+## Repository-Scoped Native Design
+
+### ui-ux-expert-mobile-native
+
+- Skill file: [SKILL.md](../.agents/skills/ui-ux-expert-mobile-native/SKILL.md)
+- Description: Standalone native design, implementation, critique and repair
+  guidance for iOS/iPadOS and Android, selecting the project's existing stack.
+- Use when: Working on native screens, flows, shared controls, visual defects,
+  accessibility or platform behavior in SwiftUI/UIKit, Compose/Views,
+  React Native/Expo or Flutter. Not a responsive-web/PWA skill.
+- Installation: Supplied v0.1.0 folder preserved unchanged in `.agents/skills/`.
+  Codex 0.163.0-alpha.10.2 discovered it with `scope: repo` and `enabled: true`
+  on 2026-10-17. This does not install it globally or prove model behavior.
+- Evidence: Package structure and 35 supplied unit tests passed; SDK calls in
+  those tests are mocked. No native app build, visual review or UI/UX quality
+  claim follows from those results. The external tests/evaluation kit were not
+  copied into the installation. Follow its tooling reference for actual app work.
+- Boundary: Preserve the separate web `ui-ux-expert`; install alone does not
+  authorize app redesign, SDK installation or copying references into root AGENTS.
+
 ## General Workflow
 
 ### project-onboarding

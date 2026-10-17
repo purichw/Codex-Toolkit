@@ -4,8 +4,12 @@ A personal collection of custom Codex skills for project onboarding, release
 checks, Firebase work, visual parity, QA, and project-specific operating
 playbooks.
 
-Each skill lives under `skills/<skill-name>/` and contains a `SKILL.md` file.
+Archived skills live under `skills/<skill-name>/` and contain a `SKILL.md` file.
 Some skills also include reference notes, helper scripts, or agent metadata.
+The separate repo-scoped
+[`ui-ux-expert-mobile-native`](.agents/skills/ui-ux-expert-mobile-native/SKILL.md)
+lives in `.agents/skills/` for native iOS/iPadOS and Android design, implementation
+and visual review. It is not a global installation or a replacement for the web skill.
 
 This repository is public. It includes user-approved project context; credentials,
 private customer data and generated local exports must not be published.

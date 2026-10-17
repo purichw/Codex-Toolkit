@@ -44,6 +44,22 @@ source-of-truth assumptions and the safest update path.
 5. If the new skill changes how future agents should maintain this repository,
    update [CODEX_CONTEXT.md](CODEX_CONTEXT.md) and [../AGENTS.md](../AGENTS.md).
 
+## Repository-Scoped Skill
+
+For the explicitly repo-scoped `ui-ux-expert-mobile-native`, preserve the
+installation at `.agents/skills/ui-ux-expert-mobile-native/`, separate from
+the user-level archive sync above. Do not copy its external evaluation kit/tests
+or create a duplicate archive/global skill. The archive verifier count remains
+141; check this additional installation with its own validator:
+
+```sh
+python3 .agents/skills/ui-ux-expert-mobile-native/scripts/validate_package.py
+python3 .agents/skills/ui-ux-expert-mobile-native/scripts/native_evidence.py preflight
+```
+
+These check structure/tool presence, not native UI quality. Discovery is a
+separate check through Codex's skill resolver for the intended repository.
+
 ## Privacy Review
 
 This repository is public, with publication of the reviewed skill update

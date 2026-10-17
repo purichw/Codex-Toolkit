@@ -1,0 +1,77 @@
+{
+  "schema_version": 1,
+  "app_id": "REPLACE_WITH_APP_PACKAGE_OR_BUNDLE_ID",
+  "data_id": "REPLACE_WITH_IMMUTABLE_FIXTURE_HASH",
+  "reference_ids": [
+    "REPLACE_WITH_APPROVED_REFERENCE_OR_NONE_DECLARED"
+  ],
+  "variants": [
+    {
+      "id": "android-primary",
+      "platform": "android",
+      "runtime": "emulator",
+      "device_id": "REPLACE_WITH_ADB_SERIAL",
+      "os_version": "REPLACE_WITH_ACTUAL_OS_VERSION",
+      "logical_size": [
+        360,
+        800
+      ],
+      "density": 3.0,
+      "locale": "th-TH",
+      "text_setting": "system default (replace with actual setting)",
+      "appearance": "light",
+      "orientation": "portrait"
+    },
+    {
+      "id": "ios-primary",
+      "platform": "ios",
+      "runtime": "simulator",
+      "device_id": "REPLACE_WITH_SIMULATOR_UDID",
+      "os_version": "REPLACE_WITH_ACTUAL_OS_VERSION",
+      "logical_size": [
+        393,
+        852
+      ],
+      "density": 3.0,
+      "locale": "th-TH",
+      "text_setting": "system default (replace with actual setting)",
+      "appearance": "light",
+      "orientation": "portrait"
+    }
+  ],
+  "cases": [
+    {
+      "id": "android-form-default",
+      "variant_id": "android-primary",
+      "screen": "edit-contact",
+      "state": "filled",
+      "setup": [
+        "Load the fixed fixture",
+        "Open contact editor",
+        "Confirm exact app/build and readiness"
+      ]
+    },
+    {
+      "id": "android-form-keyboard",
+      "variant_id": "android-primary",
+      "screen": "edit-contact",
+      "state": "keyboard-on-last-field-error",
+      "setup": [
+        "Open contact editor with fixture",
+        "Focus the last field with the actual software keyboard visible",
+        "Trigger the defined validation error without resetting input"
+      ]
+    },
+    {
+      "id": "ios-form-default",
+      "variant_id": "ios-primary",
+      "screen": "edit-contact",
+      "state": "filled",
+      "setup": [
+        "Load the fixed fixture",
+        "Open contact editor",
+        "Confirm exact app/build and readiness"
+      ]
+    }
+  ]
+}

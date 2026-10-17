@@ -1,0 +1,125 @@
+{
+  "checked_on": "2026-10-17",
+  "sources": [
+    {
+      "id": "C1",
+      "title": "Codex skill format, discovery, invocation and optional metadata",
+      "url": "https://learn.chatgpt.com/docs/build-skills",
+      "access_note": "Read current official documentation; use installed-version behavior if it differs."
+    },
+    {
+      "id": "A1",
+      "title": "Apple UI Design Dos and Don’ts",
+      "url": "https://developer.apple.com/design/tips/",
+      "access_note": "Read; includes 44 pt hit-target guidance. Do not turn its lowest text-size example into a body-text default."
+    },
+    {
+      "id": "A2",
+      "title": "Apple HIG: Accessibility",
+      "url": "https://developer.apple.com/design/human-interface-guidelines/accessibility",
+      "access_note": "HTML shell; content read via official JSON endpoint https://developer.apple.com/tutorials/data/design/human-interface-guidelines/accessibility.json"
+    },
+    {
+      "id": "A3",
+      "title": "Apple HIG: Sheets",
+      "url": "https://developer.apple.com/design/human-interface-guidelines/sheets",
+      "access_note": "Content read via official JSON endpoint https://developer.apple.com/tutorials/data/design/human-interface-guidelines/sheets.json"
+    },
+    {
+      "id": "A4",
+      "title": "Apple HIG: Typography",
+      "url": "https://developer.apple.com/design/human-interface-guidelines/typography",
+      "access_note": "Content read via official JSON endpoint https://developer.apple.com/tutorials/data/design/human-interface-guidelines/typography.json"
+    },
+    {
+      "id": "A5",
+      "title": "Apple XCUIAutomation",
+      "url": "https://developer.apple.com/documentation/xcuiautomation",
+      "access_note": "HTML shell available; exact API content not retrieved. Verify against installed Xcode before code changes."
+    },
+    {
+      "id": "A6",
+      "title": "Apple: Capturing screenshots and videos from devices",
+      "url": "https://developer.apple.com/documentation/xcode/capturing-screenshots-and-videos-from-devices",
+      "access_note": "HTML shell available; command details require local simctl help. Helper path is unit-tested with mocks, not on an Apple runtime."
+    },
+    {
+      "id": "D1",
+      "title": "Android Compose accessibility API defaults",
+      "url": "https://developer.android.com/develop/ui/compose/accessibility/api-defaults",
+      "access_note": "Read; touch targets, expanded hit regions, semantics and decoration."
+    },
+    {
+      "id": "D2",
+      "title": "Android core app quality guidelines",
+      "url": "https://developer.android.com/docs/quality-guidelines/core-app-quality",
+      "access_note": "Read; use relevant task/state/target-device checks, not an unbounded checklist."
+    },
+    {
+      "id": "D3",
+      "title": "Android predictive Back support",
+      "url": "https://developer.android.com/guide/navigation/custom-back/predictive-back-gesture",
+      "access_note": "Read; verify implementation against actual OS/target SDK/navigation library."
+    },
+    {
+      "id": "D4",
+      "title": "Android window insets",
+      "url": "https://developer.android.com/develop/ui/compose/system/insets",
+      "access_note": "Read; actual toolkit/inset ownership must be inspected in the app."
+    },
+    {
+      "id": "D5",
+      "title": "Android Debug Bridge",
+      "url": "https://developer.android.com/tools/adb",
+      "access_note": "Read; supports explicit device selection and exec-out screencap -p. No device was available here."
+    },
+    {
+      "id": "R1",
+      "title": "React Native accessibility",
+      "url": "https://reactnative.dev/docs/accessibility",
+      "access_note": "Read; match docs to the project version, not the moving default docs."
+    },
+    {
+      "id": "R2",
+      "title": "React Native KeyboardAvoidingView",
+      "url": "https://reactnative.dev/docs/keyboardavoidingview",
+      "access_note": "Read; verify platform-specific behavior rather than copy one universal configuration."
+    },
+    {
+      "id": "R3",
+      "title": "React Native testing overview",
+      "url": "https://reactnative.dev/docs/testing-overview",
+      "access_note": "Read; JavaScript/component tests are distinct from native end-to-end behavior."
+    },
+    {
+      "id": "E1",
+      "title": "Expo development builds",
+      "url": "https://docs.expo.dev/develop/development-builds/introduction/",
+      "access_note": "Read; development builds, native configuration, and local toolchains. No Expo account or service is required by this package."
+    },
+    {
+      "id": "F1",
+      "title": "Flutter adaptive and responsive design",
+      "url": "https://docs.flutter.dev/ui/adaptive-responsive",
+      "access_note": "Read; adaptation is not simply shrinking a layout."
+    },
+    {
+      "id": "F2",
+      "title": "Flutter SafeArea and MediaQuery",
+      "url": "https://docs.flutter.dev/ui/adaptive-responsive/safearea-mediaquery",
+      "access_note": "Read; verify constraints/insets with the actual app."
+    },
+    {
+      "id": "F3",
+      "title": "Flutter testing overview",
+      "url": "https://docs.flutter.dev/testing/overview",
+      "access_note": "Read; testing levels differ in scope. Pair native accessibility checks with platform sources."
+    },
+    {
+      "id": "F4",
+      "title": "Flutter integration tests",
+      "url": "https://docs.flutter.dev/testing/integration-tests",
+      "access_note": "Read; native integration tests need an app/device. Not compiled or exercised here."
+    }
+  ]
+}
