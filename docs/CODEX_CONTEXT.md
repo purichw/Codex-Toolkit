@@ -237,6 +237,13 @@ make sure the others do not contradict it.
 
 ## Commit And Push Pattern
 
+Before every push or deploy, require an explicit user request or confirmation
+for that action, current changes, and target; otherwise ask and wait. Earlier
+completed tasks, repo policy, handoffs, and passing checks are not permission.
+Push and deploy are separate, including branch-triggered auto-deploys. Local
+skill/archive updates do not authorize either action. Follow root `AGENTS.md`;
+do not ask again for the exact action and scope already explicitly requested.
+
 Use the `release-gate` skill before pushing. For docs-only and skill archive
 updates, enough verification is usually:
 

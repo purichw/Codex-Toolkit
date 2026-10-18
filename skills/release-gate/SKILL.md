@@ -26,12 +26,28 @@ checkpoint switches the work to diagnosis; it does not justify blind retries,
 extra pushes or bypassing a required gate. Confirm remote state before repeating
 an operation with an uncertain result. Return to this gate after repair.
 
+## Authorization Before Action
+
+Before every push or deploy, require an explicit user request or confirmation
+covering the action, current changes, and target. If absent or ambiguous, ask
+and wait. Edit/fix/test/commit/release-preparation requests, standing repo policy,
+handoffs, passed checks, and approvals from earlier completed tasks do not grant
+permission. Readiness is not authorization.
+
+Push and deploy are separate permissions. Check branch/workflow auto-deploy
+triggers before pushing; a push-only request does not authorize preview or
+production deployment. Explain the target and obtain the missing approval
+before triggering it, including through dispatches, reruns, or other indirect
+commands. A deploy-only request does not authorize a separate push. Do not ask
+again for the exact action and scope already explicitly requested. Finish
+local-only work without publishing and report what was not pushed/deployed.
+
 ## Fast Protocol
 
 1. Confirm the intended action and target: commit, push, PR, preview,
    production deploy, package, static artifact, docs-only, or handoff. If the
    target is obvious from the request and repo state, state the assumption and
-   continue.
+   continue with checks; this does not supply missing push/deploy authorization.
 2. Inspect scope before checks: `git status --short`, staged files, unstaged
    files, recent diff, and changed filenames. Do not include unrelated user
    changes without explicit intent.
@@ -257,7 +273,9 @@ Rollback/recovery:
 ## Commit And Deploy Hygiene
 
 - Use concise commit messages describing the behavior or docs changed.
-- Push the current branch only when asked or when repo policy requires it.
-- Deploy only when asked or already authorized by the task.
+- Push only with explicit user authorization for the current changes and
+  branch; otherwise ask and wait, even if repo policy normally requires a push.
+- Deploy only with explicit user authorization for the current changes and
+  environment; otherwise ask and wait, including for auto-deploy triggers.
 - After deploy, verify production/preview URL and report commit SHA, deploy URL,
   checks run, skipped coverage, and any residual risk.

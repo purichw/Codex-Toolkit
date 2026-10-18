@@ -97,6 +97,24 @@ do not silently drop remaining work after the highest-risk item passes.
 - Preserve executable bits on helper scripts.
 - Use concise commits and push only the intended scope.
 
+## Push And Deploy Authorization
+
+- Before every push or deploy, require an explicit user request or confirmation
+  covering that action, the current changes, and the target. If absent or
+  unclear, ask and wait for the user's answer before proceeding.
+- Instructions to edit, fix, test, prepare a release, or commit do not authorize
+  push or deploy. Push and deploy are separate permissions; neither implies the
+  other. A clear request for both authorizes both within its stated scope.
+- Earlier completed tasks, standing repo policies, handoffs, available tools,
+  and passing checks are not authorization for a new push or deploy.
+- Before an authorized push, check whether its branch triggers an automatic
+  preview or production deployment. If that deployment is not also authorized,
+  explain the target and ask before pushing. Apply the same rule to workflow
+  dispatches, reruns, and other commands that trigger deployment indirectly.
+- Do not ask again for the exact action and scope already explicitly requested.
+  When only local work is requested, finish it and report that no push/deploy
+  occurred; do not publish merely to complete the workflow.
+
 ## Verification
 
 For most changes, run:

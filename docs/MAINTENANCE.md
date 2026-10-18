@@ -131,4 +131,9 @@ git commit -m "Document skill installation workflow"
 git commit -m "Update Notenwert maintainer skill"
 ```
 
-Push only after the diff matches the intended scope.
+Push only after the diff matches the intended scope and the user explicitly
+requests or confirms pushing these changes to the target branch. Otherwise ask
+and wait. Sync, edit, test, and commit requests do not authorize push or deploy;
+prior completed tasks and repo policy are not substitutes for approval. Deploy
+requires separate authorization, including auto-deploy triggered by a push or
+workflow rerun. Follow the authorization rules in [../AGENTS.md](../AGENTS.md).

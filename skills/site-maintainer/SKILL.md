@@ -77,7 +77,14 @@ design rules, content model, deploy process, or fragile flows.
 
 Stage only intended source/docs/generated files. Leave unrelated dirty files and
 incidental build churn unstaged. Use concise commit messages and push/deploy
-only when asked or authorized by repo policy.
+only with an explicit user request or confirmation for each action, the current
+changes, and the target. Otherwise ask and wait every time. Repo policy, an
+earlier completed task, passing checks, or a request to edit/test/commit is not
+permission. Push and deploy are separate: check branch auto-deploy triggers and
+obtain missing preview/production deploy approval before pushing. Apply the same
+boundary to workflow reruns or other indirect deploy commands. Do not ask again
+for an action already explicitly requested within that scope. Local-only work
+ends with a report, not an automatic push or deploy.
 
 ## Closeout
 

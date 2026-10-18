@@ -23,6 +23,18 @@ Use `$efficient-execution` to keep UAT lightweight. The goal is a small,
 resettable environment that proves the changed risk, not a second production
 process for every commit.
 
+## Deployment Authorization
+
+Before every push, preview/staging deploy, or production promotion, require an
+explicit user request or confirmation for that action, current changes, and
+target. Otherwise ask and wait; repo policy, earlier completed tasks, a request
+to test, or a passing UAT gate is not permission. Push and deploy are separate:
+obtain missing deploy approval before a push or workflow rerun that auto-deploys.
+A clear request to deploy to a specified preview authorizes that preview, not
+production. Do not ask again for an action already explicitly requested within
+scope. Use existing authorized environments or local checks while approval for
+a new deployment is missing, and report the remaining verification gap.
+
 ## Environment Contract
 
 At minimum define:
@@ -84,7 +96,8 @@ test results depend on accidental old state.
 ## Minimum Viable UAT Loop
 
 1. Map active deliverables and acceptance criteria to required checks, using
-   `$efficient-execution`. Deploy or open the exact preview build/version.
+   `$efficient-execution`. Open the exact existing preview build/version, or
+   deploy it only after satisfying the deployment authorization rule above.
 2. Seed only the roles and data states required by the changed risk.
 3. Use test-only auth bypass when auth is not under test; use real test accounts
    when auth, roles, or permissions are under test.

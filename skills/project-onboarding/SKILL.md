@@ -33,6 +33,21 @@ assumptions, and keep the output short enough to be useful during active work.
    external services, styling system, test surface, and known generated assets.
 5. Check `git status --short` and protect existing user changes.
 
+## Push And Deploy Boundaries
+
+Onboarding, handoff instructions, and discovering a deploy command do not grant
+permission to publish. Before every push or deploy, require an explicit user
+request or confirmation for that action, current changes, and target; otherwise
+ask and wait. Do not carry approval from an earlier completed task or infer it
+from repo policy, passing checks, or a request to edit, test, or commit.
+
+Map push and deploy separately, including branch-triggered preview/production
+deployments. A push request alone does not authorize deployment: if pushing will
+trigger one, explain the target and obtain deploy approval before pushing.
+Likewise, deploy approval alone does not authorize a separate push. Preserve
+these boundaries in plans and new-chat prompts; a clear request for both needs
+no redundant confirmation within that scope.
+
 ## Efficient Intake
 
 Read enough to act safely; do not turn every task into a full architecture pass.

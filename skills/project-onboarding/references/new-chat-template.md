@@ -33,6 +33,11 @@ Important constraints:
   change direction.
 - Do not commit, push, deploy, rollback, revert, remove, migrate, or touch
   production data unless I explicitly ask in this current task.
+- Before every push or deploy not explicitly requested for the current changes
+  and target, ask me and wait for confirmation. Prior completed tasks, repo
+  policy, handoffs, and passing checks are not permission. Push and deploy need
+  separate authorization, including auto-deploy triggered by a push or rerun.
+  Do not ask again for an action already explicitly requested within that scope.
 - Preserve routes, data contracts, storage keys, auth/session behavior,
   responsive constraints, and project-specific product decisions unless
   explicitly in scope.
@@ -57,6 +62,8 @@ the next session:
 - skills to load for common task categories;
 - safe commands and verification commands;
 - release/deploy/rollback authorization rules;
+- known branch/workflow auto-deploy triggers and the separately authorized
+  push/deploy scope, or an explicit note that approval is still needed;
 - current status or latest known phase only when current docs support it.
 
 ## Rules

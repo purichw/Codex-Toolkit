@@ -104,8 +104,13 @@ unproven reconstruction of a historical run with insufficient diagnostics.
 
 1. Inspect what the workflow will do before rerunning or dispatching it. Some
    jobs deploy, publish packages, send messages, or mutate live data. The skill
-   does not grant authority for those actions; use existing user authorization
-   and applicable project rules, and resolve any uncovered consequential action.
+   does not grant authority for those actions. Before every push or deploy,
+   including deployment through a workflow rerun, require an explicit user
+   request or confirmation for that action, current changes, and target;
+   otherwise ask and wait. A request to repair CI, repo policy, a passing check,
+   or approval from an earlier completed task is not publishing permission.
+   Push and deploy need separate authorization. Do not ask again within an
+   already explicit scope; obtain approval for any uncovered side effects.
 2. For a confirmed provisioning or transient infrastructure issue, rerun the
    failed jobs on the intended original revision when appropriate. For a code
    change, test the revision containing the fix. Before dispatching, verify the

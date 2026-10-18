@@ -35,6 +35,12 @@ Stopping additional checks does not mean the whole task is complete.
 - Incorporate incoming corrections and additions while retaining unfinished
   requests. A status question does not cancel ongoing work. Replace or remove a
   requirement only when the user cancels, defers, or clearly supersedes it.
+- Before every push or deploy, require an explicit user request or confirmation
+  for that action, current changes, and target; otherwise ask and wait. Earlier
+  completed tasks, repo policy, handoffs, checks, and edit/test/commit requests
+  are not permission. Track push and deploy separately; obtain missing deploy
+  approval before a push or workflow rerun that auto-deploys. Do not ask again
+  for an action already explicitly requested within the same scope.
 - After interruption or context compaction, recover the active list, decisions,
   completed evidence, running operations, and blockers before continuing. Check
   current source and operation state before retrying an action whose result is
@@ -196,10 +202,10 @@ applicable. Do not expand this into an unrelated repository audit.
 
 When a skill update includes a maintained archive or backup, identify the
 authoritative live skill and archive copy, compare their relevant contents, and
-update affected catalog descriptions. Publish only when requested or already
-authorized. A clean archive working tree does not establish that it matches the
-live skill source. Preserve unrelated changes and repo-only aliases during
-selective syncs.
+update affected catalog descriptions. Local archive sync is not permission to
+push or deploy; apply the authorization rule above. A clean archive working
+tree does not establish that it matches the live skill source. Preserve
+unrelated changes and repo-only aliases during selective syncs.
 
 ## Fast Path Matrix
 
