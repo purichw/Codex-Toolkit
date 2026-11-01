@@ -33,6 +33,12 @@ Always read [user preferences](references/user-preferences.md) for this owner's 
 Use the current project profile to keep product-specific fonts, artwork, provider choices, and
 styling local; do not export one project's personality into every app.
 
+Keep a maintained project design contract when repeated corrections establish
+specific navigation, material, typography and component rules. Route later work
+to that contract and its real owners rather than copying project rules into
+global defaults. Current regional choices override the superseded parts of a
+reference; an old screenshot/export is not proof of a source rollback.
+
 | Present need | Load |
 | --- | --- |
 | New composition, density, hierarchy, reference translation, or ambiguous visual defect | [Design craft](references/design-craft.md); relevant section of [works/fails](examples/works-fails.md) |

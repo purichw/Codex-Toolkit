@@ -109,6 +109,14 @@ note. A separate specification file is not required for a small extraction.
 
 ## Verify Without Expanding The Task
 
+Compare peers in unequal-content states: short versus wrapped labels, every
+selected destination, and native text scaling. Equality of containers does not
+prove equality of visible illustrated borders. Action prominence and disclosure
+are semantic variants: a secondary action should not compete visually with its
+primary, and a details popup should not acquire a second disclosure solely because
+the shared component happened to use one. Apply the approved interaction at the
+owner and check all actual consumers; opening/reading must not introduce writes.
+
 Cover each changed contract with the smallest relevant evidence. Use existing
 type/build checks for API/import changes, focused tests for shared logic/events,
 and actual browser interaction checks for state, focus, input retention, and

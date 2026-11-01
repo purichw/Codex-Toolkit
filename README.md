@@ -9,7 +9,9 @@ Some skills also include reference notes, helper scripts, or agent metadata.
 The separate repo-scoped
 [`ui-ux-expert-mobile-native`](.agents/skills/ui-ux-expert-mobile-native/SKILL.md)
 lives in `.agents/skills/` for native iOS/iPadOS and Android design, implementation
-and visual review. It is not a global installation or a replacement for the web skill.
+and visual review. Cloning this repo does not install it globally or replace the
+web skill. The owner's separately approved user-level copy lives at
+`~/.agents/skills/ui-ux-expert-mobile-native/`; see the maintenance guide.
 
 This repository is public. It includes user-approved project context; credentials,
 private customer data and generated local exports must not be published.
@@ -19,10 +21,11 @@ as [`global-release-gate`](skills/global-release-gate/SKILL.md) and
 [`global-ui-ux-expert`](skills/global-ui-ux-expert/SKILL.md). See
 [Global skills](docs/GLOBAL_SKILLS.md) for the full alias map.
 
-UI/UX-related skills have a mandatory snapshot gate: after implementation,
-redesign, restyle, visual audit, responsive QA, Claude/Figma/reference handoff,
-or screenshot-based design work, use [`snapshot`](skills/snapshot/SKILL.md)
-before the final response without waiting for the user to ask.
+UI/UX-related skills have a mandatory snapshot gate: use
+[`snapshot`](skills/snapshot/SKILL.md) before changing an existing visible UI and
+after the final visual edit. Revisions need Before/After; reference-led revisions
+include Reference too. Keep narrow changes to contextual comparisons and label
+missing historical evidence honestly. Skill/docs-only updates need no app capture.
 
 ## Documentation
 
@@ -47,9 +50,11 @@ before the final response without waiting for the user to ask.
 | Skill | Short description | Use when |
 | --- | --- | --- |
 | [`dootaa-new-chat`](skills/dootaa-new-chat/SKILL.md) | Onboards DOOTAA with current app, camera, benchmark, dataset and website contracts. | Continuing DOOTAA or preparing a starter prompt without confusing source/build evidence with real-device or clinical validation. |
+| [`deepx-new-chat`](skills/deepx-new-chat/SKILL.md) | Maps DeepX website and Content Studio work to current source, CMS and release contracts. | Context pickup or handoff for UI, Supabase/CMS, domain or release work while preserving approved desktop and mobile behavior. |
+| [`glenonchy-new-chat`](skills/glenonchy-new-chat/SKILL.md) | Maps Glenonchy Flutter/Flame and Django work to current product, design and device runbooks. | Context pickup or handoff for membership, games, rewards, native UI and physical iOS verification without launching setup or deployment. |
 | [`ios-app-development`](skills/ios-app-development/SKILL.md) | Provides reusable iOS setup, build, install, launch and troubleshooting workflows. | Checking Mac/Xcode readiness, Expo/native ownership, Simulator/iPhone runs, signing or Metro while preserving the project's stack. |
 | [`korat-tan-phai-new-chat`](skills/korat-tan-phai-new-chat/SKILL.md) | Onboards Korat web and iOS work with forecast-only routing and shared brand/data contracts. | Preparing a continuation prompt or finding current docs, rev03 semantics, Supabase boundaries, native setup and verification evidence. |
-| [`mockup-to-product`](skills/mockup-to-product/SKILL.md) | Adapts approved mockups while preserving behavior, component anatomy, typography, and real editing capabilities. | Same-state visual review, cross-page components, live-editor parity, scoped before/after evidence, and responsive adaptation; exact reproduction remains owned by reference-to-a-tee. |
+| [`mockup-to-product`](skills/mockup-to-product/SKILL.md) | Preserves approved mockup composition, materials and detail in a working product, including eligible missing-artwork recovery. | Reference-led implementation, shared components, native text/art fit, asset quality and Reference/Before/After review; explicit exact matching also uses reference-to-a-tee. |
 | [`accessible-interaction`](skills/accessible-interaction/SKILL.md) | Verifies keyboard, focus, semantic controls, ARIA state, contrast, touch targets, and modal/drawer accessibility. | Visual or interaction changes could break non-pointer use, focus order, screen-reader-visible state, or mobile keyboard behavior. |
 | [`account-recovery-key`](skills/account-recovery-key/SKILL.md) | Defines provider-neutral recovery-key flows for signup, reset, regeneration, hashing, and display policy. | A project needs recovery codes/keys, password reset without email, signed-in key regeneration, or reusable auth recovery guidance. |
 | [`admin-ops`](skills/admin-ops/SKILL.md) | Guides admin portal operations, privileged actions, lifecycle flows, auditability, and CMS/admin UX. | Designing, auditing, implementing, or verifying admin surfaces that change real data, permissions, content, or operational state. |
@@ -152,5 +157,5 @@ selectively and preserve the archive's global layer.
 Verify the archive with:
 
 ```sh
-python3 scripts/verify_skills.py --expected-count 141
+python3 scripts/verify_skills.py --expected-count 143
 ```

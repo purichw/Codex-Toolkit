@@ -53,6 +53,11 @@ Use adjacent skills when the task crosses boundaries:
 - Native is player-side only. Do not add Admin native or an Admin WebView unless
   the user explicitly changes direction.
 - Native is not a WebView wrapper.
+- Native web shares, pasted-board URL validation and recovery requests use
+  `https://coinquestledger.vercel.app`. Read `NATIVE_WEB_PARITY.md` and the deploy
+  runbook before changing those targets. Website deployment and source changes
+  do not update embedded URLs in already distributed native binaries; report
+  source/Simulator verification separately from app distribution.
 - Both clients use Firebase project `pointy-personal-toolkit`: `users/{uid}`,
   `usernames/{username}`, `userIds/{id}`, `characters/{id}`, `trips/{id}` and
   nested `users/{uid}/boardInvites`.

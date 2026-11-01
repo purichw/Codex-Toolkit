@@ -17,7 +17,8 @@ lifecycle, reset/delete flows, publish/restore, or admin data loading.
 
 ## Required Context
 
-Read these first from the repo root:
+Start with `Memory.md` and `ADMIN_PORTAL_IMPLEMENTATION.md`, then read only
+the owners relevant to the operation:
 
 - `Memory.md`
 - `ADMIN_PORTAL_IMPLEMENTATION.md`
@@ -25,13 +26,13 @@ Read these first from the repo root:
 - `ACCOUNT_MANAGEMENT_IMPLEMENTATION.md`
 - `data-contracts.md`
 - `SITE_MAP_AND_INTERACTIONS.md`
-- `admin/app.js`, `admin/admin-utils.js`, `admin/index.html`, `admin/admin.css`
-  and `admin/design.css` when visuals are involved
+- `admin/app.js`, `admin/admin-utils.js`, `admin/index.html`, `admin/admin.css`,
+  `admin/design.css` and `admin/shell.js` when visuals are involved
 - `api/admin-delete-status.js` and `api/admin-delete-user.js` when delete/status is involved
 - `firestore.rules` when permissions are involved
 
-Use `ADMIN.md` as prototype/handoff history only. It is not the primary live
-implementation runbook.
+`ADMIN.md` is an entry-point index. Current implementation contracts live in
+`ADMIN_PORTAL_IMPLEMENTATION.md`; old prototype behavior is not a parallel spec.
 
 Use adjacent skills when the task crosses boundaries:
 
@@ -54,6 +55,21 @@ Use adjacent skills when the task crosses boundaries:
 
 ## Live Admin Rules
 
+- All Admin routes use Dashboard's parchment palette and the common header,
+  sidebar, frame and footer, including pages whose inner content is older.
+  `admin/design.css` and `admin/shell.js` own those shared surfaces.
+- Board Info and User Detail are scroll-only. Do not restore detail Tabs,
+  Layout toggles or stale tab state from mockups. User Detail follows Board Info's
+  tavern title/section artwork; its sections stay open, while Board Info retains
+  the documented responsive disclosures. Dashboard Cards/Command is still valid.
+- Preserve current responsive tables/cards, real IDs/counts and action semantics.
+  Sample mockup accounts, dates or controls do not authorize new data operations.
+- Canonical Admin origin: `https://coinquestledger.vercel.app/admin/`. Use the
+  deploy runbook and `SECURITY_AND_FIREBASE_RULES.md` for current alias/Auth
+  configuration; do not restore retired hosts from historical captures.
+  Firebase project `pointy-personal-toolkit` and its hosted OAuth helper are
+  separate from the website hostname. Domain changes do not migrate UIDs/data
+  or automatically rebrand Google's sign-in screen.
 - Production `/admin/` uses Firebase Google Auth and allowlists
   `purich.wc@gmail.com`.
 - `/admin/?test=1` is only for automated regression and is not real security.
@@ -94,9 +110,9 @@ Use adjacent skills when the task crosses boundaries:
 3. Trace source and persistence through `ADMIN_PORTAL_IMPLEMENTATION.md` and
    `data-contracts.md`.
 4. Preserve Super Admin checks and test-mode boundaries.
-5. For visual work from Claude, use `$reference-to-a-tee` and preserve Admin
-   vocabulary such as `page-head`, `card`, `stat`, `tbl`, `detail-grid`,
-   `profile-card`, `log-list`, and modal patterns.
+5. For supplied mockups, use `$mockup-to-product`; use `$reference-to-a-tee`
+   when exact fidelity is requested. Inspect the current shared owners and
+   nearest screen rather than copying retired prototype components/selectors.
 6. Verify:
    - small copy/layout: `npm run test:syntax` plus browser spot-check
    - lifecycle/delete/reset/data: targeted unit/e2e plus `npm test` when risky

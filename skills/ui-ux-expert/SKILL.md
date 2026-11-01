@@ -16,6 +16,9 @@ already works, and state the limits of the evidence.
    boundaries, use explicit current visual direction/reference/brand first,
    then the existing product and design system, then project-specific guidance,
    and finally this skill's fallbacks. Clarify consequential conflicts.
+   When the product has a maintained design contract, read its relevant rules
+   and component owners before choosing a fallback. Keep project-specific themes
+   there rather than making one project's corrections global defaults.
 2. Direction does not authorize breaking accessibility, product behavior, data
    integrity, or permissions. A mockup is not a complete feature/data schema.
 3. Copy [tokens.css](tokens.css) only when no brand, production UI, local system,

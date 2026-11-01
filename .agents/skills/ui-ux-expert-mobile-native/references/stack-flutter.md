@@ -14,6 +14,13 @@ where appropriate, one coherent SafeArea/inset owner, and content-driven rows. U
 viewInsets and scroll padding cooperate when the real keyboard opens. Do not add keyboard height twice,
 scale an entire phone design as an image, or use fit-to-box text everywhere. [F1, F2]
 
+For a small row of peer buttons, equal Expanded widths alone do not equalize
+heights when labels wrap. A content-sized row with cross-axis stretch (and bounded
+intrinsic sizing where appropriate) can preserve equal visible heights; avoid
+intrinsic passes across large/lazy lists. Recheck short/long translations and the
+large-text reflow. Separate an illustrated frame's visible plate from decorative
+overflow so hitbox equality is not mistaken for optical equality.
+
 Preserve system text scaling with the SDK's supported mechanism; do not globally force a linear scale
 or shrink essential labels. Keep semantics useful and actions discoverable. Verify Thai font coverage,
 marks and mixed text on the actual target. Use current navigation/back integration for the pinned

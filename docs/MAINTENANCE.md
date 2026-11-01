@@ -44,13 +44,16 @@ source-of-truth assumptions and the safest update path.
 5. If the new skill changes how future agents should maintain this repository,
    update [CODEX_CONTEXT.md](CODEX_CONTEXT.md) and [../AGENTS.md](../AGENTS.md).
 
-## Repository-Scoped Skill
+## Native Skill Copies
 
-For the explicitly repo-scoped `ui-ux-expert-mobile-native`, preserve the
-installation at `.agents/skills/ui-ux-expert-mobile-native/`, separate from
-the user-level archive sync above. Do not copy its external evaluation kit/tests
-or create a duplicate archive/global skill. The archive verifier count remains
-141; check this additional installation with its own validator:
+Preserve the versioned native skill at
+`.agents/skills/ui-ux-expert-mobile-native/`, separate from the archive above.
+The owner also approved a live user-level installation at
+`~/.agents/skills/ui-ux-expert-mobile-native/` on 2026-10-17. During a requested
+backup, compare both copies and sync reviewed live updates into the repo; do not
+overwrite live work or reinstall it. Do not copy the external evaluation kit/tests,
+duplicate this skill under `skills/`, or replace the web skill. The archive
+verifier count is 143; check this additional installation with its own validator:
 
 ```sh
 python3 .agents/skills/ui-ux-expert-mobile-native/scripts/validate_package.py
@@ -85,7 +88,7 @@ False positives are normal. Read the matches before deciding.
 For most changes, run the toolkit verifier:
 
 ```sh
-python3 scripts/verify_skills.py --expected-count 141
+python3 scripts/verify_skills.py --expected-count 143
 ```
 
 It checks skill frontmatter, folder/name consistency, local Markdown links,

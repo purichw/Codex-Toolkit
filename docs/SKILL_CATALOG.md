@@ -18,11 +18,14 @@ that intentionally remain project-specific or specialized.
 - Use when: Working on native screens, flows, shared controls, visual defects,
   accessibility or platform behavior in SwiftUI/UIKit, Compose/Views,
   React Native/Expo or Flutter. Not a responsive-web/PWA skill.
-- Installation: Supplied v0.1.0 folder preserved unchanged in `.agents/skills/`.
-  Codex 0.163.0-alpha.10.2 discovered it with `scope: repo` and `enabled: true`
-  on 2026-10-17. This does not install it globally or prove model behavior.
-- Evidence: Package structure and 35 supplied unit tests passed; SDK calls in
-  those tests are mocked. No native app build, visual review or UI/UX quality
+- Installation: Initially imported from v0.1.0 into `.agents/skills/`; the owner
+  then approved a separate user-level copy at `~/.agents/skills/` on 2026-10-17.
+  Codex 0.163.0-alpha.10.2 discovered both scopes enabled that day. On 2026-11-01,
+  the repo copy was refreshed from the live user copy, adding project design
+  contracts, Flutter peer-control sizing and more precise native evidence rules.
+- Evidence: Initial package structure and 35 supplied unit tests passed on
+  2026-10-17; SDK calls in those tests are mocked. No native app build, visual
+  review or UI/UX quality
   claim follows from those results. The external tests/evaluation kit were not
   copied into the installation. Follow its tooling reference for actual app work.
 - Boundary: Preserve the separate web `ui-ux-expert`; install alone does not
@@ -241,13 +244,13 @@ that intentionally remain project-specific or specialized.
   top/middle/bottom contact-sheet proof when the whole page matters, and
   absolute screenshot paths for final presentation.
 
-Snapshot gate: UI/UX-related skills must invoke `snapshot` automatically before
-the final response after visible implementation, redesign, restyle, visual
-audit, responsive QA, Claude/Figma/reference handoff, or screenshot-based design
-work. Reference matching requires Reference/Development side-by-side evidence;
-add Before when before/after proof is requested or needed to judge the change.
-A contextual region pair can prove a tiny repair. A single above-the-fold view
-cannot prove whole-page/dashboard, page-length, or page-level reference parity.
+Snapshot gate: invoke `snapshot` before modifying existing visible UI and after
+the final visual edit. Revisions require Before/After; reference-led revisions
+include Reference, while new screens use Reference/Development. Label missing
+genuine historical evidence instead of reconstructing it. Personally inspect real,
+unretouched comparisons, relevant variants and initial viewport fit. A narrow
+repair needs only its contextual region; whole-page claims need broader evidence.
+Skill/source-documentation changes alone do not require an unrelated app capture.
 
 ## Design And Visual Parity
 
@@ -318,10 +321,10 @@ cannot prove whole-page/dashboard, page-length, or page-level reference parity.
 ### mockup-to-product
 
 - Skill file: [../skills/mockup-to-product/SKILL.md](../skills/mockup-to-product/SKILL.md)
-- Description: Translates approved mockups into coherent real-product experiences
-  using authorized judgment about layout, assets, content and responsive behavior.
-- Use when: The user wants recognizable composition and visual detail without
-  literal pixel matching, or repeated visual rework needs a full design review.
+- Description: Implements approved mockups as the visual target while preserving
+  real product behavior, artwork, typography, materials and component anatomy.
+- Use when: Reference-led product work needs faithful implementation with
+  authorized adaptation, or repeated visual rework needs a design review.
 - Typical context: Selected image/HTML references, actual rendered product,
   fixed versus flexible constraints, shared owners, truthful data substitutions,
   desktop/mobile image inspection, scoped snapshots and affected behavior checks.
@@ -335,9 +338,13 @@ cannot prove whole-page/dashboard, page-length, or page-level reference parity.
 - Authoring and fidelity: Match complete component anatomy, actual glyphs, and
   role-specific typography at comparable content scale. For editable designs,
   exercise real insertion/order/visibility/style controls and save/reopen, then
-  inspect live canvas, Preview, and public output. Preserve requested before
-  evidence before editing and disclose missing captures. A narrow viewport repair
+  inspect live canvas, Preview, and public output. Capture Before automatically
+  before editing and disclose missing captures. A narrow viewport repair
   checks affected views; a responsive/page-level claim needs desktop and mobile.
+- Artwork: Use suitable supplied sources or image tooling for eligible missing
+  layers and blurry assets; respect identity, licensing and explicit source
+  constraints. Preserve animation manifests and native text-safe bounds. Compare
+  Reference/Before/After without retouching screenshots or hiding visual gaps.
 - Boundary: Explicit exact matching uses `reference-to-a-tee`; inspiration-only
   work uses design-direction skills. Naming this skill does not override an exact
   request. Flexibility does not authorize lost features or unsupported authoring.
@@ -380,6 +387,9 @@ cannot prove whole-page/dashboard, page-length, or page-level reference parity.
   browser verification of the exported file, existing dependency/tooling state,
   and cleanup rules that avoid deleting useful `node_modules` while still never
   committing it.
+- Evidence: Compare source/asset hashes and capture targets before treating a
+  stale export as a product regression. Native captures and an HTML interaction
+  prototype are different evidence; regenerate only the affected states.
 
 ### global-full-design-spec
 
@@ -808,6 +818,8 @@ cannot prove whole-page/dashboard, page-length, or page-level reference parity.
   `Memory.md`, `PLAYBOOK.md`, `PROJECT_STRUCTURE_GUIDE.md` and the bundled
   [task map](../skills/coin-quest-new-chat/references/new-chat-context.md).
   Preserve identity, finance, cloud conflicts and player/Admin boundaries.
+- Current routing: Read the maintained player design system and current domain/
+  Auth runbooks; historical captures must not restore retired aliases or layouts.
 - Boundary: A handoff does not authorize another chat or publishing. Source,
   emulators, own-binary Simulator, exact-SHA CI and production are separate proof.
 
@@ -826,6 +838,8 @@ cannot prove whole-page/dashboard, page-length, or page-level reference parity.
   revocation, transactional lifecycle/publish conflicts and financial-record
   preservation during deletion. Per-board ACL/public-hash migrations remain
   separate work; backend emulator checks are not production mutations.
+- Visual contracts: Shared Dashboard shell/palette, scroll-only Board Info/User
+  Detail and current responsive behavior override retired prototype controls.
 
 ### coin-quest-ledger-logic
 
@@ -840,6 +854,9 @@ cannot prove whole-page/dashboard, page-length, or page-level reference parity.
 - Updated contracts: Satang precision, unique invitation attempts, transactional
   reply/membership, no resurrection of deleted nested records, and guest
   detachment that retains financial obligations.
+- Presentation: Keep expanded party cards, class backgrounds and the existing
+  Hero chooser. Mockup User ID/Create Hero examples do not replace real
+  Character-ID invitations or board-local guests.
 
 ### coin-quest-native-parity
 
@@ -854,6 +871,8 @@ cannot prove whole-page/dashboard, page-length, or page-level reference parity.
   authorized Firebase/web round trips for shared writes. Expo Go, JS exports,
   browser fixtures and web/API deployment do not establish native acceptance
   or distribution. Preserve explicit local/cloud conflict choices.
+- Domain changes: Read current web-share/recovery targets from the runbook;
+  changing native source URLs does not update already distributed binaries.
 
 ## CoverMate
 
@@ -915,6 +934,35 @@ cannot prove whole-page/dashboard, page-length, or page-level reference parity.
   PLAYBOOK, versioned specifications, acquisition policy, consent/account isolation,
   evidence provenance and separate native/website checkpoints. No clinical
   accuracy, dataset-use approval or cross-chat permission follows from onboarding.
+
+## DeepX
+
+### deepx-new-chat
+
+- Skill file: [SKILL.md](../skills/deepx-new-chat/SKILL.md)
+- Description: Onboards the DeepX website and Content Studio CMS from current
+  checkout docs, approved UI decisions and guarded content contracts.
+- Use when: Preparing a handoff or picking up UI, CMS/Supabase, domain or release
+  work. The [reading map](../skills/deepx-new-chat/references/new-chat-context.md)
+  identifies source owners and separates historical release notes from live proof.
+- Boundaries: Preserve approved desktop behavior, scoped mobile changes,
+  CMS-owned content, server authorization and atomic publication. Onboarding
+  does not authorize another chat, production changes or publishing.
+
+## Glenonchy
+
+### glenonchy-new-chat
+
+- Skill file: [SKILL.md](../skills/glenonchy-new-chat/SKILL.md)
+- Description: Onboards Glenonchy Flutter/Flame client and Django/DRF work from
+  current product decisions, design contracts and task-specific runbooks.
+- Use when: Continuing membership, minigames, rewards, native UI or preparing a
+  handoff. Its [reading map](../skills/glenonchy-new-chat/references/new-chat-context.md)
+  routes to current game/asset, API, design and verification owners.
+- Boundaries: Use the physical-iOS, one-target workflow; do not automatically
+  launch simulators, Android setup or local cloud services. Distinguish headless,
+  fixture, backend and real-device evidence. Preserve per-game animation
+  contracts and explicit publishing authorization.
 
 ## Notenwert
 

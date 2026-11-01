@@ -13,13 +13,13 @@ user's intent.
   the reviewed skills and project context to the public repository. This archive
   pass did not change visibility. Continue reviewing future diffs for sensitive data.
 - Purpose: archive and document the user's personal Codex skills
-- Current skill count: 141 `SKILL.md` files under `skills/`
-- Breakdown: 82 personal skill folders (including compatibility routers),
+- Current skill count: 143 `SKILL.md` files under `skills/`
+- Breakdown: 84 personal skill folders (including compatibility routers),
   57 `global-*` alias skills for reusable non-project-specific workflows, and
   2 standalone global design-spec skills.
 - Separate repo-scoped installation: one skill,
-  `ui-ux-expert-mobile-native`, under `.agents/skills/` (142 skill entrypoints
-  across both maintained roots). It is not part of the 141-folder archive count.
+  `ui-ux-expert-mobile-native`, under `.agents/skills/` (144 skill entrypoints
+  across both maintained roots). It is not part of the 143-folder archive count.
 
 The first import copied personal skills from:
 
@@ -29,12 +29,14 @@ The first import copied personal skills from:
 
 System and plugin-provided skills are not meant to be copied here.
 
-The native skill was installed separately from the user-supplied v0.1.0 package
-on 2026-10-17. Keep its `.agents/skills/` location and standalone contents; do not
-sync it from the user-level skill archive, duplicate it under `skills/`, replace
-the web `ui-ux-expert`, or install it globally without a new request. Its local
-Codex discovery was verified; native UI quality was not. See the catalog entry
-and maintenance commands for scope and verification.
+The native skill was installed from the user-supplied v0.1.0 package on
+2026-10-17, then separately installed at `~/.agents/skills/ui-ux-expert-mobile-native/`
+with explicit approval so other checkouts could discover it. Repo and user
+discovery were verified then; native UI quality was not. For requested backups,
+compare that live user copy with `.agents/skills/ui-ux-expert-mobile-native/` and
+selectively sync reviewed updates. Do not duplicate it under `skills/`, source
+it from `~/.codex/skills`, replace the web `ui-ux-expert`, or reinstall it merely
+to sync. Preserve external evaluation-kit/tests separately from the skill folder.
 
 ## What This Repo Is For
 
@@ -123,6 +125,7 @@ Expected current skill folders:
 - `covermate-design-spec`
 - `covermate-new-chat`
 - `data-dense-ux`
+- `deepx-new-chat`
 - `design-direction`
 - `design-quality-review`
 - `design-system-architect`
@@ -137,6 +140,7 @@ Expected current skill folders:
 - `form-flow-ux`
 - `github-actions-repair`
 - `github-actions-usage`
+- `glenonchy-new-chat`
 - `image-boundary`
 - `image-boundary-efficient`
 - `image-boundary-iteration`
@@ -249,7 +253,7 @@ updates, enough verification is usually:
 
 ```sh
 git diff --check
-python3 scripts/verify_skills.py --expected-count 141
+python3 scripts/verify_skills.py --expected-count 143
 ```
 
 For skill script changes, run the script's smoke-test or help path when one
@@ -330,9 +334,16 @@ As of this document, the repository has:
 - On 2026-10-13, selectively archived `coin-quest-new-chat`,
   `github-actions-usage` and nine updated canonical skills; added the repo-only
   `global-github-actions-usage` alias and refreshed repair-alias discovery.
-  The inventory is now 141. Release diagnosis/usage guidance and project
+  The inventory then reached 141. Release diagnosis/usage guidance and project
   onboarding were synced from live files; no project runtime, deployment or
   live skill content was changed by this archive pass.
+
+- On 2026-11-01, archived `deepx-new-chat` and `glenonchy-new-chat`, refreshed
+  ten existing archived skills and the separate native skill from their live
+  copies, and aligned catalog/counts. The archive has 143 skills plus one native
+  entrypoint. Updates cover Coin Quest context, mockup fidelity, immutable
+  Before/After evidence, artwork and native review. No live skill, project app,
+  SDK or deployment was changed by this archive pass.
 
 The main thing future Codex should preserve is the distinction between live local
 skills and the GitHub archive. That distinction prevents accidental overwrites

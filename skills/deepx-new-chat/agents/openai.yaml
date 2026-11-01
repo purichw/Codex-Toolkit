@@ -1,0 +1,4 @@
+interface:
+  display_name: "DeepX New Chat"
+  short_description: "Resume DeepX website, CMS and release work"
+  default_prompt: "ใช้ $deepx-new-chat อ่านบริบทล่าสุดของโปรเจกต์ DeepX แล้วสรุปสถานะและข้อกำหนดสำคัญก่อนเริ่มงานต่อ"

@@ -72,6 +72,14 @@ commit/build, data state, viewport, CSS/assets, and auth state match the export
 target. If the source cannot render, fixing the render path is usually faster
 than hand-building an inaccurate facsimile.
 
+When an export appears to restore an older design, compare its source/asset hashes,
+capture target and shared-component imports with the current application before
+changing product code. A fresh export timestamp can still contain stale captures
+or duplicated legacy modal markup. In native projects, use the real native/widget
+harness for source captures and label the HTML interaction layer as a prototype;
+do not present its browser runtime as native verification. Regenerate only the
+affected states and keep historical exports clearly identified.
+
 ## Dependency Reuse & Cleanup
 
 Prefer speed-preserving dependency reuse when it does not reduce export quality.

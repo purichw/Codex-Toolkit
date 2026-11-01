@@ -93,6 +93,43 @@ desktop-only hover.
   oversized sections. Inspect current full-page desktop/mobile renders yourself
   before handoff, then readable detail crops. Test success is not fidelity.
 
+## Layered Artwork And Character Lessons
+
+| Observed failure | Causal repair | Required proof |
+| --- | --- | --- |
+| A mockup's room is partly hidden by UI or a foreground character | Use Imagen/imagegen to reconstruct a clean scene from the reference; retain perspective, lighting and focal points, then layer real UI and supplied animation over it | Original Ref vs rendered Dev, plus Before/After for revisions; record reconstructed regions |
+| Illustrated cards become generic parchment boxes | Preserve the actual frame weight, rivets, foliage, landscape, separators and content grouping; use shared variants instead of a generic surface everywhere | Whole card and neighbors at readable scale, including the repeated upcoming cards |
+| Portraits show a miniature body, clipped face, double border or baked selection badge | Use an authorized face source/window, preserve full facial features and render selection chrome separately; do not guess atlas coordinates or mask over facial detail | Both characters, selected and unselected; original face detail compared with the real UI |
+| A character looks stretched despite an aspect-ratio wrapper | Check inherited minimum constraints as well as maximum width/height and image fit; repair the actual rendering bounds | Measured rendered width/height against manifest ratio, plus both characters in affected screens |
+| A 256×384 atlas looks soft when enlarged on a high-DPR phone | Reuse the higher-resolution authored source/recipe where present; otherwise enhance or faithfully redraw eligible assets with the image tool and inspect the result | Actual-size and detail crops for both sexes; anchors/blink/timing preserved, no independent-frame drift |
+| Only the female screenshot gets fixed, leaving the male blurred | Treat all affected variants as one acceptance set; use the shared renderer/owner and verify each, including profile portraits and touched states | Labeled rows for female/male and each affected state, without claiming untested states |
+| A sharper replacement changes the face, costume or pose | Reject the derivative; revise the enhancement approach or return to the best original source | Original asset identity, runtime detail, and animation continuity checked separately |
+| A final image shows only Dev or a favorable Before/After | Keep the original Ref in the comparison so improvement cannot hide remaining design drift | Ref/Before/After for a revision, personally inspected before sending |
+
+These are reusable causes, not a requirement to import another project's art or
+inspect another chat. Missing artwork recovery is authorized only within the
+current visual task; product rules, approved characters and explicit source
+constraints remain authoritative. A strong sharpen request calls for visible
+detail improvement, not maximal filter strength regardless of artifacts.
+
+## Repeated controls and disclosure lessons
+
+- Equal widget widths do not prove equal illustrated selected frames. Measure
+  the visible inner plate/border separately from transparent margins, leaves and
+  shadows; compare every selected destination at matching scale and text state.
+- A short label can leave one peer button shorter when its neighbors wrap. Let
+  the tallest real label determine the row height, keep text centered, and reflow
+  columns for larger text instead of assigning a fixed two-line pixel height.
+- A painted highlight should follow the heading's text-safe region. Inspect it
+  together with adjacent numbering/artwork; a correct label coordinate can still
+  sit off-center on the actual highlighted pixels.
+- A dedicated details popup may already provide progressive disclosure. If the
+  approved interaction exposes instructions immediately, do not hide them behind
+  another accordion. Keep reading/opening read-only and verify the longer popup
+  reaches its actions with their complete borders visible.
+
+These are diagnosis patterns, not a universal ban on accordions or unequal cards.
+
 ## Avoid Overgeneralizing
 
 - A Thai cultural site may need botanical ornament and gold; an operations

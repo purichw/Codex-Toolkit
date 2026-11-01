@@ -20,11 +20,19 @@ Read the main reference completely before making rule-backed claims. Read Append
 
 ## Workflow
 
-1. Check 390x844 and 360x800 at minimum, plus the relevant tablet size when scope includes responsive behavior.
+1. Choose sizes from the project's supported targets and touched risk. For broad phone-responsive work, 390x844 and 360x800 are useful starting cases; add tablet only when in scope. A narrow iOS repair does not require Android setup or a new capture matrix. Distinguish headless viewport checks from real-device evidence.
 2. Verify safe-area insets, dvh behavior, target sizes, scroll ownership, sticky actions, and keyboard visibility.
 3. Prefer native/platform controls and patterns unless the product has a clear reason to differ.
 4. Pair with `$mobile-web-qa` for browser/device verification and `$accessible-interaction` for keyboard/focus/touch semantics.
 5. Capture mobile `$snapshot` evidence before final response.
+
+For peer controls, include a short label beside a wrapped label and check visible
+top/bottom edges, not only width or hit targets. Use content-driven equal heights
+within a row and center labels; reflow at large text rather than clipping or
+shrinking. In illustrated UI, reserve clearance to actual button/frame artwork,
+including the bottom action after scrolling. A dedicated detail popup need not
+add an accordion when the product expects its instructions to be immediately
+readable. These choices follow the project's contract, not a universal skin.
 
 ## Output Shape
 

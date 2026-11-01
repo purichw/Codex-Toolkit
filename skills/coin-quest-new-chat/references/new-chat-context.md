@@ -7,7 +7,11 @@ This reference routes to living docs; it is not a live release status report.
 
 - Primary checkout: `/Users/point/toolbox`.
 - GitHub: `purichw/coin-quest-ledger`; verify current remote/upstream before release.
-- Web: <https://coin-quest-ledger.vercel.app> — static HTML/CSS/JS plus Vercel APIs.
+- Web: <https://coinquestledger.vercel.app> — static HTML/CSS/JS plus Vercel APIs.
+- Vercel project: `coinquestledger`; GitHub repository name remains unchanged.
+  The retired web hostname is disabled without a redirect. Read the current
+  deployment/security docs for alias and Firebase Auth settings; the dated
+  cutover evidence is `docs/domain-migration-2026-10-14/README.md`.
 - Native: `mobile/`, Expo Router and React Native; versions come from its
   `package.json`, lockfile and `.nvmrc`, not this reference.
 - Shared Firebase project: `pointy-personal-toolkit`. Its legacy internal name
@@ -25,13 +29,14 @@ screenshot is not proof of current production/device health.
 
 | Task | Read next | Source owners / skills |
 | --- | --- | --- |
-| Web UI, colors or layout | `Memory.md`, `docs/player-brand-2026-10-12/README.md`; current supplied reference if any | `shared/player-brand.css`, `shared/quest-design.css`, route HTML/design CSS; `$ui-ux-expert`, `$snapshot` |
+| Web UI, colors or layout | `PLAYER_DESIGN_SYSTEM.md`, `Memory.md`; latest supplied reference and module sibling | `shared/player-layout.{css,js}`, `shared/navigation.css`, `shared/mobile-shell.js`, route design CSS; Admin/native keep their own shells; `$ui-ux-expert`, `$snapshot` |
 | Native setup or UI | `mobile/AGENTS.md`, `mobile/README.md`, `mobile/IOS_BUILD_NOTES.md`, `mobile/DESIGN_DIRECTION.md`, `NATIVE_WEB_PARITY.md` | `mobile/src/app/`, `src/auth/`, `src/character/`, `src/player/`; `$coin-quest-native-parity`, `$ios-app-development` |
 | Ledger, split, guests, invites | `data-contracts.md`, `INVITES_AND_GUESTS.md`, `leveling-canon.md` when progression is touched | `shared/pointy-logic.js`, `shared/board-invites.js`, `trip/app.js`, `mobile/src/ledger/`; `$coin-quest-ledger-logic` |
 | Debt, Treasury, Compare, sync or backup | `data-contracts.md`, `NATIVE_WEB_PARITY.md`, relevant sections of `docs/backend-audit-2026-10-12.md` | `shared/module-cloud.js`, `shared/account-scope.js`, web module apps, `mobile/src/modules/`, `src/domain/canon.ts` |
 | Auth, account or recovery | `ACCOUNT_MANAGEMENT_IMPLEMENTATION.md`, `SECURITY_AND_FIREBASE_RULES.md` | `shared/profile-*.js`, `mobile/src/auth/`, `api/account-recovery-core.js`, recovery/reset endpoints; `$firebase-account-management`, `$account-recovery-key` |
 | Admin or lifecycle | `ADMIN_PORTAL_IMPLEMENTATION.md`, `SECURITY_AND_FIREBASE_RULES.md` | `admin/`, `api/admin-delete-user.js`, `api/admin-reset-user.js`; `$coin-quest-admin-ops` |
 | Rules/access or migrations | `SECURITY_AND_FIREBASE_RULES.md`, `data-contracts.md`, deploy runbook | `firestore.rules`, `api/`, `tests/backend/`; `$firebase-security-rules` |
+| Domain, hosting or auth origin | `DEPLOYMENT_AND_ROLLBACK_RUNBOOK.md`, `SECURITY_AND_FIREBASE_RULES.md`, `NATIVE_WEB_PARITY.md` | CI alias, Firebase authorized domains, native share/parser/recovery URLs, `tests/unit/production-domain.test.mjs`; `$release-gate`, `$firebase-account-management` |
 | Tests/release | `TESTING_MATRIX.md`, `DEPLOYMENT_AND_ROLLBACK_RUNBOOK.md`, `PROD_SMOKE_HARNESS.md` | `.github/workflows/test.yml`, `scripts/prod-smoke.mjs`; `$release-gate`, `$github-actions-repair` only when diagnosis is needed |
 | Docs, context or next work | `Memory.md`, `roadmap.md`, relevant domain doc | `$docs-cartographer`, `$skill-creator` for skill edits |
 | Restore/rollback | `docs/rollback-parking-lot.md`, current diff and recovery checkpoint | `$rollback-guardrail`; avoid reverting the combined rebuild/backend commit |
@@ -41,6 +46,11 @@ to load every skill or document for every request.
 
 ## Contracts and evidence boundaries
 
+- The website hostname and Firebase project/Auth helper are separate targets.
+  Keep existing Firebase UIDs/data and helper callback when changing only the
+  web origin. A new origin has separate browser sessions/local-only drafts;
+  changing native source URLs does not update already distributed binaries.
+  Historical capture URLs remain provenance, not deployment instructions.
 - One Firebase account has one active character. Public four-digit identity
   pointers differ from Firebase UID. Recovery preserves UID and linked data;
   missing Auth recreation uses the existing UID. No passwords, recovery codes,
@@ -59,6 +69,14 @@ to load every skill or document for every request.
   Sans Thai (body) and Chakra Petch (stats/brand). Existing reference archives
   govern only tasks that explicitly request them; `archive/CLAUDE_RECOVERY.md`
   stays deprecated unless the owner re-enables it.
+- Admin shares Dashboard parchment, header/sidebar/frame/footer across every
+  destination. Board Info and User Detail are scroll-only; never restore their
+  old Tabs/Layout toggle. `ADMIN_PORTAL_IMPLEMENTATION.md` owns the current
+  responsive/detail contracts; `ADMIN.md` is only an index.
+- Party cards stay expanded with class-specific backgrounds and a button-driven
+  Hero popup. Real members use Character ID invites; Guests stay board-local.
+  Mockup Create Hero/User ID examples do not redefine identity or membership.
+  `PLAYER_DESIGN_SYSTEM.md` owns grid/log placement and the small corner action.
 - Native build ownership and Device Hub/Simulator instructions live in
   `mobile/IOS_BUILD_NOTES.md`. Reuse a healthy installed binary/Metro when
   compatible; rebuild for native dependency/config changes. Use the currently
@@ -116,7 +134,8 @@ Replace the checkout path when a different worktree is explicitly selected.
 
 ใช้เอกสารและ source ปัจจุบัน ไม่อาศัยความจำจากแชตเก่า อยู่ในแชตนี้และ checkout นี้
 เว็บกับ Mobile ใช้ Firebase เดิมร่วมกัน ต้องรักษา identity, storage, sync และสูตรคำนวณ
-สี/CI ฝั่งผู้เล่นคืนแบบเดิมแล้ว แต่คง layout และฟีเจอร์ปัจจุบัน; Admin คง redesign
+งานออกแบบอ่านทิศทางล่าสุดจาก Memory.md และ PLAYER_DESIGN_SYSTEM.md; Mobile/Admin มีแนวทางของตนเอง
+ใช้โดเมนและ auth targets จาก deployment/security docs ปัจจุบัน ไม่คืน alias เก่าจากเอกสารย้อนหลัง
 งาน Mobile ต้องตรวจ flow ที่แก้บน Simulator จริงด้วย binary ของแอป
 แยกสถานะ source, CI, production และ native distribution ให้ชัด
 อย่า commit/push/deploy, rollback, migrate หรือแก้ข้อมูล production ถ้ายังไม่ได้สั่ง

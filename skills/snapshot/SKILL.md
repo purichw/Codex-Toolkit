@@ -17,12 +17,17 @@ contracts. Use `$release-gate` when screenshots are part of commit/deploy
 evidence.
 
 Any UI/UX skill that implements, audits, verifies, redesigns, restyles, or hands
-off a visible screen must invoke `$snapshot` automatically before the final
-response. Do not wait for the user to ask for screenshots.
+off a visible screen must invoke `$snapshot` automatically. For changes to an
+existing UI, invoke it before editing to preserve Before evidence, then capture
+again after the final visual edit. Do not wait for the user to ask for screenshots.
+Editing skill instructions or source documentation alone does not require
+opening an unrelated product or manufacturing a UI screenshot.
 
 Keep the capture depth proportional. For a tiny copy, CSS, selector, spacing,
-typography, or one-control visual tweak, one current targeted screenshot is
-enough, optionally backed by computed values. Reference comparison requires a
+typography, or one-control visual tweak, use a targeted contextual frame,
+optionally backed by computed values. For a revision, preserve Before and pair
+it with After; a new surface without a prior render needs only its current view
+and any supplied reference. Reference comparison requires a
 matched pair, not automatically a full-page audit: one contextual region can
 prove a narrow repair. Add evidence for affected responsive/shared behavior and
 release requirements, not merely because a reference or publishing action exists.
@@ -40,6 +45,41 @@ when the user explicitly asks for files/paths only or when the environment canno
 render/capture images; in those cases, state the exception clearly.
 
 ## Core Rule
+
+For mockup-led work, the selected mockup is the visual target unless a specific
+established product decision conflicts. New screens should match it as closely
+as possible; do not accept arbitrary restyling as adaptation. Verify typography
+(size, weight, line height, wrapping), text/group alignment, spacing, card sizes,
+page rhythm and artwork together at matched scale. Better artwork alone, a green
+test suite, or improvement over Before does not establish a match to Reference.
+
+Inspect material color/texture and small controls at a useful detail scale too:
+parchment warmth, metal finish, bevel/rim weight and icon shape can define the
+theme. Check text clearance against the visible inner surface, not transparent
+PNG margins or padding values alone; include the surrounding card in the proof.
+
+Verify natural artwork proportions, including circular ornaments, separately
+from native text-safe bounds. Reject unintended text overflow, text/art collisions,
+distorted artwork and clipped frame edges even when widget bounds or tests pass.
+Intentional overlap or off-frame treatment needs an explicit matching detail in
+the selected source. If an asset cannot accommodate readable native content,
+the implementation must redraw, regenerate or recompose it; squeezing the art,
+masking clipping or cropping the screenshot around the defect is not a repair.
+
+When an old screen/popup conflicts with a new version, or flow and standalone
+mockups disagree, follow the user's stated old/new and region-specific scope.
+If unresolved, identify the concrete conflicting region and ask which source or
+combination governs it. Do not manufacture a merged reference or quietly choose.
+An image-only edit must retain the established layout when the user says so.
+Shared components do not automatically excuse visible differences: document the
+actual product constraint, and inspect the rendered adaptation. Keep genuine
+constraints distinct from convenience or a shortcut in execution.
+
+Personally open the final captures and compare these defining details before
+handoff. If a material in-scope mismatch is visible, fix it and refresh the
+affected evidence instead of making the user discover it or declaring completion.
+Do not lower this acceptance standard to save effort, time or tokens. Proportional
+scope limits unrelated checks; it does not permit shortcuts in the requested view.
 
 Snapshots must be shown in chat. The saved file is not the deliverable by
 itself; the user must be able to see the evidence in the conversation without
@@ -93,13 +133,34 @@ checks, URL/state checks, storage/reload evidence, or test output as needed.
 ## Efficient Capture
 
 Use `$efficient-execution` when a visual task starts producing too many images.
-For a narrow change, capture one wide/context shot for the relevant state and
-add one tight crop only if it clarifies the decision. For before/after work,
-capture matched pairs after the fix stabilizes instead of taking a full set on
-every edit.
+For a narrow change, capture one wide/context shot per required comparison side
+and add a tight crop only if it clarifies the decision. Preserve Before once,
+before editing; capture the matched After when the fix stabilizes instead of
+taking a full set on every edit. Retain the original reference for Ref/Dev;
+an improved After relative to Before can still miss the reference.
 
 Reuse a screenshot only when URL or local route, build/source, viewport, auth
 state, data state, scroll position, and overlay state still match.
+
+For a dirty checkout, record the relevant source/asset hashes in addition to HEAD.
+An export's file date and a successful old build do not identify what is currently
+installed. Distinguish stale capture, stale export harness, wrong build target and
+an actual source regression before recreating UI. Reuse unaffected evidence only
+with a stated delta; refresh consumers changed after that baseline.
+
+For repeated illustrated controls, compare visible plates/frames as well as hit
+regions, all selected positions, and short versus wrapped labels. Transparent
+ornament margins can hide unequal apparent sizes. Pixel masks help only at a
+declared capture scale; antialiasing differences are not exact geometry proof.
+
+For a change affecting screen height or viewport fit, preserve the initial
+viewport before any `ensureVisible` or automatic scroll, then inspect the settled
+scrolled state as well. Review header, content and footer together with safe-area
+and frame edges visible. A footer-only scrolled capture proves reachability, not
+initial fit; do not conceal a clipped initial state or move the defect to another
+row. Keep this check scoped to the affected screen. After layout or artwork
+changes, replace stale After evidence with a fresh render and personally inspect
+it again, using the same acceptance criteria as `mockup-to-product`.
 
 ## Framing Defaults
 
@@ -138,6 +199,9 @@ unless the point is a microscopic edge inspection.
    If the task requires formal design QA, follow `$design-quality-review`
    Appendix A for viewport, state, zoom, DPR, theme, network, and motion
    capture conditions.
+   Before a visual revision, preserve the current rendered state as Before and
+   identify the reference input. If work has already changed, use only genuine
+   prior evidence or label Before unavailable; never reconstruct historical proof.
 2. Render the actual state first. Navigate, scroll, click, wait for content, and
    close unrelated overlays before capture.
 3. Capture a wide/context snapshot. Add a tighter crop only if it clarifies a
@@ -175,14 +239,15 @@ produced.
   `Development` side by side. A reference can be Claude Design HTML, a Claude
   screenshot, Figma/exported design, static mock, competitor/example page, or
   any user-provided visual target.
-- **Enhancing an existing UI with before/after proof in scope:** show `Before`
+- **Modifying an existing visible UI:** automatically show `Before`
   plus `After` side by side with matched route, viewport, state, scroll, data,
-  and framing whenever possible.
-- **Reference plus before/after proof:** when before/after is requested or needed
-  to judge a substantive change or regression, show all three columns labeled
-  `Reference`, `Before`, and `After/Development`. For a tiny reference repair,
-  a contextual `Reference + Development` pair is sufficient; an existing old UI
-  alone does not require an extra Before column.
+  and framing whenever possible. This does not need a separate user request.
+- **Reference-led revision:** show all three columns labeled `Reference`,
+  `Before`, and `After/Development`, including small corrections. Keep small
+  corrections to one contextual region rather than expanding the audit.
+- **New screen or missing historical evidence:** show `Reference + Development`
+  and state that Before does not exist or could not be captured. Do not invent
+  a Before, omit an available one, or use this exception to skip initial capture.
 
 For responsive work, create matched comparison rows per viewport instead of
 mixing desktop, tablet, and mobile panels in one unlabeled row. If a side-by-side
@@ -220,6 +285,20 @@ For before/after, reference/app, or local/production comparison:
    state, scroll position, build/commit, and reference hash when available.
 9. Record mismatched conditions instead of implying the screenshots are directly
    comparable.
+
+Personally open and inspect the comparison before handoff. Check both progress
+from Before and remaining differences from Reference. Readable detail and actual
+display-size evidence are both needed for sharpness; a tiny contact sheet can
+hide blur. Include every affected media/character variant (for example female
+and male), using compact labeled rows. For moving subjects, match the pose/frame
+when possible or label the motion difference; stills do not prove smooth motion.
+
+Keep evidence immutable: never generate, sharpen, repaint or retouch reference
+or development screenshots to make the comparison look better. Improve runtime
+assets, render the real product again, and capture that result. Only transparent
+presentation operations such as labeled crops, uniform scaling and contact
+sheets are allowed. Label native-device, emulator, headless and browser captures
+accurately; one cannot stand in for another's execution evidence.
 
 ## Product UX Contract Evidence
 
@@ -341,11 +420,13 @@ Before claiming a visual change is done, check:
   when the user did not explicitly request one.
 - If Claude Design or another visual reference is in scope, the closeout
   includes a side-by-side `Reference` and `Development` comparison.
-- If the task asks for before/after proof or the comparison is needed to judge
-  the change, the closeout includes a matched side-by-side `Before` and `After`
-  comparison.
-- If reference matching also requires before/after proof, the closeout includes
-  all three side by side with clear labels. Mere availability is not a requirement.
+- For revisions to existing visible UI, the closeout includes a matched
+  `Before + After` comparison automatically, or states why genuine Before
+  evidence is unavailable.
+- Reference-led revisions include `Reference + Before + After/Development`
+  side by side with clear labels; new screens use `Reference + Development`.
+- The comparison was personally inspected, includes the affected variants, and
+  uses real unretouched captures. Asset enhancement is verified in a fresh render.
 - For backend/data/auth/API/config changes that alter a user-visible journey,
   at least one snapshot or equivalent visual proof covers the affected journey.
 - For responsive work, a mobile snapshot or mobile side-by-side comparison is

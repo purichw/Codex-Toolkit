@@ -44,16 +44,26 @@ not authorization to start another chat or publish changes.
   `mobile/AGENTS.md`, `mobile/README.md` and `mobile/IOS_BUILD_NOTES.md` for native
   work. Accept affected flows only with the own binary on an actual Simulator;
   Expo Go, JS exports and phone browser viewports are different evidence.
-- Read current visual direction in `Memory.md` and `mobile/DESIGN_DIRECTION.md`.
-  Classic colors were restored on player Website/Mobile while preserving the
-  current layout and fonts; Admin was excluded. Do not revive the retired app
-  or overwrite backend fixes to restore a visual reference.
+- Read current visual direction in `Memory.md`, `PLAYER_DESIGN_SYSTEM.md` and
+  `mobile/DESIGN_DIRECTION.md`. Player website screens follow the latest supplied
+  mockups and shared design contract; native and Admin retain their own direction.
+  Living docs take precedence over historical restoration/release summaries. Do
+  not revive retired UI or overwrite backend fixes to restore a visual reference.
+- Keep player headers, footers, frames, banner scale and navigation in their
+  shared owners. A new mockup is one screen in the same product. Within the same
+  module, carry its visual family through entry/detail/forms and older screens
+  that have not been redesigned. Different games deliberately use different
+  artwork, palettes and compositions; do not force identical illustrations.
+  Accommodate necessary context differences with a documented scoped variant.
+  Before changing a page, inspect the shared owner and its closest module sibling.
 - Scope verification to risk: docs need factual/path/diff validation, visible
   changes need current targeted browser/Simulator evidence, shared data/auth and
   releases need their contract gates. Onboarding alone needs no app build,
   fresh Simulator run, full suite or production smoke.
 - For release work use `$release-gate` and the deploy runbook. Track push,
   exact-full-SHA CI, Vercel build and canonical alias promotion separately.
+  Take current domain/Auth targets from that runbook and the security doc;
+  historical screenshots and handoffs must not restore retired aliases.
   The GitHub workflow is the production writer; do not create a duplicate
   deployment while it runs. Web/API deploy does not publish native binary/OTA
   or Firestore Rules. For rollback-like work use `$rollback-guardrail`.

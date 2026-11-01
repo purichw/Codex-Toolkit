@@ -13,9 +13,10 @@ aliases route to canonical skills and are listed in
 [../docs/GLOBAL_SKILLS.md](../docs/GLOBAL_SKILLS.md).
 
 UI/UX-related skills must call [`snapshot`](snapshot/SKILL.md) automatically
-before the final response after visible implementation, redesign, restyle,
-visual audit, responsive QA, Claude/Figma/reference handoff, or
-screenshot-based design work.
+before changing existing visible UI and after the final visual edit. Include
+Before/After for revisions and Reference for reference-led work; keep narrow
+repairs contextual and disclose missing historical evidence. Skill/docs-only
+updates do not require an app capture.
 
 ## General Workflow Skills
 
@@ -40,7 +41,7 @@ screenshot-based design work.
 
 | Skill | Description | Context |
 | --- | --- | --- |
-| [`mockup-to-product`](mockup-to-product/SKILL.md) | Adapts approved mockups with complete component anatomy, typography, and real authoring support. | Use for authorized product adaptation, live-editor parity, and scoped before/after review; retain reference-to-a-tee for exact requests. |
+| [`mockup-to-product`](mockup-to-product/SKILL.md) | Preserves approved mockup composition, material detail, artwork and real product behavior. | Use for reference-led implementation, eligible artwork recovery, native text/art fit and Reference/Before/After review; exact requests also use reference-to-a-tee. |
 | [`claude-design-md-request`](claude-design-md-request/SKILL.md) | Drafts Claude Design prompts for implementation-ready Markdown handoffs/specs. | Use when Claude should produce component maps, visual geometry, state matrices, product-decision reviews, and acceptance checks from screenshots, HTML, or design references. |
 | [`claude-design-reference-bundle`](claude-design-reference-bundle/SKILL.md) | Creates Claude Design reference bundles with screenshots, measured specs, state notes, product contracts, and a paste-ready prompt. | Use when Claude Design needs a visual replication package from a live page, route, screenshot set, or prototype without requiring standalone HTML. |
 | [`reference-to-a-tee`](reference-to-a-tee/SKILL.md) | Matches HTML, image-only, or mixed references with risk-proportional effort and preserved product behavior. | Use for exact repairs/reconstruction or explicitly requested adaptation; a tiny exact fix needs scoped evidence, not a full-page audit. |
@@ -100,6 +101,8 @@ screenshot-based design work.
 | [`native-parity`](native-parity/SKILL.md) | Keeps native apps aligned with product contracts, backend data, and design parity. | Use for Expo/React Native/iOS/Android work before applying a project-specific native skill. |
 | [`ios-app-development`](ios-app-development/SKILL.md) | Guides Mac toolchain inventory, native ownership, build/install/launch and runtime diagnosis. | Use for iOS setup, Simulator/iPhone, Metro, signing or native rebuild issues; preserve existing stacks and keep Android checks optional. |
 | [`dootaa-new-chat`](dootaa-new-chat/SKILL.md) | Routes DOOTAA onboarding to current product, camera, dataset, build and website docs. | Use for starter prompts or continuation context; keep real-device evidence, simulated fixtures and clinical readiness distinct. |
+| [`deepx-new-chat`](deepx-new-chat/SKILL.md) | Routes DeepX website and Content Studio work to current source, CMS and release docs. | Use for context pickup or handoffs involving approved UI, Supabase boundaries, domain or release tasks. |
+| [`glenonchy-new-chat`](glenonchy-new-chat/SKILL.md) | Routes Glenonchy Flutter/Flame and Django work to current product, design and device contracts. | Use for membership, games, rewards, native UI or handoffs; distinguish headless checks from physical iOS evidence. |
 | [`korat-tan-phai-new-chat`](korat-tan-phai-new-chat/SKILL.md) | Routes Korat web/iOS onboarding to current forecast, Supabase, brand and native setup contracts. | Use for starter prompts or continuation context; distinguish parked Actual code from the active forecast product. |
 | [`coin-quest-native-parity`](coin-quest-native-parity/SKILL.md) | Keeps the Coin Quest native Expo app aligned with the web data model and native build requirements. | Use for native app changes, iOS/Android gates, `playerModules`, and web/native parity checks. |
 | [`coin-quest-new-chat`](coin-quest-new-chat/SKILL.md) | Routes Coin Quest Ledger onboarding to current web/native, Firebase and release docs. | Use for starter prompts or context pickup with current checkout ownership and separate source, Simulator, CI and production evidence. |

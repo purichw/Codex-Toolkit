@@ -1,0 +1,4 @@
+interface:
+  display_name: "Glenonchy New Chat"
+  short_description: "Refresh Glenonchy context, docs and handoffs"
+  default_prompt: "Use $glenonchy-new-chat to read current project docs, distinguish verified state from open work, and continue only the task I specify."

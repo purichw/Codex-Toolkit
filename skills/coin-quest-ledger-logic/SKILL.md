@@ -17,14 +17,15 @@ settlement, Character ID handling, or Reminders behavior.
 
 ## Required Context
 
-From the repo root, read these before implementation:
+Start with `Memory.md`, then read the relevant contract and source owners:
 
 - `Memory.md`
 - `INVITES_AND_GUESTS.md`
 - `SITE_MAP_AND_INTERACTIONS.md`
 - `data-contracts.md`
 - `shared/pointy-logic.js`
-- `trip/app.js` and `trip/index.html` for UI/state wiring
+- `trip/app.js` and `trip/index.html` for UI/state wiring; `trip/board.*`,
+  `trip/entry.*`, `trip/settings.*` and `PLAYER_DESIGN_SYSTEM.md` for presentation
 - `tests/unit/pointy-logic.test.mjs`
 - relevant Playwright tests in `tests/e2e/coin-quest-ledger.spec.mjs`
 
@@ -50,6 +51,10 @@ Use adjacent skills when the task crosses boundaries:
 ## Non-Negotiable Rules
 
 - Real "other hero" additions are Character-ID-only.
+- A reference's "Create Hero", arbitrary User ID field or instant-join example
+  must not replace the live Character-ID invitation path. Public User ID,
+  Character ID and Firebase UID have distinct roles even when displayed numbers
+  happen to match. Follow the existing resolver and invitation lifecycle.
 - A real Character ID must resolve an existing character/account record before
   invite. Never mint a new Character ID from arbitrary input.
 - Do not ask for or validate "Other hero's name" in the real-character path.
@@ -63,6 +68,12 @@ Use adjacent skills when the task crosses boundaries:
 - `Add Guest` is the board-local alternative: enter display name, choose hero,
   and do not create a real Character ID, user, or registry record.
 - Guests must be omitted from real character XP/registry sync.
+- Party cards stay expanded (HP/XP still respect the game-stats setting), with
+  canonical class-specific `avatarBg` backgrounds. Hero choice opens the
+  existing 18-class/two-gender popup, then uses the existing final confirmation.
+  Do not revive member-detail toggles, a horizontal member rail, inline class
+  selectors or new party limits from older mocks. Current layout ownership and
+  responsive ordering are in `PLAYER_DESIGN_SYSTEM.md`.
 - Settlement uses pairwise per-expense obligations with reciprocal pair netting.
   Do not replace it with global creditor/debtor rerouting.
 - Keep web/native settlement expectations aligned.

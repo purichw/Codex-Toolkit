@@ -54,6 +54,14 @@ Capture the final build after the last visual edit. For critical release claims,
 should replay the predeclared states and verify installation/build provenance independently. Human
 judgment belongs in the record with reviewer identity and disagreements, not an invented score.
 
+For combined native suites, distinguish ordinary app runs from integration targets
+and isolated fixtures. Count distinct test cases separately from repeated affected
+cases. Injected scanner payloads, native image decoding and optical camera scans
+prove different things; reconstructing a repository is not a cold-process restart.
+After testing, restore the ordinary entrypoint with its intended flags. Record
+build, install and launch separately; an OS permission prompt still pending is
+not a completed post-permission flow. Do not silently change user permissions.
+
 In scope, reject critical data/permission/navigation/accessibility regressions, lost essential content,
 and major visual defects that obstruct the task or approved reference. A minor subjective preference
 can remain documented; do not invent perfection. Explicit preferences are constraints, not taste votes.
