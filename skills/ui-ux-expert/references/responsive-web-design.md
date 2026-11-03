@@ -10,6 +10,7 @@ the `mobile-web-qa` viewport workflow.
 - [Mental Model](#mental-model)
 - [Foundation](#foundation)
 - [Layout Strategy](#layout-strategy)
+- [Content, Banners And Sticky Regions](#content-banners-and-sticky-regions)
 - [Mobile Viewport Height](#mobile-viewport-height)
 - [iOS and Android](#ios-and-android)
 - [Platform Details](#platform-details)
@@ -71,6 +72,29 @@ html { -webkit-text-size-adjust: 100%; }
 - Diagnose overflowing children, minimum sizes and grid tracks. Do not use
   page-level `overflow-x:hidden` to conceal clipped content or focus rings.
 - Test short landscape phones and split-screen tablets; height is a constraint.
+
+## Content, Banners And Sticky Regions
+
+- Let hero/banner copy, long labels and validation messages determine needed
+  space. A search panel or decorative overlap must never cover the last lines
+  when text wraps at tablet widths or zoom changes. Fix layout flow and sizing,
+  rather than clipping text or hiding overflow.
+- Keep media composed as the container changes: preserve aspect ratio and the
+  intended focal subject, avoid uncovered background strips, and use a different
+  crop or stacked image/text layout when needed. Inspect all affected slides,
+  not just the first. Apply the [media rules](#responsive-media); filling a box
+  with `cover` is not proof that the important subject remains visible.
+- Reserve a real column for a sidebar/sticky TOC throughout its content region,
+  including lower agenda, media and document sections. Do not constrain only the
+  introduction and let later sections run underneath the rail. When columns no
+  longer fit, move the rail into flow or an appropriate disclosure. Check anchor
+  targets, sticky headers, long rails and the end of the region while scrolling.
+- Recompose dense mobile groups before shrinking type or dropping descriptions.
+  Four shortcut cards may become a two-by-two grid when their actual content
+  fits; fewer columns may be needed at narrower widths or larger text. Preserve
+  shared icon/heading alignment and readable descriptions. A horizontal rail is
+  appropriate only when deliberate, discoverable and operable, not as a way to
+  conceal clipped cards.
 
 ## Mobile Viewport Height
 

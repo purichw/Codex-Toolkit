@@ -46,6 +46,9 @@ visual direction.
 - Use 1-3 fonts total. Usually: one display/heading face, one body face, optional
   mono for labels/code.
 - Use a modular type scale. Avoid arbitrary sizes per component.
+- Apply [readable type by role](user-preferences.md#readable-type-by-role):
+  navigation must remain proportional to body text, and small annotation tokens
+  must not become primary-control defaults. Adjust crowded layouts before type.
 - Set body line height around 1.4-1.6 and large heading line height around
   1.0-1.15.
 - Constrain body measure to about 60-75 characters.
@@ -77,6 +80,10 @@ Fallback font pairings:
 - Links need default and hover colors from the palette; do not leave browser
   default blue by accident.
 - State cannot be color-only. Pair color with text, icon, shape, or position.
+- Apply theme changes through shared tokens/owners, including affected loading,
+  auth, footer, overlays and focus/hover/disabled states. Check graphics with
+  baked-in colors too; do not flatten meaningful status colors into the brand
+  accent. Scope checks to changed consumers, not an unrelated redesign.
 
 ## Layout And Spacing
 
@@ -101,8 +108,16 @@ Common defaults:
 ## Imagery And Icons
 
 - Use real assets whenever they matter to understanding the product.
-- Missing imagery gets a labeled placeholder such as `product screenshot` or
-  `venue image`, not a fake screenshot or generic gradient.
+- Use relevant approved imagery or authorized prototype assets. Follow
+  [content rules](contextual-rules.md#representative-content) for missing assets;
+  do not leave developer labels or decorative filler in the product by default.
+- Logos and wordmarks must stay sharp at their rendered size. Prefer genuine
+  vector assets when available; a raster embedded in SVG is not a vector redraw,
+  and jagged traced lettering is not acceptable just because the file is SVG.
+  Preserve approved proportions and identity; obtain authorization for redrawing.
+- Check transparent marks on the actual header and footer backgrounds. Use an
+  approved light/dark variant or suitable backing when needed for contrast,
+  rather than letting the logo disappear or recoloring it arbitrarily.
 - Use one icon set and one icon weight.
 - Icon-only controls need accessible names and visible affordance.
 - Do not hand-draw complex SVG illustrations unless the user explicitly asks for
@@ -130,7 +145,10 @@ Common defaults:
 - Avoid pie charts beyond 2-3 slices; avoid 3D charts.
 - Start bar-chart y axes at zero.
 - Use direct labels when possible; keep gridlines quiet.
-- Never fabricate data. No real data means a labeled placeholder.
+- Never present invented data as measured business facts. Authorized prototypes
+  may use coherent synthetic fixtures under the
+  [content rules](contextual-rules.md#representative-content); missing production
+  data needs an appropriate empty/unavailable state, not invented metrics.
 
 ## Forms And Validation
 

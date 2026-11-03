@@ -1,6 +1,6 @@
 ---
 name: glenonchy-new-chat
-description: "Onboard or refresh the Glenonchy mobile activity and minigame project. Use for a Glenonchy new-chat prompt, project handoff, context pickup, required reading, setup status, or documentation alignment."
+description: "Onboard or refresh Glenonchy's mobile app, minigames and standalone Godot Tactics project. Use for a Glenonchy new-chat prompt, project handoff, context pickup, required reading, setup status, or documentation alignment."
 ---
 
 # Glenonchy New Chat
@@ -52,10 +52,9 @@ Treat current user directions as authoritative over older starter decisions.
   Use headless Flutter layout tests for viewport coverage; they do not verify
   those physical devices. Do not start Docker/Supabase local services automatically.
 - Profile has no hot reload. Use the project build runbook without enabling the
-  Profile debugger/device-symbol preparation. Inspect exact paths and current
-  callers before cleanup; preserve source packs, user changes and current evidence.
-  Apply the current user's cleanup authorization and applicable AGENTS guardrails,
-  without inventing an additional approval rule in this skill.
+  Profile debugger/device-symbol preparation. Build outputs may have been cleared;
+  inspect current files and device readiness rather than assuming an earlier
+  successful build is still available locally.
 - Keep pure Dart rules, Flame rendering, repositories and UI separate.
   Replay resets the current game session, not previously earned progression.
 - QR identifies an activity point; it does not prove presence or award rewards.
@@ -73,6 +72,33 @@ Treat current user directions as authoritative over older starter decisions.
 - NPC/dialogue work follows `docs/19-barista-dialogue.md` and its current status.
   Preserve player identity and the supplied Barista uniform; a concept sheet is
   not an animation manifest. Mark authored runtime crops/transitions explicitly.
+- Paradise Path and Wild Ink use their own contracts in `docs/27-paradise-path.md`
+  and `docs/28-wild-ink.md`; do not apply Brewrunner art or rules to them by default.
+- Godot Tactics lives separately in `prototypes/tactics/`. Read its `AGENTS.md`,
+  `CODEX_START_HERE.md` and character/asset contracts before working there. Native
+  Godot verification is not Flutter integration or an iPhone build. Read the
+  latest runtime status before interpreting earlier A1/A2 intake reports;
+  generated "complete" text on an art board is not an acceptance verdict.
+
+## Design artifacts and storage
+
+Read `docs/ARTIFACT_RETENTION.md` for cleanup or design-evidence work. Keep the
+latest design per page/component, including useful language, appearance, viewport
+and state variants. Map superseded captures to retained replacements; age or
+filename alone does not establish that an image is obsolete. Before/after media
+can support active review without becoming a permanent archive of every design.
+
+Preserve runtime assets, source paintings/sheets, provenance, user data and useful
+verification records. Retired design images need not be duplicated into another
+full-size archive. A historical report may intentionally refer to a retired PNG;
+consult the replacement map instead of regenerating old designs to repair links.
+
+When cleanup is requested, prepare one scoped inventory/dry run; verify retained
+copies or ZIPs before removing duplicates. Follow existing user authorization and
+applicable AGENTS approval requirements, without adding a separate approval rule
+here. After deletion, verify retained files and Git state and measure actual disk
+space gained. Do not rebuild solely to validate cleanup or assume free space and
+cache state remain unchanged. Onboarding alone does not authorize deletion.
 
 ## Scope and evidence
 

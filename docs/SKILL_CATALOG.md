@@ -42,6 +42,11 @@ that intentionally remain project-specific or specialized.
   implementation plan.
 - Typical context: `README*`, `AGENTS*`, `CLAUDE*`, `HANDOFF*`, `Memory*`,
   docs, package files, CI config, deployment config, and current `git status`.
+- Regional guidance: For new infrastructure, use
+  [Thailand-first defaults](../skills/project-onboarding/references/region-defaults.md),
+  explicit service-supported placement and compatible compute/data regions.
+  Preserve approved existing topology; the preference is not migration or spending
+  authorization. `site-maintainer`, `release-gate` and `uat-environment` share it.
 
 ### docs-cartographer
 
@@ -81,6 +86,9 @@ that intentionally remain project-specific or specialized.
 - Release waits: Set measured diagnostic checkpoints, inspect failures before
   retrying, and keep push, CI, build readiness, promotion and monitoring evidence
   separate. Docs-only evidence reuse must prove the exact eligible baseline.
+- Infrastructure changes: Verify actual resource/function regions against the
+  shared Thailand-first preference and recorded exceptions; a build region alone
+  is not runtime-placement evidence.
 
 ### github-actions-repair
 
@@ -180,6 +188,8 @@ that intentionally remain project-specific or specialized.
   fixture/reset plan, test accounts and roles, auth mode, external-service
   boundaries, routes/flows checked, logs/screenshots, skips, promotion decision,
   and rollback path.
+- Regional setup: Keep each isolated backend close to its own data, record
+  regional differences from production, and preserve explicit existing exceptions.
 
 ### prod-smoke-harness
 
@@ -214,6 +224,24 @@ that intentionally remain project-specific or specialized.
 - Typical context: Deploy URL, commit/build, route list, changed media surfaces,
   stale domains to check, browser network failures, DOM media source inventory,
   screenshots, fallback decisions, rerun result, and residual media risk.
+
+### responsive-design
+
+- Skill file: [../skills/responsive-design/SKILL.md](../skills/responsive-design/SKILL.md)
+- Description: Designs, implements and repairs responsive web layouts while
+  preserving brand, content, actions, composition and interaction state.
+- Use when: Adapting desktop, tablet or mobile references; planning new web
+  layouts; selecting content-driven breakpoints/container queries; or repairing
+  cramped, overflowing or poorly balanced layouts across intermediate widths.
+- Typical context: Source/reference viewport, user task, real Thai/English
+  content, shared layout owners, behavior matrix, transition boundaries and
+  current inspected screenshots. Routes from `ui-ux-expert` and
+  `ui-ux-orchestrator`; use `mobile-web-qa` for platform-specific verification.
+- Resources: Focused layout and verification references, source-kit provenance,
+  and a Playwright initial-state collector with executable fixture tests.
+  Helper/structural checks are not UI/UX quality or accessibility certification.
+- Scope: Reusable web skill, not native app design or permission to deploy.
+  The archive also includes the thin `global-responsive-design` alias.
 
 ### mobile-web-qa
 
@@ -478,6 +506,14 @@ Skill/source-documentation changes alone do not require an unrelated app capture
   The QA checklist uses bounded font/image/data readiness, lazy-media activation,
   scoped viewport coverage, and failure triage instead of fixed sleeps or
   retry-until-green evidence.
+- User defaults and controls: Readable role-based navigation/type, centered card
+  icon/short-heading groups with long-copy exceptions, planned shared owners,
+  balanced buttons/fields and chevrons inside the painted trigger. Verify affected
+  carousel swipe/pause, sticky rails, long-copy banners, theme coverage and logos.
+- Content and responsive scope: Keep authorized fixture provenance in evidence,
+  not automatic developer labels in product UI; never fabricate real-service
+  claims. Route composition/breakpoint adaptation to `responsive-design` and
+  platform verification to `mobile-web-qa`.
 
 ### ui-ux-orchestrator
 
@@ -940,29 +976,35 @@ Skill/source-documentation changes alone do not require an unrelated app capture
 ### deepx-new-chat
 
 - Skill file: [SKILL.md](../skills/deepx-new-chat/SKILL.md)
-- Description: Onboards the DeepX website and Content Studio CMS from current
-  checkout docs, approved UI decisions and guarded content contracts.
-- Use when: Preparing a handoff or picking up UI, CMS/Supabase, domain or release
+- Description: Onboards DeepX Works, Product Studio, Explore Ideas and their
+  shared Content Studio from current source and guarded content contracts.
+- Use when: Preparing a handoff or picking up UI, performance, CMS/Supabase,
+  domain, regional infrastructure or staged release
   work. The [reading map](../skills/deepx-new-chat/references/new-chat-context.md)
   identifies source owners and separates historical release notes from live proof.
-- Boundaries: Preserve approved desktop behavior, scoped mobile changes,
-  CMS-owned content, server authorization and atomic publication. Onboarding
-  does not authorize another chat, production changes or publishing.
+- Boundaries: Preserve approved Home desktop, route-specific theme/loading,
+  fresh public-content handoff, CMS-owned content and complete-draft atomic
+  publication. Keep the documented existing-region/no-new-cost exception until
+  explicitly changed. Onboarding does not authorize another chat, infrastructure
+  changes or publishing.
 
 ## Glenonchy
 
 ### glenonchy-new-chat
 
 - Skill file: [SKILL.md](../skills/glenonchy-new-chat/SKILL.md)
-- Description: Onboards Glenonchy Flutter/Flame client and Django/DRF work from
-  current product decisions, design contracts and task-specific runbooks.
-- Use when: Continuing membership, minigames, rewards, native UI or preparing a
+- Description: Onboards Glenonchy mobile/Flutter/Flame, Django/DRF and standalone
+  Godot Tactics work from their current product and asset contracts.
+- Use when: Continuing membership, minigames, rewards, native UI, design-artifact
+  retention or preparing a
   handoff. Its [reading map](../skills/glenonchy-new-chat/references/new-chat-context.md)
   routes to current game/asset, API, design and verification owners.
 - Boundaries: Use the physical-iOS, one-target workflow; do not automatically
   launch simulators, Android setup or local cloud services. Distinguish headless,
   fixture, backend and real-device evidence. Preserve per-game animation
-  contracts and explicit publishing authorization.
+  contracts; Godot runtime checks are not Flutter integration or iPhone proof.
+  Keep current per-feature designs and source art; cleanup and publishing require
+  their own authorization.
 
 ## Notenwert
 
@@ -1049,10 +1091,29 @@ forecast-only restoration contract.
   Mongkol docs/source areas, durable Thai-first temple-product constraints,
   commands, and `references/new-chat-context.md`.
 
-The Mongkol pickup map now covers authoritative live CMS, immutable place keys
-and URL aliases, current bundled source owners, and Tarot research/import
-boundaries. Prepared research is not completed content or supported CMS schema;
-dated release evidence is not a new production check.
+The Mongkol pickup map covers the OSM/curated nationwide directory, authoritative
+live CMS, immutable place keys/aliases, history import and private research,
+commerce/Admin boundaries, artifact retention and dated local uncommitted work.
+Prepared research/imports are not live publication; disabled commerce is not a
+stub to enable. Tarot notes retain their separate earlier review scope, and dated
+release evidence is not a new production check.
+
+## Thai Palliative Nurse
+
+### thai-palliative-nurse-new-chat
+
+- Skill file: [SKILL.md](../skills/thai-palliative-nurse-new-chat/SKILL.md)
+- Description: Onboards or refreshes the Thai Palliative Nurse / TPNA website
+  from current project docs, shared components and release boundaries.
+- Use when: Preparing a starter prompt or continuing pages, Blue branding,
+  tracking/date controls, content/assets, access or release work.
+- Typical context: The selected TPNA checkout, `AGENTS.md`, `docs/HANDOFF.md`,
+  `README.md`, `PROJECT_MAP.md`, shared UI/testing/deployment docs and its
+  [task map](../skills/thai-palliative-nurse-new-chat/references/new-chat-context.md).
+- Boundaries: Preserve the server access boundary, private tracking inputs,
+  Buddhist date formatting and approved fixture behavior. Local trial forms
+  do not prove member creation, uploads, payments or email delivery. Onboarding
+  does not authorize another chat, publishing, deletion or firewall changes.
 
 ## Shane Thai
 

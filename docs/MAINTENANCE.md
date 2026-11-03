@@ -53,7 +53,7 @@ The owner also approved a live user-level installation at
 backup, compare both copies and sync reviewed live updates into the repo; do not
 overwrite live work or reinstall it. Do not copy the external evaluation kit/tests,
 duplicate this skill under `skills/`, or replace the web skill. The archive
-verifier count is 143; check this additional installation with its own validator:
+verifier count is 146; check this additional installation with its own validator:
 
 ```sh
 python3 .agents/skills/ui-ux-expert-mobile-native/scripts/validate_package.py
@@ -88,7 +88,7 @@ False positives are normal. Read the matches before deciding.
 For most changes, run the toolkit verifier:
 
 ```sh
-python3 scripts/verify_skills.py --expected-count 143
+python3 scripts/verify_skills.py --expected-count 146
 ```
 
 It checks skill frontmatter, folder/name consistency, local Markdown links,
@@ -103,6 +103,17 @@ find skills -name SKILL.md | sort | wc -l
 ```
 
 If you add scripts, run their basic help or smoke-test path before committing.
+
+For `responsive-design` collector changes, run its browser-backed fixture tests
+with an existing compatible Playwright/browser runtime:
+
+```sh
+node --check skills/responsive-design/scripts/responsive-audit.mjs
+node --test skills/responsive-design/scripts/responsive-audit.test.mjs
+```
+
+See its [verification reference](../skills/responsive-design/references/verification.md)
+for runtime overrides and evidence limits. Helper tests do not certify UI quality.
 
 The imported iOS inventory helper is invoked with `python3`, not executed
 directly. It retains the live source's non-executable file mode; the verifier's

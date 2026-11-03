@@ -1,0 +1,5 @@
+interface:
+  display_name: "Thai Palliative Nurse New Chat"
+  short_description: "Resume TPNA website, shared UI and release work"
+  brand_color: "#70A1F7"
+  default_prompt: "ใช้ $thai-palliative-nurse-new-chat อ่านเอกสารและสถานะล่าสุดของโปรเจกต์ TPNA แล้วสรุปข้อกำหนดสำคัญก่อนทำงานต่อ"

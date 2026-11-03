@@ -15,7 +15,7 @@ the product's direction; do not turn one correction into a global taste law.
 | UI is boxed and heavy | Containers repeat without semantic boundaries | Remove redundant frames, use unframed groups/bands | Repeated distinct objects and overlays may legitimately have borders plus shadows |
 | Button overload | Unrelated actions have equal visual priority | Group by scope and consequence, demote secondary actions | Independent rows may each expose a necessary action |
 | Hero says nothing | Generic promise, unclear subject, unrelated media | Show the actual product/place/offer and relevant visual | A reference-led abstract campaign is a different authorized task |
-| Fake credibility | Unverified metrics, quotes, logos or charts | Source facts or mark synthetic/unknown content clearly | Synthetic benchmark data is valid when labeled and never presented as real |
+| Fake credibility | Unverified metrics, quotes, logos or charts presented as real | Source factual claims; record fixture provenance under the [content rules](contextual-rules.md#representative-content) | Authorized prototype/benchmark fixtures are valid; document their origin without automatically adding developer labels to product UI |
 | Motion obstructs work | Delayed controls, repeated entrance motion, moving focus context | Remove the delay or motion that obscures state | Purposeful playful motion may fit a game and still needs reduced-motion support |
 
 ## Repair Order

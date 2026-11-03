@@ -1,0 +1,4 @@
+interface:
+  display_name: "Global Responsive Design"
+  short_description: "Global alias for responsive-design"
+  default_prompt: "Use $global-responsive-design to adapt this web layout across screen sizes while preserving its design and behavior."

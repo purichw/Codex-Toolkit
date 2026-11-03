@@ -27,6 +27,15 @@ unnecessary rebuilds, or unclear commit/push/deploy gates. Reuse a healthy dev
 server, current project map, and previous build evidence only when they match
 the current source, route, target, and environment.
 
+## Default Infrastructure Region
+
+For hosting/database/function setup or region changes, apply the shared
+[Thailand-first region default](../project-onboarding/references/region-defaults.md):
+Thailand when supported, otherwise the closest suitable Asian region to Thailand.
+Configure the choice explicitly and keep backend/data placement compatible.
+Preserve existing approved topology; this default does not authorize migration
+or new recurring costs.
+
 ## Source vs Generated
 
 Define:

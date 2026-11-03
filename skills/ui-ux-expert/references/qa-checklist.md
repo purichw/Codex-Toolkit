@@ -32,14 +32,17 @@ that is in scope. Do not invent a required number of defects.
 | Surface | Evidence needed |
 | --- | --- |
 | Geometry | No unintended overlap/clipping/page overflow; meaningful text survives long-content/narrow states. Local two-dimensional scroll remains usable. |
-| Typography | Correct loaded font/weight/script coverage; role hierarchy, readable measure, stable wrapping and no clipped combining marks. |
-| Alignment | Actual painted controls, groups and parent edges; user preferences survive closed/open and responsive states. |
+| Typography | Correct loaded font/weight/script coverage; navigation and essential text readable at normal viewing size and proportional to the page. Consistent role scale, readable measure, stable wrapping and no clipped combining marks; no tiny-type fix for crowded navigation. |
+| Alignment | Actual painted controls, groups and parent edges; card icons/short headings share a centered axis, with readable long-copy exceptions. Form/table preferences survive closed/open and responsive states. |
+| Dropdown geometry | One arrow inside the painted trigger, vertically centered with consistent trailing inset and text clearance; hit area matches the field. Check affected narrow/date-picker variants and relevant browser engines. |
+| Buttons/fields | Label/icon vertical balance, compact icon gaps and separation between actions. Short-code field width suits its data; single-line input/select/date heights agree by size variant without native overflow. |
+| Shared components | In-scope consumers actually use the planned shared owners and necessary variants. No unused shared file masking active page copies; verify representative affected states. |
 | Color | Measured actual foreground/background pairs, including tint/alpha; non-color state meaning. Use the accessibility reference, not "all UI is 3:1." |
-| Product fit | Source direction and established system preserved; no fake facts, dead controls or unauthorized capability removal. |
-| Interaction | Exercise keyboard/focus, click/touch, transitions, return paths and relevant loading/error recovery. A screenshot alone is insufficient. |
+| Product fit | Direction/system preserved; meaningful authorized content/fixtures with provenance in evidence. No permanent filler lines, unrelated content, developer labels, unsupported real-service claims, dead controls or unauthorized capability removal. |
+| Interaction | Exercise keyboard/focus, click/touch, transitions, return paths, open dropdowns and relevant loading/error recovery. For carousels verify swipe, active controls and pause/resume when autoplay exists, without control-driven banner growth. A screenshot alone is insufficient. |
 | Data/Admin | Actual supported editor/save/reopen/render contracts; delayed response must not clobber dirty data. See product-redesign-contracts.md. |
-| Responsive | Relevant narrow/intermediate/wide states, input model, content pressure, sticky/fixed controls; actual engine/device for platform claims. |
-| Assets/runtime | Relevant media/font loading, console/request errors and fallback behavior. Do not hide errors by retrying until green. |
+| Responsive | Real long content reflows; mobile groups recompose before shrinking text. Hero copy and imagery survive resizing; sticky rails reserve space through lower sections. Check relevant widths, input models, scrolling, fixed controls and actual engines for platform claims. |
+| Assets/runtime | Sharp logos and contrast on actual header/footer backgrounds; theme reaches affected loading/auth/overlays and states. Check media/font loading, fallback behavior and console/request errors. Do not hide errors by retrying until green. |
 | Accessibility | Semantic names/roles, focus and keyboard, contrast, targets, text enlargement/reflow and reduced motion as scoped. |
 
 ## Defect To Repair Record

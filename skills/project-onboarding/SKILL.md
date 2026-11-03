@@ -33,6 +33,15 @@ assumptions, and keep the output short enough to be useful during active work.
    external services, styling system, test surface, and known generated assets.
 5. Check `git status --short` and protect existing user changes.
 
+## Default Infrastructure Region
+
+When choosing new infrastructure, default to **Thailand**, then the closest
+suitable supported **Asian region to Thailand**; never silently accept a
+US/Europe provider default. Read [region defaults](references/region-defaults.md)
+for service availability, compute/database placement, explicit configuration and
+verification. Record the choice in the project map/handoff. Existing approved
+placements remain intact until a migration is separately in scope and authorized.
+
 ## Push And Deploy Boundaries
 
 Onboarding, handoff instructions, and discovering a deploy command do not grant

@@ -43,6 +43,7 @@ At minimum define:
 - build source: branch, preview build, saved version, or release candidate;
 - env vars and secrets, separate from production;
 - database/storage target, seed/reset strategy, and data retention;
+- explicit database/backend regions and any mismatch with production;
 - test accounts, roles, bypasses, and credentials handling;
 - external services: sandbox, stub, fake, read-only, or production-safe;
 - observability: console, network, logs, errors, analytics isolation;
@@ -50,6 +51,14 @@ At minimum define:
 
 Never clone production data casually. Prefer production-shaped synthetic data,
 small sanitized snapshots, or seeded fixtures.
+
+For a new regional UAT/preview stack, apply the
+[Thailand-first region default](../project-onboarding/references/region-defaults.md):
+Thailand if supported, otherwise the closest suitable supported Asian region to
+Thailand. Keep its backend near its own isolated data. When an approved existing
+environment uses another region, preserve and document that choice; obtain any
+missing decision before creating a regional-parity exception. Disclose region
+differences when interpreting latency; UAT timing is not production timing.
 
 ## Auth Bypass Policy
 

@@ -1,8 +1,11 @@
 # Mongkol Wela New Chat Context
 
-Use this as a task-scoped pickup map. Reviewed 2026-10-11 against code at
-`303d84c`. Prefer current on-disk files over memory; dated release evidence is
-not a new production check. Do not inspect other chats to fill gaps.
+Use this as a task-scoped pickup map. Directory, history, commerce, Admin and
+retention guidance was reconciled on 2026-11-02 against `b88f1cdb` plus the local
+Admin changes described below. Other sections retain their earlier review scope;
+the Tarot notes are explicitly dated. Prefer current source and task-specific
+docs over stale overview prose. This is not a new production check, and does not
+authorize inspecting other chats to fill gaps.
 
 ## Project
 
@@ -31,6 +34,8 @@ Then choose by task:
 - Admin/CMS: `CMS.md`, `docs/cms-workspace-coverage.md`, `src/scripts/admin/`,
   `src/scripts/cms-runtime.js`, `src/lib/live-content.js`, `api/admin/`.
   `public/admin/content/live.json` and `default.json` are seeds, not live authority.
+  For stub/editing failures, also read `docs/admin-stub-audit.md` when present;
+  its fixes/evidence may still be uncommitted in the selected checkout.
 - Place URLs/identity: `docs/temple-slugs.md`, `src/data/temple-slugs.js`,
   `src/data/temple-english-names.js`, `src/data/temple-cms.js`,
   `src/lib/temple-routing.js`, `src/lib/temple-slug-format.js`.
@@ -49,8 +54,22 @@ Then choose by task:
   `src/styles/temple-map.css`, `src/scripts/temple-map.js`,
   `src/scripts/temple-directory.js`, `src/scripts/temple-detail.js`.
 - All-Thailand directory: `src/pages/temples/thailand/index.astro`,
-  `src/pages/assets/data/temples-thailand-index.json.ts`,
-  `public/assets/data/temples-thailand.json`, `src/scripts/temple-directory.js`.
+  `docs/thailand-directory.md`, `docs/thailand-directory-research.md`,
+  `src/scripts/directory-places.js`, `src/lib/directory-places.js`,
+  `src/lib/directory-place-card.js`, `src/styles/directory-places.css`.
+  The old registry/index assets are not the public directory's source of truth.
+- Place history/research: `CMS.md#curated-place-histories`,
+  `docs/research/curated-place-histories.json`, `src/lib/place-history.js`,
+  `src/lib/place-detail-view.js`, `scripts/publish-place-histories.mjs`,
+  `scripts/lib/place-history-import.mjs`, `scripts/lib/place-history-sql.mjs`.
+- Shop/merit: `docs/commerce-and-merit.md`, `CMS.md#commerce-and-merit`,
+  `src/components/CommerceIntro.astro`, `src/components/CommerceBreadcrumb.astro`,
+  `src/lib/navigation-breadcrumbs.js`, `src/pages/shop/`, `src/pages/merit/`.
+- Loading/first-render problems: `docs/loading-performance.md`,
+  `src/scripts/page-readiness.js`, `src/components/PageEntrance.astro`.
+- Disk/artifact cleanup: `docs/artifact-retention.md` and the retention section
+  below. If the doc is absent in another checkout, do not copy or switch worktrees
+  implicitly; apply the safety rules below and identify the missing documentation.
 - SEO, bot, and crawler controls: `src/pages/robots.txt.ts`, `src/pages/llms.txt.ts`, `src/pages/sitemap.xml.ts`, `src/lib/seo.js`, `vercel.json`, `scripts/apply-vercel-firewall.mjs`, `scripts/smoke-production.mjs`
 - UI redesign: `docs/shared-ui.md`, `docs/mockup-adaptation-lessons.md`, then the
   specific route's design/adaptation note linked from `README.md`.
@@ -93,8 +112,16 @@ Use the current on-disk `SKILL.md` each time a skill is invoked.
 - Preserve internal scroll containers and table/map dimensions unless the task explicitly changes them.
 - Preserve card/list/detail journeys: search/filter -> compare -> detail/map/planner.
 - Keep confidence/help UI honest and visitor-facing. Do not hide uncertainty by inventing data.
-- Use the exact source text for the all-Thailand temple directory: `ระบบทะเบียนวัด สำนักงานพระพุทธศาสนาแห่งชาติ`.
-- All-Thailand temple directory data must come from the provided `Report_Temple 2.numbers` source only unless the user explicitly changes direction. Do not scrape/export that data from websites.
+- The October direction supersedes the old registry-only constraint. The public
+  nationwide directory uses navigable OSM/curated/manual places and live CMS
+  visibility, not the old 44,705-row registry or a Google Places billing project.
+  Retain visible OSM attribution. Outbound Google Maps URLs do not prove a Google
+  listing exists, field verification, current access or a suitable entrance.
+- Protect the popular/sacred/mu collections and include their eligible places in
+  the nationwide directory without changing their keys, slugs or memberships.
+  Reuse the shared compact CMS place editor for coordinates/Plus Codes. Preserve
+  hidden source metadata and evidence-backed facets; do not infer legal status,
+  sect or forest tradition from a place name or tourism recommendation alone.
 - Published page registry/navigation belongs to the configured live CMS. Supabase
   is authoritative when configured; otherwise authenticated GitHub is authoritative.
   Source errors return 503, not seed/cache failover. Never seed over Admin edits.
@@ -125,7 +152,38 @@ Use the current on-disk `SKILL.md` each time a skill is invoked.
   tests. Historical release evidence and coverage boundaries live in
   `docs/temple-slugs.md`, not in this skill as a claim of current production health.
 
+## History, Commerce And Admin Contracts
+
+- History belongs to `temples.records[key].fields.description`; public heading
+  is **รู้จักสถานที่แห่งนี้**, editor label **ประวัติและเรื่องน่ารู้**. Rewrite
+  supported history and why the place matters; distinguish belief/legend from
+  documented facts. Avoid generic travel filler or padding to a word target.
+  Check prose together with category chips and worship objects in the existing
+  card; do not enlarge the layout or truncate prose to force it to fit.
+- The reviewed dataset links 378 source identities / 625 memberships into 371
+  history groups. These are different counts, not missing records. Private
+  `historyResearch` stays out of public CMS projections and SSR bootstrap;
+  reviewed linked records share edits without merging unrelated nearby places.
+- History import is dry-run by default, guarded by the current revision/checksum
+  and conflict checks. Prepared SQL, staged batches, local tests and deployed code
+  are not proof of live CMS publication. Keep publication receipts, before/after
+  revisions and original research; never replace live CMS with a seed.
+- Shop display name is **วัตถุมงคลและเครื่องราง**. Shop/merit share `CommerceIntro`
+  and navigation-derived breadcrumbs; do not hardcode breadcrumb labels/ancestry
+  or restore the redundant merit tabs, cart count or shop-management tab links.
+  Preserve custom published navigation and separate disabled/empty/error states.
+- Commerce/reservations use private tables, not CMS JSON. Disabled service and
+  unavailable payments are intentional boundaries, not stubs to enable during
+  an Admin audit. Verify platform/seller roles and persistence independently.
+- Admin metrics must come from real data. Keep cards/charts with honest empty,
+  insufficient-data or unavailable states; never fill them with mock metrics.
+  Hide protected content until authentication is resolved. Editing tests must
+  cover save/reopen/publication and visitor consumers, not only opening a form.
+
 ## Tarot Editorial Boundary
+
+Last reviewed against `303d84c` on 2026-10-11. Reconcile these notes with current
+source before Tarot work; the November update did not re-audit these flows.
 
 - `src/data/tarot-meanings.js` registers `tarot.tarotMeaningCards`;
   `src/scripts/tarot-data.js` registers `tarot.tarotCards`. Both have the same 78
@@ -171,6 +229,44 @@ start a server or run production smoke just to update prose.
   from momentum on a small follow-up.
 - Map changes should verify Leaflet loads, markers render, no console errors, Thailand bounds are respected, and detail links work.
 
+## Artifact Retention
+
+Keep only the latest supported design set per page/component, with its required
+locale, viewport and important interaction states. Before deleting an earlier
+set, match it to retained evidence by route/component, content/state and viewport;
+timestamps or filenames alone are insufficient. Do not create duplicate backups
+of obsolete design images just to delete their originals.
+
+Read `docs/artifact-retention.md` for the project procedure. Measure allocated
+size/free space and Git status, check active processes/open files, and prepare a
+dry-run allowlist with exact paths, reasons and retained replacements. Checksum
+duplicates; for extracted archives, validate the archive and compare its members.
+Ask once for the exact batch command/script before deletion, then revalidate it.
+No broad `artifacts/` or `.local/` deletion: those folders also contain research,
+publication receipts/backups and complete worktrees. Preserve source, runtime
+assets, original images, databases/uploads, credentials, user data, important
+backups, `.git` and uncommitted work. Unknown ownership means keep and report.
+After approved cleanup, verify retained files/work and measure reclaimed space;
+do not run a build merely to test cleanup and recreate the removed caches.
+
+## Dated Local Pickup
+
+Observed on 2026-11-02 in
+`/Users/point/Website Projects/hora-astro/.local/guide-recovery-20260924`, branch
+`codex/travel-guide-recovery-20260924`, HEAD `b88f1cdb`. This path is evidence,
+not an instruction for a new chat to leave its selected checkout.
+
+- Admin fixes remain local/uncommitted: page-template loading, custom/advanced
+  editing, cleared/numeric fields, legacy patches and truthful controls. Read
+  `docs/admin-stub-audit.md` for the dated 118-template and module-flow evidence;
+  it is not a claim of current live production correctness or deployment.
+- Cleanup inspection has not deleted any files. A roughly 61 MiB OSM Python
+  environment and exact duplicate screenshots were identified as candidates,
+  not an approved deletion manifest. Preserve Admin evidence while those fixes
+  are uncommitted, plus raw OSM/Watportal research and history import backups.
+  Recheck disk usage, hashes, active processes and ownership before proposing
+  the one-batch approval; previous cleanup approvals cover only their exact paths.
+
 ## Release Lessons
 
 - Follow `Roadmap.md#release-workflow`. Track push, required CI, build readiness
@@ -206,12 +302,14 @@ Important constraints:
 - Preserve routes, journeys, data contracts, internal scroll containers, responsive constraints, and customized component geometry unless explicitly in scope.
 - Keep the site Thai-first. For temple work, keep the product temple-first, practical, sacred, and not primarily horoscope/tarot.
 - Live CMS is authoritative; seeds never override published edits. Keep place keys/aliases and Tarot legacy IDs stable. Research briefs are not imported content.
+- For directory/history/commerce/Admin tasks, read their current task-specific docs. Do not revive the obsolete registry-only directory or treat disabled commerce as a stub to enable.
 - Do not commit, push, deploy, migrate, write production CMS, rollback, revert, remove, or delete unless explicitly asked in this current task.
 - If a named skill is used, read its current on-disk SKILL.md first.
 - Scope checks to the current risk. Docs need reference/diff checks; visible UI needs targeted evidence, with desktop/mobile coverage for responsive risk.
 - Rollback-like work must use $rollback-guardrail first.
 - Release, commit, push or deploy work must use $release-gate and Roadmap.md's release workflow. A context handoff alone is not a release.
 - Do not commit generated artifacts such as node_modules, dist, .astro, .vercel, outputs, preview PNGs, or .DS_Store.
+- For cleanup, follow docs/artifact-retention.md: latest design states only, proven replacements/checksums, no uncommitted work or research loss, and exact batch approval before deletion.
 
 After onboarding, summarize what you read and wait for my task unless I already gave one.
 ```

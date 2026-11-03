@@ -1,6 +1,6 @@
 ---
 name: deepx-new-chat
-description: "Onboard or refresh context for the DeepX website and Content Studio CMS. Use for DeepX new-chat or handoff prompts, required reading, project documentation updates, or context pickup before UI, CMS, Supabase, domain or Vercel release work."
+description: "Onboard or refresh context for DeepX Works, Product Studio, Explore Ideas and their shared Content Studio CMS. Use for DeepX new-chat or handoff prompts, project documentation updates, or context pickup before UI, performance, CMS, Supabase, domain or Vercel release work."
 ---
 
 # DeepX New Chat
@@ -13,7 +13,7 @@ authorize creating or inspecting another chat.
 
 1. Use the current task's selected DeepX checkout/worktree. The primary checkout
    is `/Users/point/Website Projects/DeepX`; use it only when no checkout is
-   already selected. Confirm the remote is `https://github.com/purichw/DeepX`.
+   already selected. Confirm the remote is `https://github.com/DeepXWorks/DeepX.git`.
 2. Run `git status --short --branch` before edits. Preserve unrelated changes.
 3. Read the current `/Users/point/.codex/skills/project-onboarding/SKILL.md` and
    this skill's [project context](references/new-chat-context.md).
@@ -29,19 +29,39 @@ authorize creating or inspecting another chat.
 
 ## Preserve the owner's decisions
 
-- Retain the established DeepX navy/cyan visual system and Thai-first content.
+- Retain dark navy/cyan for DeepX Works and white/ice/cyan for Product Studio
+  and Explore Ideas. Individual website demos retain their own approved palettes.
+  All `/studio` descendants use the shared **light** full-page loader, including
+  dark demos; initial HTML and React must hand off without a fallback flash.
   Load `/Users/point/.codex/skills/ui-ux-expert/SKILL.md` for UI work; follow the
   repo's mockup guidance while giving newer explicit decisions priority.
-- **Desktop is approved: do not redesign it or let mobile fixes change it.**
-  Mobile hero video stays behind the banner copy/actions, with the central logo
-  and DeepX wordmark visible. Never move it into a separate media panel.
+- Preserve the approved Home desktop and keep mobile-only fixes scoped. This is
+  not a ban on an explicitly requested Studio/Ideas redesign. Home's mobile hero
+  video stays behind banner copy/actions, with the central logo and DeepX
+  wordmark visible; never move it into a separate media panel.
+- Use shared Studio header, language, card/grid, action and dialog owners.
+  Keep type readable, incomplete card rows centered, and verify real TH/EN copy
+  at the touched breakpoints; English banners must reflow without shrinking type.
+- Public naming is **สำรวจไอเดีย / Explore Ideas**, rooted at `/studio/ideas`.
+  Old catalogue URLs remain reserved, without redirects. Demo navigation shows
+  only its active category; its return link goes to the Ideas root and logo to Studio.
 - Keep Our Ecosystem, SUT before Chula, and the CMS-owned logo order/assets.
   The current mobile ticker moves left-to-right without Play/Pause controls;
   desktop/tablet retain their original layout. Details are in the reference.
 - Business copy, navigation, media, contact details and metadata are CMS-owned.
   Do not hardcode them or restore cleared content from the bootstrap fixture.
 - Preserve guarded CMS writes, published-only reads, revision conflicts,
-  atomic publication and authentication/allowlist boundaries.
+  atomic publication and authentication/allowlist boundaries. Publication covers
+  the shared draft across pages, not just the page currently open in the editor.
+- Preserve fresh CMS reads and lazy route/demo boundaries when optimizing.
+  Read `docs/PERFORMANCE.md` for the current request handoff and bundle gates.
+  Latest hosting decision: retain the existing Ireland database with `dub1`
+  functions and **no new recurring cost**; Asia migration was not performed.
+- For new infrastructure or an authorized future migration, apply the owner's
+  [Thailand-first region default](../project-onboarding/references/region-defaults.md):
+  Thailand when supported, otherwise the closest suitable supported Asian region.
+  DeepX's existing Ireland/no-new-cost decision remains an explicit exception;
+  do not move only functions away from their database or create paid resources.
 
 ## Scope and delivery
 

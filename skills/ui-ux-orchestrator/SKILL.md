@@ -65,6 +65,8 @@ covers the risk.
 - `$form-flow-ux`: create/edit forms, validation, dirty state, save/cancel,
   autosave, server errors, mobile keyboard.
 - `$mobile-web-qa`: responsive/mobile/tablet/Safari/touch/safe-area verification.
+- `$responsive-design`: responsive web composition, content-driven breakpoints,
+  reference adaptation and causal layout repairs while preserving product state.
 - `$snapshot`: mandatory post-implementation/post-audit visual proof,
   comparisons, provenance, and product UX contract evidence before final
   response.
@@ -80,6 +82,7 @@ Use these cues to select focused skills without loading every UI/UX skill:
 | User cue or risk | Start with |
 | --- | --- |
 | "UI/UX", visible screen/component, layout, polish, redesign, or prototype | `$ui-ux-expert` |
+| fully responsive web, desktop/mobile/tablet adaptation, breakpoints, container queries, cramped or overflowing layout | `$responsive-design` |
 | "looks off", cheap, cramped, scattered, generic, heavy, low-trust, unfinished | `$visual-diagnosis` |
 | formal design QA, rule IDs, severity, `[FACT]` / `[CRAFT]` / `[PD]`, 25-item pass | `$design-quality-review` |
 | category feels wrong, admin too roomy, ops too decorative, dashboard/ledger/editorial/learning conventions | `$domain-taste` |
@@ -127,7 +130,8 @@ Use this decision guide:
 - Keyboard/focus/touch/accessibility risk? Use `$accessible-interaction`.
 - Admin/table/list/dashboard density? Use `$data-dense-ux`.
 - Create/edit/save/cancel form work? Use `$form-flow-ux`.
-- Mobile or responsive risk? Use `$mobile-web-qa`.
+- Responsive web layout decisions or repairs? Use `$responsive-design`.
+- Browser, input, keyboard or device verification? Use `$mobile-web-qa`.
 - Any UI/UX implementation, redesign, restyle, visual audit, responsive pass, or
   reference comparison completed? Use `$snapshot` automatically before final
   response; do not wait for the user to ask.

@@ -1,16 +1,57 @@
-# User Preferences And Alignment
+# User Preferences: Typography, Cards And Alignment
 
-Read for forms, selects, date/time fields, stat/KPI cards, tables, or alignment work.
-These are this user's defaults, not universal design laws. Preserve them unless the
-user explicitly overrides them; resolve a conflict with a supplied reference rather
-than silently substituting generic advice.
+Read the relevant section for navigation, type, cards, forms or tables. These are
+this user's defaults, not universal design laws. Explicit task-specific direction
+takes precedence. Resolve material reference conflicts; do not silently ignore a
+default merely because the old implementation differs.
 
+## Readable Type By Role
+
+- Keep type consistent by role across components and pages, not identical in size
+  everywhere. Primary navigation must look readable and proportional to the body,
+  logo and surrounding controls, rather than like secondary metadata.
+- For web UI without an adequate project scale, use these starting sizes at
+  default zoom (CSS px equivalents; prefer scalable units such as `rem`):
+
+  | Role | Starting size | Use |
+  | --- | --- | --- |
+  | Primary navigation | 16–18px | Comparable to body text; 18–20px can suit spacious headers or fonts with small visible glyphs. |
+  | Body, field values, primary actions | 16–18px | Essential reading and interaction. |
+  | Secondary labels and metadata | 14–16px | Supporting information with clear hierarchy. |
+  | Minor annotations | 12–13px, only when justified | Never the default for primary navigation, instructions or essential controls. |
+
+  These are comfort defaults, not accessibility minimums or print/native rules.
+  Judge the actual loaded font, Thai/Latin glyphs, weight, contrast and line height
+  at normal viewing size. Large padding or a heavier weight cannot rescue tiny text.
+- If navigation does not fit, repair spacing, grouping or the menu breakpoint.
+  Do not squeeze it with smaller type, scaling transforms or overflow clipping.
+  Check intermediate widths and mobile drawers; preserve zoom and touch access.
+
+## Card Icon And Heading
+
+- Center each card's icon and short heading on a common horizontal axis on desktop
+  and mobile, including shortcut, feature, service and category cards. Prefer a
+  vertical stack; a centered icon/title row is also valid if the whole group is
+  centered. If there is no icon, center the heading without inventing an icon.
+- A short heading wrapping to two lines still stays centered. A genuinely long
+  title may use leading alignment when that improves reading; keep its icon/title
+  group coherent. Calling a card "editorial" or "compact" is not itself an exception.
+- Short descriptions may also center. Keep long prose, lists, forms and structured
+  data leading-aligned as appropriate; a long body alone need not uncenter its short
+  heading. Independent actions retain their useful position in the card.
 - Stat/KPI cards always center their content horizontally and vertically:
   center the icon, value, label, and supporting text as a balanced group, with
   centered text on desktop and mobile. Prefer a centered vertical stack; keep
   wrapping and equal peer sizing stable. This is the user's explicit design
-  preference, not a rule for tables, forms, prose, or every card. Only depart
+  preference, not a rule for tables, forms or every card's prose. Only depart
   from it when the user explicitly requests a different stat-card alignment.
+- Apply alignment at the shared card owner, with a deliberate long-copy variant
+  where needed. Check actual group bounds, balanced insets and narrow wrapping;
+  `text-align: center` alone does not center a flex/grid icon. Do not blanket-center
+  all descendants or force every general card's body to the vertical midpoint.
+
+## Forms And Tables
+
 - Dropdown/select alignment follows this user's explicit preference: center the
   field label directly above the dropdown, the selected value, and option labels
   on desktop and mobile unless explicitly overridden. Align each to the painted
@@ -40,7 +81,7 @@ than silently substituting generic advice.
   owners and in-scope consumers, including Admin and public variants, rather
   than applying an Articles-only override or a blanket centering selector.
 
-### Alignment And Action Affordance
+## Alignment And Action Affordance
 
 - `text-align: center` alone is not alignment proof: flex/grid content and native
   picker internals can remain off-center. Inspect actual layout and a rendered
@@ -57,9 +98,9 @@ than silently substituting generic advice.
 - For layered controls such as enhanced native selects, measure the painted
   field and overlaid hit area separately: their bounds must agree before
   centering labels or chevrons. A taller transparent button can look centered
-  internally while its icon sinks below the visible field. Check closed/open
-  indicators, text clearance, adjacent controls and mobile touch sizing; use
-  the existing icon library and fix the sizing owner rather than adding offsets.
+  internally while its icon sinks below the visible field. Follow the
+  [dropdown chevron geometry contract](components.md#dropdown-chevron-geometry)
+  for inset, text clearance, shared ownership and responsive checks.
 - When alignment is requested across a product, inspect the shared owners and
   representative public/Admin consumers, including open menus and dialogs.
   Fix proven shared causes at their owner rather than adding page-by-page

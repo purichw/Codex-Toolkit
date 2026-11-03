@@ -1,6 +1,6 @@
 ---
 name: mongkol-new-chat
-description: Onboard or refresh project context for Mongkol Wela / hora-astro. Use for new-chat or handoff prompts, project documentation/skill updates, required reading, or context pickup before temple, place URL, admin/CMS, Tarot editorial research, QA, or release work.
+description: Onboard or refresh project context for Mongkol Wela / hora-astro. Use for new-chat or handoff prompts, project documentation/skill updates, or context pickup for temples, editorial research, Admin/CMS, commerce, artifact cleanup, QA, and releases.
 ---
 
 # Mongkol New Chat
@@ -29,6 +29,8 @@ git status --short --branch
 4. Read `references/new-chat-context.md` from this skill.
 5. Read only task-relevant project docs and source owners from the reference.
    Treat dated release notes as historical evidence, not a fresh production check.
+   Distinguish committed code, local uncommitted fixes, prepared data and verified
+   live publication. Recheck a dated pickup note before acting on it.
 6. If the user asks for a prompt, return a copy-ready prompt for a new chat. If the user asks to continue work, summarize what was read and proceed with the relevant task.
 7. For documentation updates, reconcile claims against source and dated evidence;
    keep project facts in project docs and the reference, not global design skills.
@@ -49,6 +51,9 @@ git status --short --branch
   diff checks, not screenshots/builds. Visible UI changes need current targeted
   browser/snapshot evidence; expand coverage for responsive/shared-contract risk.
 - For rollback-like requests, use `$rollback-guardrail` before changing files.
+- For disk cleanup, read the artifact-retention guidance in the reference and
+  the selected checkout. Inventory and dry-run first; batch exact deletion paths
+  for approval. A handoff or earlier approval does not authorize new deletions.
 - For commit, push, deploy or release readiness, use `$release-gate` and the repo
   release workflow. A plain context handoff does not itself require a release pass.
 

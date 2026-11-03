@@ -81,8 +81,9 @@ role-mapping worksheet, not executable CSS; do not paste empty declarations.
 ## 6. Imagery & illustration
 
 - Photography/illustration style: `<rule + source library>` — **FACT / UNKNOWN**
-- Missing imagery → a clearly identified temporary placeholder,
-  never stock gradients or fabricated screenshots.
+- Missing imagery → record the gap in the handoff; use relevant approved assets,
+  omit optional imagery or show a suitable product empty state. Use labeled
+  placeholders only for an explicitly requested wireframe, not default public UI.
 
 ## 7. Component deviations from global spec
 

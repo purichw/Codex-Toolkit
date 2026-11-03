@@ -9,12 +9,16 @@ this file is a routing map, not a second copy of project status.
 | Current task | Read |
 |---|---|
 | Any visual design or shared UI repair | docs/25-design-direction.md, relevant component/asset owners, docs/26-current-ui-qa.md for evidence scope |
+| Design evidence retention / disk cleanup | docs/ARTIFACT_RETENTION.md, docs/ENVIRONMENT.md, docs/PROGRESS.md; use the recorded per-feature replacement map and actual execution results, not an old deletion script as fresh authorization |
 | Any context pickup | AGENTS.md, README_START_HERE_TH.md, docs/PROGRESS.md, docs/DECISIONS.md, docs/PROJECT_MAP.md |
 | Setup or device readiness | docs/ENVIRONMENT.md, docs/02-setup.md, apps/mobile/README.md, docs/11-device-support.md |
 | Product scope / MVP | docs/00-product-scope.md, docs/06-codex-tasks.md |
 | Client/game work | apps/mobile/README.md, docs/01-architecture.md; choose the actual game's contract below rather than applying the original Coffee Catch spec to every game |
 | Brewrunner / original player art | docs/12-coffee-catch-integration.md, docs/17-character-roster.md, apps/mobile/vendor/brewrunner_animation_pack/GLENONCHY_ADAPTATIONS.md |
 | Tavern Jam / Old Pals rhythm game | docs/18-tavern-jam.md, docs/tavern-jam-package-v2/START_HERE.md, docs/tavern-jam-package-v2/docs/ANIMATION_STATE_CONTRACT.md; owners apps/mobile/lib/features/tavern_jam/ and lib/data/world_progress.dart |
+| Paradise Path / 1780's Road to Paradise | docs/27-paradise-path.md; apps/mobile/lib/features/paradise_path/ and its supplied scene/animation contracts |
+| Wild Ink / Wild Studio Tattoo | docs/28-wild-ink.md, docs/30-app-completion.md; preserve the documented trial, save and retry contracts |
+| Standalone Godot Tactics / GM-authored battles / combat art | prototypes/tactics/AGENTS.md, prototypes/tactics/CODEX_START_HERE.md, prototypes/tactics/README.md, prototypes/tactics/docs/ARCHITECTURE.md, prototypes/tactics/docs/CHARACTER_IDENTITY_CONTRACT.md, prototypes/tactics/docs/CHARACTER_REUSE_POLICY.md; follow the current runtime/QA and asset-manifest pointers there, not old intake status in isolation |
 | Barista NPC / dialogue | docs/19-barista-dialogue.md, docs/16-world-map.md, docs/17-character-roster.md; inspect the supplied cafe_barista_glasses_uniform_pack_v1 manifest and art before integrating |
 | Shared UI / QR camera | docs/13-game-selection-shared-ui.md; apps/mobile/lib/app/game_components.dart and features/game_selection/ |
 | Local points / coupons / menus | docs/14-points-rewards.md, docs/15-merchant-menus.md; apps/mobile/lib/data/local_rewards.dart |
@@ -50,6 +54,9 @@ synthetic QA members; apps/mobile/integration_test/preview_flow_test.dart inject
 quest checks. Do not substitute one as proof of the other or run them just to onboard.
 Real-device capture and source provenance are recorded in docs/PROGRESS.md; old
 screenshots and test-runner completion screens are not current app evidence.
+Superseded design images may have been deliberately removed under
+docs/ARTIFACT_RETENTION.md. Keep the latest per-feature evidence and source art;
+do not recreate retired flow sheets or re-download caches merely to onboard.
 
 Keep app/test versions, counts, current process state and latest evidence in repo docs,
 not this skill. Clearly separate historical T01/setup results from current membership.

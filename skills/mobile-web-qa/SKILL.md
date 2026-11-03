@@ -16,6 +16,10 @@ For full-site responsive implementation or QA that involves viewport meta,
 zoom, browser engines, or mobile performance, also read
 `../ui-ux-expert/references/responsive-web-design.md`.
 
+Use `$responsive-design` for composition, breakpoint decisions and responsive
+implementation. Keep this skill focused on browser, platform, input and state
+verification; passing a width sweep alone does not prove design quality.
+
 ## Viewport Matrix
 
 Use project-defined breakpoints first. For general mobile work, cover:

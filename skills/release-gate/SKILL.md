@@ -119,6 +119,13 @@ Use these as starting packs, then adapt to repo-defined commands:
 - **Docs-only:** inspect diff, run `git diff --check`, docs lint/build when the
   repo defines one, and confirm no generated runtime artifact changed
   accidentally.
+- **New infrastructure / region configuration:** apply the
+  [Thailand-first region default](../project-onboarding/references/region-defaults.md).
+  Confirm explicit Thailand or the closest suitable supported Asian region,
+  compatible backend/database placement, and any existing approved exception.
+  Verify actual resource/function region metadata after the authorized action;
+  config or build location alone is not proof. Do not migrate an existing system
+  or upgrade billing to satisfy this check without the corresponding authorization.
 - **CI workflow/setup:** validate the changed YAML/shell and inspect affected
   triggers, permissions, checkout refs, and timeouts. Verify the relevant remote
   run containing the fix. For setup-only changes, targeted checks plus that run

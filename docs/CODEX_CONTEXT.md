@@ -13,13 +13,13 @@ user's intent.
   the reviewed skills and project context to the public repository. This archive
   pass did not change visibility. Continue reviewing future diffs for sensitive data.
 - Purpose: archive and document the user's personal Codex skills
-- Current skill count: 143 `SKILL.md` files under `skills/`
-- Breakdown: 84 personal skill folders (including compatibility routers),
-  57 `global-*` alias skills for reusable non-project-specific workflows, and
+- Current skill count: 146 `SKILL.md` files under `skills/`
+- Breakdown: 86 personal skill folders (including compatibility routers),
+  58 `global-*` alias skills for reusable non-project-specific workflows, and
   2 standalone global design-spec skills.
 - Separate repo-scoped installation: one skill,
-  `ui-ux-expert-mobile-native`, under `.agents/skills/` (144 skill entrypoints
-  across both maintained roots). It is not part of the 143-folder archive count.
+  `ui-ux-expert-mobile-native`, under `.agents/skills/` (147 skill entrypoints
+  across both maintained roots). It is not part of the 146-folder archive count.
 
 The first import copied personal skills from:
 
@@ -173,6 +173,7 @@ Expected current skill folders:
 - `reference-to-a-tee`
 - `regression-hunter`
 - `release-gate`
+- `responsive-design`
 - `rollback-guardrail`
 - `shane-thai-audio-generator`
 - `shane-thai-export-chatgpt`
@@ -182,6 +183,7 @@ Expected current skill folders:
 - `site-maintainer`
 - `snapshot`
 - `taste-calibration`
+- `thai-palliative-nurse-new-chat`
 - `tts-audio-assets`
 - `typography-refinement`
 - `uat-environment`
@@ -195,6 +197,14 @@ Reusable non-project-specific skills also have `global-*` alias folders. The
 full alias map lives in [GLOBAL_SKILLS.md](GLOBAL_SKILLS.md); keep aliases as
 thin wrappers and update the canonical skill first. `global-full-design-spec`
 and `global-quick-design-spec` are standalone global skills, not alias wrappers.
+
+`responsive-design` was added on 2026-11-03 from the user's responsive web kit.
+Its live canonical copy is under `~/.codex/skills/`; the archive includes a thin
+`global-responsive-design` alias. It owns layout adaptation and breakpoint
+decisions, while `mobile-web-qa` owns platform verification. Source provenance
+and deliberate departures from the demo styles live in its
+[source notes](../skills/responsive-design/references/source-notes.md). Updating
+this skill does not imply syncing unrelated live changes from other skills.
 
 `reference-to-a-tee` replaces the Claude-specific implementation workflow and
 supports HTML, image-only, and mixed references. `claude-to-a-tee` and
@@ -253,7 +263,7 @@ updates, enough verification is usually:
 
 ```sh
 git diff --check
-python3 scripts/verify_skills.py --expected-count 143
+python3 scripts/verify_skills.py --expected-count 146
 ```
 
 For skill script changes, run the script's smoke-test or help path when one
@@ -344,6 +354,15 @@ As of this document, the repository has:
   entrypoint. Updates cover Coin Quest context, mockup fidelity, immutable
   Before/After evidence, artwork and native review. No live skill, project app,
   SDK or deployment was changed by this archive pass.
+
+- On 2026-11-03, added the live/archive `responsive-design` skill and its archive
+  global alias, then archived `thai-palliative-nurse-new-chat` and the remaining
+  live updates after the owner requested a complete commit/push. Updates include
+  UI/UX user preferences and control geometry, DeepX/Studio/Ideas, Glenonchy
+  Godot/retention, Mongkol directory/history/commerce/Admin, and shared
+  Thailand-first regional guidance. The native copy was unchanged. Counts are
+  146 archive skills plus one separate native entrypoint. Local export bundles,
+  old generated screenshots and `.DS_Store` files remain outside version control.
 
 The main thing future Codex should preserve is the distinction between live local
 skills and the GitHub archive. That distinction prevents accidental overwrites

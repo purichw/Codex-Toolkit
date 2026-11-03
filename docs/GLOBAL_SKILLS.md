@@ -74,9 +74,10 @@ version should run.
 | [`global-prod-smoke-harness`](../skills/global-prod-smoke-harness/SKILL.md) | [`prod-smoke-harness`](../skills/prod-smoke-harness/SKILL.md) | Deployed smoke policy, approved accounts, Actions secret scope, and actual authentication/target evidence. |
 | [`global-product-ux-contracts`](../skills/global-product-ux-contracts/SKILL.md) | [`product-ux-contracts`](../skills/product-ux-contracts/SKILL.md) | Preserving product behavior while redesigning or refactoring UI. |
 | [`global-production-asset-smoke`](../skills/global-production-asset-smoke/SKILL.md) | [`production-asset-smoke`](../skills/production-asset-smoke/SKILL.md) | Deployed media and asset rendering checks. |
-| [`global-project-onboarding`](../skills/global-project-onboarding/SKILL.md) | [`project-onboarding`](../skills/project-onboarding/SKILL.md) | Reading and mapping unfamiliar or returning codebases before edits. |
+| [`global-project-onboarding`](../skills/global-project-onboarding/SKILL.md) | [`project-onboarding`](../skills/project-onboarding/SKILL.md) | Project intake and Thailand-first infrastructure guidance with approved-topology exceptions. |
 | [`global-regression-hunter`](../skills/global-regression-hunter/SKILL.md) | [`regression-hunter`](../skills/regression-hunter/SKILL.md) | Searching for repeated bug patterns and nearby regressions. |
 | [`global-release-gate`](../skills/global-release-gate/SKILL.md) | [`release-gate`](../skills/release-gate/SKILL.md) | Complete-deliverable gates with terminal CI, actually executed required checks, and matching revision/target. |
+| [`global-responsive-design`](../skills/global-responsive-design/SKILL.md) | [`responsive-design`](../skills/responsive-design/SKILL.md) | Responsive web composition, content-driven breakpoints, reference adaptation and state-preserving layout repairs. |
 | [`global-rollback-guardrail`](../skills/global-rollback-guardrail/SKILL.md) | [`rollback-guardrail`](../skills/rollback-guardrail/SKILL.md) | Risk-tiered rollback routing and authorized recovery for work-loss operations. |
 | [`global-site-maintainer`](../skills/global-site-maintainer/SKILL.md) | [`site-maintainer`](../skills/site-maintainer/SKILL.md) | Website maintenance where source, generated artifacts, tests, docs, and hosting must align. |
 | [`global-snapshot`](../skills/global-snapshot/SKILL.md) | [`snapshot`](../skills/snapshot/SKILL.md) | Screenshot/snapshot capture, crop, inspection, and presentation. |
@@ -101,6 +102,7 @@ These skills stay under their project or specialized names:
 - Korat Tan Phai: `korat-tan-phai-new-chat`, `korat-tan-phai-shared-components`
 - Notenwert: `notenwert-design-direction`, `notenwert-maintainer`
 - Mongkol Wela: `mongkol-new-chat`
+- Thai Palliative Nurse / TPNA: `thai-palliative-nurse-new-chat`
 - Shane Thai: `shane-thai-audio-generator`,
   `shane-thai-export-chatgpt`, `shane-thai-image-assets`,
   `shane-thai-new-chat`, `shane-thai-prod-smoke`

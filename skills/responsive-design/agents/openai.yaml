@@ -1,0 +1,4 @@
+interface:
+  display_name: "Responsive Design"
+  short_description: "Preserve composition and behavior across screen sizes"
+  default_prompt: "Use $responsive-design to adapt this web layout across narrow, medium, and wide screens while preserving its design and behavior."

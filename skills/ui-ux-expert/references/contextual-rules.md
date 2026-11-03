@@ -28,13 +28,35 @@ verified when making compliance claims; fallback numbers are not certification.
 | Hide secondary actions | Frequency and consequences justify lower prominence. | Required discovery, touch/keyboard operation, and destructive consequences cannot depend on hover. | Named accessible control, discoverable location, clear action scope/recovery. |
 | Use a category specimen | The user's job resembles the specimen's task. | Brand intent, device, actual content, and mixed categories can justify a different composition. | Explain the task benefit; do not count "failing traits" as proof of bad design. |
 
+## Representative Content
+
+- Use supplied/authorized content first. Coherent mock records, images and
+  success/failure states are valid in an authorized prototype or test fixture.
+  Record their synthetic origin in fixture metadata, handoff notes and QA
+  evidence; do not automatically print "UI example", "mock" or implementation
+  caveats throughout the user-facing interface.
+- Each visible element must help the task or intended composition. Do not fill
+  space with unrelated copy/images, decorative text-like dashes or blank faux
+  document lines. Use meaningful content when available; otherwise omit an
+  optional block or show the appropriate product empty state. A temporary loading
+  skeleton is distinct from permanent fake content and must resolve when ready.
+- Missing assets belong in the handoff's unresolved list, not default public
+  labels such as "image goes here". Explicit wireframe placeholders are fine
+  when the requested deliverable is a wireframe. Do not remove required features
+  merely because their content or asset is still missing.
+- Simulation is not evidence of a working backend or real submission. Keep
+  prototype authorization separate from live behavior: do not claim real
+  payments, saved records, permissions, customer metrics or service availability
+  without evidence. If a limitation affects an actual user decision, explain it
+  in relevant product language, not internal implementation jargon.
+
 ## Multilingual And Content Stress
 
 Use actual representative strings from the authorized project, including its
 longest labels, Thai/Latin mixtures, numerals/units, empty values, and failures.
-When unavailable, mark synthetic fixtures explicitly; never pretend they are
-real customer data. Test translation expansion and zoom only on relevant
-surfaces; do not assume a fixed expansion percentage covers every language.
+When unavailable, use fixtures under the [content rules](#representative-content).
+Test translation expansion and zoom only on relevant surfaces; do not assume a
+fixed expansion percentage covers every language.
 
 Keep semantic order and important content intact when reflowing. Do not solve
 clipping by silently deleting text, abbreviating consequential values, shrinking
