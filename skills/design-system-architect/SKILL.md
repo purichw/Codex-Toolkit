@@ -11,6 +11,10 @@ Use `$ui-ux-expert` as the broad design lens when implementation or critique tou
 
 ## Read Before Acting
 
+For component module boundaries, public APIs, state ownership or consumer
+migrations, use `$shared-component-architecture`. Token/taxonomy governance
+remains here; those are different architectural decisions.
+
 - Shared vocabulary and severity: [00-conventions.md](../design-quality-review/references/design-quality/00-conventions.md).
 - Main reference for this skill: [06-design-systems.md](../design-quality-review/references/design-quality/06-design-systems.md).
 - Screenshot/release-grade QA: [appendix-a-screenshot-qa-protocol.md](../design-quality-review/references/design-quality/appendix-a-screenshot-qa-protocol.md).

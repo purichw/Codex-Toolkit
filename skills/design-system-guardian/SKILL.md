@@ -18,6 +18,11 @@ before final response, and `$release-gate` before shipping.
 
 ## Inventory
 
+For consequential reuse-scope, public API, dependency/state ownership or consumer
+migration decisions, use `$shared-component-architecture`. Keep this skill's
+focus on design-system fit and drift; reuse the same consumer inventory instead
+of running two full audits. A small token/primitive repair can stay here.
+
 Find the existing system before adding styles:
 
 - tokens: color roles, spacing, typography, radii, shadows, z-index, motion;

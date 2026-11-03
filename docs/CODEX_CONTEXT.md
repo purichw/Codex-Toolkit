@@ -13,13 +13,13 @@ user's intent.
   the reviewed skills and project context to the public repository. This archive
   pass did not change visibility. Continue reviewing future diffs for sensitive data.
 - Purpose: archive and document the user's personal Codex skills
-- Current skill count: 146 `SKILL.md` files under `skills/`
-- Breakdown: 86 personal skill folders (including compatibility routers),
-  58 `global-*` alias skills for reusable non-project-specific workflows, and
+- Current skill count: 148 `SKILL.md` files under `skills/`
+- Breakdown: 87 personal skill folders (including compatibility routers),
+  59 `global-*` alias skills for reusable non-project-specific workflows, and
   2 standalone global design-spec skills.
 - Separate repo-scoped installation: one skill,
-  `ui-ux-expert-mobile-native`, under `.agents/skills/` (147 skill entrypoints
-  across both maintained roots). It is not part of the 146-folder archive count.
+  `ui-ux-expert-mobile-native`, under `.agents/skills/` (149 skill entrypoints
+  across both maintained roots). It is not part of the 148-folder archive count.
 
 The first import copied personal skills from:
 
@@ -180,6 +180,7 @@ Expected current skill folders:
 - `shane-thai-image-assets`
 - `shane-thai-new-chat`
 - `shane-thai-prod-smoke`
+- `shared-component-architecture`
 - `site-maintainer`
 - `snapshot`
 - `taste-calibration`
@@ -205,6 +206,16 @@ decisions, while `mobile-web-qa` owns platform verification. Source provenance
 and deliberate departures from the demo styles live in its
 [source notes](../skills/responsive-design/references/source-notes.md). Updating
 this skill does not imply syncing unrelated live changes from other skills.
+
+`shared-component-architecture` was installed from the user's ready-made package
+on 2026-11-03, with a live canonical copy and archive-only global alias. Its
+responsibility is shared component scope, APIs, dependency/state boundaries and
+consumer evolution; the design-system guardian and architect retain their
+consistency and token-governance roles. Source provenance and local adaptations
+are in its [sources](../skills/shared-component-architecture/references/sources.md).
+The optional React example has compile-only negative cases and a server-render
+helper, not a production backend or proof of UI quality. Validation dependencies
+and compiled output stay local under `exports/`, outside the skill/archive.
 
 `reference-to-a-tee` replaces the Claude-specific implementation workflow and
 supports HTML, image-only, and mixed references. `claude-to-a-tee` and
@@ -263,7 +274,7 @@ updates, enough verification is usually:
 
 ```sh
 git diff --check
-python3 scripts/verify_skills.py --expected-count 146
+python3 scripts/verify_skills.py --expected-count 148
 ```
 
 For skill script changes, run the script's smoke-test or help path when one

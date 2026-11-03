@@ -465,8 +465,9 @@ Skill/source-documentation changes alone do not require an unrelated app capture
 - Description: Designs, audits, and implements UI with cause-directed diagnosis,
   explicit tradeoffs, contextual defaults, selective alternatives, existing
   design systems, state coverage, and current visual/behavior evidence. Routes
-  repeated UI and shared-contract changes to `design-system-guardian` for reuse,
-  extraction, and consumer verification without forcing abstractions on tiny edits.
+  reuse scope, API/state boundaries and migrations to `shared-component-architecture`,
+  and focused token/primitive consistency to `design-system-guardian`, without
+  forcing abstractions or multiple audits on tiny edits.
 - Use when: Working on visual design, interaction design, accessibility,
   responsive UI, design systems, frontend polish, component galleries, layout
   exemplars, UX flow/state coverage, cross-browser/platform responsive QA,
@@ -671,6 +672,29 @@ Skill/source-documentation changes alone do not require an unrelated app capture
   preconditions, step-by-step expected URL/state/data, success and failure
   states, screenshots, console/network results, and residual journey risk.
 
+### shared-component-architecture
+
+- Skill file: [SKILL.md](../skills/shared-component-architecture/SKILL.md)
+- Description: Plans, implements, reviews and evolves shared frontend components
+  with explicit reuse scope, public APIs, dependency/state ownership and safe
+  consumer migrations.
+- Use when: Deciding whether UI belongs locally, in a feature, app-wide or in a
+  real cross-app package; extracting duplication; designing variants/wrappers;
+  splitting an overgeneral component; or changing supported component behavior.
+- Typical context: Existing primitives/tokens, real consumers and exports,
+  domain policies, layout/state contracts, permitted customization, compatibility
+  expectations and representative consumer evidence. Do not introduce a new
+  framework, monorepo or package merely to apply the skill.
+- Resources: Sharing decisions, architecture/contracts, evolution/review and
+  source references; a React/TypeScript badge/header example with separate
+  booking/membership mappings, negative type cases and a server-render helper.
+  Type/render checks do not certify browser behavior or visual quality.
+- Routing: Available through `ui-ux-expert`, `ui-ux-orchestrator` and both design
+  system skills. Keep token drift with the guardian and token/taxonomy governance
+  with the architect. Visible changes require automatic `snapshot` evidence;
+  architecture-only advice and skill maintenance do not require app captures.
+- Global alias: [global-shared-component-architecture](../skills/global-shared-component-architecture/SKILL.md).
+
 ### design-system-guardian
 
 - Skill file: [../skills/design-system-guardian/SKILL.md](../skills/design-system-guardian/SKILL.md)
@@ -686,6 +710,9 @@ Skill/source-documentation changes alone do not require an unrelated app capture
   for when not to merge, tokens/styles versus helper/hook versus UI reuse,
   props/events/state ownership, scoped migration, and representative regression
   checks. The eight review scenarios are guidance, not executed runtime tests.
+- Boundary: Use `shared-component-architecture` for deeper API/dependency/state
+  or migration planning; retain this skill for design-system fit and drift.
+  Reuse the consumer inventory instead of running duplicate broad audits.
 
 ### accessible-interaction
 

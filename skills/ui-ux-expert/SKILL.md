@@ -134,8 +134,10 @@ supported features, permissions, or production configuration.
 
 ## Shared Components
 
-Use `$design-system-guardian` for repeated UI, copied fixes or shared-default/API
-changes; `$design-system-architect` only for wider token/taxonomy governance.
+Use `$shared-component-architecture` for reuse scope, public APIs, dependency/state
+boundaries and consumer migrations. Use `$design-system-guardian` for focused
+token/primitive consistency; `$design-system-architect` for wider token/taxonomy
+governance. Load only the specialist needed for the changed contract.
 Before page implementation, map the recurring patterns in the requested scope
 to existing owners: dropdowns/fields, cards, banners, navigation and actions.
 For each, decide what is shared, which content/behavior genuinely varies, and

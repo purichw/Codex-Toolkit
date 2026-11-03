@@ -1,0 +1,8 @@
+interface:
+  display_name: "Shared Component Architecture"
+  short_description: "Build shared UI with clear APIs and maintainable scope"
+  default_prompt: "Use $shared-component-architecture to plan or refactor reusable UI, define boundaries and contracts, and verify affected consumers."
+  icon_small: "./assets/icon.svg"
+  icon_large: "./assets/icon.svg"
+policy:
+  allow_implicit_invocation: true

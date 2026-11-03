@@ -53,7 +53,7 @@ The owner also approved a live user-level installation at
 backup, compare both copies and sync reviewed live updates into the repo; do not
 overwrite live work or reinstall it. Do not copy the external evaluation kit/tests,
 duplicate this skill under `skills/`, or replace the web skill. The archive
-verifier count is 146; check this additional installation with its own validator:
+verifier count is 148; check this additional installation with its own validator:
 
 ```sh
 python3 .agents/skills/ui-ux-expert-mobile-native/scripts/validate_package.py
@@ -88,7 +88,7 @@ False positives are normal. Read the matches before deciding.
 For most changes, run the toolkit verifier:
 
 ```sh
-python3 scripts/verify_skills.py --expected-count 146
+python3 scripts/verify_skills.py --expected-count 148
 ```
 
 It checks skill frontmatter, folder/name consistency, local Markdown links,
@@ -119,6 +119,13 @@ The imported iOS inventory helper is invoked with `python3`, not executed
 directly. It retains the live source's non-executable file mode; the verifier's
 executable-bit warning is informational for this helper. Check its CLI with
 `python3 skills/ios-app-development/scripts/check-environment.py --help`.
+
+For `shared-component-architecture` example changes, follow its
+[walkthrough](../skills/shared-component-architecture/references/example-walkthrough.md):
+strictly compile the positive/negative type cases in an existing React test
+workspace, then run `scripts/verify-example.cjs` against the compiled example.
+Keep dependency installs and compiled output outside the skill archive. These
+checks cover types/server markup, not browser layout, focus or accessibility.
 
 For `ui-ux-expert` evaluation-pack changes, also run:
 

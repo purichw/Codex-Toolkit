@@ -1,0 +1,4 @@
+interface:
+  display_name: "Global Shared Component Architecture"
+  short_description: "Global alias for shared component architecture"
+  default_prompt: "Use $global-shared-component-architecture to define shared component boundaries and APIs, then verify affected consumers."

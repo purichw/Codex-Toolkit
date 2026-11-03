@@ -75,6 +75,7 @@ missing historical evidence honestly. Skill/docs-only updates need no app captur
 | [`data-dense-ux`](skills/data-dense-ux/SKILL.md) | Guides dense dashboards, tables, lists, ledgers, filters, pagination, bulk actions, and operational panels. | Users need to scan, compare, sort, select, or operate large amounts of information without losing clarity. |
 | [`design-direction`](skills/design-direction/SKILL.md) | Defines product visual direction and image-only, HTML, or mixed handoffs. | Creating briefs, redesign strategy, visual guardrails, or handoffs with explicit source authority and unknown states. |
 | [`design-system-guardian`](skills/design-system-guardian/SKILL.md) | Guides shared-component reuse/extraction, minimal contracts, consumer migration, and drift prevention. | Repeated UI, duplicate fixes, shared API/default changes, or consolidation need decisions about what to share and how to preserve behavior. |
+| [`shared-component-architecture`](skills/shared-component-architecture/SKILL.md) | Defines shared frontend ownership, public APIs, dependency direction and consumer-safe evolution. | Deciding local versus feature/app/package reuse, extracting or splitting components, designing variants/wrappers, or migrating consumers without losing state and behavior. |
 | [`accessibility-beyond-basics`](skills/accessibility-beyond-basics/SKILL.md) | Advanced accessibility beyond axe checks for screen-reader flow, cognitive load, low vision, complex widgets, charts, zoom, and forced colors. | Basic keyboard/focus checks are not enough and the UI needs advanced accessibility coverage. |
 | [`art-direction-imagery`](skills/art-direction-imagery/SKILL.md) | Directs imagery, crops, focal points, hero media, thumbnails, placeholders, captions, loading states, and asset failure states. | Images, generated media, thumbnails, hero visuals, or placeholders determine whether the screen feels intentional. |
 | [`design-quality-review`](skills/design-quality-review/SKILL.md) | Applies the shared design-quality rule language, severity model, screenshot QA protocol, calibration library, and definition of done. | A UI needs rigorous rule-tagged design QA, severity, capture protocol, calibration, PR notes, or future-readable critique. |
@@ -159,5 +160,5 @@ selectively and preserve the archive's global layer.
 Verify the archive with:
 
 ```sh
-python3 scripts/verify_skills.py --expected-count 146
+python3 scripts/verify_skills.py --expected-count 148
 ```

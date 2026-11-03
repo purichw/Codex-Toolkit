@@ -58,6 +58,8 @@ covers the risk.
   routing, state, data, permissions, and feedback.
 - `$design-system-guardian`: tokens, primitives, component variants, consistency,
   design-system drift.
+- `$shared-component-architecture`: reuse scope, dependency direction, public
+  component APIs, state ownership, consumer migration and cross-app compatibility.
 - `$accessible-interaction`: keyboard, focus, ARIA semantics, contrast, touch,
   reduced motion, modal/drawer accessibility.
 - `$data-dense-ux`: tables, lists, dashboards, filters, pagination, bulk actions,
@@ -90,6 +92,7 @@ Use these cues to select focused skills without loading every UI/UX skill:
 | controls imply behavior, autosave, undo, retry, bulk actions, permissions, destructive safety | `$interaction-design` |
 | mobile feels squeezed, safe areas, keyboard, sheets, gestures, touch ergonomics | `$mobile-native-feel` |
 | tokens, variants, component taxonomy, gallery coverage, drift metrics, governance | `$design-system-architect` |
+| shared components, reusable UI, feature versus shared ownership, public props/events, wrappers, consumer migration | `$shared-component-architecture` |
 | images, hero media, thumbnails, generated assets, crops, focal points, placeholders | `$art-direction-imagery` |
 | type scale, measure, numbers, headings, truncation, multilingual/RTL text | `$typography-refinement` |
 | transitions, loaders, overlays, hover/press feedback, scroll motion, reduced motion | `$motion-choreography` |
@@ -127,6 +130,8 @@ Use this decision guide:
 - Need to prove a journey? Use `$interaction-flow-qa`.
 - Components feel inconsistent across the product? Use `$consistency-audit`,
   then `$design-system-guardian` for token/primitive fixes.
+- Deciding what to share, where it belongs, or how to evolve its consumers?
+  Use `$shared-component-architecture`; do not escalate a simple token repair.
 - Keyboard/focus/touch/accessibility risk? Use `$accessible-interaction`.
 - Admin/table/list/dashboard density? Use `$data-dense-ux`.
 - Create/edit/save/cancel form work? Use `$form-flow-ux`.

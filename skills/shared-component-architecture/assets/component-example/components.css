@@ -1,0 +1,84 @@
+/* Teaching sample: import once at the application's composition root.
+   Class names are scoped; consumers may supply semantic custom properties on
+   an ancestor. Values below are fallback values, not a required brand theme.
+   No global button, heading, body, or :root rules are introduced. */
+.sc-status-badge {
+  display: inline-flex;
+  align-items: center;
+  max-inline-size: 100%;
+  box-sizing: border-box;
+  border: 1px solid transparent;
+  border-radius: var(--ui-badge-radius, 0.5rem);
+  padding: 0.3em 0.7em;
+  font: inherit;
+  font-size: 0.875rem;
+  line-height: 1.6;
+  font-weight: 600;
+  white-space: normal;
+  overflow-wrap: anywhere;
+  background: var(--ui-neutral-surface, #eef1f4);
+  color: var(--ui-neutral-text, #344454);
+}
+.sc-status-badge[data-tone="positive"] {
+  background: var(--ui-positive-surface, #e4f2e9);
+  color: var(--ui-positive-text, #1c5938);
+}
+.sc-status-badge[data-tone="caution"] {
+  background: var(--ui-caution-surface, #fff2d5);
+  color: var(--ui-caution-text, #694407);
+}
+.sc-status-badge[data-tone="negative"] {
+  background: var(--ui-negative-surface, #fbe7e6);
+  color: var(--ui-negative-text, #872e2a);
+}
+.sc-page-header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: start;
+  justify-content: space-between;
+  gap: var(--ui-layout-gap, 1.25rem);
+  min-inline-size: 0;
+}
+.sc-page-header__copy {
+  flex: 1 1 20rem;
+  min-inline-size: 0;
+}
+.sc-page-header__copy h1 {
+  margin: 0;
+  font-size: var(--ui-page-heading-size, 2rem);
+  line-height: 1.3;
+  overflow-wrap: anywhere;
+}
+.sc-page-header__copy p {
+  margin-block: 0.6rem 0;
+  max-inline-size: 65ch;
+  line-height: 1.7;
+  color: var(--ui-muted-text, #535b66);
+}
+.sc-page-header__actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.75rem;
+  max-inline-size: 100%;
+  min-inline-size: 0;
+  overflow-wrap: anywhere;
+}
+.sc-page-header__actions:empty { display: none; }
+.sc-example-page {
+  display: grid;
+  gap: 2rem;
+  max-inline-size: 72rem;
+  margin-inline: auto;
+  padding: clamp(1rem, 3vw, 2rem);
+  font-family: system-ui, sans-serif;
+  font-size: 1rem;
+  line-height: 1.7;
+}
+.sc-example-page section { min-inline-size: 0; }
+.sc-example-page section p { overflow-wrap: anywhere; }
+.sc-example-page a { color: var(--ui-link-text, #2447b2); }
+.sc-example-page a:focus-visible { outline: 2px solid currentColor; outline-offset: 4px; }
+@media (forced-colors: active) {
+  .sc-status-badge { border-color: currentColor; }
+}
