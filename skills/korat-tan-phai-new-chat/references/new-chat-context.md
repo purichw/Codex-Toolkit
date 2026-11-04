@@ -1,389 +1,191 @@
-# Korat Tan Phai New Chat Context
+# Korat Tan Phai Continuation Context
 
-This reference is for fresh Codex tasks working on Korat Tan Phai /
-โคราชทันภัย.
+Resolve every repo-relative path below against the current authorized worktree.
+The usual root is `/Users/point/korattanphai`; do not silently switch from an
+isolated worktree. This is routing guidance, not a frozen release inventory.
 
-## Project Facts
+## Read By Task
 
-- Repo: `/Users/point/korattanphai`
-- Production: `https://korattanphai.vercel.app`
-- GitHub remote: `https://github.com/purichw/korattanphai.git`
-- Vercel project: `korattanphai`
-- Web stack: Vite, React, TypeScript, Vitest, Playwright, Vercel.
-- Native app: `apps/mobile`, isolated Expo / React Native / TypeScript iOS
-  setup with a separate lockfile. Its README owns the current setup checkpoint.
-- Main entry: `src/main.tsx` -> `src/App.tsx`.
-- Supabase supplies real Auth, published rev03 archive reads and per-account
-  followed areas/saved filters. Remaining demo preferences use `src/store.tsx`
-  and browser storage, not the authentication or archive source of truth.
-- Database mode uses `VITE_DATA_BACKEND=supabase`; static mode is for isolated
-  regression/recovery and must not become a fallback after database errors.
-- Deployment evidence belongs in `docs/HANDOFF.md`, not a frozen skill commit.
-  Read the latest release checkpoint rather than carrying forward initial local
-  build/deployment status. The forecast-only restoration supersedes the earlier
-  Actual-by-default release. The retained Actual modules do not establish
-  current routing, a connected feed or approved operational publication.
+Start with Git status, `AGENTS.md`, `README.md`, `PROJECT_MAP.md` and the newest
+checkpoint in `docs/HANDOFF.md`. PROJECT_MAP indexes all maintained docs and
+separates live contracts, dated verification, research and parked designs.
 
-## Read Order
+| Task | Read / inspect |
+| --- | --- |
+| Routes and journeys | `docs/APP_MAP.md`, `INTERACTION_MAP.md`, `FORECAST_ONLY_RESTORATION.md`; `App.tsx`, `AuthenticatedApp.tsx`, `NakhonRatchasimaWorkspace.tsx` |
+| Shared UI / theme | `docs/SHARED_COMPONENTS.md`, `DESIGN_SYSTEM.md`, `BRAND_SURFACE_THEME.md`; current consumer/owner and scoped CSS |
+| Loading / motion | `docs/LOADING_SCREEN.md`; `index.html`, `AppStartup.tsx`, `PageLoadBoundary.tsx`, `startupMotion.ts`, `app-startup.css` |
+| Forecast data / cache | `docs/DATA_CONTRACT.md`, `FORECAST_SCOPED_LOADING.md`, rev03 normalization/cutover; `useForecastArchive.ts`, `data/supabaseForecastArchive.ts`, `data/forecastScope.ts` |
+| CMS / import / recovery | `docs/ADMIN_CMS.md`, `CMS_FORECAST_LIFECYCLE.md`, `API.md`; `src/admin`, `server/admin-data`, `shared/dataFields.mjs` |
+| Reference data / maps | `shared/cmsResources.mjs`, `src/data/cmsReferences.ts`, `src/data/localMapGeometry.ts`, `NakhonRatchasimaLocalMap.tsx`, `mapInteraction.ts`, `mapLabels.ts` |
+| Search / exports | `docs/SEARCH_BEHAVIOR.md`, `FORECAST_MAP_TOOLS.md`, `FORECAST_EXCEL_EXPORT.md` |
+| Auth / access | `docs/AUTH_SETUP.md`, `WORKSPACE_ACCESS.md`; `authScope.ts`, `useAuth.ts`, `supabase.ts` |
+| Native | `apps/mobile/README.md`, `NATIVE_PARITY.md`, its package/lockfile/`.nvmrc`/`app.json`; `src/theme.ts`, `src/ui.tsx` |
+| Release / CI | `docs/RELEASE_RUNBOOK.md`, `ACTIONS_USAGE.md`, `PRODUCTION_SMOKE.md`; current workflow and exact source SHA |
+| Authorized future Actual work | `docs/ACTUAL_FORECAST_SEPARATION.md`, `rollback-parking-lot.md`, data contract; never infer activation from retained modules |
 
-Start every substantial task by reading:
+## Routes And Sessions
 
-1. `/Users/point/korattanphai/README.md`
-2. `/Users/point/korattanphai/PROJECT_MAP.md`
-3. `/Users/point/korattanphai/docs/HANDOFF.md`
-4. `/Users/point/korattanphai/docs/DATA_CONTRACT.md` for data/archive work
-5. `git status --short --branch`
+- `/login`: Visitor email/password entry with internal return path/query/hash.
+- `/`: province forecast overview; `/drought`: six-horizon province workspace.
+- `/{district-slug}`: district; `/{district-slug}/t-{admin-code}`: tambon.
+- `/nakhon-ratchasima/...`: compatible geographic aliases.
+- `/admin/login`: independent Admin session using the existing user directory.
+- `/admin`: data management; `?view=imports`: work/drafts;
+  `?view=upload`: import dialog; `?draft=...`: saved draft.
+- Visitor search, bookmarks, Excel and analysis open scoped dialogs, not new
+  routes. Visitor search/bookmarks occupy the top-right toolbar; account is at
+  the sidebar bottom. Admin navigation stays in CMS.
 
-Then read by task:
+All active Visitor routes are forecast-only. `target=YYYY-MM` means origin T,
+and `horizon=1..6` means T+h. Plain and `mapLayer=forecast-archive` links are
+equivalent. Retired `period` is ignored/removed, never converted to an origin.
+Absent selection uses published latest; invalid explicit origins/horizons show
+recovery. Root T+2..6 uses the full workspace while retaining district scope.
 
-- UI or component work:
-  - `/Users/point/korattanphai/docs/DESIGN_SYSTEM.md`
-  - `/Users/point/korattanphai/docs/APP_MAP.md`
-  - `/Users/point/korattanphai/docs/INTERACTION_MAP.md`
-  - `/Users/point/korattanphai/docs/SHARED_COMPONENTS.md`
-  - relevant files under `/Users/point/korattanphai/src/components/`
-- Shared components:
-  - `$korat-tan-phai-shared-components`
-  - `/Users/point/korattanphai/docs/SHARED_COMPONENTS.md`
-- Data/API/domain:
-  - `/Users/point/korattanphai/docs/DATA_CONTRACT.md`
-  - `/Users/point/korattanphai/docs/FORECAST_ONLY_RESTORATION.md`
-  - for authorized future Actual work only:
-    `/Users/point/korattanphai/docs/ACTUAL_FORECAST_SEPARATION.md` and
-    `/Users/point/korattanphai/docs/rollback-parking-lot.md`
-  - `/Users/point/korattanphai/docs/API.md`
-  - `/Users/point/korattanphai/src/domain.ts`
-  - `/Users/point/korattanphai/src/data/catalog.ts`
-  - `/Users/point/korattanphai/src/data/canonical/`
-- Drought forecast archive:
-  - `/Users/point/korattanphai/docs/FORECAST_ONLY_RESTORATION.md`
-  - `/Users/point/korattanphai/docs/DATA_CONTRACT.md`
-  - `/Users/point/korattanphai/docs/SHARED_COMPONENTS.md`
-  - `/Users/point/korattanphai/docs/DROUGHT_REV03_NORMALIZATION.md`
-  - `/Users/point/korattanphai/docs/DROUGHT_REV03_CUTOVER.md`
-  - `/Users/point/korattanphai/src/data/canonical/nakhon_ratchasima/drought_forecast_archive_rev03.json`
-  - `/Users/point/korattanphai/src/data/supabaseForecastArchive.ts`
-  - `/Users/point/korattanphai/src/components/NakhonRatchasimaWorkspace.tsx`
-- iOS setup or implementation:
-  - `$ios-app-development`
-  - `/Users/point/korattanphai/apps/mobile/README.md`
-  - `/Users/point/korattanphai/apps/mobile/package.json`, `.nvmrc`, `app.json`
-  - `/Users/point/korattanphai/apps/mobile/App.tsx` and `src/theme.ts`
-  - `/Users/point/korattanphai/docs/DESIGN_SYSTEM.md`
-  - web source owners for the specific behavior being ported, not every route
-- Maps:
-  - `/Users/point/korattanphai/src/components/RiskMap.tsx`
-  - `/Users/point/korattanphai/src/components/nakhon-ratchasima/NakhonRatchasimaLocalMap.tsx`
-  - `/Users/point/korattanphai/src/mapInteraction.ts`
-  - `/Users/point/korattanphai/src/mapLabels.ts`
-  - `/Users/point/korattanphai/src/useFullscreenTarget.ts`
-  - `/Users/point/korattanphai/public/geodata/`
-- Release:
-  - `/Users/point/korattanphai/docs/RELEASE_RUNBOOK.md`
-  - `/Users/point/korattanphai/docs/PRODUCTION_SMOKE.md` for real-account checks;
-    local fake-auth E2E is not candidate/production proof. Keep credentials out
-    of skills and documentation, and distinguish verified unavailable states
-    from an activated actual feed.
-  - `/Users/point/korattanphai/package.json`
-  - `/Users/point/korattanphai/vercel.json`
-  - `/Users/point/korattanphai/e2e/app.spec.ts`
+Actual switch/banner and operational-context reads are not mounted by forecast
+routes. `OperationalDroughtWorkspace`, eligibility and metadata contracts are
+parked. The old `bcbcd33` reference was docs-only; the restoration doc explains
+the actual runtime revert. Do not re-enable Actual to repair a forecast bug.
 
-## Routes And Surfaces
+Admin and Visitor share presentation, not sessions or caches. Logout affects
+only its scope. CMS access requires server-verified operator membership; future
+officer jurisdiction restrictions remain distinct from current compatibility
+mode. No credentials belong in skill text, docs, screenshots or fixtures.
 
-- `/login`: Supabase email/password login with preserved internal return URL.
-- `/`: province-level Nakhon Ratchasima overview.
-- `/drought`: province-level drought context page.
-- `/{district-slug}`: district workspace.
-- `/{district-slug}/t-{admin-code}`: canonical subdistrict workspace.
-- `/nakhon-ratchasima/...`: legacy aliases for old links.
+## Data And CMS
 
-Primary current surface:
+- Canonical geography: `TH-P29`, admin province `30`, 32 districts, 289 tambons.
+  Source research IDs, Thai names and slugs are not administrative join keys.
+- Original source: `Drought_T1-6_rev03.xlsx`, `Master_Data_Drought_Final`.
+  Verification artifact:
+  `src/data/canonical/nakhon_ratchasima/drought_forecast_archive_rev03.json`.
+  Original baseline: 127 origins (2015-06..2025-12), six horizons and 220,218 slots.
+  These are baseline facts; published metadata controls current selectable data.
+- Source month is T. December 2025 T+1..6 targets January–June 2026.
+  Legacy `targetMonths`, `target_period` and URL `target` still identify T.
+  Equal values at different horizons remain distinct forecast vintages.
+- Risk 0 = no forecast risk, 1 = moderate, 2 = high, workbook blank = out of scope.
+  Missing record, request failure and unfinished CMS draft cells are separate.
+  None may become a green zero. Irrigation is workbook metadata:
+  Collecting = unknown, RainFed = rainfed, Irrigation = irrigation access.
+- Production uses `VITE_DATA_BACKEND=supabase` and
+  `VITE_REFERENCE_BACKEND=cms`. Revision checks precede cache reuse; account
+  changes dispose protected caches. A failed read never falls back to static
+  forecasts or research fixtures.
+- `shared/cmsResources.mjs` lists five active read-only references: hierarchy,
+  archive summary, tambon geometry, dissolved province boundary and Thailand ADM1.
+  Bootstrap requires hierarchy/summary; authenticated Visitor entry then preloads
+  geometry alongside workspace/forecast loading, sharing map requests. Admin and
+  signed-out entry do not preload Visitor geometry. Retired records
+  remain in history, not active bootstrap. Never reseed an old 45-resource list.
+- Current CMS supports upload/review/repair, shared API validation, reviewed
+  Excel/CSV download, new origins, computed readiness, private server-saved raw
+  work/original bytes and recovery of a prior round into a new reviewed draft.
+  Validation and explicit atomic publication remain separate; stale bases block
+  acceptance. Recovery preserves other origins and immutable history.
+- Generic geometry replacement, canonical-area schema changes and arbitrary
+  model-output publication remain gated. An API input receipt is not a published
+  forecast. Keep UI and API fields aligned through their shared schema.
+- Retired national demo state, source/rainfall stubs, research map periods and
+  rev02 are not active data. Do not restore them from an old screenshot or diagram.
+- Data readiness is not severity, accuracy or freshness policy. Upload/source T
+  does not prove forecast issuance. Agricultural values are not damage records.
+  Parked Actual work needs approved source, metric/classification, review,
+  geographic coverage and publication rules before it can be activated.
 
-- `NakhonRatchasimaWorkspace` in
-  `/Users/point/korattanphai/src/components/NakhonRatchasimaWorkspace.tsx`.
+## Shared Presentation
 
-Inherited retained components exist for broader prototype history, but the
-visible Korat Tan Phai sidebar starts from the Nakhon Ratchasima overview.
+Use `$korat-tan-phai-shared-components` and the living component map. Key owners:
+`AppSelect`, `MonthSelect`, `ForecastMonthSelect`, `MetricCard`/`MetricGrid`,
+`WorkspaceDialog`, `WorkspaceEmptyState`, `SidebarBrand`,
+`WorkspaceSearch`, `WorkspaceBookmarks`, `MapPreviewFooter`,
+`DataProvenanceChip`/`DataProvenanceLegend` and `NakhonRatchasimaLocalMap`.
 
-Active forecast-only routing contract:
+Analysis follows province → districts and district → tambons. Tambon shows
+itself until finer data exists. Tambon pages do not mount aggregate bar charts.
+Map touch preserves horizontal one-finger pan, vertical-first page scroll and
+pinch. Keep clipping/preview stacking, label readability and centered controls.
 
-- All product routes use rev03 forecasts. `target=YYYY-MM` is origin T and
-  `horizon=1..6` selects T+h, in plain links and explicit archive links alike.
-- No origin supplied selects the latest published origin. Retired `period` is
-  ignored and removed from canonical forecast links, never reused as an origin.
-  Missing explicit origins/invalid horizons show recovery instead of substituted
-  latest/zero values. Root T+2..T+6 uses the full workspace with district scope.
-- No Actual switch/banner or operational-context request is mounted by the
-  forecast product. Preserve map month/page horizon controls and shared UI fixes.
-- `OperationalDroughtWorkspace`, `operationalLocation.ts`,
-  `useOperationalContext.ts`, eligibility policy and the metadata API remain
-  parked for possible future redesign. Their valid-month/server-clock contract
-  is not current forecast navigation. Reactivation needs an explicit request;
-  read `docs/FORECAST_ONLY_RESTORATION.md` and the parking note first.
+The web palette uses Navy / Powder / Amber with visible gold rice and authentic
+logo; it does not authorize layout changes. Google Sans remains shared identity.
+Keep semantic risk colors separate from decorative accents.
 
-## iOS Setup And CI
+Loading uses one illustrated presentation in pre-JS and React. Auth/module/page
+owners drive real 0/33/67/100% readiness (N/3); no timer-based percentage.
+`startupMotion.ts` aligns the eight-second orbit across mounts and interpolates
+the fill only toward real milestones. Blocking reads keep children mounted but
+hidden/inert; settlement immediately releases the ready page or existing error.
+The 220ms completion fade is visual only. Reduced motion skips motion/fade.
+Warm refresh remains local and artwork never delays readiness.
 
-- The initial local checkpoint is a branded, explicitly unconnected shell.
-  Native Debug build/install, iPhone Simulator rendering, resume/cold launch,
-  TypeScript, dependency compatibility, brand checks and production JS export
-  were verified; read `apps/mobile/README.md` for current evidence and limits.
-  No native auth, forecasts, maps, physical-device or TestFlight parity is implied.
-  Do not assume untracked local app files were committed or deployed.
-- Follow the app's `.nvmrc` (currently Node 24.21.0), package pins and lockfile;
-  do not change the machine's default Node or install native packages at root.
-- `ios/` is generated Expo CNG output, not maintained source. Durable inputs
-  are `app.json`, JS/TS, assets, dependencies and config plugins. On the verified
-  Xcode 27/iOS 27 setup, `expo-build-properties` scene support is required:
-  compilation alone previously succeeded while launch failed without it.
-- Xcode 27 uses Device Hub. Obtain current device IDs from tools; never copy
-  a machine-specific ID into reusable instructions. Preserve existing Metro
-  services. The app's localhost setting is Simulator-only, not physical-iPhone
-  connectivity. Use one native build at a time on this resource-limited Mac.
-- Corporate identity is shared with the web, not a separate mobile brand.
-  Use current `korat-tan-phai-*` artwork, Google Sans for Thai and English,
-  and semantic colors from `src/styles.css`. Native roles are maintained in
-  `apps/mobile/src/theme.ts`, with drift checks in `tests/brand-parity.test.mjs`.
-- Native Google Sans regular/semibold/bold files are local assets supplied by
-  `@expo-google-fonts/google-sans`, loaded through `expo-font`. Preserve font
-  licenses. Do not replace the font with a system face except error fallback.
-- Adapt safe areas, text scaling, touch targets and spacing to iOS. Reuse
-  platform-independent calculations/data contracts; React DOM components do
-  not render natively. Build shared native controls when real consumers warrant
-  them, preserving searchable selection, state semantics and interaction intent.
-- Keep current geography and forecast-only behavior. Setup is not authorization
-  for new Actual UI, production changes, signing teams or distribution.
+## Native Status And Limits
 
-From `apps/mobile`, with its pinned Node and dependencies available, use
-`npm run typecheck`, `npm run test:brand`, `npm run check:dependencies` and
-`npm run export:ios` as appropriate. Brand tests also require root web
-dependencies for its PostCSS parser. `npm start` runs Metro; it does not install
-the app. Use the app README and iOS skill for build/install steps. JS export is
-not an App Store binary; verify the rendered native screen for visible changes.
+The native app is connected, not shell-only: existing Supabase Auth/Keychain,
+scoped forecasts, geographic selection, map/chart, analysis, saved workspaces
+and shared Excel writer/iOS share sheet are implemented. NATIVE_PARITY separates
+source implementation, Simulator evidence and physical installation from gaps.
 
-## Shared Components
+Important gaps include full global search, map-result overlays/report export,
+some analysis/coordinate/export controls and physical-device interaction/
+accessibility checks. Later web releases do not imply native parity or CMS
+reference migration. TestFlight/App Store distribution is not recorded.
 
-Read `/Users/point/korattanphai/docs/SHARED_COMPONENTS.md` for the full current
-inventory.
+- Use the app's own Node pin/lockfile; no global toolchain changes.
+- `ios/` is generated CNG output. Durable inputs are TS/JS, app.json, assets,
+  package dependencies and plugins. Scene lifecycle support is required by the
+  documented SDK/Xcode configuration.
+- Native `src/ui.tsx` and `theme.ts` own UI. Share portable domain contracts;
+  React DOM does not render natively. The November website skin/loading release
+  did not recolor or rebuild native; base-token tests do not prove new web parity.
+- Native fonts are local Google Sans assets, not runtime Google Fonts fetches.
+- Localhost Metro is Simulator-only. A physical Release development-signed
+  build embeds JS/assets, but still needs network for Supabase. Discover device
+  IDs and verify profile validity; an old installed binary/profile may have expired.
+- Excel uses the bare browser writer with native crypto and a static lazy
+  require; avoid the Promise-polyfilled build or a broken outside-root split
+  chunk. Read the current native README before changing these platform adapters.
+- Commands from `apps/mobile`: `npm run typecheck`, `test:domain`,
+  `test:brand`, `check:dependencies`, `export:ios`, as appropriate.
+  A JS export is not an installed app or distribution release.
 
-High-signal contracts:
+## Verification And Release
 
-- `AppSelect`: shared dropdown/listbox control; centered trigger text by
-  default; long lists are searchable and mobile menus use shared bottom-sheet CSS.
-- `MonthSelect`: shared calendar search; `ForecastMonthSelect`: archive loading
-  wrapper. Do not create another dropdown or month parser for a new surface.
-- `MetricCard` and `MetricGrid`: stat-only cards and KPI groups; stat content
-  is centered.
-- `OperationalFilters`: forecast-compatible page filter summary/mobile edit sheet;
-  its fixed rice/source-month assumptions do not define future actual filters.
-- `MapPreviewFooter`: shared map preview action/fallback footer; fallback text
-  is centered.
-- `DataProvenanceChip` and `DataProvenanceLegend`: only provenance chip system.
-- `RiskMap`: inherited national map.
-- `NakhonRatchasimaLocalMap`: local province/district/subdistrict SVG map in
-  `src/components/nakhon-ratchasima/`. Its unavailable variant shares the camera,
-  geometry and preview mechanics but does not classify actual values.
-- `ProvinceForecastOverview` and `DroughtCompactForecastWorkspace`: active
-  forecast composition. Keep map/month/horizon state synchronized.
-- `OperationalDroughtWorkspace`: parked composition, not an active route.
-  Reuse active forecast bookmark controls without reintroducing Actual routing.
-- `DroughtForecastArchivePanel`, `DroughtForecastArchiveHorizonSelector`,
-  `DroughtForecastArchiveSummaryMetrics`, and
-  `DroughtForecastArchiveMapFilters`: shared drought archive components used by
-  province, district, and subdistrict drought pages.
+Choose the smallest checks that prove the touched risk. Internal docs/skills:
+whitespace, links, owner paths and consistency. Visible fixes need current
+contextual render; shared behavior needs affected consumers, failures and input
+modes. Release scope uses the runbook rather than a copied direct deploy command.
 
-Do not duplicate these patterns with ad hoc markup.
+Keep commit/push, exact-SHA CI, candidate readiness, promotion and post-promotion
+smoke separate. Use both production backend flags explicitly and verify the hosted
+`reference-backend.json` marker (`cms`, `fallback:false`). Preview skips do not
+prove production smoke. A docs-mode gate inherits a proven baseline; it is not
+a new runtime test. Inspect first causal errors/current progress before retries;
+never force-push, weaken checks or create duplicate deploys to escape a wait.
 
-## Data And Product Rules
+No cross-chat inspection, messages or delegation without explicit authorization
+identifying the chat. Preserve unrelated work and user data. Do not commit,
+push, deploy, migrate or mutate production based on an earlier task's approval.
 
-- Brand: Korat Tan Phai / โคราชทันภัย.
-- Current data geography: จังหวัดนครราชสีมา.
-- Canonical province: `TH-P29`; admin province code: `30`.
-- Province structure: 32 districts and 289 subdistricts.
-- Use admin codes for local joins. Thai names and route slugs are labels, not
-  join keys.
-- `sourceResearchId` is source metadata, not an administrative code.
-- Missing evidence stays no-data/insufficient-evidence and must not become
-  normal, green, or low risk.
-- Synthetic scores remain prototype data unless explicitly marked otherwise.
-- Official context must not be attached to synthetic risk scores as if it were
-  an official forecast.
-- Agricultural figures are not official damage figures.
-- Data readiness is not hazard severity.
-- Keep forecast, historical readings, evidence freshness, and readiness
-  categories separate.
-- Approved rev03 archive contract:
-  - file:
-    `/Users/point/korattanphai/src/data/canonical/nakhon_ratchasima/drought_forecast_archive_rev03.json`
-  - source workbook: `Drought_T1-6_rev03.xlsx`, `Master_Data_Drought_Final`
-  - canonical source month is origin T, NOT target month
-  - 127 origins, `2015-06` through `2025-12`
-  - 6 horizons, T+1 through T+6
-  - forward target = T+h; December 2025 forecasts January-June 2026
-  - legacy `targetMonths` / `target_period` keys still store source T
-  - forecast identity is canonical tambon + source T + horizon
-  - equal numeric values across T+ horizons remain separate vintages
-  - no rev02 re-import or reinterpretation; lineage lives in the normalization docs
-- Archive risk semantics: `0` no forecast risk, `1` moderate forecast
-  risk, `2` high forecast risk, and blank workbook cells as out of scope. Blank
-  cells are not no-risk and are not join failures.
-- Workbook irrigation: Collecting = unknown, RainFed = rain-dependent/no
-  irrigation, Irrigation = access to irrigation. It is not a live water reading.
-- For authorized future Actual work: kind, metric/classification, crop,
-  coverage-through, review, publication
-  and revision are separate. No source is a missing feed, not a risk-0 result.
-  Never fan out coarse reports into tambon actuals or manufacture complete-month
-  coverage. Context/ThaiWater/research fixtures do not become primary evidence
-  merely because a file exists.
-- Future operational forecast eligibility requires verified issuance, publication and
-  freshness policy, with exact target/horizon/product/run. Source T, upload time
-  and reforecast outputs are not proof of historical as-issued forecasts.
-- Historical local map periods from `normalized_research_monthly_panel.json` and
-  `normalized_research_panel_summary.json` were intentionally cleared. Do not
-  restore old historical map periods, including `2025-12`, unless a new
-  source-backed refresh explicitly asks for that.
-- Public-safety copy must keep severity, geography, timestamp/freshness,
-  provenance, uncertainty, and recommended action visible.
-- Visible UI should be Thai-first and formal. English is acceptable only for
-  IDs, acronyms, URLs, API/GeoJSON terms, SMS, LINE, or required source names.
-
-## Current Map Interaction Rules
-
-- Province map transient feature selection can be cleared by clicking the same
-  feature again or clicking the map background.
-- Clearing a transient selection should not immediately reopen a new hover
-  preview while the map animates back to its default/focused view.
-- A route-selected subdistrict remains selected only while the user is on that
-  subdistrict route.
-- Preview cards must stack above the following sections and must not clip behind
-  agriculture/readiness modules.
-- Preview footer fallback notes are centered via `MapPreviewFooter`.
-- Local maps use generated dissolved boundary
-  `public/geodata/nakhon-ratchasima-boundary.geojson`; do not reintroduce the
-  mismatched ADM1 outline for the visible local boundary.
-
-## Commands
-
-Local development:
-
-```bash
-cd "/Users/point/korattanphai"
-npm install
-npm run dev
-```
-
-Core checks:
-
-```bash
-git diff --check
-npm run build
-npm run build:protected
-npm test
-npm run test:e2e:managed
-```
-
-Choose only checks proportional to the current request. The retained filename
-`e2e/actual-forecast-separation.spec.ts` now tests forecast-only restoration and
-legacy compatibility. Plain `target=T&horizon=h` remains valid forecast intent;
-do not rewrite those tests to require an archive marker. Parked temporal/source
-contracts have `tests/operationalData.test.ts`, `tests/operationalContext.test.tsx`
-and `tests/operations/operational-context.test.mjs`; run them when touched, not
-as proof that Actual UI is active. Browser fixtures require test Supabase
-configuration, never a production-write setup.
-
-Generated boundary:
-
-```bash
-npm run generate:nr-boundary
-```
-
-Deploy when explicitly authorized:
-
-```bash
-# Follow docs/RELEASE_RUNBOOK.md and push only the branch/ref the user
-# explicitly authorized for the current task.
-git push origin HEAD
-vercel --prod --yes
-```
-
-A Vite chunk-size advisory is distinct from a failing protected bundle gate.
-Do not report release readiness or silently raise budget limits when that gate
-fails. Database builds must not emit the raw archive. Check the current runbook
-and local separation evidence before any authorized release.
-
-## Useful Skills
-
-- `$korat-tan-phai-new-chat`: this onboarding skill.
-- `$korat-tan-phai-shared-components`: shared component reuse and consistency.
-- `$docs-cartographer`: project maps, handoffs, and living docs.
-- `$ui-ux-expert`: visible user-facing UI changes.
-- `$mobile-web-qa`: responsive/mobile verification.
-- `$ios-app-development`: native setup, build/install, Simulator and device work.
-- `$native-parity`: native/web product behavior and data-contract verification.
-- `$snapshot`: visual evidence.
-- `$interaction-flow-qa`: real interaction proof.
-- `$data-dense-ux`: dashboard and operational-data screens.
-- `$typography-refinement`: Thai typography, long labels, and numeric UI.
-- `$design-system-guardian` or `$consistency-audit`: shared component and system
-  consistency.
-- `$release-gate`: commit, push, deploy, release, or handoff.
-- `$rollback-guardrail`: rollback-like, removal, or revert work.
-
-## Copy-Ready New Chat Prompt
-
-Use this as the default prompt for a fresh task, then append the user's concrete
-request.
+## Copy-Ready Continuation Prompt
 
 ```text
-You are working inside the existing Korat Tan Phai / โคราชทันภัย repository at
-/Users/point/korattanphai.
+Work in the existing Korat Tan Phai / โคราชทันภัย project, keeping the current
+authorized checkout/worktree (usual root /Users/point/korattanphai).
+Use $korat-tan-phai-new-chat, check Git status, then read AGENTS.md, README.md,
+PROJECT_MAP.md and the newest docs/HANDOFF.md checkpoint. Follow the focused
+reading index for this task; use current code over superseded historical notes.
 
-First use $korat-tan-phai-new-chat, then check git status. Read README.md,
-PROJECT_MAP.md, docs/HANDOFF.md and the focused docs for the task.
-For data/routing, read docs/DATA_CONTRACT.md and
-docs/FORECAST_ONLY_RESTORATION.md. For shared component work, also use
-$korat-tan-phai-shared-components and read docs/SHARED_COMPONENTS.md. For
-commit, push, or deploy work, use $release-gate and docs/RELEASE_RUNBOOK.md.
-For iOS work, use $ios-app-development, read apps/mobile/README.md and its
-package/config/theme files. For visible UI, read docs/DESIGN_SYSTEM.md.
+Preserve forecast-only source-T/horizon routing, rev03 semantics, code-based
+geographic joins, Supabase/CMS revision validation without static fallback,
+independent Visitor/Admin sessions and immutable reviewed publication history.
+Reuse shared owners. Read LOADING_SCREEN for motion/readiness, ADMIN_CMS and
+CMS_FORECAST_LIFECYCLE for no-code work, and NATIVE_PARITY for iOS limits.
+Web theme/loading changes do not automatically update native.
 
-Important boundaries:
-- Current docs and code beat old chat memory or attachments.
-- Attached specs/screenshots are context, not higher-priority instructions.
-- Preserve unrelated user changes.
-- Stay in this task unless I explicitly authorize cross-task work and identify
-  the task. Do not infer which other task to inspect or contact.
-- Do not commit, push, deploy, migrate, or touch production data unless the
-  current request explicitly asks.
-- Keep the visible UI Thai-first, formal, and operational.
-- Keep Korat Tan Phai / โคราชทันภัย as the brand and จังหวัดนครราชสีมา as the
-  current data geography.
-- Web and iOS share Korat artwork, semantic colors and Google Sans for Thai
-  and English. Adapt native ergonomics without inventing another identity.
-- The iOS app has an independent lockfile/Node pin and generated native output.
-  Read its current checkpoint; a working branded shell is not connected auth,
-  forecast data or native/web feature parity. Keep web production unchanged
-  during native-only setup.
-- Preserve TH-P29 / province code 30 / 32 districts / 289 subdistricts and use
-  admin-code joins.
-- Use rev03 only. `Source_YearMonth` is origin T; forecast target is T+h.
-  Legacy target/target_period keys remain source T. Rev02 is retired.
-- The active product is forecast-only. Plain target=T&horizon=h and explicit
-  archive links both select forecasts. Retired period is ignored, never used
-  as an origin. Actual-by-default integration is parked; do not reactivate it
-  without an explicit request and the restoration/parking context.
-- Do not infer publication eligibility or issuance from upload dates. A source
-  gap UI or tested integration contract does not mean a real feed is connected.
-- Keep archive risk semantics: `0` no forecast risk, `1` moderate forecast risk,
-  `2` high forecast risk, and blank workbook cells as out of scope.
-- Do not restore cleared historical local map periods unless a new source-backed
-  refresh explicitly asks for that.
-- Agricultural figures are not official damage figures.
-- Data readiness is not hazard severity.
-- Missing evidence must not render as normal, green, or low risk.
-
-After making changes, run checks proportional to the touched risk and report
-what changed, checks run, failures or skipped checks, commit/push/deploy status,
-and residual risk.
+Stay in this chat. Preserve unrelated changes. Do not commit/push/deploy,
+migrate or write production data unless this request authorizes it. Run checks
+proportional to changed risk and report actual evidence and remaining limits.
 
 Task:
 ```

@@ -11,8 +11,8 @@ Use this as the pickup map for a fresh Codex chat. Prefer current on-disk files 
 - GitHub: `https://github.com/purichw/CoverMate`
 - Vercel project: `covermate`
 - Stack: static Vercel site, Firebase Auth, Firestore CMS/lead storage, GA4 client analytics, Vercel serverless APIs, Playwright smoke, and localStorage fallback/session caches.
-- Product: Thai/English CoverMate insurance advisor visitor site plus private owner admin/CMS and analytics surfaces.
-- Admin UI auth: Firebase Google sign-in plus an active recognized role in `admins/{uid}`. A Firebase account alone does not authorize Admin. Enabled password/custom-token sign-in can support authorized tests; Cases requires `owner`, and UAT test identities should have `uatOnly: true`.
+- Product: Thai/English insurance advisor site, private owner Admin/CMS/Customers/Cases, and a separate offline motor poster artifact.
+- Admin UI auth: Firebase Google sign-in plus an active recognized role in `admins/{uid}`. A Firebase account alone does not authorize Admin. Enabled password/custom-token sign-in can support authorized tests; Cases and Customers require `owner`, and UAT test identities should have `uatOnly: true`.
 - CMS state: Firestore-first under `sites/covermate/*`; browser localStorage is only a last-known fallback cache.
 
 ## Read Order
@@ -22,8 +22,10 @@ Always start with:
 1. `/Users/point/CoverMate/docs/HANDOFF.md`
 2. `/Users/point/CoverMate/README.md`
 3. `/Users/point/CoverMate/PROJECT_MAP.md`
-4. `/Users/point/CoverMate/docs/ADMIN_CMS_REBUILD_DECISIONS.md`
-5. `/Users/point/CoverMate/docs/RELEASE_RUNBOOK.md`
+
+Read `docs/ADMIN_CMS_REBUILD_DECISIONS.md` for Admin/CMS decisions and
+`docs/RELEASE_RUNBOOK.md` before release work. A standalone poster or docs task
+does not need every website/Admin document or a full build.
 
 Then choose by task:
 
@@ -31,6 +33,8 @@ Then choose by task:
 - Public copy/FAQ wording: `docs/COPY_VOICE_AUDIT_20260927.md`, `scripts/lib/copy-voice-20260927.mjs`, `scripts/prepare-copy-voice-20260927.mjs`. Use ordinary customer questions and direct, helpful answers; keep research/proposals separate from implemented or published copy.
 - FAQ collection controls: `docs/CMS_CONTENT_OWNERSHIP.md#faq-collection-editing`, `src/visitor/cms-controller.js`, `src/visitor/runtime.js`, `src/visitor/template.html`, `scripts/faq-consolidation-check.mjs`.
 - Articles list/editor/public pages and feature toggles: `docs/ARTICLES_PUBLISHING.md`. Central API persistence and explicit locale/date publication supersede historical browser-only drafts; master/Home/navigation flags are independent.
+- Article writing/readiness/locale media: `docs/ARTICLE_EDITOR.md`, `docs/ADMIN_ARTICLES.md`. Metadata panels stay above the focused writing area; the checklist owns missing requirements, Publish is disabled while incomplete, TH/EN publication is independent, and confirmed asset reuse does not couple later language edits.
+- Public reader/header/TOC/spacing: `docs/ARTICLE_DETAIL.md`, `docs/ARTICLES_INDEX.md`, `src/visitor/runtime.js`, `src/visitor/article-detail.css`. Reuse Home nav with localized Home anchor URLs; TOC respects reduced motion and focus; body-only documents must not inherit sidebar-height gaps.
 - Home article layout and carousel behavior: `docs/HOME_ARTICLES.md`, `docs/ARTICLES_INDEX.md`, `src/visitor/article-carousel.mjs`. Keep Home page counts and index pins distinct; inspect affected local browser and publication-emulator fixtures before changing their assumptions.
 - Image replacement/crop and CMS parity: `docs/CMS_MEDIA.md`, `docs/CMS_SITE_AUDIT.md`, `src/admin/media-editor.js`, `api/media.js`, `server/cloudinary.cjs`. Cloudinary Free is the selected backend; no Firebase Storage fallback. Read current billing/release status, never infer it from a source file.
 - Browser and domain release: `docs/BROWSER_COMPATIBILITY.md`, `docs/SEO.md`; real LINE testing is distinct from WebKit/Chromium emulation.
@@ -45,8 +49,12 @@ Then choose by task:
 - QA/release/UAT: `package.json`, `.github/workflows/ci.yml`, `scripts/ci-check.mjs`, `scripts/emulator-suite.mjs`, `scripts/validate-bundles.mjs`, `docs/RELEASE_RUNBOOK.md`, `docs/UAT.md`. Read the runbook's focused check matrix before choosing full suites; `check:ci` and `check:emulators` are separate required workflow steps.
 - Admin/CMS operations: `docs/ADMIN_CMS_REBUILD_DECISIONS.md`, `docs/INTERACTION_MAP.md`, `docs/DATA_CONTRACT.md`, `admin/index.html`, `index.html`, `covermate-firebase.js`
 - Admin language/Home/Cases: `docs/ADMIN_LANGUAGE.md`, `docs/ADMIN_HOME_DESIGN.md`, `docs/ADMIN_CASES_V2.md`; current controls are natural Thai with conventional English terms, and Cases replaces the old visible Operations tabs.
+- Customers/manual entry/consent: `docs/ADMIN_CUSTOMERS.md`, `customer-model.mjs`, `src/admin/customer-workspace.mjs`, `server/customers-service.cjs`. Preserve entry/review/acknowledged success, shared fields, server validation and explicit configuration gates for encrypted identity/private GCS documents. Setup is not billing activation.
+- Cases workbench/customer links/activities: `docs/ADMIN_CASES_WORKBENCH.md`, `case-workflow.mjs`, `server/cases-work-service.cjs`; manual communication logs are not sent messages.
 - CMS Undo/Redo/Reset and refactor: `docs/CMS_EDITOR_HISTORY.md`, `docs/REFACTOR_20260924.md`, `src/visitor/cms-controller.js`, `src/visitor/editor-history.js`, `covermate-freshness.mjs`.
 - Current calculator/contact contracts: `docs/NEEDS_CALCULATOR.md`, `docs/NEEDS_PRODUCT_REVIEW.md`, `docs/CONTACT_SUBMISSION.md`; source and published CMS visibility are separate facts.
+- Standalone motor poster: `exports/poster-v36/README.md`, its CSS/JS/icon fragments, `scripts/build-motor-poster-v36.mjs` and `scripts/motor-poster-v36-check.mjs`. Open the delivered HTML directly, preserve v35 input and approved print direction, and do not build/deploy the website for this artifact.
+- Storage cleanup/design evidence: `docs/ARTIFACT_RETENTION.md`. Keep latest verified designs per page/component/language/viewport/state; require mapping, checksums, regeneration/recovery proof and explicit approval before deletion. Ignored directories can contain protected work.
 
 ## Skills To Use
 
@@ -78,10 +86,10 @@ Use the current on-disk `SKILL.md` each time a skill is invoked.
 - Latest owner-approved references govern visual direction. Existing production and Firestore govern behavior/data until an authorized change; old docs must not veto a newly approved redesign.
 - Reconcile SPEC/html/handoff references with real content and permissions. Clearly distinguish current requirements from historical constraints; no invented data to match a mockup.
 - Any prototype/export that renders raw `{{ ... }}`, `sc-if`, `sc-for`, `x-dc`, or `[object Object]` is incomplete and not a portable implementation target.
-- `/` is the public home page. `/motor` is the dedicated motor-insurance campaign page inside the same CoverMate product. `/#motor` is only a legacy same-page alias to the home motor/insurer area.
+- `/` is Home; `/motor` is the dedicated motor campaign. `/#motor` is the Home anchor into the unchanged `insurers` DOM/CMS section; old `/#insurers` URLs normalize to it. Article pages reuse Home nav, converting its anchors to localized Home URLs. Use `docs/SITE_MAP.md` for the full public route inventory.
 - `/admin/login`, `/admin`, `/admin/ops`, `/admin/analytics`, `/admin/content`, `/admin/edit`, `/admin/preview`, and owner hash modes are private admin routes/states and must stay `noindex`.
 - `/admin` is the Admin Portal Home and must remain reachable after sign-in.
-- The shared Admin shell includes Home, Operations/Cases, Website content, Articles and Analytics with their existing role gates. Settings/Role Preview are retired; account details and notification preferences live in the shared account menu. Articles uses its own list/editor; public routes remain controlled by publication and visibility settings.
+- The shared Admin shell includes Home, Operations/Cases, Customers, Website content, Articles and Analytics with their existing role gates. Settings/Role Preview are retired; account details, notifications/preferences and confirmed logout live in the shared account menu. The three Home shortcut cards are not the sidebar inventory. Articles uses its own list/editor; public routes remain controlled by publication and visibility settings.
 - Website content has one main editor entry. Do not reintroduce a separate `Arrange & customise` launcher card; open the control panel from the editor via `Tools -> Panel`.
 - The control panel/shell must not leak into clean public routes.
 - Owner modes are `/#edit`, `/#admin`, `/#preview`, plus direct admin routes `/admin/content`, `/admin/edit`, and `/admin/preview`; clean public visitor routes must not show owner chrome even when an admin session exists.
@@ -90,6 +98,8 @@ Use the current on-disk `SKILL.md` each time a skill is invoked.
 - Admin chrome is natural Thai with conventional `Save draft`, `Preview`, `Publish`, `Undo`, `Redo`, service and technical names. `docs/ADMIN_LANGUAGE.md` owns the terminology; content-language switching leaves Admin controls Thai.
 - Save Draft flushes autosave without clearing editor history. Undo/Redo and Reset change Draft only. Reset transactionally reads the newest published state; a failed reset preserves work. The separate 30-second post-Publish undo changes Live and must remain distinct. Preserve advanced JSON buffers and native Undo in ordinary form controls.
 - Cases is the owner-only Operations workspace. The legacy Leads/Tasks/Audit endpoints remain for compatibility and historical records; do not restore them as visible tabs. Searching must not cancel pending global summary updates or replace newer filtered rows with stale responses.
+- Customers is separate from enquiry Cases. Preserve required contact/profile consent, manual policy/service entry, private-storage gates and explicit linked records. New Customer's labels/text/dates/counters/hints align left, except centered dropdown values/options; other editors retain their scoped alignment contract.
+- Poster preview and export selection are independent. Keep introduction/comparison/review pages; default 1+3, 1+2/all/custom nonempty selections, all-page Save HTML and independent QR fields. An A4 landscape two-page spread is not duplex. QR/promotion placeholders require completion before production use; editable legal footers remain, without a personal profile section.
 - Firestore live/draft data must prevail over hard-coded or local fallback content. Fallbacks may fill missing structure only; they must not override successful remote reads.
 - A copy-only release does not rewrite existing CMS content. Apply a reviewed field-level proposal against fresh state with old-value and inline-override guards, preserve unrelated draft edits, and stop on missing/changed owners. Never reset the whole site or regenerate the baseline simply to clear conflicts.
 - FAQ Add creates a bilingual stable-ID row and focuses its question. Delete confirms and removes both languages from Draft; Hide retains them. Undo/Redo restores the deleted ID/content/order, and an empty list must not be repopulated from archived Guides. Publish remains a separate authorized action.
@@ -101,7 +111,7 @@ Use the current on-disk `SKILL.md` each time a skill is invoked.
 
 ## Current Admin/CMS Status
 
-- `/admin` is the shared Admin Portal Home with Operations/Cases, Website content,
+- `/admin` is the shared Admin Portal Home with Operations/Cases, Customers, Website content,
   Articles and Analytics. `/admin#articles` is the owner-only article
   list/editor. The public master flag controls `/articles` and
   `/articles/:slug`; detail URLs additionally require an eligible published
@@ -126,7 +136,7 @@ source/release checkpoint; dated release docs retain their original scope.
 
 ```bash
 cd "/Users/point/CoverMate"
-npm install
+npm ci
 node --input-type=module -e 'import { startStaticServer } from "./scripts/lib/static-server.mjs"; const { server, baseUrl } = await startStaticServer({ ownerRoutesToRoot: true }); console.log(baseUrl); process.stdin.resume();'
 npm run check:bundles
 npm run check:refactor
@@ -135,6 +145,10 @@ COVERMATE_URL=https://covermateinsurance.com npm run smoke
 ```
 
 Use targeted checks first, then broaden based on risk.
+Install dependencies only when the chosen check needs them. The documented
+cleanup may have removed reproducible dependencies; docs/skill maintenance and
+opening the self-contained poster do not require reinstalling them. Production
+smoke commands above are release tools, not default onboarding steps.
 
 For FAQ controls, start with `npm run check:faq` (isolated local browser
 persistence; no production Publish), plus relevant CMS/ID/source checks.
@@ -202,6 +216,8 @@ timings out of new estimates unless current evidence supports them.
 - Regression fixtures: `scripts/fixtures/ops-portal.mjs` and `cases.mjs`; tests import fresh fixtures instead of reading slices of another test's source.
 - Admin login: `admin/login/index.html`
 - Admin Portal: `admin/index.html`
+- Customer registry: `customer-model.mjs`, `src/admin/customer-workspace.mjs`, `admin/customers.css`, `server/customers-service.cjs`
+- Cases workbench: `case-workflow.mjs`, `src/admin/case-work-ui.mjs`, `server/cases-work-service.cjs`
 - Admin analytics: `admin/analytics/index.html`, `admin/analytics-data.js`
 - Shared admin session helper: `admin/session.js`
 - Runtime contracts and storage keys: `covermate-contract.js`
@@ -214,6 +230,7 @@ timings out of new estimates unless current evidence supports them.
 - Brand/proof logos: `assets/logos/*`
 - Design/reference CSS: `organic.css`
 - Current docs: `PROJECT_MAP.md`, `README.md`, `docs/*.md`
+- Standalone print: `exports/covermate-motor-poster-blue-v36.html`, `exports/poster-v36/*`; build-time fragments are embedded, not companion runtime dependencies
 
 ## Hosted UAT Credentials And Evidence
 

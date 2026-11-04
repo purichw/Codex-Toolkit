@@ -1,6 +1,6 @@
 ---
 name: covermate-new-chat
-description: Onboard a fresh Codex chat for the CoverMate project. Use when the user asks for a new-chat prompt, handoff prompt, context pickup checklist, required docs/skills/setup for CoverMate, or wants a future chat to know what to read before visitor, motor page, admin, CMS, Firebase, analytics, UAT, media/assets, QA, snapshot, push, deploy, or consistency work.
+description: Onboard or refresh context for CoverMate. Use for a new-chat prompt, handoff, required reading/setup, or context pickup before visitor, Articles, Customers, Cases, CMS, Firebase, analytics, media, standalone motor poster/export, artifact retention, QA, or release work. Routes to current project owners without assuming a local change is deployed.
 ---
 
 # CoverMate New Chat
@@ -40,11 +40,14 @@ git -C "/Users/point/CoverMate" status --short --branch
 - Check the active checkout, upstream and uncommitted scope before applying an old patch. Refactor UAT evidence may use an older production baseline than current `origin/main`; preserve newer runtime, build and test changes when integrating it. Read `docs/REFACTOR_20260924.md` for the extraction and evidence boundaries.
 - Primary origin is `https://covermateinsurance.com`. Read `docs/CMS_MEDIA.md` for the selected Cloudinary Free backend and current cost/security boundaries; Firebase Auth and Firestore remain in use, Firebase Storage does not.
 - Home redesign work must read `docs/HOME_REDESIGN.md`: the approved compact composition and current Admin ownership supersede old expanded-section geometry. Do not revive superseded constraints from historical specs.
+- Standalone poster work starts with `exports/poster-v36/README.md`, not the website build. Preserve the approved three-page design, independent preview/export selection and all-page Save HTML. The supplied v35 file is protected input; print readiness still requires real QR/promotion values.
+- Cleanup follows `docs/ARTIFACT_RETENTION.md`: retain the latest verified design per page/component, language, viewport and important state. A timestamp or ignored directory is not deletion evidence. Require explicit replacement/checksum/regeneration evidence and approval; never delete originals, uncommitted work or whole artifact directories by habit.
 - Use current on-disk skill files when a skill is named. Do not rely on older remembered skill behavior.
 - Do not commit, push, deploy, rollback, revert, remove, or undo work unless the user explicitly asks in the current task.
 - Treat production repo files, current docs, and Firestore live CMS state as source of truth over older external prototypes/exports unless the owner explicitly reopens a product decision.
 - Preserve existing routes, Firebase/Firestore contracts, localStorage keys, SEO/noindex boundaries, admin session behavior, responsive constraints, and owner-mode UI contracts unless the task explicitly changes them.
 - Admin controls use natural Thai with familiar English workflow terms. Cases is owner-only; legacy Leads/Tasks/Audit APIs remain compatibility surfaces. Use `docs/ADMIN_LANGUAGE.md`, `docs/ADMIN_CASES_V2.md` and `docs/CMS_EDITOR_HISTORY.md` instead of historical English-only chrome or Operations-tab instructions.
+- Customers is a separate owner-only registry; read `docs/ADMIN_CUSTOMERS.md` for manual entry, review/success, consent and private-storage gates. The Cases extension is in `docs/ADMIN_CASES_WORKBENCH.md`. Do not activate GCS billing, credentials or customer-data capabilities as a design/setup side effect.
 - Public copy follows `docs/COPY_VOICE_AUDIT_20260927.md`: plain, warm, helpful TH/EN; genuine customer FAQ questions rather than slogans. Read its reviewed proposal workflow before changing existing CMS copy. Code/default deployment and CMS publication are separate operations.
 - FAQ add/delete work follows `docs/CMS_CONTENT_OWNERSHIP.md#faq-collection-editing`: stable bilingual IDs, confirmed deletion, distinct Hide, Draft Undo/Redo and intentional empty lists. Use the isolated `check:faq` harness for this flow, not the read-only public copy preview.
 - Keep this workflow inside the current chat. Preparing a handoff does not authorize inspecting, creating or messaging another chat, nor release actions described by historical notes.
@@ -53,6 +56,7 @@ git -C "/Users/point/CoverMate" status --short --branch
 - Before waiting on push/CI/deploy, read `docs/RELEASE_RUNBOOK.md#when-to-stop-waiting-and-diagnose` for measured checkpoints. On an error, repeated failure or overdue phase, inspect the exact run/step and deployment state before retrying or pushing again; use `$github-actions-repair` for diagnosis. A normally progressing CI gate can legitimately hold a ready build. Keep run durations and production SHA in living project docs, not cached skill claims.
 - Use UAT proportionally. Do not run hosted UAT smoke, create fresh UAT previews, or seed UAT data for small copy/CSS/docs/icon tweaks by default. Use UAT only when the diff touches Firebase/Auth, Firestore Rules, CMS data paths, Admin session/publish/save flows, lead capture, Operations/Analytics APIs, environment/routing/Vercel config, production-like routing behavior, or when the owner explicitly asks for UAT/regression.
 - Project skill sources are versioned under `skills/` in the repository. When updating this skill, keep its installed copy and versioned copy aligned; `references/new-chat-context.md` routes to the living docs rather than storing deployment status in the skill.
+- Documentation/skill-only updates need scoped diff/link, frontmatter and mirror checks, not new UI screenshots, builds or hosted smoke. Preserve current runtime and existing evidence; report historical verification as historical.
 
 ## Reference
 

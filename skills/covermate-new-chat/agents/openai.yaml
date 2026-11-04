@@ -1,4 +1,4 @@
 interface:
   display_name: "CoverMate New Chat"
   short_description: "Onboard fresh CoverMate Codex chats"
-  default_prompt: "Use $covermate-new-chat to prepare a fresh Codex chat for CoverMate work."
+  default_prompt: "Use $covermate-new-chat to pick up CoverMate context from current project docs for the requested website, Admin, poster or maintenance task."

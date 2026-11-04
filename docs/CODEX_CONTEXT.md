@@ -375,6 +375,15 @@ As of this document, the repository has:
   146 archive skills plus one separate native entrypoint. Local export bundles,
   old generated screenshots and `.DS_Store` files remain outside version control.
 
+- On 2026-11-04, archived 19 changed files across eight existing live skills:
+  CoverMate design/onboarding, DeepX, Glenonchy, Korat onboarding/shared UI, TPNA
+  onboarding and UI/UX Expert. Updated the public indexes/catalog for Customers,
+  poster exports, separate Coach/LUMA managers, recovery, CMS/native boundaries
+  and media-action/spacing preferences. Counts remain 148 archive skills plus
+  one separate native entrypoint. Native and repo-only global copies were
+  unchanged. This backup did not modify live skills, validate project runtime,
+  deploy an app or establish UI quality; exports and temporary files stay local.
+
 The main thing future Codex should preserve is the distinction between live local
 skills and the GitHub archive. That distinction prevents accidental overwrites
 and keeps the toolkit useful both as runtime configuration and as versioned

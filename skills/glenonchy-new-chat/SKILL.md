@@ -11,7 +11,9 @@ the current chat; it does not authorize creating, reading or messaging other cha
 ## Locate and read
 
 Default repository: `/Users/point/Projects/Glenonchy`.
-Verify the directory and Git remote `DeepXSolution/Glenonchy` before edits.
+Verify the directory and canonical Git repository `Glenonchy/Glenonchy` before
+edits. An existing `DeepXSolution/Glenonchy` remote may redirect to it; confirm
+the resolved repository rather than treating the legacy URL as another project.
 If moved or missing, ask for the path rather than choosing a similarly named project.
 Do not work in the original Downloads starter.
 
@@ -31,6 +33,12 @@ Treat current user directions as authoritative over older starter decisions.
   to finish an iOS task; retain portability without claiming Android readiness.
 - Supabase is hosted PostgreSQL only. Do not infer Supabase Auth/Data API or
   supabase_flutter adoption from the presence of a project URL/publishable key.
+- Before DB/API/auth/GM work, read `docs/SUPABASE_RESTORE.md` for the current
+  target, completed setup and explicit next scope. A recreated schema is not
+  restored accounts, a database backup or a deployed API. Keep old references
+  historical; do not repeat bootstrap or migrate every working-tree app merely
+  because a new database exists. Preserve device data across environment changes:
+  reused member IDs do not establish ownership of the old local profile/wallet.
 - Email/password membership uses Django/DRF; no guest entry. LINE is a stub,
   not OAuth. Signup is not proof of email ownership. Read `docs/10-membership.md`
   for implemented endpoints, secure sessions, DB scope and recovery limitations.
@@ -92,6 +100,8 @@ Preserve runtime assets, source paintings/sheets, provenance, user data and usef
 verification records. Retired design images need not be duplicated into another
 full-size archive. A historical report may intentionally refer to a retired PNG;
 consult the replacement map instead of regenerating old designs to repair links.
+Database dumps, preservation records and prepared connection credentials remain
+protected even under `.cache/`; classify their contents before applying cleanup rules.
 
 When cleanup is requested, prepare one scoped inventory/dry run; verify retained
 copies or ZIPs before removing duplicates. Follow existing user authorization and
@@ -118,6 +128,9 @@ Separate source checks, CLI linking, SQL connectivity, build, install, launch an
 physical feature verification. Missing Flutter/Android tooling must not be
 reported as ready just because Xcode or a paired iPhone exists. Do not copy device
 IDs, keys, tokens or passwords into reusable docs or this skill.
+Database verification must name its boundary: an in-process Django client against
+PostgreSQL is not a hosted HTTP or iPhone test. For pooled connections, distinguish
+client TLS from the pooler's PostgreSQL connection; preserve certificate validation.
 Check the development API process/address when it is needed; a past LAN test is
 not evidence of a running or hosted backend. Keep credentials in ignored env/OS
 storage. Do not print env contents, bootstrap SQL, tokens or signed login URLs.
@@ -133,6 +146,9 @@ authorized release work. Do not load a broad audit for a small follow-up.
 
 Update `docs/PROGRESS.md` when work/status changes and `docs/ENVIRONMENT.md` when
 tooling or readiness changes. Keep live status in the repository, not in this skill.
+When the owner requests a skill update and project push, preserve the scoped local
+skill diff under `docs/skill-updates/` using its existing archive convention. The
+installed skill is outside the project Git tree; updating it alone does not push it.
 For documentation refreshes, reconcile stale statements across entry docs,
 handoff, environment, map and relevant runbooks; mark historical evidence clearly.
 Validate links and skill metadata. Do not rebuild the app or repeat DB/native

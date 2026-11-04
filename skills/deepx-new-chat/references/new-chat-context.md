@@ -1,46 +1,51 @@
 # DeepX project context
 
 Reconciled against source, repository docs and the verified release on
-2026-11-02 (Asia/Bangkok). Treat this as an
+2026-11-04 (Asia/Bangkok). Treat this as an
 orientation map, not a live production report. Re-read current source and docs;
 update this reference when an explicitly approved product decision changes.
-Region-selection preference updated 2026-11-03; the dated deployment evidence
-below has not been re-audited solely for that documentation update.
+This is a documentation reconciliation, not a new live audit or deployment.
+Use the repository's latest release entry for exact source and evidence.
 
 ## Project and services
 
 - Primary checkout: `/Users/point/Website Projects/DeepX`.
 - Repository: `https://github.com/DeepXWorks/DeepX.git`; primary branch `main`.
-- Public site: `https://deepxworks.com`; shared Content Studio: `/admin`.
+- Public site: `https://deepxworks.com`; Content Studio: `/admin`, Coach:
+  `/admin/coach`, LUMA: `/admin/clinic`.
 - `deepxsolution.com`, `www.deepxsolution.com` and `deepxtech.vercel.app` are legacy aliases with
   permanent 308 redirects to the canonical domain, preserving path and query.
 - Vercel scope/project: `purich-w/deepx`.
-- Active Supabase project: `mgvgldzqjcsedombmrxr` at
-  `https://mgvgldzqjcsedombmrxr.supabase.co`, region `eu-west-1` (Ireland).
+- Active Supabase project: `yeyhyyuannxhurltvexm` at
+  `https://yeyhyyuannxhurltvexm.supabase.co`, region `ap-southeast-1` (Singapore).
+  Vercel functions use `sin1`; the latest release verified all five functions.
 - Recorded Auth configuration uses the canonical Site URL and exact
   `https://deepxworks.com/admin` redirect, with the documented localhost callbacks.
   Verify current settings for auth/domain work. Sessions do not migrate between
   origins or Supabase projects; never copy tokens to bypass a fresh sign-in.
-- The previous DeepX database `yazamwbukbtetzqmqcpm` is recovery/history, not the
-  current target. Glenonchy is a separate project. Stale integration-managed URL
-  variables once pointed to Glenonchy, but the application consumes
-  `VITE_SUPABASE_URL` / `VITE_SUPABASE_PUBLISHABLE_KEY`. Read
+- Ireland `mgvgldzqjcsedombmrxr` remains intact for recovery;
+  `yazamwbukbtetzqmqcpm` is earlier history, not the current target. Glenonchy is
+  separate. Public/build reads use `VITE_SUPABASE_URL` /
+  `VITE_SUPABASE_PUBLISHABLE_KEY`; privileged APIs also consume server-only
+  `SUPABASE_URL` / `SUPABASE_SERVICE_ROLE_KEY`. The 2026-11-04 release corrected
+  stale server configuration to Singapore. Verify both sets for infra work. Read
   `docs/SUPABASE_PROVENANCE.md` before investigating or changing integrations;
   do not remove unrelated resources based on a shared organization name.
 
-The owner declined a new paid Supabase organization on 2026-11-02: **keep the
-current database and add no recurring cost**. Free-project capacity blocked the
-proposed Singapore migration. Functions now run in `dub1`, near the existing
-database; static assets still use Vercel's delivery network. No Asia migration,
-paid upgrade, project pause/deletion or credential change was performed. Use
-`docs/PERFORMANCE.md` for the rationale and prerequisites if migration is reopened.
+The owner first declined a new paid Supabase organization, then supplied a new
+Singapore project and explicitly authorized migration/cutover on 2026-11-03.
+Content, drafts/history, Auth and media migrated from Ireland; the original
+Ireland project is retained for recovery. The Sydney project offered briefly
+was superseded, not the destination. See `docs/SUPABASE_SINGAPORE_MIGRATION.md`.
+The no-new-recurring-cost decision remains; do not create a paid plan or remove
+recovery resources. Static assets still use Vercel's delivery network.
 
 On 2026-11-03 the owner set a cross-project default: select **Thailand first**,
 otherwise the closest suitable supported **Asian region to Thailand**, with
 backend and database placed near each other. Follow the shared
 [region policy](../../project-onboarding/references/region-defaults.md) for new
-resources or an authorized migration. This does not revoke DeepX's existing
-Ireland/no-new-cost exception or authorize infrastructure changes now.
+resources or an authorized migration. It does not authorize new infrastructure
+changes, billing, project deletion/pause or a new credential change now.
 
 DeepX turns AI/data research into usable enterprise solutions, with project-based
 research collaboration and a path toward reusable products. The Business Model
@@ -57,7 +62,16 @@ Do not invent client claims, partnerships or performance metrics.
 | Category listing | `/studio/ideas/:categorySlug` |
 | Shared Concept detail | `/studio/ideas/:categorySlug/:ideaSlug` |
 | Interactive website Concept | The valid item's `/demo` suffix, when enabled |
-| Shared CMS | `/admin`, one guarded draft/publication workspace |
+| Content Studio | `/admin`, one guarded Home/Studio/Ideas draft/publication workspace |
+| Coach CMS | `/admin/coach`, nine pages and separate content/operations |
+| LUMA CMS | `/admin/clinic`, fourteen pages and separate role-scoped content/operations |
+| Visitor Coach manager | `/studio/ideas/fitness-trainer/cms`, local IndexedDB |
+| Visitor LUMA manager | `/studio/ideas/beauty-clinics/cms`, separate local IndexedDB |
+
+The canonical clinic category is plural `beauty-clinics`, defined in
+`src/catalogue/routes.ts`. Match manager/preview/site routes before generic Ideas
+item routes; preserve their noindex/no-store rules. Both categories link to their
+own public playground, not private admin login.
 
 The owner reserved `/catalogue` and `/studio/catalogue` for possible future use:
 **do not add redirects or Ideas aliases there**. Internal `catalogue` code/schema
@@ -70,13 +84,14 @@ The 2026-11-02 publication includes four Fitness demos (Private, Active, Everyda
 Rhythm) and seven Beauty demos (Editorial, International, Personal, Private,
 Future, Open, Botanical). The repeated “Beauty 5” requests produced separate
 Future and Open concepts; preserve both. These are CMS-editable fictional website
-demonstrations, not working clinic/fitness backends or real client testimonials.
-Preserve Concept labels and simulated consultation behavior; do not silently
-create appointments or send enquiries. Actual enabled records/counts come from CMS.
+demonstrations, not real client testimonials. The later Coach/LUMA release adds
+working managers and isolated visitor booking/enquiry practice. Real intake stays
+off until configured. Preserve existing Concept disclosures without adding a new
+“Mock” label to the managers. Actual enabled records/counts come from CMS.
 
-Some README/Catalogue/per-demo entries still describe earlier private drafts or
-local-only checkpoints. Use the newest applicable `docs/RELEASE.md` entry and
-current source/data to resolve status, not those old labels. Release evidence
+Per-demo entries preserve dated private-draft/local QA checkpoints. Use the newest
+applicable `docs/RELEASE.md` entry and current source/data to resolve status,
+not those historical labels. Release evidence
 does not grant authorization for a new release or establish future health.
 
 ## Architecture and source owners
@@ -88,7 +103,7 @@ metadata is generated at build time.
 
 | Area | Source / reference |
 | --- | --- |
-| Setup and operating constraints | `AGENTS.md`, `README.md`, `package.json` |
+| Setup and operating constraints | `AGENTS.md`, `README.md`, `docs/README.md`, `package.json` |
 | Architecture, routes and interactions | `docs/PROJECT_MAP.md` |
 | Public rendering, navigation and dialogs | `src/App.tsx` |
 | Route entry and lazy modules | `src/main.tsx` |
@@ -108,6 +123,9 @@ metadata is generated at build time.
 | Mobile ecosystem ticker / other rails | `src/components/PartnerTicker.tsx`, `src/components/Rail.tsx` |
 | Shared CTA and detail actions | `src/components/Action.tsx` |
 | Auth, content editor and draft/publication | `src/cms/`, `docs/CMS.md` |
+| Trainer manager, booking and isolated playground | `src/coach/`, `server/coach-booking-handler.ts`, `api/coach-booking.mjs`; `docs/COACH_CMS.md` |
+| Clinic manager, roles, enquiries and media | `src/clinic/`, `server/clinic-handler.ts`, `api/clinic.mjs`; `docs/CLINIC_CMS.md` |
+| Shared form/popup behavior | `src/components/Select.tsx`, `form-controls.css`, `Modal.tsx`, `Action.tsx`; `docs/FORM_CONTROLS.md` |
 | Schema, RLS and guarded RPCs | `supabase/migrations/`, `supabase/tests/` |
 | Asset provenance and original mockups | `docs/ASSETS.md`, `docs/references/` |
 | Deployment workflow and dated evidence | `docs/RELEASE.md` |
@@ -128,22 +146,23 @@ Preserve the intent; inspect current selectors before editing measured values.
   Keep translations, readable Thai wrapping and shared centered action styling.
   Process steps and application card headings use the accepted centered layout.
 - Hero media is a background **inside the banner behind copy and actions**.
-  Autoplay is muted, looping and inline, with no playback controls. Desktop/tablet
+  Autoplay is muted and inline, plays once and holds its last frame, without controls. Desktop/tablet
   retain full-banner cover. At up to 600px, the 16:9 video frame is 170% width,
   centered horizontally at 50% of banner height, cropping empty sides while
   retaining the central logo and DeepX wordmark. No separate video panel.
 - The mobile banner follows content height: no forced 640px minimum and a 33px
   action-to-expertise gap. Do not restore the large blank band below the buttons.
-- Hero playback pauses offscreen/in hidden tabs; reduced motion uses the poster
-  or static fallback. Media URLs remain editable through the CMS.
+- Hero playback pauses offscreen/in hidden tabs and resumes only before it ends;
+  scrolling back does not replay a completed video. Refresh starts it again.
+  Reduced motion uses the poster/static fallback. CMS still owns media URLs.
 - Our Ecosystem remains visible. Current approved order: SUT, Chula, KMUTT,
   NSTDA, NRCT, AWS, Microsoft, Google Cloud. The supplied SUT asset leads Chula;
   published CMS records, not a component array, own order, links and assets.
-- At up to 640px the logo ticker moves **left-to-right at 32px/s**, measuring a
+- At every width the shared logo ticker moves **left-to-right at 32px/s**, measuring a
   complete sequence for duration. There is **no Play/Pause button or reserved
   control gap**. Keep hover pause, stable keyboard-accessible original links,
   hidden duplicate links, reduced-motion static layout and visibility pause.
-  Desktop/tablet use the original Rail/grid; other carousels are unaffected.
+  Desktop retains its prior logo-cell sizing; other carousels are unaffected.
 - Four industry images use owner-supplied manufacturing, logistics, smart
   agriculture and government/research visuals. Refer to asset provenance and
   current CMS media; do not replace them with earlier mockup placeholders.
@@ -162,14 +181,24 @@ For Studio/Ideas and demo work:
   Its logo goes to `/studio`; “สำรวจไอเดีย / Explore Ideas” goes to the main
   `/studio/ideas`, including draft-preview routing. Sticky headers/anchors use
   the measured bar height. Each demo keeps its own visual identity beneath it.
-- All `/studio` descendants use light full-page loading, even navy/black demos.
+- All `/studio` and `/admin` descendants use light full-page loading, even navy/black demos.
   Home and future dark routes outside Studio use dark loading; register other
   future light route families centrally. Never infer theme from OS preference.
   Shared boot HTML/critical CSS precede first paint; `BootHandoff` removes it only
   when React commits, preventing a flash of SEO fallback. Preserve no-JS and
   script-failure recovery, reduced motion and actual stages, without fake progress
-  percentages or artificial waiting. Error pages retain their separate shared
-  medium-blue treatment, real status and noindex.
+  percentages or artificial waiting. Studio-family errors use the light wave
+  theme and recover to `/studio`; other errors use dark network visuals and
+  recover to `/`. Preserve real status and noindex independently of the loader.
+- Content Studio keeps white/ice/cyan. Coach CMS has its later approved light
+  purple design; LUMA CMS has forest/cream. Reuse behavior, not one palette across
+  all managers. TH/EN and standalone media actions center within their own panel.
+  Notice-to-toolbar/first-label gaps need their own spacing, independent of notice
+  padding. Long copy and editable fields retain sensible reading alignment.
+- Native select menus paint an opaque surface independently of transparent
+  triggers. Keep a balanced inset for their one chevron. Shared panel dialogs and
+  `Action.Button` own booking receipts, close controls and return-to-manager links;
+  preserve dirty-form confirmation, nested focus and scroll restoration.
 
 ## CMS and data contracts
 
@@ -180,21 +209,52 @@ For Studio/Ideas and demo work:
   authenticated actor attribution and atomic publication. Do not substitute
   direct browser table writes for guarded RPCs.
 - Home, Studio, Ideas and website demos share one draft. Publish applies the
-  complete saved document, not just the editor's selected page; review its diff.
+  complete saved Content Studio document, not just its selected page. Coach and
+  LUMA each have separate workspace/publication boundaries. Managed publications
+  can replace demo copy via their adapters; catalogue identity/covers remain in
+  Content Studio. A manager with no publication retains legacy public demo copy.
 - Clearing an optional field keeps it empty. Removing a draft record affects
   public content only after publication; preserve unpublished records/history.
 - Every editable field must have a real consumer. Keep `docs/CMS.md` coverage
   aligned with schema and renderer changes. Shared components should retain
   equivalent behavior in live and draft preview contexts.
-- Image uploads use `cms-media` (JPEG/PNG/WebP, 5 MiB); MP4 uses `cms-video`
+- Content Studio images use `cms-media` (JPEG/PNG/WebP, 5 MiB); MP4 uses `cms-video`
   (30 MiB). Uploads are publicly accessible immediately. Replacements get new
-  paths; overwrite/delete and private-file storage are not existing CMS features.
+  paths; do not upload private data there. Coach has public image metadata and
+  guarded archival. LUMA separates `clinic-media` from private `clinic-evidence`,
+  with role-checked signed URLs and rights/usage metadata. LUMA real uploads cap
+  at 3 MiB (8 MiB in playground); private evidence also accepts PDF. Never expose
+  evidence via a public URL or copy another module's upload limits blindly.
 - Use append-only migrations and inspect target/history before application.
   Never reset the remote database. Do not expose service keys in Vite/browser code.
 - Runtime body content reads the CMS. Home/Studio SEO/social metadata is built
   at deployment, so changes there need a rebuild. Ideas SEO/HTML and sitemap
   read current published content at request time. CMS publication does not deploy.
   Do not silently rewrite CMS contact information because the domain changed.
+
+### Manager state and user inputs
+
+The 2026-11-04 release deployed nine Coach and fourteen LUMA pages, verified the
+production owner session and LUMA real save/reload/storage boundaries. Earlier
+requests for login, Chrome retry, disk space or deployment confirmation were
+resolved. Do not ask for them again based only on historical QA notes.
+
+- Real Coach booking stays off; LUMA real workspace is unpublished/intake off,
+  with no operational contacts/enquiries/appointments at that release.
+- Public playgrounds use browser-local drafts, publication, uploads and bookings.
+  They import only public design content, never private clients or draft data.
+  Another browser/device has a separate copy; clearing site data removes local work.
+- LUMA public intake creates an enquiry, not a confirmed appointment. Staff
+  confirmation/rescheduling enforce provider/branch availability and collisions.
+  Real APIs enforce identity/role/scope before exposing or mutating private state.
+- Email/SMS/calendar/travel integrations are unconnected. A local receipt or
+  saved request is not evidence of an external notification being sent.
+- There is no missing owner input blocking this released playground scope.
+  Real business details, channels, schedules and optional integration setup are
+  future activation inputs documented in `docs/CMS.md`, not pending release gates.
+
+Local PostgreSQL QA is separate from the visitor playground. Its explicit flags
+and loopback-only transport must never ship as a production authentication bypass.
 
 ## Performance contracts
 
@@ -231,6 +291,7 @@ Use `npm ci` only when dependency installation is needed. Node requires at least
 | Local development | `npm run dev` (normally `http://127.0.0.1:5173`) |
 | Types / production bundle | `npm run typecheck`, `npm run build` |
 | Content and CMS helper regression | `npm test` |
+| Targeted manager regression | `npm run test:coach`, `npm run test:clinic` |
 | Content-only regression | `npm run test:content` |
 | Schema alignment | `npm run check:schema` |
 | Final local diff | `git diff --check`, `git status --short --branch` |

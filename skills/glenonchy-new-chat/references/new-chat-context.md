@@ -1,7 +1,9 @@
 # Glenonchy reading map
 
 Repository: `/Users/point/Projects/Glenonchy`
-Expected remote: `https://github.com/DeepXSolution/Glenonchy.git`
+Canonical remote: `https://github.com/Glenonchy/Glenonchy.git`
+Legacy remote `DeepXSolution/Glenonchy` redirects to this repository; verify the
+resolved owner/repo and commit before publication. Do not rewrite other remotes.
 
 Read these relative paths inside the verified repository. They own current facts;
 this file is a routing map, not a second copy of project status.
@@ -23,18 +25,22 @@ this file is a routing map, not a second copy of project status.
 | Shared UI / QR camera | docs/13-game-selection-shared-ui.md; apps/mobile/lib/app/game_components.dart and features/game_selection/ |
 | Local points / coupons / menus | docs/14-points-rewards.md, docs/15-merchant-menus.md; apps/mobile/lib/data/local_rewards.dart |
 | Login/layout/brand/TH-EN | docs/10-membership.md, docs/11-device-support.md, assets/brand/README.md, assets/auth/README.md; owner apps/mobile/lib/features/auth/auth_screen.dart |
-| Membership/API/session/recovery | docs/10-membership.md, backend/README.md, docs/09-infrastructure.md; owners backend/accounts/, apps/mobile/lib/data/auth_repository.dart, apps/mobile/lib/features/auth/auth_gate.dart |
+| Membership/API/session/recovery | docs/SUPABASE_RESTORE.md, docs/10-membership.md, backend/README.md, docs/09-infrastructure.md; owners backend/accounts/, apps/mobile/lib/data/auth_repository.dart, apps/mobile/lib/features/auth/auth_gate.dart |
+| Supabase replacement / backup / migrations / reconnect | docs/SUPABASE_RESTORE.md, docs/ENVIRONMENT.md, docs/DECISIONS.md, docs/22-render-free.md, docs/gamemaster-console/OPERATIONS_RUNBOOK.md; inspect incident-specific bootstrap/verification helpers before running them, distinguish deployed baseline from pending account/player migrations, and preserve mobile identity |
 | Gameplay backend/progression | docs/04-data-api-security.md, docs/06-codex-tasks.md, docs/10-membership.md; preserve existing membership |
 | QR/map/venue operations | docs/16-world-map.md, docs/qr-codes/README.md, apps/mobile/lib/data/local_qr_catalog.dart; docs/05-qr-map-ops.md is the earlier operations plan |
 | UAT or release | docs/07-test-release.md, docs/26-current-ui-qa.md, docs/PROGRESS.md, current build sources; 21/23/24 are earlier QA baselines |
 | New-chat prompt | docs/NEW_CHAT.md |
-| Docs/skill alignment | docs/NEW_CHAT.md, README.md, README_START_HERE_TH.md, docs/ENVIRONMENT.md, docs/PROJECT_MAP.md and task runbooks; skill entrypoint/reference/UI metadata |
+| Docs/skill alignment | docs/NEW_CHAT.md, README.md, README_START_HERE_TH.md, docs/ENVIRONMENT.md, docs/PROJECT_MAP.md, docs/skill-updates/README.md and task runbooks; skill entrypoint/reference/UI metadata |
 
-Supabase target is identified in docs/09-infrastructure.md. Validate the exact ref
-before any permitted remote action. Link metadata lives in ignored supabase/.temp;
-never print credentials from it. Database writes are a separate scope from linking.
-The owner-approved development membership work is recorded in docs/10-membership.md;
-read it before treating schema/roles as missing or asking to authorize the same work again.
+Supabase target and lifecycle are recorded in docs/SUPABASE_RESTORE.md. Validate the
+exact ref before any permitted remote action. CLI/browser sessions and ignored
+supabase/.temp link metadata can disagree; successful CLI listing alone does not
+prove access to the selected project. Never print credentials from local settings.
+Read completed setup and the owner's current choice before proposing account
+creation, migrations, hosting changes or mobile reconnect. Setup credentials and
+database preservation files are not disposable caches. Do not copy current refs,
+passwords, account details or verification counts into this routing map.
 
 Current low-impact checks, if the files still exist:
 

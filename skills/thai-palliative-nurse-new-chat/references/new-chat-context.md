@@ -22,18 +22,20 @@ state for a release rather than assuming a historical alias remains current.
 
 | Requested area | Source owners | Read alongside |
 | --- | --- | --- |
+| Editorial data / CMS read API / provider | `content/site.json`, `server/content-contract.mjs`, `content-slots.mjs`, `content-repository.mjs`, `content.mjs` under `server/`, `api/content.js`, `src/cms/` | `docs/CMS_ARCHITECTURE.md`; read API is implemented, CMS admin/write flows are not |
+| Global / collection search | `src/cms/search.ts`, `SearchContent` in `src/App.tsx`, collection-page filter consumers | CMS search scope; private tracking remains separate |
 | Shared shell / navigation / overlays | `src/App.tsx`, `src/components/SiteHeader.tsx`, `SiteFooter.tsx`, `Brand.tsx` and their CSS | `docs/SHARED_COMPONENTS.md`, `docs/BLUE_SCHEME.md` |
 | Home banner / mobile shortcuts / tracking strip | `src/components/HomeHero.tsx`, `useHorizontalSwipe.ts`, `TrackingPrompt.tsx`, `src/App.tsx`, `src/styles.css` | Shared UI hero/card contracts |
 | Page banners / library cards / fields | `src/components/PageBanner.tsx`, `ResourceCard.tsx`, `SearchField.tsx`, `SelectField.tsx`, `CardHeading.tsx`, `SectionHeading.tsx` | Shared UI owner/consumer table |
 | Seminars | `src/SeminarsPage.tsx`, `src/seminars-data.ts`, `src/seminars.css` | Project map seminar contract |
 | Knowledge / news | `src/KnowledgePage.tsx`, `src/NewsPage.tsx`, corresponding data/CSS, `src/components/FeaturedCarousel.tsx` | Project map library contracts |
-| Article / seminar details / sticky rail | `src/content-routes.ts`, `src/ContentDetailPage.tsx`, `src/components/DetailSection.tsx`, `src/content-detail.css` | Shared details contract; contextual wording and seminar-only blocks |
+| Article / seminar details / sticky rail / TOC | `src/content-routes.ts`, `src/ContentDetailPage.tsx`, `src/components/DetailSection.tsx`, `src/content-detail.css`, pathname scroll guard in `src/App.tsx` | Shared details contract; native fragment/history behavior, contextual wording and seminar-only blocks |
 | About / contact | `src/AboutPage.tsx`, `src/about-data.ts`, `src/ContactPage.tsx`, associated CSS | Complete history and asset provenance in `docs/assets/` |
 | Registration / SCB / attachments | `src/MembershipPage.tsx`, `src/membership-data.ts`, `src/membership.css`, `src/try-data.ts` | Project map membership contract; no upload/payment backend |
 | Tracking forms / results / entry links | `src/TrackingPage.tsx`, `src/tracking-data.ts`, `src/tracking-routes.ts`, `TrackingVerificationForm.tsx`, `TrackingEmptyState.tsx` under `src/components/` | Shared tracking contract and `docs/TESTING.md` |
 | Date field / picker / arrows | `src/components/BuddhistDateInput.tsx`, `buddhist-date-input.css`, `SelectField.tsx`, `controls.css`, `src/buddhist-date.ts` | Nested-dialog focus and date-specific tests |
-| Buttons / font baseline | `src/components/button-typography.css`, `src/styles.css`, `src/page-readiness.ts` | Shared typography roles; server button mirrors metrics |
-| Loading / orbit / image readiness | `index.html`, `src/page-readiness.ts`, `public/theme.css` | Shared readiness contract and Blue scheme |
+| Buttons / font baseline | `src/components/button-typography.css`, `src/components/control-fonts.css`, `src/fonts.css`, `src/styles.css` | Shared typography roles; font faces load before app JavaScript; server button mirrors metrics |
+| Loading / orbit / image readiness | `index.html`, `src/fonts.css`, `src/main.tsx`, `src/page-readiness.ts`, `public/theme.css` | Shared readiness contract and Blue scheme; `readiness-smoke.mjs` and `readiness-viewport-smoke.mjs` under `scripts/` |
 | Access / session | `server/access.mjs`, `server/access-page.mjs`, `server/local-access.mjs`, `middleware.js` | `docs/ACCESS.md` before changes |
 | Obfuscation / crawler / public files | `vite.config.ts`, `scripts/check-public-build.mjs`, `vercel.json`, `.vercelignore` | `docs/PROTECTION.md`; edge rules are separate from code |
 | Push / deployment / rollback | `package.json`, `vercel.json`, selected Git remote | `docs/DEPLOYMENT.md`, `docs/HANDOFF.md`, `release-gate`; rollback requires its own decision |
@@ -45,6 +47,21 @@ state for a release rather than assuming a historical alias remains current.
   route. `/access` and logout are server-owned, not member-account screens.
 - The owner changed the old red scheme to Blue, replaced the logo with genuine
   transparent paths and unified navigation. Existing public design comes first.
+- Page copy, branding/contact settings, fees, curation and editorial detail
+  sections come from one validated published snapshot per document load. Data
+  modules are selectors. Do not revive hardcoded duplicates or a stale fixture
+  fallback on content failure. CMS editing UI/database/staff roles are planned.
+- Search shares Unicode/case/whitespace normalization and requires all query
+  words across editorial text, including details and speakers. It does not yet
+  provide typo tolerance, ranking, PDF-content or private-record search.
+- HTML prepares loader fonts/emblem without waiting for CMS or React. Foreground
+  orbit/text/progress reveal as one unit with actual fonts. External entry and
+  reload retain the three-second minimum plus real readiness; fast internal
+  links have none. The loader and retry fit the viewport without scrolling,
+  including short landscape, and normal page scrolling returns after readiness.
+- Same-page TOC and history fragments must reach their section without a reset
+  to the page top. Only pathname changes trigger the app's scroll reset; initial
+  document fragments wait for readiness. The sticky rail owns a separate column.
 - Tracking removed All and name-only search. Membership is one-to-one with no
   count; event personal lookup can return several records. `Track No.` is the
   visible wording. Only category goes into the URL; the completion handoff is

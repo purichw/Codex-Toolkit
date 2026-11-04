@@ -1,8 +1,11 @@
-# CoverMate Production Snapshot Suite
+# CoverMate Visual Evidence Suites
 
 Use the full matrix when the user requests a complete archive/handoff or an audit
 where all screens matter. A narrow release needs evidence for its touched risks,
 not this entire matrix. Personally inspect captures before claiming visual parity.
+Website/Admin and the offline poster use distinct evidence below. Documentation
+or skill-text-only maintenance needs no new screenshots. Source hashes and a
+past report identify historical evidence, not a fresh UI or deployment pass.
 
 ## Snapshot Types
 
@@ -17,7 +20,7 @@ Complete production suite:
 
 - Use for an explicitly complete full-site visual archive or design handoff.
 - Capture the full matrix below.
-- Save into a stable timestamped directory, for example `/tmp/covermate-production-snapshots-YYYYMMDD-HHMMSS/`.
+- Save into an ignored project-local directory, for example `uat-results/production-snapshots-YYYYMMDD-HHMMSS/`.
 - Write `manifest.json` with every screenshot path and provenance.
 - If a route/state is unavailable, include it in `manifest.json` as `status: "missing"` with a reason.
 
@@ -58,8 +61,10 @@ Capture these in Thai:
 | `public-motor-hero` | `/motor` | desktop, mobile | viewport/context |
 | `public-cover-anchor` | `/#cover` | desktop, mobile | viewport/context |
 | `public-fit-anchor` | `/#fit` | desktop, mobile | viewport/context |
-| `public-insurers-anchor` | `/#insurers` | desktop, mobile | viewport/context |
-| `public-motor-alias` | `/#motor` | desktop, mobile | viewport/context + behavior proof |
+| `public-motor-anchor` | `/#motor` | desktop, mobile | viewport/context + behavior proof |
+| `public-insurers-compatibility` | `/#insurers` | desktop, mobile | normalize to `/#motor`, same DOM section |
+| `public-articles-index` | `/articles` | desktop, tablet, mobile | published list, shared Home nav, filters/carousel |
+| `public-article-reader` | `/articles/{eligible-slug}` | desktop, tablet, mobile | full reader, shared nav, TOC/cover/body/rail |
 | `public-claim-anchor` | `/#claim` | desktop, mobile | viewport/context |
 | `public-talk-anchor` | `/#talk` | desktop, mobile | viewport/context |
 
@@ -72,13 +77,20 @@ For `public-motor-full`, prove that the route is the dedicated motor page with:
   `tiers`, `how`, `claim`, `renew`, `faq` and `talk`. Guides now belong to FAQ;
   do not force disabled sections visible merely for a screenshot.
 
-For `public-motor-alias`, prove the backward-compatible home alias contract with behavior evidence:
+For the motor anchor/compatibility pair, prove Home's URL-to-section contract:
 
 - requested URL;
 - final URL/hash after app handling;
 - `scrollY`;
 - bounding rect or visible heading for `#insurers`;
 - screenshot of the resulting viewport.
+
+Use actual eligible published article slugs; do not invent production content
+to fill a matrix. Record disabled, empty or unavailable translations honestly.
+Use labeled local fixtures for populated/edge states. Include `/health` and
+`/life` when a complete public-route archive or shared service layout is in scope;
+their route/visibility owner is `docs/SITE_MAP.md`. Smooth-scroll tests must retain
+motion, then separately check reduced-motion and keyboard focus.
 
 Capture English when the task affects copy, typography, nav labels, language switching, or SEO/translation:
 
@@ -118,6 +130,11 @@ Signed-in/admin session:
 | `admin-cases` | `/admin#operations` | desktop, mobile | list/search/filter state with settled summary |
 | `admin-case-detail` | `/admin#operations` with synthetic case | desktop, mobile | detail drawer and reachable Save |
 | `admin-case-conflict` | real or labeled fixture conflict | desktop, mobile when touched | retained draft and visible conflict/reload message |
+| `admin-customers` | `/admin#customers` | desktop, mobile | search/list and manual editor with synthetic records |
+| `admin-customer-create` | New Customer entry/review/success | desktop, mobile | no mutation before confirmation, retained form and acknowledged success |
+| `admin-articles` | `/admin#articles` | desktop, mobile | list, information panel, checklist and locale controls |
+| `admin-article-editor` | collapsed/expanded editor and Preview | desktop, mobile | writing space, independent locale data, disabled incomplete Publish |
+| `admin-account` | expanded shared account menu | desktop, mobile | all actions reachable and logout confirmation |
 | `admin-analytics` | `/admin/analytics` | desktop, mobile | `fullPage: true` if long |
 | `owner-edit` | `/#edit` | desktop, mobile | viewport/context |
 | `owner-panel-sections` | `/#admin` Sections tab | desktop, mobile | viewport/context |
@@ -130,7 +147,7 @@ Signed-in/admin session:
 
 Use `docs/ADMIN_LANGUAGE.md` for current Thai controls and familiar English
 workflow terms; older screenshots are not authority for English-only Admin.
-Cases requires an owner identity. Use clearly synthetic UAT records and filter
+Cases and Customers require an owner identity. Use clearly synthetic UAT records and filter
 captures to those records; do not expose customer details in shared evidence.
 Scroll the drawer so the state named in the evidence (such as a conflict
 message) is actually visible. Label body/detail scroll positions separately.
@@ -144,15 +161,15 @@ Create `manifest.json` in the snapshot directory:
 ```json
 {
   "site": "CoverMate",
-  "capturedAt": "2026-07-31T00:00:00.000Z",
+  "capturedAt": "<actual ISO timestamp>",
   "baseUrl": "https://covermateinsurance.com",
-  "commit": "97181c7",
+  "commit": "<actual source SHA plus dirty-file hashes when applicable>",
   "browser": "chromium",
   "notes": [],
   "captures": [
     {
       "id": "public-home-full",
-      "path": "/tmp/covermate-production-snapshots-YYYYMMDD-HHMMSS/public-home-full-desktop.png",
+      "path": "/Users/point/CoverMate/uat-results/production-snapshots-YYYYMMDD-HHMMSS/public-home-full-desktop.png",
       "requestedUrl": "https://covermateinsurance.com/",
       "finalUrl": "https://covermateinsurance.com/",
       "viewport": { "name": "desktop", "width": 1440, "height": 900 },
@@ -181,6 +198,32 @@ Required per capture:
 - scroll position for viewport captures
 - `status`
 - errors or warnings when present
+
+## Offline Poster Evidence
+
+Use `exports/poster-v36/README.md` and `scripts/motor-poster-v36-check.mjs` for
+the current three-page artifact. No live auth/CMS or website server is needed.
+For poster composition/export changes, inspect:
+
+- All three A5 pages and A4 layout, with desktop and 390px mobile editor controls.
+- Page 1 against the approved mock; page 2 against the retained v35 comparison;
+  page 3 for the revised review copy and reduced overlap with the introduction.
+- Default 1+3, 1+2, all three and a custom subset; reject an empty selection.
+  Preview changes must not change export selection.
+- Edited text/formatting, shared fields and independent QR uploads through Save
+  HTML/reopen; the saved file must retain all pages and the chosen set.
+- Actual selected PDF pages, exactly-two-page A4 landscape spread, PNG/JPG
+  dimensions/density, overflow blocking, cancellation and invalid-image recovery.
+
+Record file hash, browser, viewport/DPR, network/error results and exact tested
+flows. Open the captures and exported artifacts yourself. Browser PDF is not
+physical-print proof; do not claim Safari/iOS without its own evidence. QR and
+promotion placeholders remain explicitly incomplete, even when layout passes.
+
+Keep only the latest verified evidence per page/language/viewport/state under
+`docs/ARTIFACT_RETENTION.md`. Preserve original inputs and uncommitted work;
+replacement mapping and explicit approval precede any deletion. Do not rebuild
+or recreate caches merely to verify cleanup.
 
 ## Rejection Criteria
 

@@ -1,6 +1,6 @@
 ---
 name: thai-palliative-nurse-new-chat
-description: Onboard or refresh context for the Thai Palliative Nurse / TPNA website. Use for a new-chat prompt, project handoff, required reading, setup, or documentation sync before continuing TPNA page, shared-component, tracking, access, or release work.
+description: Onboard or refresh context for the Thai Palliative Nurse / TPNA website. Use for a new-chat prompt, project handoff, required reading, setup, or documentation sync before continuing TPNA shared UI, CMS/content API, search, tracking, loading, access, or release work.
 ---
 
 # Thai Palliative Nurse New Chat
@@ -34,6 +34,11 @@ monitor or delegate to another chat.
 - Read `docs/SHARED_COMPONENTS.md` before changing reused UI. Navigation,
   banners, fields, cards, actions, date picker and detail layout must remain
   consistent. Scope genuine page differences through variants, not copies.
+- Read `docs/CMS_ARCHITECTURE.md` for editorial changes. `content/site.json` or
+  the configured HTTPS provider supplies a validated published revision through
+  `/api/content`; `src/cms/` owns the snapshot and shared search. Data modules
+  select this content, not duplicate it. CMS administration and transactional
+  member/registration APIs remain future work, separate from public content.
 - Tracking has two categories, hidden-until-search results and no personal data
   in URLs/storage. Birth dates use fixed DD/MM/YYYY Buddhist years, no visible
   era suffix, 48px fields and the shared dialog-safe dropdown. The membership
@@ -42,9 +47,14 @@ monitor or delegate to another chat.
   a simulated success creates a member, sends mail, uploads files or verifies a
   payment. The owner permits populated fixtures without visitor-facing mock
   notices. Keep consent unchecked and the implementation boundary documented.
-- Preserve real font/image readiness, initial three-second loading introduction,
-  fast internal navigation, gentle loading motion, hero swipe/autoplay/pause and
-  mobile controls that add no banner height. Keep detail content beside its rail.
+- Loading fonts/artwork start from HTML independently of CMS/React. Reveal orbit,
+  actual-font text and progress together; preserve valid content/font/image
+  gating, the initial three-second minimum and fast internal navigation. Fit
+  loading and error/retry within the viewport without scrolling; restore normal
+  scroll after readiness. Compact decoration first and keep gentle motion.
+- Preserve hero swipe/autoplay/pause and upper-right controls that add no banner
+  height. Keep detail content beside its rail. Same-page TOC/hash navigation must
+  not reset to the top; `App.tsx` resets scroll only when the pathname changes.
 - Preserve the complete About history, sourced founder portraits and confirmed
   bank details. Never fill space with meaningless placeholder lines.
 

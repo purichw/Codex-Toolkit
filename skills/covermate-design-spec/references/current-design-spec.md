@@ -1,8 +1,39 @@
 # CoverMate Website Current Product Spec
 
-Last updated: 2026-09-27
+Last updated: 2026-11-04
 
 ## Current Authority And Release State
+
+This is a current source/product contract, not a claim of current production
+parity. [HANDOFF.md](/Users/point/CoverMate/docs/HANDOFF.md#november-4-source-and-local-deliverables) separates
+the inspected November 4 source, uncommitted reader/poster work and historical
+hosted release evidence. This docs refresh did not recapture UI or recheck live
+CMS/deployment. Dated snapshots below retain their original scope.
+
+Current task owners supplement the older detailed sections:
+
+- [ADMIN_CUSTOMERS.md](/Users/point/CoverMate/docs/ADMIN_CUSTOMERS.md): separate owner-only Customers,
+  manual data entry and entry/review/acknowledged-success journey. New Customer
+  labels, text, dates, counters and hints align left; dropdown values/options
+  remain centered. Do not apply that scoped exception to every editor. Private
+  GCS documents and identity capability remain configuration-gated; no billing
+  activation or public CMS-media fallback.
+- [ADMIN_CASES_WORKBENCH.md](/Users/point/CoverMate/docs/ADMIN_CASES_WORKBENCH.md): current Cases workflow,
+  linked customer/activity, queues and saved views, on the existing permissions
+  and data contract. An enquiry is not automatically a customer or policy sale.
+- [ARTICLE_EDITOR.md](/Users/point/CoverMate/docs/ARTICLE_EDITOR.md) and [ADMIN_ARTICLES.md](/Users/point/CoverMate/docs/ADMIN_ARTICLES.md):
+  shared article information panels above the writing area, focused expanded
+  editor, publication readiness checklist and full-page preview. Keep TH/EN
+  content/publication independent and media reuse explicit and confirmed.
+- [HOME_ARTICLES.md](/Users/point/CoverMate/docs/HOME_ARTICLES.md): up to twelve items, three cards per
+  desktop page, one on tablet, three stacked mobile rows, arrows and page bars.
+- [ARTICLE_DETAIL.md](/Users/point/CoverMate/docs/ARTICLE_DETAIL.md): shared Home navbar, optional dates,
+  local TOC motion/focus and cover/body/rail layout follow-ups. Their presence
+  in source does not imply they have been deployed.
+- [Motor poster v36](/Users/point/CoverMate/exports/poster-v36/README.md): a separate three-page
+  offline print artifact with approved blue/gold direction, not website chrome.
+- [ARTIFACT_RETENTION.md](/Users/point/CoverMate/docs/ARTIFACT_RETENTION.md): retain latest verified designs
+  per surface/language/viewport/state, protecting original and editable sources.
 
 Current source includes the September visitor work and the source-boundary
 refactor: CMS commands/history have module owners, Cases routing/storage and
@@ -29,8 +60,10 @@ Articles source now includes `/articles`, `/articles/:slug`, and the owner-only
 owns central persistence, draft/live publication, locale/date rules and the
 independent master/Home/navigation switches. Public routes depend on those
 switches and due published translations, not merely the presence of source
-files. Earlier four-module Admin and two-public-page inventories below predate
-Articles; do not use them to remove the module or reopen local-only publishing.
+files. The Admin shell includes Home, Cases, Customers, Website content, Articles
+and Analytics. Its three Home shortcut cards are not the complete sidebar
+inventory; Settings/Role Preview are retired. Do not restore historical modules
+or reopen local-only article publishing.
 
 The September 23 Home contact submission candidate follows the owner's state
 mockup plus dedicated behavior spec. [CONTACT_SUBMISSION.md](/Users/point/CoverMate/docs/CONTACT_SUBMISSION.md)
@@ -75,12 +108,14 @@ Shared component ownership and retained compatibility names are documented in
 HOME_REDESIGN.md. This supersedes historical legacy Motor geometry below and is
 local until a matching release is recorded in HANDOFF.md.
 
-Cookie consent candidate: retain GA4 behind explicit opt-in. A compact, nonmodal
+Cookie consent: retain GA4 behind explicit opt-in. A compact, nonmodal
 TH/EN bar offers equally accessible allow/decline choices above the existing
 touch LINE action. It is not a second PDPA popup or form consent. Footer settings
 allow withdrawal, with no additional floating button. CMS `cookieConsent.*`
-owns copy; `ANALYTICS.md` owns data/consent behavior. Local until HANDOFF.md records
-a matching deployment.
+owns copy; [ANALYTICS.md](/Users/point/CoverMate/docs/ANALYTICS.md) owns data/consent behavior. The requested
+Thai heading "ช่วยให้ CoverMate ใช้งานง่ายขึ้นอีกนิด", explanation, details disclosure
+and "ไม่อนุญาต" / "อนุญาต" actions are in committed source `fe85a21`; customized
+CMS values remain preserved. Source migration is not blanket CMS publication.
 
 Implementation baseline: current source and generated candidate bundle in this
 repository. Use deployment/source readback for the exact production revision;
@@ -216,9 +251,9 @@ missing prototype JavaScript is not a blocker to faithful implementation.
 Future external designs, local prototypes, or handoff updates must reflect the current product decisions:
 
 - First read `/Users/point/CoverMate/docs/ADMIN_CMS_REBUILD_DECISIONS.md`; it is the current Admin/CMS rebuild authority.
-- The public product now has two visitor entry points in the same CoverMate
-  site: `/` is the full home page, and `/motor` is the dedicated
-  motor-insurance campaign page for motor-specific ads/search.
+- The public product includes Home, dedicated service pages and published
+  Articles in the same site. [SITE_MAP.md](/Users/point/CoverMate/docs/SITE_MAP.md) owns the full route
+  inventory and visibility rules; `/motor` is the motor campaign page.
 - `/#motor` is the public Home anchor that scrolls to the unchanged
   `insurers` DOM/CMS section; old `/#insurers` URLs normalize to it.
   It is not the campaign route. Use `/motor` for motor-only
@@ -231,15 +266,18 @@ Future external designs, local prototypes, or handoff updates must reflect the c
 - Preserve enabled policy review, claim, renewal, fee and privacy capabilities
   through the compact composition/disclosures. Guides are consolidated into FAQ;
   do not restore a separate reading section or force disabled sections visible.
-- Admin Portal Home target has four primary modules: `Operations`,
-  `Website content`, `Analytics`, and `Settings`. The home lives inside the
-  same admin shell as those modules; `/admin/ops` remains only a compatibility
+- Admin Home has three primary shortcut cards: `Operations`, `Website content`
+  and `Analytics`. The shared sidebar additionally exposes Home, Customers and
+  Articles with their existing role gates; Settings/Role Preview are retired.
+  `/admin/ops` remains only a compatibility
   entry that defaults to Operations. The `Website content` module must not
   split editing and arranging into separate launcher cards; `Edit the words`
   opens the editor, and its `Tools -> Panel` command opens the control panel for
   section order, visibility, brand, footer, preview, publish, backup, and
   restore.
-- Admin menu/chrome labels are intentionally English: `Main`, `Public site`, `Log out`, `Panel`, `Edit text`, `Save draft`, `Preview`, `Publish`, `Success`.
+- Admin controls use natural Thai with familiar workflow terms; Customers page
+  and tab names may be English. Follow [ADMIN_LANGUAGE.md](/Users/point/CoverMate/docs/ADMIN_LANGUAGE.md)
+  and the scoped Customers contract instead of enforcing English-only chrome.
 - Admin `Public site` actions must open the clean public route in a new browser
   tab without showing owner chrome. Legacy `/?view=public` may be consumed for
   compatibility, but new UI must not generate it.
@@ -307,6 +345,8 @@ Supporting docs:
 | --- | --- | --- | --- |
 | `/` | Public home page | Prospective customers | Indexable |
 | `/motor` | Dedicated motor-insurance campaign page | Prospective motor customers from motor-specific ads/search | Indexable |
+| `/health`, `/life` | Dedicated service pages; see `SERVICE_PAGES.md` | Public | Per route/CMS SEO contract |
+| `/articles`, `/articles/{slug}` | Published article index/reader | Public | Selected-language publication and visibility gated |
 | `/#motor` | Public Home anchor into the `insurers` DOM/CMS section | Home navigation; accepts old `/#insurers` links | Same document as `/`; not sitemap |
 | `/#life` | Alias into public `#cover` section | Prospective life/health customers | Same page, no separate surface |
 | `/#motor-focus` | Legacy unexposed motor campaign variant | Compatibility only | Same page, no sitemap/nav exposure |
@@ -316,6 +356,9 @@ Supporting docs:
 | `/#preview` | Owner preview of draft | Admin only | No separate index route |
 | `/admin/login` | Google sign-in gate | Admin only | `noindex` |
 | `/admin` | Admin Portal shell | Admin only | `noindex` |
+| `/admin#customers` | Customer registry, entry/review/success and records | Owner only | `noindex` |
+| `/admin#articles` | Article list/editor and separate locale publication | Owner only | `noindex` |
+| `/admin#operations` | Cases workbench | Owner only | `noindex` |
 | `/admin/ops` | Compatibility entry into Operations in the Admin Portal shell | Admin only | `noindex` |
 | `/admin/content?page=motor` | Control panel scoped to the motor page | Admin only | `noindex` |
 | `/admin/edit?page=motor` | Inline text editor scoped to the motor page | Admin only | `noindex` |
@@ -355,7 +398,8 @@ Rules:
 - Body copy should stay readable at 15-18px depending on context.
 - Compact cards and admin controls should not use oversized hero-scale headings.
 - Thai text must avoid awkward single-word orphaning where it affects polish.
-- Admin menu/chrome text should remain English for clarity.
+- Admin controls follow `ADMIN_LANGUAGE.md`; TH/EN is the edited public-content
+  language, not a toggle for Admin chrome.
 
 ## Color Tokens
 
@@ -411,7 +455,8 @@ Mobile:
 
 Components:
 
-- Logo mark: pale green circular `C`, brand name, Thai/English role line.
+- Current CMS-owned CoverMate logo artwork, with approved localized brand files
+  as defaults; do not restore the historical circular `C` placeholder.
 - Nav:
   - `#cover`: `ความคุ้มครอง` / `Cover`
   - `#review`: `ตรวจกรมธรรม์` / `Policy review`
@@ -419,21 +464,22 @@ Components:
   - `#fit`: `เครื่องมือ` / `Resources`
   - `#faq`: `คำถามที่พบบ่อย` / `FAQ`
 - Language segmented control: `TH` and `EN`.
-- Primary CTA: chat icon + `แอดไลน์` / LINE copy.
+- Primary CTA: official LINE mark and current CMS-owned LINE copy.
 
 Guardrails:
 
 - Never show two `ประกันรถยนต์` nav items.
+- Home, article index and reader share the same header owner. On articles, Home
+  anchors become localized Home URLs; do not drop them because the reader lacks
+  Home sections. Articles visibility separately controls the Articles link.
 - Do not make `/#motor` appear like a separate website. The separate,
   canonical motor campaign surface is `/motor`.
 - Header should stay calm and not become a marketing mega-nav.
 - Header/footer nav and any CTA that points to a same-page section must be
   visibility-aware: if the target section is hidden in Admin, the link/button is
   hidden too rather than leaving a dead anchor on the visitor surface.
-- The Home `#insurers` section carries the explicit path into the dedicated
-  motor campaign page: Thai `ดูหน้าประกันรถยนต์โดยเฉพาะ`, English
-  `Open the dedicated motor page`, with `href="/motor"`. Keep this out of the
-  header nav so the header still has only one Motor item.
+- A CMS-authored `/motor` CTA can link to the dedicated campaign page. Do not
+  invent a mandatory CTA or restore old copy; keep one Motor item in Home nav.
 
 ## Visitor Section Order
 
@@ -843,25 +889,27 @@ Required elements:
 
 - Single shared admin shell; sidebar changes views client-side without a full
   document reload.
-- The September 26 local consolidation uses `admin/shell.css` and `admin/shell.js`
-  for all five modules: one 256px desktop sidebar, logo, active navigation,
+- The shared shell uses `admin/shell.css` and `admin/shell.js`
+  for Home, Cases, Customers, Website content, Articles and Analytics:
+  one 256px desktop sidebar, logo, active navigation,
   verified-account footer, topbar and mobile drawer at widths below 1040px.
-  Role Preview belongs in Settings, not the signed-in account footer.
+  Settings and Role Preview are retired. The account menu owns account details,
+  notifications/preferences and confirmed logout; its expanded actions must
+  remain reachable without scrolling the whole sidebar.
   See `ADMIN_SHELL.md` for ownership and verification; this is not deployment evidence.
 - OIC verify link.
 - H1: `Admin Portal`.
-- Four primary cards:
+- Three primary Home shortcut cards (not the whole sidebar inventory):
   - `Operations`
   - `Website content`
   - `Analytics`
-  - `Settings`
 - Cards expose only surfaces that are live or operationally useful today.
   Unbuilt modules stay hidden until real API contracts exist.
 - Quick actions open content editing, Draft preview, all Cases and due follow-ups.
-- Home counts and the three newest Cases come from canonical Cases endpoints.
-  A connection badge reports successful Home reads, independently of the
-  verified session; CMS/Analytics source descriptions are not universal health
-  checks. Errors retain navigation and offer retry.
+- Home counts and up to five newest Cases come from canonical Cases endpoints.
+  CMS draft readiness has its own read state. A connection badge reflects these
+  scoped reads, not universal system health; session and Analytics remain distinct.
+  Errors retain navigation and offer retry.
 - Inside the `Website content` module, use one unified `Edit the words` entry
   for copy and panel access. Do not reintroduce a separate `Arrange and
   customise` card; the panel is reached from the editor dock through `Tools ->
@@ -875,11 +923,16 @@ Clean public loads must also clear or ignore stale owner markers. Owner controls
 
 Layout:
 
-- Desktop: four cards in one row when space allows.
+- Desktop: three cards in one row when space allows.
 - Tablet: two-column modules.
 - Mobile: two module columns with stacked utility panels and readable wrapping.
 
 Do not remove the Admin Portal Home after login. It is the required hub.
+
+Customers and Articles remain reachable in the same sidebar without adding
+placeholder Home cards. Reuse shared shell/fields/selects/dialogs and preserve
+their real domain-specific workflows; adding a mock control does not implement
+its data, privacy or permission contract.
 
 ## Operations / Cases v2
 
@@ -889,7 +942,10 @@ implementation, API/data boundaries, legacy mapping, responsive layouts and
 verification evidence. This supersedes earlier Operations tab descriptions in
 this document; other Admin modules retain their existing routes.
 
-Cases uses six explicit statuses, global server summaries, filtered/paginated
+The original Cases v2 baseline used six explicit statuses. The current
+[workbench](/Users/point/CoverMate/docs/ADMIN_CASES_WORKBENCH.md) supersedes that editor vocabulary with
+five current statuses, closure reasons and compatibility handling for old
+records; do not restore legacy transitions. It retains global server summaries, filtered/paginated
 lists and an editor with explicit Save, version conflict handling and preserved
 drafts. Website enquiry text/privacy evidence are immutable; manual notes are
 separate. New APIs are verified-owner only. Existing lead documents and legacy
@@ -1205,8 +1261,8 @@ Do:
 - Preserve the current warm advisory brand.
 - Keep the public page continuous and anchor-based.
 - Keep admin private surfaces visually related but operationally clear.
-- Keep `/admin` as the Admin Portal Home with Operations, Website content,
-  Analytics, and Settings.
+- Keep `/admin` as Home in the shell with Cases, Customers, Website content,
+  Articles and Analytics; keep retired Settings/Role Preview out of navigation.
 - Keep explicit paths between `/admin`, `/admin/edit`, and `/admin/content`;
   public-site actions open clean public routes in a new tab, while close/main
   actions return to the existing Admin/editor context.
@@ -1261,8 +1317,9 @@ Admin:
 
 - Login page shows Firebase Auth, not demo-only wording.
 - Admin Portal Home exists after login.
-- Portal target has exactly four primary cards: Operations, Website content,
-  Analytics, Settings.
+- Home has three shortcut cards: Operations, Website content and Analytics.
+  The sidebar also exposes Customers and Articles with their existing gates;
+  do not confuse Home shortcut count with supported-module count.
 - Operations exposes the unified Cases workspace without leaving the admin
   shell. Legacy Dashboard/Leads/Tasks/Audit links resolve to Cases; records and
   history stay preserved. Unbuilt modules and fake records stay hidden.

@@ -24,8 +24,17 @@ proof of visual quality.
   for inconsistent page copies to accumulate. See [Shared Components](#shared-components).
 - **Balanced controls.** Center button labels/icons vertically, keep icon gaps
   and neighboring actions comfortably spaced, and size fields for their data.
+  Center standalone upload/media action groups within their image, card or
+  panel, including choose/replace/remove actions beneath a preview.
   Single-line inputs, selects and date triggers should share coherent heights.
   See [component contracts](references/components.md) for checks and exceptions.
+- **Consistent spacing.** Give related content a clear grouping rhythm: page
+  gutters, panel insets, section gaps and label-to-field gaps each have a shared
+  role. Diagnose both cramped joins and oversized empty areas; repair their
+  common owner and verify the rendered narrow/medium/wide composition. In
+  Admin/CMS headers, check the notice-to-toolbar/first-label transition as well
+  as padding inside the notice; do not fix one by enlarging the other. See
+  [spacing and grouping](references/user-preferences.md#spacing-and-grouping).
 
 These are explicit user preferences, not universal design laws. Read
 [user-preferences.md](references/user-preferences.md) for type starting sizes,

@@ -1,4 +1,4 @@
-# User Preferences: Typography, Cards And Alignment
+# User Preferences: Typography, Cards, Alignment And Spacing
 
 Read the relevant section for navigation, type, cards, forms or tables. These are
 this user's defaults, not universal design laws. Explicit task-specific direction
@@ -83,6 +83,14 @@ default merely because the old implementation differs.
 
 ## Alignment And Action Affordance
 
+- Center standalone upload/media action groups horizontally within their owning
+  image, card or panel by default, including “choose from media”, upload, replace
+  and remove buttons beneath a preview. Center the group itself as well as each
+  button's label/icon. Keep peer buttons together with a consistent gap; when
+  they wrap on mobile, center each row and retain readable labels and touch
+  targets. Repair the shared media/upload component and check its affected
+  consumers. This user preference does not automatically recenter page-level
+  toolbars, table row actions or unrelated form submission bars.
 - `text-align: center` alone is not alignment proof: flex/grid content and native
   picker internals can remain off-center. Inspect actual layout and a rendered
   screenshot. Center a field label over the painted field itself, excluding any
@@ -130,3 +138,52 @@ default merely because the old implementation differs.
   real links for downloads/navigation and buttons for in-page actions; ordinary
   prose links need not become buttons. Inspect the rendered result and verify
   the relevant action still works after changing its element or styling.
+
+## Spacing And Grouping
+
+- Use the product's spacing scale by role: page gutters, panel padding, gaps
+  between sections/groups, and gaps within a field/control group. Equivalent
+  roles share an owner or token; different roles need not have identical gaps.
+  Do not turn one screenshot's dimensions into a universal pixel requirement.
+- Related labels, controls and helper text should read as one unit. Give separate
+  groups more separation than their internal elements. Inspect transitions such
+  as heading → notice → toolbar → editor: a roomy header does not excuse a notice
+  touching the next label. Preserve the centered field-label preference above;
+  spacing repairs must not silently change alignment conventions.
+- Align peer panels and toolbars to their intended parent gutter. Measure the
+  visible gaps and insets, accounting for combined margins, parent gap, line
+  height, nested padding and empty/hidden elements before adding another offset.
+  Repair the shared layout/component, not one page with arbitrary compensation.
+- Size controls for the content: a short headline need not occupy a paragraph
+  textarea, while long copy, validation text and translations need room to grow.
+  Reduce wasted space without shrinking type or touch targets. Do not force equal
+  card heights or padding when the content roles intentionally differ.
+- At the affected desktop, tablet and mobile widths, inspect actual screenshots
+  at readable size for both crowded and overly sparse regions. Check wrapped
+  labels, action rows, banners and open/dirty form states. Re-render after the
+  final edit; computed spacing values alone do not prove visual balance.
+
+### Context: Admin/CMS Notice Before An Editing Toolbar
+
+Applies when an editor stacks a page title/description, a status or environment
+notice, then a design/page selector and save/preview/publish actions. It also
+applies when that notice appears or disappears after a save or validation error.
+
+- The notice's internal padding and the space after its painted boundary solve
+  different problems. A comfortable notice can still touch the next field label.
+  Inspect description → notice, notice → first label/toolbar, label → control,
+  and toolbar → editor separately. Keep the label attached to its own control.
+- Use the shared section-gap role for separate groups and the smaller field-gap
+  role within a group. In the Coach CMS correction, 24 CSS px before/after the
+  notice resolved the cramped join; this is evidence for that composition, not
+  a mandatory value for other products or dense inline status messages.
+- Account for parent `gap`, sibling margins, margin collapse, global resets and
+  hidden/conditional elements before adding offsets. Repair the common shell
+  or notice/toolbar owner; do not accumulate per-page padding overrides.
+- If a new screenshot still shows a reportedly fixed join, first compare the
+  current rendered route, build/source, viewport and notice state with the
+  earlier capture. Measure and inspect a contextual current screenshot. Do not
+  blame browser cache or declare the image stale without identifying evidence;
+  say when the source of the older-looking image remains unknown.
+- Verify the affected width and the wrapped toolbar state when that layout is
+  touched. A notice-free state must not retain an empty notice-sized gap.

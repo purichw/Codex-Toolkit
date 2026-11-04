@@ -468,6 +468,10 @@ Skill/source-documentation changes alone do not require an unrelated app capture
   reuse scope, API/state boundaries and migrations to `shared-component-architecture`,
   and focused token/primitive consistency to `design-system-guardian`, without
   forcing abstractions or multiple audits on tiny edits.
+- User preferences include centered standalone media/upload action groups and
+  role-based spacing. Notice padding and notice-to-toolbar gaps are separate;
+  diagnose shared owners and inspect the current rendered state rather than
+  applying a universal pixel value or assuming a reported image is stale.
 - Use when: Working on visual design, interaction design, accessibility,
   responsive UI, design systems, frontend polish, component galleries, layout
   exemplars, UX flow/state coverage, cross-browser/platform responsive QA,
@@ -942,25 +946,30 @@ Skill/source-documentation changes alone do not require an unrelated app capture
 ### covermate-design-spec
 
 - Skill file: [../skills/covermate-design-spec/SKILL.md](../skills/covermate-design-spec/SKILL.md)
-- Description: Maintains, audits, snapshots, and hands off CoverMate public/admin
-  design contracts using current checkout docs and a dated bundled fallback.
-- Use when: Working on compact Home, Articles publishing, Cases v2, admin
-  login/launcher/edit/arrange/analytics, CMS content/media, design handoffs,
-  copy voice, responsive polish, or product decisions that must not drift.
+- Description: Maintains CoverMate website/Admin design contracts and the
+  separately approved standalone motor poster using current checkout owners.
+- Use when: Working on Home, Articles/editor readiness, Customers/Cases,
+  Admin shell, CMS history/media, responsive polish, design handoffs or poster
+  page selection and print/image exports.
 - Typical context: The active task checkout (default `/Users/point/CoverMate`),
   the recorded production domain `https://covermateinsurance.com`, current
   `docs/HANDOFF.md` and task-specific product docs, the bundled
   `references/current-design-spec.md`, and scoped `references/snapshot-suite.md`.
   Current project evidence overrides dated candidate or historical inventories;
   the bundled spec does not establish which revision is deployed.
-- Updated contracts: Preserve CMS-owned section visibility/order and intentional
-  empty values, bilingual FAQ editing, Articles publication rules, Cases v2 draft
-  conflicts, separate draft history versus live-publish rollback, selected
-  Cloudinary media handling, and source/default changes versus CMS publication.
-- Portability and reconciliation: Bundled links into `/Users/point/CoverMate/docs`
-  require that project checkout and are not included in this toolkit. The skill
-  entrypoint retains older `#insurers`/`#motor` wording than the bundled spec;
-  resolve anchor behavior from current project docs/runtime before changing it.
+- Updated contracts: Preserve CMS visibility/order, intentional empty values,
+  independent TH/EN publication, Customers entry/review/success and private-storage
+  gates, Cases workbench conflicts and separate Draft versus Live history.
+  Home/article navigation uses `#motor` into the existing `insurers` section;
+  Settings/Role Preview remain retired. Three Home shortcuts are not the complete
+  Admin module inventory.
+- Poster boundary: The three-page artifact has independent preview/export
+  selections and all-page Save HTML. Read its own README, preserve original
+  inputs and verify actual selected exports. Browser PDF is not physical-print
+  evidence, and placeholder QR/promotion values remain incomplete.
+- Portability: Bundled links into the CoverMate checkout are not included in
+  this toolkit. Artifact retention requires replacement/recovery evidence and
+  explicit deletion approval; a docs sync does not recapture or redeploy UI.
 
 ### covermate-new-chat
 
@@ -970,19 +979,20 @@ Skill/source-documentation changes alone do not require an unrelated app capture
   source areas, and a copy-ready starter prompt.
 - Use when: The user asks for a new-chat prompt, handoff prompt, context pickup
   checklist, required docs/skills/setup for CoverMate, or wants a future chat to
-  know what to read before visitor, admin, CMS, Firebase, analytics, Claude
-  Design, QA, snapshot, UAT/regression, push, deploy, or consistency work.
+  know what to read before visitor, Articles, Customers/Cases, CMS, Firebase,
+  poster/export, artifact retention, visual QA or release work.
 - Typical context: The active task checkout (default `/Users/point/CoverMate`),
   git status, `README.md`,
   `PROJECT_MAP.md`, `docs/ADMIN_CMS_REBUILD_DECISIONS.md`, `docs/HANDOFF.md`,
   `docs/RELEASE_RUNBOOK.md`, task-specific CoverMate docs/source areas, current
   on-disk skills, durable route/admin/CMS rules, proportional UAT triggers, and
   `references/new-chat-context.md`.
-- Updated context includes compact Home and Articles, Cases v2, CMS publication
-  and editor-history boundaries, Thai admin copy, Cloudinary media, customer-facing
-  copy voice, and one-time legacy insurer migration that preserves later CMS
-  edits. Refactor/release work records the UAT baseline and exact production
-  revision; do not switch checkouts or infer deployed state from fallback notes.
+- Updated context includes Customers consent/private-storage gates, linked Cases,
+  article authoring/readiness, CMS publication/history and standalone poster v36.
+  Choose task owners first: docs maintenance and opening the self-contained poster
+  do not require website builds, dependency installs or hosted smoke. Cleanup,
+  billing, publication and deployment require their own authorization; source and
+  historical snapshots do not establish current production.
 
 ## DOOTAA
 
@@ -1003,17 +1013,18 @@ Skill/source-documentation changes alone do not require an unrelated app capture
 ### deepx-new-chat
 
 - Skill file: [SKILL.md](../skills/deepx-new-chat/SKILL.md)
-- Description: Onboards DeepX Works, Product Studio, Explore Ideas and their
-  shared Content Studio from current source and guarded content contracts.
-- Use when: Preparing a handoff or picking up UI, performance, CMS/Supabase,
-  domain, regional infrastructure or staged release
+- Description: Onboards DeepX Works, Product Studio, Explore Ideas, Content
+  Studio and the separate Coach/LUMA managers from current owner contracts.
+- Use when: Preparing a handoff or picking up UI, performance, CMS/playgrounds,
+  Supabase, domain, regional infrastructure or staged release
   work. The [reading map](../skills/deepx-new-chat/references/new-chat-context.md)
   identifies source owners and separates historical release notes from live proof.
-- Boundaries: Preserve approved Home desktop, route-specific theme/loading,
-  fresh public-content handoff, CMS-owned content and complete-draft atomic
-  publication. Keep the documented existing-region/no-new-cost exception until
-  explicitly changed. Onboarding does not authorize another chat, infrastructure
-  changes or publishing.
+- Boundaries: Content Studio, Coach and LUMA publish separate workspaces; public
+  IndexedDB playgrounds have no real write access. Preserve each manager's theme,
+  data/role/media boundaries and unconnected integration limits. The live skill
+  records Singapore replacing Ireland, which remains recovery; re-read current
+  release/infra owners before action and preserve the no-new-recurring-cost rule.
+  Archived release claims are not fresh verification or permission to publish.
 
 ## Glenonchy
 
@@ -1022,8 +1033,8 @@ Skill/source-documentation changes alone do not require an unrelated app capture
 - Skill file: [SKILL.md](../skills/glenonchy-new-chat/SKILL.md)
 - Description: Onboards Glenonchy mobile/Flutter/Flame, Django/DRF and standalone
   Godot Tactics work from their current product and asset contracts.
-- Use when: Continuing membership, minigames, rewards, native UI, design-artifact
-  retention or preparing a
+- Use when: Continuing membership, database replacement/recovery, minigames,
+  rewards, native UI, design-artifact retention or preparing a
   handoff. Its [reading map](../skills/glenonchy-new-chat/references/new-chat-context.md)
   routes to current game/asset, API, design and verification owners.
 - Boundaries: Use the physical-iOS, one-target workflow; do not automatically
@@ -1032,6 +1043,10 @@ Skill/source-documentation changes alone do not require an unrelated app capture
   contracts; Godot runtime checks are not Flutter integration or iPhone proof.
   Keep current per-feature designs and source art; cleanup and publishing require
   their own authorization.
+- Recovery: Resolve the canonical `Glenonchy/Glenonchy` repository and read
+  `docs/SUPABASE_RESTORE.md` before DB/API/auth work. A recreated schema is not
+  restored accounts or a deployed API. Preserve device identity, backups and
+  prepared credentials; local database-client checks are not hosted/iPhone proof.
 
 ## Notenwert
 
@@ -1052,28 +1067,30 @@ Skill/source-documentation changes alone do not require an unrelated app capture
 ### korat-tan-phai-new-chat
 
 - Skill file: [../skills/korat-tan-phai-new-chat/SKILL.md](../skills/korat-tan-phai-new-chat/SKILL.md)
-- Description: Onboards the Korat forecast dashboard and isolated iOS app with
-  current docs, rev03 origin/horizon semantics, Supabase boundaries and shared CI.
-- Use when: Preparing starter prompts or continuing web/mobile, map/data,
-  shared-component, brand, setup or release work in `/Users/point/korattanphai`.
-- Typical context: Current HANDOFF, DATA_CONTRACT, FORECAST_ONLY_RESTORATION,
-  SHARED_COMPONENTS, DESIGN_SYSTEM and mobile README; parked Actual code is not
-  active navigation, and a branded native shell is not connected product parity.
+- Description: Onboards Korat forecast web, no-code CMS and the connected iOS
+  app while preserving current worktree ownership and release boundaries.
+- Use when: Preparing starter prompts or continuing forecast/data, CMS import
+  and recovery, shared UI/loading, native parity or release work.
+- Typical context: Current HANDOFF, forecast-only restoration, data/CMS lifecycle,
+  loading, shared components and mobile README/NATIVE_PARITY. Production uses
+  published Supabase/CMS revisions without static fallback; Visitor/Admin sessions
+  remain independent. Native Auth, forecasts, analysis and sharing are implemented,
+  but later web changes do not update its binary or prove complete device parity.
 
 ### korat-tan-phai-shared-components
 
 - Skill file: [../skills/korat-tan-phai-shared-components/SKILL.md](../skills/korat-tan-phai-shared-components/SKILL.md)
-- Description: Preserves shared React components and domain semantics across
-  Korat province, district, and subdistrict surfaces; requires automatic snapshot
-  evidence for visible work and browser checks for changed interactions.
-- Use when: Auditing or changing stats, selects, provenance chips, map previews,
-  dashboard sections, local maps, or shared responsive behavior.
+- Description: Preserves shared web presentation across Korat Visitor/Admin
+  without merging sessions, caches, domain state or native component owners.
+- Use when: Auditing or changing controls, dialogs, search, maps, forecast
+  analysis, CMS presentation or illustrated loading.
 - Typical context: `/Users/point/korattanphai`, `docs/SHARED_COMPONENTS.md`,
   owner source/CSS, current usages, data-readiness vs hazard semantics, and the
   smallest relevant route/state/breakpoint evidence.
-- Version caveat: Its retained Actual/legacy-link guidance predates the forecast-only
-  restoration described by `korat-tan-phai-new-chat`. Read the current project's
-  restoration contract before using those temporal examples as active routing rules.
+- Loading and evidence: Owners supply real auth/module/page milestones; preserve
+  continuous motion, failure/retry, immediate content release and reduced motion.
+  Automatic snapshots cover visible work, while interactions/motion need exercised
+  evidence. Actual remains parked; native uses its own primitives and parity docs.
 
 ## Kaset Tan Phai
 
@@ -1130,17 +1147,19 @@ release evidence is not a new production check.
 ### thai-palliative-nurse-new-chat
 
 - Skill file: [SKILL.md](../skills/thai-palliative-nurse-new-chat/SKILL.md)
-- Description: Onboards or refreshes the Thai Palliative Nurse / TPNA website
-  from current project docs, shared components and release boundaries.
-- Use when: Preparing a starter prompt or continuing pages, Blue branding,
-  tracking/date controls, content/assets, access or release work.
+- Description: Onboards TPNA shared UI, published content API, search, loading
+  and access contracts from current project evidence.
+- Use when: Preparing a starter prompt or continuing editorial content/providers,
+  search, Blue branding, readiness, tracking/date controls, access or release work.
 - Typical context: The selected TPNA checkout, `AGENTS.md`, `docs/HANDOFF.md`,
   `README.md`, `PROJECT_MAP.md`, shared UI/testing/deployment docs and its
   [task map](../skills/thai-palliative-nurse-new-chat/references/new-chat-context.md).
-- Boundaries: Preserve the server access boundary, private tracking inputs,
-  Buddhist date formatting and approved fixture behavior. Local trial forms
-  do not prove member creation, uploads, payments or email delivery. Onboarding
-  does not authorize another chat, publishing, deletion or firewall changes.
+- Boundaries: A validated published snapshot supplies public content/search;
+  content failure must not revive stale fixtures. CMS administration and
+  transactional member/registration APIs remain future work. Preserve private
+  tracking, Buddhist dates, viewport-safe font/art readiness and same-page fragment
+  navigation. Local trial forms do not prove writes, uploads, payments or delivery;
+  onboarding does not authorize publishing, cleanup or another chat.
 
 ## Shane Thai
 

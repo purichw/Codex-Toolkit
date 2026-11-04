@@ -1,6 +1,6 @@
 ---
 name: deepx-new-chat
-description: "Onboard or refresh context for DeepX Works, Product Studio, Explore Ideas and their shared Content Studio CMS. Use for DeepX new-chat or handoff prompts, project documentation updates, or context pickup before UI, performance, CMS, Supabase, domain or Vercel release work."
+description: "Onboard or refresh DeepX Works, Product Studio, Explore Ideas, Content Studio, Coach and LUMA CMS. Use for DeepX handoffs, project documentation updates, or context pickup before UI, CMS/playground, performance, Supabase, domain or release work."
 ---
 
 # DeepX New Chat
@@ -19,7 +19,9 @@ authorize creating or inspecting another chat.
    this skill's [project context](references/new-chat-context.md).
 4. Read `AGENTS.md`, `README.md`, `docs/PROJECT_MAP.md`, `docs/CMS.md`, and the
    latest summary plus task-relevant section of `docs/RELEASE.md` in the selected
-   checkout. Then read only the source owners needed for the user's task.
+   checkout. Use `docs/README.md` to locate task-specific contracts. For trainer
+   or clinic work read `docs/COACH_CMS.md` or `docs/CLINIC_CMS.md`; do not infer
+   their data/auth behavior from the legacy per-demo design notes.
 5. Reconcile conflicts using current source, the latest explicit user decision,
    and dated evidence. Earlier entries in the chronological release log describe
    superseded layouts; they must not silently undo later corrections. Historical
@@ -31,8 +33,10 @@ authorize creating or inspecting another chat.
 
 - Retain dark navy/cyan for DeepX Works and white/ice/cyan for Product Studio
   and Explore Ideas. Individual website demos retain their own approved palettes.
-  All `/studio` descendants use the shared **light** full-page loader, including
-  dark demos; initial HTML and React must hand off without a fallback flash.
+  All `/studio` and `/admin` descendants use the shared **light** full-page loader,
+  including dark demos. Studio-family error pages are also light and recover to
+  `/studio`; other error paths use the dark network treatment. Initial HTML and
+  React must hand off without a fallback flash.
   Load `/Users/point/.codex/skills/ui-ux-expert/SKILL.md` for UI work; follow the
   repo's mockup guidance while giving newer explicit decisions priority.
 - Preserve the approved Home desktop and keep mobile-only fixes scoped. This is
@@ -46,22 +50,42 @@ authorize creating or inspecting another chat.
   Old catalogue URLs remain reserved, without redirects. Demo navigation shows
   only its active category; its return link goes to the Ideas root and logo to Studio.
 - Keep Our Ecosystem, SUT before Chula, and the CMS-owned logo order/assets.
-  The current mobile ticker moves left-to-right without Play/Pause controls;
-  desktop/tablet retain their original layout. Details are in the reference.
+  The shared ticker moves left-to-right without Play/Pause controls at all widths,
+  retaining desktop logo sizing. The hero video plays once and holds its last
+  frame; do not restore looping from old notes. Details are in the reference.
 - Business copy, navigation, media, contact details and metadata are CMS-owned.
   Do not hardcode them or restore cleared content from the bootstrap fixture.
 - Preserve guarded CMS writes, published-only reads, revision conflicts,
-  atomic publication and authentication/allowlist boundaries. Publication covers
-  the shared draft across pages, not just the page currently open in the editor.
+  atomic publication and server authorization. Content Studio publishes its
+  whole Home/Studio/Ideas draft. Coach and LUMA each publish their own workspace;
+  never merge these boundaries or publish unrelated drafts. Their category-linked
+  visitor managers are login-free IndexedDB playgrounds with no real write access.
+- Content Studio uses white/cyan, Coach uses its approved light purple system,
+  and LUMA uses forest/cream. Share controls/dialog behavior while retaining each
+  module's tokens and data ownership. Preserve centered standalone media/language
+  controls, balanced notice-to-toolbar spacing and opaque open dropdown menus.
 - Preserve fresh CMS reads and lazy route/demo boundaries when optimizing.
   Read `docs/PERFORMANCE.md` for the current request handoff and bundle gates.
-  Latest hosting decision: retain the existing Ireland database with `dub1`
-  functions and **no new recurring cost**; Asia migration was not performed.
+  Current backend is Singapore `yeyhyyuannxhurltvexm` (`ap-southeast-1`) with
+  Vercel `sin1`. Check browser and server environment targets independently;
+  stale integration-managed variables previously differed. Ireland is recovery.
 - For new infrastructure or an authorized future migration, apply the owner's
   [Thailand-first region default](../project-onboarding/references/region-defaults.md):
   Thailand when supported, otherwise the closest suitable supported Asian region.
-  DeepX's existing Ireland/no-new-cost decision remains an explicit exception;
-  do not move only functions away from their database or create paid resources.
+  The later authorized Singapore migration superseded the old Ireland placement;
+  the no-new-recurring-cost boundary remains. Do not move only functions away
+  from their database or create paid resources without authorization.
+
+## Current operations and input questions
+
+Use the dated `docs/RELEASE.md` entry for status, not a fresh health claim. The
+2026-11-04 release completed Coach/LUMA deployment and login/save checks. Earlier
+login, Chrome, disk-space and release questions are resolved; do not reopen them
+unless a current operation actually fails. Real Coach booking remains off; the
+real LUMA workspace is unpublished/intake off. Visitor practice is available and
+separate. Email/SMS/calendar integrations are unconnected. For real activation,
+read the input checklist in `docs/CMS.md`; optional business/integration inputs
+are not blockers for the completed catalogue playground release.
 
 ## Scope and delivery
 
