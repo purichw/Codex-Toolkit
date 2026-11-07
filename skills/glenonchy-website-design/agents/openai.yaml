@@ -1,0 +1,4 @@
+interface:
+  display_name: "Glenonchy Website Design"
+  short_description: "Preserve storybook design and responsive proportions"
+  default_prompt: "Use $glenonchy-website-design to update Glenonchy's public website, preserve its product decisions and desktop-relative proportions, and verify the result visually."

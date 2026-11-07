@@ -1,6 +1,6 @@
 ---
 name: glenonchy-new-chat
-description: "Onboard or refresh Glenonchy's mobile app, minigames and standalone Godot Tactics project. Use for a Glenonchy new-chat prompt, project handoff, context pickup, required reading, setup status, or documentation alignment."
+description: "Onboard or refresh Glenonchy's public website, GM Console, backend, mobile app, minigames and standalone Godot Tactics project. Use for a Glenonchy new-chat prompt, project handoff, context pickup, required reading, setup status, or documentation alignment."
 ---
 
 # Glenonchy New Chat
@@ -17,16 +17,32 @@ the resolved repository rather than treating the legacy URL as another project.
 If moved or missing, ask for the path rather than choosing a similarly named project.
 Do not work in the original Downloads starter.
 
-Read `AGENTS.md`, `README_START_HERE_TH.md`, `docs/PROGRESS.md`,
-`docs/DECISIONS.md`, and `docs/PROJECT_MAP.md`, then the task-specific files in
+Read `AGENTS.md`, `README_START_HERE_TH.md` and `docs/README.md` to select the
+surface. Read relevant recent sections of `docs/PROGRESS.md`, `docs/DECISIONS.md`
+and `docs/PROJECT_MAP.md`, then the task-specific files in
 [references/new-chat-context.md](references/new-chat-context.md).
 Run `git status --short --branch` before edits and preserve existing changes.
 Treat current user directions as authoritative over older starter decisions.
 
+For the public storybook website, use
+[`glenonchy-website-new-chat`](../glenonchy-website-new-chat/SKILL.md) with
+`docs/website/NEW_CHAT.md`, then
+[`glenonchy-website-design`](../glenonchy-website-design/SKILL.md) and
+`docs/website/DESIGN_CONTRACT.md`. Its desktop-relative responsive sizing, paper
+safe areas, typography and navigation are separate from the Flutter rules below.
+Do not apply mobile game fonts or navigation to the public website.
+
+The public root and `/game/gmconsole` are separate entries in the same React
+package. The website entrance never grants GM/member API access. Read the GM
+operations runbook for admin work; do not infer restored GM roles from a working
+public website or member signup API. Godot Tactics is also a separate surface.
+
 ## Project decisions that affect implementation
 
 - Glenonchy is the shop/project name; Community Quest is the original starter.
-- Flutter + Flame remains the client; Django/DRF owns auth, API, admin and business rules.
+- Flutter + Flame remains the mobile/game client; React/TypeScript owns the
+  public website and GM frontend. Django/DRF owns membership, API and GM business
+  rules; the player app's local economy is not automatically server-connected.
 - iOS is the current implementation and physical-test target. Keep UI, game rules,
   dialogue content and assets in shared Flutter/Dart, with platform services behind
   adapters so Android can follow later. Do not start Android setup/testing merely
@@ -34,7 +50,9 @@ Treat current user directions as authoritative over older starter decisions.
 - Supabase is hosted PostgreSQL only. Do not infer Supabase Auth/Data API or
   supabase_flutter adoption from the presence of a project URL/publishable key.
 - Before DB/API/auth/GM work, read `docs/SUPABASE_RESTORE.md` for the current
-  target, completed setup and explicit next scope. A recreated schema is not
+  target and `docs/SIGNUP_RECOVERY_2026-11-07.md` for the scoped Render/mobile
+  recovery, identity realm and verification limits. Read completed setup and
+  explicit next scope. A recreated schema is not
   restored accounts, a database backup or a deployed API. Keep old references
   historical; do not repeat bootstrap or migrate every working-tree app merely
   because a new database exists. Preserve device data across environment changes:
@@ -69,6 +87,10 @@ Treat current user directions as authoritative over older starter decisions.
   Server validation, ownership, transactions and idempotency still apply.
 - The owner approved local points/coupons/items and staff handover. Read
   `docs/14-points-rewards.md`; do not reinstate the starter's blanket reward ban.
+  All four games charge 50 points for a new round through shared confirmation;
+  Retry of the same failed ticket is free. Pay once on success only where that
+  game defines a reward. Preserve every game's customized guide when simplifying
+  the surrounding flow; confirmation does not replace the guide.
   This does not authorize server redemption, payment/POS or cross-device claims.
 - World entry does not require Glenonchy first. Preserve each venue's QR, unlock,
   durable-save, fog/reveal and mini-map contracts in `docs/16-world-map.md`.

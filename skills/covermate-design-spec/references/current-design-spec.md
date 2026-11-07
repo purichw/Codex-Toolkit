@@ -1,14 +1,15 @@
 # CoverMate Website Current Product Spec
 
-Last updated: 2026-11-04
+Last updated: 2026-11-07
 
 ## Current Authority And Release State
 
 This is a current source/product contract, not a claim of current production
-parity. [HANDOFF.md](/Users/point/CoverMate/docs/HANDOFF.md#november-4-source-and-local-deliverables) separates
-the inspected November 4 source, uncommitted reader/poster work and historical
-hosted release evidence. This docs refresh did not recapture UI or recheck live
-CMS/deployment. Dated snapshots below retain their original scope.
+parity. [HANDOFF.md](/Users/point/CoverMate/docs/HANDOFF.md#latest-pickup) separates the latest verified
+release receipts, later read-only observations and local-only maintenance.
+Do not treat older uncommitted-work checkpoints as the current release state.
+This docs refresh did not recapture UI or recheck live CMS/deployment. Dated
+snapshots below retain their original scope.
 
 Current task owners supplement the older detailed sections:
 
@@ -30,6 +31,12 @@ Current task owners supplement the older detailed sections:
 - [ARTICLE_DETAIL.md](/Users/point/CoverMate/docs/ARTICLE_DETAIL.md): shared Home navbar, optional dates,
   local TOC motion/focus and cover/body/rail layout follow-ups. Their presence
   in source does not imply they have been deployed.
+- [CONTENT_PROTECTION.md](/Users/point/CoverMate/docs/CONTENT_PROTECTION.md): silent ordinary-copy/image
+  deterrence on public routes; preserve form clipboard and explicit share-link
+  controls, exclude owner/Preview modes, and do not promise DRM protection.
+- [SEO.md](/Users/point/CoverMate/docs/SEO.md): route/language metadata and the read-only search review.
+  Distinct-page results are not a defect; Google controls Sitelinks/site names.
+  Browser redirects do not establish Google's crawl or indexing state.
 - [Motor poster v36](/Users/point/CoverMate/exports/poster-v36/README.md): a separate three-page
   offline print artifact with approved blue/gold direction, not website chrome.
 - [ARTIFACT_RETENTION.md](/Users/point/CoverMate/docs/ARTIFACT_RETENTION.md): retain latest verified designs
@@ -1202,12 +1209,20 @@ Public visitor routes:
   with reciprocal hreflang. Changing language preserves the current form.
 - OG/Twitter image: `https://covermateinsurance.com/assets/covermate-og.png`.
 - JSON-LD includes Website, Organization/InsuranceAgency, WebPage, and Service.
-- Sitemap contains Home/Motor in both languages, never admin or hash URLs.
+- Sitemap contains Home/Motor/Health/Life in both languages; the dynamic article
+  sitemap adds only eligible collections and published translations, never
+  drafts, admin or hash URLs. Empty article locales remain noindex.
   Admin is crawlable so noindex can be read; it is not crawl-blocked as a
-  substitute for authentication. API endpoints are excluded from crawling.
+  substitute for authentication. API endpoints are excluded from crawling
+  except the exact public article sitemap endpoint.
 - Initial HTML and hydrated metadata share `covermate-seo.mjs` and published
   CMS fields via `api/page.js`; visual body rendering remains client-side.
-  See `docs/SEO.md` for unpublished implementation status and hosted checks.
+  See [SEO.md](/Users/point/CoverMate/docs/SEO.md) for the current contract and dated verification limits.
+- Legacy `covermate.vercel.app` remains a permanent redirect, including root
+  middleware before the Home rewrite. Do not remove distinct service/article
+  results or collapse their canonicals into Home to force Sitelinks. Google's
+  displayed site name, title, language and result grouping are not product UI
+  acceptance guarantees; inspect the exact query/URL before proposing fixes.
 
 Admin routes:
 

@@ -950,7 +950,8 @@ Skill/source-documentation changes alone do not require an unrelated app capture
   separately approved standalone motor poster using current checkout owners.
 - Use when: Working on Home, Articles/editor readiness, Customers/Cases,
   Admin shell, CMS history/media, responsive polish, design handoffs or poster
-  page selection and print/image exports.
+  page selection and print/image exports, including route metadata or public
+  copy/image deterrence that must preserve the product experience.
 - Typical context: The active task checkout (default `/Users/point/CoverMate`),
   the recorded production domain `https://covermateinsurance.com`, current
   `docs/HANDOFF.md` and task-specific product docs, the bundled
@@ -970,6 +971,10 @@ Skill/source-documentation changes alone do not require an unrelated app capture
 - Portability: Bundled links into the CoverMate checkout are not included in
   this toolkit. Artifact retention requires replacement/recovery evidence and
   explicit deletion approval; a docs sync does not recapture or redeploy UI.
+- Search/protection boundaries: Preserve eligible route/language canonicals
+  rather than collapsing pages to force a search-result layout. Browser redirects
+  do not prove Google's crawl state. Public clipboard/image guards are silent
+  deterrence, not DRM; retain forms/share controls and owner/Preview exclusions.
 
 ### covermate-new-chat
 
@@ -993,6 +998,10 @@ Skill/source-documentation changes alone do not require an unrelated app capture
   do not require website builds, dependency installs or hosted smoke. Cleanup,
   billing, publication and deployment require their own authorization; source and
   historical snapshots do not establish current production.
+- SEO and reliability: Route search questions and public content protection to
+  their own contracts. Scheduled monitor/backup failures need exact-workflow
+  evidence; separate browser setup, billing and page failures without weakening
+  coverage or treating green release CI as proof that scheduled jobs work.
 
 ## DOOTAA
 
@@ -1031,22 +1040,56 @@ Skill/source-documentation changes alone do not require an unrelated app capture
 ### glenonchy-new-chat
 
 - Skill file: [SKILL.md](../skills/glenonchy-new-chat/SKILL.md)
-- Description: Onboards Glenonchy mobile/Flutter/Flame, Django/DRF and standalone
-  Godot Tactics work from their current product and asset contracts.
-- Use when: Continuing membership, database replacement/recovery, minigames,
+- Description: Routes Glenonchy public website, GM Console, backend, mobile,
+  minigames and standalone Godot Tactics to their current surface-specific owners.
+- Use when: Selecting the right surface, continuing membership/recovery, minigames,
   rewards, native UI, design-artifact retention or preparing a
   handoff. Its [reading map](../skills/glenonchy-new-chat/references/new-chat-context.md)
   routes to current game/asset, API, design and verification owners.
-- Boundaries: Use the physical-iOS, one-target workflow; do not automatically
+- Boundaries: Public website and GM share a React package, not access or UI.
+  Route website work to its two specialist skills; Flutter/game rules stay with
+  mobile. For native work use the physical-iOS, one-target workflow; do not automatically
   launch simulators, Android setup or local cloud services. Distinguish headless,
   fixture, backend and real-device evidence. Preserve per-game animation
   contracts; Godot runtime checks are not Flutter integration or iPhone proof.
   Keep current per-feature designs and source art; cleanup and publishing require
   their own authorization.
 - Recovery: Resolve the canonical `Glenonchy/Glenonchy` repository and read
-  `docs/SUPABASE_RESTORE.md` before DB/API/auth work. A recreated schema is not
-  restored accounts or a deployed API. Preserve device identity, backups and
-  prepared credentials; local database-client checks are not hosted/iPhone proof.
+  `docs/SUPABASE_RESTORE.md` and the current signup-recovery checkpoint before
+  DB/API/auth work. A recreated schema is not restored accounts or a deployed API.
+  Preserve device realm identity, backups and credentials; distinguish hosted
+  runtime, local environment and CLI linkage. Local game points/retries/rewards
+  do not imply server redemption or cross-device economy.
+
+### glenonchy-website-new-chat
+
+- Skill file: [SKILL.md](../skills/glenonchy-website-new-chat/SKILL.md)
+- Description: Onboards Glenonchy's public storybook shop website from current
+  website guides, canonical design decisions, source owners and dated evidence.
+- Use when: Preparing a website-only handoff, finding required reading/setup or
+  refreshing context before implementation or documentation maintenance.
+- Typical context: `/Users/point/Projects/Glenonchy`, `docs/website/NEW_CHAT.md`,
+  `DESIGN_CONTRACT.md` and the website index. The public source is under
+  `apps/gm-console/src/website/`; the package name does not make this GM work.
+- Boundaries: Public entrance is not GM/member authentication. Preserve approved
+  composition, readiness and page content; use the design specialist for visible
+  edits. Onboarding alone does not authorize builds, cleanup, another chat or
+  publishing. External project docs are required and are not bundled here.
+
+### glenonchy-website-design
+
+- Skill file: [SKILL.md](../skills/glenonchy-website-design/SKILL.md)
+- Description: Implements or repairs Glenonchy's approved storybook website
+  through shared composition owners, paper safe areas and desktop-relative roles.
+- Use when: Changing public website layout, artwork, typography, sizing,
+  stamps/seals, navigation, book motion or visual QA, not Flutter or GM UI.
+- Typical context: Website design contract, approved references, shared book
+  shell/proportion styles, in-paper pagination, full artwork and current rendered
+  state. Preserve all required venues/sections and explicit product decisions.
+- Verification: Use `ui-ux-expert` and automatic `snapshot`, then the responsive,
+  reference, component or motion specialist only for touched risks. Inspect
+  composition and exercise changed behavior; screenshots/builds do not prove
+  physical-device behavior. The live skill remains authoritative for this backup.
 
 ## Notenwert
 

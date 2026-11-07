@@ -78,6 +78,8 @@ For production snapshots, visual archives, release evidence, or design handoffs 
 - Follow actual source ownership: visitor renderer in `src/visitor/runtime.js`, editor commands in `src/visitor/cms-controller.js`, history in `editor-history.js`, CMS persistence in `covermate-firebase.js`, and freshness in `covermate-freshness.mjs`. The controller extraction does not lazy-load the whole editor UI.
 - GA4 measurement ID is `G-5TF3C235EF`; public analytics must not receive visitor names, phone numbers, LINE IDs, or freeform messages.
 - Admin routes are private and `noindex`.
+- Search appearance follows `docs/SEO.md`, not a mock of Google's result layout. Preserve each eligible route/language canonical and the legacy-origin permanent redirect. Do not noindex distinct pages or merge them into Home merely to force Sitelinks; site names/result grouping are Google's choices, and crawl claims need their own evidence.
+- Public copy/image deterrence follows `docs/CONTENT_PROTECTION.md`: no warning overlay, no clipboard replacement, working form copy/cut/paste and share-link copy, and owner/Preview exclusions. Keep page geometry unchanged and distinguish this browser behavior from robots/WAF controls or DRM.
 
 ## Standalone Poster Contract
 

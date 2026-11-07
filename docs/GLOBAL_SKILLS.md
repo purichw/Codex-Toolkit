@@ -98,7 +98,7 @@ These skills stay under their project or specialized names:
 - CoverMate: `covermate-design-spec`, `covermate-new-chat`
 - DeepX: `deepx-new-chat`
 - DOOTAA: `dootaa-new-chat`
-- Glenonchy: `glenonchy-new-chat`
+- Glenonchy: `glenonchy-new-chat`, `glenonchy-website-new-chat`, `glenonchy-website-design`
 - Kaset Tan Phai: `kaset-tan-phai-new-chat`
 - Korat Tan Phai: `korat-tan-phai-new-chat`, `korat-tan-phai-shared-components`
 - Notenwert: `notenwert-design-direction`, `notenwert-maintainer`

@@ -1,0 +1,4 @@
+interface:
+  display_name: "Glenonchy Website New Chat"
+  short_description: "Refresh Glenonchy website context and handoffs"
+  default_prompt: "Use $glenonchy-website-new-chat to read the current public website guide, design contract, relevant source and release evidence, then continue my requested task in this chat."

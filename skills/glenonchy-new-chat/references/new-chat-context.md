@@ -10,9 +10,12 @@ this file is a routing map, not a second copy of project status.
 
 | Current task | Read |
 |---|---|
-| Any visual design or shared UI repair | docs/25-design-direction.md, relevant component/asset owners, docs/26-current-ui-qa.md for evidence scope |
+| Public website context | docs/website/NEW_CHAT.md, docs/website/README.md, docs/website/DESIGN_CONTRACT.md; invoke glenonchy-website-new-chat, then glenonchy-website-design for implementation |
+| Public website release/access | apps/gm-console/README.md, docs/website/ACCESS_PROTECTION.md, latest dated website release and its retained status evidence; public entrance is not GM/member auth |
+| GM Console / admin operations | docs/gamemaster-console/REPO_AUDIT.md, docs/gamemaster-console/IMPLEMENTATION_PLAN.md, docs/gamemaster-console/OPERATIONS_RUNBOOK.md, apps/gm-console/README.md; first operations slice, not the full V1 |
+| Mobile visual design or shared UI repair | docs/25-design-direction.md, relevant component/asset owners, docs/26-current-ui-qa.md for evidence scope |
 | Design evidence retention / disk cleanup | docs/ARTIFACT_RETENTION.md, docs/ENVIRONMENT.md, docs/PROGRESS.md; use the recorded per-feature replacement map and actual execution results, not an old deletion script as fresh authorization |
-| Any context pickup | AGENTS.md, README_START_HERE_TH.md, docs/PROGRESS.md, docs/DECISIONS.md, docs/PROJECT_MAP.md |
+| Any context pickup | AGENTS.md, README_START_HERE_TH.md, docs/README.md, relevant recent sections of docs/PROGRESS.md and docs/DECISIONS.md, docs/PROJECT_MAP.md |
 | Setup or device readiness | docs/ENVIRONMENT.md, docs/02-setup.md, apps/mobile/README.md, docs/11-device-support.md |
 | Product scope / MVP | docs/00-product-scope.md, docs/06-codex-tasks.md |
 | Client/game work | apps/mobile/README.md, docs/01-architecture.md; choose the actual game's contract below rather than applying the original Coffee Catch spec to every game |
@@ -25,13 +28,13 @@ this file is a routing map, not a second copy of project status.
 | Shared UI / QR camera | docs/13-game-selection-shared-ui.md; apps/mobile/lib/app/game_components.dart and features/game_selection/ |
 | Local points / coupons / menus | docs/14-points-rewards.md, docs/15-merchant-menus.md; apps/mobile/lib/data/local_rewards.dart |
 | Login/layout/brand/TH-EN | docs/10-membership.md, docs/11-device-support.md, assets/brand/README.md, assets/auth/README.md; owner apps/mobile/lib/features/auth/auth_screen.dart |
-| Membership/API/session/recovery | docs/SUPABASE_RESTORE.md, docs/10-membership.md, backend/README.md, docs/09-infrastructure.md; owners backend/accounts/, apps/mobile/lib/data/auth_repository.dart, apps/mobile/lib/features/auth/auth_gate.dart |
-| Supabase replacement / backup / migrations / reconnect | docs/SUPABASE_RESTORE.md, docs/ENVIRONMENT.md, docs/DECISIONS.md, docs/22-render-free.md, docs/gamemaster-console/OPERATIONS_RUNBOOK.md; inspect incident-specific bootstrap/verification helpers before running them, distinguish deployed baseline from pending account/player migrations, and preserve mobile identity |
+| Membership/API/session/recovery | docs/SIGNUP_RECOVERY_2026-11-07.md, docs/SUPABASE_RESTORE.md, docs/10-membership.md, backend/README.md, docs/09-infrastructure.md; owners backend/accounts/, apps/mobile/lib/data/auth_repository.dart, apps/mobile/lib/features/auth/auth_gate.dart |
+| Supabase replacement / backup / migrations / reconnect | docs/SUPABASE_RESTORE.md, docs/SIGNUP_RECOVERY_2026-11-07.md, docs/ENVIRONMENT.md, docs/DECISIONS.md, docs/22-render-free.md, docs/gamemaster-console/OPERATIONS_RUNBOOK.md; distinguish hosted runtime, local env and CLI link, deployed baseline and pending account/player migrations; preserve stable realm identity and device data |
 | Gameplay backend/progression | docs/04-data-api-security.md, docs/06-codex-tasks.md, docs/10-membership.md; preserve existing membership |
 | QR/map/venue operations | docs/16-world-map.md, docs/qr-codes/README.md, apps/mobile/lib/data/local_qr_catalog.dart; docs/05-qr-map-ops.md is the earlier operations plan |
 | UAT or release | docs/07-test-release.md, docs/26-current-ui-qa.md, docs/PROGRESS.md, current build sources; 21/23/24 are earlier QA baselines |
-| New-chat prompt | docs/NEW_CHAT.md |
-| Docs/skill alignment | docs/NEW_CHAT.md, README.md, README_START_HERE_TH.md, docs/ENVIRONMENT.md, docs/PROJECT_MAP.md, docs/skill-updates/README.md and task runbooks; skill entrypoint/reference/UI metadata |
+| New-chat prompt | docs/NEW_CHAT.md; website-only work uses docs/website/NEW_CHAT.md |
+| Docs/skill alignment | docs/README.md, docs/NEW_CHAT.md, docs/website/README.md, docs/website/NEW_CHAT.md, README.md, README_START_HERE_TH.md, docs/ENVIRONMENT.md, docs/PROJECT_MAP.md, docs/skill-updates/README.md and task runbooks; skill entrypoint/reference/UI metadata |
 
 Supabase target and lifecycle are recorded in docs/SUPABASE_RESTORE.md. Validate the
 exact ref before any permitted remote action. CLI/browser sessions and ignored
@@ -42,7 +45,9 @@ creation, migrations, hosting changes or mobile reconnect. Setup credentials and
 database preservation files are not disposable caches. Do not copy current refs,
 passwords, account details or verification counts into this routing map.
 
-Current low-impact checks, if the files still exist:
+Use only checks needed for the current task. Documentation-only onboarding needs
+file/link/metadata checks and Git status/diff, not builds or cloud/device tests.
+For setup work, use the setup checker if it still exists:
 
 ```sh
 git status --short --branch

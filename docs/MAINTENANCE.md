@@ -53,7 +53,7 @@ The owner also approved a live user-level installation at
 backup, compare both copies and sync reviewed live updates into the repo; do not
 overwrite live work or reinstall it. Do not copy the external evaluation kit/tests,
 duplicate this skill under `skills/`, or replace the web skill. The archive
-verifier count is 148; check this additional installation with its own validator:
+verifier count is 150; check this additional installation with its own validator:
 
 ```sh
 python3 .agents/skills/ui-ux-expert-mobile-native/scripts/validate_package.py
@@ -88,7 +88,7 @@ False positives are normal. Read the matches before deciding.
 For most changes, run the toolkit verifier:
 
 ```sh
-python3 scripts/verify_skills.py --expected-count 148
+python3 scripts/verify_skills.py --expected-count 150
 ```
 
 It checks skill frontmatter, folder/name consistency, local Markdown links,

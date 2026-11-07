@@ -13,13 +13,13 @@ user's intent.
   the reviewed skills and project context to the public repository. This archive
   pass did not change visibility. Continue reviewing future diffs for sensitive data.
 - Purpose: archive and document the user's personal Codex skills
-- Current skill count: 148 `SKILL.md` files under `skills/`
-- Breakdown: 87 personal skill folders (including compatibility routers),
+- Current skill count: 150 `SKILL.md` files under `skills/`
+- Breakdown: 89 personal skill folders (including compatibility routers),
   59 `global-*` alias skills for reusable non-project-specific workflows, and
   2 standalone global design-spec skills.
 - Separate repo-scoped installation: one skill,
-  `ui-ux-expert-mobile-native`, under `.agents/skills/` (149 skill entrypoints
-  across both maintained roots). It is not part of the 148-folder archive count.
+  `ui-ux-expert-mobile-native`, under `.agents/skills/` (151 skill entrypoints
+  across both maintained roots). It is not part of the 150-folder archive count.
 
 The first import copied personal skills from:
 
@@ -141,6 +141,8 @@ Expected current skill folders:
 - `github-actions-repair`
 - `github-actions-usage`
 - `glenonchy-new-chat`
+- `glenonchy-website-design`
+- `glenonchy-website-new-chat`
 - `image-boundary`
 - `image-boundary-efficient`
 - `image-boundary-iteration`
@@ -274,7 +276,7 @@ updates, enough verification is usually:
 
 ```sh
 git diff --check
-python3 scripts/verify_skills.py --expected-count 148
+python3 scripts/verify_skills.py --expected-count 150
 ```
 
 For skill script changes, run the script's smoke-test or help path when one
@@ -383,6 +385,15 @@ As of this document, the repository has:
   one separate native entrypoint. Native and repo-only global copies were
   unchanged. This backup did not modify live skills, validate project runtime,
   deploy an app or establish UI quality; exports and temporary files stay local.
+
+- On 2026-11-07, archived `glenonchy-website-new-chat` and
+  `glenonchy-website-design` from the live personal tree, and refreshed Glenonchy
+  onboarding plus the two CoverMate skills. Website/GM/mobile boundaries,
+  membership recovery, SEO/content-protection evidence and scheduled CI diagnosis
+  now route to current project owners. Counts are 150 archive skills plus one
+  separate native entrypoint. The website skills are project-specific, with no
+  global aliases. Live skill sources, native, project runtimes and local exports
+  were not changed by this backup; archived evidence is not a new UI/release test.
 
 The main thing future Codex should preserve is the distinction between live local
 skills and the GitHub archive. That distinction prevents accidental overwrites
