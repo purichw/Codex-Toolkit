@@ -79,7 +79,7 @@ large library of nuanced, domain-specific examples and critique patterns.
     - Need: advanced accessibility critique and acceptance examples.
 
 11. **Evidence-based design critique**
-    - Existing: `$reference-implementation-critique` and `$reference-to-a-tee`.
+    - Existing: `$reference-implementation-critique` and `$mockup-to-product`.
       Challenge geometry, hierarchy, and inferred behavior with calibrated pairs.
     - Need: screenshot annotation examples and scoring rubrics.
 

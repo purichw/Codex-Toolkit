@@ -45,7 +45,7 @@ Use adjacent skills when the task crosses boundaries:
   documents, service accounts, or account lifecycle.
 - `$firebase-security-rules` for Firestore/Storage rules, Admin SDK endpoint
   authorization, or production access.
-- `$reference-to-a-tee` for exact Admin UI parity from Claude handoffs.
+- `$mockup-to-product` for exact Admin UI parity from Claude handoffs.
 - `$snapshot` for mandatory visual evidence before the final response when an
   Admin screen, state, responsive layout, Claude handoff, or prototype
   comparison is in scope.
@@ -110,8 +110,8 @@ Use adjacent skills when the task crosses boundaries:
 3. Trace source and persistence through `ADMIN_PORTAL_IMPLEMENTATION.md` and
    `data-contracts.md`.
 4. Preserve Super Admin checks and test-mode boundaries.
-5. For supplied mockups, use `$mockup-to-product`; use `$reference-to-a-tee`
-   when exact fidelity is requested. Inspect the current shared owners and
+5. For supplied mockups, use `$mockup-to-product`, preserving any explicitly
+   requested exact constraints. Inspect the current shared owners and
    nearest screen rather than copying retired prototype components/selectors.
 6. Verify:
    - small copy/layout: `npm run test:syntax` plus browser spot-check

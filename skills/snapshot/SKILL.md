@@ -8,7 +8,7 @@ description: Capture, crop, inspect, and present UI screenshots with enough visu
 Use this skill whenever visual evidence is part of the answer. A snapshot should
 help the user understand the UI, not merely prove that a selector exists.
 
-Use `$mobile-web-qa` for responsive/mobile audit, `$reference-to-a-tee` for
+Use `$mobile-web-qa` for responsive/mobile audit, `$mockup-to-product` for
 reference-vs-implementation parity, `$reference-implementation-critique` for
 measured reference/app comparison, `$design-quality-review` when a formal
 capture set, 25-item visual QA pass, severity result, or PR review template is
@@ -320,7 +320,7 @@ actual contract, not only the pretty surface.
 - **Permission/destructive states:** capture allowed, denied, disabled-with-reason,
   confirmation, success/failure, and audit/rollback state when relevant.
 
-Use `$reference-to-a-tee` when the contract is balanced against image, HTML,
+Use `$mockup-to-product` when the contract is balanced against image, HTML,
 or mixed references, and include snapshot evidence in the decision ledger.
 
 ## Behavior Evidence

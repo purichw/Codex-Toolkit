@@ -82,10 +82,12 @@ def parse_frontmatter(skill_md: Path, reporter: Reporter) -> dict[str, str]:
 
 
 def iter_markdown_files(root: Path) -> list[Path]:
+    # Root exports hold local recovery/evidence copies, not maintained documents.
     return sorted(
         path
         for path in root.rglob("*.md")
         if ".git" not in path.relative_to(root).parts
+        and path.relative_to(root).parts[0] != "exports"
     )
 
 

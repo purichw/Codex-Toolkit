@@ -53,7 +53,7 @@ The owner also approved a live user-level installation at
 backup, compare both copies and sync reviewed live updates into the repo; do not
 overwrite live work or reinstall it. Do not copy the external evaluation kit/tests,
 duplicate this skill under `skills/`, or replace the web skill. The archive
-verifier count is 150; check this additional installation with its own validator:
+verifier count is 148; check this additional installation with its own validator:
 
 ```sh
 python3 .agents/skills/ui-ux-expert-mobile-native/scripts/validate_package.py
@@ -88,12 +88,18 @@ False positives are normal. Read the matches before deciding.
 For most changes, run the toolkit verifier:
 
 ```sh
-python3 scripts/verify_skills.py --expected-count 150
+python3 scripts/verify_skills.py --expected-count 148
 ```
 
 It checks skill frontmatter, folder/name consistency, local Markdown links,
 helper script syntax, accidental bundled/system paths, and high-confidence secret
 patterns.
+
+Markdown link checks exclude root `exports/`, which contains local evidence and
+recovery copies, but still cover maintained docs, both skill roots and nested
+skill references. Secret and bundled-path scans still include exports. Verify
+this boundary with `python3 -m unittest discover -s scripts/tests -v` after
+changing the verifier; never publish local recovery copies.
 
 For docs-only changes, also run:
 
@@ -103,6 +109,19 @@ find skills -name SKILL.md | sort | wc -l
 ```
 
 If you add scripts, run their basic help or smoke-test path before committing.
+
+For the consolidated mockup HTML helper and its legacy wrapper:
+
+```sh
+PYTHONDONTWRITEBYTECODE=1 python3 -m unittest discover -s skills/mockup-to-product/tests -v
+python3 skills/mockup-to-product/scripts/extract_reference.py --help
+```
+
+See [reference consolidation](REFERENCE_PARITY_MIGRATION.md) before syncing an
+older installation. Do not resurrect the retired reference-to-a-tee folders.
+These tests verify helper behavior, not rendered UI quality.
+The owner approved removal of the two archived reference folders and the live
+reference folder after migration checks. The completed archive count is 148.
 
 For `responsive-design` collector changes, run its browser-backed fixture tests
 with an existing compatible Playwright/browser runtime:

@@ -130,7 +130,7 @@ only when the user request or project evidence points to it.
   semantic reuse, crop, mapping, and QA.
 - `$export-html`: create standalone/offline HTML exports or clickable prototypes
   from live/product screens for design handoff, Claude Design, or state review.
-- `$reference-to-a-tee`: implement or audit component-level UI parity from
+- `$mockup-to-product`: implement or audit component-level UI parity from
   HTML, image files, screenshots, prototypes, or mixed handoffs from any source.
 - `$mobile-web-qa`: mobile/tablet/Safari/Chrome-on-iPhone responsive QA, touch
   targets, safe areas, keyboard behavior, or horizontal overflow.

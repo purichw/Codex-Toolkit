@@ -29,7 +29,7 @@ Start with `Memory.md`, then read the relevant contract and source owners:
 - `tests/unit/pointy-logic.test.mjs`
 - relevant Playwright tests in `tests/e2e/coin-quest-ledger.spec.mjs`
 
-If the user asks for exact Claude visual parity, also use `$reference-to-a-tee` and
+If the user asks for exact Claude visual parity, also use `$mockup-to-product` and
 `CLAUDE_TO_A_TEE_QA.md`.
 
 Use adjacent skills when the task crosses boundaries:

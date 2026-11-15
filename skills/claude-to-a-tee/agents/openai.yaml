@@ -1,4 +1,4 @@
 interface:
   display_name: "Claude To A Tee (Compatibility)"
-  short_description: "Legacy name for Reference To A Tee"
-  default_prompt: "Use $claude-to-a-tee as a compatibility route to $reference-to-a-tee for measured HTML, image-only, or mixed-reference UI implementation."
+  short_description: "Legacy name for Mockup To Product"
+  default_prompt: "Use $claude-to-a-tee as a compatibility route to $mockup-to-product for measured HTML, image-only, or mixed-reference UI implementation."

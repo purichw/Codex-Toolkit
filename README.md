@@ -40,8 +40,8 @@ missing historical evidence honestly. Skill/docs-only updates need no app captur
 - [Maintenance guide](docs/MAINTENANCE.md): how to refresh, add, review, and
   publish changes to this repository.
 - [Docs index](docs/README.md): quick map of the documentation set.
-- [Reference parity migration](docs/REFERENCE_PARITY_MIGRATION.md): generic
-  reference-to-a-tee modes, fidelity versus effort, image evidence, and legacy compatibility.
+- [Reference workflow consolidation](docs/REFERENCE_PARITY_MIGRATION.md):
+  mockup-to-product evidence, optional HTML tooling, retired names and compatibility.
 - [Design judgment and gates](docs/SKILL_JUDGMENT_AND_GATES.md): five UI/UX
   improvements, evaluation limits, complete-deliverable gates, and risk routing.
 
@@ -56,15 +56,14 @@ missing historical evidence honestly. Skill/docs-only updates need no app captur
 | [`glenonchy-website-design`](skills/glenonchy-website-design/SKILL.md) | Preserves Glenonchy's storybook composition, paper safe areas and shared responsive proportions. | Website artwork, type, sizing, navigation, book motion or visual QA against approved references and current rendered evidence. |
 | [`ios-app-development`](skills/ios-app-development/SKILL.md) | Provides reusable iOS setup, build, install, launch and troubleshooting workflows. | Checking Mac/Xcode readiness, Expo/native ownership, Simulator/iPhone runs, signing or Metro while preserving the project's stack. |
 | [`korat-tan-phai-new-chat`](skills/korat-tan-phai-new-chat/SKILL.md) | Onboards Korat forecast web, no-code CMS and connected native iOS work. | Finding current owners for forecast routing, published revisions, independent sessions, loading, CMS recovery and native parity limits. |
-| [`mockup-to-product`](skills/mockup-to-product/SKILL.md) | Preserves approved mockup composition, materials and detail in a working product, including eligible missing-artwork recovery. | Reference-led implementation, shared components, native text/art fit, asset quality and Reference/Before/After review; explicit exact matching also uses reference-to-a-tee. |
+| [`mockup-to-product`](skills/mockup-to-product/SKILL.md) | Turns image, HTML and mixed references into real product UI with calibrated evidence and design judgment. | Reference-led implementation, responsive adaptation, explicitly scoped matching, artwork recovery and Reference/Before/After review; includes an optional HTML inventory helper. |
 | [`accessible-interaction`](skills/accessible-interaction/SKILL.md) | Verifies keyboard, focus, semantic controls, ARIA state, contrast, touch targets, and modal/drawer accessibility. | Visual or interaction changes could break non-pointer use, focus order, screen-reader-visible state, or mobile keyboard behavior. |
 | [`account-recovery-key`](skills/account-recovery-key/SKILL.md) | Defines provider-neutral recovery-key flows for signup, reset, regeneration, hashing, and display policy. | A project needs recovery codes/keys, password reset without email, signed-in key regeneration, or reusable auth recovery guidance. |
 | [`admin-ops`](skills/admin-ops/SKILL.md) | Guides admin portal operations, privileged actions, lifecycle flows, auditability, and CMS/admin UX. | Designing, auditing, implementing, or verifying admin surfaces that change real data, permissions, content, or operational state. |
 | [`admin-prototype-reconciliation`](skills/admin-prototype-reconciliation/SKILL.md) | Reconciles admin/CMS/dashboard prototypes against live production admin contracts before implementation. | A Claude/Figma/offline prototype must be compared with live fields, workflows, auth, APIs, drafts, publish, revisions, or data shape. |
 | [`claude-design-md-request`](skills/claude-design-md-request/SKILL.md) | Drafts Claude Design requests for implementation-ready Markdown handoffs/specs from visual artifacts. | A Claude prompt should separate visual facts from product decisions, map components, preserve product contracts, and produce implementable acceptance checks. |
 | [`claude-design-reference-bundle`](skills/claude-design-reference-bundle/SKILL.md) | Creates upload-ready Claude Design reference bundles from live pages, screenshots, routes, or prototypes. | Claude Design needs screenshots, measured specs, state notes, product constraints, and a paste-ready prompt without building a standalone HTML export. |
-| [`reference-to-a-tee`](skills/reference-to-a-tee/SKILL.md) | Matches HTML, image-only, or mixed references with fidelity separate from verification effort. | Exact repairs or reconstruction, explicitly requested adaptation, and scoped comparison evidence while preserving product behavior; inspiration-only requests route to design skills. |
-| [`claude-to-a-tee`](skills/claude-to-a-tee/SKILL.md) | Compatibility name routing to `reference-to-a-tee`. | Existing prompts or extractor commands still use the old Claude-specific name. |
+| [`claude-to-a-tee`](skills/claude-to-a-tee/SKILL.md) | Compatibility name routing to `mockup-to-product`. | Existing prompts or extractor commands still use the old Claude-specific name. |
 | [`codex-handoff-for-claude`](skills/codex-handoff-for-claude/SKILL.md) | Prepares implementation-ready Markdown handoffs from Codex to Claude or Claude Design. | Codex needs to package source-of-truth rules, product contracts, visual geometry, states, responsive behavior, accessibility notes, and acceptance checks for Claude. |
 | [`coin-quest-admin-ops`](skills/coin-quest-admin-ops/SKILL.md) | Keeps Coin Quest Ledger Admin Portal work aligned with current Firebase-backed admin behavior. | Editing admin auth, boards, users, lifecycle actions, reset/delete flows, publish/restore, revisions, or relationship maps. |
 | [`coin-quest-ledger-logic`](skills/coin-quest-ledger-logic/SKILL.md) | Preserves Party Ledger split math, participants, guests, invites, Character IDs, and settlement behavior. | Changing Coin Quest ledger workflows, guest handling, invite links, reminders, payer/participant logic, or settlement tests. |
@@ -162,5 +161,5 @@ selectively and preserve the archive's global layer.
 Verify the archive with:
 
 ```sh
-python3 scripts/verify_skills.py --expected-count 150
+python3 scripts/verify_skills.py --expected-count 148
 ```

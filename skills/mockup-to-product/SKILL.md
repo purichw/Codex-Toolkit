@@ -1,6 +1,6 @@
 ---
 name: mockup-to-product
-description: Implement mockup-led redesigns as coherent real-product experiences, preserving composition and design details while adapting layout, assets, content and responsive behavior. Use for flexible mockup adaptation, overall proportions, desktop/mobile design translation, or repeated visual rework. Not for explicit pixel-perfect reproduction or inspiration-only design.
+description: Implement, refine, or compare real product UI from image files, screenshots, HTML/CSS, prototypes, or mixed references. Preserve composition, design character and product behavior while adapting layout, assets, content and responsive behavior. Use for screenshot-to-UI, mockup-led redesigns, repeated visual rework, or explicitly scoped exact matching. Not for inspiration-only design.
 ---
 
 # Mockup To Product
@@ -84,20 +84,21 @@ match, state that concrete constraint and what remains unfinished.
 - Use this skill when the user allows judgment in dimensions, structure,
   responsive composition, real assets or content while asking for the mockup's
   overall design. Routine visual choices within that scope do not need approval.
-- Explicit exact/to-a-tee/pixel-perfect requests belong to `reference-to-a-tee`.
-  It also supports faithful adaptation, but this skill starts from product/design
-  judgment rather than exact parity plus exceptions. Do not weaken an exact
-  request by switching modes because it is difficult. If the user names this
-  skill alongside an exact request, retain that constraint and load the exact
-  workflow; invoking this skill does not grant visual freedom.
+- Exact/to-a-tee/pixel-perfect requests stay in this workflow. Treat the user's
+  specified surfaces/properties as constraints, use reliable source values or
+  calibrated image evidence there, and disclose what cannot be established.
+  Do not silently relax an explicit constraint, but do not extend it to every
+  inferred breakpoint, spacing choice or unrelated screen. A supplied image or
+  this skill's name alone does not impose pixel-exact implementation.
 - Inspiration-only requests belong to general design direction. If intent is
   materially ambiguous, ask once; do not repeatedly ask about already-approved
   visual freedom. A reference alone does not authorize new features or a
   site-wide redesign.
 
-Load `ui-ux-expert` when available for baseline craft. This skill owns the
-adaptation method; do not automatically load an exact-reproduction workflow
-merely because the input is an image. Respect explicit fidelity constraints.
+Load `ui-ux-expert` when available for baseline craft. This skill owns reference
+interpretation and product translation, not a second exact-reproduction mode.
+Use product/design judgment by default; do not turn normal implementation
+choices into exceptions requiring permission. Preserve explicit constraints.
 
 Automatically load [snapshot](../snapshot/SKILL.md) at the start of visual work,
 before changing an existing rendered surface, and use it again after the final
@@ -112,6 +113,13 @@ Inspect the actual selected reference and current rendered product. Accept
 images, HTML or mixed references; missing HTML is not a blocker. Resolve authority
 per surface when artifacts disagree. The user's latest chosen direction wins,
 not a filename or modification time.
+
+Use [reference evidence](references/reference-evidence.md) when reading images,
+resolving mixed-source authority, calibrating measurements or comparing renders.
+Separate observed, image-measured, source-measured, inferred and unknown claims.
+For runnable HTML, use [HTML reference workflow](references/html-reference-workflow.md)
+only as needed; its optional extractor inventories HTML, not images or UI quality.
+Read these references for their triggered question, not as a mandatory checklist.
 
 For a page, note the following once; for a small repair, a few lines suffice:
 

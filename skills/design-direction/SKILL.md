@@ -22,7 +22,7 @@ Read only what the task needs:
   performance, and release requirements.
 
 Use `$ui-ux-orchestrator` when the UI/UX task is broad or the right specialist
-skill is unclear. Use `$reference-to-a-tee` for image-only, HTML/prototype, or
+skill is unclear. Use `$mockup-to-product` for image-only, HTML/prototype, or
 mixed-reference parity from any source,
 `$consistency-audit` for site-wide coherence against requirements or inferred
 patterns, `$design-system-guardian` for component/token consistency,
@@ -127,5 +127,5 @@ consequential decision; otherwise retain uncertainty and preserve existing
 product behavior. Use `$snapshot` for available rendered comparison evidence,
 not to invent source states absent from the images.
 
-Use `$reference-to-a-tee` for exact implementation from such a handoff and
+Use `$mockup-to-product` for exact implementation from such a handoff and
 `$admin-prototype-reconciliation` when the handoff changes admin/data contracts.

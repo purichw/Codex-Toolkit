@@ -125,7 +125,8 @@ report the limitation; never claim it was invoked.
 
 For image/HTML/mixed references read
 [reference-led-design.md](references/reference-led-design.md). Use
-`$reference-to-a-tee` for faithful targets, `$mockup-to-product` for adaptation.
+`$mockup-to-product` for reference-led implementation, adaptation and any explicit
+matching constraints; a supplied reference alone does not make every detail exact.
 Match complete anatomy, typography at content scale, density, artwork and page
 rhythm. Mark inferred mobile/states separately from supplied reference evidence.
 User-marked examples are the minimum defect list when whole-surface fidelity is

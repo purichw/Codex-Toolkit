@@ -34,7 +34,7 @@ Locate:
 - current design references for iOS/Android and any web parity source;
 - typecheck, lint, unit/e2e/device build commands.
 
-Use `$reference-to-a-tee` for exact design reference parity, `$mobile-web-qa` only
+Use `$mockup-to-product` for exact design reference parity, `$mobile-web-qa` only
 for web responsive checks, `$snapshot` for mandatory visual evidence before the
 final response when a native/web screen, design reference, or parity screenshot
 is in scope, and `$release-gate` before package/deploy/handoff.

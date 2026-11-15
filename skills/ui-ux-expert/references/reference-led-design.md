@@ -12,8 +12,8 @@ Preserve CMS/Admin ownership while changing presentation. Check optical image
 size, equal collapsed peers, disclosure insets and tablet touch behavior as well
 as desktop/mobile composition. Personally open and inspect captured images before
 claiming fidelity; a screenshot path or green functional tests are not that review.
-Use `$mockup-to-product` for flexible translation and `$reference-to-a-tee` for
-explicit faithful/exact targets.
+Use `$mockup-to-product` for reference-led translation and comparison. Adapt with
+product judgment while preserving any explicitly requested matching constraints.
 
 For a whole-surface fidelity request, the user's marked examples are a minimum
 defect list, not the boundary of inspection. Compare the complete component

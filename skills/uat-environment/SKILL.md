@@ -131,7 +131,7 @@ Choose checks by risk:
   permission denied cases, migrations, rollback, rules via Firebase skills when
   relevant.
 - **Reference parity:** authoritative HTML or inspected image reference versus
-  the rendered UAT build with `$reference-to-a-tee`.
+  the rendered UAT build with `$mockup-to-product`.
 - **Assets/audio/images:** mapping audits, representative rendered UI, failed
   asset handling via `$tts-audio-assets` or `$course-image-assets`.
 - **Deploy:** correct commit/build id, env target, URL, service worker/cache,

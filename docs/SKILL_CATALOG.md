@@ -324,28 +324,6 @@ Skill/source-documentation changes alone do not require an unrelated app capture
   geometry, interaction states, responsive behavior, accessibility notes,
   confidence labels, open questions, and acceptance checks.
 
-### reference-to-a-tee
-
-- Skill file: [../skills/reference-to-a-tee/SKILL.md](../skills/reference-to-a-tee/SKILL.md)
-- Description: Implements or audits measured component parity from HTML,
-  image-only, or mixed references from any source while preserving real product
-  UX and separating fidelity from effort.
-- Use when: The user asks for screenshot-to-UI, image-file reconstruction,
-  reference-to-code, to-a-tee matching, or precise visual repair from a designer,
-  Figma export, Claude output, prototype, or another selected visual reference.
-- Fidelity and effort: Exact by default for matching requests, faithful adaptation
-  within requested flexibility, and design-skill routing for inspiration only.
-  Fast isolated repairs use a short note and current contextual comparison;
-  broader work adds affected states, measurements, and coverage/decision records.
-  Neither speed nor missing source detail silently lowers acceptance criteria.
-- Typical context: Source mode and authority, relevant image dimensions/crop/scale,
-  observed facts versus inferred or unknown properties, affected product
-  contracts, scoped measurements, and automatic `snapshot`
-  Reference/Development evidence. Image-only work does not require
-  reference HTML, DOM, or known breakpoints; unobserved behavior is not claimed
-  as recovered source behavior.
-- Migration and checks: [REFERENCE_PARITY_MIGRATION.md](REFERENCE_PARITY_MIGRATION.md).
-
 ### mockup-to-product
 
 - Skill file: [../skills/mockup-to-product/SKILL.md](../skills/mockup-to-product/SKILL.md)
@@ -373,16 +351,23 @@ Skill/source-documentation changes alone do not require an unrelated app capture
   layers and blurry assets; respect identity, licensing and explicit source
   constraints. Preserve animation manifests and native text-safe bounds. Compare
   Reference/Before/After without retouching screenshots or hiding visual gaps.
-- Boundary: Explicit exact matching uses `reference-to-a-tee`; inspiration-only
-  work uses design-direction skills. Naming this skill does not override an exact
-  request. Flexibility does not authorize lost features or unsupported authoring.
+- Evidence and tooling: [Reference evidence](../skills/mockup-to-product/references/reference-evidence.md)
+  distinguishes observed/measured/inferred/unknown claims, calibrates image/CSS
+  scale and resolves mixed authority. [HTML workflow](../skills/mockup-to-product/references/html-reference-workflow.md)
+  includes an optional standard-library inventory helper with tested legacy CLI
+  support. It does not analyze images or certify rendered quality.
+- Boundary: Product judgment is the default. Preserve explicitly requested exact
+  constraints within their stated scope, without an exact-by-default mode or
+  per-spacing exceptions ledger. Inspiration-only work uses design-direction
+  skills. Flexibility does not authorize lost features or unsupported authoring.
+- Consolidation and checks: [REFERENCE_PARITY_MIGRATION.md](REFERENCE_PARITY_MIGRATION.md).
 
 ### claude-to-a-tee
 
 - Skill file: [../skills/claude-to-a-tee/SKILL.md](../skills/claude-to-a-tee/SKILL.md)
-- Description: Compatibility router to `reference-to-a-tee`.
+- Description: Compatibility router to `mockup-to-product`.
 - Use when: Existing prompts explicitly invoke the old name. New prompts should
-  use `reference-to-a-tee` or `global-reference-to-a-tee`.
+  use `mockup-to-product` or `global-mockup-to-product`.
 - Compatibility: Old reference paths redirect to canonical guidance. The old
   extractor CLI forwards to the generic HTML helper, retaining its legacy
   output-directory default and worklog filename. Install the canonical skill

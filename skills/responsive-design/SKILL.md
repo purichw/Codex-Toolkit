@@ -15,7 +15,7 @@ good composition, complete functionality, or accessibility.
   brand, components, typography and user direction; this skill supplies no theme.
 - Own layout decisions and implementation. Use `$mobile-web-qa` for relevant
   browser, input, keyboard and device verification, not a second redesign pass.
-- For faithful image/HTML references, use `$reference-to-a-tee` where available;
+- For faithful image/HTML references, use `$mockup-to-product` where available;
   distinguish the supplied viewport from inferred responsive behavior.
 - For native iOS/Android layouts, route to `$ui-ux-expert-mobile-native` instead.
 - Use `$snapshot` automatically for visible implementation or audit work before

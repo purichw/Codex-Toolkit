@@ -7,7 +7,7 @@ description: Choose and execute the smallest quality-preserving workflow while t
 
 Move faster by removing waste, not by removing evidence. Use this skill as a
 thin operating layer with domain skills such as `$project-onboarding`,
-`$release-gate`, `$reference-to-a-tee`, `$mobile-web-qa`, `$uat-environment`, or
+`$release-gate`, `$mockup-to-product`, `$mobile-web-qa`, `$uat-environment`, or
 project-specific skills.
 
 ## Core Rule

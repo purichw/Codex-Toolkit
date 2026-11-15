@@ -93,7 +93,7 @@ Use the current on-disk `SKILL.md` each time a skill is invoked.
 - Accessibility: `$accessible-interaction`
 - Forms and planner-like flows: `$form-flow-ux`
 - Data-dense directory/admin UX: `$data-dense-ux`
-- Mockup implementation: `$mockup-to-product`; exact-match work: `$reference-to-a-tee`
+- Reference-led implementation and explicitly constrained matching: `$mockup-to-product`
 - Offline HTML / clickable prototypes: `$export-html`
 - Design handoffs/specs: `$codex-handoff-for-claude`
 - Project documentation: `$docs-cartographer`; skill maintenance: `$skill-creator`

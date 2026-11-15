@@ -47,7 +47,7 @@ covers the risk.
 - `$consistency-audit`: site-wide or app-wide consistency across requirements,
   inferred patterns, layout, components, typography, copy, interaction, and
   shared-component implementation.
-- `$reference-to-a-tee`: component-level implementation or parity audit from
+- `$mockup-to-product`: component-level implementation or parity audit from
   image files, screenshots, HTML/prototypes, or mixed references from any source,
   including image-only calibration and product UX preservation.
 - `$product-ux-contracts`: preserve existing real UX while redesigning or
@@ -97,7 +97,7 @@ Use these cues to select focused skills without loading every UI/UX skill:
 | type scale, measure, numbers, headings, truncation, multilingual/RTL text | `$typography-refinement` |
 | transitions, loaders, overlays, hover/press feedback, scroll motion, reduced motion | `$motion-choreography` |
 | screen-reader flow, low vision, zoom, forced colors, complex widgets, charts | `$accessibility-beyond-basics` |
-| implement from image files/screenshots, reference-to-code, HTML/image mixed references, to-a-tee matching | `$reference-to-a-tee` |
+| implement from image files/screenshots, reference-to-code, HTML/image mixed references, to-a-tee matching | `$mockup-to-product` |
 | Claude/Figma/reference vs app, before/after, side-by-side parity defects | `$reference-implementation-critique` |
 | taste practice, works/fails specimens, calibration drill, smallest taste-improving change | `$taste-calibration` |
 
@@ -123,7 +123,7 @@ Use this decision guide:
   `$consistency-audit`.
 - Worried about usage or depth? Start with `$usage-budget-gate`.
 - Have image files, screenshots, HTML, or a mixed reference bundle? Use
-  `$reference-to-a-tee`; HTML is not required for image-only work. Add
+  `$mockup-to-product`; HTML is not required for image-only work. Add
   contracts/states where product behavior is at risk.
 - Existing behavior might be overwritten? Use `$product-ux-contracts`.
 - Looks done but states may be missing? Use `$ui-state-matrix`.

@@ -27,7 +27,7 @@ HTML = """<!doctype html><html><head><title>Reference fixture</title>
 
 class ExtractReferenceTests(unittest.TestCase):
     def setUp(self):
-        self.temp = tempfile.TemporaryDirectory(prefix="reference-to-a-tee-test-")
+        self.temp = tempfile.TemporaryDirectory(prefix="mockup-to-product-test-")
         self.addCleanup(self.temp.cleanup)
         self.root = Path(self.temp.name)
         self.source = self.root / "reference.html"
@@ -59,7 +59,8 @@ class ExtractReferenceTests(unittest.TestCase):
         self.assertTrue(any(c["attrs"].get("id") == "save" for c in item["controls"]))
         self.assertTrue(any(a["value"] == "hero.png" for a in item["assets"]))
         self.assertTrue((out / "reference-manifest.md").is_file())
-        self.assertTrue((out / "REFERENCE_TO_A_TEE_WORKLOG.md").is_file())
+        self.assertTrue((out / "MOCKUP_TO_PRODUCT_WORKLOG.md").is_file())
+        self.assertFalse((out / "REFERENCE_TO_A_TEE_WORKLOG.md").exists())
         self.assertFalse((out / "CLAUDE_TO_A_TEE_WORKLOG.md").exists())
 
     def test_multiple_html_files_keep_separate_identities(self):
@@ -103,6 +104,41 @@ class ExtractReferenceTests(unittest.TestCase):
             (out / "CLAUDE_TO_A_TEE_WORKLOG.md").read_bytes(),
             (out / "REFERENCE_TO_A_TEE_WORKLOG.md").read_bytes(),
         )
+        self.assertEqual(
+            (out / "CLAUDE_TO_A_TEE_WORKLOG.md").read_bytes(),
+            (out / "MOCKUP_TO_PRODUCT_WORKLOG.md").read_bytes(),
+        )
+
+    def test_existing_worklog_notes_survive_rerun(self):
+        for script, folder, names in (
+            (SCRIPT, ".design-reference", ["MOCKUP_TO_PRODUCT_WORKLOG.md"]),
+            (LEGACY, ".claude-reference", ["MOCKUP_TO_PRODUCT_WORKLOG.md",
+                                          "CLAUDE_TO_A_TEE_WORKLOG.md",
+                                          "REFERENCE_TO_A_TEE_WORKLOG.md"]),
+        ):
+            with self.subTest(script=script):
+                self.assertEqual(self.cli(self.source, script=script).returncode, 0)
+                out = self.root / folder
+                for name in names:
+                    (out / name).write_text("Reviewed notes: " + name, encoding="utf-8")
+                result = self.cli(self.source, script=script)
+                self.assertEqual(result.returncode, 0, result.stderr)
+                self.assertIn("Preserved existing notes", result.stdout)
+                for name in names:
+                    self.assertEqual((out / name).read_text(encoding="utf-8"), "Reviewed notes: " + name)
+
+    def test_generated_seed_does_not_expand_scope_or_claim_verification(self):
+        self.assertEqual(self.cli(self.source).returncode, 0)
+        out = self.root / ".design-reference"
+        notes = (out / "MOCKUP_TO_PRODUCT_WORKLOG.md").read_text(encoding="utf-8")
+        self.assertIn("not automatic task scope", notes)
+        self.assertIn("HTML does not automatically outrank images", notes)
+        self.assertIn("No publishing is authorized", notes)
+        self.assertNotIn("every visible control", notes)
+        self.assertNotIn("release gate passed", notes)
+        self.assertNotIn("Measured Parity Table", notes)
+        inventory = (out / "reference-manifest.md").read_text(encoding="utf-8")
+        self.assertIn("unreviewed candidate", inventory)
 
     def run_with_probe(self, probe):
         main = runpy.run_path(str(SCRIPT))["main"]

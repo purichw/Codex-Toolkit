@@ -20,8 +20,13 @@ Replace `project-onboarding` with the skill folder you want to install.
 
 Aliases and compatibility routers require their canonical skill alongside them.
 For `claude-to-a-tee`, `global-claude-to-a-tee`, or
-`global-reference-to-a-tee`, also install `reference-to-a-tee`. See
+`global-mockup-to-product`, also install `mockup-to-product`. See
 [reference parity migration](REFERENCE_PARITY_MIGRATION.md).
+
+`reference-to-a-tee` and `global-reference-to-a-tee` are retired and removed. Update old
+prompts to the corresponding mockup name. A copy-only sync does not remove old
+installed folders; inspect local differences and get approval before retiring
+those copies. Do not restore them automatically from an older backup.
 
 ## Install All Skills
 

@@ -1,4 +1,4 @@
 interface:
   display_name: "Global Claude To A Tee (Compatibility)"
   short_description: "Legacy global reference parity alias"
-  default_prompt: "Use $global-claude-to-a-tee to route to $reference-to-a-tee for HTML, image-only, or mixed-reference parity."
+  default_prompt: "Use $global-claude-to-a-tee to route to $mockup-to-product for HTML, image-only, or mixed-reference parity."

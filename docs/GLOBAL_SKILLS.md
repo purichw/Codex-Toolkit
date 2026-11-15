@@ -16,7 +16,8 @@ version should run.
 
 ## Alias Policy
 
-- Canonical skills keep their original names so existing references still work.
+- Keep canonical names stable unless the user explicitly requests retirement;
+  then migrate callers and document compatibility rather than keeping duplicate workflows.
 - `global-*` folders route to the canonical skill's `SKILL.md`.
 - Update the canonical skill first. Regenerate the alias only if alias routing
   language or metadata needs to change.
@@ -30,7 +31,7 @@ version should run.
 | Global alias | Canonical skill | Context |
 | --- | --- | --- |
 | [`global-ios-app-development`](../skills/global-ios-app-development/SKILL.md) | [`ios-app-development`](../skills/ios-app-development/SKILL.md) | Cross-project iOS toolchain, build/device workflows and runtime troubleshooting. |
-| [`global-mockup-to-product`](../skills/global-mockup-to-product/SKILL.md) | [`mockup-to-product`](../skills/mockup-to-product/SKILL.md) | Authorized mockup adaptation, complete anatomy, shared surfaces, live authoring, and scoped visual comparisons. |
+| [`global-mockup-to-product`](../skills/global-mockup-to-product/SKILL.md) | [`mockup-to-product`](../skills/mockup-to-product/SKILL.md) | Image/HTML implementation, design judgment, explicit matching constraints, calibrated evidence, optional extraction and scoped visual comparisons. |
 | [`global-github-actions-repair`](../skills/global-github-actions-repair/SKILL.md) | [`github-actions-repair`](../skills/github-actions-repair/SKILL.md) | Failed Actions diagnosis, scoped credentials, authorized reruns, and fixed-revision/target evidence. |
 | [`global-github-actions-usage`](../skills/global-github-actions-usage/SKILL.md) | [`github-actions-usage`](../skills/github-actions-usage/SKILL.md) | Measured runner-minute/cost audits, duplicate-work reduction and coverage-preserving workflow optimization. |
 | [`global-accessible-interaction`](../skills/global-accessible-interaction/SKILL.md) | [`accessible-interaction`](../skills/accessible-interaction/SKILL.md) | Accessibility, keyboard, focus, ARIA, contrast, touch, and modal/drawer behavior across projects. |
@@ -39,8 +40,7 @@ version should run.
 | [`global-admin-prototype-reconciliation`](../skills/global-admin-prototype-reconciliation/SKILL.md) | [`admin-prototype-reconciliation`](../skills/admin-prototype-reconciliation/SKILL.md) | Reconciling admin/CMS/dashboard prototypes against live admin contracts. |
 | [`global-claude-design-md-request`](../skills/global-claude-design-md-request/SKILL.md) | [`claude-design-md-request`](../skills/claude-design-md-request/SKILL.md) | Asking Claude Design for implementation-ready Markdown handoffs/specs. |
 | [`global-claude-design-reference-bundle`](../skills/global-claude-design-reference-bundle/SKILL.md) | [`claude-design-reference-bundle`](../skills/claude-design-reference-bundle/SKILL.md) | Claude Design reference bundles with screenshots, measured specs, product contracts, and prompts. |
-| [`global-reference-to-a-tee`](../skills/global-reference-to-a-tee/SKILL.md) | [`reference-to-a-tee`](../skills/reference-to-a-tee/SKILL.md) | Exact matching or authorized adaptation from image/HTML/mixed references, with independently risk-scaled effort. |
-| [`global-claude-to-a-tee`](../skills/global-claude-to-a-tee/SKILL.md) | [`reference-to-a-tee`](../skills/reference-to-a-tee/SKILL.md) | Legacy global name retained for old prompts; follows the generic mode-aware workflow. |
+| [`global-claude-to-a-tee`](../skills/global-claude-to-a-tee/SKILL.md) | [`mockup-to-product`](../skills/mockup-to-product/SKILL.md) | Legacy global name retained for old prompts; follows the consolidated product-judgment workflow. |
 | [`global-codex-handoff-for-claude`](../skills/global-codex-handoff-for-claude/SKILL.md) | [`codex-handoff-for-claude`](../skills/codex-handoff-for-claude/SKILL.md) | Codex-to-Claude implementation handoffs with contracts and acceptance checks. |
 | [`global-consistency-audit`](../skills/global-consistency-audit/SKILL.md) | [`consistency-audit`](../skills/consistency-audit/SKILL.md) | UI/UX/frontend/shared-component consistency audits. |
 | [`global-course-image-assets`](../skills/global-course-image-assets/SKILL.md) | [`course-image-assets`](../skills/course-image-assets/SKILL.md) | Educational course image generation, mapping, cropping, and QA. |

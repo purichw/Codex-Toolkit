@@ -579,12 +579,12 @@ def render_markdown(manifest: dict[str, Any]) -> str:
             )
         lines.append(markdown_table(render_rows, ["file", "viewport", "doc width", "doc height", "components", "screenshot"]))
 
-    lines.extend(["", "## Measured Parity Table Seed", ""])
+    lines.extend(["", "## Component Candidates", "", "Discovery hints only; select relevant candidates within the requested scope.", ""])
     parity_rows = []
     for item in manifest["files"]:
         for component in item["component_candidates"][:40]:
             label = component["text"] or component["tag"]
-            parity_rows.append([short_text(label, 80), "desktop/mobile", "see manifest/probe", "", "not done"])
+            parity_rows.append([short_text(label, 80), "source viewport", "see manifest/probe", "", "unreviewed candidate"])
     lines.append(markdown_table(parity_rows or [["", "", "", "", ""]], ["component", "viewport", "reference", "target mapping", "status"]))
     lines.append("")
     return "\n".join(lines)
@@ -595,100 +595,41 @@ def render_worklog(manifest: dict[str, Any]) -> str:
     for item in manifest["files"]:
         file_rows.append(f"- `{item['file']}` sha256 `{item['sha256']}` title `{item.get('title', '')}`")
 
-    control_rows = []
-    for item in manifest["files"]:
-        for control in item["controls"][:80]:
-            label = control["text"] or " ".join(f"{k}={v!r}" for k, v in control["attrs"].items())
-            control_rows.append(f"- [ ] `{item['file']}:{control['line']}` {control['tag']} {short_text(label, 120)} -> not done")
-
-    route_rows = []
-    for item in manifest["files"]:
-        for route in item["route_candidates"][:60]:
-            route_rows.append(f"- [ ] `{route}` -> not done")
-        for state in item["state_value_candidates"][:60]:
-            route_rows.append(f"- [ ] state `{state}` -> not done")
-
-    asset_rows = []
-    for item in manifest["files"]:
-        for asset in item["assets"][:80]:
-            asset_rows.append(f"- [ ] `{item['file']}` {asset['tag']} {asset['attr']} `{short_text(asset['value'], 140)}`")
-
     lines = [
-        "# Reference To A Tee Worklog",
+        "# Mockup To Product Worklog",
         "",
-        "Generated from the reference manifest. Every generated row starts as not done.",
+        "Optional planning seed, not a required checklist or verification result.",
+        "Manifest candidates are discovery hints, not automatic task scope.",
         "",
         "## Reference Files",
         "",
         *(file_rows or ["- not done"]),
         "",
-        "## Source Of Truth Order",
+        "## Requested Scope And Authority",
         "",
-        "1. Newest user requirement",
-        "2. Selected reference per surface/state/version; use authoritative HTML values and resolve any image conflicts explicitly",
-        "3. Existing product behavior, data contracts, tests, accessibility, i18n, security, performance, and operations",
-        "4. Older handoff notes and screenshots",
+        "- Requested surfaces/states and explicit constraints: not recorded",
+        "- Selected artifact/version per surface: not recorded; HTML does not automatically outrank images",
+        "- Product contracts and shared owners to preserve: not recorded",
+        "- In-scope adaptation and material unresolved choices: not recorded",
         "",
-        "## Coverage Ledger",
+        "## Evidence And Decisions",
         "",
-        *(route_rows or ["- [ ] default rendered state -> not done"]),
+        "- Distinguish observed, image-measured, source-measured, inferred and unknown claims.",
+        "- Record scale/viewport assumptions only where they affect the decision.",
+        "- Use product judgment; routine spacing choices do not require an exceptions ledger.",
+        "- Record meaningful source/asset substitutions and unresolved constraints.",
         "",
-        "## Controls Ledger",
+        "## Checks For The Requested Scope",
         "",
-        *(control_rows or ["- [ ] no controls detected -> verify manually"]),
+        "- Reference/Before/After evidence: not recorded; follow snapshot and label missing history",
+        "- Compared build, route, state, content/language and viewport: not recorded",
+        "- Personally inspected renders and visible defects repaired: not recorded",
+        "- Touched behavior and required responsive checks: not recorded",
+        "- Requested scope coverage, including below-fold regions when applicable: not recorded",
+        "- Required checks and remaining limitations: not recorded",
         "",
-        "## Asset Inventory",
-        "",
-        *(asset_rows or ["- [ ] no assets detected -> verify manually"]),
-        "",
-        "## Component Contracts",
-        "",
-        "- [ ] global shell",
-        "- [ ] header/topbar/nav",
-        "- [ ] first viewport primary components",
-        "- [ ] repeated cards/lists/tables",
-        "- [ ] dialogs/drawers/modals",
-        "- [ ] footer/history/end state",
-        "",
-        "## Product Mapping",
-        "",
-        "- [ ] files/components/selectors:",
-        "- [ ] data/read paths:",
-        "- [ ] write/action paths:",
-        "- [ ] permissions/security:",
-        "- [ ] tests/selectors:",
-        "",
-        "## Exceptions",
-        "",
-        "Behavior exceptions:",
-        "- none recorded",
-        "",
-        "Visual exceptions:",
-        "- none recorded",
-        "",
-        "Observed static/no-op reference behavior:",
-        "- none recorded",
-        "",
-        "## Measured Parity Table",
-        "",
-        "| component | viewport | reference | implementation | delta | status |",
-        "| --- | --- | --- | --- | --- | --- |",
-        "| global shell | desktop/mobile | not done | not done | not done | not done |",
-        "",
-        "## Verification",
-        "",
-        "- [ ] reference rendered",
-        "- [ ] target app rendered",
-        "- [ ] every page/screen/route visited",
-        "- [ ] every visible control clicked or operated",
-        "- [ ] required responsive viewports checked",
-        "- [ ] browser console/page/network errors checked",
-        "- [ ] product behavior verified",
-        "- [ ] release gate passed",
-        "",
-        "## Blockers Before Release",
-        "",
-        "- none recorded",
+        "Static extraction or an initial-state probe does not prove visual quality,",
+        "interaction correctness or release readiness. No publishing is authorized.",
         "",
     ]
     return "\n".join(lines)
@@ -698,21 +639,28 @@ def write_outputs(manifest: dict[str, Any], out_dir: Path, *, legacy: bool = Fal
     out_dir.mkdir(parents=True, exist_ok=True)
     json_path = out_dir / "reference-manifest.json"
     md_path = out_dir / "reference-manifest.md"
-    worklog_path = out_dir / "REFERENCE_TO_A_TEE_WORKLOG.md"
+    worklog_path = out_dir / "MOCKUP_TO_PRODUCT_WORKLOG.md"
     json_path.write_text(json.dumps(manifest, indent=2, ensure_ascii=False), encoding="utf-8")
     md_path.write_text(render_markdown(manifest), encoding="utf-8")
-    worklog_path.write_text(render_worklog(manifest), encoding="utf-8")
     print(f"Wrote {md_path}")
     print(f"Wrote {json_path}")
-    print(f"Wrote {worklog_path}")
+    worklogs = [worklog_path]
     if legacy:
-        legacy_path = out_dir / "CLAUDE_TO_A_TEE_WORKLOG.md"
-        legacy_path.write_text(render_worklog(manifest), encoding="utf-8")
-        print(f"Wrote {legacy_path} (compatibility copy)")
+        worklogs.extend(out_dir / name for name in (
+            "CLAUDE_TO_A_TEE_WORKLOG.md", "REFERENCE_TO_A_TEE_WORKLOG.md"
+        ))
+    for path in worklogs:
+        try:
+            with path.open("x", encoding="utf-8") as handle:
+                handle.write(render_worklog(manifest))
+        except FileExistsError:
+            print(f"Preserved existing notes: {path}")
+        else:
+            print(f"Wrote {path}")
 
 
 def main(argv: list[str] | None = None, *, legacy: bool = False) -> int:
-    parser = argparse.ArgumentParser(description="Create an HTML reference manifest. For images, use the reference-to-a-tee image workflow.")
+    parser = argparse.ArgumentParser(description="Create an HTML reference manifest. For images, use the mockup-to-product image workflow.")
     parser.add_argument("html", nargs="+", type=Path, help="Offline HTML file(s), from any source")
     parser.add_argument("--out", type=Path, default=Path(".claude-reference" if legacy else ".design-reference"), help="Output directory")
     parser.add_argument("--viewport", action="append", type=parse_viewport, help="Rendered viewport WIDTHxHEIGHT")

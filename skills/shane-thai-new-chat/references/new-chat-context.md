@@ -37,7 +37,7 @@ Use the current on-disk `SKILL.md` each time a skill is invoked.
 
 - New-chat onboarding: `$shane-thai-new-chat`
 - Lesson export for ChatGPT patching: `$shane-thai-export-chatgpt`
-- Image, HTML, or mixed-reference visual parity: `$reference-to-a-tee`
+- Image, HTML, or mixed-reference visual parity: `$mockup-to-product`
 - UI/UX routing and broad UX judgment: `$ui-ux-orchestrator`
 - Consistency-only audits: `$consistency-audit`
 - Screenshots/snapshots: `$snapshot`
