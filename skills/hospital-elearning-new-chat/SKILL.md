@@ -47,6 +47,8 @@ Load `/Users/point/.codex/skills/ui-ux-expert/SKILL.md` for user-facing work. Us
 - Keep Home card dimensions unchanged unless the user explicitly changes that constraint. Additional competency recommendations belong in the shared dialog.
 - Loading and Login must fit one viewport at supported sizes, including short landscape screens. Solve geometry rather than hiding inaccessible content with document overflow clipping. Preserve usable keyboard and zoom behavior.
 - On initial entry through any URL, show the branded loader for at least three seconds and until real content/assets are ready. Progress reaches 100% only when both conditions hold. Navigation uses appropriate skeletons; never reveal broken layout or unstyled fallback.
+- The five startup journey lights run once and hold the final “เติบโตไปด้วยกัน” pin; never wrap back to the first light. Reduced motion shows the final pin statically. Keep readiness/progress and pause behavior independent from that sequence.
+- The classroom outline is native sticky, flush to the viewport top within its course container, with a viewport-height cap and internal scrolling. `src/course-lesson.css` owns the 768px side-column breakpoint; mobile returns to normal flow. Preserve access to the final item and clearance before the footer.
 - Prefill supported happy-path interactions for presentation, but never expose the server login identifier or credentials in public frontend defaults.
 
 ## Authentication and media boundaries
@@ -54,6 +56,12 @@ Load `/Users/point/.codex/skills/ui-ux-expert/SKILL.md` for user-facing work. Us
 Read `docs/authentication.md` before changing auth, public asset rules, sessions, secrets, or bundle protection. The username is exact-case and checked on the server. Do not print secret values, copy them into client code, or claim minification prevents users from retrieving delivered frontend code. This shared access gate is not individual identity or RBAC.
 
 Read `docs/course-video-design-and-qa.md` before media changes. The project has an explicitly documented demonstration presentation that differs from a policy-compliant production embed; do not claim it is compliant. Preserve the documented Made-for-Kids/unknown-state tracking gate. Seek observations are advisory, not authoritative watched-time or certificate eligibility. Do not extract hosted video streams or invent licensed self-hosted rights. Keep the Data API key server-side.
+
+The illustrated seek prompt is compact (460px maximum) and centers on the visible
+video stage, excluding controls, while following layout shifts and clamping to
+the viewport. Only review or acknowledgement dismisses it: no backdrop/content
+click, Escape or close icon. Preserve paused/ended state on acknowledgement.
+This restriction belongs to the media prompt, not ordinary shared dialogs.
 
 ## Relationship to Thai Palliative Nurse
 
@@ -71,6 +79,12 @@ uses separate server env names, auth and allowlists; no learner/session data is
 shared. Seek tracking stays advisory. A port including local Hospital edits does
 not prove those edits are deployed here. Verify each project's source/release
 independently; related-project context grants no cross-chat or release authority.
+
+When the requested work covers behavior common to both learning products, follow
+the owner's paired-maintenance preference: inspect and correct both equivalent
+owners within the authorized scope, and verify each integration separately.
+Keep product-specific UI and assessments independent; never infer permission to
+publish either project or access another chat from this relationship.
 
 ## Verification and handoff
 

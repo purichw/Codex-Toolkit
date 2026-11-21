@@ -1223,6 +1223,12 @@ release evidence is not a new production check.
   and honor the documented media limitations. TPNA retains its own branding,
   shell, data and assessment flow; deliberate player adaptation is not runtime
   coupling, automatic synchronization or cross-chat/release authorization.
+- Learning UI: Keep the startup journey one-shot with a static final state for
+  reduced motion, separate from readiness/progress. Preserve the classroom's
+  native sticky outline from 768px and its internal scrolling. The compact seek
+  prompt follows the visible video stage and its explicit dismissal rules;
+  ordinary shared dialogs keep their own behavior. Paired maintenance applies
+  only within the authorized scope, with independent verification per product.
 - Files: `SKILL.md` holds the operating rules; `agents/openai.yaml` supplies
   picker metadata and a suggested invocation. This archive does not include
   the private application's source, credentials or learner records.
@@ -1284,6 +1290,13 @@ release evidence is not a new production check.
   feedback, with TPNA-owned local progress. Hospital is a player/framing reference
   only; keep TPNA's Blue theme and shell, independent data and release evidence.
   Seek notices remain advisory, not completion or genuine CNEU issuance.
+- Learning UI: Preserve the classroom's top-zero sticky outline from 900px,
+  normal flow below, shared progress-derived summaries and documented alignment.
+  The seek prompt's stage-relative geometry and explicit dismissal rules are
+  media-specific, not shared-dialog defaults. Common behavior is maintained in
+  both products only within authorized scope and verified independently.
+- Checkout safety: Preserve dirty older checkouts; read missing versioned docs
+  from the remote tree or the explicitly selected worktree and name the revision.
 - Conference: Select `apps/tpna2569/` and `docs/TPNA2569.md` for activity entry,
   dashboard/quiz, comment tree, prize wheel, campaign gates and demo scenarios.
   Distinguish the opt-in per-tab fixture Control Center from local API checks;

@@ -439,6 +439,13 @@ As of this document, the repository has:
   This archive-only update does not prove
   application UI quality or fix skill discovery in other chats; exports remain local.
 
+- Later on 2026-11-22, refreshed Hospital/TPNA learning contracts: one-shot
+  startup lights, app-specific sticky-outline thresholds, stage-centered seek
+  prompts and explicit dismissal, progress-derived TPNA summaries, dirty-checkout
+  preservation and scoped paired maintenance. Counts remain 155 plus the separate
+  native skill. Only skill/archive documentation changed; product verification,
+  deployment and cross-chat work were not performed or authorized by this backup.
+
 The main thing future Codex should preserve is the distinction between live local
 skills and the GitHub archive. That distinction prevents accidental overwrites
 and keeps the toolkit useful both as runtime configuration and as versioned
