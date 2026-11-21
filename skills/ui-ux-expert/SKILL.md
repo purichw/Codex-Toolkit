@@ -35,6 +35,16 @@ proof of visual quality.
   Admin/CMS headers, check the notice-to-toolbar/first-label transition as well
   as padding inside the notice; do not fix one by enlarging the other. See
   [spacing and grouping](references/user-preferences.md#spacing-and-grouping).
+- **Loading fits one viewport.** Full-screen startup/loading screens must show
+  their complete composition in one visible viewport across screen sizes and
+  orientations, including short mobile landscape. Account for dynamic viewport
+  height and safe areas; recompose groups and shrink decorative artwork before
+  reducing readable type. Keep status, progress and recovery/pause controls
+  visible without scrolling, overlap or clipping. Do not disguise overflow with
+  `overflow: hidden` or scale the whole screen down. Verify narrow/short views
+  and any delayed/error state that adds controls; preserve timing/readiness and
+  reduced-motion behavior. This is a loading-screen rule, not a restriction on
+  ordinary page length or an excuse to block accessible text enlargement.
 
 These are explicit user preferences, not universal design laws. Read
 [user-preferences.md](references/user-preferences.md) for type starting sizes,

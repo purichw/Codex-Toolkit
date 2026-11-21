@@ -30,6 +30,7 @@ version should run.
 
 | Global alias | Canonical skill | Context |
 | --- | --- | --- |
+| [`global-ai-video-creator`](../skills/global-ai-video-creator/SKILL.md) | [`ai-video-creator`](../skills/ai-video-creator/SKILL.md) | Cross-project video planning, AI narration, action/caption timing, targeted revisions and technical export checks. |
 | [`global-ios-app-development`](../skills/global-ios-app-development/SKILL.md) | [`ios-app-development`](../skills/ios-app-development/SKILL.md) | Cross-project iOS toolchain, build/device workflows and runtime troubleshooting. |
 | [`global-mockup-to-product`](../skills/global-mockup-to-product/SKILL.md) | [`mockup-to-product`](../skills/mockup-to-product/SKILL.md) | Image/HTML implementation, design judgment, explicit matching constraints, calibrated evidence, optional extraction and scoped visual comparisons. |
 | [`global-github-actions-repair`](../skills/global-github-actions-repair/SKILL.md) | [`github-actions-repair`](../skills/github-actions-repair/SKILL.md) | Failed Actions diagnosis, scoped credentials, authorized reruns, and fixed-revision/target evidence. |
@@ -99,6 +100,7 @@ These skills stay under their project or specialized names:
 - DeepX: `deepx-new-chat`
 - DOOTAA: `dootaa-new-chat`
 - Glenonchy: `glenonchy-new-chat`, `glenonchy-website-new-chat`, `glenonchy-website-design`
+- Hospital E-learning: `hospital-elearning-new-chat`
 - Kaset Tan Phai: `kaset-tan-phai-new-chat`
 - Korat Tan Phai: `korat-tan-phai-new-chat`, `korat-tan-phai-shared-components`
 - Notenwert: `notenwert-design-direction`, `notenwert-maintainer`

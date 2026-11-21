@@ -8,7 +8,8 @@ still work. It describes the consolidation, not another reproduction workflow.
 Status: content, helper/tests and callers are migrated in live/archive copies.
 After migration checks, the owner approved deletion of the live reference folder
 and both archived reference folders. They have been removed; the archive count
-is 148. Recovery copies remain local under `exports/`, outside active skill roots.
+at that checkpoint was 148. Recovery copies remain local under `exports/`,
+outside active skill roots. Current totals are in [CODEX_CONTEXT.md](CODEX_CONTEXT.md).
 
 ## What Moved
 
@@ -99,7 +100,7 @@ From the repository root:
 ```sh
 PYTHONDONTWRITEBYTECODE=1 python3 -m unittest discover -s skills/mockup-to-product/tests -v
 python3 skills/mockup-to-product/scripts/extract_reference.py --help
-python3 scripts/verify_skills.py --expected-count 148
+python3 scripts/verify_skills.py --expected-count 151
 git diff --check
 ```
 
@@ -108,8 +109,9 @@ inputs, render failure reporting, legacy invocation, preserved notes and a scope
 worklog. The structural verifier checks links/frontmatter/scripts. Neither proves
 agent design judgment or rendered UI/UX quality. Check Codex discovery separately
 after retirement; an existing chat may still have the earlier skill list in context.
-The archive contains 88 personal skills, 58 global aliases and 2 standalone
-global skills (149 entrypoints when the separate native skill is included).
+At the migration checkpoint the archive contained 88 personal skills, 58 global
+aliases and 2 standalone global skills (149 entrypoints with the native skill).
+Later additions are recorded in [CODEX_CONTEXT.md](CODEX_CONTEXT.md).
 
 For future instruction reviews, use these cases as acceptance examples, not a
 claim that a model benchmark has been run:

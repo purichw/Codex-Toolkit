@@ -1,0 +1,4 @@
+interface:
+  display_name: "Hospital E-learning New Chat"
+  short_description: "Onboard and maintain the Rattanametha hospital E-learning app"
+  default_prompt: "Use $hospital-elearning-new-chat to refresh the Hospital E-learning project context, read its current docs, and continue the requested work."

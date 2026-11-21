@@ -36,17 +36,31 @@ decisions, and `$release-gate` before commit, push, deploy, or handoff.
 ## Workflow
 
 1. Identify the target deploy URL, commit/build, route list, and changed media
-   surfaces.
+   surfaces. For broad route probes, read the target's rate policy and budget
+   browser/API/CLI requests together; assets may have different rules. On a
+   challenge or 429, inspect headers and timing before retrying, then resume only
+   unfinished checks after the evidenced window. Never spoof trusted crawlers or
+   weaken protection to obtain a passing smoke.
 2. Add a cache buster to the URL unless the deploy artifact is already unique.
 3. Render each route in a browser. Wait for DOM content, then scroll from top
    to bottom in steps so lazy images mount.
 4. Inspect DOM media URLs and network failures. Treat stale domains as failures
    even when the browser has not attempted to load them yet.
+   Distinguish hidden responsive duplicates and offscreen rail slides from
+   currently visible media. Exercise the breakpoint/slide that exposes each
+   touched variant before judging it. For visible media, wait for successful
+   decoding and an actual painted browser capture; DOM `complete` alone does not
+   establish that a screenshot contains the image. Hidden lazy media may remain
+   deferred without being broken. Actual decode/request failures still need diagnosis.
 5. Capture wide `$snapshot` evidence for the highest-risk route or create a
    contact sheet when several routes changed.
 6. If failures appear, decide whether to repair data, replace assets, add a
    public fallback, or document an intentional external dependency.
 7. Rerun the smoke after the fix on the final deployed URL.
+
+For changed immutable assets, byte/size/hash comparison against the reviewed
+local artifact can prove delivery identity. It complements browser proof of the
+selected `currentSrc`, crop and paint; neither check substitutes for the other.
 
 ## Script
 
@@ -76,6 +90,13 @@ Optional flags:
 The script exits nonzero when a route has broken images, incomplete images
 after full-page scroll, stale media URLs, failed asset requests, console/page
 errors, or non-2xx/3xx responses.
+
+The helper inventories all DOM images without a visibility filter. Its incomplete
+list is therefore diagnostic for responsive duplicates or offscreen rails: inspect
+and expose the relevant variant, then record its actual result. Do not declare a
+visible missing image acceptable merely because another copy loaded, or call the
+helper pass if it exited nonzero. A reviewed hidden/deferred finding must be
+reported separately from a real request/decode failure.
 
 ## Failure Policy
 

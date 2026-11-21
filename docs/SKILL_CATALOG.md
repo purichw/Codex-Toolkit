@@ -86,6 +86,10 @@ that intentionally remain project-specific or specialized.
 - Release waits: Set measured diagnostic checkpoints, inspect failures before
   retrying, and keep push, CI, build readiness, promotion and monitoring evidence
   separate. Docs-only evidence reuse must prove the exact eligible baseline.
+- Integration: Preserve dirty source worktrees, reconcile unshipped schema
+  unions and guarded draft patches, and verify publication independently of the
+  source push. Rate-limited smoke checks need diagnosis and a shared request
+  budget, not protection bypasses or duplicate deployments.
 - Infrastructure changes: Verify actual resource/function regions against the
   shared Thailand-first preference and recorded exceptions; a build region alone
   is not runtime-placement evidence.
@@ -1008,17 +1012,21 @@ Skill/source-documentation changes alone do not require an unrelated app capture
 
 - Skill file: [SKILL.md](../skills/deepx-new-chat/SKILL.md)
 - Description: Onboards DeepX Works, Product Studio, Explore Ideas, Content
-  Studio and the separate Coach/LUMA managers from current owner contracts.
+  Studio and separate Coach, LUMA, F&B and Salon managers from current contracts.
 - Use when: Preparing a handoff or picking up UI, performance, CMS/playgrounds,
   Supabase, domain, regional infrastructure or staged release
   work. The [reading map](../skills/deepx-new-chat/references/new-chat-context.md)
   identifies source owners and separates historical release notes from live proof.
-- Boundaries: Content Studio, Coach and LUMA publish separate workspaces; public
-  IndexedDB playgrounds have no real write access. Preserve each manager's theme,
+- Boundaries: Content Studio, Coach, LUMA, F&B and Salon publish separate
+  workspaces; public IndexedDB playgrounds have no real write access. Preserve each manager's theme,
   data/role/media boundaries and unconnected integration limits. The live skill
   records Singapore replacing Ireland, which remains recovery; re-read current
   release/infra owners before action and preserve the no-new-recurring-cost rule.
   Archived release claims are not fresh verification or permission to publish.
+- Combined release: Read the dated integration record before selecting a source
+  checkout or migration. Preserve dirty older worktrees and concept-exclusive
+  artwork; Salon catalogue demos and managed Salon publication have different
+  owners. A completed catalogue release does not activate private intake.
 
 ## Glenonchy
 
@@ -1170,13 +1178,34 @@ Prepared research/imports are not live publication; disabled commerce is not a
 stub to enable. Tarot notes retain their separate earlier review scope, and dated
 release evidence is not a new production check.
 
+## Hospital E-learning
+
+### hospital-elearning-new-chat
+
+- Skill file: [SKILL.md](../skills/hospital-elearning-new-chat/SKILL.md)
+- Description: Onboards the hospital learning app through its current project
+  map, design workflow, authentication, media and release documentation.
+- Use when: Preparing a handoff, returning to the project or locating route,
+  shared component, learning-state and deployment owners for scoped maintenance.
+- Typical context: The selected checkout, current project documentation and
+  release evidence; preserve Thai typography, the shared content canvas,
+  tablet-first composition and viewport-safe loading/login.
+- Boundaries: Browser-local learner behavior is not authoritative identity,
+  permissions, certificates or watched-time evidence. Keep credentials server-side
+  and honor the documented media limitations. TPNA retains its own branding,
+  shell, data and assessment flow; deliberate player adaptation is not runtime
+  coupling, automatic synchronization or cross-chat/release authorization.
+- Files: `SKILL.md` holds the operating rules; `agents/openai.yaml` supplies
+  picker metadata and a suggested invocation. This archive does not include
+  the private application's source, credentials or learner records.
+
 ## Thai Palliative Nurse
 
 ### thai-palliative-nurse-new-chat
 
 - Skill file: [SKILL.md](../skills/thai-palliative-nurse-new-chat/SKILL.md)
-- Description: Onboards TPNA shared UI, published content API, search, loading
-  and access contracts from current project evidence.
+- Description: Onboards TPNA shared UI, published content, Learning Hub, search,
+  loading and access contracts from current project evidence.
 - Use when: Preparing a starter prompt or continuing editorial content/providers,
   search, Blue branding, readiness, tracking/date controls, access or release work.
 - Typical context: The selected TPNA checkout, `AGENTS.md`, `docs/HANDOFF.md`,
@@ -1188,6 +1217,10 @@ release evidence is not a new production check.
   tracking, Buddhist dates, viewport-safe font/art readiness and same-page fragment
   navigation. Local trial forms do not prove writes, uploads, payments or delivery;
   onboarding does not authorize publishing, cleanup or another chat.
+- Learning: Preserve course Pre-test, ordered lessons, Post-test and experience
+  feedback, with TPNA-owned local progress. Hospital is a player/framing reference
+  only; keep TPNA's Blue theme and shell, independent data and release evidence.
+  Seek notices remain advisory, not completion or genuine CNEU issuance.
 
 ## Shane Thai
 
@@ -1279,6 +1312,28 @@ Romanized Thai / Thai Word Bank surfaces. Recheck project evidence during pickup
   sentence, dialogue line, grammar example, quiz prompt, or UI prompt.
 - Romanized Thai / Word Bank batches also use packed audio and the committed
   TypeScript readiness manifest; its generated worker JSON is not hand-edited.
+
+### ai-video-creator
+
+- Skill file: [SKILL.md](../skills/ai-video-creator/SKILL.md)
+- Global alias: [global-ai-video-creator](../skills/global-ai-video-creator/SKILL.md)
+- Description: Plans, records, edits and revises videos with AI narration,
+  speech-aligned actions, captions and export checks.
+- Use when: Producing product demos, explainers or walkthroughs, or correcting
+  a specific scene, Thai pronunciation, pause, subtitle cue or audio join.
+- Typical context: The brief, approved media/voice, latest export, scene list,
+  actual speech timings and requested format. Reuse approved content outside
+  the requested change and keep earlier exports recoverable.
+- Files: `SKILL.md` owns the workflow; `agents/openai.yaml` supplies picker
+  metadata; [editing and QC](../skills/ai-video-creator/references/editing-and-qc.md)
+  covers timing, Thai narration, targeted edits and evidence limits;
+  [check_export.py](../skills/ai-video-creator/scripts/check_export.py) uses
+  Python 3 plus FFmpeg/FFprobe for stream, duration, decode and encoded-video
+  comparison checks.
+- Evidence limits: Technical checks do not establish natural speech, readable
+  captions, visual quality or semantic synchronization. Inspect the delivered
+  media and report any missing listening or visual review. Do not capture
+  unrelated windows, notifications or private data.
 
 ### tts-audio-assets
 

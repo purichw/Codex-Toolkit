@@ -1,0 +1,4 @@
+interface:
+  display_name: "AI Video Creator"
+  short_description: "Create videos with synced AI narration"
+  default_prompt: "Use $ai-video-creator to make a screen-recorded demo with natural AI narration and sync it to the key actions on screen."

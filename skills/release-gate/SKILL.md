@@ -165,7 +165,21 @@ Use these as starting packs, then adapt to repo-defined commands:
   preview promotion when the diff touches images, videos, CSS backgrounds,
   generated assets, CMS media, external embeds, service-worker asset handling,
   or placeholder/fallback logic. A local screenshot or page-level HTTP 200 does
-  not prove deployed media is healthy.
+  not prove deployed media is healthy. For multi-route probes, check the target's
+  request limits and share a budget across browser/API/CLI checks. On 429/challenge,
+  diagnose headers and timing, then resume unfinished checks after the evidenced
+  window at a suitable pace. A blocked probe is not a pass, but is not by itself
+  evidence of an app failure; do not weaken protection or create duplicate
+  deployments to clear it.
+- **Authorized multi-worktree integration:** identify the included revisions and
+  preserve original dirty worktrees. Merge shared consumers, editor visibility
+  and validators together. If unshipped migrations replace a complete schema
+  generated from the same older base, reconcile the source and generate one
+  additive union instead of applying competing snapshots in sequence. Do not
+  rewrite already-applied migration history. Rebase content patches onto a fresh
+  draft with stable-ID, old-value and revision guards; preserve unrelated fields
+  and separate private workspaces. Verify the published projection independently
+  of the source push and deployment.
 - **Sites deploy:** when `.openai/hosting.json` exists, use Sites tooling and
   verify the deployed URL/artifact, not just local build.
 

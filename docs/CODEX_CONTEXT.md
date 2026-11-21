@@ -13,13 +13,13 @@ user's intent.
   the reviewed skills and project context to the public repository. This archive
   pass did not change visibility. Continue reviewing future diffs for sensitive data.
 - Purpose: archive and document the user's personal Codex skills
-- Current skill count: 148 `SKILL.md` files under `skills/`
-- Breakdown: 88 personal skill folders (including compatibility routers),
-  58 `global-*` alias skills for reusable non-project-specific workflows, and
+- Current skill count: 151 `SKILL.md` files under `skills/`
+- Breakdown: 90 personal skill folders (including compatibility routers),
+  59 `global-*` alias skills for reusable non-project-specific workflows, and
   2 standalone global design-spec skills.
 - Separate repo-scoped installation: one skill,
-  `ui-ux-expert-mobile-native`, under `.agents/skills/` (149 skill entrypoints
-  across both maintained roots). It is not part of the 148-folder archive count.
+  `ui-ux-expert-mobile-native`, under `.agents/skills/` (152 skill entrypoints
+  across both maintained roots). It is not part of the 151-folder archive count.
 
 The first import copied personal skills from:
 
@@ -111,6 +111,7 @@ Expected current skill folders:
 - `account-recovery-key`
 - `admin-ops`
 - `admin-prototype-reconciliation`
+- `ai-video-creator`
 - `art-direction-imagery`
 - `claude-design-md-request`
 - `claude-design-reference-bundle`
@@ -143,6 +144,7 @@ Expected current skill folders:
 - `glenonchy-new-chat`
 - `glenonchy-website-design`
 - `glenonchy-website-new-chat`
+- `hospital-elearning-new-chat`
 - `image-boundary`
 - `image-boundary-efficient`
 - `image-boundary-iteration`
@@ -281,7 +283,7 @@ updates, enough verification is usually:
 
 ```sh
 git diff --check
-python3 scripts/verify_skills.py --expected-count 148
+python3 scripts/verify_skills.py --expected-count 151
 ```
 
 For skill script changes, run the script's smoke-test or help path when one
@@ -408,6 +410,14 @@ As of this document, the repository has:
   judgment remains the default; explicit scoped matching constraints still apply.
   The recovery checkpoint stays local under `exports/`; this maintenance does
   not establish rendered UI quality or authorize commit, push or deployment.
+
+- On 2026-11-21, archived `ai-video-creator` and
+  `hospital-elearning-new-chat`, added the reusable video global alias, and
+  synced DeepX/TPNA onboarding, production media smoke, release gates and
+  UI/UX viewport-safe loading guidance. Counts are 151 archive skills plus one
+  separate native entrypoint. Native and live sources were not modified; local
+  exports/caches stay untracked. This backup is not project runtime/visual QA
+  and does not establish that a new chat's skill picker is working.
 
 The main thing future Codex should preserve is the distinction between live local
 skills and the GitHub archive. That distinction prevents accidental overwrites

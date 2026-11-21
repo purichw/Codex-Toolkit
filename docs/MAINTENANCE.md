@@ -53,7 +53,7 @@ The owner also approved a live user-level installation at
 backup, compare both copies and sync reviewed live updates into the repo; do not
 overwrite live work or reinstall it. Do not copy the external evaluation kit/tests,
 duplicate this skill under `skills/`, or replace the web skill. The archive
-verifier count is 148; check this additional installation with its own validator:
+verifier count is 151; check this additional installation with its own validator:
 
 ```sh
 python3 .agents/skills/ui-ux-expert-mobile-native/scripts/validate_package.py
@@ -88,7 +88,7 @@ False positives are normal. Read the matches before deciding.
 For most changes, run the toolkit verifier:
 
 ```sh
-python3 scripts/verify_skills.py --expected-count 148
+python3 scripts/verify_skills.py --expected-count 151
 ```
 
 It checks skill frontmatter, folder/name consistency, local Markdown links,
@@ -110,6 +110,20 @@ find skills -name SKILL.md | sort | wc -l
 
 If you add scripts, run their basic help or smoke-test path before committing.
 
+For `ai-video-creator` helper changes, check its CLI and a disposable local
+video fixture using Python 3 plus FFmpeg/FFprobe:
+
+```sh
+python3 skills/ai-video-creator/scripts/check_export.py --help
+python3 skills/ai-video-creator/scripts/check_export.py /path/to/fixture.mp4 --require-audio --decode
+```
+
+Also exercise duration rejection, missing-audio rejection and `--same-video-as`
+when those paths change. Keep generated fixtures outside the archive. Technical
+export checks do not prove narration naturalness, caption fit or semantic sync.
+Preserve the source helper's non-executable mode and invoke it through `python3`;
+the verifier's executable-bit warning is informational for this helper.
+
 For the consolidated mockup HTML helper and its legacy wrapper:
 
 ```sh
@@ -121,7 +135,8 @@ See [reference consolidation](REFERENCE_PARITY_MIGRATION.md) before syncing an
 older installation. Do not resurrect the retired reference-to-a-tee folders.
 These tests verify helper behavior, not rendered UI quality.
 The owner approved removal of the two archived reference folders and the live
-reference folder after migration checks. The completed archive count is 148.
+reference folder after migration checks. The archive count at that checkpoint
+was 148; use the current count above for today's verification.
 
 For `responsive-design` collector changes, run its browser-backed fixture tests
 with an existing compatible Playwright/browser runtime:

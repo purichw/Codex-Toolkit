@@ -1,6 +1,6 @@
 ---
 name: deepx-new-chat
-description: "Onboard or refresh DeepX Works, Product Studio, Explore Ideas, Content Studio, Coach and LUMA CMS. Use for DeepX handoffs, project documentation updates, or context pickup before UI, CMS/playground, performance, Supabase, domain or release work."
+description: "Onboard or refresh DeepX Works, Product Studio, Explore Ideas and its Content, Coach, LUMA, F&B and Salon CMS. Use for DeepX handoffs, project documentation updates, or context pickup before UI, CMS/playground, performance, Supabase, domain or release work."
 ---
 
 # DeepX New Chat
@@ -22,6 +22,12 @@ authorize creating or inspecting another chat.
    checkout. Use `docs/README.md` to locate task-specific contracts. For trainer
    or clinic work read `docs/COACH_CMS.md` or `docs/CLINIC_CMS.md`; do not infer
    their data/auth behavior from the legacy per-demo design notes.
+   For F&B read `docs/FNB_CMS.md`; for salon work read `docs/HAIR_SALON_CMS.md`
+   and the active concept's rework document linked from `docs/README.md`.
+   For the combined Ideas/Salon release, use `docs/COMBINED_RELEASE_20261113.md`.
+   Confirm the selected checkout contains the release: the original dirty main
+   and isolated source worktrees were preserved and may lag remote main. Do not
+   reset them or copy their complete shared files over the integrated source.
 5. Reconcile conflicts using current source, the latest explicit user decision,
    and dated evidence. Earlier entries in the chronological release log describe
    superseded layouts; they must not silently undo later corrections. Historical
@@ -55,11 +61,21 @@ authorize creating or inspecting another chat.
   frame; do not restore looping from old notes. Details are in the reference.
 - Business copy, navigation, media, contact details and metadata are CMS-owned.
   Do not hardcode them or restore cleared content from the bootstrap fixture.
+- For the current salon design corrections, generate concept-exclusive artwork
+  and the requested shop logo with `image_gen`; no cross-concept borrowing.
+  Preserve each reference's typography, composition, crops and spacing, and
+  visually compare complete desktop/tablet/mobile pages in TH and EN. Generated
+  originals are not integrated runtime assets or a completed visual audit. The
+  active concept document owns the inventory and remaining work.
 - Preserve guarded CMS writes, published-only reads, revision conflicts,
   atomic publication and server authorization. Content Studio publishes its
   whole Home/Studio/Ideas draft. Coach and LUMA each publish their own workspace;
   never merge these boundaries or publish unrelated drafts. Their category-linked
   visitor managers are login-free IndexedDB playgrounds with no real write access.
+  F&B and Salon also have separate privileged workspaces and isolated visitor
+  managers. Salon catalogue `/demo` content belongs to Content Studio; its
+  dedicated `/published/<design>` route reads the Salon publication. Do not
+  overwrite one with the other while updating artwork or layout.
 - Content Studio uses white/cyan, Coach uses its approved light purple system,
   and LUMA uses forest/cream. Share controls/dialog behavior while retaining each
   module's tokens and data ownership. Preserve centered standalone media/language
@@ -78,14 +94,24 @@ authorize creating or inspecting another chat.
 
 ## Current operations and input questions
 
-Use the dated `docs/RELEASE.md` entry for status, not a fresh health claim. The
-2026-11-04 release completed Coach/LUMA deployment and login/save checks. Earlier
-login, Chrome, disk-space and release questions are resolved; do not reopen them
+Use the dated `docs/RELEASE.md` entry for status, not a fresh health claim.
+Coach/LUMA were released 2026-11-04; F&B and the original seven Salon concepts/CMS
+were released 2026-11-08. The latest recorded runtime release is the combined
+Ideas directory, Concept detail and all seven Salon reworks on 2026-11-13.
+Earlier login, Chrome, disk-space and release questions are resolved; do not reopen them
 unless a current operation actually fails. Real Coach booking remains off; the
-real LUMA workspace is unpublished/intake off. Visitor practice is available and
-separate. Email/SMS/calendar integrations are unconnected. For real activation,
+recorded real LUMA, F&B and Salon workspaces are unpublished/intake off. Visitor
+practice is available and separate. Email/SMS/calendar integrations are unconnected. For real activation,
 read the input checklist in `docs/CMS.md`; optional business/integration inputs
 are not blockers for the completed catalogue playground release.
+
+The November 12 local-only/pause notes are historical. Completed Japanese and
+Colour Club Campaign implementations were included alongside Quiet Luxury,
+Korean Soft, Plian Look, Waanjai and Suay Khum. The combined migration replaces
+their unshipped whole-schema snapshots; never apply those older snapshots over
+the merged contract. Catalogue publication did not change private Salon data,
+publication or intake. Read the dated release ledger for exact evidence and
+limits; it is neither a fresh health check nor authority for another release.
 
 ## Scope and delivery
 

@@ -1,24 +1,61 @@
 # DeepX project context
 
-Reconciled against source, repository docs and the verified release on
-2026-11-04 (Asia/Bangkok). Treat this as an
+Status/routes reconciled against repository release records on 2026-11-13
+(Asia/Bangkok). Treat this as an
 orientation map, not a live production report. Re-read current source and docs;
 update this reference when an explicitly approved product decision changes.
 This is a documentation reconciliation, not a new live audit or deployment.
 Use the repository's latest release entry for exact source and evidence.
+
+## Recorded combined release — 2026-11-13
+
+Ideas category directory, shared detail pages for 50 Concepts and all seven Salon
+reworks are deployed in runtime `46aa58f15135b97c4055c83af9b4bccc8facca22`.
+Content Studio revision 52 publishes the guarded catalogue changes. The exact
+deployment, canonical smoke, recovery and evidence limits belong in
+`docs/RELEASE.md`; shared-file decisions belong in `docs/COMBINED_RELEASE_20261113.md`.
+All 216 changed media files matched deployed bytes/hashes; the release recorded
+201 tests, 74 route/status checks and merged-source/browser evidence. These are
+dated results, not an instruction to repeat every check for a small follow-up.
+
+The release worktree is
+`/Users/point/Website Projects/DeepX/artifacts/combined-release-20261113`, branch
+`codex/combined-release-20261113`. Its recorded documentation closeout is `8e18bf1`.
+Original main at `f4eb24a` and the isolated source worktrees remain dirty and were
+deliberately preserved. Check HEAD/status before selecting an edit target; a dirty
+old checkout is not evidence that its changes are absent from production. Do not
+reset, overwrite or bulk-copy these worktrees. Future source starts from the
+integrated revision while preserving any newer edits.
+
+The earlier Japanese/Colour Club pause was superseded by their completed isolated
+implementations. Colour Club uses `ColourClubCampaign.tsx`, not the older paused
+ColourClubSections preparation. One applied migration,
+`20261113090000_combined_ideas_salon_schema.sql`, unions Concept `detailMedia`
+and the Salon optional fields. Do not apply the isolated whole-schema snapshots
+generated against the older base. Catalogue revision 52 did not modify private
+Salon records, publication or intake; original source QA and live RPC proof are
+distinct from a newly authenticated browser CMS journey, which was not repeated.
+
+Use the nine artwork manifests linked from `docs/ASSETS.md` and each concept's
+contract before regenerating anything. New art remains concept-exclusive, with
+exact existing art reused only where it matches the intended concept. Keep the
+white Studio switcher, reference composition, native TH/EN type and crops.
+Historical local fixtures and screenshots are provenance, not production input.
+This completed release grants no standing push/deploy or cross-chat authority.
 
 ## Project and services
 
 - Primary checkout: `/Users/point/Website Projects/DeepX`.
 - Repository: `https://github.com/DeepXWorks/DeepX.git`; primary branch `main`.
 - Public site: `https://deepxworks.com`; Content Studio: `/admin`, Coach:
-  `/admin/coach`, LUMA: `/admin/clinic`.
+  `/admin/coach`, LUMA: `/admin/clinic`, F&B: `/admin/fnb`, Salon: `/admin/salon`.
 - `deepxsolution.com`, `www.deepxsolution.com` and `deepxtech.vercel.app` are legacy aliases with
   permanent 308 redirects to the canonical domain, preserving path and query.
 - Vercel scope/project: `purich-w/deepx`.
 - Active Supabase project: `yeyhyyuannxhurltvexm` at
   `https://yeyhyyuannxhurltvexm.supabase.co`, region `ap-southeast-1` (Singapore).
-  Vercel functions use `sin1`; the latest release verified all five functions.
+  Vercel functions use `sin1`; use the current release record for the exact
+  deployed function inventory and region verification.
 - Recorded Auth configuration uses the canonical Site URL and exact
   `https://deepxworks.com/admin` redirect, with the documented localhost callbacks.
   Verify current settings for auth/domain work. Sessions do not migrate between
@@ -67,11 +104,19 @@ Do not invent client claims, partnerships or performance metrics.
 | LUMA CMS | `/admin/clinic`, fourteen pages and separate role-scoped content/operations |
 | Visitor Coach manager | `/studio/ideas/fitness-trainer/cms`, local IndexedDB |
 | Visitor LUMA manager | `/studio/ideas/beauty-clinics/cms`, separate local IndexedDB |
+| F&B CMS | `/admin/fnb`, twelve pages and separate privileged workspace |
+| Visitor F&B managers | `/studio/ideas/food-and-beverage/cms`, `/studio/ideas/bars/cms`, `/studio/ideas/cafes/cms`; isolated browser-local practice |
+| Salon CMS | `/admin/salon`, twelve pages and separate privileged workspace |
+| Visitor Salon manager | `/studio/ideas/hair-salons/cms`, isolated local IndexedDB |
+| Managed Salon publication | `/studio/ideas/hair-salons/published/<design>`, dedicated immutable public snapshot |
 
 The canonical clinic category is plural `beauty-clinics`, defined in
 `src/catalogue/routes.ts`. Match manager/preview/site routes before generic Ideas
 item routes; preserve their noindex/no-store rules. Both categories link to their
-own public playground, not private admin login.
+own public playground, not private admin login. F&B/Salon manager routes must
+likewise resolve before generic idea routes. Salon catalogue `/demo` routes read
+their individual Content Studio concepts; dedicated `/published/<design>` routes
+read the Salon workspace publication. Keep those ownership boundaries separate.
 
 The owner reserved `/catalogue` and `/studio/catalogue` for possible future use:
 **do not add redirects or Ideas aliases there**. Internal `catalogue` code/schema
@@ -110,8 +155,9 @@ metadata is generated at build time.
 | Validated content contract and published fetch | `src/content.ts` |
 | Studio and shared product UI | `src/studio/`, `src/components/ProductHeader.tsx`, `ProductCard.tsx`, `product-theme.css`; `docs/STUDIO.md` |
 | Ideas routing, search/filter and CMS schema | `src/catalogue/`, `docs/CATALOGUE.md` |
-| Ideas index and shared rails | `src/catalogue/IdeasRail.tsx`, `ideas-home.css`; `docs/IDEAS_HOME.md` |
-| Shared Concept detail | `src/catalogue/ConceptDetail.tsx`, `concept-detail.css`; `docs/CONCEPT_DETAIL.md` |
+| Ideas category directory | `src/catalogue/IdeasDirectory.tsx`, `ideas-directory.css`, `CatalogueWebsite.tsx`; `docs/IDEAS_HOME.md`, `docs/IDEAS_DIRECTORY_QA.md` |
+| Shared rails | `src/catalogue/IdeasRail.tsx`, `src/components/Rail.tsx`, `rail-model.ts`; reachable endpoint/dot behavior |
+| Shared Concept detail | `src/catalogue/ConceptDetail.tsx`, `ConceptSummary.tsx`, `detail-media.ts`, `concept-detail.css`; `docs/CONCEPT_DETAIL.md`, `docs/IDEAS_REFRESH_QA.md` |
 | Category-only demo navigation | `src/catalogue/DemoShowcase.tsx`, `demo-navigation.ts`, `demo-showcase.css`; `docs/DEMO_NAVIGATION.md` |
 | Eleven website demo renderers | `src/demos/`; relevant `docs/FITNESS_*DEMO.md` / `docs/BEAUTY_*DEMO.md` |
 | Initial HTML/React loading handoff | `scripts/boot-html.tsx`, `src/components/BootHandoff.tsx`, `LoadingScreen.tsx`, `loading-model.ts`; `docs/LOADING.md` |
@@ -125,6 +171,9 @@ metadata is generated at build time.
 | Auth, content editor and draft/publication | `src/cms/`, `docs/CMS.md` |
 | Trainer manager, booking and isolated playground | `src/coach/`, `server/coach-booking-handler.ts`, `api/coach-booking.mjs`; `docs/COACH_CMS.md` |
 | Clinic manager, roles, enquiries and media | `src/clinic/`, `server/clinic-handler.ts`, `api/clinic.mjs`; `docs/CLINIC_CMS.md` |
+| F&B manager, menus, reception and isolated practice | `src/fnb/`, `server/fnb-handler.ts`, `api/fnb.mjs`; `docs/FNB_CMS.md` |
+| Salon concepts and CMS | `src/hair-salons/`, `src/salon-cms/`, `server/salon-handler.ts`, `api/salon.mjs`; `docs/HAIR_SALON_CMS.md` |
+| Seven Salon reworks | `docs/README.md` indexes each design contract; `docs/HAIR_SALON_CMS.md` maps composition/managed consumers; `docs/COMBINED_RELEASE_20261113.md` owns integration |
 | Shared form/popup behavior | `src/components/Select.tsx`, `form-controls.css`, `Modal.tsx`, `Action.tsx`; `docs/FORM_CONTROLS.md` |
 | Schema, RLS and guarded RPCs | `supabase/migrations/`, `supabase/tests/` |
 | Asset provenance and original mockups | `docs/ASSETS.md`, `docs/references/` |
@@ -239,6 +288,15 @@ production owner session and LUMA real save/reload/storage boundaries. Earlier
 requests for login, Chrome retry, disk space or deployment confirmation were
 resolved. Do not ask for them again based only on historical QA notes.
 
+F&B and the original seven Salon concepts/CMS were released on 2026-11-08 with
+recorded production authentication/save checks. Their private workspaces remain
+unpublished with real intake off at that checkpoint; visitor managers remain
+isolated browser-local practice. All seven catalogue art/layout reworks were
+subsequently released on November 13 without changing the private workspace.
+Read the release record for exact SHA/revision evidence; an
+old "not deployed" phrase in an earlier implementation note is superseded by
+the dated release, but that release does not prove current rework acceptance.
+
 - Real Coach booking stays off; LUMA real workspace is unpublished/intake off,
   with no operational contacts/enquiries/appointments at that release.
 - Public playgrounds use browser-local drafts, publication, uploads and bookings.
@@ -291,7 +349,8 @@ Use `npm ci` only when dependency installation is needed. Node requires at least
 | Local development | `npm run dev` (normally `http://127.0.0.1:5173`) |
 | Types / production bundle | `npm run typecheck`, `npm run build` |
 | Content and CMS helper regression | `npm test` |
-| Targeted manager regression | `npm run test:coach`, `npm run test:clinic` |
+| Targeted manager regression | `npm run test:coach`, `npm run test:clinic`; inspect `package.json` for F&B/Salon suites |
+| Salon concept / CMS regression | `npm run test:hair`, `npm run test:salon` |
 | Content-only regression | `npm run test:content` |
 | Schema alignment | `npm run check:schema` |
 | Final local diff | `git diff --check`, `git status --short --branch` |
@@ -319,3 +378,10 @@ or lack of progress before repeating commands. Do not create duplicate deploys
 or deploy again solely for documentation closeout. Previous browser evidence
 does not establish physical iPhone/Safari or OS reduced-motion testing; state
 which environments were actually exercised.
+
+For multi-route production smoke, budget requests against the documented public
+limit in `docs/CONTENT_PROTECTION.md` (60 reads/IP/60 seconds at this release).
+Browser navigation and public API probes can share that budget; assets are
+excluded. On 429/challenge, inspect response headers and target identity, wait
+for the evidenced window and resume only unfinished checks at a safe pace.
+Do not weaken the firewall, spoof a trusted crawler or redeploy to evade it.

@@ -49,8 +49,10 @@ missing historical evidence honestly. Skill/docs-only updates need no app captur
 
 | Skill | Short description | Use when |
 | --- | --- | --- |
+| [`ai-video-creator`](skills/ai-video-creator/SKILL.md) | Creates and revises videos with AI narration, action-synced editing, captions and export checks. | Product demos, explainers, walkthroughs, Thai pronunciation fixes or targeted audio/video revisions; reusable global alias is available. |
+| [`hospital-elearning-new-chat`](skills/hospital-elearning-new-chat/SKILL.md) | Onboards Hospital E-learning from current project, design, auth and media contracts. | Continuing the hospital learning app while preserving its Thai shell, responsive behavior, data limits and independence from TPNA. |
 | [`dootaa-new-chat`](skills/dootaa-new-chat/SKILL.md) | Onboards DOOTAA with current app, camera, benchmark, dataset and website contracts. | Continuing DOOTAA or preparing a starter prompt without confusing source/build evidence with real-device or clinical validation. |
-| [`deepx-new-chat`](skills/deepx-new-chat/SKILL.md) | Maps DeepX Works, Studio, Ideas, Content Studio and separate Coach/LUMA managers to current contracts. | Context pickup for CMS/playgrounds, publication boundaries, media privacy, regional infrastructure and release evidence. |
+| [`deepx-new-chat`](skills/deepx-new-chat/SKILL.md) | Maps DeepX Works, Studio, Ideas and separate Content, Coach, LUMA, F&B and Salon managers to current contracts. | Context pickup for CMS/playgrounds, concept-exclusive artwork, publication boundaries and integrated-release evidence without overwriting dirty source worktrees. |
 | [`glenonchy-new-chat`](skills/glenonchy-new-chat/SKILL.md) | Routes Glenonchy website, GM, backend, mobile, minigames and Godot work to distinct owners. | Cross-surface context, membership recovery, game economy or handoffs without mixing website, admin and native contracts. |
 | [`glenonchy-website-new-chat`](skills/glenonchy-website-new-chat/SKILL.md) | Onboards Glenonchy's public storybook website from its current guide and design contract. | Website-only context, handoffs, setup or documentation alignment without assuming GM access, mobile scope or release permission. |
 | [`glenonchy-website-design`](skills/glenonchy-website-design/SKILL.md) | Preserves Glenonchy's storybook composition, paper safe areas and shared responsive proportions. | Website artwork, type, sizing, navigation, book motion or visual QA against approved references and current rendered evidence. |
@@ -131,7 +133,7 @@ missing historical evidence honestly. Skill/docs-only updates need no app captur
 | [`shane-thai-prod-smoke`](skills/shane-thai-prod-smoke/SKILL.md) | Runs Shane Thai production smoke checks with the dedicated dummy learner account and safe learner-flow policy. | Verifying the Shane production Vercel app, topbar/Learning hub, login surface, learner smoke account, or post-deploy screenshot evidence. |
 | [`site-maintainer`](skills/site-maintainer/SKILL.md) | Maintains website projects where source, generated artifacts, tests, docs, and hosting outputs must stay aligned. | Working on static/built sites, generated deploy folders, CMS/admin site work, build scripts, deploy prep, or work logs. |
 | [`snapshot`](skills/snapshot/SKILL.md) | Captures, crops, inspects, and presents screenshots with enough context for review, including page-level evidence for whole-page work. | Producing UI screenshots, visual proof, before/after comparisons, reference/development side-by-side evidence, viewport captures, full-page/contact-sheet proof, or production smoke evidence. |
-| [`thai-palliative-nurse-new-chat`](skills/thai-palliative-nurse-new-chat/SKILL.md) | Onboards TPNA shared UI, published content API, search, loading and access boundaries. | Context pickup for editorial data, navigation, tracking/date controls or release work; implemented content reads do not imply CMS administration or transactional APIs. |
+| [`thai-palliative-nurse-new-chat`](skills/thai-palliative-nurse-new-chat/SKILL.md) | Onboards TPNA shared UI, published content, Learning Hub and project boundaries. | Editorial or learning work while preserving TPNA branding, Pre/Post-test and feedback flow, advisory seek tracking and player-only Hospital adaptation. |
 | [`tts-audio-assets`](skills/tts-audio-assets/SKILL.md) | Manages text-to-speech audio generation, reuse, audit, naturalness QA, and data wiring across projects. | Working on lesson audio, UI playback, dialogues, prompts, voice/pacing policy, stale/missing audio, or audio IDs. |
 | [`uat-environment`](skills/uat-environment/SKILL.md) | Defines isolated UAT and promotion gates covering acceptance criteria and all required checks. | Runtime changes need current production-like evidence, appropriate auth, and verified promotion outcomes. |
 | [`ui-state-matrix`](skills/ui-state-matrix/SKILL.md) | Defines and verifies UI states beyond the happy path: focus, selected, disabled, loading, empty, error, success, denied, long text, and responsive states. | A component or flow can look finished but still needs state coverage before UI work is complete. |
@@ -161,5 +163,5 @@ selectively and preserve the archive's global layer.
 Verify the archive with:
 
 ```sh
-python3 scripts/verify_skills.py --expected-count 148
+python3 scripts/verify_skills.py --expected-count 151
 ```

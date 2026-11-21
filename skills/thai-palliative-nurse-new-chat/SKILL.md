@@ -58,6 +58,24 @@ monitor or delegate to another chat.
 - Preserve the complete About history, sourced founder portraits and confirmed
   bank details. Never fill space with meaningless placeholder lines.
 
+## Learning Hub and related-project boundary
+
+For seminar-7 learning work, read `docs/LEARNING_HUB.md` and
+`docs/LEARNING_PROJECT_BOUNDARIES.md`. Overview/classroom share TPNA's own
+`learning-progress.ts` / `useLearningProgress` state. Preserve course Pre-test →
+ordered lessons → Post-test → learning-experience feedback; do not replace the
+feedback with Hospital's scored Final Assessment. Seek notices are advisory,
+not watched-time completion or real CNEU issuance.
+
+Hospital E-Learning is a reference project, not TPNA's layout/design-system
+owner. Preserve TPNA's 1200px container, Blue theme, header/footer and shared
+components. The owner-approved narrow exception is video-player framing,
+controls and illustrated seek popup, adapted to TPNA colors. The two repositories
+have no runtime dependency or automatic synchronization. The shared YouTube key
+is server-only with separate env names/auth/allowlists; no learner/session data
+is shared. Related-project context does not authorize edits, releases or access
+to other chats. Consult each project's source/release evidence independently.
+
 ## Work and verification
 
 Use `ui-ux-expert` for visible design, `mockup-to-product` for supplied mockups,
