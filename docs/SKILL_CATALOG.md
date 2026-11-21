@@ -337,7 +337,7 @@ Skill/source-documentation changes alone do not require an unrelated app capture
   authorized adaptation, or repeated visual rework needs a design review.
 - Typical context: Selected image/HTML references, actual rendered product,
   fixed versus flexible constraints, shared owners, truthful data substitutions,
-  desktop/mobile image inspection, scoped snapshots and affected behavior checks.
+  desktop/tablet/mobile image inspection, scoped snapshots and affected behavior checks.
 - Updated guidance: Compare the same UI state, derive compactness from the
   selected reference, and preserve real results and controls rather than copying
   an illustrative height. Check alignment within controls, between peers, and
@@ -349,8 +349,13 @@ Skill/source-documentation changes alone do not require an unrelated app capture
   role-specific typography at comparable content scale. For editable designs,
   exercise real insertion/order/visibility/style controls and save/reopen, then
   inspect live canvas, Preview, and public output. Capture Before automatically
-  before editing and disclose missing captures. A narrow viewport repair
-  checks affected views; a responsive/page-level claim needs desktop and mobile.
+  before editing and disclose missing captures. For responsive web work, inspect
+  desktop, tablet and mobile independently; narrow changes keep framing to the
+  touched region and its neighbors at the required widths.
+- Automatic repair: A material in-scope mismatch or repeated user correction
+  loads `mockup-fidelity-repair` in the same task. Diagnose the responsible owner,
+  fix and inspect fresh renders, protect views that already match and report
+  missing references as verified adaptations only when their reflow is tested.
 - Artwork: Use suitable supplied sources or image tooling for eligible missing
   layers and blurry assets; respect identity, licensing and explicit source
   constraints. Preserve animation manifests and native text-safe bounds. Compare
@@ -365,6 +370,29 @@ Skill/source-documentation changes alone do not require an unrelated app capture
   per-spacing exceptions ledger. Inspiration-only work uses design-direction
   skills. Flexibility does not authorize lost features or unsupported authoring.
 - Consolidation and checks: [REFERENCE_PARITY_MIGRATION.md](REFERENCE_PARITY_MIGRATION.md).
+
+### mockup-fidelity-repair
+
+- Skill file: [SKILL.md](../skills/mockup-fidelity-repair/SKILL.md)
+- Global alias: [global-mockup-fidelity-repair](../skills/global-mockup-fidelity-repair/SKILL.md)
+- Description: Course-corrects existing UI that misses an approved mockup,
+  including implementations that match at only one viewport.
+- Use when: A user reports visual mismatch, a prior mockup implementation needs
+  another pass, or rendered review finds viewport, language or state gaps.
+  `mockup-to-product` invokes this workflow automatically for material mismatches.
+- Workflow: Confirm reference, actual renderer and view state; capture Before;
+  diagnose composition, type, crop or data binding; repair the responsible owner;
+  inspect fresh Reference/Before/After evidence and affected behavior. Keep
+  already-correct views in the regression set and distinguish adaptation from
+  reference matching, unresolved mismatch and unverified views.
+- Files: `SKILL.md` holds the repair loop, `agents/openai.yaml` supplies picker
+  metadata, and [repair lessons](../skills/mockup-fidelity-repair/references/repair-lessons.md)
+  provides composition, brand/crop, CMS and load-transition examples. Example
+  project files are provenance, not dependencies or universal design rules.
+- Boundary: First implementation belongs to `mockup-to-product`; tricky reflow
+  uses `responsive-design` and matched visual proof uses `snapshot`. Keep the
+  repair scoped to requested views and affected consumers. Structural validation
+  of this package is not evidence that an app matches its mockup.
 
 ### claude-to-a-tee
 
@@ -1199,19 +1227,54 @@ release evidence is not a new production check.
   picker metadata and a suggested invocation. This archive does not include
   the private application's source, credentials or learner records.
 
+## KK Fitness
+
+### kk-fitness-new-chat
+
+- Skill file: [SKILL.md](../skills/kk-fitness-new-chat/SKILL.md)
+- Description: Onboards the Thai-first Astro storefront from its current
+  checkout, source owners, build contract and deployed-revision evidence.
+- Use when: Resuming product/catalogue, cart/checkout, transfer/evidence,
+  readiness/loading or responsive storefront work, or preparing a handoff.
+- Boundaries: Local catalogue and browser-side purchase/evidence flows are not
+  real order creation or submitted payment proof. Confirm commercial details
+  with the store, preserve existing contact actions and shared UI, and verify
+  readiness failures when changing the gate. Push and deployment are separate
+  actions; check auto-deploy before starting a CLI deployment.
+- Files: The single `SKILL.md` contains onboarding, owner routes, constraints,
+  targeted verification and a suggested invocation. It is project-specific.
+
+## Numchok Fitness
+
+### numchok-fitness-new-chat
+
+- Skill file: [SKILL.md](../skills/numchok-fitness-new-chat/SKILL.md)
+- Description: Onboards the static storefront and browser-local CMS, including
+  shared content, product data, routing and startup owners.
+- Use when: Continuing public or CMS work, draft/preview/publication behavior,
+  responsive design, loading/retry or separately authorized release work.
+- Boundaries: Device-local demo storage is not shared persistence or real
+  accounts. Preserve published-only storefront reads, stable IDs/slugs,
+  in-memory preview overrides and readiness handshakes. Local ignored review
+  helpers may be absent from a clean clone; follow actual routing and use
+  isolated fixture state. Verify push and production alias separately.
+- Files: `SKILL.md` holds the operating map; `agents/openai.yaml` supplies
+  picker metadata. The skill does not include the app or its local test helpers.
+
 ## Thai Palliative Nurse
 
 ### thai-palliative-nurse-new-chat
 
 - Skill file: [SKILL.md](../skills/thai-palliative-nurse-new-chat/SKILL.md)
-- Description: Onboards TPNA shared UI, published content, Learning Hub, search,
-  loading and access contracts from current project evidence.
+- Description: Routes TPNA association-site and TPNA 2569 conference work to
+  their distinct source owners, contracts and release runbooks.
 - Use when: Preparing a starter prompt or continuing editorial content/providers,
-  search, Blue branding, readiness, tracking/date controls, access or release work.
+  search, Blue branding, readiness, tracking/date controls, access, conference
+  activities, Demo Control Center or release work.
 - Typical context: The selected TPNA checkout, `AGENTS.md`, `docs/HANDOFF.md`,
   `README.md`, `PROJECT_MAP.md`, shared UI/testing/deployment docs and its
   [task map](../skills/thai-palliative-nurse-new-chat/references/new-chat-context.md).
-- Boundaries: A validated published snapshot supplies public content/search;
+- Association boundary: A validated published snapshot supplies public content/search;
   content failure must not revive stale fixtures. CMS administration and
   transactional member/registration APIs remain future work. Preserve private
   tracking, Buddhist dates, viewport-safe font/art readiness and same-page fragment
@@ -1221,6 +1284,10 @@ release evidence is not a new production check.
   feedback, with TPNA-owned local progress. Hospital is a player/framing reference
   only; keep TPNA's Blue theme and shell, independent data and release evidence.
   Seek notices remain advisory, not completion or genuine CNEU issuance.
+- Conference: Select `apps/tpna2569/` and `docs/TPNA2569.md` for activity entry,
+  dashboard/quiz, comment tree, prize wheel, campaign gates and demo scenarios.
+  Distinguish the opt-in per-tab fixture Control Center from local API checks;
+  use the chosen app's target and runbook rather than the association release path.
 
 ## Shane Thai
 

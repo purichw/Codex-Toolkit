@@ -13,12 +13,28 @@ project-relative paths against the selected checkout/worktree; the default is
 4. `PROJECT_MAP.md` — current routes, interactions and source owners; read the
    relevant sections rather than historical evidence by default.
 
-The canonical site is `https://thaipalliativenurse.vercel.app`. Production runs on
-Vercel; localhost is development only. The private repository's canonical owner
-and Vercel scope are recorded in `docs/DEPLOYMENT.md`. Revalidate remote/integration
-state for a release rather than assuming a historical alias remains current.
+The association site targets `https://thaipalliativenurse.vercel.app`. The
+conference portal targets `https://tpna2569.vercel.app`. Check the selected
+app's release runbook and the intended revision before an authorized release.
 
-## Find the owner before editing
+## TPNA 2569 conference portal
+
+Start with `docs/TPNA2569.md` for the route map and app contracts. The source
+paths below are relative to `apps/tpna2569/`.
+
+| Area | Owners and checks |
+| --- | --- |
+| Editorial content, fonts and routing | `public/content/conference.json`, `src/content-schema.mjs`, `src/startup.ts`, `src/page-loaders.ts` and `src/navigation.ts`. Keep the validated content and font readiness contract. |
+| Shared footer and activity UI | `src/components/ConferenceShell.tsx` and `conference-shell.css` own the italic *Powered by* credit and its link. Use `Action`, `GameScore` and the shared `PrizeWheelIcon.tsx` in their existing roles. Respect the latest mock and use contextual screenshots for visual changes. |
+| Entry, dashboard and quiz | `src/pages/ActivityEntry.tsx`, `GameDashboard.tsx`, `game-dashboard.css` and `KnowledgeGame.tsx`. Check the mission layout against the available container width, including the demo dock. |
+| Tree, wheel and grand-prize entry | `src/comment-tree/`, `src/prize-wheel/`, `api/` and `server/`. Read the matching portal sections for verified contributions, score gates and campaign setup. |
+| Demo Control Center | `src/demo/`. Use the opt-in `npm run dev:demo` and `test:demo` commands in `README.md`. See `DEMO_QA.md` for the recorded scenario checks. The demo store holds fixture state per tab. |
+
+The portal README has the app-local setup commands. Pick the fixture-based
+Control Center for scenario review or the local API preview for server-handler
+checks. The portal docs describe both workflows and link to verification evidence.
+
+## Association site owners
 
 | Requested area | Source owners | Read alongside |
 | --- | --- | --- |

@@ -23,6 +23,12 @@ For `claude-to-a-tee`, `global-claude-to-a-tee`, or
 `global-mockup-to-product`, also install `mockup-to-product`. See
 [reference parity migration](REFERENCE_PARITY_MIGRATION.md).
 
+Install `mockup-fidelity-repair` alongside `mockup-to-product`: the latter now
+loads it automatically for material in-scope visual mismatches. The repair
+workflow also uses `snapshot` for visual proof and `responsive-design` when
+reflow needs it. Its `global-mockup-fidelity-repair` alias requires the canonical
+repair skill; it is not a standalone copy of those instructions.
+
 `reference-to-a-tee` and `global-reference-to-a-tee` are retired and removed. Update old
 prompts to the corresponding mockup name. A copy-only sync does not remove old
 installed folders; inspect local differences and get approval before retiring

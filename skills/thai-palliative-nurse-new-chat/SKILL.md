@@ -1,6 +1,6 @@
 ---
 name: thai-palliative-nurse-new-chat
-description: Onboard or refresh context for the Thai Palliative Nurse / TPNA website. Use for a new-chat prompt, project handoff, required reading, setup, or documentation sync before continuing TPNA shared UI, CMS/content API, search, tracking, loading, access, or release work.
+description: Onboard or refresh work on the Thai Palliative Nurse association site or TPNA 2569 conference portal. Use for TPNA handoffs, setup, documentation sync, or a new-chat prompt, including the conference activities and Demo Control Center.
 ---
 
 # Thai Palliative Nurse New Chat
@@ -26,7 +26,15 @@ monitor or delegate to another chat.
 5. Briefly state the current scope and relevant constraints, then perform the
    supplied task. If only orientation was requested, summarize and wait.
 
-## Preserve the product
+## Choose the application
+
+- For TPNA 2569, the conference URL, activity routes or Demo Control Center,
+  work in `apps/tpna2569/`. Read `docs/TPNA2569.md` and use the conference
+  section of the context routing guide for the task's owner and checks.
+- The association site's CMS, tracking, content pages, Learning Hub and access
+  gate use the repository-root app and the contracts below.
+
+## Association site
 
 - Use TPNA Blue from `public/theme.css` and `docs/BLUE_SCHEME.md`; do not install
   generic fallback tokens or restore the old red palette. Transparent vector
@@ -86,7 +94,9 @@ every specialist to a tiny edit.
 Follow `docs/TESTING.md` at the smallest appropriate risk tier. Docs-only work
 needs path/link/metadata checks, not a build or screenshots. Shared controls need
 affected-consumer and interaction checks. Release work uses `release-gate` and
-`docs/DEPLOYMENT.md`, with current target and source evidence.
+the selected app's runbook with current target and source evidence. Use
+`docs/DEPLOYMENT.md` for the association site or the release section of
+`docs/TPNA2569.md` for the conference portal.
 
 Never treat onboarding, a handoff, a historical approval or passing checks as
 permission to commit, push, deploy, change firewall policy, roll back, delete

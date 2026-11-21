@@ -13,13 +13,13 @@ user's intent.
   the reviewed skills and project context to the public repository. This archive
   pass did not change visibility. Continue reviewing future diffs for sensitive data.
 - Purpose: archive and document the user's personal Codex skills
-- Current skill count: 151 `SKILL.md` files under `skills/`
-- Breakdown: 90 personal skill folders (including compatibility routers),
-  59 `global-*` alias skills for reusable non-project-specific workflows, and
+- Current skill count: 155 `SKILL.md` files under `skills/`
+- Breakdown: 93 personal skill folders (including compatibility routers),
+  60 `global-*` alias skills for reusable non-project-specific workflows, and
   2 standalone global design-spec skills.
 - Separate repo-scoped installation: one skill,
-  `ui-ux-expert-mobile-native`, under `.agents/skills/` (152 skill entrypoints
-  across both maintained roots). It is not part of the 151-folder archive count.
+  `ui-ux-expert-mobile-native`, under `.agents/skills/` (156 skill entrypoints
+  across both maintained roots). It is not part of the 155-folder archive count.
 
 The first import copied personal skills from:
 
@@ -157,17 +157,20 @@ Expected current skill folders:
 - `interaction-flow-qa`
 - `ios-app-development`
 - `kaset-tan-phai-new-chat`
+- `kk-fitness-new-chat`
 - `korat-tan-phai-new-chat`
 - `korat-tan-phai-shared-components`
 - `ledger-logic`
 - `mobile-native-feel`
 - `mobile-web-qa`
+- `mockup-fidelity-repair`
 - `mockup-to-product`
 - `mongkol-new-chat`
 - `motion-choreography`
 - `native-parity`
 - `notenwert-design-direction`
 - `notenwert-maintainer`
+- `numchok-fitness-new-chat`
 - `placeholder-image`
 - `prod-smoke-harness`
 - `product-ux-contracts`
@@ -233,6 +236,12 @@ paths without restoring the retired exact-by-default or HTML-only rules. See
 [REFERENCE_PARITY_MIGRATION.md](REFERENCE_PARITY_MIGRATION.md) for dependencies,
 legacy CLI behavior, and verification cases.
 
+`mockup-fidelity-repair` is the focused repair workflow for an existing UI that
+misses its approved reference. `mockup-to-product` now loads it automatically
+for material in-scope mismatches, including one-viewport-only success. Keep
+both installed, preserve their snapshot requirements and independent view
+verdicts, and do not restore the retired reference skill as a substitute.
+
 If the count or names change, update `README.md`, `skills/README.md`,
 `docs/SKILL_CATALOG.md`, and `docs/GLOBAL_SKILLS.md` when aliases are involved.
 
@@ -283,7 +292,7 @@ updates, enough verification is usually:
 
 ```sh
 git diff --check
-python3 scripts/verify_skills.py --expected-count 151
+python3 scripts/verify_skills.py --expected-count 155
 ```
 
 For skill script changes, run the script's smoke-test or help path when one
@@ -418,6 +427,17 @@ As of this document, the repository has:
   separate native entrypoint. Native and live sources were not modified; local
   exports/caches stay untracked. This backup is not project runtime/visual QA
   and does not establish that a new chat's skill picker is working.
+
+- On 2026-11-22, archived `mockup-fidelity-repair` with its global alias and
+  refreshed `mockup-to-product` to invoke repair automatically and review
+  desktop/tablet/mobile independently. TPNA onboarding now separates the
+  association app from the TPNA 2569 conference portal and Demo Control Center.
+  Also archived the new project-specific `kk-fitness-new-chat` and
+  `numchok-fitness-new-chat` found during the final source comparison; neither
+  receives a global alias. Counts are 155 archive skills plus one separate
+  native entrypoint. Live sources and native were unchanged by this task.
+  This archive-only update does not prove
+  application UI quality or fix skill discovery in other chats; exports remain local.
 
 The main thing future Codex should preserve is the distinction between live local
 skills and the GitHub archive. That distinction prevents accidental overwrites

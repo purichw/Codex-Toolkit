@@ -190,9 +190,9 @@ explicit author overrides; the default should already reproduce the design.
 
 ## Implement With Judgment
 
-Work from composition to component geometry to visual finish, checking both
-desktop and mobile early enough to avoid rebuilding an incompatible structure.
-These are priorities, not a rigid sequence or an excuse to omit finish.
+Work from composition to component geometry to visual finish. Check desktop,
+tablet, and mobile early in responsive web work so the structure can support
+each layout.
 
 - Rebuild an obstructive layout when authorized. Preserve product behavior, not
   unwanted legacy geometry. Do not broaden a visual rebuild into a data rewrite.
@@ -328,21 +328,17 @@ visual judgment from functional tests: no overflow and a green test suite do not
 prove design quality. Check at actual viewing size as well as a uniform whole-page
 overview when overall composition is in scope.
 
-**Personally inspect the rendered images when assessing mockup fidelity.** For
-responsive/page-level work, include both desktop and mobile. Capturing screenshots,
-receiving file paths, reading
-computed styles, or sending a comparison to the user is not visual review. Open
-the actual images with an image-viewing tool and examine them yourself before
-asking the user to judge the result. Desktop approval cannot stand in for mobile
-review when required, or vice versa. For a narrow viewport-specific repair,
-inspect the changed region and neighbors at that viewport, plus breakpoints
-affected by shared styles; do not expand into an unrelated whole-site audit.
+**Personally inspect the rendered images when assessing mockup fidelity.**
+For responsive web work, open the actual desktop, tablet, and mobile renders
+with an image-viewing tool and judge each viewport independently. Use the
+supplied mockup widths or representative CSS widths for the product. For a
+narrow change, inspect the changed region and its neighbors at the required
+widths.
 
-Use comparable framing: separate desktop and mobile reference crops, remove only
-device/slide framing when needed, preserve aspect ratio, and label inferred CSS
-scale. Do not put a whole desktop/phone composite beside a single desktop capture
-at unequal scale and treat that as a reliable proportion check. For page-level
-work, inspect top/middle/bottom at readable size as well as the full-page rhythm.
+Compare each viewport with its own reference at matched scale. Remove only
+device or slide framing when needed, preserve aspect ratio, and label inferred
+CSS scale. For page-level work, inspect the top, middle, and bottom at readable
+size as well as the full-page rhythm.
 
 When the change affects screen height or viewport fit, inspect the initial
 viewport before any auto-scroll and the settled scrolled state afterward. Judge
@@ -364,34 +360,42 @@ Use five questions, not an invented numerical similarity score:
 - Is the hierarchy and grouping recognizable as the selected design?
 - Are density, proportions and section rhythm coherent across the requested page?
 - Have the material, icon, image and decorative details been translated?
-- Does mobile feel deliberately composed, readable and operable?
+- Is each responsive layout deliberately composed, readable and operable?
 - Are real content, behavior and shared consumers preserved as claimed?
 
-Fix material, in-scope gaps you can see yourself. Do not return repeated
-"closer now" updates while leaving obvious details for the user to discover.
-When the user says "ไม่เหมือน" (does not match), returns the same correction, or
-marks a screenshot, revisit the selected reference and current render before
-adding another cosmetic override. Translate the feedback into a concrete
-expected-versus-observed difference: group position, scale, whitespace, density,
-action treatment, image role or another visible relationship. Compare the
-enclosing composition as well as the marked element; a crop may identify the
-defect without showing the parent needed to diagnose it.
+### Automatic Fidelity Repair
 
-Keep that correction as an acceptance criterion through the next render. Fix
-the relevant layout/component owner and inspect affected peers for the same
-cause, using [rework-patterns.md](references/rework-patterns.md) when helpful.
-Do not call an unresolved visible mismatch an "adaptation" without a concrete
-product constraint or user-authorized design choice. If the fix still fails,
-revise the diagnosis instead of stacking overrides or waiting for the user to
-spot it again. A newly discovered broader problem warrants scoping it, not
-silently redesigning unrelated routes.
+When visual review finds a material in-scope mismatch at any viewport,
+including a design that matches at only one size, **automatically open and apply
+[mockup-fidelity-repair](../mockup-fidelity-repair/SKILL.md) in the same task.**
+Use the same workflow for a user-reported mismatch or repeated correction.
+If that workflow is already active, continue its repair loop and consult this
+skill for reference interpretation as needed.
+
+Compare the selected reference with the current render, including the enclosing
+layout around any marked element. Record the expected and observed position,
+scale, spacing, density, action treatment, or image role. Fix the cause at the
+responsible layout or component, inspect affected peers, and repeat the review
+on fresh renders until fixable in-scope differences are resolved. Revise the
+diagnosis when a fix misses. See [rework-patterns.md](references/rework-patterns.md)
+when helpful.
+
+Before handoff, personally inspect fresh renders after the final visual edit
+at desktop, tablet, and mobile for the affected responsive web surface. Recheck
+any viewport that passed earlier, the sides of changed breakpoints, and affected
+in-scope languages or states. Compare each size against its own mockup where
+available. When a viewport lacks a reference, verify its reflow against the
+approved hierarchy and record it as an adaptation. Report any view you could
+not verify and the specific blocker.
+
+### Capture Evidence And Verify Behavior
 
 Use the automatically loaded `snapshot` workflow for contextual comparisons.
 Capture the existing UI before editing, then the final development render; show
 the original reference alongside them. For full-page work include whole-page
-or top/middle/bottom coverage and the required mobile view. A tiny repair needs
-only the changed area, neighbors and affected viewport(s). Label actual viewport,
-state and any inferred reference scale; never stretch or retouch the reference.
+or top/middle/bottom coverage for the required viewports. For a tiny repair,
+capture the changed area and its neighbors. Label actual viewport, state and any
+inferred reference scale. Keep the original proportions and details.
 New screens without an earlier implementation need `Reference + Development`;
 revisions need `Reference + Before + After/Development`. If no reference exists,
 use `Before + After`. Missing historical evidence must be labeled unavailable;

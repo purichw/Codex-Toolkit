@@ -30,6 +30,7 @@ version should run.
 
 | Global alias | Canonical skill | Context |
 | --- | --- | --- |
+| [`global-mockup-fidelity-repair`](../skills/global-mockup-fidelity-repair/SKILL.md) | [`mockup-fidelity-repair`](../skills/mockup-fidelity-repair/SKILL.md) | Cross-project repair of reference mismatches, repeated visual corrections and viewport/language/state gaps with matched evidence and per-view verdicts. |
 | [`global-ai-video-creator`](../skills/global-ai-video-creator/SKILL.md) | [`ai-video-creator`](../skills/ai-video-creator/SKILL.md) | Cross-project video planning, AI narration, action/caption timing, targeted revisions and technical export checks. |
 | [`global-ios-app-development`](../skills/global-ios-app-development/SKILL.md) | [`ios-app-development`](../skills/ios-app-development/SKILL.md) | Cross-project iOS toolchain, build/device workflows and runtime troubleshooting. |
 | [`global-mockup-to-product`](../skills/global-mockup-to-product/SKILL.md) | [`mockup-to-product`](../skills/mockup-to-product/SKILL.md) | Image/HTML implementation, design judgment, explicit matching constraints, calibrated evidence, optional extraction and scoped visual comparisons. |
@@ -102,8 +103,10 @@ These skills stay under their project or specialized names:
 - Glenonchy: `glenonchy-new-chat`, `glenonchy-website-new-chat`, `glenonchy-website-design`
 - Hospital E-learning: `hospital-elearning-new-chat`
 - Kaset Tan Phai: `kaset-tan-phai-new-chat`
+- KK Fitness: `kk-fitness-new-chat`
 - Korat Tan Phai: `korat-tan-phai-new-chat`, `korat-tan-phai-shared-components`
 - Notenwert: `notenwert-design-direction`, `notenwert-maintainer`
+- Numchok Fitness: `numchok-fitness-new-chat`
 - Mongkol Wela: `mongkol-new-chat`
 - Thai Palliative Nurse / TPNA: `thai-palliative-nurse-new-chat`
 - Shane Thai: `shane-thai-audio-generator`,
