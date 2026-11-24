@@ -13,13 +13,13 @@ user's intent.
   the reviewed skills and project context to the public repository. This archive
   pass did not change visibility. Continue reviewing future diffs for sensitive data.
 - Purpose: archive and document the user's personal Codex skills
-- Current skill count: 155 `SKILL.md` files under `skills/`
-- Breakdown: 93 personal skill folders (including compatibility routers),
-  60 `global-*` alias skills for reusable non-project-specific workflows, and
+- Current skill count: 159 `SKILL.md` files under `skills/`
+- Breakdown: 95 personal skill folders (including compatibility routers),
+  62 `global-*` alias skills for reusable non-project-specific workflows, and
   2 standalone global design-spec skills.
 - Separate repo-scoped installation: one skill,
-  `ui-ux-expert-mobile-native`, under `.agents/skills/` (156 skill entrypoints
-  across both maintained roots). It is not part of the 155-folder archive count.
+  `ui-ux-expert-mobile-native`, under `.agents/skills/` (160 skill entrypoints
+  across both maintained roots). It is not part of the 159-folder archive count.
 
 The first import copied personal skills from:
 
@@ -139,6 +139,8 @@ Expected current skill folders:
 - `firebase-account-management`
 - `firebase-security-rules`
 - `form-flow-ux`
+- `frontend-copy-deterrence`
+- `frontend-source-protection`
 - `github-actions-repair`
 - `github-actions-usage`
 - `glenonchy-new-chat`
@@ -292,7 +294,7 @@ updates, enough verification is usually:
 
 ```sh
 git diff --check
-python3 scripts/verify_skills.py --expected-count 155
+python3 scripts/verify_skills.py --expected-count 159
 ```
 
 For skill script changes, run the script's smoke-test or help path when one
@@ -445,6 +447,17 @@ As of this document, the repository has:
   preservation and scoped paired maintenance. Counts remain 155 plus the separate
   native skill. Only skill/archive documentation changed; product verification,
   deployment and cross-chat work were not performed or authorized by this backup.
+
+- On 2026-11-24, archived `frontend-copy-deterrence` and
+  `frontend-source-protection` with global aliases. They separate public
+  interaction deterrents from build/data exposure and do not claim that
+  obfuscation makes browser-delivered content confidential. Refreshed DeepX
+  shared Content Studio/draft-preview guidance and TPNA conference Game Zone,
+  Admin, fixture/live boundaries and app-specific checkpoints. Stable TPNA
+  details now route to project contracts rather than duplicating them here.
+  Counts are 159 archive skills plus one separate native entrypoint. Live
+  sources/native were unchanged by this archive task; no app, firewall or
+  deployment changes were performed and exports remain local.
 
 The main thing future Codex should preserve is the distinction between live local
 skills and the GitHub archive. That distinction prevents accidental overwrites

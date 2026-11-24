@@ -30,6 +30,8 @@ version should run.
 
 | Global alias | Canonical skill | Context |
 | --- | --- | --- |
+| [`global-frontend-copy-deterrence`](../skills/global-frontend-copy-deterrence/SKILL.md) | [`frontend-copy-deterrence`](../skills/frontend-copy-deterrence/SKILL.md) | Scoped public copy/media deterrents with editing, navigation, accessibility and sharing exceptions. |
+| [`global-frontend-source-protection`](../skills/global-frontend-source-protection/SKILL.md) | [`frontend-source-protection`](../skills/frontend-source-protection/SKILL.md) | Production obfuscation, private artifacts/maps, published data boundaries and authorized bulk-read controls; browser-delivered code remains observable. |
 | [`global-mockup-fidelity-repair`](../skills/global-mockup-fidelity-repair/SKILL.md) | [`mockup-fidelity-repair`](../skills/mockup-fidelity-repair/SKILL.md) | Cross-project repair of reference mismatches, repeated visual corrections and viewport/language/state gaps with matched evidence and per-view verdicts. |
 | [`global-ai-video-creator`](../skills/global-ai-video-creator/SKILL.md) | [`ai-video-creator`](../skills/ai-video-creator/SKILL.md) | Cross-project video planning, AI narration, action/caption timing, targeted revisions and technical export checks. |
 | [`global-ios-app-development`](../skills/global-ios-app-development/SKILL.md) | [`ios-app-development`](../skills/ios-app-development/SKILL.md) | Cross-project iOS toolchain, build/device workflows and runtime troubleshooting. |

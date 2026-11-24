@@ -13,9 +13,13 @@ project-relative paths against the selected checkout/worktree; the default is
 4. `PROJECT_MAP.md` — current routes, interactions and source owners; read the
    relevant sections rather than historical evidence by default.
 
-The association site targets `https://thaipalliativenurse.vercel.app`. The
-conference portal targets `https://tpna2569.vercel.app`. Check the selected
-app's release runbook and the intended revision before an authorized release.
+| App | Work directory | Vercel target | Runbook |
+| --- | --- | --- | --- |
+| Association | Repo root | `purich-w/thaipalliativenurse` at `https://thaipalliativenurse.vercel.app` | `docs/DEPLOYMENT.md` |
+| Conference | `apps/tpna2569/` | `purich-w/tpna2569` at `https://tpna2569.vercel.app` | Verification and release in `docs/TPNA2569.md` |
+
+Check the intended Git revision independently of the canonical Vercel domain.
+Use the selected app's checkpoint in `docs/HANDOFF.md` for dated evidence.
 
 ## TPNA 2569 conference portal
 
@@ -25,14 +29,17 @@ paths below are relative to `apps/tpna2569/`.
 | Area | Owners and checks |
 | --- | --- |
 | Editorial content, fonts and routing | `public/content/conference.json`, `src/content-schema.mjs`, `src/startup.ts`, `src/page-loaders.ts` and `src/navigation.ts`. Keep the validated content and font readiness contract. |
-| Shared footer and activity UI | `src/components/ConferenceShell.tsx` and `conference-shell.css` own the italic *Powered by* credit and its link. Use `Action`, `GameScore` and the shared `PrizeWheelIcon.tsx` in their existing roles. Respect the latest mock and use contextual screenshots for visual changes. |
-| Entry, dashboard and quiz | `src/pages/ActivityEntry.tsx`, `GameDashboard.tsx`, `game-dashboard.css` and `KnowledgeGame.tsx`. Check the mission layout against the available container width, including the demo dock. |
-| Tree, wheel and grand-prize entry | `src/comment-tree/`, `src/prize-wheel/`, `api/` and `server/`. Read the matching portal sections for verified contributions, score gates and campaign setup. |
-| Demo Control Center | `src/demo/`. Use the opt-in `npm run dev:demo` and `test:demo` commands in `README.md`. See `DEMO_QA.md` for the recorded scenario checks. The demo store holds fixture state per tab. |
+| Shared controls and navigation | `src/components/ConferenceShell.tsx` and `conference-shell.css` own the shared DeepXWorks credit and sizing. `ActivityHeader.tsx` supplies the compact quiz and tree shortcuts. Keep game action heights in `Action` and its stylesheet. |
+| Registration and account | `src/pages/ActivityEntry.tsx`, `shared/member-number.mjs`, `src/activity-entry.ts` and `src/membership-fixtures.ts`. Check the searchable prefix, custom category and member/guest field rules with `test:activity-entry`. The format check grants preview points. The event code is the server credential for rewards. |
+| Game Zone and quiz | `src/pages/GameDashboard.tsx`, `KnowledgeGame.tsx`, `QuizResult.tsx` and `src/quiz/`. Check container width with the demo dock open. Use `test:activity-sequence` for prerequisites and `test:quiz-motion` for card transitions. |
+| Comment tree | `src/comment-tree/`, `shared/comment-tree-rules.mjs` and `server/comment-tree.mjs` own 50–500 character validation, comment receipts, owner-first sorting and text-only edits. Use the service tests and `test:comment-tree`. |
+| Rewards | `src/prize-wheel/` and `server/prize-wheel.mjs` own the blue draw, automatic raffle entry and gold invitation. Keep the booth coupon reference distinct from the raffle confirmation. Use `test:prize-wheel` or `test:gold-wheel`. |
+| Demo and Admin | `src/demo/` owns same-tab controls and isolated fixtures. `src/admin/` owns the workspace with public-read and sample sources. The app README and `DEMO_QA.md` link the current contracts and dated checks. |
 
-The portal README has the app-local setup commands. Pick the fixture-based
-Control Center for scenario review or the local API preview for server-handler
-checks. The portal docs describe both workflows and link to verification evidence.
+Use the portal README for setup. Use `?demo=0` on a full load to exercise the
+regular flow in a demo-enabled build. On a release candidate or canonical domain,
+exercise the UI with fictional demo state and use read-only live API probes.
+Use the local API preview for service writes and receipt recovery.
 
 ## Association site owners
 
@@ -44,7 +51,7 @@ checks. The portal docs describe both workflows and link to verification evidenc
 | Home banner / mobile shortcuts / tracking strip | `src/components/HomeHero.tsx`, `useHorizontalSwipe.ts`, `TrackingPrompt.tsx`, `src/App.tsx`, `src/styles.css` | Shared UI hero/card contracts |
 | Page banners / library cards / fields | `src/components/PageBanner.tsx`, `ResourceCard.tsx`, `SearchField.tsx`, `SelectField.tsx`, `CardHeading.tsx`, `SectionHeading.tsx` | Shared UI owner/consumer table |
 | Seminars | `src/SeminarsPage.tsx`, `src/seminars-data.ts`, `src/seminars.css` | Project map seminar contract |
-| Seminar-7 Learning Hub / classroom | `LearningHubPage.tsx`, `LearningClassroom.tsx`, `learning-hub.css`, `learning-classroom.css`, `learning-routes.tsx`, `learning-progress.ts`, `useLearningProgress.ts` under `src/` | `docs/LEARNING_HUB.md`; shared overview/classroom progress, course-level Pre/Post then feedback; native top-zero sticky outline from 900px, normal flow below |
+| Seminar-7 Learning Hub / classroom | `LearningHubPage.tsx`, `LearningClassroom.tsx`, `learning-classroom.css`, `learning-routes.tsx`, `learning-progress.ts` and `useLearningProgress.ts` under `src/` | `docs/LEARNING_HUB.md`; course-level Pre/Post then feedback, browser-local progress and responsive classroom outline |
 | YouTube player / seek prompt | `src/components/LearningVideo.tsx`, `LearningVideoDialog.tsx`, `src/learning-video.css`, `src/media/`, `server/youtube.mjs`, `api/youtube/status.js` | `docs/LEARNING_PROJECT_BOUNDARIES.md`; player-only Hospital parity in TPNA Blue, server-only status key, no auto-completion |
 | Knowledge / news | `src/KnowledgePage.tsx`, `src/NewsPage.tsx`, corresponding data/CSS, `src/components/FeaturedCarousel.tsx` | Project map library contracts |
 | Article / seminar details / sticky rail / TOC | `src/content-routes.ts`, `src/ContentDetailPage.tsx`, `src/components/DetailSection.tsx`, `src/content-detail.css`, pathname scroll guard in `src/App.tsx` | Shared details contract; native fragment/history behavior, contextual wording and seminar-only blocks |

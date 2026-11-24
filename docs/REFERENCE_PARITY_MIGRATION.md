@@ -100,7 +100,7 @@ From the repository root:
 ```sh
 PYTHONDONTWRITEBYTECODE=1 python3 -m unittest discover -s skills/mockup-to-product/tests -v
 python3 skills/mockup-to-product/scripts/extract_reference.py --help
-python3 scripts/verify_skills.py --expected-count 155
+python3 scripts/verify_skills.py --expected-count 159
 git diff --check
 ```
 

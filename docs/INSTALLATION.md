@@ -29,6 +29,11 @@ workflow also uses `snapshot` for visual proof and `responsive-design` when
 reflow needs it. Its `global-mockup-fidelity-repair` alias requires the canonical
 repair skill; it is not a standalone copy of those instructions.
 
+Install `frontend-copy-deterrence` and `frontend-source-protection` together:
+they link to each other for interaction deterrents versus build/data exposure.
+Their `global-*` aliases require the respective canonical folders. The source
+protection workflow also routes authorized publishing through `release-gate`.
+
 `reference-to-a-tee` and `global-reference-to-a-tee` are retired and removed. Update old
 prompts to the corresponding mockup name. A copy-only sync does not remove old
 installed folders; inspect local differences and get approval before retiring

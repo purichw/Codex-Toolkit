@@ -19,7 +19,9 @@ authorize creating or inspecting another chat.
    this skill's [project context](references/new-chat-context.md).
 4. Read `AGENTS.md`, `README.md`, `docs/PROJECT_MAP.md`, `docs/CMS.md`, and the
    latest summary plus task-relevant section of `docs/RELEASE.md` in the selected
-   checkout. Use `docs/README.md` to locate task-specific contracts. For trainer
+   checkout. Use `docs/README.md` to locate task-specific contracts. For Content
+   Studio start with `docs/CMS.md#content-studio` and the editor ownership section
+   in `docs/FRONTEND_ARCHITECTURE.md`. For trainer
    or clinic work read `docs/COACH_CMS.md` or `docs/CLINIC_CMS.md`; do not infer
    their data/auth behavior from the legacy per-demo design notes.
    For F&B read `docs/FNB_CMS.md`; for salon work read `docs/HAIR_SALON_CMS.md`
@@ -80,6 +82,19 @@ authorize creating or inspecting another chat.
   and LUMA uses forest/cream. Share controls/dialog behavior while retaining each
   module's tokens and data ownership. Preserve centered standalone media/language
   controls, balanced notice-to-toolbar spacing and opaque open dropdown menus.
+- Keep one Content Studio template across DeepXWorks, Product Studio and Explore
+  Ideas. Reuse `ContentStudioFrame`, `EditorCard`, `EditorFields` and the preview
+  and revision panels. Use the Home opening mock as a reference for the shared
+  composition and actual public field consumers for each tab.
+- For a reference repair, compare the same working state and locale at desktop,
+  tablet portrait, tablet landscape and mobile sizes. Keep the edited-site picker
+  available from the responsive menu with a centered selection. Treat differences
+  in draft state independently from viewport omissions. Check the affected tabs,
+  TH/EN content and preview, and save versus publish against fixtures before sending.
+  Use `mockup-to-product`, `mockup-fidelity-repair` and `snapshot` for that evidence.
+- The inline preview gets the editor's in-memory draft through the exact
+  same-origin `/admin/content-preview` frame. Preserve the standalone return
+  state, per-device CSS viewport, and lazy public renderer imports.
 - Preserve fresh CMS reads and lazy route/demo boundaries when optimizing.
   Read `docs/PERFORMANCE.md` for the current request handoff and bundle gates.
   Current backend is Singapore `yeyhyyuannxhurltvexm` (`ap-southeast-1`) with
@@ -96,8 +111,9 @@ authorize creating or inspecting another chat.
 
 Use the dated `docs/RELEASE.md` entry for status, not a fresh health claim.
 Coach/LUMA were released 2026-11-04; F&B and the original seven Salon concepts/CMS
-were released 2026-11-08. The latest recorded runtime release is the combined
-Ideas directory, Concept detail and all seven Salon reworks on 2026-11-13.
+were released 2026-11-08. The combined Ideas directory, Concept detail and all
+seven Salon reworks are recorded on 2026-11-13. Use the top applicable entry for
+the current application revision and deployment.
 Earlier login, Chrome, disk-space and release questions are resolved; do not reopen them
 unless a current operation actually fails. Real Coach booking remains off; the
 recorded real LUMA, F&B and Salon workspaces are unpublished/intake off. Visitor

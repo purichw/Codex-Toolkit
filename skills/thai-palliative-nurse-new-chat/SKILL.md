@@ -11,9 +11,12 @@ monitor or delegate to another chat.
 
 ## Bounded intake
 
-1. Prefer the user's selected checkout/worktree. Otherwise use
-   `/Users/point/Website Projects/thaipalliativenurse`. Verify the directory and
-   repository identity before edits; do not clone or switch branches by default.
+1. Prefer the user's selected checkout/worktree. Otherwise start at
+   `/Users/point/Website Projects/thaipalliativenurse` and verify the repo and
+   revision against the task. For conference work, confirm the checkout contains
+   `apps/tpna2569/`. Use verified Git revisions or an existing up-to-date
+   worktree to read newer docs when the primary checkout is behind. Preserve
+   pending work in each checkout.
 2. Read its `AGENTS.md` and run `git status --short --branch`. Preserve unrelated
    changes. Read `docs/HANDOFF.md`, `README.md` and the relevant sections of
    `PROJECT_MAP.md`.
@@ -26,18 +29,16 @@ monitor or delegate to another chat.
 5. Briefly state the current scope and relevant constraints, then perform the
    supplied task. If only orientation was requested, summarize and wait.
 
-If the primary checkout has pending work and trails the current remote revision,
-preserve it. Read missing versioned docs with `git show origin/main:<path>` or
-use the explicitly selected worktree; report the revision read. Do not reset or
-switch a dirty checkout merely to obtain newer onboarding material.
-
 ## Choose the application
 
-- For TPNA 2569, the conference URL, activity routes or Demo Control Center,
-  work in `apps/tpna2569/`. Read `docs/TPNA2569.md` and use the conference
-  section of the context routing guide for the task's owner and checks.
+- For TPNA 2569, the conference URL, Game Zone, Demo Control Center or its Admin
+  workspace, work in `apps/tpna2569/`. Start with its section in
+  `docs/HANDOFF.md` and the relevant `docs/TPNA2569.md` contract. Choose the
+  Demo Control Center for tab-local UI review or the local API fixture for
+  verified event-code behavior.
 - The association site's CMS, tracking, content pages, Learning Hub and access
-  gate use the repository-root app and the contracts below.
+  gate use the repository-root app and the contracts below. Its Vercel project,
+  production checkpoint and auth boundary are separate from the conference portal.
 
 ## Association site
 
@@ -80,20 +81,6 @@ ordered lessons → Post-test → learning-experience feedback; do not replace t
 feedback with Hospital's scored Final Assessment. Seek notices are advisory,
 not watched-time completion or real CNEU issuance.
 
-- `src/learning-classroom.css` owns the classroom outline: native sticky at
-  `top: 0`, capped at `100dvh` with internal scrolling inside its container from
-  900px. At 899px and below it returns to normal flow. Do not confuse this with
-  the overview's detail rail, restore a floating gap, or cover the footer.
-- Keep the illustrated seek prompt compact (460px maximum), centered on the
-  visible video stage excluding controls, following layout shifts and clamped
-  to the viewport. Only review or acknowledgement dismisses it; backdrop/content
-  clicks, Escape and the close icon must not. Preserve paused/ended state on
-  acknowledgement. Ordinary information/consent dialogs retain their behavior.
-- The document navigation and section heading use **เอกสารประกอบการเรียนรู้**.
-  Keep the compact module cards, vertically centered learning steps and centered
-  rating options; question/prose alignment and shared TPNA components retain
-  their existing contracts. Test-summary values derive from shared progress.
-
 Hospital E-Learning is a reference project, not TPNA's layout/design-system
 owner. Preserve TPNA's 1200px container, Blue theme, header/footer and shared
 components. The owner-approved narrow exception is video-player framing,
@@ -102,12 +89,8 @@ have no runtime dependency or automatic synchronization. The shared YouTube key
 is server-only with separate env names/auth/allowlists; no learner/session data
 is shared. Related-project context does not authorize edits, releases or access
 to other chats. Consult each project's source/release evidence independently.
-
-When requested work covers behavior common to both learning products, follow
-the owner's paired-maintenance preference: inspect and correct both equivalent
-owners within the authorized scope, and verify each integration separately.
-Keep product-specific UI and assessments independent; this grants no permission
-to publish either project or inspect another chat.
+When the request explicitly covers both products, verify each equivalent
+implementation in its own app.
 
 ## Work and verification
 
@@ -144,6 +127,7 @@ grant release authorization. Creating a prompt does not create a chat.
 The versioned source is `skills/thai-palliative-nurse-new-chat/` in the project;
 the installed copy is `/Users/point/.codex/skills/thai-palliative-nurse-new-chat/`.
 When updating this skill, keep both copies identical and validate with the
-skill-creator validator. Keep changing deployment SHAs, test results and open
-work in `docs/HANDOFF.md`, not in skill metadata. Update only docs affected by the
-task, clearly distinguishing local state from verified production.
+skill-creator validator. Keep deployment SHAs, test results and coverage limits
+in the selected app's checkpoint in `docs/HANDOFF.md`. Put stable behavior in
+its contract docs. Check link targets and command names after a documentation
+sync.

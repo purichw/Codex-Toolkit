@@ -1,11 +1,8 @@
 # DeepX project context
 
-Status/routes reconciled against repository release records on 2026-11-13
-(Asia/Bangkok). Treat this as an
-orientation map, not a live production report. Re-read current source and docs;
-update this reference when an explicitly approved product decision changes.
-This is a documentation reconciliation, not a new live audit or deployment.
-Use the repository's latest release entry for exact source and evidence.
+Updated 2026-11-22 (Asia/Bangkok) for the shared Content Studio editor. Use this
+map to find current source and contracts. The repository's release log records
+exact source, deployment, and verification evidence.
 
 ## Recorded combined release — 2026-11-13
 
@@ -153,6 +150,8 @@ metadata is generated at build time.
 | Public rendering, navigation and dialogs | `src/App.tsx` |
 | Route entry and lazy modules | `src/main.tsx` |
 | Validated content contract and published fetch | `src/content.ts` |
+| Content Studio across Home, Studio and Ideas | `src/cms/ContentStudioFrame.tsx`, `EditorCard.tsx`, `EditorFields.tsx`, `HomeOpeningEditor.tsx`; `docs/CMS.md#content-studio` |
+| Private draft preview, revision and review | `src/cms/CmsApp.tsx`, `DraftPreview.tsx`, `PublicationReview.tsx`; `docs/FRONTEND_ARCHITECTURE.md#content-studio-editor` |
 | Studio and shared product UI | `src/studio/`, `src/components/ProductHeader.tsx`, `ProductCard.tsx`, `product-theme.css`; `docs/STUDIO.md` |
 | Ideas routing, search/filter and CMS schema | `src/catalogue/`, `docs/CATALOGUE.md` |
 | Ideas category directory | `src/catalogue/IdeasDirectory.tsx`, `ideas-directory.css`, `CatalogueWebsite.tsx`; `docs/IDEAS_HOME.md`, `docs/IDEAS_DIRECTORY_QA.md` |
@@ -267,6 +266,11 @@ For Studio/Ideas and demo work:
 - Every editable field must have a real consumer. Keep `docs/CMS.md` coverage
   aligned with schema and renderer changes. Shared components should retain
   equivalent behavior in live and draft preview contexts.
+- Show the workspace's actual draft and published revisions. Site and language
+  selection preserve local edits; comparison reads published content and the
+  save and publish RPCs remain distinct. The preview renders the in-memory draft
+  in a same-origin frame at 1280, 768 or 390 CSS pixels. The standalone frame
+  route offers a return link. Keep public bundles independently lazy.
 - Content Studio images use `cms-media` (JPEG/PNG/WebP, 5 MiB); MP4 uses `cms-video`
   (30 MiB). Uploads are publicly accessible immediately. Replacements get new
   paths; do not upload private data there. Coach has public image metadata and

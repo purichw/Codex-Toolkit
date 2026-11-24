@@ -1,0 +1,3 @@
+interface:
+  display_name: "Frontend Source Protection"
+  short_description: "Limit exposure of web source and public data"

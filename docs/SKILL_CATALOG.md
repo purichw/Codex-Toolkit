@@ -775,6 +775,41 @@ Skill/source-documentation changes alone do not require an unrelated app capture
 
 ## Firebase And Security
 
+### frontend-copy-deterrence
+
+- Skill file: [SKILL.md](../skills/frontend-copy-deterrence/SKILL.md)
+- Global alias: [global-frontend-copy-deterrence](../skills/global-frontend-copy-deterrence/SKILL.md)
+- Description: Makes casual copying of public text and media less convenient
+  through scoped selection, copy, drag, context-menu and touch controls.
+- Use when: Implementing or checking an owner's public-page copying policy
+  while retaining CMS editing, accessible navigation and deliberate sharing.
+- Boundaries: Browser-delivered content stays observable. Preserve editable
+  fields, opt-outs, links, clipboard contents and normal browser diagnostics;
+  verify real route transitions and actual touch platforms when relevant.
+  Build exposure and private originals belong to `frontend-source-protection`.
+- Files: `SKILL.md` owns the workflow; `agents/openai.yaml` supplies picker
+  metadata; [DeepX example](../skills/frontend-copy-deterrence/references/deepx.md)
+  maps existing guard/style owners and editing exceptions. It is a project
+  example, not authority to change every site's controls.
+
+### frontend-source-protection
+
+- Skill file: [SKILL.md](../skills/frontend-source-protection/SKILL.md)
+- Global alias: [global-frontend-source-protection](../skills/global-frontend-source-protection/SKILL.md)
+- Description: Reduces production source/artifact exposure and bulk extraction
+  of published data on owned sites while preserving server-side access boundaries.
+- Use when: Auditing static output and private source maps, implementing requested
+  first-party JavaScript obfuscation or authorized scoped public-read controls.
+- Boundaries: Obfuscation is not confidentiality. Preserve vendor/public runtime
+  contracts, CSP, editing, discovery and normal navigation; inspect actual
+  production output, direct data origins and affected flows. Visibility, firewall
+  and release actions still require their own authorization.
+- Files: `SKILL.md` owns the workflow; `agents/openai.yaml` supplies picker
+  metadata; [DeepX example](../skills/frontend-source-protection/references/deepx.md)
+  maps build transforms, private function packaging, artifact gates and dated
+  rate-policy evidence. Recheck current settings before acting. Structural skill
+  validation is not evidence that a deployed site is protected.
+
 ### account-recovery-key
 
 - Skill file: [../skills/account-recovery-key/SKILL.md](../skills/account-recovery-key/SKILL.md)
@@ -1055,6 +1090,11 @@ Skill/source-documentation changes alone do not require an unrelated app capture
   checkout or migration. Preserve dirty older worktrees and concept-exclusive
   artwork; Salon catalogue demos and managed Salon publication have different
   owners. A completed catalogue release does not activate private intake.
+- Content Studio: Reuse one editor composition across Home, Studio and Ideas,
+  preserving shared cards/fields, revisions and the same-origin in-memory draft
+  preview. Review affected tabs, TH/EN, desktop/tablet/mobile and save-versus-publish
+  behavior with fixtures. Read the latest applicable release record for the
+  current revision instead of treating the older combined release as latest.
 
 ## Glenonchy
 
@@ -1276,7 +1316,7 @@ release evidence is not a new production check.
   their distinct source owners, contracts and release runbooks.
 - Use when: Preparing a starter prompt or continuing editorial content/providers,
   search, Blue branding, readiness, tracking/date controls, access, conference
-  activities, Demo Control Center or release work.
+  activities, Game Zone, Demo Control Center, conference Admin or release work.
 - Typical context: The selected TPNA checkout, `AGENTS.md`, `docs/HANDOFF.md`,
   `README.md`, `PROJECT_MAP.md`, shared UI/testing/deployment docs and its
   [task map](../skills/thai-palliative-nurse-new-chat/references/new-chat-context.md).
@@ -1290,17 +1330,19 @@ release evidence is not a new production check.
   feedback, with TPNA-owned local progress. Hospital is a player/framing reference
   only; keep TPNA's Blue theme and shell, independent data and release evidence.
   Seek notices remain advisory, not completion or genuine CNEU issuance.
-- Learning UI: Preserve the classroom's top-zero sticky outline from 900px,
-  normal flow below, shared progress-derived summaries and documented alignment.
-  The seek prompt's stage-relative geometry and explicit dismissal rules are
-  media-specific, not shared-dialog defaults. Common behavior is maintained in
-  both products only within authorized scope and verified independently.
-- Checkout safety: Preserve dirty older checkouts; read missing versioned docs
-  from the remote tree or the explicitly selected worktree and name the revision.
-- Conference: Select `apps/tpna2569/` and `docs/TPNA2569.md` for activity entry,
-  dashboard/quiz, comment tree, prize wheel, campaign gates and demo scenarios.
-  Distinguish the opt-in per-tab fixture Control Center from local API checks;
-  use the chosen app's target and runbook rather than the association release path.
+- Learning contracts: Read current `docs/LEARNING_HUB.md` and
+  `docs/LEARNING_PROJECT_BOUNDARIES.md` for stable UI and media behavior rather
+  than relying on duplicated thresholds. Verify both apps independently only
+  when the request explicitly covers both products.
+- Checkout safety: Preserve dirty older checkouts and confirm conference source
+  exists before editing. Read newer docs from verified Git revisions or an
+  existing up-to-date worktree; use the selected app's handoff checkpoint.
+- Conference: Select `apps/tpna2569/` and `docs/TPNA2569.md` for registration,
+  Game Zone/quiz prerequisites, comment receipts, rewards, Demo Control Center
+  and Admin. Member-format preview points do not establish reward credentials.
+  Keep same-tab demo fixtures distinct from local API writes/recovery; candidate
+  or canonical checks use fictional UI state and read-only live API probes.
+  Association and conference retain separate auth, Vercel targets and runbooks.
 
 ## Shane Thai
 
