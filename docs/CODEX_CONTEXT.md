@@ -459,6 +459,17 @@ As of this document, the repository has:
   sources/native were unchanged by this archive task; no app, firewall or
   deployment changes were performed and exports remain local.
 
+- On 2026-11-26, strengthened artwork completeness in `ui-ux-expert`,
+  `mockup-to-product` and `mockup-fidelity-repair`, in both live and archive copies.
+  Each entrypoint rejects arbitrary substitutes and placeholder completion;
+  mockup-to-product owns the detailed slot/source/consumer/review workflow.
+  Suitable originals and intentional repeated motifs remain reusable; eligible
+  missing artwork must be created/repaired and inspected in its actual UI.
+  Explicit source/identity/licensing constraints and genuine loading/error
+  fallbacks remain intact. Counts stay 159 plus the separate native skill.
+  This instruction update is not a rendered UI benchmark or proof of future
+  agent compliance. Unrelated live skill updates were not included in this task.
+
 The main thing future Codex should preserve is the distinction between live local
 skills and the GitHub archive. That distinction prevents accidental overwrites
 and keeps the toolkit useful both as runtime configuration and as versioned

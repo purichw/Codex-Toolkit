@@ -15,6 +15,34 @@ reflow. Use `$snapshot` for matched visual proof. See
 [lessons from prior repairs](references/repair-lessons.md) for examples involving
 public pages, separate brand identities, CMS editors, and loading states.
 
+## Artwork Repair Is Required
+
+Missing or mismatched artwork is an implementation defect, not optional polish.
+Repair the complete in-scope set, including lower sections, small defining
+ornaments and affected variants. Do not fix only the hero or the examples the
+user marked while leaving the same artwork defect elsewhere in scope.
+
+- Map each affected slot to its reference, current asset, required reuse/repair/
+  creation, final file/consumer and review status. Preserve suitable existing
+  artwork and already-correct views. A small repair needs only its affected slots.
+- Reject unrelated stock, arbitrary generated filler, placeholders, and generic
+  icons/shapes/gradients used to stand in for distinctive artwork. Do not recycle
+  one image across slots that depict different subjects or compositions; actual
+  repeated motifs may share assets. CSS/layout tweaks, stretching or clipping
+  cannot repair the wrong subject, style, material or missing illustrated detail.
+- If no suitable source exists, use the available image generation/editing tool
+  to reconstruct, redraw or repair eligible assets within this task. Follow
+  [artwork coverage and completion](../mockup-to-product/SKILL.md#artwork-coverage-and-completion),
+  including source/identity/licensing/no-generation constraints. Do not invent
+  official/factual imagery or new spending authority. A real constraint is a
+  named blocker, not a reason to insert an arbitrary substitute.
+- Inspect every repaired asset in its real UI placement and affected views with
+  `$snapshot`; files generated but not correctly integrated/reviewed remain open.
+  Construction placeholders and real loading/error fallbacks are not finished
+  artwork. Keep a mismatch/unverified verdict while required slots remain wrong,
+  missing or unreviewed. Only an explicit user-approved scope change can defer
+  them; effort, time or token savings do not authorize a lower-fidelity handoff.
+
 ## 1. Re-establish the target
 
 - Find the latest user-selected reference for each affected view. Map each to the

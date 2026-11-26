@@ -152,6 +152,39 @@ and useful sample values for nontechnical operators; keep schema keys and raw
 JSON out of their main task. Removing clutter does not authorize deleting data,
 supported features, permissions, or production configuration.
 
+## Artwork Completeness
+
+For mockup-led work, artwork is required content, not optional polish. Complete
+every in-scope illustration, photo, background, frame and distinctive motif,
+including lower-page and responsive/state variants. Many assets are a reason
+to organize the work, not to simplify the mockup or finish only the hero.
+
+- Keep a compact slot-to-asset map: reference/role, suitable source or required
+  creation/repair, final file and consumer, required variants, and review status.
+  A one-image repair needs one entry, not a site-wide inventory. Reuse an
+  existing suitable asset or an intentionally repeated motif; do not regenerate
+  good artwork needlessly or repeat one image across visibly distinct slots.
+- Do not fill gaps with unrelated stock, arbitrary generated images, generic
+  icons/shapes/gradients, or placeholders merely because they are easy. Match
+  subject, composition, style, material, detail, crop and resolution, not only
+  theme or color. CSS and library icons are valid when they actually express the
+  reference; they are not substitutes for its distinctive illustrated artwork.
+- When suitable source art is missing or inadequate, use the available image
+  generation/editing tool to create, reconstruct or repair eligible layers as
+  part of implementation. Follow the
+  [artwork completion workflow](../mockup-to-product/SKILL.md#artwork-coverage-and-completion).
+  Preserve identity, licensing, factual-media and explicit no-generation/exact-source
+  constraints. A real tool/source constraint leaves a named blocker, not permission
+  to invent an official asset or insert an arbitrary replacement.
+- Inspect every required distinct asset and its actual rendered placement with
+  `$snapshot`, including affected variants. Generated files or a passing build
+  do not prove integration or fidelity. Temporary construction placeholders and
+  legitimate loading/error fallbacks do not satisfy the settled mockup. No
+  completed/VERIFIED verdict while required artwork is missing, mismatched,
+  placeholder-only or unreviewed. Use FAIL, PARTIAL or BLOCKED as applicable;
+  only an explicit user-approved scope change can defer required art. Effort,
+  time or token savings are not such approval.
+
 ## Shared Components
 
 Use `$shared-component-architecture` for reuse scope, public APIs, dependency/state

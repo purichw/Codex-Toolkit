@@ -356,10 +356,15 @@ Skill/source-documentation changes alone do not require an unrelated app capture
   loads `mockup-fidelity-repair` in the same task. Diagnose the responsible owner,
   fix and inspect fresh renders, protect views that already match and report
   missing references as verified adaptations only when their reflow is tested.
-- Artwork: Use suitable supplied sources or image tooling for eligible missing
-  layers and blurry assets; respect identity, licensing and explicit source
-  constraints. Preserve animation manifests and native text-safe bounds. Compare
-  Reference/Before/After without retouching screenshots or hiding visual gaps.
+- Artwork: Complete every in-scope slot, including lower-page and responsive/state
+  variants. The [artwork completion workflow](../skills/mockup-to-product/SKILL.md#artwork-coverage-and-completion)
+  maps reference/source, required creation/repair, final file/consumer and visual
+  review. Reuse suitable originals or complete eligible missing art with image
+  tooling; arbitrary stock/generated filler, repeated images for distinct slots
+  and unapproved placeholders cannot close fidelity work. Preserve source/identity/
+  licensing constraints, animation manifests and native text-safe bounds. Generated
+  or wired assets still require actual rendered review; genuine constraints leave
+  named blockers, not a lower-quality substitute or a completed verdict.
 - Evidence and tooling: [Reference evidence](../skills/mockup-to-product/references/reference-evidence.md)
   distinguishes observed/measured/inferred/unknown claims, calibrates image/CSS
   scale and resolves mixed authority. [HTML workflow](../skills/mockup-to-product/references/html-reference-workflow.md)
@@ -385,6 +390,11 @@ Skill/source-documentation changes alone do not require an unrelated app capture
   inspect fresh Reference/Before/After evidence and affected behavior. Keep
   already-correct views in the regression set and distinguish adaptation from
   reference matching, unresolved mismatch and unverified views.
+- Artwork repairs: Inventory the affected slots, protect suitable art, and
+  reconstruct/redraw eligible missing or inadequate assets rather than masking
+  them with CSS or unrelated replacements. Finish the in-scope set, not only
+  marked examples or the hero. Inspect each repaired asset in its real consumers;
+  required pending, mismatched or unreviewed art keeps the repair incomplete.
 - Files: `SKILL.md` holds the repair loop, `agents/openai.yaml` supplies picker
   metadata, and [repair lessons](../skills/mockup-fidelity-repair/references/repair-lessons.md)
   provides composition, brand/crop, CMS and load-transition examples. Example
@@ -485,6 +495,13 @@ Skill/source-documentation changes alone do not require an unrelated app capture
   reuse scope, API/state boundaries and migrations to `shared-component-architecture`,
   and focused token/primitive consistency to `design-system-guardian`, without
   forcing abstractions or multiple audits on tiny edits.
+- Artwork gate: Mockup artwork is required content, not optional polish. Track
+  each in-scope slot and its actual consumer, reuse suitable art, create/repair
+  eligible missing assets and inspect the rendered result. Do not pass missing,
+  mismatched, placeholder-only or unreviewed art. Preserve real loading/error
+  fallbacks and explicit source/identity/licensing constraints; tiny repairs do
+  not expand into a whole-site inventory. See
+  [Artwork Completeness](../skills/ui-ux-expert/SKILL.md#artwork-completeness).
 - User preferences include centered standalone media/upload action groups and
   role-based spacing. Notice padding and notice-to-toolbar gaps are separate;
   diagnose shared owners and inspect the current rendered state rather than

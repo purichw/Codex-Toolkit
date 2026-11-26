@@ -249,6 +249,54 @@ metadata; do not create hard-coded competing sources. Reusable decorative brand
 art may be a design-system asset instead. Preserve licenses and required credit;
 a demo is not an attribution exemption. Use imagery tooling/skills as appropriate.
 
+### Artwork Coverage And Completion
+
+Deliver the complete artwork set shown in the requested mockup surface, not a
+representative sample. Include backgrounds, hero/section illustrations, photos,
+frames, custom pictorial icons and small defining ornaments, plus the required
+responsive/state variants. Asset count, effort, time or tokens do not authorize
+dropping artwork, simplifying its character or narrowing the agreed scope.
+
+1. **Map the slots.** For each distinct asset, record its reference region and
+   visual role, source or required creation/repair, final file and consuming
+   component/CMS slot, required variants, and pending/integrated/visually-reviewed
+   status. Keep this in existing work notes; no new manifest format is required.
+   A narrow repair covers its touched slots and affected consumers, not unrelated
+   pages. Account for lower-page assets as well as the hero.
+2. **Choose by fidelity.** Reuse suitable supplied or approved art first. Match
+   subject/identity, pose or silhouette, perspective, lighting, palette, material,
+   detail, negative space and intended crop. "Same topic" or "similar colors" is
+   insufficient. Reject unrelated stock, arbitrary generated filler and generic
+   CSS shapes, gradients or library icons used in place of distinctive artwork.
+   Native CSS/icons remain appropriate when they genuinely match the reference.
+   One reused image is not several distinct illustrations. Intentional repeated
+   motifs may share an asset; do not invent differences the mockup does not have.
+3. **Complete missing art.** Use the available image generation/editing tool for
+   eligible missing, occluded, blurry or incompatible artwork, following the
+   recovery rules below. Do this as implementation work, not a suggestion for the
+   user to finish later. Batch a large set by visual family while retaining each
+   slot's subject and composition; continue through the whole in-scope set.
+   Inspect and revise a mismatched result instead of accepting the first output.
+   Preserve clean originals, native text/controls and explicit source, identity,
+   factual-media, licensing or no-generation constraints. Tool/source constraints
+   must be named as blockers; they do not permit fabricated official assets or
+   silent substitutions. New spending still needs its own authorization.
+4. **Integrate and inspect.** Wire each final file into its real consumer, keep
+   CMS/data ownership and metadata, and check the decoded image at actual viewing
+   size and in the complete composition. Compare each distinct asset to its
+   reference and inspect affected crops, clarity, transparency, text clearance
+   and responsive/state variants. A contact sheet may help review a large set,
+   but does not replace inspection inside the real UI. A generated file, asset
+   count, HTTP success or green build alone cannot close a slot.
+
+Temporary construction placeholders and genuine loading/error fallbacks may
+exist, but they cannot stand in for required artwork in the settled delivered
+view. Missing, arbitrary, mismatched, unwired or unreviewed art keeps that scope
+unfinished. Repair it, or report the specific blocker and outstanding slots;
+do not declare fidelity, hide the gaps in cropped evidence, or call them an
+adaptation. Only an explicit user-approved scope change can defer required art;
+a prototype label or an agent's time estimate is not that approval.
+
 ### Incomplete Artwork: Use Imagen / Imagegen
 
 When the mockup lacks usable visual layers—such as a background hidden behind
